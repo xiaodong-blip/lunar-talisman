@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-warm-cream: #fcf9f4;
+  --color-card: #fffbf7;
+  --color-border: #ebe4d8;
+  --color-chakra-root: #c4816b;
+  --color-chakra-sacral: #d49a6a;
+  --color-chakra-solar: #d4b76a;
+  --color-chakra-heart: #8aa88a;
+  --color-chakra-throat: #8aa4b8;
+  --color-chakra-third-eye: #8a8eb8;
+  --color-chakra-crown: #9b8ec4;
+  --color-text-primary: #3a3530;
+  --color-text-secondary: #9b9286;
+  --color-text-muted: #c4bdb4;
+  --color-accent-gold: #d4b76a;
+  --color-accent-crown: #9b8ec4;
+  --color-accent-heart: #8aa88a;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--color-warm-cream);
+  color: var(--color-text-primary);
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+input,
+button,
+textarea,
+select {
+  font-family: 'Inter', sans-serif;
+}
+
+::selection {
+  background: rgba(155, 142, 196, 0.2);
+  color: var(--color-text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-chakra-crown);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8d80b9;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 56px;
+  }
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+@media (max-width: 639px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.gold-text {
+  color: var(--color-chakra-solar);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.65), 0 8px 18px rgba(212, 183, 106, 0.2);
+}
+
+.chakra-gradient {
+  background: linear-gradient(
+    90deg,
+    #c4816b,
+    #d49a6a,
+    #d4b76a,
+    #8aa88a,
+    #8aa4b8,
+    #8a8eb8,
+    #9b8ec4
+  );
+}
+
+.site-shell {
+  min-height: 100svh;
+}
+
+.content-wrap {
+  width: min(1180px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.glass-panel {
+  background: rgba(255, 251, 247, 0.92);
+  border: 1px solid rgba(235, 228, 216, 0.85);
+  backdrop-filter: blur(16px);
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@keyframes route-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.route-fade {
+  animation: route-fade-in 0.3s ease-out both;
+}
