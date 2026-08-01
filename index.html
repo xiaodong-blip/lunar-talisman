@@ -514,53 +514,54 @@
       }
       window.BlurText = BlurText;
 
-      function FadingVideo({ src, className = "", style = {} }) {
-        const videoRef = useRef(null);
-        const rafRef = useRef(null);
-        const fadingOutRef = useRef(false);
-        const FADE_MS = 500;
-        const FADE_OUT_LEAD = 0.55;
-        function fadeTo(target, duration) {
-          if (rafRef.current) cancelAnimationFrame(rafRef.current);
-          const video = videoRef.current;
-          if (!video) return;
-          const startOpacity = parseFloat(video.style.opacity || 0);
-          const startTime = performance.now();
-          function step(now) {
-            const elapsed = now - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            video.style.opacity = String(startOpacity + (target - startOpacity) * progress);
-            if (progress < 1) rafRef.current = requestAnimationFrame(step);
-          }
-          rafRef.current = requestAnimationFrame(step);
-        }
+      function StarField({ className = "" }) {
+        const canvasRef = useRef(null);
         useEffect(() => {
-          const video = videoRef.current;
-          if (!video) return;
-          function onLoaded() { video.style.opacity = "0"; video.play(); fadeTo(1, FADE_MS); }
-          function onTimeUpdate() {
-            if (!fadingOutRef.current && video.duration - video.currentTime <= FADE_OUT_LEAD && video.duration - video.currentTime > 0) {
-              fadingOutRef.current = true;
-              fadeTo(0, FADE_MS);
+          const canvas = canvasRef.current;
+          if (!canvas) return;
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return;
+          let raf = 0;
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+          const starCount = window.innerWidth < 640 ? 100 : 180;
+          let stars = [];
+          const resize = () => {
+            canvas.width = Math.floor(window.innerWidth * dpr);
+            canvas.height = Math.floor(window.innerHeight * dpr);
+            canvas.style.width = `${window.innerWidth}px`;
+            canvas.style.height = `${window.innerHeight}px`;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            stars = Array.from({ length: starCount }, () => ({
+              x: Math.random() * window.innerWidth,
+              y: Math.random() * window.innerHeight,
+              r: Math.random() * 1.5 + 0.5,
+              opacity: Math.random() * 0.8 + 0.2,
+              speed: Math.random() * 0.008 + 0.002,
+            }));
+          };
+          const draw = () => {
+            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+            for (const star of stars) {
+              star.opacity += star.speed;
+              if (star.opacity > 1 || star.opacity < 0.2) star.speed *= -1;
+              ctx.beginPath();
+              ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(255,255,255,${star.opacity})`;
+              ctx.fill();
             }
-          }
-          function onEnded() {
-            video.style.opacity = "0";
-            setTimeout(() => { video.currentTime = 0; video.play(); fadingOutRef.current = false; fadeTo(1, FADE_MS); }, 100);
-          }
-          video.addEventListener("loadeddata", onLoaded);
-          video.addEventListener("timeupdate", onTimeUpdate);
-          video.addEventListener("ended", onEnded);
+            raf = requestAnimationFrame(draw);
+          };
+          resize();
+          draw();
+          window.addEventListener("resize", resize);
           return () => {
-            if (rafRef.current) cancelAnimationFrame(rafRef.current);
-            video.removeEventListener("loadeddata", onLoaded);
-            video.removeEventListener("timeupdate", onTimeUpdate);
-            video.removeEventListener("ended", onEnded);
+            cancelAnimationFrame(raf);
+            window.removeEventListener("resize", resize);
           };
         }, []);
-        return <video ref={videoRef} src={src} className={className} style={{ ...style, opacity: 0 }} autoPlay muted playsInline preload="auto" />;
+        return <canvas ref={canvasRef} className={`pointer-events-none absolute inset-0 z-0 ${className}`} />;
       }
-      window.FadingVideo = FadingVideo;
+      window.StarField = StarField;
 
       function useHashRoute() {
         const [route, setRoute] = useState(routeFromHash());
@@ -764,7 +765,7 @@
         return (
           <main className="relative">
             <section className="relative min-h-screen bg-black">
-              <FadingVideo src="https://assets.mixkit.co/videos/preview/mixkit-stars-in-space-1610-large.mp4" className="video-bg absolute inset-0 h-full w-full object-cover" />
+              <StarField />
               <div className="relative z-10 flex min-h-screen flex-col">
                 <div className="h-20" />
                 <div className="flex flex-1 items-center px-4 pt-24 md:px-8">
