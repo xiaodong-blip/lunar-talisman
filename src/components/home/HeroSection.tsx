@@ -18,6 +18,16 @@ type ChakraOrb = {
   pulseSpeed: number
 }
 
+const chakraColors = [
+  '#C4816B',
+  '#D49A6A',
+  '#D4B76A',
+  '#8AA88A',
+  '#8AA4B8',
+  '#8A8EB8',
+  '#9B8EC4',
+]
+
 function CrystalOrbitScene() {
   const crystalRef = useRef<Mesh | null>(null)
   const orbitGroupRef = useRef<Group | null>(null)
@@ -26,11 +36,11 @@ function CrystalOrbitScene() {
 
   const orbs = useMemo<ChakraOrb[]>(
     () =>
-      chakras.map((chakra, index) => ({
-        id: chakra.id as ChakraColorKey,
-        hex: chakra.hex,
-        angle: (Math.PI * 2 * index) / chakras.length,
-        radius: 2.55,
+      Array.from({ length: 7 }).map((_, index) => ({
+        id: chakras[index].id as ChakraColorKey,
+        hex: chakraColors[index],
+        angle: (index / 7) * Math.PI * 2,
+        radius: 2.5,
         bobAmplitude: 0.12 + index * 0.01,
         bobSpeed: 0.95 + index * 0.12,
         pulseSpeed: 0.7 + index * 0.05,
@@ -121,13 +131,13 @@ function CrystalOrbitScene() {
       <group ref={orbitGroupRef}>
         {orbs.map((orb, index) => (
           <mesh
-            key={orb.id}
-            ref={(node) => {
-              orbRefs.current[index] = node
-            }}
-            position={[Math.cos(orb.angle) * orb.radius, 0, Math.sin(orb.angle) * orb.radius]}
+          key={orb.id}
+          ref={(node) => {
+            orbRefs.current[index] = node
+          }}
+          position={[Math.cos(orb.angle) * orb.radius, 0, Math.sin(orb.angle) * orb.radius]}
           >
-            <sphereGeometry args={[0.15, 24, 24]} />
+            <sphereGeometry args={[0.15, 16, 16]} />
             <meshStandardMaterial
               color={orb.hex}
               emissive={orb.hex}
@@ -207,13 +217,13 @@ export function HeroSection() {
             唤醒你的{' '}
             <span
               style={{
-                display: 'inline-block',
-                background:
+                backgroundImage:
                   'linear-gradient(90deg, #C4816B, #D49A6A, #D4B76A, #8AA88A, #8AA4B8, #8A8EB8, #9B8EC4)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
                 color: 'transparent',
+                display: 'inline',
               }}
             >
               七脉轮
