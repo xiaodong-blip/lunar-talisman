@@ -867,21 +867,29 @@
           return () => observer.disconnect();
         }, []);
         useEffect(() => {
-          const observer = new IntersectionObserver(([entry]) => {
-            setBackgroundVisible(entry.isIntersecting);
-          }, { threshold: 0, rootMargin: "0px 0px 0px 0px" });
-          if (sectionRef.current) observer.observe(sectionRef.current);
-          return () => observer.disconnect();
+          const updateBackground = () => {
+            const section = sectionRef.current;
+            if (!section) return;
+            const rect = section.getBoundingClientRect();
+            setBackgroundVisible(rect.top <= 0 && rect.bottom > 0);
+          };
+          updateBackground();
+          window.addEventListener("scroll", updateBackground, { passive: true });
+          window.addEventListener("resize", updateBackground);
+          return () => {
+            window.removeEventListener("scroll", updateBackground);
+            window.removeEventListener("resize", updateBackground);
+          };
         }, []);
         const routeDots = chakraOrder.map((key, index) => ({ key, index, name: chakraNames[key].cn, color: CHAKRA[key === "thirdEye" ? "thirdEye" : key] }));
         return (
           <section ref={sectionRef} className="relative isolate overflow-hidden bg-black">
             {backgroundVisible ? (
-              <div className="pointer-events-none fixed inset-0 z-0 h-screen w-full overflow-hidden">
+              <div className="pointer-events-none fixed inset-0 z-[1] h-screen w-full overflow-hidden bg-black">
                 <FadingVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4" className="absolute inset-0 h-full w-full object-cover object-center" />
               </div>
             ) : null}
-            <div className="relative z-10">
+            <div className="relative z-[2] bg-black/5">
             <div className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 xl:block">
               <div className="flex flex-col items-start gap-4">
                 {routeDots.map((item) => (
