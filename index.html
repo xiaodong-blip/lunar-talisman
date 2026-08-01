@@ -88,8 +88,7 @@
       .liquid-glass-strong {
         backdrop-filter: blur(50px);
         -webkit-backdrop-filter: blur(50px);
-        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
-          inset 0 1px 1px rgba(255, 255, 255, 0.15);
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05), inset 0 1px 1px rgba(255, 255, 255, 0.15);
       }
       .liquid-glass:hover {
         backdrop-filter: blur(10px);
@@ -228,6 +227,18 @@
           opacity: 1;
           transform: scale(1.08);
         }
+      }
+      .video-shell {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .video-shell::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top, rgba(255, 255, 255, 0.04), transparent 42%);
       }
     </style>
   </head>
@@ -497,14 +508,14 @@
           return () => observer.disconnect();
         }, []);
         return (
-          <div ref={ref} className={className} style={{ display: "flex", flexWrap: "wrap", gap: "0.15em 0.28em", justifyContent: "center" }}>
+          <div ref={ref} className={className} style={{ display: "flex", flexWrap: "wrap", gap: "0.15em 0", justifyContent: "center", rowGap: "0.1em" }}>
             {words.map((word, index) => (
               <motion.span
                 key={index}
-                initial={{ filter: "blur(10px)", opacity: 0, y: 28 }}
-                animate={visible ? { filter: ["blur(10px)", "blur(4px)", "blur(0px)"], opacity: [0, 0.6, 1], y: [28, -4, 0] } : { opacity: 0, y: 28 }}
-                transition={{ duration: 0.72, delay: index * delayStep, ease: "easeOut" }}
-                style={{ display: "inline-block" }}
+                initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+                animate={visible ? { filter: ["blur(10px)", "blur(5px)", "blur(0px)"], opacity: [0, 0.5, 1], y: [50, -5, 0] } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.7, delay: (index * 100) / 1000, ease: "easeOut", times: [0, 0.5, 1] }}
+                style={{ display: "inline-block", marginRight: "0.28em" }}
               >
                 {word}
               </motion.span>
@@ -514,54 +525,62 @@
       }
       window.BlurText = BlurText;
 
-      function StarField({ className = "" }) {
-        const canvasRef = useRef(null);
+      function FadingVideo({ src, className = "", style = {} }) {
+        const videoRef = useRef(null);
+        const rafRef = useRef(null);
+        const fadingOutRef = useRef(false);
+        const FADE_MS = 500;
+        const FADE_OUT_LEAD = 0.55;
+        function fadeTo(target, duration) {
+          if (rafRef.current) cancelAnimationFrame(rafRef.current);
+          const video = videoRef.current;
+          if (!video) return;
+          const startOpacity = parseFloat(video.style.opacity || 0);
+          const startTime = performance.now();
+          function step(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            video.style.opacity = String(startOpacity + (target - startOpacity) * progress);
+            if (progress < 1) rafRef.current = requestAnimationFrame(step);
+          }
+          rafRef.current = requestAnimationFrame(step);
+        }
         useEffect(() => {
-          const canvas = canvasRef.current;
-          if (!canvas) return;
-          const ctx = canvas.getContext("2d");
-          if (!ctx) return;
-          let raf = 0;
-          const dpr = Math.min(window.devicePixelRatio || 1, 2);
-          const starCount = window.innerWidth < 640 ? 100 : 180;
-          let stars = [];
-          const resize = () => {
-            canvas.width = Math.floor(window.innerWidth * dpr);
-            canvas.height = Math.floor(window.innerHeight * dpr);
-            canvas.style.width = `${window.innerWidth}px`;
-            canvas.style.height = `${window.innerHeight}px`;
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-            stars = Array.from({ length: starCount }, () => ({
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              r: Math.random() * 1.5 + 0.5,
-              opacity: Math.random() * 0.8 + 0.2,
-              speed: Math.random() * 0.008 + 0.002,
-            }));
-          };
-          const draw = () => {
-            ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-            for (const star of stars) {
-              star.opacity += star.speed;
-              if (star.opacity > 1 || star.opacity < 0.2) star.speed *= -1;
-              ctx.beginPath();
-              ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-              ctx.fillStyle = `rgba(255,255,255,${star.opacity})`;
-              ctx.fill();
+          const video = videoRef.current;
+          if (!video) return;
+          function onLoaded() {
+            video.style.opacity = "0";
+            video.play();
+            fadeTo(1, FADE_MS);
+          }
+          function onTimeUpdate() {
+            if (!fadingOutRef.current && video.duration - video.currentTime <= FADE_OUT_LEAD && video.duration - video.currentTime > 0) {
+              fadingOutRef.current = true;
+              fadeTo(0, FADE_MS);
             }
-            raf = requestAnimationFrame(draw);
-          };
-          resize();
-          draw();
-          window.addEventListener("resize", resize);
+          }
+          function onEnded() {
+            video.style.opacity = "0";
+            setTimeout(() => {
+              video.currentTime = 0;
+              video.play();
+              fadingOutRef.current = false;
+              fadeTo(1, FADE_MS);
+            }, 100);
+          }
+          video.addEventListener("loadeddata", onLoaded);
+          video.addEventListener("timeupdate", onTimeUpdate);
+          video.addEventListener("ended", onEnded);
           return () => {
-            cancelAnimationFrame(raf);
-            window.removeEventListener("resize", resize);
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            video.removeEventListener("loadeddata", onLoaded);
+            video.removeEventListener("timeupdate", onTimeUpdate);
+            video.removeEventListener("ended", onEnded);
           };
         }, []);
-        return <canvas ref={canvasRef} className={`pointer-events-none absolute inset-0 z-0 ${className}`} />;
+        return <video ref={videoRef} src={src} className={className} style={{ ...style, opacity: 0 }} autoPlay muted playsInline preload="auto" />;
       }
-      window.StarField = StarField;
+      window.FadingVideo = FadingVideo;
 
       function useHashRoute() {
         const [route, setRoute] = useState(routeFromHash());
@@ -658,8 +677,8 @@
         }, []);
         const pillClass = scrolled ? "bg-black/60 backdrop-blur-xl shadow-lg" : "liquid-glass";
         return (
-          <header className={`fixed top-0 z-50 w-full px-4 py-4 md:px-8 lg:px-16 transition-all duration-300 ${scrolled ? "bg-black/60 backdrop-blur-xl shadow-lg" : "bg-transparent"}`}>
-            <div className="mx-auto flex max-w-7xl items-center justify-between">
+          <header className={`fixed top-4 z-50 w-full px-4 transition-all duration-300 md:px-8 lg:px-16 ${scrolled ? "bg-black/60 backdrop-blur-xl shadow-lg" : "bg-transparent"}`}>
+            <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
               <a href="#home" className="flex h-12 w-12 items-center justify-center rounded-full liquid-glass text-white">
                 <span className="font-heading italic text-2xl leading-none">l</span>
               </a>
@@ -764,8 +783,8 @@
         const partnerList = ["Amethyst", "Rose Quartz", "Citrine", "Moonstone", "Garnet"];
         return (
           <main className="relative">
-            <section className="relative min-h-screen bg-black">
-              <StarField />
+            <section className="relative min-h-screen overflow-hidden bg-black">
+              <FadingVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4" className="absolute left-1/2 top-0 z-0 -translate-x-1/2 object-cover object-top" style={{ width: "120%", height: "120%" }} />
               <div className="relative z-10 flex min-h-screen flex-col">
                 <div className="h-20" />
                 <div className="flex flex-1 items-center px-4 pt-24 md:px-8">
@@ -847,7 +866,8 @@
         }, []);
         const routeDots = chakraOrder.map((key, index) => ({ key, index, name: chakraNames[key].cn, color: CHAKRA[key === "thirdEye" ? "thirdEye" : key] }));
         return (
-          <section className="relative bg-black">
+          <section className="relative overflow-hidden bg-black">
+            <FadingVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4" className="absolute inset-0 z-0 h-full w-full object-cover" />
             <div className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 xl:block">
               <div className="flex flex-col items-start gap-4">
                 {routeDots.map((item) => (
@@ -862,7 +882,7 @@
               const chakra = chakraNames[key];
               const color = CHAKRA[key];
               return (
-                <section key={key} data-index={index} ref={(el) => refs.current[index] = el} className="relative min-h-screen overflow-hidden border-b border-white/5 bg-black px-4 py-20 md:px-8">
+                <section key={key} data-index={index} ref={(el) => refs.current[index] = el} className="relative min-h-screen overflow-hidden border-b border-white/5 bg-black/20 px-4 py-20 backdrop-blur-[1px] md:px-8">
                   <div className="absolute inset-0" style={{ boxShadow: `inset 0 0 120px ${hexToRgba(color, 0.08)}` }} />
                   <div className="relative mx-auto flex min-h-[calc(100vh-5rem)] max-w-7xl flex-col items-start justify-center gap-10 lg:flex-row lg:items-center">
                     <motion.div initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: false, amount: 0.6 }} transition={{ duration: 0.8, ease: "easeOut" }} className="w-full lg:w-2/5">
