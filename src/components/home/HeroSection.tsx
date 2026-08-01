@@ -114,9 +114,9 @@ function CrystalOrbitScene() {
 
   return (
     <group>
-      <ambientLight color="#FFF5E8" intensity={1.5} />
-      <directionalLight position={[2.5, 2.5, 4]} color="#FFFBF0" intensity={2} />
-      <pointLight position={[0, 4, 3]} color="#9B8EC4" intensity={3} />
+      <ambientLight color="#FFF5E8" intensity={2} />
+      <directionalLight position={[5, 5, 5]} color="#FFFBF0" intensity={2.5} />
+      <pointLight position={[0, 3, 2]} color="#9B8EC4" intensity={4} />
 
       <group ref={orbitGroupRef}>
         {orbs.map((orb, index) => (
@@ -127,11 +127,11 @@ function CrystalOrbitScene() {
             }}
             position={[Math.cos(orb.angle) * orb.radius, 0, Math.sin(orb.angle) * orb.radius]}
           >
-            <sphereGeometry args={[0.18, 24, 24]} />
+            <sphereGeometry args={[0.15, 24, 24]} />
             <meshStandardMaterial
               color={orb.hex}
               emissive={orb.hex}
-              emissiveIntensity={0.35}
+              emissiveIntensity={0.3}
               roughness={0.35}
               metalness={0.12}
             />
@@ -143,9 +143,9 @@ function CrystalOrbitScene() {
         <icosahedronGeometry args={[1.5, 1]} />
         <meshPhysicalMaterial
           color="#9B8EC4"
-          roughness={0.15}
-          metalness={0.1}
-          clearcoat={0.3}
+          roughness={0.12}
+          metalness={0.05}
+          clearcoat={0.4}
           clearcoatRoughness={0.12}
           flatShading
           reflectivity={0.4}
@@ -204,17 +204,21 @@ export function HeroSection() {
           </div>
 
           <h1 data-hero-line className="mt-5 max-w-3xl leading-[0.95] text-text-primary">
-            唤醒你的
+            唤醒你的{' '}
             <span
-              className="chakra-gradient bg-clip-text text-transparent"
               style={{
-                backgroundImage:
+                display: 'inline-block',
+                background:
                   'linear-gradient(90deg, #C4816B, #D49A6A, #D4B76A, #8AA88A, #8AA4B8, #8A8EB8, #9B8EC4)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                color: 'transparent',
               }}
             >
               七脉轮
             </span>
-            能量
+            {' '}能量
           </h1>
 
           <p
@@ -257,6 +261,7 @@ export function HeroSection() {
             dpr={[1, 1.5]}
             gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
             className="relative z-10"
+            style={{ background: 'transparent' }}
           >
             <CrystalOrbitScene />
           </Canvas>
