@@ -5,17 +5,18 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './index.css'
 import App from './App.tsx'
 
+declare global {
+  interface Window {
+    gsap: typeof gsap
+    ScrollTrigger: typeof ScrollTrigger
+  }
+}
+
 gsap.registerPlugin(ScrollTrigger)
 
-if (typeof globalThis !== 'undefined') {
-  ;(globalThis as typeof globalThis & {
-    gsap?: typeof gsap
-    ScrollTrigger?: typeof ScrollTrigger
-  }).gsap = gsap
-  ;(globalThis as typeof globalThis & {
-    gsap?: typeof gsap
-    ScrollTrigger?: typeof ScrollTrigger
-  }).ScrollTrigger = ScrollTrigger
+if (typeof window !== 'undefined') {
+  window.gsap = gsap
+  window.ScrollTrigger = ScrollTrigger
 }
 
 createRoot(document.getElementById('root')!).render(

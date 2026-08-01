@@ -6,10 +6,9 @@ import type { Group, Mesh } from 'three'
 import { Badge } from '../ui/Badge'
 import { Button } from '../ui/Button'
 import { chakras } from '../../data/chakras'
-import type { ChakraColorKey } from '../ui/chakra'
 
 type ChakraOrb = {
-  id: ChakraColorKey
+  id: string
   hex: string
   angle: number
   radius: number
@@ -37,7 +36,7 @@ function CrystalOrbitScene() {
   const orbs = useMemo<ChakraOrb[]>(
     () =>
       Array.from({ length: 7 }).map((_, index) => ({
-        id: chakras[index].id as ChakraColorKey,
+        id: chakras[index].id,
         hex: chakraColors[index],
         angle: (index / 7) * Math.PI * 2,
         radius: 2.5,
@@ -128,16 +127,21 @@ function CrystalOrbitScene() {
       <directionalLight position={[5, 5, 5]} color="#FFFBF0" intensity={2.5} />
       <pointLight position={[0, 3, 2]} color="#9B8EC4" intensity={4} />
 
-      <group ref={orbitGroupRef}>
+      <group ref={orbitGroupRef} position={[0, 0, 0.35]}>
         {orbs.map((orb, index) => (
           <mesh
-          key={orb.id}
-          ref={(node) => {
-            orbRefs.current[index] = node
-          }}
-          position={[Math.cos(orb.angle) * orb.radius, 0, Math.sin(orb.angle) * orb.radius]}
+            key={orb.id}
+            ref={(node) => {
+              orbRefs.current[index] = node
+            }}
+            position={[
+              Math.cos(orb.angle) * orb.radius,
+              Math.sin(orb.angle) * 0.12,
+              Math.sin(orb.angle) * orb.radius,
+            ]}
+            renderOrder={index + 1}
           >
-            <sphereGeometry args={[0.15, 16, 16]} />
+            <sphereGeometry args={[0.15, 20, 20]} />
             <meshStandardMaterial
               color={orb.hex}
               emissive={orb.hex}
