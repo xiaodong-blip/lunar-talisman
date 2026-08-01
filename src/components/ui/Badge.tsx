@@ -29,7 +29,7 @@ export function Badge({ variant, children, className }: BadgeProps) {
   return (
     <span
       className={cn(
-        'inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium leading-none',
+        'inline-flex items-center rounded-full border px-3 py-1 text-xs font-medium leading-none transition-transform duration-200 ease-out hover:scale-105',
         className,
       )}
       style={{
@@ -42,4 +42,3 @@ export function Badge({ variant, children, className }: BadgeProps) {
     </span>
   )
 }
-

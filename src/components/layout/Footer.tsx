@@ -1,5 +1,6 @@
-import type { SVGProps } from 'react'
+import type { ReactNode, SVGProps } from 'react'
 import { Link } from 'react-router-dom'
+import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { Button } from '../ui/Button'
 
 const quickLinks = [
@@ -101,14 +102,27 @@ const socialLinks: SocialLink[] = [
   { label: 'YouTube', color: 'hover:text-chakra-heart', Icon: YouTubeGlyph },
 ]
 
+function FooterColumn({
+  children,
+  delay,
+}: {
+  children: ReactNode
+  delay: number
+}) {
+  const revealRef = useScrollReveal<HTMLDivElement>({ from: 'bottom', delay })
+
+  return <div ref={revealRef}>{children}</div>
+}
+
 export function Footer() {
   return (
-    <footer className="mt-20 border-t border-border bg-card">
-      <div className="chakra-gradient h-[2px] w-full" />
+    <footer className="relative mt-20 overflow-hidden border-t border-border bg-card">
+      <div className="pointer-events-none absolute inset-x-0 top-[3px] h-24 bg-gradient-to-b from-warm-cream/80 to-card/0" />
+      <div className="chakra-gradient h-[3px] w-full" />
 
-      <div className="content-wrap px-4 py-12 md:px-6 md:py-14">
+      <div className="content-wrap relative z-10 px-4 py-12 md:px-6 md:py-14">
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-4">
-          <div>
+          <FooterColumn delay={0}>
             <div className="flex items-center gap-3">
               <MoonMark className="h-9 w-9 text-chakra-crown" />
               <h4 className="font-serif text-xl text-text-primary">
@@ -118,9 +132,9 @@ export function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-7 text-text-secondary">
               以月光为引，唤醒你的七脉轮能量
             </p>
-          </div>
+          </FooterColumn>
 
-          <div>
+          <FooterColumn delay={0.15}>
             <h4 className="text-xl text-text-primary">快速链接</h4>
             <ul className="mt-4 space-y-3 text-sm text-text-secondary">
               {quickLinks.map((item) => (
@@ -134,9 +148,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FooterColumn>
 
-          <div>
+          <FooterColumn delay={0.3}>
             <h4 className="text-xl text-text-primary">脉轮指南</h4>
             <ul className="mt-4 grid grid-cols-2 gap-x-5 gap-y-3 text-sm text-text-secondary xl:grid-cols-1">
               {chakraGuideLinks.map((item) => (
@@ -150,9 +164,9 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </FooterColumn>
 
-          <div>
+          <FooterColumn delay={0.45}>
             <h4 className="text-xl text-text-primary">Newsletter</h4>
             <p className="mt-4 text-sm leading-7 text-text-secondary">
               订阅接收满月仪式指南
@@ -170,7 +184,7 @@ export function Footer() {
                 订阅
               </Button>
             </form>
-          </div>
+          </FooterColumn>
         </div>
 
         <div className="mt-10 flex flex-col gap-5 border-t border-border pt-6 md:flex-row md:items-center md:justify-between">
@@ -182,7 +196,7 @@ export function Footer() {
               <a
                 key={label}
                 href="#"
-                className={`flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-text-secondary transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${color}`}
+                className={`flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-text-secondary transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:shadow-md ${color}`}
                 aria-label={label}
               >
                 <Icon className="h-5 w-5" />

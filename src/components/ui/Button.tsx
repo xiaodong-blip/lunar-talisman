@@ -38,7 +38,7 @@ export function Button({
   const chakraHover = darkenHex(chakraBase, 0.1)
 
   const baseClasses =
-    'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chakra-crown/30 focus-visible:ring-offset-2 focus-visible:ring-offset-warm-cream disabled:pointer-events-none disabled:opacity-60'
+    'inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 ease-out hover:scale-[1.02] hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-chakra-crown/30 focus-visible:ring-offset-2 focus-visible:ring-offset-warm-cream disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:scale-100'
 
   const variantClasses: Record<ButtonVariant, string> = {
     primary:
@@ -86,4 +86,3 @@ export function Button({
     </button>
   )
 }
-

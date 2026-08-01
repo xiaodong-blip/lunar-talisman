@@ -4,7 +4,7 @@
 @theme {
   --color-warm-cream: #fcf9f4;
   --color-card: #fffbf7;
-  --color-border: #ebe4d8;
+  --color-border: rgba(58, 53, 48, 0.08);
   --color-chakra-root: #c4816b;
   --color-chakra-sacral: #d49a6a;
   --color-chakra-solar: #d4b76a;
@@ -87,12 +87,12 @@ h4 {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 36px;
 }
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 40px;
+    font-size: 44px;
   }
 }
 
@@ -134,11 +134,24 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 button,
 input {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.chakra-card :is(p, li, a, button, span) {
+  font-size: max(13px, 1em);
 }
 
 .gold-text {

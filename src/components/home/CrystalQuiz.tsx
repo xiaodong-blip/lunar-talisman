@@ -1,13 +1,28 @@
 import { useNavigate } from 'react-router-dom'
+import type { ReactNode } from 'react'
 import { Eye, Heart, Sparkles } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { Button } from '../ui/Button'
 import { ChakraCard } from '../ui/ChakraCard'
 import { Section } from '../ui/Section'
 
+function QuizPreviewCard({
+  index,
+  children,
+}: {
+  index: number
+  children: ReactNode
+}) {
+  const revealRef = useScrollReveal<HTMLDivElement>({
+    from: 'bottom',
+    delay: index * 0.15,
+  })
+
+  return <div ref={revealRef}>{children}</div>
+}
+
 export function CrystalQuiz() {
   const navigate = useNavigate()
-  const revealRef = useScrollReveal<HTMLDivElement>({ from: 'bottom' })
 
   return (
     <Section
@@ -16,8 +31,9 @@ export function CrystalQuiz() {
       chakraAccent="third-eye"
       tight
     >
-      <div ref={revealRef}>
+      <div>
         <div className="grid gap-4 lg:grid-cols-[1fr_1fr_1fr]">
+          <QuizPreviewCard index={0}>
           <ChakraCard chakraColor="crown" hoverable={false} className="h-full">
             <div className="flex items-center gap-4">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-warm-cream text-chakra-crown">
@@ -29,7 +45,9 @@ export function CrystalQuiz() {
               </div>
             </div>
           </ChakraCard>
+          </QuizPreviewCard>
 
+          <QuizPreviewCard index={1}>
           <ChakraCard chakraColor="third-eye" hoverable={false} className="h-full">
             <div className="flex items-center gap-4">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-warm-cream text-chakra-third-eye">
@@ -41,7 +59,9 @@ export function CrystalQuiz() {
               </div>
             </div>
           </ChakraCard>
+          </QuizPreviewCard>
 
+          <QuizPreviewCard index={2}>
           <ChakraCard chakraColor="heart" hoverable={false} className="h-full">
             <div className="flex items-center gap-4">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-warm-cream text-chakra-heart">
@@ -53,6 +73,7 @@ export function CrystalQuiz() {
               </div>
             </div>
           </ChakraCard>
+          </QuizPreviewCard>
         </div>
 
         <div className="mt-8 flex justify-center">
