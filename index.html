@@ -867,7 +867,10 @@
         const routeDots = chakraOrder.map((key, index) => ({ key, index, name: chakraNames[key].cn, color: CHAKRA[key === "thirdEye" ? "thirdEye" : key] }));
         return (
           <section className="relative overflow-hidden bg-black">
-            <FadingVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4" className="absolute inset-0 z-0 h-full w-full object-cover" />
+            <div className="pointer-events-none sticky top-0 z-0 h-screen w-full overflow-hidden">
+              <FadingVideo src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4" className="absolute inset-0 h-full w-full object-cover object-center" />
+            </div>
+            <div className="-mt-[100vh]">
             <div className="fixed right-6 top-1/2 z-40 hidden -translate-y-1/2 xl:block">
               <div className="flex flex-col items-start gap-4">
                 {routeDots.map((item) => (
@@ -902,6 +905,7 @@
                 </section>
               );
             })}
+            </div>
           </section>
         );
       }
