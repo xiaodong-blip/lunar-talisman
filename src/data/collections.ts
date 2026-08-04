@@ -49,4 +49,3 @@ export const collections: Collection[] = [
       'linear-gradient(135deg, rgba(212,183,106,0.2), rgba(212,183,106,0.05))',
   },
 ]
-

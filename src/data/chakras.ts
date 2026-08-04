@@ -105,4 +105,3 @@ export const chakras: Chakra[] = [
     icon: 'Sparkles',
   },
 ]
-

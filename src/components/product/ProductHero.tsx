@@ -132,11 +132,11 @@ export function ProductHero({ product }: ProductHeroProps) {
   return (
     <section className="content-wrap px-4 py-12 md:px-6 md:py-16">
       <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-        <div className="rounded-[36px] border border-border bg-card/90 p-4 shadow-[0_20px_60px_rgba(58,53,48,0.06)] md:p-6">
+        <div className="rounded-[36px] border border-white/15 bg-white/[0.08] p-4 shadow-[0_28px_90px_rgba(0,0,0,0.34)] backdrop-blur-2xl md:p-6">
           <div
-            className="relative h-[420px] overflow-hidden rounded-[30px] border border-border/70 bg-warm-cream md:h-[520px]"
+            className="relative h-[420px] overflow-hidden rounded-[30px] border border-white/15 bg-black/40 md:h-[520px]"
             style={{
-              background: `radial-gradient(circle at 50% 18%, ${hexToRgba(chakraColor, 0.22)}, rgba(255,251,247,0.95) 48%, rgba(252,249,244,0.98) 100%)`,
+              background: `radial-gradient(circle at 50% 18%, ${hexToRgba(chakraColor, 0.28)}, rgba(3,5,15,0.82) 48%, rgba(0,0,0,0.95) 100%)`,
             }}
           >
             <ProductCrystalScene color={chakraColor} />
@@ -149,7 +149,7 @@ export function ProductHero({ product }: ProductHeroProps) {
               return (
                 <div
                   key={index}
-                  className="h-20 overflow-hidden rounded-2xl border border-border bg-warm-cream"
+                  className="h-20 overflow-hidden rounded-2xl border border-white/15 bg-white/10"
                   style={{
                     backgroundColor: image ? undefined : hexToRgba(chakraColor, 0.18),
                   }}
@@ -159,12 +159,13 @@ export function ProductHero({ product }: ProductHeroProps) {
                       src={image}
                       alt={`${product.name} 缩略图 ${index + 1}`}
                       className="h-full w-full object-cover"
+                      loading="lazy"
                     />
                   ) : (
                     <div
                       className="h-full w-full"
                       style={{
-                        background: `linear-gradient(135deg, ${hexToRgba(chakraColor, 0.28)}, rgba(255,255,255,0.82))`,
+                        background: `linear-gradient(135deg, ${hexToRgba(chakraColor, 0.28)}, rgba(255,255,255,0.18))`,
                       }}
                     />
                   )}
@@ -174,7 +175,7 @@ export function ProductHero({ product }: ProductHeroProps) {
           </div>
         </div>
 
-        <div className="rounded-[36px] border border-border bg-white/72 p-6 shadow-[0_20px_60px_rgba(58,53,48,0.05)] md:p-8">
+        <div className="rounded-[36px] border border-white/15 bg-white/[0.9] p-6 shadow-[0_28px_90px_rgba(0,0,0,0.28)] backdrop-blur-xl md:p-8">
           <Badge variant={collection.badge}>{collection.label}</Badge>
 
           <div className="mt-5">

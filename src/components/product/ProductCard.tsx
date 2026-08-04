@@ -6,7 +6,7 @@ import { formatCny } from '../../utils/format'
 import { Badge } from '../ui/Badge'
 import { Button } from '../ui/Button'
 import { ChakraCard } from '../ui/ChakraCard'
-import { hexToRgba, getChakraHex } from '../ui/chakra'
+import { getChakraHex, hexToRgba } from '../ui/chakra'
 
 type ProductCardProps = {
   product: CrystalProduct
@@ -33,10 +33,13 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <ChakraCard chakraColor={product.primaryChakra} className="h-full">
+    <ChakraCard
+      chakraColor={product.primaryChakra}
+      className="h-full bg-white/90 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-md"
+    >
       <Link to={`/product/${product.id}`} className="block">
         <div
-          className="relative aspect-[4/3] overflow-hidden rounded-[12px] border border-border bg-warm-cream"
+          className="relative aspect-[4/3] overflow-hidden rounded-[12px] border border-white/20 bg-warm-cream"
           style={{
             background: `linear-gradient(135deg, ${hexToRgba(color, 0.18)}, rgba(255,255,255,0.86))`,
           }}
@@ -69,7 +72,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="mt-4 flex items-center gap-2 text-sm text-text-secondary">
         <Star size={15} className="text-chakra-solar" fill="currentColor" />
         <span>
-          {product.rating.toFixed(1)} · {product.reviewCount}
+          {product.rating.toFixed(1)} · {product.reviewCount} 条评价
         </span>
       </div>
 

@@ -10,17 +10,20 @@ type RitualCardProps = {
 const ritualSteps = [
   {
     title: '净化',
-    description: '佩戴前将水晶放在月光下静置，或以白鼠尾草轻烟绕过三圈。',
+    description:
+      '佩戴前将水晶放在月光下静置，或以白鼠尾草轻烟绕过三圈。',
     icon: Droplets,
   },
   {
     title: '充能',
-    description: '双手捧住护符，闭眼想象对应脉轮被温柔点亮。',
+    description:
+      '双手捧住护符，闭眼想象对应脉轮被温柔点亮。',
     icon: Flame,
   },
   {
     title: '激活',
-    description: '贴近身体佩戴，念出一句与你当下意图相关的肯定语。',
+    description:
+      '贴近身体佩戴，念出一句与你当下意图相关的肯定语。',
     icon: Sparkles,
   },
 ]
@@ -33,9 +36,9 @@ export function RitualCard({ product }: RitualCardProps) {
       <ChakraCard
         chakraColor="heart"
         hoverable={false}
-        className="p-6 md:p-8"
+        className="bg-white/[0.9] p-6 shadow-[0_22px_80px_rgba(0,0,0,0.24)] backdrop-blur-md md:p-8"
         style={{
-          background: `linear-gradient(135deg, ${hexToRgba(heartColor, 0.15)}, rgba(255,251,247,0.96) 34%, var(--color-card) 100%)`,
+          background: `linear-gradient(135deg, ${hexToRgba(heartColor, 0.15)}, rgba(255,251,247,0.92) 34%, rgba(255,251,247,0.96) 100%)`,
         }}
       >
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">

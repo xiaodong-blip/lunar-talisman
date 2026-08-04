@@ -120,7 +120,7 @@ export const products: CrystalProduct[] = [
     subtitle: 'Full Moon Moonstone Necklace',
     price: 149,
     description:
-      '满月之夜加持的月光石项链。月光石对应顶轮与眉心轮，传说能增强直觉与灵视力。925银链+天然月光石吊坠。',
+      '满月之夜加持的月光石项链。月光石对应顶轮与眉心轮，传说能增强直觉与灵视力。925 银链 + 天然月光石吊坠。',
     collection: 'lunar',
     moonPhase: 'full-moon',
     primaryChakra: 'crown',

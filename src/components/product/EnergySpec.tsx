@@ -12,7 +12,6 @@ import type { LucideIcon } from 'lucide-react'
 import type { CrystalProduct } from '../../data/products'
 import { chakras } from '../../data/chakras'
 import { ChakraCard } from '../ui/ChakraCard'
-import { Section } from '../ui/Section'
 import { getChakraHex, type ChakraColorKey } from '../ui/chakra'
 
 type EnergySpecProps = {
@@ -72,7 +71,11 @@ function SpecCard({
   const color = getChakraHex(chakraColor)
 
   return (
-    <ChakraCard chakraColor={chakraColor} hoverable={false} className="h-full">
+    <ChakraCard
+      chakraColor={chakraColor}
+      hoverable={false}
+      className="h-full bg-white/[0.9] shadow-[0_18px_60px_rgba(0,0,0,0.2)] backdrop-blur-md"
+    >
       <div className="flex min-h-[210px] flex-col items-center justify-center text-center">
         <span
           className="flex h-16 w-16 items-center justify-center rounded-full bg-warm-cream"
@@ -102,13 +105,20 @@ export function EnergySpec({ product }: EnergySpecProps) {
     : '全星座适用'
 
   return (
-    <Section
-      title="能量属性"
-      subtitle="每件护符都拥有自己的脉轮、元素与星象对应关系。"
-      chakraAccent={product.primaryChakra}
-      tight
-    >
-      <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+    <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 md:py-16">
+      <header className="max-w-3xl">
+        <p className="text-sm font-medium uppercase tracking-[0.32em] text-white/45">
+          Energy Specification
+        </p>
+        <h2 className="mt-3 font-serif text-4xl text-white md:text-5xl">
+          能量属性
+        </h2>
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-white/62 md:text-base">
+          每件护符都拥有自己的脉轮、元素与星象对应关系。
+        </p>
+      </header>
+
+      <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
         <SpecCard
           chakraColor={product.primaryChakra}
           icon={PrimaryIcon}
@@ -142,10 +152,10 @@ export function EnergySpec({ product }: EnergySpecProps) {
           description={
             product.zodiacSigns?.length
               ? '与星盘水象直觉能量相呼应，适合作为守护款佩戴。'
-              : '不限制星座，按当下能量状态选择即可。'
+              : '不限星座，按当下能量状态选择即可。'
           }
         />
       </div>
-    </Section>
+    </section>
   )
 }
