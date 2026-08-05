@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { CSSProperties, ReactNode } from 'react'
+import type { CSSProperties, ReactNode, WheelEvent } from 'react'
 
 const PORTAL_BG =
   'https://flick-award-65707097.figma.site/_assets/v11/bbc8d4f1308d5df012c4b0a657b44c6d92609c24.png'
@@ -143,8 +143,155 @@ const PRODUCTS: DetailData[] = [
   },
 ]
 
+const ZODIAC_DETAILS: DetailData[] = [
+  {
+    id: 'aries-carnelian',
+    eyebrow: 'Aries Guardian',
+    title: '白羊守护 · 红玉髓勇气手链',
+    desc: '火象白羊的行动护符，点燃勇气、热情与开创力。',
+    color: '#f2cfb4',
+    image: CARD_IMAGES[2],
+    specs: ['白羊座', '红玉髓', '太阳轮', '火元素'],
+    body: [
+      '白羊座适合明亮、直接、能推动行动的晶石。红玉髓像一簇贴近身体的小火焰，提醒你把想法真正启动。',
+      '适合在新项目、运动、谈判和需要突破拖延时佩戴。',
+    ],
+  },
+  {
+    id: 'taurus-rose-quartz',
+    eyebrow: 'Taurus Guardian',
+    title: '金牛守护 · 玫瑰晶丰盛手链',
+    desc: '土象金牛的温柔护符，稳定心轮，也唤醒丰盛感。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    specs: ['金牛座', '玫瑰晶', '心轮', '土元素'],
+    body: [
+      '金牛座与身体、安全感和丰盛感深深相连。玫瑰晶让这份稳定多一点柔软和爱的流动。',
+      '适合在关系修复、自我照顾和重建生活节奏时佩戴。',
+    ],
+  },
+  {
+    id: 'gemini-aquamarine',
+    eyebrow: 'Gemini Guardian',
+    title: '双子守护 · 海蓝宝表达项链',
+    desc: '风象双子的表达护符，让灵感、语言与真实顺畅流动。',
+    color: '#c3e3f4',
+    image: CARD_IMAGES[0],
+    specs: ['双子座', '海蓝宝', '喉轮', '风元素'],
+    body: [
+      '双子座天生连接信息、语言和好奇心。海蓝宝帮助表达变得更清澈，也让倾听更稳定。',
+      '适合在写作、沟通、学习和内容输出前佩戴。',
+    ],
+  },
+  {
+    id: 'cancer-moonstone',
+    eyebrow: 'Cancer Guardian',
+    title: '巨蟹守护 · 月光石安抚手链',
+    desc: '水象巨蟹的月光护符，安抚情绪，也守护内在柔软。',
+    color: '#ece7fb',
+    image: CARD_IMAGES[2],
+    specs: ['巨蟹座', '月光石', '脐轮', '水元素'],
+    body: [
+      '巨蟹座与月亮、家庭和情绪潮汐相连。月光石像一层温柔的潮光，适合陪伴敏感的时刻。',
+      '适合在情绪起伏、睡前冥想和需要被安抚时佩戴。',
+    ],
+  },
+  {
+    id: 'leo-citrine',
+    eyebrow: 'Leo Guardian',
+    title: '狮子守护 · 黄水晶光芒手链',
+    desc: '火象狮子的自信护符，把创造力和舞台感带回身体。',
+    color: '#f0e4c0',
+    image: CARD_IMAGES[2],
+    specs: ['狮子座', '黄水晶', '太阳轮', '火元素'],
+    body: [
+      '狮子座需要被看见，也需要相信自己的光。黄水晶对应太阳轮，适合加强自信、表达和创造力。',
+      '适合在展示作品、登台、约会或需要主动争取机会时佩戴。',
+    ],
+  },
+  {
+    id: 'virgo-amazonite',
+    eyebrow: 'Virgo Guardian',
+    title: '处女守护 · 天河石平衡手链',
+    desc: '土象处女的秩序护符，让理性、表达与身心节奏更平衡。',
+    color: '#c3e3f4',
+    image: CARD_IMAGES[0],
+    specs: ['处女座', '天河石', '喉轮', '土元素'],
+    body: [
+      '处女座擅长整理细节，也容易对自己过度苛刻。天河石帮助思绪降噪，让表达更温和。',
+      '适合在高压工作、整理计划和需要放松完美主义时佩戴。',
+    ],
+  },
+  {
+    id: 'libra-rose-quartz',
+    eyebrow: 'Libra Guardian',
+    title: '天秤守护 · 粉晶和谐手链',
+    desc: '风象天秤的关系护符，让心轮在美、爱与边界之间保持平衡。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    specs: ['天秤座', '粉晶', '心轮', '风元素'],
+    body: [
+      '天秤座追求关系里的美感与平衡。粉晶让温柔不再等于讨好，也提醒你在爱里保留自己。',
+      '适合在关系选择、社交场合和修复内在平衡时佩戴。',
+    ],
+  },
+  {
+    id: 'sagittarius-lapis',
+    eyebrow: 'Sagittarius Guardian',
+    title: '射手守护 · 青金石远见项链',
+    desc: '火象射手的远行护符，打开视野、信念与高处的方向感。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    specs: ['射手座', '青金石', '眉心轮', '火元素'],
+    body: [
+      '射手座向往远方、知识和更大的世界。青金石帮助热情与洞察结合，让冒险不只是冲动。',
+      '适合在旅行、学习、规划远期目标和寻找人生方向时佩戴。',
+    ],
+  },
+  {
+    id: 'capricorn-garnet',
+    eyebrow: 'Capricorn Guardian',
+    title: '摩羯守护 · 石榴石稳定手链',
+    desc: '土象摩羯的扎根护符，守住长期主义、边界与内在稳定。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    specs: ['摩羯座', '石榴石', '海底轮', '土元素'],
+    body: [
+      '摩羯座擅长承担责任，也需要稳定的身体根基。石榴石对应海底轮，支持持久的行动力。',
+      '适合在长期项目、事业推进和需要恢复安全感时佩戴。',
+    ],
+  },
+  {
+    id: 'aquarius-fluorite',
+    eyebrow: 'Aquarius Guardian',
+    title: '水瓶守护 · 萤石灵感手链',
+    desc: '风象水瓶的灵感护符，让未来感、理性和直觉彼此接通。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    specs: ['水瓶座', '萤石', '眉心轮', '风元素'],
+    body: [
+      '水瓶座常常站在未来的边缘。萤石帮助灵感成形，也让跳跃的想法多一点清晰结构。',
+      '适合在创意策划、技术学习和需要跳出旧框架时佩戴。',
+    ],
+  },
+  {
+    id: 'pisces-amethyst',
+    eyebrow: 'Pisces Guardian',
+    title: '双鱼守护 · 紫水晶梦境手链',
+    desc: '水象双鱼的梦境护符，保护敏感，也连接直觉与灵性。',
+    color: '#ece7fb',
+    image: CARD_IMAGES[0],
+    specs: ['双鱼座', '紫水晶', '顶轮', '水元素'],
+    body: [
+      '双鱼座与梦、共情和灵性想象相连。紫水晶帮助敏感不被淹没，让直觉更安静地发声。',
+      '适合在睡前、冥想、创作和需要能量保护时佩戴。',
+    ],
+  },
+]
+
 const DETAILS: DetailData[] = [
   ...PRODUCTS,
+  ...ZODIAC_DETAILS,
   {
     id: 'zodiac',
     eyebrow: 'Collection',
@@ -198,6 +345,58 @@ const DETAILS: DetailData[] = [
     ],
   },
   {
+    id: 'sacral-moonstone',
+    eyebrow: 'Sacral Chakra',
+    title: '脐轮 · 月光石灵感手链',
+    desc: '脐轮的流动频率，唤醒创造力、感受力与生命热情。',
+    color: '#f2cfb4',
+    image: CARD_IMAGES[2],
+    specs: ['脐轮', '月光石', '水元素', '创造力'],
+    body: [
+      '脐轮掌管情绪流动、亲密关系与创造力。月光石的柔和光泽适合在灵感停滞、情绪堵塞时佩戴。',
+      '把它作为每日小仪式的一部分，提醒自己允许感受流动，也允许新的灵感自然出现。',
+    ],
+  },
+  {
+    id: 'throat-aquamarine',
+    eyebrow: 'Throat Chakra',
+    title: '喉轮 · 海蓝宝表达项链',
+    desc: '喉轮的清澈蓝光，帮助你说出真实、温柔而坚定的话。',
+    color: '#c3e3f4',
+    image: CARD_IMAGES[0],
+    specs: ['喉轮', '海蓝宝', '以太元素', '表达'],
+    body: [
+      '喉轮连接表达、倾听与真实。海蓝宝像一层清澈的水光，适合在沟通、演讲、创作输出前佩戴。',
+      '它不是让你变得更大声，而是帮助你更准确地说出真正想表达的东西。',
+    ],
+  },
+  {
+    id: 'third-eye-amethyst',
+    eyebrow: 'Third Eye Chakra',
+    title: '眉心轮 · 紫水晶洞察手链',
+    desc: '眉心轮的直觉之石，让梦境、洞察与内在指引变得清晰。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    specs: ['眉心轮', '紫水晶', '光元素', '直觉'],
+    body: [
+      '眉心轮象征直觉、洞察和内在视觉。紫水晶适合在冥想、占星记录、梦境记录时佩戴。',
+      '当你需要从复杂信息里辨认真正的方向，它会成为一枚安静的提醒。',
+    ],
+  },
+  {
+    id: 'crown-clear-quartz',
+    eyebrow: 'Crown Chakra',
+    title: '顶轮 · 白水晶连接手链',
+    desc: '顶轮的高频白光，连接月光、意图与更高层次的自我。',
+    color: '#ece7fb',
+    image: CARD_IMAGES[1],
+    specs: ['顶轮', '白水晶', '意识元素', '连接'],
+    body: [
+      '顶轮代表灵性连接、信任和更高意识。白水晶是适合承载意图的基础晶石，能与不同仪式组合使用。',
+      '在新月写下愿望、满月净化水晶时，它都可以作为整套能量系统的中心。',
+    ],
+  },
+  {
     id: 'full-moon-ritual',
     eyebrow: 'Ritual Guide',
     title: '满月净化仪式',
@@ -221,6 +420,240 @@ const PRODUCT_TILES: Tile[] = PRODUCTS.map((product) => ({
   eyebrow: product.eyebrow,
   target: `/detail/${product.id}`,
 }))
+
+const ZODIAC_TILES: Tile[] = [
+  {
+    id: 'aries-carnelian',
+    title: '白羊守护\n红玉髓勇气手链',
+    desc: '点燃勇气、热情与开创力。',
+    color: '#f2cfb4',
+    image: CARD_IMAGES[2],
+    eyebrow: 'Aries',
+    target: '/detail/aries-carnelian',
+  },
+  {
+    id: 'taurus-rose-quartz',
+    title: '金牛守护\n玫瑰晶丰盛手链',
+    desc: '稳定心轮，也唤醒丰盛感。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Taurus',
+    target: '/detail/taurus-rose-quartz',
+  },
+  {
+    id: 'gemini-aquamarine',
+    title: '双子守护\n海蓝宝表达项链',
+    desc: '让灵感、语言与真实顺畅流动。',
+    color: '#c3e3f4',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Gemini',
+    target: '/detail/gemini-aquamarine',
+  },
+  {
+    id: 'cancer-moonstone',
+    title: '巨蟹守护\n月光石安抚手链',
+    desc: '安抚情绪，也守护内在柔软。',
+    color: '#ece7fb',
+    image: CARD_IMAGES[2],
+    eyebrow: 'Cancer',
+    target: '/detail/cancer-moonstone',
+  },
+  {
+    id: 'leo-citrine',
+    title: '狮子守护\n黄水晶光芒手链',
+    desc: '把创造力和舞台感带回身体。',
+    color: '#f0e4c0',
+    image: CARD_IMAGES[2],
+    eyebrow: 'Leo',
+    target: '/detail/leo-citrine',
+  },
+  {
+    id: 'virgo-amazonite',
+    title: '处女守护\n天河石平衡手链',
+    desc: '让理性、表达与节奏更平衡。',
+    color: '#c3e3f4',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Virgo',
+    target: '/detail/virgo-amazonite',
+  },
+  {
+    id: 'libra-rose-quartz',
+    title: '天秤守护\n粉晶和谐手链',
+    desc: '在美、爱与边界之间保持平衡。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Libra',
+    target: '/detail/libra-rose-quartz',
+  },
+  {
+    id: 'scorpio-amethyst',
+    title: '天蝎守护\n紫水晶手链',
+    desc: '眉心轮的直觉之石，守护深层转化。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Scorpio',
+    target: '/detail/scorpio-amethyst',
+  },
+  {
+    id: 'sagittarius-lapis',
+    title: '射手守护\n青金石远见项链',
+    desc: '打开视野、信念与远方感。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Sagittarius',
+    target: '/detail/sagittarius-lapis',
+  },
+  {
+    id: 'capricorn-garnet',
+    title: '摩羯守护\n石榴石稳定手链',
+    desc: '守住长期主义、边界与稳定。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Capricorn',
+    target: '/detail/capricorn-garnet',
+  },
+  {
+    id: 'aquarius-fluorite',
+    title: '水瓶守护\n萤石灵感手链',
+    desc: '让未来感、理性与直觉接通。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Aquarius',
+    target: '/detail/aquarius-fluorite',
+  },
+  {
+    id: 'pisces-amethyst',
+    title: '双鱼守护\n紫水晶梦境手链',
+    desc: '保护敏感，也连接直觉与灵性。',
+    color: '#ece7fb',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Pisces',
+    target: '/detail/pisces-amethyst',
+  },
+]
+
+const CHAKRA_TILES: Tile[] = [
+  {
+    id: 'root-garnet',
+    title: '海底轮\n红石榴石扎根手链',
+    desc: '海底轮扎根感，把安全感交还身体。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Root Chakra',
+    target: '/detail/root-garnet',
+  },
+  {
+    id: 'sacral-moonstone',
+    title: '脐轮\n月光石灵感手链',
+    desc: '唤醒创造力、感受力与生命热情。',
+    color: '#f2cfb4',
+    image: CARD_IMAGES[2],
+    eyebrow: 'Sacral Chakra',
+    target: '/detail/sacral-moonstone',
+  },
+  {
+    id: 'solar-citrine',
+    title: '太阳轮\n黄水晶勇气手链',
+    desc: '太阳轮金色频率，点亮行动与自信。',
+    color: '#f0e4c0',
+    image: CARD_IMAGES[2],
+    eyebrow: 'Solar Plexus',
+    target: '/detail/solar-citrine',
+  },
+  {
+    id: 'heart-rose-quartz',
+    title: '心轮疗愈\n玫瑰晶手链',
+    desc: '心轮柔光，打开爱与自我接纳。',
+    color: '#dcedc2',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Heart Chakra',
+    target: '/detail/heart-rose-quartz',
+  },
+  {
+    id: 'throat-aquamarine',
+    title: '喉轮\n海蓝宝表达项链',
+    desc: '说出真实、温柔而坚定的话。',
+    color: '#c3e3f4',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Throat Chakra',
+    target: '/detail/throat-aquamarine',
+  },
+  {
+    id: 'third-eye-amethyst',
+    title: '眉心轮\n紫水晶洞察手链',
+    desc: '让梦境、洞察与内在指引变得清晰。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Third Eye Chakra',
+    target: '/detail/third-eye-amethyst',
+  },
+  {
+    id: 'crown-clear-quartz',
+    title: '顶轮\n白水晶连接手链',
+    desc: '连接月光、意图与更高层次的自我。',
+    color: '#ece7fb',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Crown Chakra',
+    target: '/detail/crown-clear-quartz',
+  },
+]
+
+const MAIN_PROJECT_TILES: Tile[] = [
+  {
+    id: 'worlds',
+    title: 'WORLDS\n水晶旅程',
+    desc: '从星座、脉轮与月相进入完整能量宇宙。',
+    color: '#dcd2f2',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Worlds',
+    target: '/series/worlds',
+  },
+  {
+    id: 'chakra',
+    title: 'CHAKRAS\n脉轮疗愈',
+    desc: '七个能量中心，从海底轮一路抵达顶轮。',
+    color: '#dcedc2',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Chakras',
+    target: '/series/chakra',
+  },
+  {
+    id: 'rituals',
+    title: 'RITUALS\n月相仪式',
+    desc: '新月设定意图，满月净化与充能。',
+    color: '#c3e3f4',
+    image: CARD_IMAGES[2],
+    eyebrow: 'Rituals',
+    target: '/series/rituals',
+  },
+  {
+    id: 'crystals',
+    title: 'CRYSTALS\n水晶护符',
+    desc: '浏览所有水晶饰品与能量单页。',
+    color: '#f3cdd6',
+    image: CARD_IMAGES[1],
+    eyebrow: 'Crystals',
+    target: '/series/crystals',
+  },
+  {
+    id: 'codex',
+    title: 'CODEX\n月之典籍',
+    desc: '水晶、星座、脉轮与月相知识入口。',
+    color: '#f0e4c0',
+    image: CARD_IMAGES[0],
+    eyebrow: 'Codex',
+    target: '/series/codex',
+  },
+  {
+    id: 'connect',
+    title: 'CONNECT\n开始连接',
+    desc: '通过测试、指南与护符找到此刻频率。',
+    color: '#ece7fb',
+    image: CARD_IMAGES[2],
+    eyebrow: 'Connect',
+    target: '/series/connect',
+  },
+]
 
 const SERIES: SeriesPageData[] = [
   {
@@ -258,36 +691,11 @@ const SERIES: SeriesPageData[] = [
   },
   {
     id: 'collections',
-    eyebrow: 'Three Portals',
-    title: '三大系列',
-    desc: 'Zodiac 更轻灵，Chakra 更疗愈，Lunar 更具仪式感。',
+    eyebrow: 'Project Portals',
+    title: '项目入口',
+    desc: '从六个大入口进入：旅程、脉轮、仪式、水晶、典籍与连接。',
     color: '#f0e4c0',
-    tiles: [
-      {
-        id: 'zodiac',
-        title: 'Zodiac\n星座守护',
-        desc: '由星盘进入水晶频率',
-        color: '#dcd2f2',
-        image: CARD_IMAGES[0],
-        target: '/series/zodiac',
-      },
-      {
-        id: 'chakra',
-        title: 'Chakra\n脉轮疗愈',
-        desc: '从海底轮到顶轮的能量旅程',
-        color: '#dcedc2',
-        image: CARD_IMAGES[1],
-        target: '/series/chakra',
-      },
-      {
-        id: 'lunar',
-        title: 'Lunar\n月相仪式',
-        desc: '让水晶跟随月光呼吸',
-        color: '#c3e3f4',
-        image: CARD_IMAGES[2],
-        target: '/series/lunar',
-      },
-    ],
+    tiles: MAIN_PROJECT_TILES,
   },
   {
     id: 'rituals',
@@ -315,9 +723,7 @@ const SERIES: SeriesPageData[] = [
     title: '星座守护系列',
     desc: '从星盘特质出发，为直觉敏锐的人召唤专属守护水晶。',
     color: '#dcd2f2',
-    tiles: PRODUCT_TILES.filter((tile) =>
-      ['scorpio-amethyst', 'full-moon-necklace'].includes(tile.id),
-    ),
+    tiles: ZODIAC_TILES,
   },
   {
     id: 'chakra',
@@ -325,19 +731,7 @@ const SERIES: SeriesPageData[] = [
     title: '脉轮疗愈系列',
     desc: '七脉轮完整疗愈路径，每一件水晶都对应一个能量中心。',
     color: '#dcedc2',
-    tiles: [
-      ...PRODUCT_TILES.filter((tile) =>
-        ['heart-rose-quartz', 'solar-citrine', 'root-garnet'].includes(tile.id),
-      ),
-      {
-        id: 'chakra-test',
-        title: '七脉轮\n自测入口',
-        desc: '找到你此刻最需要平衡的能量中心',
-        color: '#f0e4c0',
-        image: CARD_IMAGES[0],
-        target: '/detail/chakra-test',
-      },
-    ],
+    tiles: CHAKRA_TILES,
   },
   {
     id: 'lunar',
@@ -382,12 +776,42 @@ const SERIES: SeriesPageData[] = [
       },
     ],
   },
+  {
+    id: 'connect',
+    eyebrow: 'Connect',
+    title: '开始连接',
+    desc: '从测试、典籍与水晶入口开始，找到此刻最适合你的护符路径。',
+    color: '#ece7fb',
+    tiles: [
+      {
+        id: 'chakra-test',
+        title: '七脉轮\n自测',
+        desc: '感受哪个能量中心需要平衡',
+        color: '#dcedc2',
+        image: CARD_IMAGES[1],
+        target: '/detail/chakra-test',
+      },
+      {
+        id: 'codex',
+        title: '月之典籍\n知识入口',
+        desc: '阅读水晶、星座与月相指南',
+        color: '#f0e4c0',
+        image: CARD_IMAGES[0],
+        target: '/series/codex',
+      },
+      {
+        id: 'crystals',
+        title: '水晶护符\n全部入口',
+        desc: '直接浏览所有水晶饰品',
+        color: '#f3cdd6',
+        image: CARD_IMAGES[2],
+        target: '/series/crystals',
+      },
+    ],
+  },
 ]
 
-const ARC_CARDS: Tile[] = [
-  ...SERIES.find((series) => series.id === 'collections')!.tiles,
-  ...PRODUCT_TILES,
-].slice(0, 9)
+const ARC_CARDS: Tile[] = MAIN_PROJECT_TILES
 
 function clamp(value: number, min = 0, max = 1) {
   return Math.min(max, Math.max(min, value))
@@ -620,7 +1044,7 @@ function Navigation({ navigate }: { navigate: NavigateFn }) {
         <button type="button" onClick={() => navigate('/')} style={navStyle}>
           <StarLogo />
         </button>
-        {navButton('Connect', '/series/codex')}
+        {navButton('Connect', '/series/connect')}
       </div>
 
       <div className="hidden w-full items-center justify-between md:flex">
@@ -635,7 +1059,7 @@ function Navigation({ navigate }: { navigate: NavigateFn }) {
         <div style={{ display: 'flex', gap: 36 }}>
           {navButton('Crystals', '/series/crystals')}
           {navButton('Codex', '/series/codex')}
-          {navButton('Connect', '/series/worlds')}
+          {navButton('Connect', '/series/connect')}
         </div>
       </div>
     </nav>
@@ -864,8 +1288,8 @@ function SceneOneUI({
       />
       <FeatureCard
         image={CARD_IMAGES[1]}
-        label="三大系列"
-        number="3"
+        label="项目入口"
+        number="6"
         desktop={isDesktop}
         onClick={() => navigate('/series/collections')}
       />
@@ -1098,20 +1522,26 @@ function ArcCardSlider({
   isMobile,
   opacity,
   navigate,
+  animated = false,
+  compact = false,
+  focusIndex,
 }: {
   cards: Tile[]
   rotationOffset: number
   isMobile: boolean
   opacity: number
   navigate: NavigateFn
+  animated?: boolean
+  compact?: boolean
+  focusIndex?: number
 }) {
-  const cardSpacingDeg = isMobile ? 12 : 9
+  const cardSpacingDeg = isMobile ? (compact ? 10 : 12) : 9
   const centerIndex = Math.floor(cards.length / 2)
-  const arcRadius = isMobile ? 700 : 1100
-  const cardW = isMobile ? 160 : 220
-  const cardH = isMobile ? 175 : 230
-  const sliderH = isMobile ? 260 : 360
-  const lift = isMobile ? 140 : 200
+  const arcRadius = isMobile ? (compact ? 360 : 700) : 1100
+  const cardW = isMobile ? (compact ? 140 : 160) : 220
+  const cardH = isMobile ? (compact ? 160 : 175) : 230
+  const sliderH = isMobile ? (compact ? 300 : 260) : 360
+  const lift = isMobile ? (compact ? 120 : 140) : 200
 
   return (
     <div
@@ -1128,8 +1558,17 @@ function ArcCardSlider({
       }}
     >
       {cards.map((card, index) => {
-        const baseDeg = (index - centerIndex) * cardSpacingDeg
-        const deg = baseDeg - rotationOffset + centerIndex * cardSpacingDeg
+        let carouselOffset = index - (focusIndex ?? centerIndex)
+        if (focusIndex !== undefined && cards.length > 0) {
+          const half = cards.length / 2
+          if (carouselOffset > half) carouselOffset -= cards.length
+          if (carouselOffset < -half) carouselOffset += cards.length
+        }
+        const baseDeg = carouselOffset * cardSpacingDeg
+        const deg =
+          focusIndex === undefined
+            ? baseDeg - rotationOffset + centerIndex * cardSpacingDeg
+            : baseDeg
         const rad = (deg * Math.PI) / 180
         const x = Math.sin(rad) * arcRadius
         const y = arcRadius - Math.cos(rad) * arcRadius
@@ -1151,6 +1590,10 @@ function ArcCardSlider({
               boxShadow: '0 8px 40px rgba(80,40,60,0.18)',
               transform: `rotate(${deg}deg)`,
               transformOrigin: `${cardW / 2}px ${arcRadius}px`,
+              transition: animated
+                ? 'left 0.7s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)'
+                : undefined,
+              willChange: animated ? 'left, bottom, transform' : undefined,
               padding: isMobile ? 16 : 22,
               display: 'flex',
               flexDirection: 'column',
@@ -1271,78 +1714,151 @@ function AtmosphericShell({
   )
 }
 
-function TileCard({ tile, navigate }: { tile: Tile; navigate: NavigateFn }) {
+function SeriesArcCarousel({
+  tiles,
+  navigate,
+}: {
+  tiles: Tile[]
+  navigate: NavigateFn
+}) {
+  const { isMobile } = useViewportMode()
+  const initialIndex = Math.floor(tiles.length / 2)
+  const [activeIndex, setActiveIndex] = useState(initialIndex)
+  const wheelLockRef = useRef(0)
+
+  useEffect(() => {
+    setActiveIndex(Math.floor(tiles.length / 2))
+  }, [tiles.length])
+
+  const goTo = useCallback(
+    (index: number) => {
+      if (!tiles.length) return
+      setActiveIndex((index + tiles.length) % tiles.length)
+    },
+    [tiles.length],
+  )
+
+  const rotate = useCallback(
+    (direction: 1 | -1) => {
+      setActiveIndex((current) => {
+        if (!tiles.length) return current
+        return (current + direction + tiles.length) % tiles.length
+      })
+    },
+    [tiles.length],
+  )
+
+  const handleWheel = useCallback(
+    (event: WheelEvent<HTMLDivElement>) => {
+      const now = Date.now()
+      if (now - wheelLockRef.current < 420 || Math.abs(event.deltaY) < 12) {
+        return
+      }
+
+      event.preventDefault()
+      wheelLockRef.current = now
+      rotate(event.deltaY > 0 ? 1 : -1)
+    },
+    [rotate],
+  )
+
   return (
-    <button
-      type="button"
-      onClick={() => navigate(tile.target)}
+    <div
+      onWheel={handleWheel}
       style={{
-        minHeight: 270,
-        border: '1px solid rgba(255,255,255,0.18)',
-        borderRadius: 32,
+        position: 'relative',
+        width: '100vw',
+        marginLeft: 'calc(50% - 50vw)',
+        marginRight: 'calc(50% - 50vw)',
+        marginTop: 10,
+        minHeight: isMobile ? 360 : 520,
         overflow: 'hidden',
-        background: tile.color,
-        boxShadow: '0 18px 60px rgba(0,0,0,0.24)',
-        textAlign: 'left',
-        padding: 0,
-        cursor: 'pointer',
       }}
     >
+      <ArcCardSlider
+        cards={tiles}
+        rotationOffset={0}
+        isMobile={isMobile}
+        opacity={1}
+        navigate={navigate}
+        animated
+        focusIndex={activeIndex}
+      />
+
       <div
         style={{
-          height: 145,
-          position: 'relative',
-          overflow: 'hidden',
-          backgroundImage: tile.image ? `url(${tile.image})` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          position: 'absolute',
+          left: '50%',
+          bottom: isMobile ? 12 : 26,
+          translate: '-50% 0',
+          zIndex: 60,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 14,
+          padding: '8px 12px',
+          borderRadius: 999,
+          border: '1px solid rgba(255,255,255,0.18)',
+          background: 'rgba(255,255,255,0.08)',
+          backdropFilter: 'blur(14px)',
+          WebkitBackdropFilter: 'blur(14px)',
         }}
       >
-        <div
+        <button
+          type="button"
+          aria-label="上一张"
+          onClick={() => rotate(-1)}
           style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(to top, rgba(30,18,28,0.62), rgba(30,18,28,0.06))',
+            width: 32,
+            height: 32,
+            borderRadius: 999,
+            border: '1px solid rgba(255,255,255,0.2)',
+            background: 'rgba(255,255,255,0.1)',
+            color: '#fff',
+            cursor: 'pointer',
           }}
-        />
+        >
+          ‹
+        </button>
+        <div style={{ display: 'flex', gap: 7 }}>
+          {tiles.map((tile, index) => (
+            <button
+              key={tile.id}
+              type="button"
+              aria-label={`切换到 ${tile.title.replace(/\n/g, '')}`}
+              onClick={() => goTo(index)}
+              style={{
+                width: index === activeIndex ? 22 : 7,
+                height: 7,
+                borderRadius: 999,
+                border: 0,
+                background:
+                  index === activeIndex
+                    ? 'rgba(255,255,255,0.9)'
+                    : 'rgba(255,255,255,0.34)',
+                cursor: 'pointer',
+                transition: 'width 0.28s ease, background 0.28s ease',
+              }}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          aria-label="下一张"
+          onClick={() => rotate(1)}
+          style={{
+            width: 32,
+            height: 32,
+            borderRadius: 999,
+            border: '1px solid rgba(255,255,255,0.2)',
+            background: 'rgba(255,255,255,0.1)',
+            color: '#fff',
+            cursor: 'pointer',
+          }}
+        >
+          ›
+        </button>
       </div>
-      <div style={{ padding: 24 }}>
-        <p
-          style={{
-            margin: 0,
-            fontSize: 11,
-            letterSpacing: '0.18em',
-            textTransform: 'uppercase',
-            color: 'rgba(58,37,48,0.52)',
-          }}
-        >
-          {tile.eyebrow ?? 'Lunar Portal'}
-        </p>
-        <h3
-          style={{
-            margin: '10px 0 0',
-            whiteSpace: 'pre-line',
-            fontFamily: "'Viaoda Libre', serif",
-            fontSize: 'clamp(30px, 4vw, 44px)',
-            lineHeight: 0.96,
-            color: '#3a2530',
-          }}
-        >
-          {tile.title}
-        </h3>
-        <p
-          style={{
-            margin: '14px 0 0',
-            fontSize: 15,
-            lineHeight: 1.55,
-            color: 'rgba(58,37,48,0.66)',
-          }}
-        >
-          {tile.desc}
-        </p>
-      </div>
-    </button>
+    </div>
   )
 }
 
@@ -1417,18 +1933,7 @@ function SeriesPage({
           {series.desc}
         </p>
 
-        <div
-          style={{
-            marginTop: 56,
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: 22,
-          }}
-        >
-          {series.tiles.map((tile) => (
-            <TileCard key={tile.id} tile={tile} navigate={navigate} />
-          ))}
-        </div>
+        <SeriesArcCarousel tiles={series.tiles} navigate={navigate} />
       </section>
     </AtmosphericShell>
   )
