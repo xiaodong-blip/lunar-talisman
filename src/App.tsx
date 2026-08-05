@@ -987,7 +987,7 @@ function SceneOneUI({
             key={dot}
             type="button"
             aria-label={`跳转到第 ${dot + 1} 段体验`}
-            onClick={() => onProgressJump([0, 0.34, 0.72, 0.96][dot])}
+            onClick={() => onProgressJump([0, 0.34, 0.72, 0.88][dot])}
             style={{
               appearance: 'none',
               padding: 0,
@@ -1663,13 +1663,12 @@ function HomePage({
     const ep = easeInOut(scrollProgress)
     const scene1Opacity = clamp(1 - scrollProgress / 0.22)
     const scene2Opacity = clamp((scrollProgress - 0.68) / 0.16)
-    const arcSweepDeg = (ARC_CARDS.length - 1) * 10
+    const arcSweepDeg = (ARC_CARDS.length - 1) * 8
     const rotationOffset = lerp(
       0,
       arcSweepDeg,
       clamp((scrollProgress - 0.7) / 0.3),
     )
-
     return {
       ep,
       scene1Opacity,
