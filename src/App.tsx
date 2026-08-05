@@ -1536,12 +1536,42 @@ function ArcCardSlider({
   focusIndex?: number
 }) {
   const cardSpacingDeg = isMobile ? (compact ? 10 : 12) : 9
-  const centerIndex = Math.floor(cards.length / 2)
   const arcRadius = isMobile ? (compact ? 360 : 700) : 1100
   const cardW = isMobile ? (compact ? 140 : 160) : 220
   const cardH = isMobile ? (compact ? 160 : 175) : 230
   const sliderH = isMobile ? (compact ? 300 : 260) : 360
   const lift = isMobile ? (compact ? 120 : 140) : 200
+  // Keep the scene's fade-in timing, but let the active card become solid
+  // as soon as the carousel is meaningfully visible. Otherwise the parent
+  // opacity would make even the focused option look washed out.
+  const revealOpacity = clamp(opacity * 2.7)
+  const rawCarouselFocus =
+    focusIndex ??
+    (cards.length > 0 ? Math.round(rotationOffset / cardSpacingDeg) : 0)
+  const carouselFocus =
+    cards.length > 0
+      ? ((rawCarouselFocus % cards.length) + cards.length) % cards.length
+      : 0
+  const carouselRemainder =
+    focusIndex === undefined
+      ? rotationOffset - rawCarouselFocus * cardSpacingDeg
+      : 0
+
+  const getCardDeg = (index: number) => {
+    let carouselOffset = index - carouselFocus
+    if (cards.length > 0) {
+      const half = cards.length / 2
+      if (carouselOffset > half) carouselOffset -= cards.length
+      if (carouselOffset < -half) carouselOffset += cards.length
+    }
+
+    return carouselOffset * cardSpacingDeg - carouselRemainder
+  }
+
+  // The current item in the circular queue is the only fully opaque one.
+  // This keeps the carousel's existing arc and spacing intact while making the
+  // current destination visually unambiguous.
+  const focalIndex = cards.length > 0 ? carouselFocus : -1
 
   return (
     <div
@@ -1553,22 +1583,13 @@ function ArcCardSlider({
         translate: '-50% 0',
         width: '100vw',
         height: sliderH,
-        opacity,
+        opacity: 1,
         pointerEvents: opacity > 0.12 ? 'auto' : 'none',
       }}
     >
       {cards.map((card, index) => {
-        let carouselOffset = index - (focusIndex ?? centerIndex)
-        if (focusIndex !== undefined && cards.length > 0) {
-          const half = cards.length / 2
-          if (carouselOffset > half) carouselOffset -= cards.length
-          if (carouselOffset < -half) carouselOffset += cards.length
-        }
-        const baseDeg = carouselOffset * cardSpacingDeg
-        const deg =
-          focusIndex === undefined
-            ? baseDeg - rotationOffset + centerIndex * cardSpacingDeg
-            : baseDeg
+        const deg = getCardDeg(index)
+        const isFocal = index === focalIndex
         const rad = (deg * Math.PI) / 180
         const x = Math.sin(rad) * arcRadius
         const y = arcRadius - Math.cos(rad) * arcRadius
@@ -1586,14 +1607,15 @@ function ArcCardSlider({
               height: cardH,
               borderRadius: isMobile ? 18 : 26,
               background: card.color,
+              opacity: revealOpacity * (isFocal ? 1 : 0.42),
               border: 0,
               boxShadow: '0 8px 40px rgba(80,40,60,0.18)',
               transform: `rotate(${deg}deg)`,
               transformOrigin: `${cardW / 2}px ${arcRadius}px`,
               transition: animated
-                ? 'left 0.7s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)'
-                : undefined,
-              willChange: animated ? 'left, bottom, transform' : undefined,
+                ? 'left 0.7s cubic-bezier(0.16, 1, 0.3, 1), bottom 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease'
+                : 'opacity 0.45s ease',
+              willChange: animated ? 'left, bottom, transform, opacity' : 'opacity',
               padding: isMobile ? 16 : 22,
               display: 'flex',
               flexDirection: 'column',
@@ -2112,6 +2134,9 @@ function HomePage({
 }) {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [manualLoopRotation, setManualLoopRotation] = useState(0)
+  const scrollProgressRef = useRef(0)
+  const wheelLockRef = useRef(0)
   const [curtainsOpen, setCurtainsOpen] = useState(false)
   const [uiVisible, setUiVisible] = useState(true)
   const [entranceDone, setEntranceDone] = useState(false)
@@ -2137,7 +2162,9 @@ function HomePage({
       const container = containerRef.current
       if (container) {
         const maxScroll = container.scrollHeight - window.innerHeight
-        setScrollProgress(clamp(window.scrollY / Math.max(1, maxScroll)))
+        const nextProgress = clamp(window.scrollY / Math.max(1, maxScroll))
+        scrollProgressRef.current = nextProgress
+        setScrollProgress(nextProgress)
       }
       raf = requestAnimationFrame(update)
     }
@@ -2164,11 +2191,33 @@ function HomePage({
     scrollToProgress(0.74)
   }, [scrollToProgress])
 
+  const handleHomeWheel = useCallback(
+    (event: WheelEvent<HTMLDivElement>) => {
+      const progress = scrollProgressRef.current
+      const isAtEnd = progress >= 0.995 && event.deltaY > 0
+      if (!isAtEnd) return
+
+      const now = Date.now()
+      if (now - wheelLockRef.current < 420 || Math.abs(event.deltaY) < 12) {
+        return
+      }
+
+      event.preventDefault()
+      wheelLockRef.current = now
+      setManualLoopRotation(
+        (current) => current + (isMobile ? 12 : 9) * (event.deltaY > 0 ? 1 : -1),
+      )
+    },
+    [isMobile],
+  )
+
   const values = useMemo(() => {
     const ep = easeInOut(scrollProgress)
     const scene1Opacity = clamp(1 - scrollProgress / 0.22)
     const scene2Opacity = clamp((scrollProgress - 0.68) / 0.16)
-    const arcSweepDeg = (ARC_CARDS.length - 1) * 8
+    // One complete cycle ends back on the first card, so the queue never
+    // gets stuck on the final item.
+    const arcSweepDeg = ARC_CARDS.length * (isMobile ? 12 : 9)
     const rotationOffset = lerp(
       0,
       arcSweepDeg,
@@ -2178,11 +2227,11 @@ function HomePage({
       ep,
       scene1Opacity,
       scene2Opacity,
-      rotationOffset,
+      rotationOffset: rotationOffset + manualLoopRotation,
       mx: isMobile ? 0 : mouse.x,
       my: isMobile ? 0 : mouse.y,
     }
-  }, [isMobile, mouse.x, mouse.y, scrollProgress])
+  }, [isMobile, manualLoopRotation, mouse.x, mouse.y, scrollProgress])
 
   const worldTransform = `translate3d(${-values.mx * MAG.world}px, ${-values.my * MAG.world}px, 0) scale(${lerp(1, 1.18, values.ep)})`
   const cloudTransform = `translate3d(${-values.mx * MAG.clouds}px, ${-values.my * MAG.clouds * 0.4}px, 0) scale(${lerp(1, 1.4, values.ep)})`
@@ -2193,6 +2242,7 @@ function HomePage({
   return (
     <div ref={containerRef} style={{ height: '480vh', position: 'relative' }}>
       <div
+        onWheel={handleHomeWheel}
         style={{
           position: 'sticky',
           top: 0,
@@ -2238,10 +2288,11 @@ function HomePage({
         <ArcCardSlider
           cards={ARC_CARDS}
           rotationOffset={values.rotationOffset}
-          isMobile={isMobile}
-          opacity={values.scene2Opacity}
-          navigate={navigate}
-        />
+        isMobile={isMobile}
+        opacity={values.scene2Opacity}
+        navigate={navigate}
+        animated
+      />
 
         <div
           style={{
