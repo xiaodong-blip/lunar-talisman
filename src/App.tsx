@@ -1,5 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { CSSProperties, ReactNode, WheelEvent } from 'react'
+import type { CSSProperties, FormEvent, ReactNode, WheelEvent } from 'react'
+import AdminPage from './AdminPage'
+import { usePageMeta } from './hooks/usePageMeta'
+import { trackPageView } from './services/analytics'
+import { appendOrder } from './services/orders'
 
 const PORTAL_BG =
   'https://flick-award-65707097.figma.site/_assets/v11/bbc8d4f1308d5df012c4b0a657b44c6d92609c24.png'
@@ -31,6 +35,8 @@ type Route =
   | { page: 'home' }
   | { page: 'series'; id: string }
   | { page: 'detail'; id: string }
+  | { page: 'admin' }
+  | { page: 'legal'; id: 'privacy' | 'terms' | 'shipping' | 'refund' | 'contact' }
 
 type Tile = {
   id: string
@@ -61,6 +67,19 @@ type DetailData = {
   specs: string[]
   body: string[]
 }
+
+type StoredAdminProduct = {
+  id: string
+  name: string
+  collection: string
+  price: number
+  stock: number
+  image: string
+  status: '上架' | '草稿'
+}
+
+const ADMIN_PRODUCT_KEY = 'lunar-talisman-admin-products'
+const ADMIN_SEED_PRODUCT_IDS = new Set(['P-001', 'P-002', 'P-003'])
 
 const PRODUCTS: DetailData[] = [
   {
@@ -825,11 +844,88 @@ function easeInOut(t: number) {
   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
 }
 
+function readAdminProducts() {
+  try {
+    const raw = window.localStorage.getItem(ADMIN_PRODUCT_KEY)
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as StoredAdminProduct[]
+    if (!Array.isArray(parsed)) return []
+    return parsed.filter((product) => product.status === '上架')
+  } catch {
+    return []
+  }
+}
+
+function getPublishedAdminProducts() {
+  return readAdminProducts().filter((product) => !ADMIN_SEED_PRODUCT_IDS.has(product.id))
+}
+
+function adminProductToTile(product: StoredAdminProduct): Tile {
+  return {
+    id: `admin-${product.id}`,
+    title: product.name.replace(' · ', '\n'),
+    desc: `${product.collection} · 库存 ${product.stock} · ${formatProductPrice(product.price)}`,
+    color: '#ece7fb',
+    image: product.image,
+    eyebrow: 'Admin Product',
+    target: `/detail/admin-${product.id}`,
+  }
+}
+
+function adminProductToDetail(product: StoredAdminProduct): DetailData {
+  return {
+    id: `admin-${product.id}`,
+    eyebrow: product.collection,
+    title: product.name,
+    desc: `后台上架商品 · 库存 ${product.stock} · ${formatProductPrice(product.price)}`,
+    color: '#ece7fb',
+    image: product.image,
+    specs: [product.collection, `库存 ${product.stock}`, formatProductPrice(product.price), '后台上架'],
+    body: [
+      '这件护符由管理后台上传并发布到前台展示。',
+      '当前版本会先用浏览器本地数据打通发布链路；接入真实后端后，可替换为数据库商品信息、库存和订单系统。',
+    ],
+  }
+}
+
+function formatProductPrice(value: number) {
+  return `$${value.toLocaleString('en-US')}`
+}
+
+function getDetailPrice(detail: DetailData) {
+  const priceSpec = detail.specs.find((spec) => spec.startsWith('$'))
+  if (priceSpec) {
+    const parsed = Number(priceSpec.replace(/[^0-9.]/g, ''))
+    if (Number.isFinite(parsed) && parsed > 0) return parsed
+  }
+
+  const priceMap: Record<string, number> = {
+    'scorpio-amethyst': 89,
+    'heart-rose-quartz': 69,
+    'solar-citrine': 79,
+    'new-moon-set': 129,
+    'root-garnet': 75,
+    'full-moon-necklace': 149,
+  }
+
+  return priceMap[detail.id] ?? 89
+}
+
 function routeFromPath(): Route {
   const [page, id] = window.location.pathname.split('/').filter(Boolean)
 
   if (page === 'series' && id) return { page: 'series', id }
   if (page === 'detail' && id) return { page: 'detail', id }
+  if (page === 'admin') return { page: 'admin' }
+  if (
+    page === 'privacy' ||
+    page === 'terms' ||
+    page === 'shipping' ||
+    page === 'refund' ||
+    page === 'contact'
+  ) {
+    return { page: 'legal', id: page }
+  }
 
   return { page: 'home' }
 }
@@ -842,6 +938,10 @@ function useRoute() {
     window.addEventListener('popstate', onPop)
     return () => window.removeEventListener('popstate', onPop)
   }, [])
+
+  useEffect(() => {
+    trackPageView(window.location.pathname)
+  }, [route])
 
   const navigate = (path: string) => {
     window.history.pushState(null, '', path)
@@ -1892,6 +1992,28 @@ function SeriesPage({
   navigate: NavigateFn
 }) {
   const series = SERIES.find((item) => item.id === id) ?? SERIES[0]
+  const adminProducts = getPublishedAdminProducts()
+  const adminTiles = adminProducts.map(adminProductToTile)
+  const collectionMap: Record<string, string> = {
+    zodiac: '星座守护',
+    chakra: '脉轮疗愈',
+    lunar: '月相仪式',
+    crystals: '水晶护符',
+  }
+  const linkedAdminTiles =
+    id === 'crystals'
+      ? adminTiles
+      : adminProducts
+          .filter((product) => product.collection === collectionMap[id])
+          .map(adminProductToTile)
+  const displaySeries =
+    linkedAdminTiles.length > 0
+      ? { ...series, tiles: [...linkedAdminTiles, ...series.tiles] }
+      : series
+  usePageMeta({
+    title: `${displaySeries.title.replace(/\n/g, ' ')} | Lunar Talisman`,
+    description: displaySeries.desc,
+  })
 
   return (
     <AtmosphericShell navigate={navigate}>
@@ -1928,7 +2050,7 @@ function SeriesPage({
             color: 'rgba(255,255,255,0.55)',
           }}
         >
-          {series.eyebrow}
+          {displaySeries.eyebrow}
         </p>
         <h1
           style={{
@@ -1941,7 +2063,7 @@ function SeriesPage({
             textShadow: '0 2px 24px rgba(0,0,0,0.45)',
           }}
         >
-          {series.title}
+          {displaySeries.title}
         </h1>
         <p
           style={{
@@ -1952,10 +2074,10 @@ function SeriesPage({
             color: 'rgba(255,255,255,0.72)',
           }}
         >
-          {series.desc}
+          {displaySeries.desc}
         </p>
 
-        <SeriesArcCarousel tiles={series.tiles} navigate={navigate} />
+        <SeriesArcCarousel tiles={displaySeries.tiles} navigate={navigate} />
       </section>
     </AtmosphericShell>
   )
@@ -1968,9 +2090,53 @@ function DetailPage({
   id: string
   navigate: NavigateFn
 }) {
+  const [orderOpen, setOrderOpen] = useState(false)
+  const [orderNotice, setOrderNotice] = useState('')
+  const [orderForm, setOrderForm] = useState({
+    name: '',
+    email: '',
+    address: '',
+  })
+  const adminDetail = getPublishedAdminProducts()
+    .map(adminProductToDetail)
+    .find((item) => item.id === id)
   const detail =
+    adminDetail ??
     DETAILS.find((item) => item.id === id) ??
     DETAILS.find((item) => item.id === 'chakra-test')!
+  usePageMeta({
+    title: `${detail.title.replace(/\n/g, ' ')} | Lunar Talisman`,
+    description: detail.desc,
+  })
+  const detailPrice = getDetailPrice(detail)
+  const submitOrder = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (!orderForm.name.trim() || !orderForm.email.trim() || !orderForm.address.trim()) {
+      setOrderNotice('请补全姓名、邮箱和收货地址。')
+      return
+    }
+
+    appendOrder({
+      id: `LT-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${String(
+        Date.now(),
+      ).slice(-4)}`,
+      customer: orderForm.name.trim(),
+      email: orderForm.email.trim(),
+      address: orderForm.address.trim(),
+      product: detail.title.replace(/\n/g, ' '),
+      channel: '前台网站',
+      amount: detailPrice,
+      status: '待处理',
+      createdAt: new Date().toLocaleString('zh-CN', {
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
+    })
+    setOrderNotice('订单已进入后台订单管理。正式支付接口接入后，这里会跳转到 Stripe / PayPal。')
+    setOrderForm({ name: '', email: '', address: '' })
+  }
 
   return (
     <AtmosphericShell navigate={navigate}>
@@ -2121,8 +2287,361 @@ function DetailPage({
               </p>
             ))}
           </div>
+          <div
+            style={{
+              marginTop: 28,
+              borderTop: '1px solid rgba(58,37,48,0.14)',
+              paddingTop: 22,
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: 14,
+                flexWrap: 'wrap',
+              }}
+            >
+              <div>
+                <div style={{ fontSize: 28, fontWeight: 900 }}>
+                  {formatProductPrice(detailPrice)}
+                </div>
+                <div
+                  style={{
+                    marginTop: 4,
+                    color: 'rgba(58,37,48,0.58)',
+                    fontSize: 13,
+                  }}
+                >
+                  当前为订单链路预览，支付接口待接入。
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setOrderOpen((open) => !open)
+                  setOrderNotice('')
+                }}
+                style={{
+                  border: 0,
+                  borderRadius: 999,
+                  background: '#3a2530',
+                  color: '#fff',
+                  padding: '13px 18px',
+                  fontSize: 13,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  cursor: 'pointer',
+                  boxShadow: '0 14px 30px rgba(58,37,48,0.22)',
+                }}
+              >
+                创建订单
+              </button>
+            </div>
+
+            {orderOpen ? (
+              <form
+                onSubmit={submitOrder}
+                style={{
+                  marginTop: 18,
+                  display: 'grid',
+                  gap: 12,
+                }}
+              >
+                <input
+                  value={orderForm.name}
+                  onChange={(event) =>
+                    setOrderForm((current) => ({ ...current, name: event.target.value }))
+                  }
+                  placeholder="客户姓名"
+                  style={{
+                    border: '1px solid rgba(58,37,48,0.18)',
+                    borderRadius: 16,
+                    padding: '13px 14px',
+                    background: 'rgba(255,255,255,0.62)',
+                    color: '#3a2530',
+                    outline: 0,
+                  }}
+                />
+                <input
+                  value={orderForm.email}
+                  onChange={(event) =>
+                    setOrderForm((current) => ({ ...current, email: event.target.value }))
+                  }
+                  placeholder="邮箱"
+                  type="email"
+                  style={{
+                    border: '1px solid rgba(58,37,48,0.18)',
+                    borderRadius: 16,
+                    padding: '13px 14px',
+                    background: 'rgba(255,255,255,0.62)',
+                    color: '#3a2530',
+                    outline: 0,
+                  }}
+                />
+                <textarea
+                  value={orderForm.address}
+                  onChange={(event) =>
+                    setOrderForm((current) => ({ ...current, address: event.target.value }))
+                  }
+                  placeholder="收货地址"
+                  rows={3}
+                  style={{
+                    border: '1px solid rgba(58,37,48,0.18)',
+                    borderRadius: 16,
+                    padding: '13px 14px',
+                    background: 'rgba(255,255,255,0.62)',
+                    color: '#3a2530',
+                    outline: 0,
+                    resize: 'vertical',
+                    fontFamily: 'inherit',
+                  }}
+                />
+                <button
+                  type="submit"
+                  style={{
+                    border: '1px solid rgba(58,37,48,0.2)',
+                    borderRadius: 16,
+                    background: 'rgba(255,255,255,0.74)',
+                    color: '#3a2530',
+                    padding: '13px 16px',
+                    fontWeight: 900,
+                    cursor: 'pointer',
+                  }}
+                >
+                  提交到后台订单
+                </button>
+                {orderNotice ? (
+                  <div
+                    style={{
+                      borderRadius: 14,
+                      padding: '11px 13px',
+                      background: orderNotice.includes('请')
+                        ? 'rgba(196,90,90,0.12)'
+                        : 'rgba(122,157,118,0.14)',
+                      color: orderNotice.includes('请') ? '#9a4545' : '#55744f',
+                      fontSize: 13,
+                      lineHeight: 1.55,
+                      fontWeight: 800,
+                    }}
+                  >
+                    {orderNotice}
+                  </div>
+                ) : null}
+              </form>
+            ) : null}
+          </div>
         </div>
       </article>
+    </AtmosphericShell>
+  )
+}
+
+const LEGAL_PAGES = {
+  privacy: {
+    eyebrow: 'Privacy',
+    title: '隐私政策',
+    desc: '我们只收集完成订单、客户服务和网站体验优化所必需的信息。',
+    sections: [
+      {
+        title: '我们收集的信息',
+        body: '当你下单、订阅或联系我们时，可能会收集姓名、邮箱、收货地址、订单内容和必要的浏览数据。',
+      },
+      {
+        title: '信息如何使用',
+        body: '这些信息用于订单履约、物流通知、售后沟通、网站安全和基础数据分析。',
+      },
+      {
+        title: '数据保护',
+        body: '正式接入后端后，敏感数据应存放在受保护的数据库和支付平台中，不应暴露在前端代码里。',
+      },
+    ],
+  },
+  terms: {
+    eyebrow: 'Terms',
+    title: '服务条款',
+    desc: '使用 Lunar Talisman 网站即表示你理解并接受本页面列出的基础条款。',
+    sections: [
+      {
+        title: '商品说明',
+        body: '水晶饰品因天然纹理、色泽和尺寸可能存在轻微差异，这也是天然晶石的独特之处。',
+      },
+      {
+        title: '能量与疗愈免责声明',
+        body: '网站中的脉轮、水晶能量和仪式内容属于生活方式与灵性体验表达，不替代医疗、心理或专业建议。',
+      },
+      {
+        title: '订单责任',
+        body: '请在下单前确认商品、数量和收货信息。若地址填写错误，请尽快联系品牌方处理。',
+      },
+    ],
+  },
+  shipping: {
+    eyebrow: 'Shipping',
+    title: '配送政策',
+    desc: '我们会在订单确认后尽快准备护符，并提供清晰的发货状态。',
+    sections: [
+      {
+        title: '处理时间',
+        body: '常规商品预计 2-5 个工作日内处理。月相仪式批次可能根据新月或满月日期安排发货。',
+      },
+      {
+        title: '物流信息',
+        body: '正式订单系统接入后，发货后会通过邮件发送物流单号和追踪链接。',
+      },
+      {
+        title: '国际配送',
+        body: '不同国家和地区的配送时效、关税和进口要求可能不同，最终以物流服务商信息为准。',
+      },
+    ],
+  },
+  refund: {
+    eyebrow: 'Refund',
+    title: '退换货政策',
+    desc: '我们希望每一件护符都被认真选择，也认真抵达。',
+    sections: [
+      {
+        title: '可申请场景',
+        body: '如商品在运输中损坏、错发或存在明显质量问题，请在收到后 7 日内联系我们。',
+      },
+      {
+        title: '不可退换场景',
+        body: '已佩戴、影响二次销售、定制仪式商品或因天然纹理差异产生的主观偏好，一般不支持退换。',
+      },
+      {
+        title: '处理方式',
+        body: '请保留包装、商品照片和订单信息。确认后可根据情况安排补发、换货或退款。',
+      },
+    ],
+  },
+  contact: {
+    eyebrow: 'Contact',
+    title: '联系我们',
+    desc: '关于订单、合作、商品咨询或月相仪式批次，都可以从这里开始。',
+    sections: [
+      {
+        title: '客户服务',
+        body: '邮箱：hello@lunartalisman.com。正式邮箱配置完成后，可接入后台工单和自动回复。',
+      },
+      {
+        title: '品牌合作',
+        body: '如果你是内容创作者、买手店或灵性空间主理人，欢迎发送合作意向与渠道介绍。',
+      },
+      {
+        title: '响应时间',
+        body: '通常会在 1-3 个工作日内回复。满月和新品批次期间可能略有延迟。',
+      },
+    ],
+  },
+} satisfies Record<
+  'privacy' | 'terms' | 'shipping' | 'refund' | 'contact',
+  {
+    eyebrow: string
+    title: string
+    desc: string
+    sections: Array<{ title: string; body: string }>
+  }
+>
+
+function LegalPage({
+  id,
+  navigate,
+}: {
+  id: 'privacy' | 'terms' | 'shipping' | 'refund' | 'contact'
+  navigate: NavigateFn
+}) {
+  const page = LEGAL_PAGES[id]
+  usePageMeta({
+    title: `${page.title} | Lunar Talisman`,
+    description: page.desc,
+  })
+
+  return (
+    <AtmosphericShell navigate={navigate}>
+      <section
+        style={{
+          width: 'min(960px, calc(100% - 40px))',
+          margin: '0 auto',
+          padding: '128px 0 96px',
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => navigate('/')}
+          style={{
+            border: '1px solid rgba(255,255,255,0.18)',
+            borderRadius: 999,
+            background: 'rgba(255,255,255,0.08)',
+            color: 'rgba(255,255,255,0.78)',
+            padding: '10px 16px',
+            fontSize: 12,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+          }}
+        >
+          ← Back to portal
+        </button>
+        <p
+          style={{
+            margin: '44px 0 0',
+            fontSize: 13,
+            letterSpacing: '0.28em',
+            textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.55)',
+          }}
+        >
+          {page.eyebrow}
+        </p>
+        <h1
+          style={{
+            margin: '14px 0 0',
+            fontFamily: "'Viaoda Libre', serif",
+            fontSize: 'clamp(54px, 8vw, 108px)',
+            lineHeight: 0.94,
+            color: '#fff',
+            textShadow: '0 2px 24px rgba(0,0,0,0.45)',
+          }}
+        >
+          {page.title}
+        </h1>
+        <p
+          style={{
+            margin: '22px 0 34px',
+            maxWidth: 680,
+            fontSize: 19,
+            lineHeight: 1.7,
+            color: 'rgba(255,255,255,0.72)',
+          }}
+        >
+          {page.desc}
+        </p>
+        <div
+          style={{
+            borderRadius: 38,
+            background: 'rgba(255,255,255,0.82)',
+            padding: 'clamp(28px, 4vw, 46px)',
+            color: '#3a2530',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
+          }}
+        >
+          {page.sections.map((section) => (
+            <section key={section.title} style={{ marginBottom: 26 }}>
+              <h2 style={{ margin: 0, fontSize: 22 }}>{section.title}</h2>
+              <p
+                style={{
+                  margin: '10px 0 0',
+                  fontSize: 16,
+                  lineHeight: 1.75,
+                  color: 'rgba(58,37,48,0.72)',
+                }}
+              >
+                {section.body}
+              </p>
+            </section>
+          ))}
+        </div>
+      </section>
     </AtmosphericShell>
   )
 }
@@ -2132,6 +2651,10 @@ function HomePage({
 }: {
   navigate: NavigateFn
 }) {
+  usePageMeta({
+    title: 'Lunar Talisman · 月之护符',
+    description: '高端七脉轮水晶饰品品牌站，进入一场月光、星座与水晶护符的沉浸式旅程。',
+  })
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [manualLoopRotation, setManualLoopRotation] = useState(0)
@@ -2404,6 +2927,14 @@ function App() {
 
   if (route.page === 'detail') {
     return <DetailPage id={route.id} navigate={navigate} />
+  }
+
+  if (route.page === 'admin') {
+    return <AdminPage navigate={navigate} />
+  }
+
+  if (route.page === 'legal') {
+    return <LegalPage id={route.id} navigate={navigate} />
   }
 
   return <HomePage navigate={navigate} />
