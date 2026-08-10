@@ -1,4 +1,4 @@
-import { getStore } from '@netlify/blobs'
+import { connectLambda, getStore } from '@netlify/blobs'
 import { createHmac, timingSafeEqual } from 'node:crypto'
 
 export const jsonHeaders = {
@@ -29,6 +29,11 @@ export function ordersStore() {
 
 export function productsStore() {
   return getStore('lunar-talisman-products')
+}
+
+export function connectBlobs(event) {
+  if (!event?.blobs) return
+  connectLambda(event)
 }
 
 export async function readJsonList(store, key) {

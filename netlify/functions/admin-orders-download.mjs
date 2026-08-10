@@ -1,8 +1,9 @@
-import { escapeCsvCell, json, ordersStore, readJsonList, requireAdmin } from './_backend.mjs'
+import { connectBlobs, escapeCsvCell, json, ordersStore, readJsonList, requireAdmin } from './_backend.mjs'
 
 const KEY = 'orders'
 
 export async function handler(event) {
+  connectBlobs(event)
   if (event.httpMethod !== 'GET') {
     return json(405, { ok: false, error: 'method_not_allowed' })
   }

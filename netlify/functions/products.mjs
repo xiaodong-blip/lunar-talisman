@@ -1,8 +1,9 @@
-import { json, methodNotAllowed, productsStore, readJsonList } from './_backend.mjs'
+import { connectBlobs, json, methodNotAllowed, productsStore, readJsonList } from './_backend.mjs'
 
 const KEY = 'products'
 
 export async function handler(event) {
+  connectBlobs(event)
   if (event.httpMethod !== 'GET') return methodNotAllowed()
 
   try {

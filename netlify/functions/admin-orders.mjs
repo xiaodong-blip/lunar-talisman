@@ -1,4 +1,5 @@
 import {
+  connectBlobs,
   json,
   methodNotAllowed,
   ordersStore,
@@ -11,6 +12,7 @@ import {
 const KEY = 'orders'
 
 export async function handler(event) {
+  connectBlobs(event)
   if (!requireAdmin(event)) return json(401, { ok: false, error: 'unauthorized' })
 
   const store = ordersStore()

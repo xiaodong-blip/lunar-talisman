@@ -1,4 +1,12 @@
-import { json, methodNotAllowed, ordersStore, parseJson, readJsonList, writeJsonList } from './_backend.mjs'
+import {
+  connectBlobs,
+  json,
+  methodNotAllowed,
+  ordersStore,
+  parseJson,
+  readJsonList,
+  writeJsonList,
+} from './_backend.mjs'
 
 const KEY = 'orders'
 
@@ -7,6 +15,7 @@ function clean(value, fallback = '') {
 }
 
 export async function handler(event) {
+  connectBlobs(event)
   if (event.httpMethod !== 'POST') return methodNotAllowed()
 
   try {
