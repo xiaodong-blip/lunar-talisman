@@ -4,6 +4,8 @@ import AdminPage from './AdminPage'
 import { usePageMeta } from './hooks/usePageMeta'
 import { trackPageView } from './services/analytics'
 import { appendOrder } from './services/orders'
+import type { PublicOrder } from './services/orders'
+import { createPublicOrder, fetchPublishedProducts } from './services/backend'
 
 const PORTAL_BG =
   'https://flick-award-65707097.figma.site/_assets/v11/bbc8d4f1308d5df012c4b0a657b44c6d92609c24.png'
@@ -2097,6 +2099,7 @@ function DetailPage({
     email: '',
     address: '',
   })
+  const [orderSubmitting, setOrderSubmitting] = useState(false)
   const adminDetail = getPublishedAdminProducts()
     .map(adminProductToDetail)
     .find((item) => item.id === id)
@@ -2109,14 +2112,14 @@ function DetailPage({
     description: detail.desc,
   })
   const detailPrice = getDetailPrice(detail)
-  const submitOrder = (event: FormEvent<HTMLFormElement>) => {
+  const submitOrder = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!orderForm.name.trim() || !orderForm.email.trim() || !orderForm.address.trim()) {
       setOrderNotice('请补全姓名、邮箱和收货地址。')
       return
     }
 
-    appendOrder({
+    const order: PublicOrder = {
       id: `LT-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${String(
         Date.now(),
       ).slice(-4)}`,
@@ -2133,9 +2136,21 @@ function DetailPage({
         hour: '2-digit',
         minute: '2-digit',
       }),
-    })
-    setOrderNotice('订单已进入后台订单管理。正式支付接口接入后，这里会跳转到 Stripe / PayPal。')
-    setOrderForm({ name: '', email: '', address: '' })
+    }
+
+    setOrderSubmitting(true)
+    try {
+      await createPublicOrder(order)
+      appendOrder(order)
+      setOrderNotice('订单已进入后台数据库。正式支付接口接入后，这里会跳转到 Stripe / PayPal。')
+      setOrderForm({ name: '', email: '', address: '' })
+    } catch {
+      appendOrder(order)
+      setOrderNotice('订单已保存到当前浏览器；数据库同步失败，请稍后在后台核对。')
+      setOrderForm({ name: '', email: '', address: '' })
+    } finally {
+      setOrderSubmitting(false)
+    }
   }
 
   return (
@@ -2400,6 +2415,7 @@ function DetailPage({
                 />
                 <button
                   type="submit"
+                  disabled={orderSubmitting}
                   style={{
                     border: '1px solid rgba(58,37,48,0.2)',
                     borderRadius: 16,
@@ -2407,10 +2423,11 @@ function DetailPage({
                     color: '#3a2530',
                     padding: '13px 16px',
                     fontWeight: 900,
-                    cursor: 'pointer',
+                    cursor: orderSubmitting ? 'wait' : 'pointer',
+                    opacity: orderSubmitting ? 0.72 : 1,
                   }}
                 >
-                  提交到后台订单
+                  {orderSubmitting ? '提交中...' : '提交到后台订单'}
                 </button>
                 {orderNotice ? (
                   <div
@@ -2920,6 +2937,25 @@ function HomePage({
 
 function App() {
   const { route, navigate } = useRoute()
+  const [, refreshAdminProducts] = useState(0)
+
+  useEffect(() => {
+    let active = true
+
+    fetchPublishedProducts()
+      .then((products) => {
+        if (!active || products.length === 0) return
+        window.localStorage.setItem(ADMIN_PRODUCT_KEY, JSON.stringify(products))
+        refreshAdminProducts((version) => version + 1)
+      })
+      .catch(() => {
+        // 前台商品接口不可用时继续使用内置商品和本地兜底数据。
+      })
+
+    return () => {
+      active = false
+    }
+  }, [])
 
   if (route.page === 'series') {
     return <SeriesPage id={route.id} navigate={navigate} />

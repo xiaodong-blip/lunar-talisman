@@ -15,6 +15,17 @@ import {
 } from 'lucide-react'
 import { readOrders, saveOrders } from './services/orders'
 import type { PublicOrder } from './services/orders'
+import {
+  clearAdminToken,
+  downloadOrdersCsv,
+  fetchAdminOrders,
+  fetchAdminProducts,
+  hasAdminToken,
+  loginAdmin,
+  saveAdminOrders,
+  saveAdminProducts,
+} from './services/backend'
+import type { AdminProductRecord } from './services/backend'
 
 type NavigateFn = (path: string) => void
 
@@ -24,19 +35,9 @@ type OrderStatus = '待处理' | '已付款' | '备货中' | '已发货' | '已�
 
 type AdminOrder = PublicOrder
 
-type AdminProduct = {
-  id: string
-  name: string
-  collection: string
-  price: number
-  stock: number
-  image: string
-  status: '上架' | '草稿'
-}
+type AdminProduct = AdminProductRecord
 
 const ADMIN_ACCOUNT = 'Lunar Talisman'
-const ADMIN_PASSWORD = '31415926dong'
-const SESSION_KEY = 'lunar-talisman-admin-session'
 const PRODUCT_KEY = 'lunar-talisman-admin-products'
 
 const initialOrders: AdminOrder[] = [
@@ -266,20 +267,31 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
   const [account, setAccount] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const accountOk =
       normalizeAccount(account) === normalizeAccount(ADMIN_ACCOUNT) ||
       normalizeAccount(account) === normalizeAccount('月之护符')
 
-    if (accountOk && password === ADMIN_PASSWORD) {
-      window.sessionStorage.setItem(SESSION_KEY, 'true')
-      onLogin()
+    if (!accountOk) {
+      setError('账号或密码不正确，请使用品牌名与管理密码登录。')
       return
     }
 
-    setError('账号或密码不正确，请使用品牌名与管理密码登录。')
+    setLoading(true)
+    setError('')
+
+    try {
+      await loginAdmin(account, password)
+      onLogin()
+      return
+    } catch (error) {
+      setError(error instanceof Error ? error.message : '账号或密码不正确，请稍后重试。')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -356,8 +368,17 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
           </div>
         ) : null}
 
-        <button type="submit" style={{ ...styles.primaryButton, width: '100%', marginTop: 22 }}>
-          进入后台
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            ...styles.primaryButton,
+            width: '100%',
+            marginTop: 22,
+            opacity: loading ? 0.72 : 1,
+          }}
+        >
+          {loading ? '正在验证...' : '进入后台'}
         </button>
       </form>
     </main>
@@ -652,7 +673,14 @@ function OrdersTable({
       .includes(query.toLowerCase()),
   )
 
-  const downloadOrders = () => {
+  const downloadOrders = async () => {
+    try {
+      await downloadOrdersCsv()
+      return
+    } catch {
+      // 如果服务端暂时不可用，保留原有本地导出作为兜底。
+    }
+
     const headers = [
       '订单号',
       '客户',
@@ -823,6 +851,7 @@ function ProductManager({
     status: '上架' as AdminProduct['status'],
   })
   const [notice, setNotice] = useState('')
+  const [saving, setSaving] = useState(false)
 
   const updateField = (key: keyof typeof form, value: string) => {
     setNotice('')
@@ -836,13 +865,14 @@ function ProductManager({
     reader.readAsDataURL(file)
   }
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!form.name.trim()) {
       setNotice('请先填写商品名称。')
       return
     }
 
+    setSaving(true)
     const nextProduct: AdminProduct = {
       id: `P-${String(products.length + 1).padStart(3, '0')}`,
       name: form.name.trim(),
@@ -857,7 +887,14 @@ function ProductManager({
     const nextProducts = [nextProduct, ...products]
     setProducts(nextProducts)
     window.localStorage.setItem(PRODUCT_KEY, JSON.stringify(nextProducts))
-    setNotice('商品已保存，并已同步到前台商品入口。')
+    try {
+      await saveAdminProducts(nextProducts)
+      setNotice('商品已保存到数据库，并已同步到前台商品入口。')
+    } catch {
+      setNotice('商品已保存到当前浏览器；数据库同步失败，请检查后台环境变量或稍后重试。')
+    } finally {
+      setSaving(false)
+    }
     setForm({
       name: '',
       collection: '水晶护符',
@@ -992,8 +1029,17 @@ function ProductManager({
           </div>
         ) : null}
 
-        <button type="submit" style={{ ...styles.primaryButton, width: '100%', marginTop: 18 }}>
-          保存商品
+        <button
+          type="submit"
+          disabled={saving}
+          style={{
+            ...styles.primaryButton,
+            width: '100%',
+            marginTop: 18,
+            opacity: saving ? 0.72 : 1,
+          }}
+        >
+          {saving ? '保存中...' : '保存商品'}
         </button>
       </form>
 
@@ -1086,7 +1132,7 @@ function ProductManager({
 }
 
 export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
-  const [authed, setAuthed] = useState(() => window.sessionStorage.getItem(SESSION_KEY) === 'true')
+  const [authed, setAuthed] = useState(() => hasAdminToken())
   const [activeTab, setActiveTab] = useState<AdminTab>('overview')
   const [orders, setOrdersState] = useState<AdminOrder[]>(() => readOrders(initialOrders))
   const [products, setProducts] = useState<AdminProduct[]>(() => readStoredProducts())
@@ -1095,9 +1141,42 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
     document.title = 'Lunar Talisman 后台管理'
   }, [])
 
+  useEffect(() => {
+    if (!authed) return
+
+    let active = true
+
+    fetchAdminOrders()
+      .then((serverOrders) => {
+        if (!active || serverOrders.length === 0) return
+        setOrdersState(serverOrders)
+        saveOrders(serverOrders)
+      })
+      .catch(() => {
+        // 保留本地兜底数据，避免后台因为网络或环境变量问题空白。
+      })
+
+    fetchAdminProducts()
+      .then((serverProducts) => {
+        if (!active || serverProducts.length === 0) return
+        setProducts(serverProducts)
+        window.localStorage.setItem(PRODUCT_KEY, JSON.stringify(serverProducts))
+      })
+      .catch(() => {
+        // 保留本地兜底数据。
+      })
+
+    return () => {
+      active = false
+    }
+  }, [authed])
+
   const setOrders = (nextOrders: AdminOrder[]) => {
     setOrdersState(nextOrders)
     saveOrders(nextOrders)
+    void saveAdminOrders(nextOrders).catch(() => {
+      // 后台状态更新失败时不打断 UI，下一次登录仍可从本地兜底看到当前修改。
+    })
   }
 
   const metrics = useMemo(() => {
@@ -1115,7 +1194,7 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
   }
 
   const logout = () => {
-    window.sessionStorage.removeItem(SESSION_KEY)
+    clearAdminToken()
     setAuthed(false)
   }
 
@@ -1290,7 +1369,7 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
               fontSize: 13,
             }}
           >
-            当前版本为前端管理后台预览：数据用于 UI 和流程验收，正式上线前建议接入真实数据库、权限校验和支付/物流接口。
+            当前后台已接入服务端订单与商品存储；支付、物流与邮件接口可在下一阶段继续接入。
           </div>
         </section>
       </div>
