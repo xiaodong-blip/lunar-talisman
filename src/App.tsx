@@ -1041,14 +1041,6 @@ function StarLogo() {
   )
 }
 
-function PlayIcon() {
-  return (
-    <svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
-      <path d="M4 2.5v7l5-3.5-5-3.5Z" fill="#3b1a0a" />
-    </svg>
-  )
-}
-
 function ScrollChevron() {
   return (
     <div
@@ -1164,108 +1156,6 @@ function Navigation({ navigate }: { navigate: NavigateFn }) {
   )
 }
 
-function FeatureCard({
-  image,
-  label,
-  number,
-  desktop,
-  onClick,
-}: {
-  image: string
-  label: string
-  number?: string
-  desktop?: boolean
-  onClick: () => void
-}) {
-  const size = desktop ? 158 : 140
-  const radius = desktop ? 28 : 22
-
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      style={{
-        position: 'relative',
-        width: size,
-        height: size,
-        borderRadius: radius,
-        overflow: 'hidden',
-        border: 0,
-        padding: 0,
-        backgroundImage: `url(${image})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        boxShadow: '0 8px 32px rgba(0,0,0,0.45)',
-        cursor: 'pointer',
-      }}
-    >
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background:
-            'linear-gradient(to top, rgba(15,5,8,0.78) 0%, rgba(15,5,8,0.34) 44%, transparent 70%)',
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          left: 12,
-          right: 12,
-          bottom: 12,
-          height: '44%',
-          borderRadius: radius - 10,
-          background: 'rgba(255,255,255,0.08)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          maskImage: 'linear-gradient(to top, black 0%, black 72%, transparent 100%)',
-        }}
-      />
-      <div
-        style={{
-          position: 'absolute',
-          left: 12,
-          bottom: 12,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 8,
-          color: '#fff',
-          fontFamily: "'Imprima', sans-serif",
-          fontSize: desktop ? 18 : 13,
-          textShadow: '0 1px 8px rgba(0,0,0,0.55)',
-        }}
-      >
-        {number ? (
-          <span
-            style={{
-              fontFamily: "'Viaoda Libre', serif",
-              fontSize: desktop ? 36 : 28,
-              lineHeight: 1,
-            }}
-          >
-            {number}
-          </span>
-        ) : (
-          <span
-            style={{
-              width: desktop ? 30 : 26,
-              height: desktop ? 30 : 26,
-              borderRadius: 999,
-              background: '#fff',
-              display: 'grid',
-              placeItems: 'center',
-              flex: '0 0 auto',
-            }}
-          >
-            <PlayIcon />
-          </span>
-        )}
-        <span>{label}</span>
-      </div>
-    </button>
-  )
-}
-
 function HeroHeading({
   tablet,
   desktop,
@@ -1358,7 +1248,6 @@ function SceneOneUI({
   uiVisible,
   isMobile,
   isDesktop,
-  navigate,
   onDescend,
   onProgressJump,
 }: {
@@ -1366,7 +1255,6 @@ function SceneOneUI({
   uiVisible: boolean
   isMobile: boolean
   isDesktop: boolean
-  navigate: NavigateFn
   onDescend: () => void
   onProgressJump: (progress: number) => void
 }) {
@@ -1375,30 +1263,6 @@ function SceneOneUI({
     transform: uiVisible ? 'translateY(0)' : 'translateY(18px)',
     transition: 'opacity 0.9s ease, transform 0.9s ease',
   }
-
-  const cards = (
-    <>
-      <FeatureCard
-        image={CARD_IMAGES[0]}
-        label="水晶旅程"
-        desktop={isDesktop}
-        onClick={() => navigate('/series/worlds')}
-      />
-      <FeatureCard
-        image={CARD_IMAGES[1]}
-        label="项目入口"
-        number="6"
-        desktop={isDesktop}
-        onClick={() => navigate('/series/collections')}
-      />
-      <FeatureCard
-        image={CARD_IMAGES[2]}
-        label="月相仪式"
-        desktop={isDesktop}
-        onClick={() => navigate('/series/rituals')}
-      />
-    </>
-  )
 
   return (
     <div
@@ -1426,11 +1290,6 @@ function SceneOneUI({
         >
           <HeroHeading />
           <HeroCopy mobile />
-          <FeatureCard
-            image={CARD_IMAGES[0]}
-            label="水晶旅程"
-            onClick={() => navigate('/series/worlds')}
-          />
         </div>
       ) : !isDesktop ? (
         <div
@@ -1450,7 +1309,6 @@ function SceneOneUI({
         >
           <HeroHeading tablet />
           <HeroCopy tablet />
-          <div style={{ display: 'flex', gap: 14 }}>{cards}</div>
         </div>
       ) : (
         <>
@@ -1469,24 +1327,6 @@ function SceneOneUI({
           >
             <HeroHeading desktop />
             <HeroCopy desktop />
-          </div>
-
-          <div
-            style={{
-              opacity: uiVisible ? opacity : 0,
-              transform: uiVisible
-                ? 'translateY(-50%)'
-                : 'translateY(calc(-50% + 18px))',
-              transition:
-                'opacity 0.9s ease 0.55s, transform 0.9s ease 0.55s',
-              position: 'absolute',
-              right: 40,
-              top: '50%',
-              display: 'flex',
-              gap: 12,
-            }}
-          >
-            {cards}
           </div>
         </>
       )}
@@ -2928,7 +2768,6 @@ function HomePage({
           uiVisible={uiVisible}
           isMobile={isMobile}
           isDesktop={isDesktop}
-          navigate={navigate}
           onDescend={scrollToSceneTwo}
           onProgressJump={scrollToProgress}
         />
