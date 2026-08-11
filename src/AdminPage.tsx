@@ -45,7 +45,7 @@ const initialOrders: AdminOrder[] = [
     id: 'LT-20260807-001',
     customer: 'Mia Chen',
     address: '128 Moonstone Ave, Los Angeles, CA 90026, USA',
-    product: '天蝎守护 · 紫水晶手链',
+    product: '顶轮疗愈 · 白水晶手链',
     channel: '官网',
     amount: 89,
     status: '已付款',
@@ -86,8 +86,8 @@ const initialOrders: AdminOrder[] = [
 const initialProducts: AdminProduct[] = [
   {
     id: 'P-001',
-    name: '天蝎守护 · 紫水晶手链',
-    collection: '星座守护',
+    name: '顶轮疗愈 · 白水晶手链',
+    collection: '脉轮疗愈',
     price: 89,
     stock: 42,
     image:
@@ -127,7 +127,6 @@ const trafficData = [
 ]
 
 const revenueData = [
-  { label: '星座守护', amount: 6240, color: '#bfa8ff' },
   { label: '脉轮疗愈', amount: 4180, color: '#9bd8b6' },
   { label: '月相仪式', amount: 5360, color: '#f3cf78' },
   { label: '水晶护符', amount: 2890, color: '#a9d8ff' },
@@ -929,7 +928,7 @@ function ProductManager({
               onChange={(event) => updateField('collection', event.target.value)}
               style={styles.input}
             >
-              {['星座守护', '脉轮疗愈', '月相仪式', '水晶护符', '月之典籍'].map((item) => (
+              {['脉轮疗愈', '月相仪式', '水晶护符', '月之典籍'].map((item) => (
                 <option key={item}>{item}</option>
               ))}
             </select>

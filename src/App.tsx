@@ -82,6 +82,21 @@ type StoredAdminProduct = {
 
 const ADMIN_PRODUCT_KEY = 'lunar-talisman-admin-products'
 const ADMIN_SEED_PRODUCT_IDS = new Set(['P-001', 'P-002', 'P-003'])
+const REMOVED_ZODIAC_IDS = new Set([
+  'zodiac',
+  'scorpio-amethyst',
+  'aries-carnelian',
+  'taurus-rose-quartz',
+  'gemini-aquamarine',
+  'cancer-moonstone',
+  'leo-citrine',
+  'virgo-amazonite',
+  'libra-rose-quartz',
+  'sagittarius-lapis',
+  'capricorn-garnet',
+  'aquarius-fluorite',
+  'pisces-amethyst',
+])
 
 const PRODUCTS: DetailData[] = [
   {
@@ -311,21 +326,8 @@ const ZODIAC_DETAILS: DetailData[] = [
 ]
 
 const DETAILS: DetailData[] = [
-  ...PRODUCTS,
-  ...ZODIAC_DETAILS,
-  {
-    id: 'zodiac',
-    eyebrow: 'Collection',
-    title: '星座守护系列',
-    desc: '十二星座专属水晶，每颗都由对应脉轮能量加持。',
-    color: '#dcd2f2',
-    image: CARD_IMAGES[0],
-    specs: ['十二星座', '顶轮', '星盘能量', '守护佩戴'],
-    body: [
-      '星座守护系列把星盘元素与水晶频率连接起来，让每个星座都有自己的护符入口。',
-      '适合想从星座特质出发，找到专属水晶的人。',
-    ],
-  },
+  ...PRODUCTS.filter((product) => !REMOVED_ZODIAC_IDS.has(product.id)),
+  ...ZODIAC_DETAILS.filter((detail) => !REMOVED_ZODIAC_IDS.has(detail.id)),
   {
     id: 'chakra',
     eyebrow: 'Collection',
@@ -359,9 +361,9 @@ const DETAILS: DetailData[] = [
     desc: '用三十秒感受你当前最需要平衡的能量中心。',
     color: '#f0e4c0',
     image: CARD_IMAGES[0],
-    specs: ['星座', '颜色直觉', '能量需求', '产品推荐'],
+    specs: ['颜色直觉', '能量需求', '脉轮频率', '产品推荐'],
     body: [
-      '测试入口会从星座、当下需求和颜色直觉三个维度出发。',
+      '测试入口会从当下需求、颜色直觉和脉轮频率三个维度出发。',
       '最终结果会推荐你的守护脉轮和对应水晶。',
     ],
   },
@@ -432,15 +434,17 @@ const DETAILS: DetailData[] = [
   },
 ]
 
-const PRODUCT_TILES: Tile[] = PRODUCTS.map((product) => ({
-  id: product.id,
-  title: product.title.replace(' · ', '\n'),
-  desc: product.desc,
-  color: product.color,
-  image: product.image,
-  eyebrow: product.eyebrow,
-  target: `/detail/${product.id}`,
-}))
+const PRODUCT_TILES: Tile[] = PRODUCTS.filter((product) => !REMOVED_ZODIAC_IDS.has(product.id)).map(
+  (product) => ({
+    id: product.id,
+    title: product.title.replace(' · ', '\n'),
+    desc: product.desc,
+    color: product.color,
+    image: product.image,
+    eyebrow: product.eyebrow,
+    target: `/detail/${product.id}`,
+  }),
+)
 
 const ZODIAC_TILES: Tile[] = [
   {
@@ -623,7 +627,7 @@ const MAIN_PROJECT_TILES: Tile[] = [
   {
     id: 'worlds',
     title: 'WORLDS\n水晶旅程',
-    desc: '从星座、脉轮与月相进入完整能量宇宙。',
+    desc: '从脉轮、月相与水晶护符进入完整能量宇宙。',
     color: '#dcd2f2',
     image: CARD_IMAGES[0],
     eyebrow: 'Worlds',
@@ -659,7 +663,7 @@ const MAIN_PROJECT_TILES: Tile[] = [
   {
     id: 'codex',
     title: 'CODEX\n月之典籍',
-    desc: '水晶、星座、脉轮与月相知识入口。',
+    desc: '水晶、脉轮与月相知识入口。',
     color: '#f0e4c0',
     image: CARD_IMAGES[0],
     eyebrow: 'Codex',
@@ -681,17 +685,9 @@ const SERIES: SeriesPageData[] = [
     id: 'worlds',
     eyebrow: 'Worlds',
     title: '水晶旅程',
-    desc: '从星座、脉轮与月相三个入口进入，找到与你当前频率共振的护符。',
+    desc: '从脉轮、月相与水晶护符入口进入，找到与你当前频率共振的护符。',
     color: '#f3cdd6',
     tiles: [
-      {
-        id: 'zodiac',
-        title: '星座守护',
-        desc: '十二星座专属水晶入口',
-        color: '#dcd2f2',
-        image: CARD_IMAGES[0],
-        target: '/series/zodiac',
-      },
       {
         id: 'chakra',
         title: '脉轮疗愈',
@@ -776,7 +772,7 @@ const SERIES: SeriesPageData[] = [
     id: 'codex',
     eyebrow: 'Codex',
     title: '月之典籍',
-    desc: '水晶、星座、脉轮与月相仪式的知识入口。',
+    desc: '水晶、脉轮与月相仪式的知识入口。',
     color: '#f0e4c0',
     tiles: [
       {
@@ -1612,7 +1608,7 @@ function SceneTwoUI({ opacity }: { opacity: number }) {
           color: 'rgba(255,255,255,0.82)',
         }}
       >
-        星座守护、脉轮疗愈与月相仪式交织成一条旅程；每一件水晶都对应你此刻最需要的频率。
+        脉轮疗愈、月相仪式与水晶护符交织成一条旅程；每一件水晶都对应你此刻最需要的频率。
       </p>
     </section>
   )
@@ -1993,11 +1989,12 @@ function SeriesPage({
   id: string
   navigate: NavigateFn
 }) {
-  const series = SERIES.find((item) => item.id === id) ?? SERIES[0]
+  const series = SERIES.find((item) => item.id === id && item.id !== 'zodiac') ?? SERIES[0]
   const adminProducts = getPublishedAdminProducts()
-  const adminTiles = adminProducts.map(adminProductToTile)
+  const adminTiles = adminProducts
+    .filter((product) => product.collection !== '星座守护')
+    .map(adminProductToTile)
   const collectionMap: Record<string, string> = {
-    zodiac: '星座守护',
     chakra: '脉轮疗愈',
     lunar: '月相仪式',
     crystals: '水晶护符',
@@ -2010,8 +2007,13 @@ function SeriesPage({
           .map(adminProductToTile)
   const displaySeries =
     linkedAdminTiles.length > 0
-      ? { ...series, tiles: [...linkedAdminTiles, ...series.tiles] }
-      : series
+      ? {
+          ...series,
+          tiles: [...linkedAdminTiles, ...series.tiles].filter(
+            (tile) => !REMOVED_ZODIAC_IDS.has(tile.id),
+          ),
+        }
+      : { ...series, tiles: series.tiles.filter((tile) => !REMOVED_ZODIAC_IDS.has(tile.id)) }
   usePageMeta({
     title: `${displaySeries.title.replace(/\n/g, ' ')} | Lunar Talisman`,
     description: displaySeries.desc,
@@ -2101,11 +2103,12 @@ function DetailPage({
   })
   const [orderSubmitting, setOrderSubmitting] = useState(false)
   const adminDetail = getPublishedAdminProducts()
+    .filter((product) => product.collection !== '星座守护')
     .map(adminProductToDetail)
     .find((item) => item.id === id)
   const detail =
     adminDetail ??
-    DETAILS.find((item) => item.id === id) ??
+    DETAILS.find((item) => item.id === id && !REMOVED_ZODIAC_IDS.has(item.id)) ??
     DETAILS.find((item) => item.id === 'chakra-test')!
   usePageMeta({
     title: `${detail.title.replace(/\n/g, ' ')} | Lunar Talisman`,
@@ -2670,7 +2673,7 @@ function HomePage({
 }) {
   usePageMeta({
     title: 'Lunar Talisman · 月之护符',
-    description: '高端七脉轮水晶饰品品牌站，进入一场月光、星座与水晶护符的沉浸式旅程。',
+    description: '高端七脉轮水晶饰品品牌站，进入一场月光、脉轮与水晶护符的沉浸式旅程。',
   })
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
