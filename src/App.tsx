@@ -3419,7 +3419,22 @@ function App() {
     )
   }
 
-  return <HomePage navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
+  return (
+    <>
+      <HomePage navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
+      {cartOpen && (
+        <CartPage
+          navigate={goTo}
+          cart={cart}
+          setCart={setCart}
+          clearCart={clearCart}
+          cartCount={cartCount}
+          drawer
+          onClose={closeCart}
+        />
+      )}
+    </>
+  )
 }
 
 export default App
