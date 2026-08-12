@@ -2653,6 +2653,15 @@ function CartPage({
     }
   }
 
+  useEffect(() => {
+    if (!drawer) return
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onClose?.()
+    }
+    window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [drawer, onClose])
+
   const content = (
       <section
         style={{
@@ -3259,7 +3268,10 @@ function App() {
 
   const closeCart = useCallback(() => {
     setCartOpen(false)
-  }, [])
+    if (window.location.pathname === '/cart') {
+      navigate('/')
+    }
+  }, [navigate])
 
   const goTo = useCallback(
     (path: string) => {
