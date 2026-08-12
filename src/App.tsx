@@ -967,6 +967,261 @@ function getDetailPrice(detail: DetailData) {
   return priceMap[detail.id] ?? 89
 }
 
+function getTileDetail(tile: Tile) {
+  if (!tile.target.startsWith('/detail/')) return null
+  const detailId = tile.target.slice('/detail/'.length)
+  return (
+    getPublishedAdminProducts()
+      .map(adminProductToDetail)
+      .find((detail) => detail.id === detailId) ??
+    DETAILS.find((detail) => detail.id === detailId) ??
+    null
+  )
+}
+
+function getTileAction(tile: Tile) {
+  return tile.target.startsWith('/detail/') ? '查看详情' : '进入系列'
+}
+
+function getTileSpecs(tile: Tile) {
+  const detail = getTileDetail(tile)
+  if (!detail) return []
+  return detail.specs.slice(0, 3)
+}
+
+function getSeriesIdForDetail(detailId: string) {
+  if (CHAKRA_TILES.some((tile) => tile.id === detailId)) return 'chakra'
+  if (
+    ['new-moon-set', 'full-moon-necklace', 'full-moon-ritual'].includes(detailId)
+  ) {
+    return 'lunar'
+  }
+  if (PRODUCT_TILES.some((tile) => tile.id === detailId)) return 'crystals'
+  return 'crystals'
+}
+
+function SeriesListingGrid({
+  title,
+  subtitle,
+  tiles,
+  navigate,
+}: {
+  title: string
+  subtitle: string
+  tiles: Tile[]
+  navigate: NavigateFn
+}) {
+  return (
+    <section style={{ marginTop: 44 }}>
+      <div style={{ marginBottom: 18 }}>
+        <p
+          style={{
+            margin: 0,
+            fontSize: 12,
+            letterSpacing: '0.24em',
+            textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.52)',
+          }}
+        >
+          {subtitle}
+        </p>
+        <h2
+          style={{
+            margin: '10px 0 0',
+            fontFamily: "'Viaoda Libre', serif",
+            fontSize: 'clamp(34px, 4.2vw, 60px)',
+            lineHeight: 1,
+            color: '#fff',
+          }}
+        >
+          {title}
+        </h2>
+      </div>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: 18,
+        }}
+      >
+        {tiles.map((tile) => {
+          const detail = getTileDetail(tile)
+          const action = getTileAction(tile)
+          const specs = getTileSpecs(tile)
+
+          return (
+            <button
+              key={tile.id}
+              type="button"
+              onClick={() => navigate(tile.target)}
+              style={{
+                border: '1px solid rgba(255,255,255,0.28)',
+                borderRadius: 28,
+                overflow: 'hidden',
+                padding: 0,
+                textAlign: 'left',
+                background: 'rgba(255,255,255,0.56)',
+                color: '#3a2530',
+                boxShadow: '0 22px 70px rgba(60,33,80,0.12)',
+                backdropFilter: 'blur(18px)',
+                WebkitBackdropFilter: 'blur(18px)',
+                cursor: 'pointer',
+                transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+              }}
+            >
+              <div
+                style={{
+                  position: 'relative',
+                  aspectRatio: '4 / 5',
+                  backgroundColor: tile.color,
+                  backgroundImage: tile.image ? `url(${tile.image})` : undefined,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }}
+              >
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    background:
+                      'linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(20,12,18,0.18) 100%)',
+                  }}
+                />
+                <span
+                  style={{
+                    position: 'absolute',
+                    top: 14,
+                    left: 14,
+                    padding: '7px 11px',
+                    borderRadius: 999,
+                    background: 'rgba(255,255,255,0.28)',
+                    border: '1px solid rgba(255,255,255,0.32)',
+                    color: '#fff',
+                    fontSize: 11,
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    backdropFilter: 'blur(12px)',
+                  }}
+                >
+                  {tile.eyebrow}
+                </span>
+                {detail ? (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      right: 14,
+                      top: 14,
+                      padding: '7px 11px',
+                      borderRadius: 999,
+                      background: 'rgba(255,255,255,0.88)',
+                      color: '#3a2530',
+                      fontSize: 11,
+                      fontWeight: 900,
+                      letterSpacing: '0.08em',
+                    }}
+                  >
+                    {formatProductPrice(getDetailPrice(detail))}
+                  </span>
+                ) : null}
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 14,
+                    right: 14,
+                    bottom: 14,
+                    padding: 14,
+                    borderRadius: 22,
+                    background: 'rgba(255,255,255,0.18)',
+                    border: '1px solid rgba(255,255,255,0.22)',
+                    color: '#fff',
+                    backdropFilter: 'blur(12px)',
+                  }}
+                >
+                  <h3
+                    style={{
+                      margin: 0,
+                      fontFamily: "'Viaoda Libre', serif",
+                      fontSize: 28,
+                      lineHeight: 0.96,
+                      whiteSpace: 'pre-line',
+                    }}
+                  >
+                    {tile.title}
+                  </h3>
+                </div>
+              </div>
+
+              <div style={{ padding: 18 }}>
+                <p
+                  style={{
+                    margin: 0,
+                    color: 'rgba(58,37,48,0.64)',
+                    lineHeight: 1.65,
+                    fontSize: 15,
+                  }}
+                >
+                  {tile.desc}
+                </p>
+
+                {specs.length ? (
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexWrap: 'wrap',
+                      gap: 8,
+                      marginTop: 14,
+                    }}
+                  >
+                    {specs.map((spec) => (
+                      <span
+                        key={spec}
+                        style={{
+                          border: '1px solid rgba(58,37,48,0.12)',
+                          borderRadius: 999,
+                          padding: '7px 11px',
+                          fontSize: 12,
+                          color: 'rgba(58,37,48,0.72)',
+                        }}
+                      >
+                        {spec}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+
+                <div
+                  style={{
+                    marginTop: 16,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    gap: 12,
+                    borderTop: '1px solid rgba(58,37,48,0.1)',
+                    paddingTop: 14,
+                  }}
+                >
+                  <span
+                    style={{
+                      fontSize: 12,
+                      letterSpacing: '0.14em',
+                      textTransform: 'uppercase',
+                      color: 'rgba(58,37,48,0.52)',
+                    }}
+                  >
+                    {action}
+                  </span>
+                  <span style={{ fontWeight: 900, color: '#3a2530' }}>→</span>
+                </div>
+              </div>
+            </button>
+          )
+        })}
+      </div>
+    </section>
+  )
+}
+
 function routeFromPath(): Route {
   const [page, id] = window.location.pathname.split('/').filter(Boolean)
 
@@ -2038,6 +2293,20 @@ function SeriesPage({
         </p>
 
         <SeriesArcCarousel tiles={displaySeries.tiles} navigate={navigate} />
+        <SeriesListingGrid
+          title={
+            id === 'crystals'
+              ? '找到与你共振的护符'
+              : id === 'chakra'
+                ? '按能量中心选择'
+                : id === 'lunar'
+                  ? '跟随月相选择'
+                  : '继续探索这个系列'
+          }
+          subtitle={`${displaySeries.eyebrow} · Collection`}
+          tiles={displaySeries.tiles}
+          navigate={navigate}
+        />
       </section>
     </AtmosphericShell>
   )
@@ -2070,6 +2339,12 @@ function DetailPage({
     description: detail.desc,
   })
   const detailPrice = getDetailPrice(detail)
+  const detailSeriesId = getSeriesIdForDetail(detail.id)
+  const relatedTiles = (
+    SERIES.find((item) => item.id === detailSeriesId)?.tiles ?? PRODUCT_TILES
+  )
+    .filter((tile) => tile.id !== detail.id && !REMOVED_ZODIAC_IDS.has(tile.id))
+    .slice(0, 4)
   const handleAddToCart = () => {
     addToCart(detailToCartLine(detail))
     setCartNotice('已加入购物车。可以继续浏览，也可以前往结账填写物流和留言。')
@@ -2142,7 +2417,7 @@ function DetailPage({
         >
           <button
             type="button"
-            onClick={() => navigate('/series/worlds')}
+            onClick={() => navigate(`/series/${detailSeriesId}`)}
             style={{
               border: '1px solid rgba(58,37,48,0.22)',
               borderRadius: 999,
@@ -2319,6 +2594,19 @@ function DetailPage({
           </div>
         </div>
       </article>
+      <div
+        style={{
+          width: 'min(1120px, calc(100% - 40px))',
+          margin: '-52px auto 96px',
+        }}
+      >
+        <SeriesListingGrid
+          title="继续探索同频护符"
+          subtitle={`${detail.eyebrow} · Related`}
+          tiles={relatedTiles.length ? relatedTiles : PRODUCT_TILES.slice(0, 4)}
+          navigate={navigate}
+        />
+      </div>
     </AtmosphericShell>
   )
 }
