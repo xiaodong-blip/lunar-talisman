@@ -1,6 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties, FormEvent, ReactNode, WheelEvent } from 'react'
-import { Minus, Plus, ShoppingBag, Trash2, Truck, MessageSquare, Mail, Phone, MapPin } from 'lucide-react'
+import {
+  Minus,
+  Plus,
+  ShoppingBag,
+  Trash2,
+  Truck,
+  MessageSquare,
+  Mail,
+  Phone,
+  MapPin,
+  X,
+} from 'lucide-react'
 import AdminPage from './AdminPage'
 import { usePageMeta } from './hooks/usePageMeta'
 import { trackPageView } from './services/analytics'
@@ -1147,9 +1158,11 @@ function PortalImage({
 function Navigation({
   navigate,
   cartCount = 0,
+  onOpenCart,
 }: {
   navigate: NavigateFn
   cartCount?: number
+  onOpenCart?: () => void
 }) {
   const navStyle: CSSProperties = {
     fontFamily: "'Imprima', sans-serif",
@@ -1172,7 +1185,7 @@ function Navigation({
   const cartButton = (
     <button
       type="button"
-      onClick={() => navigate('/cart')}
+      onClick={() => (onOpenCart ? onOpenCart() : navigate('/cart'))}
       aria-label={`购物车，共 ${cartCount} 件商品`}
       style={{
         ...navStyle,
@@ -1709,10 +1722,12 @@ function AtmosphericShell({
   navigate,
   children,
   cartCount = 0,
+  onOpenCart,
 }: {
   navigate: NavigateFn
   children: ReactNode
   cartCount?: number
+  onOpenCart?: () => void
 }) {
   const mouse = useMouseParallax()
   const mx = mouse.x
@@ -1765,7 +1780,7 @@ function AtmosphericShell({
           style={{ display: 'block', width: '100%', height: 'auto' }}
         />
       </div>
-      <Navigation navigate={navigate} cartCount={cartCount} />
+      <Navigation navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart} />
       <div style={{ position: 'relative', zIndex: 10 }}>{children}</div>
     </main>
   )
@@ -1923,10 +1938,12 @@ function SeriesPage({
   id,
   navigate,
   cartCount,
+  onOpenCart,
 }: {
   id: string
   navigate: NavigateFn
   cartCount: number
+  onOpenCart?: () => void
 }) {
   const series = SERIES.find((item) => item.id === id && item.id !== 'zodiac') ?? SERIES[0]
   const adminProducts = getPublishedAdminProducts()
@@ -1959,7 +1976,7 @@ function SeriesPage({
   })
 
   return (
-    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
+    <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
       <section
         style={{
           width: 'min(1180px, calc(100% - 40px))',
@@ -2031,11 +2048,13 @@ function DetailPage({
   navigate,
   addToCart,
   cartCount,
+  onOpenCart,
 }: {
   id: string
   navigate: NavigateFn
   addToCart: (item: CartLine) => void
   cartCount: number
+  onOpenCart?: () => void
 }) {
   const [cartNotice, setCartNotice] = useState('')
   const adminDetail = getPublishedAdminProducts()
@@ -2057,7 +2076,7 @@ function DetailPage({
   }
 
   return (
-    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
+    <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
       <article
         style={{
           width: 'min(1120px, calc(100% - 40px))',
@@ -2267,7 +2286,7 @@ function DetailPage({
                 type="button"
                 onClick={() => {
                   handleAddToCart()
-                  navigate('/cart')
+                  onOpenCart?.()
                 }}
                 style={{
                   border: '1px solid rgba(58,37,48,0.2)',
@@ -2414,10 +2433,12 @@ function LegalPage({
   id,
   navigate,
   cartCount,
+  onOpenCart,
 }: {
   id: 'privacy' | 'terms' | 'shipping' | 'refund' | 'contact'
   navigate: NavigateFn
   cartCount: number
+  onOpenCart?: () => void
 }) {
   const page = LEGAL_PAGES[id]
   usePageMeta({
@@ -2426,7 +2447,7 @@ function LegalPage({
   })
 
   return (
-    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
+    <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
       <section
         style={{
           width: 'min(960px, calc(100% - 40px))',
@@ -2520,12 +2541,16 @@ function CartPage({
   setCart,
   clearCart,
   cartCount,
+  drawer = false,
+  onClose,
 }: {
   navigate: NavigateFn
   cart: CartLine[]
   setCart: (items: CartLine[]) => void
   clearCart: () => void
   cartCount: number
+  drawer?: boolean
+  onClose?: () => void
 }) {
   usePageMeta({
     title: '购物车 | Lunar Talisman',
@@ -2628,18 +2653,17 @@ function CartPage({
     }
   }
 
-  return (
-    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
+  const content = (
       <section
         style={{
-          width: 'min(1180px, calc(100% - 40px))',
-          margin: '0 auto',
-          padding: '128px 0 96px',
-          display: 'grid',
+          width: drawer ? '100%' : 'min(1180px, calc(100% - 40px))',
+          margin: drawer ? 0 : '0 auto',
+          padding: drawer ? '0 0 28px' : '128px 0 96px',
+          display: drawer ? 'block' : 'grid',
           gridTemplateColumns: 'minmax(0, 1.2fr) minmax(320px, 0.8fr)',
           gap: 28,
         }}
-        className="max-[980px]:!grid-cols-1"
+        className={drawer ? '' : 'max-[980px]:!grid-cols-1'}
       >
         <div
           style={{
@@ -2823,8 +2847,102 @@ function CartPage({
           </form>
         </aside>
       </section>
-    </AtmosphericShell>
   )
+
+  if (drawer) {
+    return (
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="购物车抽屉"
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 120,
+          background:
+            'linear-gradient(90deg, rgba(12,8,14,0.08), rgba(48,30,62,0.28))',
+          backdropFilter: 'blur(6px) saturate(1.08)',
+        }}
+        onMouseDown={(event) => {
+          if (event.target === event.currentTarget) onClose?.()
+        }}
+      >
+        <aside
+          style={{
+            marginLeft: 'auto',
+            height: '100%',
+            width: 'min(520px, 100%)',
+            overflowY: 'auto',
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.9), rgba(236,231,251,0.84) 46%, rgba(255,245,255,0.88))',
+            borderLeft: '1px solid rgba(255,255,255,0.52)',
+            boxShadow: '-24px 0 90px rgba(70,42,92,0.24)',
+            padding: '28px 24px 24px',
+            color: '#3a2530',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: 16,
+              marginBottom: 20,
+            }}
+          >
+            <div>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: 11,
+                  letterSpacing: '0.24em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(58,37,48,0.48)',
+                }}
+              >
+                Checkout
+              </p>
+              <h2
+                style={{
+                  margin: '8px 0 0',
+                  fontFamily: "'Viaoda Libre', serif",
+                  fontSize: 34,
+                  lineHeight: 1,
+                  color: '#3a2530',
+                }}
+              >
+                购物车
+              </h2>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              aria-label="关闭购物车"
+              style={{
+                width: 42,
+                height: 42,
+                borderRadius: 14,
+                border: '1px solid rgba(58,37,48,0.12)',
+                background: 'rgba(255,255,255,0.48)',
+                color: '#3a2530',
+                display: 'grid',
+                placeItems: 'center',
+                cursor: 'pointer',
+              }}
+            >
+              <X size={18} />
+            </button>
+          </div>
+          <div style={{ color: 'rgba(58,37,48,0.58)', fontSize: 13, lineHeight: 1.6, marginBottom: 18 }}>
+            在当前页面右侧完成购物车、物流与留言，不跳转到单独页面。
+          </div>
+          {content}
+        </aside>
+      </div>
+    )
+  }
+
+  return <AtmosphericShell navigate={navigate} cartCount={cartCount}>{content}</AtmosphericShell>
 }
 
 const formFieldStyle: CSSProperties = {
@@ -2856,9 +2974,11 @@ function Row({
 function HomePage({
   navigate,
   cartCount,
+  onOpenCart,
 }: {
   navigate: NavigateFn
   cartCount: number
+  onOpenCart?: () => void
 }) {
   usePageMeta({
     title: 'Lunar Talisman · 月之护符',
@@ -3111,7 +3231,7 @@ function HomePage({
           }}
         />
 
-        <Navigation navigate={navigate} cartCount={cartCount} />
+        <Navigation navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart} />
         <SceneOneUI
           opacity={values.scene1Opacity}
           uiVisible={uiVisible}
@@ -3130,7 +3250,29 @@ function App() {
   const { route, navigate } = useRoute()
   const [, refreshAdminProducts] = useState(0)
   const [cart, setCartState] = useState<CartLine[]>(() => readCartLines())
+  const [cartOpen, setCartOpen] = useState(route.page === 'cart')
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0)
+
+  const openCart = useCallback(() => {
+    setCartOpen(true)
+  }, [])
+
+  const closeCart = useCallback(() => {
+    setCartOpen(false)
+  }, [])
+
+  const goTo = useCallback(
+    (path: string) => {
+      if (path === '/cart') {
+        setCartOpen(true)
+        return
+      }
+
+      setCartOpen(false)
+      navigate(path)
+    },
+    [navigate],
+  )
 
   const setCart = useCallback((items: CartLine[]) => {
     setCartState(items)
@@ -3177,29 +3319,68 @@ function App() {
   }, [])
 
   if (route.page === 'series') {
-    return <SeriesPage id={route.id} navigate={navigate} cartCount={cartCount} />
+    return (
+      <>
+        <SeriesPage
+          id={route.id}
+          navigate={goTo}
+          cartCount={cartCount}
+          onOpenCart={openCart}
+        />
+        {cartOpen && (
+          <CartPage
+            navigate={goTo}
+            cart={cart}
+            setCart={setCart}
+            clearCart={clearCart}
+            cartCount={cartCount}
+            drawer
+            onClose={closeCart}
+          />
+        )}
+      </>
+    )
   }
 
   if (route.page === 'detail') {
     return (
-      <DetailPage
-        id={route.id}
-        navigate={navigate}
-        addToCart={addToCart}
-        cartCount={cartCount}
-      />
+      <>
+        <DetailPage
+          id={route.id}
+          navigate={goTo}
+          addToCart={addToCart}
+          cartCount={cartCount}
+          onOpenCart={openCart}
+        />
+        {cartOpen && (
+          <CartPage
+            navigate={goTo}
+            cart={cart}
+            setCart={setCart}
+            clearCart={clearCart}
+            cartCount={cartCount}
+            drawer
+            onClose={closeCart}
+          />
+        )}
+      </>
     )
   }
 
   if (route.page === 'cart') {
     return (
-      <CartPage
-        navigate={navigate}
-        cart={cart}
-        setCart={setCart}
-        clearCart={clearCart}
-        cartCount={cartCount}
-      />
+      <>
+        <HomePage navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
+        <CartPage
+          navigate={goTo}
+          cart={cart}
+          setCart={setCart}
+          clearCart={clearCart}
+          cartCount={cartCount}
+          drawer
+          onClose={closeCart}
+        />
+      </>
     )
   }
 
@@ -3208,10 +3389,25 @@ function App() {
   }
 
   if (route.page === 'legal') {
-    return <LegalPage id={route.id} navigate={navigate} cartCount={cartCount} />
+    return (
+      <>
+        <LegalPage id={route.id} navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
+        {cartOpen && (
+          <CartPage
+            navigate={goTo}
+            cart={cart}
+            setCart={setCart}
+            clearCart={clearCart}
+            cartCount={cartCount}
+            drawer
+            onClose={closeCart}
+          />
+        )}
+      </>
+    )
   }
 
-  return <HomePage navigate={navigate} cartCount={cartCount} />
+  return <HomePage navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
 }
 
 export default App
