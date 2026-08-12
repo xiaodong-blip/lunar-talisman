@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+﻿import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties, FormEvent, ReactNode, WheelEvent } from 'react'
 import {
   Minus,
@@ -998,6 +998,236 @@ function getSeriesIdForDetail(detailId: string) {
   }
   if (PRODUCT_TILES.some((tile) => tile.id === detailId)) return 'crystals'
   return 'crystals'
+}
+
+function getSeriesListTitle(id: string) {
+  if (id === 'crystals') return '全部护符'
+  if (id === 'chakra') return '七脉轮护符'
+  if (id === 'lunar' || id === 'rituals') return '月相仪式商品'
+  if (id === 'codex') return '知识与测试入口'
+  if (id === 'connect') return '连接入口'
+  if (id === 'worlds') return '探索路径'
+  return '系列项目'
+}
+
+function SeriesFeaturePanel({
+  series,
+  tiles,
+  navigate,
+}: {
+  series: SeriesPageData
+  tiles: Tile[]
+  navigate: NavigateFn
+}) {
+  const featured = tiles[0]
+  const featuredDetail = featured ? getTileDetail(featured) : null
+
+  return (
+    <section
+      style={{
+        marginTop: 34,
+        display: 'grid',
+        gridTemplateColumns: 'minmax(0, 0.95fr) minmax(320px, 1.05fr)',
+        gap: 24,
+        alignItems: 'stretch',
+      }}
+      className="max-[900px]:!grid-cols-1"
+    >
+      <button
+        type="button"
+        onClick={() => featured && navigate(featured.target)}
+        style={{
+          minHeight: 520,
+          border: '1px solid rgba(255,255,255,0.26)',
+          borderRadius: 36,
+          padding: 0,
+          overflow: 'hidden',
+          position: 'relative',
+          backgroundColor: featured?.color ?? series.color,
+          backgroundImage: featured?.image ? `url(${featured.image})` : undefined,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          boxShadow: '0 30px 90px rgba(38,20,55,0.28)',
+          cursor: featured ? 'pointer' : 'default',
+          textAlign: 'left',
+        }}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(180deg, rgba(255,255,255,0.08), rgba(16,8,18,0.42))',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            left: 24,
+            right: 24,
+            bottom: 24,
+            color: '#fff',
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+              fontSize: 12,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              opacity: 0.78,
+            }}
+          >
+            Featured
+          </p>
+          <h2
+            style={{
+              margin: '10px 0 0',
+              fontFamily: "'Viaoda Libre', serif",
+              fontSize: 'clamp(42px, 6vw, 76px)',
+              lineHeight: 0.9,
+              whiteSpace: 'pre-line',
+              textShadow: '0 2px 24px rgba(0,0,0,0.35)',
+            }}
+          >
+            {featured?.title ?? series.title}
+          </h2>
+          <div
+            style={{
+              marginTop: 18,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              border: '1px solid rgba(255,255,255,0.32)',
+              borderRadius: 999,
+              padding: '12px 18px',
+              background: 'rgba(255,255,255,0.14)',
+              backdropFilter: 'blur(14px)',
+              fontSize: 13,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+            }}
+          >
+            {featuredDetail ? formatProductPrice(getDetailPrice(featuredDetail)) : 'Enter'}
+            <span>→</span>
+          </div>
+        </div>
+      </button>
+
+      <div
+        style={{
+          borderRadius: 36,
+          background:
+            'linear-gradient(135deg, rgba(255,255,255,0.84), rgba(236,231,251,0.72))',
+          border: '1px solid rgba(255,255,255,0.34)',
+          boxShadow: '0 30px 90px rgba(38,20,55,0.2)',
+          padding: 'clamp(28px, 4vw, 46px)',
+          color: '#3a2530',
+          backdropFilter: 'blur(18px)',
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 12,
+            letterSpacing: '0.26em',
+            textTransform: 'uppercase',
+            color: 'rgba(58,37,48,0.5)',
+          }}
+        >
+          {series.eyebrow} Collection
+        </p>
+        <h1
+          style={{
+            margin: '16px 0 0',
+            fontFamily: "'Viaoda Libre', serif",
+            fontSize: 'clamp(52px, 7vw, 92px)',
+            lineHeight: 0.9,
+            whiteSpace: 'pre-line',
+          }}
+        >
+          {series.title}
+        </h1>
+        <p
+          style={{
+            margin: '22px 0 0',
+            maxWidth: 560,
+            fontSize: 18,
+            lineHeight: 1.72,
+            color: 'rgba(58,37,48,0.66)',
+          }}
+        >
+          {series.desc}
+        </p>
+        <div
+          style={{
+            marginTop: 28,
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+            gap: 12,
+          }}
+          className="max-[560px]:!grid-cols-1"
+        >
+          {[
+            ['ITEMS', `${tiles.length}`],
+            ['STYLE', featuredDetail ? 'Product' : 'Portal'],
+            ['MOOD', 'Crystal'],
+          ].map(([label, value]) => (
+            <div
+              key={label}
+              style={{
+                borderRadius: 20,
+                border: '1px solid rgba(58,37,48,0.1)',
+                background: 'rgba(255,255,255,0.48)',
+                padding: 16,
+              }}
+            >
+              <div
+                style={{
+                  fontSize: 11,
+                  letterSpacing: '0.18em',
+                  textTransform: 'uppercase',
+                  color: 'rgba(58,37,48,0.44)',
+                }}
+              >
+                {label}
+              </div>
+              <div style={{ marginTop: 8, fontSize: 24, fontWeight: 900 }}>{value}</div>
+            </div>
+          ))}
+        </div>
+        <div
+          style={{
+            marginTop: 30,
+            borderTop: '1px solid rgba(58,37,48,0.12)',
+            paddingTop: 20,
+            display: 'flex',
+            gap: 10,
+            flexWrap: 'wrap',
+          }}
+        >
+          {tiles.slice(0, 4).map((tile) => (
+            <button
+              key={tile.id}
+              type="button"
+              onClick={() => navigate(tile.target)}
+              style={{
+                border: '1px solid rgba(58,37,48,0.14)',
+                borderRadius: 999,
+                background: 'rgba(255,255,255,0.44)',
+                color: 'rgba(58,37,48,0.66)',
+                padding: '9px 12px',
+                fontSize: 12,
+                cursor: 'pointer',
+              }}
+            >
+              {tile.title.replace(/\n/g, ' · ')}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }
 
 function SeriesListingGrid({
@@ -2041,154 +2271,6 @@ function AtmosphericShell({
   )
 }
 
-function SeriesArcCarousel({
-  tiles,
-  navigate,
-}: {
-  tiles: Tile[]
-  navigate: NavigateFn
-}) {
-  const { isMobile } = useViewportMode()
-  const initialIndex = Math.floor(tiles.length / 2)
-  const [activeIndex, setActiveIndex] = useState(initialIndex)
-  const wheelLockRef = useRef(0)
-
-  useEffect(() => {
-    setActiveIndex(Math.floor(tiles.length / 2))
-  }, [tiles.length])
-
-  const goTo = useCallback(
-    (index: number) => {
-      if (!tiles.length) return
-      setActiveIndex((index + tiles.length) % tiles.length)
-    },
-    [tiles.length],
-  )
-
-  const rotate = useCallback(
-    (direction: 1 | -1) => {
-      setActiveIndex((current) => {
-        if (!tiles.length) return current
-        return (current + direction + tiles.length) % tiles.length
-      })
-    },
-    [tiles.length],
-  )
-
-  const handleWheel = useCallback(
-    (event: WheelEvent<HTMLDivElement>) => {
-      const now = Date.now()
-      if (now - wheelLockRef.current < 420 || Math.abs(event.deltaY) < 12) {
-        return
-      }
-
-      event.preventDefault()
-      wheelLockRef.current = now
-      rotate(event.deltaY > 0 ? 1 : -1)
-    },
-    [rotate],
-  )
-
-  return (
-    <div
-      onWheel={handleWheel}
-      style={{
-        position: 'relative',
-        width: '100vw',
-        marginLeft: 'calc(50% - 50vw)',
-        marginRight: 'calc(50% - 50vw)',
-        marginTop: 10,
-        minHeight: isMobile ? 360 : 520,
-        overflow: 'hidden',
-      }}
-    >
-      <ArcCardSlider
-        cards={tiles}
-        rotationOffset={0}
-        isMobile={isMobile}
-        opacity={1}
-        navigate={navigate}
-        animated
-        focusIndex={activeIndex}
-      />
-
-      <div
-        style={{
-          position: 'absolute',
-          left: '50%',
-          bottom: isMobile ? 12 : 26,
-          translate: '-50% 0',
-          zIndex: 60,
-          display: 'flex',
-          alignItems: 'center',
-          gap: 14,
-          padding: '8px 12px',
-          borderRadius: 999,
-          border: '1px solid rgba(255,255,255,0.18)',
-          background: 'rgba(255,255,255,0.08)',
-          backdropFilter: 'blur(14px)',
-          WebkitBackdropFilter: 'blur(14px)',
-        }}
-      >
-        <button
-          type="button"
-          aria-label="上一张"
-          onClick={() => rotate(-1)}
-          style={{
-            width: 32,
-            height: 32,
-            borderRadius: 999,
-            border: '1px solid rgba(255,255,255,0.2)',
-            background: 'rgba(255,255,255,0.1)',
-            color: '#fff',
-            cursor: 'pointer',
-          }}
-        >
-          ‹
-        </button>
-        <div style={{ display: 'flex', gap: 7 }}>
-          {tiles.map((tile, index) => (
-            <button
-              key={tile.id}
-              type="button"
-              aria-label={`切换到 ${tile.title.replace(/\n/g, '')}`}
-              onClick={() => goTo(index)}
-              style={{
-                width: index === activeIndex ? 22 : 7,
-                height: 7,
-                borderRadius: 999,
-                border: 0,
-                background:
-                  index === activeIndex
-                    ? 'rgba(255,255,255,0.9)'
-                    : 'rgba(255,255,255,0.34)',
-                cursor: 'pointer',
-                transition: 'width 0.28s ease, background 0.28s ease',
-              }}
-            />
-          ))}
-        </div>
-        <button
-          type="button"
-          aria-label="下一张"
-          onClick={() => rotate(1)}
-          style={{
-            width: 32,
-            height: 32,
-            borderRadius: 999,
-            border: '1px solid rgba(255,255,255,0.2)',
-            background: 'rgba(255,255,255,0.1)',
-            color: '#fff',
-            cursor: 'pointer',
-          }}
-        >
-          ›
-        </button>
-      </div>
-    </div>
-  )
-}
-
 function SeriesPage({
   id,
   navigate,
@@ -2256,53 +2338,13 @@ function SeriesPage({
           ← Back to portal
         </button>
 
-        <p
-          style={{
-            margin: '44px 0 0',
-            fontSize: 13,
-            letterSpacing: '0.28em',
-            textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.55)',
-          }}
-        >
-          {displaySeries.eyebrow}
-        </p>
-        <h1
-          style={{
-            margin: '14px 0 0',
-            maxWidth: 760,
-            fontFamily: "'Viaoda Libre', serif",
-            fontSize: 'clamp(58px, 9vw, 118px)',
-            lineHeight: 0.92,
-            color: '#fff',
-            textShadow: '0 2px 24px rgba(0,0,0,0.45)',
-          }}
-        >
-          {displaySeries.title}
-        </h1>
-        <p
-          style={{
-            margin: '22px 0 0',
-            maxWidth: 620,
-            fontSize: 19,
-            lineHeight: 1.7,
-            color: 'rgba(255,255,255,0.72)',
-          }}
-        >
-          {displaySeries.desc}
-        </p>
-
-        <SeriesArcCarousel tiles={displaySeries.tiles} navigate={navigate} />
+        <SeriesFeaturePanel
+          series={displaySeries}
+          tiles={displaySeries.tiles}
+          navigate={navigate}
+        />
         <SeriesListingGrid
-          title={
-            id === 'crystals'
-              ? '找到与你共振的护符'
-              : id === 'chakra'
-                ? '按能量中心选择'
-                : id === 'lunar'
-                  ? '跟随月相选择'
-                  : '继续探索这个系列'
-          }
+          title={getSeriesListTitle(id)}
           subtitle={`${displaySeries.eyebrow} · Collection`}
           tiles={displaySeries.tiles}
           navigate={navigate}
