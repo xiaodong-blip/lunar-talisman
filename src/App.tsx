@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties, FormEvent, ReactNode, WheelEvent } from 'react'
+import { Minus, Plus, ShoppingBag, Trash2, Truck, MessageSquare, Mail, Phone, MapPin } from 'lucide-react'
 import AdminPage from './AdminPage'
 import { usePageMeta } from './hooks/usePageMeta'
 import { trackPageView } from './services/analytics'
@@ -37,6 +38,7 @@ type Route =
   | { page: 'home' }
   | { page: 'series'; id: string }
   | { page: 'detail'; id: string }
+  | { page: 'cart' }
   | { page: 'admin' }
   | { page: 'legal'; id: 'privacy' | 'terms' | 'shipping' | 'refund' | 'contact' }
 
@@ -70,6 +72,16 @@ type DetailData = {
   body: string[]
 }
 
+type CartLine = {
+  id: string
+  name: string
+  price: number
+  quantity: number
+  image?: string
+  color: string
+  eyebrow: string
+}
+
 type StoredAdminProduct = {
   id: string
   name: string
@@ -81,6 +93,7 @@ type StoredAdminProduct = {
 }
 
 const ADMIN_PRODUCT_KEY = 'lunar-talisman-admin-products'
+const CART_KEY = 'lunar-talisman-cart'
 const ADMIN_SEED_PRODUCT_IDS = new Set(['P-001', 'P-002', 'P-003'])
 const REMOVED_ZODIAC_IDS = new Set([
   'zodiac',
@@ -858,6 +871,40 @@ function getPublishedAdminProducts() {
   return readAdminProducts().filter((product) => !ADMIN_SEED_PRODUCT_IDS.has(product.id))
 }
 
+function readCartLines() {
+  try {
+    const raw = window.localStorage.getItem(CART_KEY)
+    if (!raw) return []
+    const parsed = JSON.parse(raw) as CartLine[]
+    if (!Array.isArray(parsed)) return []
+    return parsed
+      .filter((item) => item && item.id && item.name && Number(item.quantity) > 0)
+      .map((item) => ({
+        ...item,
+        price: Number(item.price) || 0,
+        quantity: Math.max(1, Math.floor(Number(item.quantity) || 1)),
+      }))
+  } catch {
+    return []
+  }
+}
+
+function saveCartLines(items: CartLine[]) {
+  window.localStorage.setItem(CART_KEY, JSON.stringify(items))
+}
+
+function detailToCartLine(detail: DetailData): CartLine {
+  return {
+    id: detail.id,
+    name: detail.title.replace(/\n/g, ' '),
+    price: getDetailPrice(detail),
+    quantity: 1,
+    image: detail.image,
+    color: detail.color,
+    eyebrow: detail.eyebrow,
+  }
+}
+
 function adminProductToTile(product: StoredAdminProduct): Tile {
   return {
     id: `admin-${product.id}`,
@@ -914,6 +961,7 @@ function routeFromPath(): Route {
 
   if (page === 'series' && id) return { page: 'series', id }
   if (page === 'detail' && id) return { page: 'detail', id }
+  if (page === 'cart') return { page: 'cart' }
   if (page === 'admin') return { page: 'admin' }
   if (
     page === 'privacy' ||
@@ -1096,7 +1144,13 @@ function PortalImage({
   )
 }
 
-function Navigation({ navigate }: { navigate: NavigateFn }) {
+function Navigation({
+  navigate,
+  cartCount = 0,
+}: {
+  navigate: NavigateFn
+  cartCount?: number
+}) {
   const navStyle: CSSProperties = {
     fontFamily: "'Imprima', sans-serif",
     fontSize: 12,
@@ -1113,6 +1167,46 @@ function Navigation({ navigate }: { navigate: NavigateFn }) {
   const navButton = (label: string, path: string) => (
     <button key={label} type="button" onClick={() => navigate(path)} style={navStyle}>
       {label}
+    </button>
+  )
+  const cartButton = (
+    <button
+      type="button"
+      onClick={() => navigate('/cart')}
+      aria-label={`购物车，共 ${cartCount} 件商品`}
+      style={{
+        ...navStyle,
+        position: 'relative',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: 8,
+        border: '1px solid rgba(255,255,255,0.18)',
+        borderRadius: 999,
+        padding: '8px 12px',
+        background: 'rgba(255,255,255,0.08)',
+        backdropFilter: 'blur(12px)',
+      }}
+    >
+      <span style={{ fontSize: 15, lineHeight: 1 }}>◐</span>
+      <span className="hidden lg:inline">Cart</span>
+      {cartCount > 0 ? (
+        <span
+          style={{
+            minWidth: 18,
+            height: 18,
+            borderRadius: 999,
+            display: 'grid',
+            placeItems: 'center',
+            background: '#f0e4c0',
+            color: '#3a2530',
+            fontSize: 10,
+            fontWeight: 900,
+            letterSpacing: 0,
+          }}
+        >
+          {cartCount > 99 ? '99+' : cartCount}
+        </span>
+      ) : null}
     </button>
   )
 
@@ -1134,7 +1228,7 @@ function Navigation({ navigate }: { navigate: NavigateFn }) {
         <button type="button" onClick={() => navigate('/')} style={navStyle}>
           <StarLogo />
         </button>
-        {navButton('Connect', '/series/connect')}
+        {cartButton}
       </div>
 
       <div className="hidden w-full items-center justify-between md:flex">
@@ -1150,6 +1244,7 @@ function Navigation({ navigate }: { navigate: NavigateFn }) {
           {navButton('Crystals', '/series/crystals')}
           {navButton('Codex', '/series/codex')}
           {navButton('Connect', '/series/connect')}
+          {cartButton}
         </div>
       </div>
     </nav>
@@ -1613,9 +1708,11 @@ function ArcCardSlider({
 function AtmosphericShell({
   navigate,
   children,
+  cartCount = 0,
 }: {
   navigate: NavigateFn
   children: ReactNode
+  cartCount?: number
 }) {
   const mouse = useMouseParallax()
   const mx = mouse.x
@@ -1668,7 +1765,7 @@ function AtmosphericShell({
           style={{ display: 'block', width: '100%', height: 'auto' }}
         />
       </div>
-      <Navigation navigate={navigate} />
+      <Navigation navigate={navigate} cartCount={cartCount} />
       <div style={{ position: 'relative', zIndex: 10 }}>{children}</div>
     </main>
   )
@@ -1825,9 +1922,11 @@ function SeriesArcCarousel({
 function SeriesPage({
   id,
   navigate,
+  cartCount,
 }: {
   id: string
   navigate: NavigateFn
+  cartCount: number
 }) {
   const series = SERIES.find((item) => item.id === id && item.id !== 'zodiac') ?? SERIES[0]
   const adminProducts = getPublishedAdminProducts()
@@ -1860,7 +1959,7 @@ function SeriesPage({
   })
 
   return (
-    <AtmosphericShell navigate={navigate}>
+    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
       <section
         style={{
           width: 'min(1180px, calc(100% - 40px))',
@@ -1930,18 +2029,15 @@ function SeriesPage({
 function DetailPage({
   id,
   navigate,
+  addToCart,
+  cartCount,
 }: {
   id: string
   navigate: NavigateFn
+  addToCart: (item: CartLine) => void
+  cartCount: number
 }) {
-  const [orderOpen, setOrderOpen] = useState(false)
-  const [orderNotice, setOrderNotice] = useState('')
-  const [orderForm, setOrderForm] = useState({
-    name: '',
-    email: '',
-    address: '',
-  })
-  const [orderSubmitting, setOrderSubmitting] = useState(false)
+  const [cartNotice, setCartNotice] = useState('')
   const adminDetail = getPublishedAdminProducts()
     .filter((product) => product.collection !== '星座守护')
     .map(adminProductToDetail)
@@ -1955,49 +2051,13 @@ function DetailPage({
     description: detail.desc,
   })
   const detailPrice = getDetailPrice(detail)
-  const submitOrder = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    if (!orderForm.name.trim() || !orderForm.email.trim() || !orderForm.address.trim()) {
-      setOrderNotice('请补全姓名、邮箱和收货地址。')
-      return
-    }
-
-    const order: PublicOrder = {
-      id: `LT-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${String(
-        Date.now(),
-      ).slice(-4)}`,
-      customer: orderForm.name.trim(),
-      email: orderForm.email.trim(),
-      address: orderForm.address.trim(),
-      product: detail.title.replace(/\n/g, ' '),
-      channel: '前台网站',
-      amount: detailPrice,
-      status: '待处理',
-      createdAt: new Date().toLocaleString('zh-CN', {
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
-    }
-
-    setOrderSubmitting(true)
-    try {
-      await createPublicOrder(order)
-      appendOrder(order)
-      setOrderNotice('订单已进入后台数据库。正式支付接口接入后，这里会跳转到 Stripe / PayPal。')
-      setOrderForm({ name: '', email: '', address: '' })
-    } catch {
-      appendOrder(order)
-      setOrderNotice('订单已保存到当前浏览器；数据库同步失败，请稍后在后台核对。')
-      setOrderForm({ name: '', email: '', address: '' })
-    } finally {
-      setOrderSubmitting(false)
-    }
+  const handleAddToCart = () => {
+    addToCart(detailToCartLine(detail))
+    setCartNotice('已加入购物车。可以继续浏览，也可以前往结账填写物流和留言。')
   }
 
   return (
-    <AtmosphericShell navigate={navigate}>
+    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
       <article
         style={{
           width: 'min(1120px, calc(100% - 40px))',
@@ -2172,15 +2232,12 @@ function DetailPage({
                     fontSize: 13,
                   }}
                 >
-                  当前为订单链路预览，支付接口待接入。
+                  可加入购物车，结账时填写物流地址与订单留言。
                 </div>
               </div>
               <button
                 type="button"
-                onClick={() => {
-                  setOrderOpen((open) => !open)
-                  setOrderNotice('')
-                }}
+                onClick={handleAddToCart}
                 style={{
                   border: 0,
                   borderRadius: 999,
@@ -2194,103 +2251,52 @@ function DetailPage({
                   boxShadow: '0 14px 30px rgba(58,37,48,0.22)',
                 }}
               >
-                创建订单
+                加入购物车
               </button>
             </div>
 
-            {orderOpen ? (
-              <form
-                onSubmit={submitOrder}
+            <div
+              style={{
+                marginTop: 18,
+                display: 'flex',
+                gap: 10,
+                flexWrap: 'wrap',
+              }}
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  handleAddToCart()
+                  navigate('/cart')
+                }}
                 style={{
-                  marginTop: 18,
-                  display: 'grid',
-                  gap: 12,
+                  border: '1px solid rgba(58,37,48,0.2)',
+                  borderRadius: 999,
+                  background: 'rgba(255,255,255,0.7)',
+                  color: '#3a2530',
+                  padding: '12px 16px',
+                  fontWeight: 900,
+                  cursor: 'pointer',
                 }}
               >
-                <input
-                  value={orderForm.name}
-                  onChange={(event) =>
-                    setOrderForm((current) => ({ ...current, name: event.target.value }))
-                  }
-                  placeholder="客户姓名"
+                立即结账
+              </button>
+              {cartNotice ? (
+                <div
                   style={{
-                    border: '1px solid rgba(58,37,48,0.18)',
-                    borderRadius: 16,
-                    padding: '13px 14px',
-                    background: 'rgba(255,255,255,0.62)',
-                    color: '#3a2530',
-                    outline: 0,
-                  }}
-                />
-                <input
-                  value={orderForm.email}
-                  onChange={(event) =>
-                    setOrderForm((current) => ({ ...current, email: event.target.value }))
-                  }
-                  placeholder="邮箱"
-                  type="email"
-                  style={{
-                    border: '1px solid rgba(58,37,48,0.18)',
-                    borderRadius: 16,
-                    padding: '13px 14px',
-                    background: 'rgba(255,255,255,0.62)',
-                    color: '#3a2530',
-                    outline: 0,
-                  }}
-                />
-                <textarea
-                  value={orderForm.address}
-                  onChange={(event) =>
-                    setOrderForm((current) => ({ ...current, address: event.target.value }))
-                  }
-                  placeholder="收货地址"
-                  rows={3}
-                  style={{
-                    border: '1px solid rgba(58,37,48,0.18)',
-                    borderRadius: 16,
-                    padding: '13px 14px',
-                    background: 'rgba(255,255,255,0.62)',
-                    color: '#3a2530',
-                    outline: 0,
-                    resize: 'vertical',
-                    fontFamily: 'inherit',
-                  }}
-                />
-                <button
-                  type="submit"
-                  disabled={orderSubmitting}
-                  style={{
-                    border: '1px solid rgba(58,37,48,0.2)',
-                    borderRadius: 16,
-                    background: 'rgba(255,255,255,0.74)',
-                    color: '#3a2530',
-                    padding: '13px 16px',
-                    fontWeight: 900,
-                    cursor: orderSubmitting ? 'wait' : 'pointer',
-                    opacity: orderSubmitting ? 0.72 : 1,
+                    borderRadius: 999,
+                    padding: '12px 14px',
+                    background: 'rgba(255,255,255,0.54)',
+                    color: '#55744f',
+                    fontSize: 13,
+                    lineHeight: 1.4,
+                    fontWeight: 800,
                   }}
                 >
-                  {orderSubmitting ? '提交中...' : '提交到后台订单'}
-                </button>
-                {orderNotice ? (
-                  <div
-                    style={{
-                      borderRadius: 14,
-                      padding: '11px 13px',
-                      background: orderNotice.includes('请')
-                        ? 'rgba(196,90,90,0.12)'
-                        : 'rgba(122,157,118,0.14)',
-                      color: orderNotice.includes('请') ? '#9a4545' : '#55744f',
-                      fontSize: 13,
-                      lineHeight: 1.55,
-                      fontWeight: 800,
-                    }}
-                  >
-                    {orderNotice}
-                  </div>
-                ) : null}
-              </form>
-            ) : null}
+                  {cartNotice}
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
       </article>
@@ -2407,9 +2413,11 @@ const LEGAL_PAGES = {
 function LegalPage({
   id,
   navigate,
+  cartCount,
 }: {
   id: 'privacy' | 'terms' | 'shipping' | 'refund' | 'contact'
   navigate: NavigateFn
+  cartCount: number
 }) {
   const page = LEGAL_PAGES[id]
   usePageMeta({
@@ -2418,7 +2426,7 @@ function LegalPage({
   })
 
   return (
-    <AtmosphericShell navigate={navigate}>
+    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
       <section
         style={{
           width: 'min(960px, calc(100% - 40px))',
@@ -2506,10 +2514,351 @@ function LegalPage({
   )
 }
 
-function HomePage({
+function CartPage({
   navigate,
+  cart,
+  setCart,
+  clearCart,
+  cartCount,
 }: {
   navigate: NavigateFn
+  cart: CartLine[]
+  setCart: (items: CartLine[]) => void
+  clearCart: () => void
+  cartCount: number
+}) {
+  usePageMeta({
+    title: '购物车 | Lunar Talisman',
+    description: '查看购物车、填写物流、留下留言并提交订单。',
+  })
+
+  const [notice, setNotice] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+  const [doneOrderId, setDoneOrderId] = useState('')
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    shippingMethod: 'standard',
+    message: '',
+  })
+
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
+  const shippingFee = form.shippingMethod === 'express' ? 18 : 8
+  const total = subtotal + (cart.length ? shippingFee : 0)
+
+  const updateQuantity = (id: string, quantity: number) => {
+    setNotice('')
+    if (quantity <= 0) {
+      setCart(cart.filter((item) => item.id !== id))
+      return
+    }
+
+    setCart(cart.map((item) => (item.id === id ? { ...item, quantity } : item)))
+  }
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (!cart.length) {
+      setNotice('购物车为空，请先加入商品。')
+      return
+    }
+
+    if (!form.name.trim() || !form.email.trim() || !form.address.trim()) {
+      setNotice('请补全姓名、邮箱和收货地址。')
+      return
+    }
+
+    const order: PublicOrder = {
+      id: `LT-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${String(
+        Date.now(),
+      ).slice(-4)}`,
+      customer: form.name.trim(),
+      email: form.email.trim(),
+      phone: form.phone.trim(),
+      address: form.address.trim(),
+      product:
+        cart.length === 1
+          ? cart[0].name
+          : `${cart[0].name} 等 ${cart.reduce((sum, item) => sum + item.quantity, 0)} 件商品`,
+      items: cart.map((item) => ({
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        quantity: item.quantity,
+      })),
+      channel: '官网购物车',
+      amount: total,
+      shippingMethod: form.shippingMethod,
+      shippingFee,
+      shippingStatus: '待发货',
+      message: form.message.trim(),
+      status: '待处理',
+      createdAt: new Date().toLocaleString('zh-CN', {
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
+    }
+
+    setSubmitting(true)
+    try {
+      const created = await createPublicOrder(order)
+      appendOrder(created)
+      setDoneOrderId(created.id)
+      clearCart()
+      setNotice('订单已进入后台，后续可在后台查看物流与留言。')
+      setForm({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        shippingMethod: 'standard',
+        message: '',
+      })
+    } catch {
+      appendOrder(order)
+      setDoneOrderId(order.id)
+      clearCart()
+      setNotice('已保存到本地兜底订单；数据库同步稍后完成时会写入后台。')
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  return (
+    <AtmosphericShell navigate={navigate} cartCount={cartCount}>
+      <section
+        style={{
+          width: 'min(1180px, calc(100% - 40px))',
+          margin: '0 auto',
+          padding: '128px 0 96px',
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1.2fr) minmax(320px, 0.8fr)',
+          gap: 28,
+        }}
+        className="max-[980px]:!grid-cols-1"
+      >
+        <div
+          style={{
+            borderRadius: 38,
+            background: 'rgba(255,255,255,0.84)',
+            color: '#3a2530',
+            padding: 'clamp(26px, 4vw, 42px)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
+          }}
+        >
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
+            <div>
+              <p style={{ margin: 0, fontSize: 12, letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.56)' }}>
+                Checkout
+              </p>
+              <h1 style={{ margin: '10px 0 0', fontFamily: "'Viaoda Libre', serif", fontSize: 'clamp(42px, 6vw, 72px)', lineHeight: 0.95 }}>
+                购物车与物流信息
+              </h1>
+            </div>
+            <button
+              type="button"
+              onClick={() => navigate('/series/crystals')}
+              style={{
+                border: '1px solid rgba(58,37,48,0.16)',
+                borderRadius: 999,
+                background: 'rgba(255,255,255,0.55)',
+                color: '#3a2530',
+                padding: '10px 14px',
+                cursor: 'pointer',
+              }}
+            >
+              继续选购
+            </button>
+          </div>
+
+          <div style={{ marginTop: 24, display: 'grid', gap: 14 }}>
+            {cart.length ? cart.map((item) => (
+              <article
+                key={item.id}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '96px minmax(0, 1fr) auto',
+                  gap: 16,
+                  alignItems: 'center',
+                  padding: 14,
+                  borderRadius: 24,
+                  background: 'rgba(255,255,255,0.65)',
+                  border: '1px solid rgba(58,37,48,0.08)',
+                }}
+                className="max-[640px]:!grid-cols-1"
+              >
+                <div
+                  style={{
+                    width: 96,
+                    height: 96,
+                    borderRadius: 22,
+                    overflow: 'hidden',
+                    background: item.color,
+                    backgroundImage: item.image ? `url(${item.image})` : undefined,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
+                <div>
+                  <p style={{ margin: 0, fontSize: 12, letterSpacing: '0.16em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.5)' }}>
+                    {item.eyebrow}
+                  </p>
+                  <h3 style={{ margin: '8px 0 0', fontSize: 22 }}>{item.name}</h3>
+                  <p style={{ margin: '8px 0 0', color: 'rgba(58,37,48,0.64)' }}>
+                    {formatProductPrice(item.price)} / 件
+                  </p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifySelf: 'end', flexWrap: 'wrap' }}>
+                  <button type="button" onClick={() => updateQuantity(item.id, item.quantity - 1)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f2ede6', cursor: 'pointer' }} aria-label="减少数量">
+                    <Minus size={16} />
+                  </button>
+                  <span style={{ minWidth: 28, textAlign: 'center', fontWeight: 900 }}>{item.quantity}</span>
+                  <button type="button" onClick={() => updateQuantity(item.id, item.quantity + 1)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f2ede6', cursor: 'pointer' }} aria-label="增加数量">
+                    <Plus size={16} />
+                  </button>
+                  <button type="button" onClick={() => updateQuantity(item.id, 0)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f9e8e8', cursor: 'pointer' }} aria-label="删除商品">
+                    <Trash2 size={16} />
+                  </button>
+                </div>
+              </article>
+            )) : (
+              <div
+                style={{
+                  borderRadius: 28,
+                  padding: '40px 24px',
+                  textAlign: 'center',
+                  background: 'rgba(255,255,255,0.56)',
+                  color: 'rgba(58,37,48,0.68)',
+                }}
+              >
+                <ShoppingBag size={44} style={{ margin: '0 auto 14px', opacity: 0.35 }} />
+                <div style={{ fontSize: 18, fontWeight: 900 }}>你的护符尚未被召唤</div>
+                <p style={{ margin: '10px 0 0' }}>先去系列里挑选一件，再回来填写物流和留言。</p>
+              </div>
+            )}
+          </div>
+        </div>
+
+        <aside
+          style={{
+            borderRadius: 38,
+            background: 'rgba(255,255,255,0.8)',
+            color: '#3a2530',
+            padding: 'clamp(24px, 4vw, 36px)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.18)',
+            alignSelf: 'start',
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <Truck size={18} />
+            <h2 style={{ margin: 0, fontSize: 22 }}>结账信息</h2>
+          </div>
+          <form onSubmit={handleSubmit} style={{ marginTop: 20, display: 'grid', gap: 12 }}>
+            <label style={{ display: 'grid', gap: 6 }}>
+              <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
+                <MessageSquare size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
+                姓名
+              </span>
+              <input value={form.name} onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))} style={formFieldStyle} placeholder="收货人姓名" />
+            </label>
+            <label style={{ display: 'grid', gap: 6 }}>
+              <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
+                <Mail size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
+                邮箱
+              </span>
+              <input type="email" value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} style={formFieldStyle} placeholder="用于订单通知" />
+            </label>
+            <label style={{ display: 'grid', gap: 6 }}>
+              <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
+                <Phone size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
+                电话
+              </span>
+              <input value={form.phone} onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))} style={formFieldStyle} placeholder="可选" />
+            </label>
+            <label style={{ display: 'grid', gap: 6 }}>
+              <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
+                <MapPin size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
+                收货地址
+              </span>
+              <textarea rows={3} value={form.address} onChange={(event) => setForm((current) => ({ ...current, address: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="详细地址" />
+            </label>
+            <label style={{ display: 'grid', gap: 6 }}>
+              <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
+                <Truck size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
+                物流方式
+              </span>
+              <select value={form.shippingMethod} onChange={(event) => setForm((current) => ({ ...current, shippingMethod: event.target.value }))} style={formFieldStyle}>
+                <option value="standard">标准物流 · $8</option>
+                <option value="express">加急物流 · $18</option>
+              </select>
+            </label>
+            <label style={{ display: 'grid', gap: 6 }}>
+              <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
+                <MessageSquare size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
+                订单留言
+              </span>
+              <textarea rows={4} value={form.message} onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="例如：请尽量避光包装 / 送礼备注 / 其他要求" />
+            </label>
+
+            <div style={{ marginTop: 8, borderTop: '1px solid rgba(58,37,48,0.12)', paddingTop: 16, display: 'grid', gap: 8 }}>
+              <Row label="商品小计" value={formatProductPrice(subtotal)} />
+              <Row label="物流费用" value={cart.length ? formatProductPrice(shippingFee) : '$0'} />
+              <Row label="合计" value={formatProductPrice(total)} strong />
+            </div>
+
+            <button type="submit" disabled={submitting} style={{ border: 0, borderRadius: 999, background: '#3a2530', color: '#fff', padding: '14px 18px', fontWeight: 900, cursor: submitting ? 'wait' : 'pointer', boxShadow: '0 14px 30px rgba(58,37,48,0.22)', opacity: submitting ? 0.72 : 1 }}>
+              {submitting ? '提交订单中...' : '提交订单'}
+            </button>
+
+            {notice ? (
+              <div style={{ borderRadius: 18, padding: '12px 14px', background: 'rgba(255,255,255,0.6)', color: '#55744f', fontSize: 13, fontWeight: 800, lineHeight: 1.5 }}>
+                {notice}
+                {doneOrderId ? <div style={{ marginTop: 4, color: '#3a2530' }}>订单号：{doneOrderId}</div> : null}
+              </div>
+            ) : null}
+          </form>
+        </aside>
+      </section>
+    </AtmosphericShell>
+  )
+}
+
+const formFieldStyle: CSSProperties = {
+  border: '1px solid rgba(58,37,48,0.14)',
+  borderRadius: 18,
+  background: 'rgba(255,255,255,0.72)',
+  color: '#3a2530',
+  padding: '13px 14px',
+  outline: 0,
+}
+
+function Row({
+  label,
+  value,
+  strong,
+}: {
+  label: string
+  value: string
+  strong?: boolean
+}) {
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, fontSize: strong ? 18 : 14, fontWeight: strong ? 900 : 700 }}>
+      <span style={{ color: 'rgba(58,37,48,0.64)' }}>{label}</span>
+      <span>{value}</span>
+    </div>
+  )
+}
+
+function HomePage({
+  navigate,
+  cartCount,
+}: {
+  navigate: NavigateFn
+  cartCount: number
 }) {
   usePageMeta({
     title: 'Lunar Talisman · 月之护符',
@@ -2762,7 +3111,7 @@ function HomePage({
           }}
         />
 
-        <Navigation navigate={navigate} />
+        <Navigation navigate={navigate} cartCount={cartCount} />
         <SceneOneUI
           opacity={values.scene1Opacity}
           uiVisible={uiVisible}
@@ -2780,6 +3129,34 @@ function HomePage({
 function App() {
   const { route, navigate } = useRoute()
   const [, refreshAdminProducts] = useState(0)
+  const [cart, setCartState] = useState<CartLine[]>(() => readCartLines())
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0)
+
+  const setCart = useCallback((items: CartLine[]) => {
+    setCartState(items)
+    saveCartLines(items)
+  }, [])
+
+  const addToCart = useCallback(
+    (item: CartLine) => {
+      setCartState((current) => {
+        const existing = current.find((line) => line.id === item.id)
+        const next = existing
+          ? current.map((line) =>
+              line.id === item.id ? { ...line, quantity: line.quantity + item.quantity } : line,
+            )
+          : [item, ...current]
+        saveCartLines(next)
+        return next
+      })
+    },
+    [],
+  )
+
+  const clearCart = useCallback(() => {
+    setCartState([])
+    saveCartLines([])
+  }, [])
 
   useEffect(() => {
     let active = true
@@ -2800,11 +3177,30 @@ function App() {
   }, [])
 
   if (route.page === 'series') {
-    return <SeriesPage id={route.id} navigate={navigate} />
+    return <SeriesPage id={route.id} navigate={navigate} cartCount={cartCount} />
   }
 
   if (route.page === 'detail') {
-    return <DetailPage id={route.id} navigate={navigate} />
+    return (
+      <DetailPage
+        id={route.id}
+        navigate={navigate}
+        addToCart={addToCart}
+        cartCount={cartCount}
+      />
+    )
+  }
+
+  if (route.page === 'cart') {
+    return (
+      <CartPage
+        navigate={navigate}
+        cart={cart}
+        setCart={setCart}
+        clearCart={clearCart}
+        cartCount={cartCount}
+      />
+    )
   }
 
   if (route.page === 'admin') {
@@ -2812,10 +3208,10 @@ function App() {
   }
 
   if (route.page === 'legal') {
-    return <LegalPage id={route.id} navigate={navigate} />
+    return <LegalPage id={route.id} navigate={navigate} cartCount={cartCount} />
   }
 
-  return <HomePage navigate={navigate} />
+  return <HomePage navigate={navigate} cartCount={cartCount} />
 }
 
 export default App

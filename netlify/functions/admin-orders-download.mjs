@@ -2,6 +2,13 @@ import { connectBlobs, escapeCsvCell, json, ordersStore, readJsonList, requireAd
 
 const KEY = 'orders'
 
+function itemsText(order) {
+  if (!Array.isArray(order.items) || order.items.length === 0) return ''
+  return order.items
+    .map((item) => `${item.name || item.id} x ${item.quantity || 1} (${item.price || 0})`)
+    .join('；')
+}
+
 export async function handler(event) {
   connectBlobs(event)
   if (event.httpMethod !== 'GET') {
@@ -11,13 +18,39 @@ export async function handler(event) {
   if (!requireAdmin(event)) return json(401, { ok: false, error: 'unauthorized' })
 
   const orders = await readJsonList(ordersStore(), KEY)
-  const headers = ['订单号', '客户', '客户邮箱', '客户地址', '商品', '渠道', '金额 USD', '状态', '下单时间']
+  const headers = [
+    '订单号',
+    '客户',
+    '客户邮箱',
+    '客户电话',
+    '客户地址',
+    '商品',
+    '商品明细',
+    '订单留言',
+    '物流方式',
+    '物流费',
+    '物流状态',
+    '物流公司',
+    '物流单号',
+    '渠道',
+    '金额 USD',
+    '订单状态',
+    '下单时间',
+  ]
   const rows = orders.map((order) => [
     order.id,
     order.customer,
     order.email || '',
+    order.phone || '',
     order.address,
     order.product,
+    itemsText(order),
+    order.message || '',
+    order.shippingMethod || '',
+    order.shippingFee || 0,
+    order.shippingStatus || '',
+    order.trackingCarrier || '',
+    order.trackingNumber || '',
     order.channel,
     order.amount,
     order.status,

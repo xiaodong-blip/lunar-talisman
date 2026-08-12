@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { Fragment } from 'react'
 import type { CSSProperties, FormEvent } from 'react'
 import {
   BarChart3,
@@ -32,6 +33,7 @@ type NavigateFn = (path: string) => void
 type AdminTab = 'overview' | 'traffic' | 'revenue' | 'orders' | 'products'
 
 type OrderStatus = '待处理' | '已付款' | '备货中' | '已发货' | '已完成'
+type ShippingStatus = '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
 
 type AdminOrder = PublicOrder
 
@@ -44,40 +46,76 @@ const initialOrders: AdminOrder[] = [
   {
     id: 'LT-20260807-001',
     customer: 'Mia Chen',
+    email: 'mia@example.com',
+    phone: '+1 213 555 1024',
     address: '128 Moonstone Ave, Los Angeles, CA 90026, USA',
     product: '顶轮疗愈 · 白水晶手链',
+    items: [{ id: 'P-001', name: '顶轮疗愈 · 白水晶手链', price: 89, quantity: 1 }],
     channel: '官网',
     amount: 89,
+    shippingMethod: 'standard',
+    shippingFee: 8,
+    shippingStatus: '待发货',
+    trackingCarrier: '',
+    trackingNumber: '',
+    message: '请使用礼品包装。',
     status: '已付款',
     createdAt: '08/07 10:24',
   },
   {
     id: 'LT-20260807-002',
     customer: 'Olivia Moon',
+    email: 'olivia@example.com',
+    phone: '+1 718 555 0199',
     address: '42 Crescent Lane, Brooklyn, NY 11211, USA',
     product: '满月祝福 · 月光石项链',
+    items: [{ id: 'full-moon-necklace', name: '满月祝福 · 月光石项链', price: 149, quantity: 1 }],
     channel: 'Instagram',
     amount: 149,
+    shippingMethod: 'express',
+    shippingFee: 18,
+    shippingStatus: '备货中',
+    trackingCarrier: '',
+    trackingNumber: '',
+    message: '',
     status: '备货中',
     createdAt: '08/07 09:42',
   },
   {
     id: 'LT-20260806-019',
     customer: 'Luna Wang',
+    email: 'luna@example.com',
+    phone: '+1 206 555 0866',
     address: '908 Sage Street, Seattle, WA 98103, USA',
     product: '心轮疗愈 · 玫瑰晶手链',
+    items: [{ id: 'heart-rose-quartz', name: '心轮疗愈 · 玫瑰晶手链', price: 69, quantity: 1 }],
     channel: '官网',
     amount: 69,
+    shippingMethod: 'standard',
+    shippingFee: 8,
+    shippingStatus: '已发货',
+    trackingCarrier: 'USPS',
+    trackingNumber: '9400111899223857293847',
+    message: '门口可直接放置。',
     status: '已发货',
     createdAt: '08/06 22:10',
   },
   {
     id: 'LT-20260806-018',
     customer: 'Ava Star',
+    email: 'ava@example.com',
+    phone: '+1 512 555 0188',
     address: '17 Aurora Road, Austin, TX 78704, USA',
     product: '新月仪式 · 净化套装',
+    items: [{ id: 'new-moon-set', name: '新月仪式 · 净化套装', price: 129, quantity: 1 }],
     channel: 'TikTok',
     amount: 129,
+    shippingMethod: 'standard',
+    shippingFee: 8,
+    shippingStatus: '已签收',
+    trackingCarrier: 'UPS',
+    trackingNumber: '1Z999AA10123456784',
+    message: '',
     status: '已完成',
     createdAt: '08/06 18:36',
   },
@@ -667,7 +705,9 @@ function OrdersTable({
 }) {
   const [query, setQuery] = useState('')
   const filtered = orders.filter((order) =>
-    `${order.id} ${order.customer} ${order.product}`
+    `${order.id} ${order.customer} ${order.product} ${order.address} ${order.email || ''} ${
+      order.phone || ''
+    } ${order.message || ''} ${order.trackingNumber || ''} ${order.trackingCarrier || ''}`
       .toLowerCase()
       .includes(query.toLowerCase()),
   )
@@ -684,8 +724,16 @@ function OrdersTable({
       '订单号',
       '客户',
       '客户邮箱',
+      '客户电话',
       '客户地址',
       '商品',
+      '商品明细',
+      '订单留言',
+      '物流方式',
+      '物流费',
+      '物流状态',
+      '物流公司',
+      '物流单号',
       '渠道',
       '金额 USD',
       '状态',
@@ -695,8 +743,18 @@ function OrdersTable({
       order.id,
       order.customer,
       order.email || '',
+      order.phone || '',
       order.address,
       order.product,
+      Array.isArray(order.items)
+        ? order.items.map((item) => `${item.name} x ${item.quantity}`).join('；')
+        : '',
+      order.message || '',
+      order.shippingMethod || '',
+      order.shippingFee || 0,
+      order.shippingStatus || '',
+      order.trackingCarrier || '',
+      order.trackingNumber || '',
       order.channel,
       order.amount,
       order.status,
@@ -775,7 +833,7 @@ function OrdersTable({
         </div>
       </div>
       <div style={{ overflowX: 'auto', marginTop: 20 }}>
-        <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 760 }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 980 }}>
           <thead>
             <tr style={{ color: 'rgba(45,39,48,0.48)', fontSize: 12, textAlign: 'left' }}>
               <th style={{ padding: '12px 10px' }}>订单号</th>
@@ -783,53 +841,167 @@ function OrdersTable({
               <th style={{ padding: '12px 10px' }}>商品</th>
               <th style={{ padding: '12px 10px' }}>渠道</th>
               <th style={{ padding: '12px 10px' }}>金额</th>
-              <th style={{ padding: '12px 10px' }}>状态</th>
+              <th style={{ padding: '12px 10px' }}>订单状态</th>
+              <th style={{ padding: '12px 10px' }}>物流状态</th>
+              <th style={{ padding: '12px 10px' }}>物流单号</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map((order) => (
-              <tr key={order.id} style={{ borderTop: '1px solid rgba(45,39,48,0.08)' }}>
-                <td style={{ padding: '15px 10px', fontWeight: 800 }}>{order.id}</td>
-                <td style={{ padding: '15px 10px' }}>{order.customer}</td>
-                <td style={{ padding: '15px 10px', color: 'rgba(45,39,48,0.68)' }}>
-                  {order.product}
-                </td>
-                <td style={{ padding: '15px 10px' }}>{order.channel}</td>
-                <td style={{ padding: '15px 10px', fontWeight: 900 }}>
-                  {formatCurrency(order.amount)}
-                </td>
-                <td style={{ padding: '15px 10px' }}>
-                  <select
-                    value={order.status}
-                    onChange={(event) =>
-                      setOrders(
-                        orders.map((item) =>
-                          item.id === order.id
-                            ? { ...item, status: event.target.value as OrderStatus }
-                            : item,
-                        ),
-                      )
-                    }
-                    style={{
-                      border: '1px solid rgba(45,39,48,0.12)',
-                      borderRadius: 999,
-                      padding: '8px 10px',
-                      background: '#fff',
-                      color: '#2d2730',
-                    }}
-                  >
-                    {['待处理', '已付款', '备货中', '已发货', '已完成'].map((status) => (
-                      <option key={status}>{status}</option>
-                    ))}
-                  </select>
-                </td>
-              </tr>
+              <Fragment key={order.id}>
+                <tr style={{ borderTop: '1px solid rgba(45,39,48,0.08)' }}>
+                  <td style={{ padding: '15px 10px', fontWeight: 800 }}>{order.id}</td>
+                  <td style={{ padding: '15px 10px' }}>
+                    <div style={{ fontWeight: 800 }}>{order.customer}</div>
+                    <div style={{ fontSize: 12, color: 'rgba(45,39,48,0.56)', marginTop: 4 }}>
+                      {order.email || '—'}{order.phone ? ` · ${order.phone}` : ''}
+                    </div>
+                  </td>
+                  <td style={{ padding: '15px 10px', color: 'rgba(45,39,48,0.68)' }}>
+                    <div>{order.product}</div>
+                    <div style={{ fontSize: 12, marginTop: 4, color: 'rgba(45,39,48,0.52)' }}>
+                      {Array.isArray(order.items) && order.items.length
+                        ? order.items.map((item) => `${item.name} × ${item.quantity}`).join(' · ')
+                        : order.message
+                          ? '含订单留言'
+                          : '—'}
+                    </div>
+                  </td>
+                  <td style={{ padding: '15px 10px' }}>{order.channel}</td>
+                  <td style={{ padding: '15px 10px', fontWeight: 900 }}>
+                    {formatCurrency(order.amount)}
+                  </td>
+                  <td style={{ padding: '15px 10px' }}>
+                    <select
+                      value={order.status}
+                      onChange={(event) =>
+                        setOrders(
+                          orders.map((item) =>
+                            item.id === order.id
+                              ? { ...item, status: event.target.value as OrderStatus }
+                              : item,
+                          ),
+                        )
+                      }
+                      style={{
+                        border: '1px solid rgba(45,39,48,0.12)',
+                        borderRadius: 999,
+                        padding: '8px 10px',
+                        background: '#fff',
+                        color: '#2d2730',
+                      }}
+                    >
+                      {['待处理', '已付款', '备货中', '已发货', '已完成'].map((status) => (
+                        <option key={status}>{status}</option>
+                      ))}
+                    </select>
+                  </td>
+                  <td style={{ padding: '15px 10px' }}>
+                    <select
+                      value={order.shippingStatus || '待发货'}
+                      onChange={(event) =>
+                        setOrders(
+                          orders.map((item) =>
+                            item.id === order.id
+                              ? {
+                                  ...item,
+                                  shippingStatus: event.target.value as ShippingStatus,
+                                }
+                              : item,
+                          ),
+                        )
+                      }
+                      style={{
+                        border: '1px solid rgba(45,39,48,0.12)',
+                        borderRadius: 999,
+                        padding: '8px 10px',
+                        background: '#fff',
+                        color: '#2d2730',
+                      }}
+                    >
+                      {['待发货', '备货中', '已发货', '运输中', '已签收'].map((status) => (
+                        <option key={status}>{status}</option>
+                      ))}
+                    </select>
+                  </td>
+                  <td style={{ padding: '15px 10px' }}>
+                    <div style={{ display: 'grid', gap: 8 }}>
+                      <input
+                        value={order.trackingCarrier || ''}
+                        onChange={(event) =>
+                          setOrders(
+                            orders.map((item) =>
+                              item.id === order.id
+                                ? { ...item, trackingCarrier: event.target.value }
+                                : item,
+                            ),
+                          )
+                        }
+                        placeholder="物流公司"
+                        style={inlineFieldStyle}
+                      />
+                      <input
+                        value={order.trackingNumber || ''}
+                        onChange={(event) =>
+                          setOrders(
+                            orders.map((item) =>
+                              item.id === order.id
+                                ? { ...item, trackingNumber: event.target.value }
+                                : item,
+                            ),
+                          )
+                        }
+                        placeholder="物流单号"
+                        style={inlineFieldStyle}
+                      />
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colSpan={8} style={{ padding: '0 10px 16px' }}>
+                    <div
+                      style={{
+                        borderRadius: 18,
+                        background: 'rgba(45,39,48,0.04)',
+                        padding: '12px 14px',
+                        display: 'grid',
+                        gap: 8,
+                        fontSize: 13,
+                        color: 'rgba(45,39,48,0.72)',
+                      }}
+                    >
+                      <div>
+                        <strong>地址：</strong>
+                        {order.address}
+                      </div>
+                      <div>
+                        <strong>留言：</strong>
+                        {order.message || '无'}
+                      </div>
+                      <div>
+                        <strong>物流：</strong>
+                        {order.shippingMethod || 'standard'} · {formatCurrency(order.shippingFee || 0)}
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </Fragment>
             ))}
           </tbody>
         </table>
       </div>
     </div>
   )
+}
+
+const inlineFieldStyle: CSSProperties = {
+  border: '1px solid rgba(45,39,48,0.12)',
+  borderRadius: 12,
+  padding: '8px 10px',
+  background: '#fff',
+  color: '#2d2730',
+  outline: 0,
+  width: '100%',
 }
 
 function ProductManager({
