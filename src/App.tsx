@@ -1021,215 +1021,292 @@ function SeriesFeaturePanel({
 }) {
   const featured = tiles[0]
   const featuredDetail = featured ? getTileDetail(featured) : null
+  const previewTiles = tiles.slice(0, 3)
 
   return (
-    <section
-      style={{
-        marginTop: 34,
-        display: 'grid',
-        gridTemplateColumns: 'minmax(0, 0.95fr) minmax(320px, 1.05fr)',
-        gap: 24,
-        alignItems: 'stretch',
-      }}
-      className="max-[900px]:!grid-cols-1"
-    >
-      <button
-        type="button"
-        onClick={() => featured && navigate(featured.target)}
+    <>
+      <section
         style={{
-          minHeight: 520,
-          border: '1px solid rgba(255,255,255,0.26)',
-          borderRadius: 36,
-          padding: 0,
-          overflow: 'hidden',
-          position: 'relative',
-          backgroundColor: featured?.color ?? series.color,
-          backgroundImage: featured?.image ? `url(${featured.image})` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          boxShadow: '0 30px 90px rgba(38,20,55,0.28)',
-          cursor: featured ? 'pointer' : 'default',
-          textAlign: 'left',
+          marginTop: 30,
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1fr) auto',
+          gap: 28,
+          alignItems: 'end',
         }}
+        className="max-[760px]:!grid-cols-1"
       >
         <div
           style={{
-            position: 'absolute',
-            inset: 0,
-            background:
-              'linear-gradient(180deg, rgba(255,255,255,0.08), rgba(16,8,18,0.42))',
+            maxWidth: 780,
           }}
-        />
+        >
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
+              border: '1px solid rgba(255,255,255,0.22)',
+              borderRadius: 999,
+              background: 'rgba(255,255,255,0.12)',
+              color: 'rgba(255,255,255,0.78)',
+              padding: '9px 14px',
+              fontSize: 12,
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              backdropFilter: 'blur(14px)',
+              WebkitBackdropFilter: 'blur(14px)',
+            }}
+          >
+            <span
+              style={{
+                width: 8,
+                height: 8,
+                borderRadius: 999,
+                background: series.color,
+                boxShadow: `0 0 18px ${series.color}`,
+              }}
+            />
+            {series.eyebrow} Collection
+          </div>
+          <h1
+            style={{
+              margin: '20px 0 0',
+              fontFamily: "'Viaoda Libre', serif",
+              fontSize: 'clamp(58px, 8vw, 116px)',
+              lineHeight: 0.86,
+              color: '#fff',
+              whiteSpace: 'pre-line',
+              textShadow: '0 14px 42px rgba(40, 21, 68, 0.34)',
+            }}
+          >
+            {series.title}
+          </h1>
+          <p
+            style={{
+              margin: '22px 0 0',
+              maxWidth: 660,
+              fontSize: 'clamp(16px, 1.6vw, 19px)',
+              lineHeight: 1.8,
+              color: 'rgba(255,255,255,0.72)',
+            }}
+          >
+            {series.desc}
+          </p>
+        </div>
         <div
           style={{
-            position: 'absolute',
-            left: 24,
-            right: 24,
-            bottom: 24,
+            minWidth: 220,
+            border: '1px solid rgba(255,255,255,0.22)',
+            borderRadius: 28,
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.08))',
+            padding: 22,
             color: '#fff',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+            boxShadow: '0 20px 70px rgba(38,20,55,0.16)',
           }}
         >
           <p
             style={{
               margin: 0,
-              fontSize: 12,
-              letterSpacing: '0.22em',
+              color: 'rgba(255,255,255,0.58)',
+              fontSize: 11,
+              letterSpacing: '0.2em',
               textTransform: 'uppercase',
-              opacity: 0.78,
             }}
           >
-            Featured
+            Available Pieces
           </p>
-          <h2
-            style={{
-              margin: '10px 0 0',
-              fontFamily: "'Viaoda Libre', serif",
-              fontSize: 'clamp(42px, 6vw, 76px)',
-              lineHeight: 0.9,
-              whiteSpace: 'pre-line',
-              textShadow: '0 2px 24px rgba(0,0,0,0.35)',
-            }}
-          >
-            {featured?.title ?? series.title}
-          </h2>
           <div
             style={{
-              marginTop: 18,
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 10,
-              border: '1px solid rgba(255,255,255,0.32)',
-              borderRadius: 999,
-              padding: '12px 18px',
-              background: 'rgba(255,255,255,0.14)',
-              backdropFilter: 'blur(14px)',
-              fontSize: 13,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
+              marginTop: 8,
+              fontFamily: "'Viaoda Libre', serif",
+              fontSize: 56,
+              lineHeight: 0.9,
             }}
           >
-            {featuredDetail ? formatProductPrice(getDetailPrice(featuredDetail)) : 'Enter'}
-            <span>→</span>
+            {tiles.length}
+          </div>
+          <div
+            style={{
+              marginTop: 16,
+              display: 'flex',
+              gap: 8,
+              flexWrap: 'wrap',
+            }}
+          >
+            {previewTiles.map((tile) => (
+              <span
+                key={tile.id}
+                style={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: 999,
+                  background: tile.color,
+                  border: '1px solid rgba(255,255,255,0.48)',
+                  boxShadow: `0 0 14px ${tile.color}`,
+                }}
+              />
+            ))}
           </div>
         </div>
-      </button>
+      </section>
 
-      <div
-        style={{
-          borderRadius: 36,
-          background:
-            'linear-gradient(135deg, rgba(255,255,255,0.84), rgba(236,231,251,0.72))',
-          border: '1px solid rgba(255,255,255,0.34)',
-          boxShadow: '0 30px 90px rgba(38,20,55,0.2)',
-          padding: 'clamp(28px, 4vw, 46px)',
-          color: '#3a2530',
-          backdropFilter: 'blur(18px)',
-        }}
-      >
-        <p
-          style={{
-            margin: 0,
-            fontSize: 12,
-            letterSpacing: '0.26em',
-            textTransform: 'uppercase',
-            color: 'rgba(58,37,48,0.5)',
-          }}
-        >
-          {series.eyebrow} Collection
-        </p>
-        <h1
-          style={{
-            margin: '16px 0 0',
-            fontFamily: "'Viaoda Libre', serif",
-            fontSize: 'clamp(52px, 7vw, 92px)',
-            lineHeight: 0.9,
-            whiteSpace: 'pre-line',
-          }}
-        >
-          {series.title}
-        </h1>
-        <p
-          style={{
-            margin: '22px 0 0',
-            maxWidth: 560,
-            fontSize: 18,
-            lineHeight: 1.72,
-            color: 'rgba(58,37,48,0.66)',
-          }}
-        >
-          {series.desc}
-        </p>
+      {featured ? (
         <div
           style={{
-            marginTop: 28,
+            marginTop: 38,
+            borderRadius: 40,
+            border: '1px solid rgba(255,255,255,0.3)',
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.82), rgba(236,231,251,0.64))',
+            boxShadow: '0 30px 90px rgba(38,20,55,0.2)',
+            overflow: 'hidden',
             display: 'grid',
-            gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-            gap: 12,
+            gridTemplateColumns: 'minmax(280px, 0.92fr) minmax(0, 1.08fr)',
+            color: '#3a2530',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
           }}
-          className="max-[560px]:!grid-cols-1"
+          className="max-[860px]:!grid-cols-1"
         >
-          {[
-            ['ITEMS', `${tiles.length}`],
-            ['STYLE', featuredDetail ? 'Product' : 'Portal'],
-            ['MOOD', 'Crystal'],
-          ].map(([label, value]) => (
+          <button
+            type="button"
+            onClick={() => navigate(featured.target)}
+            style={{
+              minHeight: 430,
+              border: 0,
+              padding: 0,
+              position: 'relative',
+              backgroundColor: featured.color,
+              backgroundImage: featured.image ? `url(${featured.image})` : undefined,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              cursor: 'pointer',
+            }}
+          >
             <div
-              key={label}
               style={{
-                borderRadius: 20,
-                border: '1px solid rgba(58,37,48,0.1)',
-                background: 'rgba(255,255,255,0.48)',
-                padding: 16,
+                position: 'absolute',
+                inset: 0,
+                background:
+                  'linear-gradient(180deg, rgba(255,255,255,0.05), rgba(31,18,43,0.22))',
+              }}
+            />
+            <div
+              style={{
+                position: 'absolute',
+                top: 20,
+                left: 20,
+                border: '1px solid rgba(255,255,255,0.34)',
+                borderRadius: 999,
+                background: 'rgba(255,255,255,0.2)',
+                color: '#fff',
+                padding: '9px 13px',
+                fontSize: 11,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                backdropFilter: 'blur(12px)',
               }}
             >
-              <div
-                style={{
-                  fontSize: 11,
-                  letterSpacing: '0.18em',
-                  textTransform: 'uppercase',
-                  color: 'rgba(58,37,48,0.44)',
-                }}
-              >
-                {label}
-              </div>
-              <div style={{ marginTop: 8, fontSize: 24, fontWeight: 900 }}>{value}</div>
+              Featured
             </div>
-          ))}
-        </div>
-        <div
-          style={{
-            marginTop: 30,
-            borderTop: '1px solid rgba(58,37,48,0.12)',
-            paddingTop: 20,
-            display: 'flex',
-            gap: 10,
-            flexWrap: 'wrap',
-          }}
-        >
-          {tiles.slice(0, 4).map((tile) => (
-            <button
-              key={tile.id}
-              type="button"
-              onClick={() => navigate(tile.target)}
+          </button>
+
+          <div
+            style={{
+              padding: 'clamp(28px, 4vw, 50px)',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
+            <p
               style={{
+                margin: 0,
+                color: 'rgba(58,37,48,0.48)',
+                fontSize: 12,
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+              }}
+            >
+              主推护符
+            </p>
+            <h2
+              style={{
+                margin: '14px 0 0',
+                fontFamily: "'Viaoda Libre', serif",
+                fontSize: 'clamp(38px, 5vw, 68px)',
+                lineHeight: 0.92,
+                whiteSpace: 'pre-line',
+              }}
+            >
+              {featured.title}
+            </h2>
+            <p
+              style={{
+                margin: '20px 0 0',
+                maxWidth: 560,
+                color: 'rgba(58,37,48,0.66)',
+                fontSize: 16,
+                lineHeight: 1.78,
+              }}
+            >
+              {featured.desc}
+            </p>
+            <div
+              style={{
+                marginTop: 24,
+                display: 'flex',
+                gap: 10,
+                flexWrap: 'wrap',
+              }}
+            >
+              {(featuredDetail ? featuredDetail.specs.slice(0, 3) : [series.eyebrow, 'Crystal', 'Ritual']).map(
+                (spec) => (
+                  <span
+                    key={spec}
+                    style={{
+                      border: '1px solid rgba(58,37,48,0.12)',
+                      borderRadius: 999,
+                      padding: '9px 13px',
+                      background: 'rgba(255,255,255,0.42)',
+                      color: 'rgba(58,37,48,0.68)',
+                      fontSize: 12,
+                    }}
+                  >
+                    {spec}
+                  </span>
+                ),
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={() => navigate(featured.target)}
+              style={{
+                marginTop: 30,
+                alignSelf: 'flex-start',
                 border: '1px solid rgba(58,37,48,0.14)',
                 borderRadius: 999,
-                background: 'rgba(255,255,255,0.44)',
-                color: 'rgba(58,37,48,0.66)',
-                padding: '9px 12px',
-                fontSize: 12,
+                background: 'rgba(58,37,48,0.88)',
+                color: '#fff',
+                padding: '14px 20px',
+                fontSize: 13,
+                letterSpacing: '0.14em',
+                textTransform: 'uppercase',
                 cursor: 'pointer',
+                boxShadow: '0 16px 42px rgba(58,37,48,0.18)',
               }}
             >
-              {tile.title.replace(/\n/g, ' · ')}
+              {featuredDetail ? `${formatProductPrice(getDetailPrice(featuredDetail))} · 查看详情` : '进入入口'} →
             </button>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+      ) : null}
+    </>
   )
 }
-
 function SeriesListingGrid({
   title,
   subtitle,
@@ -1242,37 +1319,60 @@ function SeriesListingGrid({
   navigate: NavigateFn
 }) {
   return (
-    <section style={{ marginTop: 44 }}>
-      <div style={{ marginBottom: 18 }}>
+    <section style={{ marginTop: 54 }}>
+      <div
+        style={{
+          marginBottom: 22,
+          display: 'flex',
+          alignItems: 'end',
+          justifyContent: 'space-between',
+          gap: 18,
+        }}
+        className="max-[720px]:!items-start max-[720px]:!flex-col"
+      >
+        <div>
+          <p
+            style={{
+              margin: 0,
+              fontSize: 12,
+              letterSpacing: '0.24em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.54)',
+            }}
+          >
+            {subtitle}
+          </p>
+          <h2
+            style={{
+              margin: '10px 0 0',
+              fontFamily: "'Viaoda Libre', serif",
+              fontSize: 'clamp(34px, 4.2vw, 60px)',
+              lineHeight: 1,
+              color: '#fff',
+            }}
+          >
+            {title}
+          </h2>
+        </div>
         <p
           style={{
             margin: 0,
-            fontSize: 12,
-            letterSpacing: '0.24em',
-            textTransform: 'uppercase',
-            color: 'rgba(255,255,255,0.52)',
+            maxWidth: 360,
+            color: 'rgba(255,255,255,0.58)',
+            fontSize: 14,
+            lineHeight: 1.7,
           }}
         >
-          {subtitle}
+          每一张卡片都可以进入对应单页，查看材质、仪式说明与订单信息。
         </p>
-        <h2
-          style={{
-            margin: '10px 0 0',
-            fontFamily: "'Viaoda Libre', serif",
-            fontSize: 'clamp(34px, 4.2vw, 60px)',
-            lineHeight: 1,
-            color: '#fff',
-          }}
-        >
-          {title}
-        </h2>
       </div>
 
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: 18,
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+          gap: 22,
+          alignItems: 'stretch',
         }}
       >
         {tiles.map((tile) => {
@@ -1287,23 +1387,27 @@ function SeriesListingGrid({
               onClick={() => navigate(tile.target)}
               style={{
                 border: '1px solid rgba(255,255,255,0.28)',
-                borderRadius: 28,
+                borderRadius: 30,
                 overflow: 'hidden',
                 padding: 0,
                 textAlign: 'left',
-                background: 'rgba(255,255,255,0.56)',
+                background:
+                  'linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.44))',
                 color: '#3a2530',
-                boxShadow: '0 22px 70px rgba(60,33,80,0.12)',
+                boxShadow: '0 24px 72px rgba(60,33,80,0.13)',
                 backdropFilter: 'blur(18px)',
                 WebkitBackdropFilter: 'blur(18px)',
                 cursor: 'pointer',
                 transition: 'transform 0.25s ease, box-shadow 0.25s ease',
+                minHeight: '100%',
+                display: 'flex',
+                flexDirection: 'column',
               }}
             >
               <div
                 style={{
                   position: 'relative',
-                  aspectRatio: '4 / 5',
+                  aspectRatio: '16 / 11',
                   backgroundColor: tile.color,
                   backgroundImage: tile.image ? `url(${tile.image})` : undefined,
                   backgroundSize: 'cover',
@@ -1360,10 +1464,10 @@ function SeriesListingGrid({
                     left: 14,
                     right: 14,
                     bottom: 14,
-                    padding: 14,
+                    padding: '12px 14px',
                     borderRadius: 22,
-                    background: 'rgba(255,255,255,0.18)',
-                    border: '1px solid rgba(255,255,255,0.22)',
+                    background: 'rgba(255,255,255,0.2)',
+                    border: '1px solid rgba(255,255,255,0.24)',
                     color: '#fff',
                     backdropFilter: 'blur(12px)',
                   }}
@@ -1372,8 +1476,8 @@ function SeriesListingGrid({
                     style={{
                       margin: 0,
                       fontFamily: "'Viaoda Libre', serif",
-                      fontSize: 28,
-                      lineHeight: 0.96,
+                      fontSize: 24,
+                      lineHeight: 1,
                       whiteSpace: 'pre-line',
                     }}
                   >
@@ -1382,13 +1486,24 @@ function SeriesListingGrid({
                 </div>
               </div>
 
-              <div style={{ padding: 18 }}>
+              <div
+                style={{
+                  padding: 18,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  flex: 1,
+                }}
+              >
                 <p
                   style={{
                     margin: 0,
                     color: 'rgba(58,37,48,0.64)',
                     lineHeight: 1.65,
                     fontSize: 15,
+                    display: '-webkit-box',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
                   }}
                 >
                   {tile.desc}
@@ -1403,7 +1518,7 @@ function SeriesListingGrid({
                       marginTop: 14,
                     }}
                   >
-                    {specs.map((spec) => (
+                    {specs.slice(0, 2).map((spec) => (
                       <span
                         key={spec}
                         style={{
@@ -1422,7 +1537,7 @@ function SeriesListingGrid({
 
                 <div
                   style={{
-                    marginTop: 16,
+                    marginTop: 'auto',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
