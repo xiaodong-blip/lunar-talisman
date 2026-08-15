@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /admin
+Disallow: /cart
+Disallow: /detail/admin-
 
-Sitemap: https://lunar-talisman.netlify.app/sitemap.xml
+Sitemap: https://lunartalisman.com/sitemap.xml

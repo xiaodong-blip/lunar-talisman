@@ -1,17 +1,34 @@
-import { adminAccount, json, methodNotAllowed, parseJson, signToken, verifyLogin } from './_backend.mjs'
+import {
+  adminAccount,
+  enforceRateLimit,
+  getSessionSecret,
+  json,
+  methodNotAllowed,
+  parseJson,
+  signToken,
+  verifyLogin,
+} from './_backend.mjs'
 
 export async function handler(event) {
   if (event.httpMethod !== 'POST') return methodNotAllowed()
 
   try {
+    const rate = enforceRateLimit(event, { limit: 8, windowMs: 15 * 60 * 1000 })
+    if (!rate.ok) {
+      return json(
+        429,
+        { ok: false, error: 'rate_limited', retryAfter: rate.retryAfter },
+        { 'Retry-After': String(rate.retryAfter) },
+      )
+    }
     const { account = '', password = '' } = parseJson(event)
     const result = verifyLogin(account, password)
 
-    if (result.setupRequired) {
+    if (result.setupRequired || !getSessionSecret()) {
       return json(503, {
         ok: false,
-        error: 'admin_password_not_configured',
-        message: '请先在 Netlify 环境变量中设置 LUNAR_ADMIN_PASSWORD。',
+        error: 'admin_security_not_configured',
+        message: 'Set the admin password and a distinct session secret in Netlify environment variables first.',
       })
     }
 
@@ -19,7 +36,7 @@ export async function handler(event) {
       return json(401, {
         ok: false,
         error: 'invalid_credentials',
-        message: '账号或密码不正确。',
+        message: 'Incorrect account or password.',
       })
     }
 

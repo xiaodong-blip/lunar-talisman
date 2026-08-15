@@ -90,8 +90,10 @@ export async function saveAdminOrders(orders: PublicOrder[]) {
 }
 
 export async function createPublicOrder(order: PublicOrder) {
+  const idempotencyKey = order.id
   const data = await requestJson<{ ok: true; order: PublicOrder }>('/.netlify/functions/orders', {
     method: 'POST',
+    headers: { 'Idempotency-Key': idempotencyKey },
     body: JSON.stringify(order),
   })
   return data.order

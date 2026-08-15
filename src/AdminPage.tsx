@@ -27,6 +27,7 @@ import {
   saveAdminProducts,
 } from './services/backend'
 import type { AdminProductRecord } from './services/backend'
+import { usePageMeta } from './hooks/usePageMeta'
 
 type NavigateFn = (path: string) => void
 
@@ -982,6 +983,10 @@ function OrdersTable({
                         <strong>物流：</strong>
                         {order.shippingMethod || 'standard'} · {formatCurrency(order.shippingFee || 0)}
                       </div>
+                      <div>
+                        <strong>Region:</strong>
+                        {' '}{order.shippingRegion || 'Americas'}
+                      </div>
                     </div>
                   </td>
                 </tr>
@@ -1303,13 +1308,18 @@ function ProductManager({
 }
 
 export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
+  usePageMeta({
+    title: 'Admin Console | Lunar Talisman',
+    description: 'Manage Lunar Talisman orders, products, traffic, and revenue.',
+    noindex: true,
+  })
   const [authed, setAuthed] = useState(() => hasAdminToken())
   const [activeTab, setActiveTab] = useState<AdminTab>('overview')
   const [orders, setOrdersState] = useState<AdminOrder[]>(() => readOrders(initialOrders))
   const [products, setProducts] = useState<AdminProduct[]>(() => readStoredProducts())
 
   useEffect(() => {
-    document.title = 'Lunar Talisman 后台管理'
+    document.title = 'Admin Console | Lunar Talisman'
   }, [])
 
   useEffect(() => {

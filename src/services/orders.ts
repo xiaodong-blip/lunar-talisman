@@ -14,6 +14,7 @@ export type PublicOrder = {
   channel: string
   amount: number
   shippingMethod?: string
+  shippingRegion?: 'Americas' | 'Europe' | 'Southeast Asia'
   shippingFee?: number
   shippingStatus?: '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
   trackingNumber?: string

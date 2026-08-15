@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0a0608"/>
+      <stop offset="0.5" stop-color="#241326"/>
+      <stop offset="1" stop-color="#0a0608"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <circle cx="980" cy="130" r="70" fill="none" stroke="#f0e4c0" stroke-width="2" opacity=".8"/>
+  <circle cx="980" cy="130" r="54" fill="#f0e4c0" opacity=".08"/>
+  <text x="90" y="270" fill="#fff" font-size="38" font-family="Georgia,serif" letter-spacing="8">LUNAR TALISMAN</text>
+  <text x="90" y="370" fill="#fff" font-size="78" font-family="Georgia,serif">CRYSTAL RITUALS</text>
+  <text x="94" y="430" fill="#f0e4c0" font-size="24" font-family="Arial,sans-serif">GUIDED BY MOONLIGHT · SEVEN CHAKRA ENERGY</text>
+</svg>

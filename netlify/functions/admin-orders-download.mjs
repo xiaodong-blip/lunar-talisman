@@ -6,7 +6,7 @@ function itemsText(order) {
   if (!Array.isArray(order.items) || order.items.length === 0) return ''
   return order.items
     .map((item) => `${item.name || item.id} x ${item.quantity || 1} (${item.price || 0})`)
-    .join('；')
+    .join('; ')
 }
 
 export async function handler(event) {
@@ -19,23 +19,24 @@ export async function handler(event) {
 
   const orders = await readJsonList(ordersStore(), KEY)
   const headers = [
-    '订单号',
-    '客户',
-    '客户邮箱',
-    '客户电话',
-    '客户地址',
-    '商品',
-    '商品明细',
-    '订单留言',
-    '物流方式',
-    '物流费',
-    '物流状态',
-    '物流公司',
-    '物流单号',
-    '渠道',
-    '金额 USD',
-    '订单状态',
-    '下单时间',
+    'Order ID',
+    'Customer',
+    'Customer Email',
+    'Customer Phone',
+    'Delivery Address',
+    'Product',
+    'Line Items',
+    'Order Note',
+    'Delivery Region',
+    'Shipping Method',
+    'Shipping Fee',
+    'Shipping Status',
+    'Shipping Carrier',
+    'Tracking Number',
+    'Channel',
+    'Amount (USD)',
+    'Order Status',
+    'Created At',
   ]
   const rows = orders.map((order) => [
     order.id,
@@ -46,6 +47,7 @@ export async function handler(event) {
     order.product,
     itemsText(order),
     order.message || '',
+    order.shippingRegion || '',
     order.shippingMethod || '',
     order.shippingFee || 0,
     order.shippingStatus || '',
