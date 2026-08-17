@@ -1896,13 +1896,19 @@ function Navigation({
   return (
     <nav
       style={{
-        position: 'absolute',
+        position: 'fixed',
         inset: '0 0 auto',
         zIndex: 50,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         pointerEvents: 'auto',
+        background:
+          'linear-gradient(180deg, rgba(67,52,104,0.66), rgba(67,52,104,0.36))',
+        borderBottom: '1px solid rgba(255,255,255,0.1)',
+        boxShadow: '0 8px 30px rgba(35,23,63,0.12)',
+        backdropFilter: 'blur(14px)',
+        WebkitBackdropFilter: 'blur(14px)',
       }}
       className="px-5 py-[18px] md:px-12 md:py-[22px]"
     >
