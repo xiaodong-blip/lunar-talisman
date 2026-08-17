@@ -2585,17 +2585,19 @@ function DetailPage({
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 0.9fr) minmax(320px, 1.1fr)',
           gap: 34,
-          alignItems: 'stretch',
+          alignItems: 'start',
         }}
         className="max-[900px]:!grid-cols-1"
       >
         <div
           style={{
-            minHeight: 520,
+            minHeight: 'clamp(380px, 48vw, 560px)',
             borderRadius: 38,
             border: '1px solid rgba(255,255,255,0.18)',
+            backgroundColor: '#fff',
             backgroundImage: detail.image ? `url(${detail.image})` : undefined,
-            backgroundSize: 'cover',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             boxShadow: '0 24px 80px rgba(0,0,0,0.34)',
             position: 'relative',
@@ -2607,7 +2609,7 @@ function DetailPage({
               position: 'absolute',
               inset: 0,
               background:
-                'linear-gradient(to top, rgba(10,6,8,0.76), rgba(10,6,8,0.08))',
+                'linear-gradient(to top, rgba(58,37,48,0.36), rgba(58,37,48,0) 32%)',
             }}
           />
           <button
@@ -2669,8 +2671,8 @@ function DetailPage({
             style={{
               margin: '12px 0 0',
               fontFamily: "'Lobster', cursive",
-              fontSize: 'clamp(48px, 7vw, 82px)',
-              lineHeight: 0.92,
+              fontSize: 'clamp(42px, 4.8vw, 68px)',
+              lineHeight: 0.98,
               color: '#3a2530',
             }}
           >
@@ -2707,21 +2709,6 @@ function DetailPage({
               >
                 {spec}
               </span>
-            ))}
-          </div>
-          <div style={{ marginTop: 28 }}>
-            {detail.body.map((paragraph) => (
-              <p
-                key={paragraph}
-                style={{
-                  margin: '0 0 14px',
-                  fontSize: 16,
-                  lineHeight: 1.75,
-                  color: 'rgba(58,37,48,0.72)',
-                }}
-              >
-                {paragraph}
-              </p>
             ))}
           </div>
           <div
@@ -2819,10 +2806,62 @@ function DetailPage({
           </div>
         </div>
       </article>
+      {detail.body.length ? (
+        <section
+          style={{
+            width: 'min(920px, calc(100% - 40px))',
+            margin: '-36px auto 86px',
+            padding: 'clamp(28px, 4vw, 48px)',
+            borderRadius: 38,
+            border: '1px solid rgba(255,255,255,0.28)',
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.72), rgba(238,231,251,0.56))',
+            boxShadow: '0 24px 72px rgba(60,33,80,0.12)',
+            color: '#3a2530',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
+          }}
+        >
+          <p
+            style={{
+              margin: 0,
+              fontSize: 12,
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'rgba(58,37,48,0.52)',
+            }}
+          >
+            The ritual behind your talisman
+          </p>
+          <h2
+            style={{
+              margin: '12px 0 24px',
+              fontFamily: "'Lobster', cursive",
+              fontSize: 'clamp(30px, 4vw, 46px)',
+              lineHeight: 1,
+            }}
+          >
+            Made to be part of your everyday ritual
+          </h2>
+          {detail.body.map((paragraph) => (
+            <p
+              key={paragraph}
+              style={{
+                margin: '0 0 16px',
+                fontSize: 16,
+                lineHeight: 1.8,
+                color: 'rgba(58,37,48,0.72)',
+              }}
+            >
+              {paragraph}
+            </p>
+          ))}
+        </section>
+      ) : null}
       <div
         style={{
           width: 'min(1120px, calc(100% - 40px))',
-          margin: '-52px auto 96px',
+          margin: '0 auto 96px',
         }}
       >
         <SeriesListingGrid
