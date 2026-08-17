@@ -199,6 +199,21 @@
   status = 200
 
 [[redirects]]
+  from = "/series/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/detail/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/guide/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
