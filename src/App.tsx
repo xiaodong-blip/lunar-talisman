@@ -136,6 +136,7 @@ const REMOVED_IMPORTED_PRODUCT_IDS = new Set([
   'sacral-sacral-chakra-passion-orange-garnet-bracelet-6mm',
   'sacral-sacral-chakra-faceted-carnelian-bracelet-10mm',
   'sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm',
+  'sacral-sacral-chakra-flame-orange-agate-bracelet-10mm',
 ])
 
 const PRODUCTS: DetailData[] = [
