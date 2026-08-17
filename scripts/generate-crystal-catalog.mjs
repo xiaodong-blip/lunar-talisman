@@ -100,14 +100,25 @@ async function getProductFolders(root) {
   return found
 }
 
-async function choosePrimaryImage(directory) {
+async function getProductImages(directory) {
   const files = await getFiles(directory)
   const images = files.filter((file) => imageExtensions.has(path.extname(file).toLowerCase()))
-  if (!images.length) return null
+  if (!images.length) return []
 
-  return images
+  const primaryImage = images
     .map((file) => ({ file, score: imageScore(path.basename(file)) }))
     .sort((a, b) => b.score - a.score || a.file.localeCompare(b.file))[0].file
+
+  const remainingImages = images
+    .filter((file) => file !== primaryImage)
+    .sort((a, b) =>
+      path.basename(a).localeCompare(path.basename(b), undefined, {
+        numeric: true,
+        sensitivity: 'base',
+      }),
+    )
+
+  return [primaryImage, ...remainingImages]
 }
 
 async function main() {
@@ -138,17 +149,22 @@ async function main() {
       const id = usedIds.has(baseId) ? `${baseId}-${index + 1}` : baseId
       usedIds.add(id)
 
-      const primaryImage = await choosePrimaryImage(directory)
-      if (!primaryImage) {
+      const productImages = await getProductImages(directory)
+      if (!productImages.length) {
         throw new Error(`No product image found for ${name} (${directory})`)
       }
 
-      const outputName = `${id}.webp`
-      await sharp(primaryImage, { animated: false })
-        .rotate()
-        .resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true })
-        .webp({ quality: 82, effort: 4 })
-        .toFile(path.join(publicProductsDir, outputName))
+      const optimizedImages = []
+      for (let imageIndex = 0; imageIndex < productImages.length; imageIndex += 1) {
+        const outputName =
+          imageIndex === 0 ? `${id}.webp` : `${id}-${imageIndex + 1}.webp`
+        await sharp(productImages[imageIndex], { animated: false })
+          .rotate()
+          .resize({ width: 1200, height: 1200, fit: 'inside', withoutEnlargement: true })
+          .webp({ quality: 82, effort: 4 })
+          .toFile(path.join(publicProductsDir, outputName))
+        optimizedImages.push(`/products/${outputName}`)
+      }
 
       products.push({
         id,
@@ -164,7 +180,8 @@ async function main() {
         specs: listItems(specs).filter((item) => !/^price:/i.test(item)),
         careRitual: toParagraphs(careRitual),
         price,
-        image: `/products/${outputName}`,
+        image: optimizedImages[0],
+        images: optimizedImages,
       })
     }
   }
@@ -195,6 +212,7 @@ export type ImportedProduct = {
   careRitual: string[]
   price: number
   image: string
+  images: string[]
 }
 
 export const importedProducts: ImportedProduct[] = ${JSON.stringify(products, null, 2)}

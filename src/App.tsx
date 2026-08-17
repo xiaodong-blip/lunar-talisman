@@ -87,6 +87,7 @@ type DetailData = {
   desc: string
   color: string
   image?: string
+  images?: string[]
   specs: string[]
   body: string[]
 }
@@ -409,6 +410,7 @@ const IMPORTED_DETAILS: DetailData[] = importedProducts.map((product) => ({
   desc: product.tagline,
   color: product.color,
   image: product.image,
+  images: product.images,
   specs: [
     product.chakraName,
     ...product.specs.slice(0, 2),
@@ -2551,6 +2553,7 @@ function DetailPage({
   onOpenCart?: () => void
 }) {
   const [cartNotice, setCartNotice] = useState('')
+  const [activeImage, setActiveImage] = useState('')
   const adminDetail = getPublishedAdminProducts()
     .filter((product) => product.collection !== '星座守护')
     .map(adminProductToDetail)
@@ -2559,6 +2562,22 @@ function DetailPage({
     adminDetail ??
     DETAILS.find((item) => item.id === id && !REMOVED_ZODIAC_IDS.has(item.id)) ??
     DETAILS.find((item) => item.id === 'chakra-test')!
+  const galleryImages = useMemo(
+    () =>
+      detail.images?.length
+        ? detail.images
+        : detail.image
+          ? [detail.image]
+          : [],
+    [detail.image, detail.images],
+  )
+  const primaryGalleryImage = galleryImages[0] ?? ''
+  const displayedImage = galleryImages.includes(activeImage)
+    ? activeImage
+    : primaryGalleryImage
+  useEffect(() => {
+    setActiveImage(primaryGalleryImage)
+  }, [detail.id, primaryGalleryImage])
   usePageMeta({
     title: `${getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')} | Lunar Talisman`,
     description: detail.desc,
@@ -2589,13 +2608,15 @@ function DetailPage({
         }}
         className="max-[900px]:!grid-cols-1"
       >
-        <div
+        <div style={{ display: 'grid', gap: 14 }}
+        >
+          <div
           style={{
             minHeight: 'clamp(380px, 48vw, 560px)',
             borderRadius: 38,
             border: '1px solid rgba(255,255,255,0.18)',
             backgroundColor: '#fff',
-            backgroundImage: detail.image ? `url(${detail.image})` : undefined,
+            backgroundImage: displayedImage ? `url(${displayedImage})` : undefined,
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -2631,6 +2652,61 @@ function DetailPage({
           >
             Back to collection
           </button>
+          </div>
+          {galleryImages.length > 1 ? (
+            <div
+              style={{
+                display: 'flex',
+                gap: 10,
+                overflowX: 'auto',
+                padding: '2px 2px 6px',
+                scrollbarWidth: 'thin',
+              }}
+              aria-label="Product image gallery"
+            >
+              {galleryImages.map((image, index) => {
+                const isActive = image === displayedImage
+
+                return (
+                  <button
+                    key={image}
+                    type="button"
+                    onClick={() => setActiveImage(image)}
+                    aria-label={`View product image ${index + 1}`}
+                    aria-pressed={isActive}
+                    style={{
+                      flex: '0 0 82px',
+                      width: 82,
+                      height: 82,
+                      padding: 0,
+                      borderRadius: 18,
+                      overflow: 'hidden',
+                      background: '#fff',
+                      border: isActive
+                        ? '2px solid rgba(58,37,48,0.78)'
+                        : '1px solid rgba(255,255,255,0.5)',
+                      boxShadow: isActive
+                        ? '0 10px 24px rgba(58,37,48,0.2)'
+                        : '0 7px 18px rgba(58,37,48,0.1)',
+                      cursor: 'pointer',
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt={`${getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')} view ${index + 1}`}
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'contain',
+                        display: 'block',
+                      }}
+                    />
+                  </button>
+                )
+              })}
+            </div>
+          ) : null}
         </div>
 
         <div
