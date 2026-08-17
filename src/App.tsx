@@ -130,6 +130,9 @@ const REMOVED_ZODIAC_IDS = new Set([
   'aquarius-fluorite',
   'pisces-amethyst',
 ])
+const REMOVED_IMPORTED_PRODUCT_IDS = new Set([
+  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+])
 
 const PRODUCTS: DetailData[] = [
   {
@@ -403,7 +406,11 @@ const CHAKRA_COLLECTIONS = [
   },
 ] as const
 
-const IMPORTED_DETAILS: DetailData[] = importedProducts.map((product) => ({
+const ACTIVE_IMPORTED_PRODUCTS = importedProducts.filter(
+  (product) => !REMOVED_IMPORTED_PRODUCT_IDS.has(product.id),
+)
+
+const IMPORTED_DETAILS: DetailData[] = ACTIVE_IMPORTED_PRODUCTS.map((product) => ({
   id: product.id,
   eyebrow: product.chakraName,
   title: product.name,
@@ -425,7 +432,7 @@ const IMPORTED_DETAILS: DetailData[] = importedProducts.map((product) => ({
   ].filter(Boolean),
 }))
 
-const IMPORTED_TILES: Tile[] = importedProducts.map((product) => ({
+const IMPORTED_TILES: Tile[] = ACTIVE_IMPORTED_PRODUCTS.map((product) => ({
   id: product.id,
   title: product.name,
   desc: product.tagline,
@@ -436,7 +443,7 @@ const IMPORTED_TILES: Tile[] = importedProducts.map((product) => ({
 }))
 
 const CHAKRA_NAV_TILES: Tile[] = CHAKRA_COLLECTIONS.map((chakra) => {
-  const products = importedProducts.filter((product) => product.chakra === chakra.id)
+  const products = ACTIVE_IMPORTED_PRODUCTS.filter((product) => product.chakra === chakra.id)
   const featured = products[0]
 
   return {
@@ -451,7 +458,7 @@ const CHAKRA_NAV_TILES: Tile[] = CHAKRA_COLLECTIONS.map((chakra) => {
 })
 
 const IMPORTED_PRODUCT_SERIES_BY_ID = new Map(
-  importedProducts.map((product) => [product.id, `chakra-${product.chakra}`]),
+  ACTIVE_IMPORTED_PRODUCTS.map((product) => [product.id, `chakra-${product.chakra}`]),
 )
 
 function guideToTile(guide: ImportedSeriesGuide): Tile {
@@ -1640,7 +1647,12 @@ function routeFromPath(): Route {
   const [page, id] = window.location.pathname.split('/').filter(Boolean)
 
   if (page === 'series' && id) return { page: 'series', id }
-  if (page === 'detail' && id) return { page: 'detail', id }
+  if (page === 'detail' && id) {
+    if (REMOVED_IMPORTED_PRODUCT_IDS.has(id)) {
+      return { page: 'series', id: 'chakra-sacral' }
+    }
+    return { page: 'detail', id }
+  }
   if (page === 'guide' && id) return { page: 'guide', id }
   if (page === 'cart') return { page: 'cart' }
   if (page === 'admin') return { page: 'admin' }
