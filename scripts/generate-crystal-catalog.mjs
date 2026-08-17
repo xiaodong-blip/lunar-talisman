@@ -58,12 +58,27 @@ function slugify(value) {
 function imageScore(fileName) {
   const value = fileName.toLowerCase()
   let score = 0
-  if (value.includes('白底') || value.includes('white')) score += 100
-  if (value.includes('正面') || value.includes('front')) score += 50
-  if (value.includes('展示') || value.includes('display')) score += 35
-  if (value.includes('45')) score += 20
-  if (value.includes('手部') || value.includes('佩戴') || value.includes('特写')) score -= 15
-  if (value.includes('截图') || value.includes('screen')) score -= 30
+  // Product pages should always open on the bracelet itself, not a lifestyle
+  // photo or a cropped detail. Source folders use mixed Chinese/English labels.
+  if (
+    value.includes('白底') ||
+    value.includes('white') ||
+    value.includes('产品完整') ||
+    value.includes('完整居中')
+  ) {
+    score += 1000
+  }
+  if (value.includes('正面') || value.includes('front')) score += 850
+  if (value.includes('展示') || value.includes('display')) score += 700
+  if (value.includes('45') || value.includes('斜侧')) score += 550
+  if (value.includes('主体')) score += 500
+  if (value.includes('手部') || value.includes('佩戴') || value.includes('手腕') || value.includes('小臂')) {
+    score -= 700
+  }
+  if (value.includes('露脸') || value.includes('生活化') || value.includes('lifestyle')) score -= 850
+  if (value.includes('特写') || value.includes('细节') || value.includes('macro')) score -= 500
+  if (value.includes('截图') || value.includes('screen')) score -= 1000
+  if (/^1\.(png|jpe?g|webp)$/i.test(fileName)) score += 400
   return score
 }
 

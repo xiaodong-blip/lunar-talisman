@@ -74,50 +74,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-autumn-winter-blessing-red-agate-bracelet-12mm",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Autumn-Winter Blessing Red Agate Bracelet 12mm",
-    "tagline": "For the season of harvest and rest — a warm 12mm band of red agate that turns your hard work into rewards and your worries into quiet, grounded peace.",
-    "material": "Natural red agate in 12mm beads with a deeper, riper red than its spring counterpart — the color of autumn fruit and winter hearths. Fine natural banding in cream and russet tones runs through each bead, and the high polish reveals a rich, almost glossy depth. Because every stone is naturally banded, each bracelet carries its own unique pattern, like a signature of the season it embodies.",
-    "energy": [
-      "Autumn asks us to harvest; winter asks us to rest — and both require a strong Root Chakra. This bracelet carries the energy of reaping what you have sown and trusting that your foundation will carry you through the quiet months. It reminds you that stability is not loud; it is the steady warmth that keeps burning when everything else cools down. For anyone who has worked hard and needs proof that it was worth it, this is the stone.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Rewards for your effort — it aligns you with the energy of receiving what you have earned.",
-      "Financial steadiness — helps money settle and stay rather than slip away.",
-      "Warmth through hardship — its deep red glow soothes in difficult, lonely seasons.",
-      "Patience and trust — it teaches that quiet consistency beats frantic effort.",
-      "Inner sanctuary — a sense of home within yourself, no matter the weather outside."
-    ],
-    "howToWear": [
-      "Wear it through the final quarter of the year — negotiations, reviews, year-end decisions — when you need to close chapters with confidence. Its deep color pairs beautifully with winter neutrals and holiday dressing. By night, keep it by your bedside as a warmth talisman for restful, secure sleep."
-    ],
-    "specs": [
-      "Bead size: 12mm natural red agate",
-      "Approx. 12–13 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 15–18 cm"
-    ],
-    "careRitual": [
-      "Clean with a soft dry cloth; keep away from perfumes and ultrasonic cleaners. On the winter solstice or any full moon, leave it under moonlight overnight to recharge. Hold it in your palms and affirm: \"What I have built is enough. I rest in my roots, and abundance returns to me.\""
-    ],
-    "price": 163,
-    "image": "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
-    "images": [
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-2.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-3.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-4.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-5.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-6.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-7.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-8.webp"
-    ]
-  },
-  {
     "id": "root-emotional-stability-water-element-bracelet-8mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -250,6 +206,50 @@ export const importedProducts: ImportedProduct[] = [
       "/products/root-classic-cinnabar-bracelet-6mm-8.webp",
       "/products/root-classic-cinnabar-bracelet-6mm-9.webp",
       "/products/root-classic-cinnabar-bracelet-6mm-10.webp"
+    ]
+  },
+  {
+    "id": "root-autumn-winter-blessing-red-agate-bracelet-12mm",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Autumn-Winter Blessing Red Agate Bracelet 12mm",
+    "tagline": "For the season of harvest and rest — a warm 12mm band of red agate that turns your hard work into rewards and your worries into quiet, grounded peace.",
+    "material": "Natural red agate in 12mm beads with a deeper, riper red than its spring counterpart — the color of autumn fruit and winter hearths. Fine natural banding in cream and russet tones runs through each bead, and the high polish reveals a rich, almost glossy depth. Because every stone is naturally banded, each bracelet carries its own unique pattern, like a signature of the season it embodies.",
+    "energy": [
+      "Autumn asks us to harvest; winter asks us to rest — and both require a strong Root Chakra. This bracelet carries the energy of reaping what you have sown and trusting that your foundation will carry you through the quiet months. It reminds you that stability is not loud; it is the steady warmth that keeps burning when everything else cools down. For anyone who has worked hard and needs proof that it was worth it, this is the stone.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
+    ],
+    "benefits": [
+      "Rewards for your effort — it aligns you with the energy of receiving what you have earned.",
+      "Financial steadiness — helps money settle and stay rather than slip away.",
+      "Warmth through hardship — its deep red glow soothes in difficult, lonely seasons.",
+      "Patience and trust — it teaches that quiet consistency beats frantic effort.",
+      "Inner sanctuary — a sense of home within yourself, no matter the weather outside."
+    ],
+    "howToWear": [
+      "Wear it through the final quarter of the year — negotiations, reviews, year-end decisions — when you need to close chapters with confidence. Its deep color pairs beautifully with winter neutrals and holiday dressing. By night, keep it by your bedside as a warmth talisman for restful, secure sleep."
+    ],
+    "specs": [
+      "Bead size: 12mm natural red agate",
+      "Approx. 12–13 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 15–18 cm"
+    ],
+    "careRitual": [
+      "Clean with a soft dry cloth; keep away from perfumes and ultrasonic cleaners. On the winter solstice or any full moon, leave it under moonlight overnight to recharge. Hold it in your palms and affirm: \"What I have built is enough. I rest in my roots, and abundance returns to me.\""
+    ],
+    "price": 163,
+    "image": "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
+    "images": [
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-2.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-3.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-4.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-5.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-6.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-7.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-8.webp"
     ]
   },
   {
@@ -430,47 +430,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-fire-element-five-elements-bracelet-10mm",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Fire-Element Five Elements Bracelet 10mm",
-    "tagline": "The same fire, in a bolder 10mm flame — for the moments when you need your warmth to be seen, your courage to be felt, and your roots to be undeniable.",
-    "material": "A fire-element five elements mix in substantial 10mm beads: rich red agate with visible snow-white banding, red jasper in earthy terracotta tones, garnet with its deep crimson clarity, sunstone flashing golden sparkle, and vermilion cinnabar accents. At 10mm, every stone's character is fully on display — the banding, the flecks, the inner glow. This is the same family as our 8mm fire mix, but with presence: heavier on the wrist, richer in color, impossible to overlook.",
-    "energy": [
-      "Fire generates earth in the Five Elements cycle — and this bracelet completes that circuit at full volume. Its fire stones ignite the Root Chakra with drive, passion, and the courage to take up space; the earth those fires feed becomes the stability that keeps you grounded while you pursue bigger things. Where the 8mm version is your daily companion, this 10mm version is for the seasons of your life that demand boldness — launches, negotiations, public moments, new identities.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Visible confidence — the 10mm fire-red band announces you before you speak.",
-      "Courage for the spotlight — speaking, presenting, leading, and being seen.",
-      "Stronger career footing — fire that powers ambition and earth that protects it.",
-      "Passion with endurance — energy that lasts through long, demanding seasons.",
-      "Unshakeable presence — you walk in, and people feel your stability."
-    ],
-    "howToWear": [
-      "Wear it on your dominant wrist during high-stakes days — pitches, interviews, presentations, performances. Let it be the one statement piece that anchors a simple outfit. When you need a reminder of your own power, touch the beads; the fire is there waiting."
-    ],
-    "specs": [
-      "Bead size: 10mm fire-element mix (red agate, red jasper, garnet, sunstone, cinnabar)",
-      "Approx. 16–17 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 15–18 cm"
-    ],
-    "careRitual": [
-      "Remove before water activities; wipe with a soft dry cloth. On the full moon, place it under moonlight to recharge — fire stones love the moon's reflection. As you put it on, affirm: \"I take up space with courage. My fire is visible, my roots are deep, and nothing I chase can shake my ground.\""
-    ],
-    "price": 243,
-    "image": "/products/root-fire-element-five-elements-bracelet-10mm.webp",
-    "images": [
-      "/products/root-fire-element-five-elements-bracelet-10mm.webp",
-      "/products/root-fire-element-five-elements-bracelet-10mm-2.webp",
-      "/products/root-fire-element-five-elements-bracelet-10mm-3.webp",
-      "/products/root-fire-element-five-elements-bracelet-10mm-4.webp",
-      "/products/root-fire-element-five-elements-bracelet-10mm-5.webp"
-    ]
-  },
-  {
     "id": "root-water-element-five-elements-bracelet-8mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -511,6 +470,47 @@ export const importedProducts: ImportedProduct[] = [
       "/products/root-water-element-five-elements-bracelet-8mm-5.webp",
       "/products/root-water-element-five-elements-bracelet-8mm-6.webp",
       "/products/root-water-element-five-elements-bracelet-8mm-7.webp"
+    ]
+  },
+  {
+    "id": "root-fire-element-five-elements-bracelet-10mm",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Fire-Element Five Elements Bracelet 10mm",
+    "tagline": "The same fire, in a bolder 10mm flame — for the moments when you need your warmth to be seen, your courage to be felt, and your roots to be undeniable.",
+    "material": "A fire-element five elements mix in substantial 10mm beads: rich red agate with visible snow-white banding, red jasper in earthy terracotta tones, garnet with its deep crimson clarity, sunstone flashing golden sparkle, and vermilion cinnabar accents. At 10mm, every stone's character is fully on display — the banding, the flecks, the inner glow. This is the same family as our 8mm fire mix, but with presence: heavier on the wrist, richer in color, impossible to overlook.",
+    "energy": [
+      "Fire generates earth in the Five Elements cycle — and this bracelet completes that circuit at full volume. Its fire stones ignite the Root Chakra with drive, passion, and the courage to take up space; the earth those fires feed becomes the stability that keeps you grounded while you pursue bigger things. Where the 8mm version is your daily companion, this 10mm version is for the seasons of your life that demand boldness — launches, negotiations, public moments, new identities.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
+    ],
+    "benefits": [
+      "Visible confidence — the 10mm fire-red band announces you before you speak.",
+      "Courage for the spotlight — speaking, presenting, leading, and being seen.",
+      "Stronger career footing — fire that powers ambition and earth that protects it.",
+      "Passion with endurance — energy that lasts through long, demanding seasons.",
+      "Unshakeable presence — you walk in, and people feel your stability."
+    ],
+    "howToWear": [
+      "Wear it on your dominant wrist during high-stakes days — pitches, interviews, presentations, performances. Let it be the one statement piece that anchors a simple outfit. When you need a reminder of your own power, touch the beads; the fire is there waiting."
+    ],
+    "specs": [
+      "Bead size: 10mm fire-element mix (red agate, red jasper, garnet, sunstone, cinnabar)",
+      "Approx. 16–17 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 15–18 cm"
+    ],
+    "careRitual": [
+      "Remove before water activities; wipe with a soft dry cloth. On the full moon, place it under moonlight to recharge — fire stones love the moon's reflection. As you put it on, affirm: \"I take up space with courage. My fire is visible, my roots are deep, and nothing I chase can shake my ground.\""
+    ],
+    "price": 243,
+    "image": "/products/root-fire-element-five-elements-bracelet-10mm.webp",
+    "images": [
+      "/products/root-fire-element-five-elements-bracelet-10mm.webp",
+      "/products/root-fire-element-five-elements-bracelet-10mm-2.webp",
+      "/products/root-fire-element-five-elements-bracelet-10mm-3.webp",
+      "/products/root-fire-element-five-elements-bracelet-10mm-4.webp",
+      "/products/root-fire-element-five-elements-bracelet-10mm-5.webp"
     ]
   },
   {
@@ -598,6 +598,48 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "root-red-beauty-agate-bracelet-10mm",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Red Beauty Agate Bracelet 10mm",
+    "tagline": "For the woman who wants to glow from the inside out — 10mm of rose-red agate that roots your confidence and lets your natural radiance do the talking.",
+    "material": "Natural red agate in elegant 10mm beads with a rosier, softer red than our other agate pieces — the color of blush and embers rather than fire. Delicate white banding drifts through each bead like clouds across a sunset, and the high polish gives the stone a warm, feminine luster that flatters every skin tone. The balanced 10mm size sits beautifully on the wrist — substantial enough to notice, graceful enough to wear every day.",
+    "energy": [
+      "Red Beauty agate works on the Root Chakra through warmth rather than force: it grounds you in self-worth — the quiet knowing that you are enough, that you belong in every room you enter. This is the foundation that beauty actually grows from: not performance, but presence. The stone's gentle red energy also stirs the fires of the lower chakras, giving you that magnetic aliveness that people describe as \"good energy.\" It is for anyone who has been told to shrink, and is ready to glow instead.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
+    ],
+    "benefits": [
+      "Rooted self-worth — confidence that comes from within, not from approval.",
+      "Natural magnetism — a warm presence that draws people and opportunities.",
+      "Inner calm radiance — beauty that survives stress and sleepless nights.",
+      "Courage to be seen — the quiet nerve to show up as yourself.",
+      "Emotional warmth — soft grounding that melts self-doubt and anxiety."
+    ],
+    "howToWear": [
+      "Wear it daily on the left wrist as your personal glow talisman — through dates, interviews, presentations, and ordinary days that deserve extraordinary energy. It pairs beautifully with gold or silver jewelry and elevates the simplest outfit. Touch it before any moment where you need to remember your worth."
+    ],
+    "specs": [
+      "Bead size: 10mm natural red agate",
+      "Approx. 16–17 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 14–17 cm"
+    ],
+    "careRitual": [
+      "Rinse briefly under lukewarm water and pat dry; avoid harsh chemicals. On each new moon — a time of renewal — place it under moonlight overnight. As you wear it, affirm: \"I am rooted in my worth. I glow from within, and the world sees what I already know.\""
+    ],
+    "price": 186,
+    "image": "/products/root-red-beauty-agate-bracelet-10mm.webp",
+    "images": [
+      "/products/root-red-beauty-agate-bracelet-10mm.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-2.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-3.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-4.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-5.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-6.webp"
+    ]
+  },
+  {
     "id": "root-red-fortune-red-agate-bracelet-12mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -638,48 +680,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/root-red-fortune-red-agate-bracelet-12mm-5.webp",
       "/products/root-red-fortune-red-agate-bracelet-12mm-6.webp",
       "/products/root-red-fortune-red-agate-bracelet-12mm-7.webp"
-    ]
-  },
-  {
-    "id": "root-red-beauty-agate-bracelet-10mm",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Red Beauty Agate Bracelet 10mm",
-    "tagline": "For the woman who wants to glow from the inside out — 10mm of rose-red agate that roots your confidence and lets your natural radiance do the talking.",
-    "material": "Natural red agate in elegant 10mm beads with a rosier, softer red than our other agate pieces — the color of blush and embers rather than fire. Delicate white banding drifts through each bead like clouds across a sunset, and the high polish gives the stone a warm, feminine luster that flatters every skin tone. The balanced 10mm size sits beautifully on the wrist — substantial enough to notice, graceful enough to wear every day.",
-    "energy": [
-      "Red Beauty agate works on the Root Chakra through warmth rather than force: it grounds you in self-worth — the quiet knowing that you are enough, that you belong in every room you enter. This is the foundation that beauty actually grows from: not performance, but presence. The stone's gentle red energy also stirs the fires of the lower chakras, giving you that magnetic aliveness that people describe as \"good energy.\" It is for anyone who has been told to shrink, and is ready to glow instead.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Rooted self-worth — confidence that comes from within, not from approval.",
-      "Natural magnetism — a warm presence that draws people and opportunities.",
-      "Inner calm radiance — beauty that survives stress and sleepless nights.",
-      "Courage to be seen — the quiet nerve to show up as yourself.",
-      "Emotional warmth — soft grounding that melts self-doubt and anxiety."
-    ],
-    "howToWear": [
-      "Wear it daily on the left wrist as your personal glow talisman — through dates, interviews, presentations, and ordinary days that deserve extraordinary energy. It pairs beautifully with gold or silver jewelry and elevates the simplest outfit. Touch it before any moment where you need to remember your worth."
-    ],
-    "specs": [
-      "Bead size: 10mm natural red agate",
-      "Approx. 16–17 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 14–17 cm"
-    ],
-    "careRitual": [
-      "Rinse briefly under lukewarm water and pat dry; avoid harsh chemicals. On each new moon — a time of renewal — place it under moonlight overnight. As you wear it, affirm: \"I am rooted in my worth. I glow from within, and the world sees what I already know.\""
-    ],
-    "price": 186,
-    "image": "/products/root-red-beauty-agate-bracelet-10mm.webp",
-    "images": [
-      "/products/root-red-beauty-agate-bracelet-10mm.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-2.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-3.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-4.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-5.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-6.webp"
     ]
   },
   {
@@ -1093,6 +1093,49 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "root-five-elements-fire-starfire-multi-stone-bracelet",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Five Elements Fire Starfire Multi-Stone Bracelet",
+    "tagline": "When your fire has dimmed, this mix rekindles the spark that gets things moving.",
+    "material": "A curated Five Elements Fire mix: Red Agate, Garnet, and warm red jasper tones selected to harmonize the Fire element.",
+    "energy": [
+      "This bracelet is a Five Elements multi-stone blend designed to harmonize a specific elemental frequency within the Root Chakra lineage. Fire element — passion, courage, and forward motion.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly on edge for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe."
+    ],
+    "benefits": [
+      "Harmonizes the Fire element energy in your life",
+      "Supports the balance of your Root Chakra energy center",
+      "Combines multiple complementary stones for layered effect",
+      "Handcrafted with natural stones — each piece is unique",
+      "An everyday companion for grounding and intention"
+    ],
+    "howToWear": [
+      "Wear daily on the wrist that feels natural. This piece is designed to be worn frequently so its balancing energy can stay close to you."
+    ],
+    "specs": [
+      "Material: A curated Five Elements Fire mix: Red Agate, Garnet, and warm red jasper tones selected to harmonize the Fire element.",
+      "Style: Elastic stretch bracelet, multi-strand design",
+      "Series: Root Chakra Collection"
+    ],
+    "careRitual": [
+      "Clean gently with lukewarm water and a soft cloth. Avoid harsh chemicals and prolonged direct sunlight. Recharge under a full moon, or cleanse with white sage smoke when it feels heavy. To strengthen your connection: hold the bracelet in both hands, breathe deeply three times, and repeat your intention silently. Your talisman remembers what you ask of it."
+    ],
+    "price": 312,
+    "image": "/products/root-five-elements-fire-starfire-multi-stone-bracelet.webp",
+    "images": [
+      "/products/root-five-elements-fire-starfire-multi-stone-bracelet.webp",
+      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-2.webp",
+      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-3.webp",
+      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-4.webp",
+      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-5.webp",
+      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-6.webp",
+      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-7.webp"
+    ]
+  },
+  {
     "id": "root-dark-water-radiance-obsidian-family-bracelet",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -1174,46 +1217,45 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-five-elements-fire-starfire-multi-stone-bracelet",
+    "id": "root-cinnabar-gourd-bracelet-8mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
     "color": "#d98b7b",
-    "name": "Five Elements Fire Starfire Multi-Stone Bracelet",
-    "tagline": "When your fire has dimmed, this mix rekindles the spark that gets things moving.",
-    "material": "A curated Five Elements Fire mix: Red Agate, Garnet, and warm red jasper tones selected to harmonize the Fire element.",
+    "name": "Cinnabar Gourd Bracelet 8mm",
+    "tagline": "The ancient red of imperial seals wrapped around your wrist — a gourd-shaped anchor that keeps your home safe and your fortune growing, so you can finally feel rooted.",
+    "material": "Crafted from imperial-grade cinnabar (帝王砂), the most prized grade of vermilion cinnabar, known for its deep, saturated red and exceptionally dense, compact texture. Each 8mm bead is hand-carved into a miniature gourd — the classic Chinese talisman of abundance and protection. Natural veining and fine mineral texture make every bead unique, glowing with a dignified, jewel-like luster that has guarded Chinese households for centuries.",
     "energy": [
-      "This bracelet is a Five Elements multi-stone blend designed to harmonize a specific elemental frequency within the Root Chakra lineage. Fire element — passion, courage, and forward motion.",
+      "Cinnabar speaks directly to the Root Chakra, the energetic foundation of your entire being. The gourd shape multiplies its protective field: it absorbs disruptive energy before it reaches you and transmutes it into grounded strength. When your foundation is secure, nothing outside can shake your inner peace.",
       "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly on edge for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe."
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
     ],
     "benefits": [
-      "Harmonizes the Fire element energy in your life",
-      "Supports the balance of your Root Chakra energy center",
-      "Combines multiple complementary stones for layered effect",
-      "Handcrafted with natural stones — each piece is unique",
-      "An everyday companion for grounding and intention"
+      "Home and personal protection — it creates a quiet shield, so you feel safe even in chaotic environments.",
+      "Steady wealth accumulation — the gourd is the classic \"harvest vessel\"; it helps effort turn into visible results.",
+      "Deep-rooted security — the red vibration settles your nervous system and calms that constant \"something is wrong\" feeling.",
+      "Courage to stand your ground — wear it when you need the nerve to speak up, negotiate, or start over.",
+      "Anxiety release — its heavy, grounded energy pulls scattered worry down into the earth."
     ],
     "howToWear": [
-      "Wear daily on the wrist that feels natural. This piece is designed to be worn frequently so its balancing energy can stay close to you."
+      "Wear on the left wrist to receive its protective energy, or keep it in your bag, by your bedside, or near the entrance of your home as a guardian. It works beautifully as a daily anchor when you face stressful meetings, long commutes, or uncertain decisions."
     ],
     "specs": [
-      "Material: A curated Five Elements Fire mix: Red Agate, Garnet, and warm red jasper tones selected to harmonize the Fire element.",
-      "Style: Elastic stretch bracelet, multi-strand design",
-      "Series: Root Chakra Collection"
+      "Bead size: 8mm gourd-shaped cinnabar beads",
+      "Approx. 16 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 14–17 cm"
     ],
     "careRitual": [
-      "Clean gently with lukewarm water and a soft cloth. Avoid harsh chemicals and prolonged direct sunlight. Recharge under a full moon, or cleanse with white sage smoke when it feels heavy. To strengthen your connection: hold the bracelet in both hands, breathe deeply three times, and repeat your intention silently. Your talisman remembers what you ask of it."
+      "Avoid prolonged contact with water, perfume, or sweat; wipe gently with a soft dry cloth. Once a month on a full moon, place it on a windowsill under moonlight overnight to recharge — then hold it in both hands, breathe deeply, and set your intention: \"I am safe. I am rooted. What I build will hold.\""
     ],
-    "price": 312,
-    "image": "/products/root-five-elements-fire-starfire-multi-stone-bracelet.webp",
+    "price": 243,
+    "image": "/products/root-cinnabar-gourd-bracelet-8mm.webp",
     "images": [
-      "/products/root-five-elements-fire-starfire-multi-stone-bracelet.webp",
-      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-2.webp",
-      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-3.webp",
-      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-4.webp",
-      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-5.webp",
-      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-6.webp",
-      "/products/root-five-elements-fire-starfire-multi-stone-bracelet-7.webp"
+      "/products/root-cinnabar-gourd-bracelet-8mm.webp",
+      "/products/root-cinnabar-gourd-bracelet-8mm-2.webp",
+      "/products/root-cinnabar-gourd-bracelet-8mm-3.webp",
+      "/products/root-cinnabar-gourd-bracelet-8mm-4.webp",
+      "/products/root-cinnabar-gourd-bracelet-8mm-5.webp",
+      "/products/root-cinnabar-gourd-bracelet-8mm-6.webp"
     ]
   },
   {
@@ -1259,48 +1301,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-cinnabar-gourd-bracelet-8mm",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Cinnabar Gourd Bracelet 8mm",
-    "tagline": "The ancient red of imperial seals wrapped around your wrist — a gourd-shaped anchor that keeps your home safe and your fortune growing, so you can finally feel rooted.",
-    "material": "Crafted from imperial-grade cinnabar (帝王砂), the most prized grade of vermilion cinnabar, known for its deep, saturated red and exceptionally dense, compact texture. Each 8mm bead is hand-carved into a miniature gourd — the classic Chinese talisman of abundance and protection. Natural veining and fine mineral texture make every bead unique, glowing with a dignified, jewel-like luster that has guarded Chinese households for centuries.",
-    "energy": [
-      "Cinnabar speaks directly to the Root Chakra, the energetic foundation of your entire being. The gourd shape multiplies its protective field: it absorbs disruptive energy before it reaches you and transmutes it into grounded strength. When your foundation is secure, nothing outside can shake your inner peace.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Home and personal protection — it creates a quiet shield, so you feel safe even in chaotic environments.",
-      "Steady wealth accumulation — the gourd is the classic \"harvest vessel\"; it helps effort turn into visible results.",
-      "Deep-rooted security — the red vibration settles your nervous system and calms that constant \"something is wrong\" feeling.",
-      "Courage to stand your ground — wear it when you need the nerve to speak up, negotiate, or start over.",
-      "Anxiety release — its heavy, grounded energy pulls scattered worry down into the earth."
-    ],
-    "howToWear": [
-      "Wear on the left wrist to receive its protective energy, or keep it in your bag, by your bedside, or near the entrance of your home as a guardian. It works beautifully as a daily anchor when you face stressful meetings, long commutes, or uncertain decisions."
-    ],
-    "specs": [
-      "Bead size: 8mm gourd-shaped cinnabar beads",
-      "Approx. 16 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 14–17 cm"
-    ],
-    "careRitual": [
-      "Avoid prolonged contact with water, perfume, or sweat; wipe gently with a soft dry cloth. Once a month on a full moon, place it on a windowsill under moonlight overnight to recharge — then hold it in both hands, breathe deeply, and set your intention: \"I am safe. I am rooted. What I build will hold.\""
-    ],
-    "price": 243,
-    "image": "/products/root-cinnabar-gourd-bracelet-8mm.webp",
-    "images": [
-      "/products/root-cinnabar-gourd-bracelet-8mm.webp",
-      "/products/root-cinnabar-gourd-bracelet-8mm-2.webp",
-      "/products/root-cinnabar-gourd-bracelet-8mm-3.webp",
-      "/products/root-cinnabar-gourd-bracelet-8mm-4.webp",
-      "/products/root-cinnabar-gourd-bracelet-8mm-5.webp",
-      "/products/root-cinnabar-gourd-bracelet-8mm-6.webp"
-    ]
-  },
-  {
     "id": "sacral-sacral-chakra-vitality-carnelian-bracelet-8mm",
     "chakra": "sacral",
     "chakraName": "Sacral Chakra",
@@ -1341,45 +1341,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "sacral-sacral-chakra-flame-orange-agate-bracelet-10mm",
-    "chakra": "sacral",
-    "chakraName": "Sacral Chakra",
-    "color": "#e4ad7b",
-    "name": "Sacral Chakra Flame Orange Agate Bracelet 10mm",
-    "tagline": "Steady warmth for steady nerves — because grounding is the foundation of joy.",
-    "material": "Natural Orange Agate beads, 10mm round, banded with rich autumn tones. A stabilizing stone with the warmth of harvest sunlight.",
-    "energy": [
-      "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
-      "Real-Life Signs You May Recognize",
-      "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
-    ],
-    "benefits": [
-      "Grounds scattered energy — feel centered when life pulls you apart",
-      "Brings emotional stability — for the days you feel like a storm",
-      "Nurtures creativity with patience — good things take time",
-      "Attracts harmonious relationships — warmth draws warmth",
-      "Calms an overactive mind — quiet the noise, hear yourself"
-    ],
-    "howToWear": [
-      "Wear on the left wrist to receive calming energy, or right wrist for outward warmth. Beautiful for work, travel, and evenings that need gentleness."
-    ],
-    "specs": [
-      "Material: 橙玛瑙 Orange Agate",
-      "Bead Size: as specified in product name",
-      "Style: Elastic stretch bracelet",
-      "Series: Sacral Chakra Collection"
-    ],
-    "careRitual": [
-      "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
-    ],
-    "price": 174,
-    "image": "/products/sacral-sacral-chakra-flame-orange-agate-bracelet-10mm.webp",
-    "images": [
-      "/products/sacral-sacral-chakra-flame-orange-agate-bracelet-10mm.webp",
-      "/products/sacral-sacral-chakra-flame-orange-agate-bracelet-10mm-2.webp"
-    ]
-  },
-  {
     "id": "sacral-sacral-chakra-radiance-sunstone-bracelet-8mm",
     "chakra": "sacral",
     "chakraName": "Sacral Chakra",
@@ -1417,6 +1378,45 @@ export const importedProducts: ImportedProduct[] = [
       "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm.webp",
       "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm-2.webp",
       "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm-3.webp"
+    ]
+  },
+  {
+    "id": "sacral-sacral-chakra-flame-orange-agate-bracelet-10mm",
+    "chakra": "sacral",
+    "chakraName": "Sacral Chakra",
+    "color": "#e4ad7b",
+    "name": "Sacral Chakra Flame Orange Agate Bracelet 10mm",
+    "tagline": "Steady warmth for steady nerves — because grounding is the foundation of joy.",
+    "material": "Natural Orange Agate beads, 10mm round, banded with rich autumn tones. A stabilizing stone with the warmth of harvest sunlight.",
+    "energy": [
+      "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
+      "Real-Life Signs You May Recognize",
+      "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
+    ],
+    "benefits": [
+      "Grounds scattered energy — feel centered when life pulls you apart",
+      "Brings emotional stability — for the days you feel like a storm",
+      "Nurtures creativity with patience — good things take time",
+      "Attracts harmonious relationships — warmth draws warmth",
+      "Calms an overactive mind — quiet the noise, hear yourself"
+    ],
+    "howToWear": [
+      "Wear on the left wrist to receive calming energy, or right wrist for outward warmth. Beautiful for work, travel, and evenings that need gentleness."
+    ],
+    "specs": [
+      "Material: 橙玛瑙 Orange Agate",
+      "Bead Size: as specified in product name",
+      "Style: Elastic stretch bracelet",
+      "Series: Sacral Chakra Collection"
+    ],
+    "careRitual": [
+      "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
+    ],
+    "price": 174,
+    "image": "/products/sacral-sacral-chakra-flame-orange-agate-bracelet-10mm.webp",
+    "images": [
+      "/products/sacral-sacral-chakra-flame-orange-agate-bracelet-10mm.webp",
+      "/products/sacral-sacral-chakra-flame-orange-agate-bracelet-10mm-2.webp"
     ]
   },
   {
@@ -1539,45 +1539,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm",
-    "chakra": "sacral",
-    "chakraName": "Sacral Chakra",
-    "color": "#e4ad7b",
-    "name": "Sacral Chakra Inner Fire Fire Agate Bracelet 8mm",
-    "tagline": "A fire that cannot be extinguished — because you were never meant to dim yourself.",
-    "material": "Natural Fire Agate beads, 8mm. Deep orange and red with iridescent fiery flashes within the stone — a talisman of inner fire and protective strength.",
-    "energy": [
-      "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
-      "Real-Life Signs You May Recognize",
-      "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
-    ],
-    "benefits": [
-      "Ignites inner fire and determination — the ember is still glowing",
-      "Protects against energetic exhaustion — keep your flame burning",
-      "Grounds intense energy — power with control",
-      "Encourages action over hesitation — now is the moment",
-      "Transforms stagnant energy into forward motion"
-    ],
-    "howToWear": [
-      "Wear on the dominant wrist for action energy. A striking statement piece for bold, driven souls."
-    ],
-    "specs": [
-      "Material: 火焰玛瑙 Fire Agate",
-      "Bead Size: as specified in product name",
-      "Style: Elastic stretch bracelet",
-      "Series: Sacral Chakra Collection"
-    ],
-    "careRitual": [
-      "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
-    ],
-    "price": 222,
-    "image": "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
-    "images": [
-      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
-      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm-2.webp"
-    ]
-  },
-  {
     "id": "sacral-sacral-chakra-creativity-orange-calcite-bracelet-8mm",
     "chakra": "sacral",
     "chakraName": "Sacral Chakra",
@@ -1652,6 +1613,45 @@ export const importedProducts: ImportedProduct[] = [
     "images": [
       "/products/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm.webp",
       "/products/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm-2.webp"
+    ]
+  },
+  {
+    "id": "sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm",
+    "chakra": "sacral",
+    "chakraName": "Sacral Chakra",
+    "color": "#e4ad7b",
+    "name": "Sacral Chakra Inner Fire Fire Agate Bracelet 8mm",
+    "tagline": "A fire that cannot be extinguished — because you were never meant to dim yourself.",
+    "material": "Natural Fire Agate beads, 8mm. Deep orange and red with iridescent fiery flashes within the stone — a talisman of inner fire and protective strength.",
+    "energy": [
+      "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
+      "Real-Life Signs You May Recognize",
+      "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
+    ],
+    "benefits": [
+      "Ignites inner fire and determination — the ember is still glowing",
+      "Protects against energetic exhaustion — keep your flame burning",
+      "Grounds intense energy — power with control",
+      "Encourages action over hesitation — now is the moment",
+      "Transforms stagnant energy into forward motion"
+    ],
+    "howToWear": [
+      "Wear on the dominant wrist for action energy. A striking statement piece for bold, driven souls."
+    ],
+    "specs": [
+      "Material: 火焰玛瑙 Fire Agate",
+      "Bead Size: as specified in product name",
+      "Style: Elastic stretch bracelet",
+      "Series: Sacral Chakra Collection"
+    ],
+    "careRitual": [
+      "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
+    ],
+    "price": 222,
+    "image": "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
+    "images": [
+      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
+      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm-2.webp"
     ]
   },
   {
@@ -1735,6 +1735,49 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-sweet-treasure-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Sweet Treasure Bracelet",
+    "tagline": "Wealth that feels like a gift, not a grind — because abundance should taste sweet, not bitter.",
+    "material": "Plump 11–12mm champagne-gold Citrine beads carry the bracelet, each one glowing with warm honey transparency and soft natural veils. Tucked between them are accents of Strawberry Quartz — translucent rose-pink beads sparkling with tiny internal inclusions like crystallized sugar. The pairing is a dessert for the eyes: golden treasure served with a pink cherry on top.",
+    "energy": [
+      "Rooted in the Solar Plexus Chakra, this bracelet blends confident abundance with heart-opening warmth. Citrine is the classic merchant's stone, magnetizing prosperity, while Strawberry Quartz adds sweet-natured luck and the kind of charm that makes opportunities say \"yes\" before you even finish the sentence.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Makes money flow feel natural and joyful, rather than stressful and scarce",
+      "Boosts self-worth — you finally believe your efforts deserve rich rewards",
+      "Sweetens negotiations and social moments, drawing allies who want to help you win",
+      "Dissolves the heavy, anxious energy around finances and replaces it with playful optimism",
+      "Balances drive with warmth, so success never comes at the cost of your softness"
+    ],
+    "howToWear": [
+      "Perfect for days when you want to feel both powerful and approachable — wear it to brunch with clients, creative meetings, or anywhere you need charm plus confidence. The 11–12mm size sits comfortably on most wrists and pairs beautifully with dainty gold jewelry."
+    ],
+    "specs": [
+      "Bead size: 11–12mm; materials: natural Citrine + Strawberry Quartz accent beads; elastic cord."
+    ],
+    "careRitual": [
+      "Keep away from water, perfume, and harsh cleansers. Once a month, charge the bracelet under the light of a full moon on a clean cloth; as it rests, imagine your bank account and your heart filling at the same steady, sweet pace."
+    ],
+    "price": 402,
+    "image": "/products/solar-sweet-treasure-bracelet.webp",
+    "images": [
+      "/products/solar-sweet-treasure-bracelet.webp",
+      "/products/solar-sweet-treasure-bracelet-2.webp",
+      "/products/solar-sweet-treasure-bracelet-3.webp",
+      "/products/solar-sweet-treasure-bracelet-4.webp",
+      "/products/solar-sweet-treasure-bracelet-5.webp",
+      "/products/solar-sweet-treasure-bracelet-6.webp",
+      "/products/solar-sweet-treasure-bracelet-7.webp",
+      "/products/solar-sweet-treasure-bracelet-8.webp",
+      "/products/solar-sweet-treasure-bracelet-9.webp"
+    ]
+  },
+  {
     "id": "solar-ruyi-prosperity-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -1814,49 +1857,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-golden-tigers-eye-yellow-crystal-bracelet-5.webp",
       "/products/solar-golden-tigers-eye-yellow-crystal-bracelet-6.webp",
       "/products/solar-golden-tigers-eye-yellow-crystal-bracelet-7.webp"
-    ]
-  },
-  {
-    "id": "solar-sweet-treasure-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Sweet Treasure Bracelet",
-    "tagline": "Wealth that feels like a gift, not a grind — because abundance should taste sweet, not bitter.",
-    "material": "Plump 11–12mm champagne-gold Citrine beads carry the bracelet, each one glowing with warm honey transparency and soft natural veils. Tucked between them are accents of Strawberry Quartz — translucent rose-pink beads sparkling with tiny internal inclusions like crystallized sugar. The pairing is a dessert for the eyes: golden treasure served with a pink cherry on top.",
-    "energy": [
-      "Rooted in the Solar Plexus Chakra, this bracelet blends confident abundance with heart-opening warmth. Citrine is the classic merchant's stone, magnetizing prosperity, while Strawberry Quartz adds sweet-natured luck and the kind of charm that makes opportunities say \"yes\" before you even finish the sentence.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Makes money flow feel natural and joyful, rather than stressful and scarce",
-      "Boosts self-worth — you finally believe your efforts deserve rich rewards",
-      "Sweetens negotiations and social moments, drawing allies who want to help you win",
-      "Dissolves the heavy, anxious energy around finances and replaces it with playful optimism",
-      "Balances drive with warmth, so success never comes at the cost of your softness"
-    ],
-    "howToWear": [
-      "Perfect for days when you want to feel both powerful and approachable — wear it to brunch with clients, creative meetings, or anywhere you need charm plus confidence. The 11–12mm size sits comfortably on most wrists and pairs beautifully with dainty gold jewelry."
-    ],
-    "specs": [
-      "Bead size: 11–12mm; materials: natural Citrine + Strawberry Quartz accent beads; elastic cord."
-    ],
-    "careRitual": [
-      "Keep away from water, perfume, and harsh cleansers. Once a month, charge the bracelet under the light of a full moon on a clean cloth; as it rests, imagine your bank account and your heart filling at the same steady, sweet pace."
-    ],
-    "price": 402,
-    "image": "/products/solar-sweet-treasure-bracelet.webp",
-    "images": [
-      "/products/solar-sweet-treasure-bracelet.webp",
-      "/products/solar-sweet-treasure-bracelet-2.webp",
-      "/products/solar-sweet-treasure-bracelet-3.webp",
-      "/products/solar-sweet-treasure-bracelet-4.webp",
-      "/products/solar-sweet-treasure-bracelet-5.webp",
-      "/products/solar-sweet-treasure-bracelet-6.webp",
-      "/products/solar-sweet-treasure-bracelet-7.webp",
-      "/products/solar-sweet-treasure-bracelet-8.webp",
-      "/products/solar-sweet-treasure-bracelet-9.webp"
     ]
   },
   {
@@ -1987,6 +1987,42 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-amber-glow-tigers-eye-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Amber Glow Tiger's Eye Bracelet",
+    "tagline": "See clearly, decide boldly, move like you mean it — because hesitation is the only real competitor you have.",
+    "material": "An elegant 10mm pairing of Yellow Crystal and Golden Tiger's Eye. The Yellow Crystal glows with clean honey transparency, while the Tiger's Eye reveals layered bands of amber, gold, and deep brown that shimmer and shift with every turn of the wrist — the signature \"tiger's eye\" chatoyancy that makes each bead feel alive. Together they read as a warm, luminous strand of autumn light.",
+    "energy": [
+      "A classic Solar Plexus duo: Tiger's Eye lends grounded courage, sharp perception, and willpower, while Yellow Crystal amplifies personal radiance and abundance. This is the energy of a leader mid-stride — calm on the surface, powerful underneath, and completely certain of the next move.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Sharpens judgment — you see through fog, flattery, and false options quickly",
+      "Reinforces willpower so you finish what you start, even when it gets hard",
+      "Projects quiet authority that earns respect without a single word",
+      "Anchors wealth-building habits with earthy, stable persistence",
+      "Balances ambition with patience, so you don't burn out before the breakthrough"
+    ],
+    "howToWear": [
+      "An everyday essential for professionals, students, and entrepreneurs — wear it on the left wrist during work and study, on the right when you are negotiating or presenting. The warm amber tones complement gold watches, earth-tone clothing, and wooden beads alike."
+    ],
+    "specs": [
+      "Bead size: 10mm; materials: natural Yellow Crystal + Golden Tiger's Eye; elastic cord."
+    ],
+    "careRitual": [
+      "Keep dry, avoid perfume, and polish with a soft cloth. Charge under the full moon once a month; as it rests, review your recent decisions and thank the stone for the clarity — then state one decision you will make boldly this month."
+    ],
+    "price": 611,
+    "image": "/products/solar-amber-glow-tigers-eye-bracelet.webp",
+    "images": [
+      "/products/solar-amber-glow-tigers-eye-bracelet.webp",
+      "/products/solar-amber-glow-tigers-eye-bracelet-2.webp"
+    ]
+  },
+  {
     "id": "solar-gilded-times-citrine-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2025,42 +2061,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-gilded-times-citrine-bracelet-5.webp",
       "/products/solar-gilded-times-citrine-bracelet-6.webp",
       "/products/solar-gilded-times-citrine-bracelet-7.webp"
-    ]
-  },
-  {
-    "id": "solar-amber-glow-tigers-eye-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Amber Glow Tiger's Eye Bracelet",
-    "tagline": "See clearly, decide boldly, move like you mean it — because hesitation is the only real competitor you have.",
-    "material": "An elegant 10mm pairing of Yellow Crystal and Golden Tiger's Eye. The Yellow Crystal glows with clean honey transparency, while the Tiger's Eye reveals layered bands of amber, gold, and deep brown that shimmer and shift with every turn of the wrist — the signature \"tiger's eye\" chatoyancy that makes each bead feel alive. Together they read as a warm, luminous strand of autumn light.",
-    "energy": [
-      "A classic Solar Plexus duo: Tiger's Eye lends grounded courage, sharp perception, and willpower, while Yellow Crystal amplifies personal radiance and abundance. This is the energy of a leader mid-stride — calm on the surface, powerful underneath, and completely certain of the next move.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Sharpens judgment — you see through fog, flattery, and false options quickly",
-      "Reinforces willpower so you finish what you start, even when it gets hard",
-      "Projects quiet authority that earns respect without a single word",
-      "Anchors wealth-building habits with earthy, stable persistence",
-      "Balances ambition with patience, so you don't burn out before the breakthrough"
-    ],
-    "howToWear": [
-      "An everyday essential for professionals, students, and entrepreneurs — wear it on the left wrist during work and study, on the right when you are negotiating or presenting. The warm amber tones complement gold watches, earth-tone clothing, and wooden beads alike."
-    ],
-    "specs": [
-      "Bead size: 10mm; materials: natural Yellow Crystal + Golden Tiger's Eye; elastic cord."
-    ],
-    "careRitual": [
-      "Keep dry, avoid perfume, and polish with a soft cloth. Charge under the full moon once a month; as it rests, review your recent decisions and thank the stone for the clarity — then state one decision you will make boldly this month."
-    ],
-    "price": 611,
-    "image": "/products/solar-amber-glow-tigers-eye-bracelet.webp",
-    "images": [
-      "/products/solar-amber-glow-tigers-eye-bracelet.webp",
-      "/products/solar-amber-glow-tigers-eye-bracelet-2.webp"
     ]
   },
   {
@@ -2152,6 +2152,49 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-solar-citrine-statement-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Solar Citrine Statement Bracelet",
+    "tagline": "Bold beads for a bold season — because the world takes you as seriously as you take yourself.",
+    "material": "Substantial 12mm natural Citrine beads in a radiant, sun-warmed gold — translucent, juicy, and full of light. Each bead carries the stone's classic honey-amber glow with natural clarity and soft internal veils, giving the strand a rich, dimensional depth. This is Citrine at its most confident size: impossible to ignore, impossible to mistake for anything else.",
+    "energy": [
+      "A pure expression of the Solar Plexus Chakra. Citrine is the merchant's stone, the success stone, the \"bring me the life I actually want\" stone — and at 12mm, its energy is unmissable. It radiates self-confidence, joy, and the magnetic warmth that draws prosperity the way sunlight draws flowers.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Declares your presence — you walk into rooms and people pay attention",
+      "Attracts prosperity with open, generous energy instead of anxious grasping",
+      "Restores optimism when self-doubt has been shading your outlook gold-gray",
+      "Empowers decisive action: you trust your choices and move without apology",
+      "Elevates your baseline mood — the stone's solar frequency is simply cheering to wear"
+    ],
+    "howToWear": [
+      "Wear it solo as a statement on the left wrist during important career moments, or stack with silver and gold for casual days. The bold 12mm profile makes it perfect for the person who wants their ambition literally visible on their skin."
+    ],
+    "specs": [
+      "Bead size: 12mm; materials: natural Citrine; elastic cord; polished finish."
+    ],
+    "careRitual": [
+      "Avoid water and prolonged direct sunlight to protect the golden tone; wipe with a dry cloth. On the full moon, charge it under moonlight, then hold it to your solar plexus and affirm: \"I am my own source of light, and I am worthy of every good thing.\""
+    ],
+    "price": 145,
+    "image": "/products/solar-solar-citrine-statement-bracelet.webp",
+    "images": [
+      "/products/solar-solar-citrine-statement-bracelet.webp",
+      "/products/solar-solar-citrine-statement-bracelet-2.webp",
+      "/products/solar-solar-citrine-statement-bracelet-3.webp",
+      "/products/solar-solar-citrine-statement-bracelet-4.webp",
+      "/products/solar-solar-citrine-statement-bracelet-5.webp",
+      "/products/solar-solar-citrine-statement-bracelet-6.webp",
+      "/products/solar-solar-citrine-statement-bracelet-7.webp",
+      "/products/solar-solar-citrine-statement-bracelet-8.webp",
+      "/products/solar-solar-citrine-statement-bracelet-9.webp"
+    ]
+  },
+  {
     "id": "solar-little-fortune-emperor-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2237,49 +2280,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-solar-citrine-statement-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Solar Citrine Statement Bracelet",
-    "tagline": "Bold beads for a bold season — because the world takes you as seriously as you take yourself.",
-    "material": "Substantial 12mm natural Citrine beads in a radiant, sun-warmed gold — translucent, juicy, and full of light. Each bead carries the stone's classic honey-amber glow with natural clarity and soft internal veils, giving the strand a rich, dimensional depth. This is Citrine at its most confident size: impossible to ignore, impossible to mistake for anything else.",
-    "energy": [
-      "A pure expression of the Solar Plexus Chakra. Citrine is the merchant's stone, the success stone, the \"bring me the life I actually want\" stone — and at 12mm, its energy is unmissable. It radiates self-confidence, joy, and the magnetic warmth that draws prosperity the way sunlight draws flowers.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Declares your presence — you walk into rooms and people pay attention",
-      "Attracts prosperity with open, generous energy instead of anxious grasping",
-      "Restores optimism when self-doubt has been shading your outlook gold-gray",
-      "Empowers decisive action: you trust your choices and move without apology",
-      "Elevates your baseline mood — the stone's solar frequency is simply cheering to wear"
-    ],
-    "howToWear": [
-      "Wear it solo as a statement on the left wrist during important career moments, or stack with silver and gold for casual days. The bold 12mm profile makes it perfect for the person who wants their ambition literally visible on their skin."
-    ],
-    "specs": [
-      "Bead size: 12mm; materials: natural Citrine; elastic cord; polished finish."
-    ],
-    "careRitual": [
-      "Avoid water and prolonged direct sunlight to protect the golden tone; wipe with a dry cloth. On the full moon, charge it under moonlight, then hold it to your solar plexus and affirm: \"I am my own source of light, and I am worthy of every good thing.\""
-    ],
-    "price": 145,
-    "image": "/products/solar-solar-citrine-statement-bracelet.webp",
-    "images": [
-      "/products/solar-solar-citrine-statement-bracelet.webp",
-      "/products/solar-solar-citrine-statement-bracelet-2.webp",
-      "/products/solar-solar-citrine-statement-bracelet-3.webp",
-      "/products/solar-solar-citrine-statement-bracelet-4.webp",
-      "/products/solar-solar-citrine-statement-bracelet-5.webp",
-      "/products/solar-solar-citrine-statement-bracelet-6.webp",
-      "/products/solar-solar-citrine-statement-bracelet-7.webp",
-      "/products/solar-solar-citrine-statement-bracelet-8.webp",
-      "/products/solar-solar-citrine-statement-bracelet-9.webp"
-    ]
-  },
-  {
     "id": "solar-metal-phase-pi-xiu-wealth-mix",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2316,46 +2316,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-metal-phase-pi-xiu-wealth-mix-3.webp",
       "/products/solar-metal-phase-pi-xiu-wealth-mix-4.webp",
       "/products/solar-metal-phase-pi-xiu-wealth-mix-5.webp"
-    ]
-  },
-  {
-    "id": "solar-earth-phase-pi-xiu-wealth-mix",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Earth-Phase Pi Xiu Wealth Mix",
-    "tagline": "Rooted like earth, rich like treasure — because wealth is not just earned, it is held.",
-    "material": "A grounding 10mm multi-stone mix built around the Earth element: warm honey Citrine, Golden Tiger's Eye with rippling chatoyant bands, deep golden Yellow Crystal, and earthy brown-toned accent stones in amber and umber. A polished Pi Xiu pendant — the legendary treasure-guarding beast — sits at the heart of the strand, its presence both protective and auspicious.",
-    "energy": [
-      "This bracelet pairs the Solar Plexus's wealth magnetism with Earth element energy (土) — the element of stability, nourishment, and accumulation. In Five Elements logic, the Earth phase is what allows growth to take root and treasure to be stored. The Pi Xiu adds its famous power to draw wealth inward, while the yellow-and-brown stones anchor that wealth into lasting stability.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Replenishes Earth energy — steadier nerves, better digestion of stress and change",
-      "Helps you hold onto what you build: savings, clients, and hard-won gains",
-      "Grounds ambition so your drive doesn't spiral into burnout",
-      "Strengthens reliability and follow-through — the traits people fund and trust",
-      "Lets the Pi Xiu guard your fortune while earthy stones make you its safe home"
-    ],
-    "howToWear": [
-      "Wear on the left wrist with the Pi Xiu pendant facing outward during financial decisions, property matters, or family milestones. The earthy palette pairs beautifully with wood tones, beige, and denim — a bracelet that feels like security you can wear."
-    ],
-    "specs": [
-      "Bead size: 10mm; materials: Citrine, Golden Tiger's Eye, Yellow Crystal + earthy accent stones + Pi Xiu pendant; elastic cord."
-    ],
-    "careRitual": [
-      "Keep dry, away from perfume; wipe with a soft cloth. On the full moon, rest the bracelet on soil-safe cloth or a wooden surface overnight to recharge its earthy frequency, then affirm: \"I build slowly, I keep what is mine, and my foundation holds.\""
-    ],
-    "price": 243,
-    "image": "/products/solar-earth-phase-pi-xiu-wealth-mix.webp",
-    "images": [
-      "/products/solar-earth-phase-pi-xiu-wealth-mix.webp",
-      "/products/solar-earth-phase-pi-xiu-wealth-mix-2.webp",
-      "/products/solar-earth-phase-pi-xiu-wealth-mix-3.webp",
-      "/products/solar-earth-phase-pi-xiu-wealth-mix-4.webp",
-      "/products/solar-earth-phase-pi-xiu-wealth-mix-5.webp",
-      "/products/solar-earth-phase-pi-xiu-wealth-mix-6.webp"
     ]
   },
   {
@@ -2396,6 +2356,46 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-metal-phase-five-elements-bracelet-8mm-4.webp",
       "/products/solar-metal-phase-five-elements-bracelet-8mm-5.webp",
       "/products/solar-metal-phase-five-elements-bracelet-8mm-6.webp"
+    ]
+  },
+  {
+    "id": "solar-earth-phase-pi-xiu-wealth-mix",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Earth-Phase Pi Xiu Wealth Mix",
+    "tagline": "Rooted like earth, rich like treasure — because wealth is not just earned, it is held.",
+    "material": "A grounding 10mm multi-stone mix built around the Earth element: warm honey Citrine, Golden Tiger's Eye with rippling chatoyant bands, deep golden Yellow Crystal, and earthy brown-toned accent stones in amber and umber. A polished Pi Xiu pendant — the legendary treasure-guarding beast — sits at the heart of the strand, its presence both protective and auspicious.",
+    "energy": [
+      "This bracelet pairs the Solar Plexus's wealth magnetism with Earth element energy (土) — the element of stability, nourishment, and accumulation. In Five Elements logic, the Earth phase is what allows growth to take root and treasure to be stored. The Pi Xiu adds its famous power to draw wealth inward, while the yellow-and-brown stones anchor that wealth into lasting stability.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Replenishes Earth energy — steadier nerves, better digestion of stress and change",
+      "Helps you hold onto what you build: savings, clients, and hard-won gains",
+      "Grounds ambition so your drive doesn't spiral into burnout",
+      "Strengthens reliability and follow-through — the traits people fund and trust",
+      "Lets the Pi Xiu guard your fortune while earthy stones make you its safe home"
+    ],
+    "howToWear": [
+      "Wear on the left wrist with the Pi Xiu pendant facing outward during financial decisions, property matters, or family milestones. The earthy palette pairs beautifully with wood tones, beige, and denim — a bracelet that feels like security you can wear."
+    ],
+    "specs": [
+      "Bead size: 10mm; materials: Citrine, Golden Tiger's Eye, Yellow Crystal + earthy accent stones + Pi Xiu pendant; elastic cord."
+    ],
+    "careRitual": [
+      "Keep dry, away from perfume; wipe with a soft cloth. On the full moon, rest the bracelet on soil-safe cloth or a wooden surface overnight to recharge its earthy frequency, then affirm: \"I build slowly, I keep what is mine, and my foundation holds.\""
+    ],
+    "price": 243,
+    "image": "/products/solar-earth-phase-pi-xiu-wealth-mix.webp",
+    "images": [
+      "/products/solar-earth-phase-pi-xiu-wealth-mix.webp",
+      "/products/solar-earth-phase-pi-xiu-wealth-mix-2.webp",
+      "/products/solar-earth-phase-pi-xiu-wealth-mix-3.webp",
+      "/products/solar-earth-phase-pi-xiu-wealth-mix-4.webp",
+      "/products/solar-earth-phase-pi-xiu-wealth-mix-5.webp",
+      "/products/solar-earth-phase-pi-xiu-wealth-mix-6.webp"
     ]
   },
   {
@@ -2480,6 +2480,45 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-earth-phase-five-elements-bracelet-10mm",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Earth-Phase Five Elements Bracelet (10mm)",
+    "tagline": "Deep roots, deep pockets — because the harvest belongs to those who stayed planted.",
+    "material": "The 10mm edition of our Earth-phase Five Elements bracelet: heavier, richer beads of honey Citrine, chatoyant Golden Tiger's Eye, and golden Yellow Crystal, balanced with accent stones that complete the five-element cycle. At this size the bracelet carries real weight on the wrist — a warm, substantial band of amber and bronze that feels like holding a handful of good earth.",
+    "energy": [
+      "A Solar Plexus piece working through Chinese Five Elements theory, weighted toward Earth (土) — the element of stability, nourishment, and storage. Where the 8mm version whispers \"settle,\" this one announces: this is where your wealth takes root. It harmonizes all five elements while feeding extra grounded strength to the Earth phase.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Anchors you through turbulence — career pivots, market swings, personal storms",
+      "Strengthens your capacity to save, store, and compound what you earn",
+      "Builds the patience that real success requires — you stop chasing, start growing",
+      "Recharges physical stamina and steady nerves under pressure",
+      "Creates a reliable energy field that people and opportunities trust"
+    ],
+    "howToWear": [
+      "Wear on the left wrist through long-haul projects, property and investment decisions, or seasons of family responsibility. The 10mm beads carry presence without heaviness, pairing beautifully with leather, wood, and earth-tone wardrobes."
+    ],
+    "specs": [
+      "Bead size: 10mm; materials: Citrine, Golden Tiger's Eye, Yellow Crystal + Five Elements accent stones; elastic cord."
+    ],
+    "careRitual": [
+      "Keep dry and away from harsh light; wipe with a soft cloth. On the full moon, place the bracelet on a wooden surface overnight to recharge, then press it to your chest and affirm: \"I am the soil that holds the harvest.\""
+    ],
+    "price": 194,
+    "image": "/products/solar-earth-phase-five-elements-bracelet-10mm.webp",
+    "images": [
+      "/products/solar-earth-phase-five-elements-bracelet-10mm.webp",
+      "/products/solar-earth-phase-five-elements-bracelet-10mm-2.webp",
+      "/products/solar-earth-phase-five-elements-bracelet-10mm-3.webp",
+      "/products/solar-earth-phase-five-elements-bracelet-10mm-4.webp",
+      "/products/solar-earth-phase-five-elements-bracelet-10mm-5.webp"
+    ]
+  },
+  {
     "id": "solar-golden-crystal-solar-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2517,6 +2556,46 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-golden-crystal-solar-bracelet-4.webp",
       "/products/solar-golden-crystal-solar-bracelet-5.webp",
       "/products/solar-golden-crystal-solar-bracelet-6.webp"
+    ]
+  },
+  {
+    "id": "solar-golden-rutilated-quartz-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Golden Rutilated Quartz Bracelet",
+    "tagline": "Gold threads woven into crystal — because some fortunes are simply impossible to overlook.",
+    "material": "Pure Golden Rutilated Quartz: clear, glassy quartz beads threaded through with vivid golden rutile needles — fine as spun silk in some, bold as lightning bolts in others. The needles float inside each bead at every angle, so the bracelet catches the light from any direction and throws back a constellation of gold sparks. This is the classic, unadulterated version of the fortune stone.",
+    "energy": [
+      "The definitive Solar Plexus amplifier. Golden Rutilated Quartz combines Citrine's wealth magnetism with the amplifying power of quartz and the conductive energy of golden rutile — the \"golden antenna\" effect. It takes whatever you are building — a career, a business, a reputation — and turns up the volume, broadcasting your intentions and pulling opportunity back to you.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Amplifies your focus into results — what you put energy into, it magnifies",
+      "Attracts career wealth and entrepreneurial breakthroughs with visible momentum",
+      "Dissolves self-doubt by broadcasting your capability louder than your fears",
+      "Recharges motivation when ambition runs low on battery",
+      "Carries the classic \"wealth emperor\" blessing of the golden needle stone"
+    ],
+    "howToWear": [
+      "Wear on the left wrist to receive, on the right to project — during interviews, pitches, launches, and long work sprints. The golden sparkle elevates any outfit, from crisp shirts to evening dresses, and the stone's reputation travels with it."
+    ],
+    "specs": [
+      "Bead size: approximately 9mm; materials: natural Golden Rutilated Quartz; elastic cord."
+    ],
+    "careRitual": [
+      "Avoid water and perfume; wipe with a dry soft cloth. On the full moon, charge it under moonlight, then hold it and speak one goal you want amplified — career, wealth, or creation. Let the golden threads carry it outward all month."
+    ],
+    "price": 121,
+    "image": "/products/solar-golden-rutilated-quartz-bracelet.webp",
+    "images": [
+      "/products/solar-golden-rutilated-quartz-bracelet.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-2.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-3.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-4.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-5.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-6.webp"
     ]
   },
   {
@@ -2558,85 +2637,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-rainbow-rutilated-quartz-bracelet-5.webp",
       "/products/solar-rainbow-rutilated-quartz-bracelet-6.webp",
       "/products/solar-rainbow-rutilated-quartz-bracelet-7.webp"
-    ]
-  },
-  {
-    "id": "solar-earth-phase-five-elements-bracelet-10mm",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Earth-Phase Five Elements Bracelet (10mm)",
-    "tagline": "Deep roots, deep pockets — because the harvest belongs to those who stayed planted.",
-    "material": "The 10mm edition of our Earth-phase Five Elements bracelet: heavier, richer beads of honey Citrine, chatoyant Golden Tiger's Eye, and golden Yellow Crystal, balanced with accent stones that complete the five-element cycle. At this size the bracelet carries real weight on the wrist — a warm, substantial band of amber and bronze that feels like holding a handful of good earth.",
-    "energy": [
-      "A Solar Plexus piece working through Chinese Five Elements theory, weighted toward Earth (土) — the element of stability, nourishment, and storage. Where the 8mm version whispers \"settle,\" this one announces: this is where your wealth takes root. It harmonizes all five elements while feeding extra grounded strength to the Earth phase.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Anchors you through turbulence — career pivots, market swings, personal storms",
-      "Strengthens your capacity to save, store, and compound what you earn",
-      "Builds the patience that real success requires — you stop chasing, start growing",
-      "Recharges physical stamina and steady nerves under pressure",
-      "Creates a reliable energy field that people and opportunities trust"
-    ],
-    "howToWear": [
-      "Wear on the left wrist through long-haul projects, property and investment decisions, or seasons of family responsibility. The 10mm beads carry presence without heaviness, pairing beautifully with leather, wood, and earth-tone wardrobes."
-    ],
-    "specs": [
-      "Bead size: 10mm; materials: Citrine, Golden Tiger's Eye, Yellow Crystal + Five Elements accent stones; elastic cord."
-    ],
-    "careRitual": [
-      "Keep dry and away from harsh light; wipe with a soft cloth. On the full moon, place the bracelet on a wooden surface overnight to recharge, then press it to your chest and affirm: \"I am the soil that holds the harvest.\""
-    ],
-    "price": 194,
-    "image": "/products/solar-earth-phase-five-elements-bracelet-10mm.webp",
-    "images": [
-      "/products/solar-earth-phase-five-elements-bracelet-10mm.webp",
-      "/products/solar-earth-phase-five-elements-bracelet-10mm-2.webp",
-      "/products/solar-earth-phase-five-elements-bracelet-10mm-3.webp",
-      "/products/solar-earth-phase-five-elements-bracelet-10mm-4.webp",
-      "/products/solar-earth-phase-five-elements-bracelet-10mm-5.webp"
-    ]
-  },
-  {
-    "id": "solar-golden-rutilated-quartz-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Golden Rutilated Quartz Bracelet",
-    "tagline": "Gold threads woven into crystal — because some fortunes are simply impossible to overlook.",
-    "material": "Pure Golden Rutilated Quartz: clear, glassy quartz beads threaded through with vivid golden rutile needles — fine as spun silk in some, bold as lightning bolts in others. The needles float inside each bead at every angle, so the bracelet catches the light from any direction and throws back a constellation of gold sparks. This is the classic, unadulterated version of the fortune stone.",
-    "energy": [
-      "The definitive Solar Plexus amplifier. Golden Rutilated Quartz combines Citrine's wealth magnetism with the amplifying power of quartz and the conductive energy of golden rutile — the \"golden antenna\" effect. It takes whatever you are building — a career, a business, a reputation — and turns up the volume, broadcasting your intentions and pulling opportunity back to you.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Amplifies your focus into results — what you put energy into, it magnifies",
-      "Attracts career wealth and entrepreneurial breakthroughs with visible momentum",
-      "Dissolves self-doubt by broadcasting your capability louder than your fears",
-      "Recharges motivation when ambition runs low on battery",
-      "Carries the classic \"wealth emperor\" blessing of the golden needle stone"
-    ],
-    "howToWear": [
-      "Wear on the left wrist to receive, on the right to project — during interviews, pitches, launches, and long work sprints. The golden sparkle elevates any outfit, from crisp shirts to evening dresses, and the stone's reputation travels with it."
-    ],
-    "specs": [
-      "Bead size: approximately 9mm; materials: natural Golden Rutilated Quartz; elastic cord."
-    ],
-    "careRitual": [
-      "Avoid water and perfume; wipe with a dry soft cloth. On the full moon, charge it under moonlight, then hold it and speak one goal you want amplified — career, wealth, or creation. Let the golden threads carry it outward all month."
-    ],
-    "price": 121,
-    "image": "/products/solar-golden-rutilated-quartz-bracelet.webp",
-    "images": [
-      "/products/solar-golden-rutilated-quartz-bracelet.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-2.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-3.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-4.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-5.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-6.webp"
     ]
   },
   {
@@ -2835,6 +2835,44 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-golden-coast-lemon-quartz-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Golden Coast Lemon Quartz Bracelet",
+    "tagline": "Sunshine, salt air, and a wallet that's about to get very happy — because your golden coast is closer than you think.",
+    "material": "Lemon Quartz in its brightest, most joyful expression: beads of luminous lemony-gold, glowing with the clean, sun-washed transparency of golden hour on a beach. The color runs from pale citrus to rich golden-amber, each bead holding light like a small captured sunrise. Named the \"Golden Coast,\" this bracelet carries the exact energy of a perfect seaside afternoon — warm, bright, and full of possibility.",
+    "energy": [
+      "A sparkling Solar Plexus companion. Lemon Quartz blends Citrine's wealth-and-confidence magic with a fresher, more playful vibration — clarity for the mind, brightness for the mood, and a lighthearted pull toward opportunity. It is wealth energy without heaviness: the frequency of a person who enjoys their success while they're earning it.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Refreshes your mindset — optimism you can feel on your skin",
+      "Attracts opportunities with bright, approachable, likable energy",
+      "Clears mental clutter, making decisions feel lighter and easier",
+      "Boosts confidence with a playful, sunny spin — success should be fun",
+      "Revives motivation on gray days, like a beam of coastal light"
+    ],
+    "howToWear": [
+      "Wear it on the left wrist for summer energy all year — creative meetings, travel days, launches, or any moment you want to feel light and lucky. The cheerful lemon-gold tone brightens every outfit, from white linen to little black dresses."
+    ],
+    "specs": [
+      "Bead size: approximately 10mm; materials: natural Lemon Quartz; elastic cord."
+    ],
+    "careRitual": [
+      "Avoid water and prolonged direct sunlight; wipe with a soft cloth. On the full moon, charge it under moonlight and imagine your own golden coast — the goal, the place, the life — then let the lemon light carry you toward it."
+    ],
+    "price": 270,
+    "image": "/products/solar-golden-coast-lemon-quartz-bracelet.webp",
+    "images": [
+      "/products/solar-golden-coast-lemon-quartz-bracelet.webp",
+      "/products/solar-golden-coast-lemon-quartz-bracelet-2.webp",
+      "/products/solar-golden-coast-lemon-quartz-bracelet-3.webp",
+      "/products/solar-golden-coast-lemon-quartz-bracelet-4.webp"
+    ]
+  },
+  {
     "id": "solar-golden-union-lemon-rose-quartz-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2913,80 +2951,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-golden-coast-lemon-quartz-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Golden Coast Lemon Quartz Bracelet",
-    "tagline": "Sunshine, salt air, and a wallet that's about to get very happy — because your golden coast is closer than you think.",
-    "material": "Lemon Quartz in its brightest, most joyful expression: beads of luminous lemony-gold, glowing with the clean, sun-washed transparency of golden hour on a beach. The color runs from pale citrus to rich golden-amber, each bead holding light like a small captured sunrise. Named the \"Golden Coast,\" this bracelet carries the exact energy of a perfect seaside afternoon — warm, bright, and full of possibility.",
-    "energy": [
-      "A sparkling Solar Plexus companion. Lemon Quartz blends Citrine's wealth-and-confidence magic with a fresher, more playful vibration — clarity for the mind, brightness for the mood, and a lighthearted pull toward opportunity. It is wealth energy without heaviness: the frequency of a person who enjoys their success while they're earning it.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Refreshes your mindset — optimism you can feel on your skin",
-      "Attracts opportunities with bright, approachable, likable energy",
-      "Clears mental clutter, making decisions feel lighter and easier",
-      "Boosts confidence with a playful, sunny spin — success should be fun",
-      "Revives motivation on gray days, like a beam of coastal light"
-    ],
-    "howToWear": [
-      "Wear it on the left wrist for summer energy all year — creative meetings, travel days, launches, or any moment you want to feel light and lucky. The cheerful lemon-gold tone brightens every outfit, from white linen to little black dresses."
-    ],
-    "specs": [
-      "Bead size: approximately 10mm; materials: natural Lemon Quartz; elastic cord."
-    ],
-    "careRitual": [
-      "Avoid water and prolonged direct sunlight; wipe with a soft cloth. On the full moon, charge it under moonlight and imagine your own golden coast — the goal, the place, the life — then let the lemon light carry you toward it."
-    ],
-    "price": 270,
-    "image": "/products/solar-golden-coast-lemon-quartz-bracelet.webp",
-    "images": [
-      "/products/solar-golden-coast-lemon-quartz-bracelet.webp",
-      "/products/solar-golden-coast-lemon-quartz-bracelet-2.webp",
-      "/products/solar-golden-coast-lemon-quartz-bracelet-3.webp",
-      "/products/solar-golden-coast-lemon-quartz-bracelet-4.webp"
-    ]
-  },
-  {
-    "id": "solar-fire-begets-earth-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Fire Begets Earth Bracelet",
-    "tagline": "From burning passion to lasting ground — because fire that transforms becomes soil that holds everything.",
-    "material": "A Five Elements bracelet honoring the cycle of \"Fire produces Earth\" (火生土): warm golden Citrine and honey-toned Yellow Crystal represent the Earth being born, while rich red-orange accent stones carry the Fire that births it — deep cinnabar reds, burnt sienna, and sunset tones that flicker between the gold like embers. The palette is autumn bonfire: gold, flame, and fertile earth.",
-    "energy": [
-      "A Solar Plexus design built on the Five Elements generating cycle: Fire (火) is the mother of Earth (土), and Earth is the mother of Metal — wealth. By wearing Fire and Earth in creative order, you transform raw passion and effort into grounded, lasting results. It is the energy of burning through limitation and rising as something stable and rich.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Converts fiery motivation into grounded, lasting achievement",
-      "Breaks stagnation — Fire energy melts old blocks, Earth energy holds the new form",
-      "Builds endurance: passion becomes discipline, sparks become steady flame",
-      "Supports transformation seasons — career changes, creative rebirths, fresh starts",
-      "Balances drive with stability, so intensity doesn't burn you out"
-    ],
-    "howToWear": [
-      "Wear during seasons of change and rebuilding — new ventures, fitness transformations, major decisions. The gold-and-ember palette makes a warm statement in autumn and winter wardrobes, pairing beautifully with denim, black, and burgundy."
-    ],
-    "specs": [
-      "Bead size: approximately 10mm; materials: Citrine, Yellow Crystal + red-orange Fire accent stones; elastic cord."
-    ],
-    "careRitual": [
-      "Keep dry and away from harsh chemicals; wipe with a soft cloth. On the full moon, charge it under moonlight and name one old pattern you are burning away and one new foundation you are building in its place."
-    ],
-    "price": 345,
-    "image": "/products/solar-fire-begets-earth-bracelet.webp",
-    "images": [
-      "/products/solar-fire-begets-earth-bracelet.webp",
-      "/products/solar-fire-begets-earth-bracelet-2.webp"
-    ]
-  },
-  {
     "id": "solar-tri-stone-pi-xiu-prosperity-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -3027,42 +2991,39 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-earth-water-five-elements-bracelet",
+    "id": "solar-fire-begets-earth-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
     "color": "#ead58a",
-    "name": "Earth-Water Five Elements Bracelet",
-    "tagline": "The earth that holds and the water that flows — because fortune needs both a foundation and a current.",
-    "material": "A Five Elements bracelet strengthening the Earth and Water phases together: warm golden Yellow Crystal and honey Citrine represent Earth's stability, while Aquamarine and clear quartz accent beads bring Water's cool, flowing clarity. The palette — amber and bronze beside pale aqua and crystal — is quietly gorgeous: the colors of riverbeds and river stones, warm earth meeting cool water.",
+    "name": "Fire Begets Earth Bracelet",
+    "tagline": "From burning passion to lasting ground — because fire that transforms becomes soil that holds everything.",
+    "material": "A Five Elements bracelet honoring the cycle of \"Fire produces Earth\" (火生土): warm golden Citrine and honey-toned Yellow Crystal represent the Earth being born, while rich red-orange accent stones carry the Fire that births it — deep cinnabar reds, burnt sienna, and sunset tones that flicker between the gold like embers. The palette is autumn bonfire: gold, flame, and fertile earth.",
     "energy": [
-      "A Solar Plexus design working through the Five Elements: Earth (土) for stability and storage, Water (水) for flow, wisdom, and wealth circulation. This bracelet feeds both phases — grounding your ambition while keeping your money and ideas moving. It is the energy of a reservoir: deep, still, and always feeding the stream.",
+      "A Solar Plexus design built on the Five Elements generating cycle: Fire (火) is the mother of Earth (土), and Earth is the mother of Metal — wealth. By wearing Fire and Earth in creative order, you transform raw passion and effort into grounded, lasting results. It is the energy of burning through limitation and rising as something stable and rich.",
       "Real-Life Signs You May Recognize",
       "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
     ],
     "benefits": [
-      "Balances stability with flow — hold wealth without letting it stagnate",
-      "Strengthens patience (Earth) and adaptability (Water) in equal measure",
-      "Supports wise money management: safe storage plus healthy circulation",
-      "Soothes emotional turbulence with water's cooling, clarifying frequency",
-      "Harmonizes the elements most relevant to long-term financial health"
+      "Converts fiery motivation into grounded, lasting achievement",
+      "Breaks stagnation — Fire energy melts old blocks, Earth energy holds the new form",
+      "Builds endurance: passion becomes discipline, sparks become steady flame",
+      "Supports transformation seasons — career changes, creative rebirths, fresh starts",
+      "Balances drive with stability, so intensity doesn't burn you out"
     ],
     "howToWear": [
-      "Wear during financial planning, negotiations, or seasons of transition when you need both footing and flexibility. The amber-and-aqua palette is distinctive and elegant, pairing well with neutrals, denim, and summer whites."
+      "Wear during seasons of change and rebuilding — new ventures, fitness transformations, major decisions. The gold-and-ember palette makes a warm statement in autumn and winter wardrobes, pairing beautifully with denim, black, and burgundy."
     ],
     "specs": [
-      "Bead size: approximately 9–10mm; materials: Yellow Crystal, Citrine + Aquamarine and clear quartz accents; elastic cord."
+      "Bead size: approximately 10mm; materials: Citrine, Yellow Crystal + red-orange Fire accent stones; elastic cord."
     ],
     "careRitual": [
-      "Keep dry and away from harsh light; wipe with a soft cloth. On the full moon, charge it under moonlight and affirm: \"I am steady as earth, I flow like water, and my fortune moves with me.\""
+      "Keep dry and away from harsh chemicals; wipe with a soft cloth. On the full moon, charge it under moonlight and name one old pattern you are burning away and one new foundation you are building in its place."
     ],
-    "price": 222,
-    "image": "/products/solar-earth-water-five-elements-bracelet.webp",
+    "price": 345,
+    "image": "/products/solar-fire-begets-earth-bracelet.webp",
     "images": [
-      "/products/solar-earth-water-five-elements-bracelet.webp",
-      "/products/solar-earth-water-five-elements-bracelet-2.webp",
-      "/products/solar-earth-water-five-elements-bracelet-3.webp",
-      "/products/solar-earth-water-five-elements-bracelet-4.webp",
-      "/products/solar-earth-water-five-elements-bracelet-5.webp"
+      "/products/solar-fire-begets-earth-bracelet.webp",
+      "/products/solar-fire-begets-earth-bracelet-2.webp"
     ]
   },
   {
@@ -3102,6 +3063,45 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-rolling-fortune-bracelet-3.webp",
       "/products/solar-rolling-fortune-bracelet-4.webp",
       "/products/solar-rolling-fortune-bracelet-5.webp"
+    ]
+  },
+  {
+    "id": "solar-earth-water-five-elements-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Earth-Water Five Elements Bracelet",
+    "tagline": "The earth that holds and the water that flows — because fortune needs both a foundation and a current.",
+    "material": "A Five Elements bracelet strengthening the Earth and Water phases together: warm golden Yellow Crystal and honey Citrine represent Earth's stability, while Aquamarine and clear quartz accent beads bring Water's cool, flowing clarity. The palette — amber and bronze beside pale aqua and crystal — is quietly gorgeous: the colors of riverbeds and river stones, warm earth meeting cool water.",
+    "energy": [
+      "A Solar Plexus design working through the Five Elements: Earth (土) for stability and storage, Water (水) for flow, wisdom, and wealth circulation. This bracelet feeds both phases — grounding your ambition while keeping your money and ideas moving. It is the energy of a reservoir: deep, still, and always feeding the stream.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Balances stability with flow — hold wealth without letting it stagnate",
+      "Strengthens patience (Earth) and adaptability (Water) in equal measure",
+      "Supports wise money management: safe storage plus healthy circulation",
+      "Soothes emotional turbulence with water's cooling, clarifying frequency",
+      "Harmonizes the elements most relevant to long-term financial health"
+    ],
+    "howToWear": [
+      "Wear during financial planning, negotiations, or seasons of transition when you need both footing and flexibility. The amber-and-aqua palette is distinctive and elegant, pairing well with neutrals, denim, and summer whites."
+    ],
+    "specs": [
+      "Bead size: approximately 9–10mm; materials: Yellow Crystal, Citrine + Aquamarine and clear quartz accents; elastic cord."
+    ],
+    "careRitual": [
+      "Keep dry and away from harsh light; wipe with a soft cloth. On the full moon, charge it under moonlight and affirm: \"I am steady as earth, I flow like water, and my fortune moves with me.\""
+    ],
+    "price": 222,
+    "image": "/products/solar-earth-water-five-elements-bracelet.webp",
+    "images": [
+      "/products/solar-earth-water-five-elements-bracelet.webp",
+      "/products/solar-earth-water-five-elements-bracelet-2.webp",
+      "/products/solar-earth-water-five-elements-bracelet-3.webp",
+      "/products/solar-earth-water-five-elements-bracelet-4.webp",
+      "/products/solar-earth-water-five-elements-bracelet-5.webp"
     ]
   },
   {
@@ -3322,31 +3322,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-a2-2508-4mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A2-2508 水草玛瑙手绳4mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-a2-2508-4mm.webp",
-    "images": [
-      "/products/heart-a2-2508-4mm.webp",
-      "/products/heart-a2-2508-4mm-2.webp",
-      "/products/heart-a2-2508-4mm-3.webp",
-      "/products/heart-a2-2508-4mm-4.webp",
-      "/products/heart-a2-2508-4mm-5.webp",
-      "/products/heart-a2-2508-4mm-6.webp",
-      "/products/heart-a2-2508-4mm-7.webp"
-    ]
-  },
-  {
     "id": "heart-a2-2506",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
@@ -3399,6 +3374,31 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "heart-a2-2508-4mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "A2-2508 水草玛瑙手绳4mm",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-a2-2508-4mm.webp",
+    "images": [
+      "/products/heart-a2-2508-4mm.webp",
+      "/products/heart-a2-2508-4mm-2.webp",
+      "/products/heart-a2-2508-4mm-3.webp",
+      "/products/heart-a2-2508-4mm-4.webp",
+      "/products/heart-a2-2508-4mm-5.webp",
+      "/products/heart-a2-2508-4mm-6.webp",
+      "/products/heart-a2-2508-4mm-7.webp"
+    ]
+  },
+  {
     "id": "heart-a4-2503",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
@@ -3418,31 +3418,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/heart-a4-2503-2.webp",
       "/products/heart-a4-2503-3.webp",
       "/products/heart-a4-2503-4.webp"
-    ]
-  },
-  {
-    "id": "heart-a4-2506-10mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A4-2506 九尾狐马粉晶10mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-a4-2506-10mm.webp",
-    "images": [
-      "/products/heart-a4-2506-10mm.webp",
-      "/products/heart-a4-2506-10mm-2.webp",
-      "/products/heart-a4-2506-10mm-3.webp",
-      "/products/heart-a4-2506-10mm-4.webp",
-      "/products/heart-a4-2506-10mm-5.webp",
-      "/products/heart-a4-2506-10mm-6.webp",
-      "/products/heart-a4-2506-10mm-7.webp"
     ]
   },
   {
@@ -3472,11 +3447,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-a7-2510",
+    "id": "heart-a4-2506-10mm",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A7-2510 草莓晶手串",
+    "name": "A4-2506 九尾狐马粉晶10mm",
     "tagline": "Heart Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -3485,16 +3460,15 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/heart-a7-2510.webp",
+    "image": "/products/heart-a4-2506-10mm.webp",
     "images": [
-      "/products/heart-a7-2510.webp",
-      "/products/heart-a7-2510-2.webp",
-      "/products/heart-a7-2510-3.webp",
-      "/products/heart-a7-2510-4.webp",
-      "/products/heart-a7-2510-5.webp",
-      "/products/heart-a7-2510-6.webp",
-      "/products/heart-a7-2510-7.webp",
-      "/products/heart-a7-2510-8.webp"
+      "/products/heart-a4-2506-10mm.webp",
+      "/products/heart-a4-2506-10mm-2.webp",
+      "/products/heart-a4-2506-10mm-3.webp",
+      "/products/heart-a4-2506-10mm-4.webp",
+      "/products/heart-a4-2506-10mm-5.webp",
+      "/products/heart-a4-2506-10mm-6.webp",
+      "/products/heart-a4-2506-10mm-7.webp"
     ]
   },
   {
@@ -3522,6 +3496,59 @@ export const importedProducts: ImportedProduct[] = [
       "/products/heart-a8-2504-7.webp",
       "/products/heart-a8-2504-8.webp",
       "/products/heart-a8-2504-9.webp"
+    ]
+  },
+  {
+    "id": "heart-a8-2505",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "A8-2505 草莓晶转运手串",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-a8-2505.webp",
+    "images": [
+      "/products/heart-a8-2505.webp",
+      "/products/heart-a8-2505-2.webp",
+      "/products/heart-a8-2505-3.webp",
+      "/products/heart-a8-2505-4.webp",
+      "/products/heart-a8-2505-5.webp",
+      "/products/heart-a8-2505-6.webp",
+      "/products/heart-a8-2505-7.webp",
+      "/products/heart-a8-2505-8.webp",
+      "/products/heart-a8-2505-9.webp"
+    ]
+  },
+  {
+    "id": "heart-a7-2510",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "A7-2510 草莓晶手串",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-a7-2510.webp",
+    "images": [
+      "/products/heart-a7-2510.webp",
+      "/products/heart-a7-2510-2.webp",
+      "/products/heart-a7-2510-3.webp",
+      "/products/heart-a7-2510-4.webp",
+      "/products/heart-a7-2510-5.webp",
+      "/products/heart-a7-2510-6.webp",
+      "/products/heart-a7-2510-7.webp",
+      "/products/heart-a7-2510-8.webp"
     ]
   },
   {
@@ -3553,53 +3580,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-a8-2505",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A8-2505 草莓晶转运手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-a8-2505.webp",
-    "images": [
-      "/products/heart-a8-2505.webp",
-      "/products/heart-a8-2505-2.webp",
-      "/products/heart-a8-2505-3.webp",
-      "/products/heart-a8-2505-4.webp",
-      "/products/heart-a8-2505-5.webp",
-      "/products/heart-a8-2505-6.webp",
-      "/products/heart-a8-2505-7.webp",
-      "/products/heart-a8-2505-8.webp",
-      "/products/heart-a8-2505-9.webp"
-    ]
-  },
-  {
-    "id": "heart-a9-2506-6mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A9-2506 【甜夏之恋】6mm草莓晶玉髓手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-a9-2506-6mm.webp",
-    "images": [
-      "/products/heart-a9-2506-6mm.webp",
-      "/products/heart-a9-2506-6mm-2.webp"
-    ]
-  },
-  {
     "id": "heart-b10-2506",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
@@ -3620,11 +3600,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-b3-2502",
+    "id": "heart-a9-2506-6mm",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B3-2502 粉晶方糖九紫离火手串",
+    "name": "A9-2506 【甜夏之恋】6mm草莓晶玉髓手串",
     "tagline": "Heart Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -3633,15 +3613,10 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/heart-b3-2502.webp",
+    "image": "/products/heart-a9-2506-6mm.webp",
     "images": [
-      "/products/heart-b3-2502.webp",
-      "/products/heart-b3-2502-2.webp",
-      "/products/heart-b3-2502-3.webp",
-      "/products/heart-b3-2502-4.webp",
-      "/products/heart-b3-2502-5.webp",
-      "/products/heart-b3-2502-6.webp",
-      "/products/heart-b3-2502-7.webp"
+      "/products/heart-a9-2506-6mm.webp",
+      "/products/heart-a9-2506-6mm-2.webp"
     ]
   },
   {
@@ -3668,6 +3643,31 @@ export const importedProducts: ImportedProduct[] = [
       "/products/heart-b2-2507-10mm-6.webp",
       "/products/heart-b2-2507-10mm-7.webp",
       "/products/heart-b2-2507-10mm-8.webp"
+    ]
+  },
+  {
+    "id": "heart-b3-2502",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "B3-2502 粉晶方糖九紫离火手串",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-b3-2502.webp",
+    "images": [
+      "/products/heart-b3-2502.webp",
+      "/products/heart-b3-2502-2.webp",
+      "/products/heart-b3-2502-3.webp",
+      "/products/heart-b3-2502-4.webp",
+      "/products/heart-b3-2502-5.webp",
+      "/products/heart-b3-2502-6.webp",
+      "/products/heart-b3-2502-7.webp"
     ]
   },
   {
@@ -3715,6 +3715,29 @@ export const importedProducts: ImportedProduct[] = [
       "/products/heart-b4-2507-8mm-2.webp",
       "/products/heart-b4-2507-8mm-3.webp",
       "/products/heart-b4-2507-8mm-4.webp"
+    ]
+  },
+  {
+    "id": "heart-b4-2508-10mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "B4-2508 10mm补木五行手串",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-b4-2508-10mm.webp",
+    "images": [
+      "/products/heart-b4-2508-10mm.webp",
+      "/products/heart-b4-2508-10mm-2.webp",
+      "/products/heart-b4-2508-10mm-3.webp",
+      "/products/heart-b4-2508-10mm-4.webp",
+      "/products/heart-b4-2508-10mm-5.webp"
     ]
   },
   {
@@ -3769,29 +3792,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-b4-2508-10mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "B4-2508 10mm补木五行手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-b4-2508-10mm.webp",
-    "images": [
-      "/products/heart-b4-2508-10mm.webp",
-      "/products/heart-b4-2508-10mm-2.webp",
-      "/products/heart-b4-2508-10mm-3.webp",
-      "/products/heart-b4-2508-10mm-4.webp",
-      "/products/heart-b4-2508-10mm-5.webp"
-    ]
-  },
-  {
     "id": "heart-b8-2503-8mm",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
@@ -3814,6 +3814,32 @@ export const importedProducts: ImportedProduct[] = [
       "/products/heart-b8-2503-8mm-5.webp",
       "/products/heart-b8-2503-8mm-6.webp",
       "/products/heart-b8-2503-8mm-7.webp"
+    ]
+  },
+  {
+    "id": "heart-c10-2507",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "C10-2507 可转动雪花_粉水晶手串",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-c10-2507.webp",
+    "images": [
+      "/products/heart-c10-2507.webp",
+      "/products/heart-c10-2507-2.webp",
+      "/products/heart-c10-2507-3.webp",
+      "/products/heart-c10-2507-4.webp",
+      "/products/heart-c10-2507-5.webp",
+      "/products/heart-c10-2507-6.webp",
+      "/products/heart-c10-2507-7.webp",
+      "/products/heart-c10-2507-8.webp"
     ]
   },
   {
@@ -3863,32 +3889,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/heart-d5-2508-4.webp",
       "/products/heart-d5-2508-5.webp",
       "/products/heart-d5-2508-6.webp"
-    ]
-  },
-  {
-    "id": "heart-c10-2507",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "C10-2507 可转动雪花_粉水晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-c10-2507.webp",
-    "images": [
-      "/products/heart-c10-2507.webp",
-      "/products/heart-c10-2507-2.webp",
-      "/products/heart-c10-2507-3.webp",
-      "/products/heart-c10-2507-4.webp",
-      "/products/heart-c10-2507-5.webp",
-      "/products/heart-c10-2507-6.webp",
-      "/products/heart-c10-2507-7.webp",
-      "/products/heart-c10-2507-8.webp"
     ]
   },
   {
@@ -4006,30 +4006,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-i02-2504",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "I02-2504 【五行水生木】水晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-i02-2504.webp",
-    "images": [
-      "/products/heart-i02-2504.webp",
-      "/products/heart-i02-2504-2.webp",
-      "/products/heart-i02-2504-3.webp",
-      "/products/heart-i02-2504-4.webp",
-      "/products/heart-i02-2504-5.webp",
-      "/products/heart-i02-2504-6.webp"
-    ]
-  },
-  {
     "id": "heart-h07-2501-10mm",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
@@ -4054,11 +4030,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-i06-2503",
+    "id": "heart-i02-2504",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "I06-2503 补水木五行水晶手串",
+    "name": "I02-2504 【五行水生木】水晶手串",
     "tagline": "Heart Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -4067,13 +4043,14 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/heart-i06-2503.webp",
+    "image": "/products/heart-i02-2504.webp",
     "images": [
-      "/products/heart-i06-2503.webp",
-      "/products/heart-i06-2503-2.webp",
-      "/products/heart-i06-2503-3.webp",
-      "/products/heart-i06-2503-4.webp",
-      "/products/heart-i06-2503-5.webp"
+      "/products/heart-i02-2504.webp",
+      "/products/heart-i02-2504-2.webp",
+      "/products/heart-i02-2504-3.webp",
+      "/products/heart-i02-2504-4.webp",
+      "/products/heart-i02-2504-5.webp",
+      "/products/heart-i02-2504-6.webp"
     ]
   },
   {
@@ -4096,6 +4073,29 @@ export const importedProducts: ImportedProduct[] = [
       "/products/heart-i03-2501-2.webp",
       "/products/heart-i03-2501-3.webp",
       "/products/heart-i03-2501-4.webp"
+    ]
+  },
+  {
+    "id": "heart-i06-2503",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "I06-2503 补水木五行水晶手串",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-i06-2503.webp",
+    "images": [
+      "/products/heart-i06-2503.webp",
+      "/products/heart-i06-2503-2.webp",
+      "/products/heart-i06-2503-3.webp",
+      "/products/heart-i06-2503-4.webp",
+      "/products/heart-i06-2503-5.webp"
     ]
   },
   {
@@ -4143,6 +4143,30 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "heart-8mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "绿檀玉葫芦手串8mm",
+    "tagline": "Heart Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/heart-8mm.webp",
+    "images": [
+      "/products/heart-8mm.webp",
+      "/products/heart-8mm-2.webp",
+      "/products/heart-8mm-3.webp",
+      "/products/heart-8mm-4.webp",
+      "/products/heart-8mm-5.webp",
+      "/products/heart-8mm-6.webp"
+    ]
+  },
+  {
     "id": "heart-five-elements-wood-renewal-multi-stone-bracelet",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
@@ -4184,30 +4208,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-8mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "绿檀玉葫芦手串8mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/heart-8mm.webp",
-    "images": [
-      "/products/heart-8mm.webp",
-      "/products/heart-8mm-2.webp",
-      "/products/heart-8mm-3.webp",
-      "/products/heart-8mm-4.webp",
-      "/products/heart-8mm-5.webp",
-      "/products/heart-8mm-6.webp"
-    ]
-  },
-  {
     "id": "throat-a6-2507",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
@@ -4235,11 +4235,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-b7-2506",
+    "id": "throat-b6-2501",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "B7-2506 蝴蝶",
+    "name": "B6-2501 薰衣草海蓝宝手串",
     "tagline": "Throat Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -4248,15 +4248,16 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/throat-b7-2506.webp",
+    "image": "/products/throat-b6-2501.webp",
     "images": [
-      "/products/throat-b7-2506.webp",
-      "/products/throat-b7-2506-2.webp",
-      "/products/throat-b7-2506-3.webp",
-      "/products/throat-b7-2506-4.webp",
-      "/products/throat-b7-2506-5.webp",
-      "/products/throat-b7-2506-6.webp",
-      "/products/throat-b7-2506-7.webp"
+      "/products/throat-b6-2501.webp",
+      "/products/throat-b6-2501-2.webp",
+      "/products/throat-b6-2501-3.webp",
+      "/products/throat-b6-2501-4.webp",
+      "/products/throat-b6-2501-5.webp",
+      "/products/throat-b6-2501-6.webp",
+      "/products/throat-b6-2501-7.webp",
+      "/products/throat-b6-2501-8.webp"
     ]
   },
   {
@@ -4284,11 +4285,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-b6-2501",
+    "id": "throat-b7-2506",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "B6-2501 薰衣草海蓝宝手串",
+    "name": "B7-2506 蝴蝶",
     "tagline": "Throat Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -4297,16 +4298,15 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/throat-b6-2501.webp",
+    "image": "/products/throat-b7-2506.webp",
     "images": [
-      "/products/throat-b6-2501.webp",
-      "/products/throat-b6-2501-2.webp",
-      "/products/throat-b6-2501-3.webp",
-      "/products/throat-b6-2501-4.webp",
-      "/products/throat-b6-2501-5.webp",
-      "/products/throat-b6-2501-6.webp",
-      "/products/throat-b6-2501-7.webp",
-      "/products/throat-b6-2501-8.webp"
+      "/products/throat-b7-2506.webp",
+      "/products/throat-b7-2506-2.webp",
+      "/products/throat-b7-2506-3.webp",
+      "/products/throat-b7-2506-4.webp",
+      "/products/throat-b7-2506-5.webp",
+      "/products/throat-b7-2506-6.webp",
+      "/products/throat-b7-2506-7.webp"
     ]
   },
   {
@@ -4356,11 +4356,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-e03-2505",
+    "id": "throat-e03-2504",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2505 【金牛座】海蓝宝手串",
+    "name": "E03-2504 【双鱼座】海蓝宝手串",
     "tagline": "Throat Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -4369,13 +4369,13 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/throat-e03-2505.webp",
+    "image": "/products/throat-e03-2504.webp",
     "images": [
-      "/products/throat-e03-2505.webp",
-      "/products/throat-e03-2505-2.webp",
-      "/products/throat-e03-2505-3.webp",
-      "/products/throat-e03-2505-4.webp",
-      "/products/throat-e03-2505-5.webp"
+      "/products/throat-e03-2504.webp",
+      "/products/throat-e03-2504-2.webp",
+      "/products/throat-e03-2504-3.webp",
+      "/products/throat-e03-2504-4.webp",
+      "/products/throat-e03-2504-5.webp"
     ]
   },
   {
@@ -4402,11 +4402,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-e03-2504",
+    "id": "throat-e03-2505",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2504 【双鱼座】海蓝宝手串",
+    "name": "E03-2505 【金牛座】海蓝宝手串",
     "tagline": "Throat Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -4415,13 +4415,36 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/throat-e03-2504.webp",
+    "image": "/products/throat-e03-2505.webp",
     "images": [
-      "/products/throat-e03-2504.webp",
-      "/products/throat-e03-2504-2.webp",
-      "/products/throat-e03-2504-3.webp",
-      "/products/throat-e03-2504-4.webp",
-      "/products/throat-e03-2504-5.webp"
+      "/products/throat-e03-2505.webp",
+      "/products/throat-e03-2505-2.webp",
+      "/products/throat-e03-2505-3.webp",
+      "/products/throat-e03-2505-4.webp",
+      "/products/throat-e03-2505-5.webp"
+    ]
+  },
+  {
+    "id": "throat-e03-2507",
+    "chakra": "throat",
+    "chakraName": "Throat Chakra",
+    "color": "#9fcde0",
+    "name": "E03-2507 【摩羯座】海蓝宝手串",
+    "tagline": "Throat Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/throat-e03-2507.webp",
+    "images": [
+      "/products/throat-e03-2507.webp",
+      "/products/throat-e03-2507-2.webp",
+      "/products/throat-e03-2507-3.webp",
+      "/products/throat-e03-2507-4.webp",
+      "/products/throat-e03-2507-5.webp"
     ]
   },
   {
@@ -4472,11 +4495,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-e03-2507",
+    "id": "throat-e03-2510",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2507 【摩羯座】海蓝宝手串",
+    "name": "E03-2510 【天秤座】海蓝宝手串",
     "tagline": "Throat Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -4485,13 +4508,11 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/throat-e03-2507.webp",
+    "image": "/products/throat-e03-2510.webp",
     "images": [
-      "/products/throat-e03-2507.webp",
-      "/products/throat-e03-2507-2.webp",
-      "/products/throat-e03-2507-3.webp",
-      "/products/throat-e03-2507-4.webp",
-      "/products/throat-e03-2507-5.webp"
+      "/products/throat-e03-2510.webp",
+      "/products/throat-e03-2510-2.webp",
+      "/products/throat-e03-2510-3.webp"
     ]
   },
   {
@@ -4514,49 +4535,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/throat-e04-2501-2.webp",
       "/products/throat-e04-2501-3.webp",
       "/products/throat-e04-2501-4.webp"
-    ]
-  },
-  {
-    "id": "throat-e03-2510",
-    "chakra": "throat",
-    "chakraName": "Throat Chakra",
-    "color": "#9fcde0",
-    "name": "E03-2510 【天秤座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/throat-e03-2510.webp",
-    "images": [
-      "/products/throat-e03-2510.webp",
-      "/products/throat-e03-2510-2.webp",
-      "/products/throat-e03-2510-3.webp"
-    ]
-  },
-  {
-    "id": "throat-e04-2503",
-    "chakra": "throat",
-    "chakraName": "Throat Chakra",
-    "color": "#9fcde0",
-    "name": "E04-2503 【白羊座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/throat-e04-2503.webp",
-    "images": [
-      "/products/throat-e04-2503.webp",
-      "/products/throat-e04-2503-2.webp",
-      "/products/throat-e04-2503-3.webp",
-      "/products/throat-e04-2503-4.webp"
     ]
   },
   {
@@ -4603,6 +4581,28 @@ export const importedProducts: ImportedProduct[] = [
       "/products/throat-e04-2504-3.webp",
       "/products/throat-e04-2504-4.webp",
       "/products/throat-e04-2504-5.webp"
+    ]
+  },
+  {
+    "id": "throat-e04-2503",
+    "chakra": "throat",
+    "chakraName": "Throat Chakra",
+    "color": "#9fcde0",
+    "name": "E04-2503 【白羊座】海蓝宝手串",
+    "tagline": "Throat Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/throat-e04-2503.webp",
+    "images": [
+      "/products/throat-e04-2503.webp",
+      "/products/throat-e04-2503-2.webp",
+      "/products/throat-e04-2503-3.webp",
+      "/products/throat-e04-2503-4.webp"
     ]
   },
   {
@@ -4719,6 +4719,31 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-a3-2503",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "A3-2503 紫水晶款",
+    "tagline": "Third Eye Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-a3-2503.webp",
+    "images": [
+      "/products/third-eye-a3-2503.webp",
+      "/products/third-eye-a3-2503-2.webp",
+      "/products/third-eye-a3-2503-3.webp",
+      "/products/third-eye-a3-2503-4.webp",
+      "/products/third-eye-a3-2503-5.webp",
+      "/products/third-eye-a3-2503-6.webp",
+      "/products/third-eye-a3-2503-7.webp"
+    ]
+  },
+  {
     "id": "third-eye-a4-2503",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
@@ -4742,31 +4767,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/third-eye-a4-2503-6.webp",
       "/products/third-eye-a4-2503-7.webp",
       "/products/third-eye-a4-2503-8.webp"
-    ]
-  },
-  {
-    "id": "third-eye-a3-2503",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "A3-2503 紫水晶款",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/third-eye-a3-2503.webp",
-    "images": [
-      "/products/third-eye-a3-2503.webp",
-      "/products/third-eye-a3-2503-2.webp",
-      "/products/third-eye-a3-2503-3.webp",
-      "/products/third-eye-a3-2503-4.webp",
-      "/products/third-eye-a3-2503-5.webp",
-      "/products/third-eye-a3-2503-6.webp",
-      "/products/third-eye-a3-2503-7.webp"
     ]
   },
   {
@@ -4821,6 +4821,33 @@ export const importedProducts: ImportedProduct[] = [
       "/products/third-eye-a5-2506-8mm-8.webp",
       "/products/third-eye-a5-2506-8mm-9.webp",
       "/products/third-eye-a5-2506-8mm-10.webp"
+    ]
+  },
+  {
+    "id": "third-eye-a8-2503-12mm",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "A8-2503 12mm钻圈款",
+    "tagline": "Third Eye Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-a8-2503-12mm.webp",
+    "images": [
+      "/products/third-eye-a8-2503-12mm.webp",
+      "/products/third-eye-a8-2503-12mm-2.webp",
+      "/products/third-eye-a8-2503-12mm-3.webp",
+      "/products/third-eye-a8-2503-12mm-4.webp",
+      "/products/third-eye-a8-2503-12mm-5.webp",
+      "/products/third-eye-a8-2503-12mm-6.webp",
+      "/products/third-eye-a8-2503-12mm-7.webp",
+      "/products/third-eye-a8-2503-12mm-8.webp",
+      "/products/third-eye-a8-2503-12mm-9.webp"
     ]
   },
   {
@@ -4880,33 +4907,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "third-eye-a8-2503-12mm",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "A8-2503 12mm钻圈款",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/third-eye-a8-2503-12mm.webp",
-    "images": [
-      "/products/third-eye-a8-2503-12mm.webp",
-      "/products/third-eye-a8-2503-12mm-2.webp",
-      "/products/third-eye-a8-2503-12mm-3.webp",
-      "/products/third-eye-a8-2503-12mm-4.webp",
-      "/products/third-eye-a8-2503-12mm-5.webp",
-      "/products/third-eye-a8-2503-12mm-6.webp",
-      "/products/third-eye-a8-2503-12mm-7.webp",
-      "/products/third-eye-a8-2503-12mm-8.webp",
-      "/products/third-eye-a8-2503-12mm-9.webp"
-    ]
-  },
-  {
     "id": "third-eye-b1-2508-6mm",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
@@ -4930,6 +4930,32 @@ export const importedProducts: ImportedProduct[] = [
       "/products/third-eye-b1-2508-6mm-6.webp",
       "/products/third-eye-b1-2508-6mm-7.webp",
       "/products/third-eye-b1-2508-6mm-8.webp"
+    ]
+  },
+  {
+    "id": "third-eye-b5-2509",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "B5-2509 切面白水晶紫水晶手链",
+    "tagline": "Third Eye Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-b5-2509.webp",
+    "images": [
+      "/products/third-eye-b5-2509.webp",
+      "/products/third-eye-b5-2509-2.webp",
+      "/products/third-eye-b5-2509-3.webp",
+      "/products/third-eye-b5-2509-4.webp",
+      "/products/third-eye-b5-2509-5.webp",
+      "/products/third-eye-b5-2509-6.webp",
+      "/products/third-eye-b5-2509-7.webp",
+      "/products/third-eye-b5-2509-8.webp"
     ]
   },
   {
@@ -4960,56 +4986,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "third-eye-b5-2508",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "B5-2508 薰衣草紫水晶玉兔手链",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/third-eye-b5-2508.webp",
-    "images": [
-      "/products/third-eye-b5-2508.webp",
-      "/products/third-eye-b5-2508-2.webp",
-      "/products/third-eye-b5-2508-3.webp",
-      "/products/third-eye-b5-2508-4.webp",
-      "/products/third-eye-b5-2508-5.webp",
-      "/products/third-eye-b5-2508-6.webp"
-    ]
-  },
-  {
-    "id": "third-eye-b5-2509",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "B5-2509 切面白水晶紫水晶手链",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/third-eye-b5-2509.webp",
-    "images": [
-      "/products/third-eye-b5-2509.webp",
-      "/products/third-eye-b5-2509-2.webp",
-      "/products/third-eye-b5-2509-3.webp",
-      "/products/third-eye-b5-2509-4.webp",
-      "/products/third-eye-b5-2509-5.webp",
-      "/products/third-eye-b5-2509-6.webp",
-      "/products/third-eye-b5-2509-7.webp",
-      "/products/third-eye-b5-2509-8.webp"
-    ]
-  },
-  {
     "id": "third-eye-b6-2502",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
@@ -5035,6 +5011,30 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-b5-2508",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "B5-2508 薰衣草紫水晶玉兔手链",
+    "tagline": "Third Eye Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-b5-2508.webp",
+    "images": [
+      "/products/third-eye-b5-2508.webp",
+      "/products/third-eye-b5-2508-2.webp",
+      "/products/third-eye-b5-2508-3.webp",
+      "/products/third-eye-b5-2508-4.webp",
+      "/products/third-eye-b5-2508-5.webp",
+      "/products/third-eye-b5-2508-6.webp"
+    ]
+  },
+  {
     "id": "third-eye-b6-2503",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
@@ -5057,29 +5057,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/third-eye-b6-2503-5.webp",
       "/products/third-eye-b6-2503-6.webp",
       "/products/third-eye-b6-2503-7.webp"
-    ]
-  },
-  {
-    "id": "third-eye-c10-2501",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "C10-2501",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/third-eye-c10-2501.webp",
-    "images": [
-      "/products/third-eye-c10-2501.webp",
-      "/products/third-eye-c10-2501-2.webp",
-      "/products/third-eye-c10-2501-3.webp",
-      "/products/third-eye-c10-2501-4.webp",
-      "/products/third-eye-c10-2501-5.webp"
     ]
   },
   {
@@ -5148,6 +5125,29 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-c10-2501",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "C10-2501",
+    "tagline": "Third Eye Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-c10-2501.webp",
+    "images": [
+      "/products/third-eye-c10-2501.webp",
+      "/products/third-eye-c10-2501-2.webp",
+      "/products/third-eye-c10-2501-3.webp",
+      "/products/third-eye-c10-2501-4.webp",
+      "/products/third-eye-c10-2501-5.webp"
+    ]
+  },
+  {
     "id": "third-eye-i07-2508",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
@@ -5191,32 +5191,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/third-eye-i08-2509-8mm-3.webp",
       "/products/third-eye-i08-2509-8mm-4.webp",
       "/products/third-eye-i08-2509-8mm-5.webp"
-    ]
-  },
-  {
-    "id": "third-eye-crystal-talisman",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "【紫菱】天然紫水晶手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/third-eye-crystal-talisman.webp",
-    "images": [
-      "/products/third-eye-crystal-talisman.webp",
-      "/products/third-eye-crystal-talisman-2.webp",
-      "/products/third-eye-crystal-talisman-3.webp",
-      "/products/third-eye-crystal-talisman-4.webp",
-      "/products/third-eye-crystal-talisman-5.webp",
-      "/products/third-eye-crystal-talisman-6.webp",
-      "/products/third-eye-crystal-talisman-7.webp",
-      "/products/third-eye-crystal-talisman-8.webp"
     ]
   },
   {
@@ -5265,6 +5239,32 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-crystal-talisman",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "【紫菱】天然紫水晶手串",
+    "tagline": "Third Eye Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-crystal-talisman.webp",
+    "images": [
+      "/products/third-eye-crystal-talisman.webp",
+      "/products/third-eye-crystal-talisman-2.webp",
+      "/products/third-eye-crystal-talisman-3.webp",
+      "/products/third-eye-crystal-talisman-4.webp",
+      "/products/third-eye-crystal-talisman-5.webp",
+      "/products/third-eye-crystal-talisman-6.webp",
+      "/products/third-eye-crystal-talisman-7.webp",
+      "/products/third-eye-crystal-talisman-8.webp"
+    ]
+  },
+  {
     "id": "crown-a4-2507-10mm-12mm",
     "chakra": "crown",
     "chakraName": "Crown Chakra",
@@ -5288,6 +5288,32 @@ export const importedProducts: ImportedProduct[] = [
       "/products/crown-a4-2507-10mm-12mm-6.webp",
       "/products/crown-a4-2507-10mm-12mm-7.webp",
       "/products/crown-a4-2507-10mm-12mm-8.webp"
+    ]
+  },
+  {
+    "id": "crown-a5-2510",
+    "chakra": "crown",
+    "chakraName": "Crown Chakra",
+    "color": "#d8b4e5",
+    "name": "A5-2510 拉长石草莓晶手串+月亮吊坠",
+    "tagline": "Crown Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/crown-a5-2510.webp",
+    "images": [
+      "/products/crown-a5-2510.webp",
+      "/products/crown-a5-2510-2.webp",
+      "/products/crown-a5-2510-3.webp",
+      "/products/crown-a5-2510-4.webp",
+      "/products/crown-a5-2510-5.webp",
+      "/products/crown-a5-2510-6.webp",
+      "/products/crown-a5-2510-7.webp",
+      "/products/crown-a5-2510-8.webp"
     ]
   },
   {
@@ -5338,11 +5364,11 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "crown-a5-2510",
+    "id": "crown-b1-2506-10mm",
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "A5-2510 拉长石草莓晶手串+月亮吊坠",
+    "name": "B1-2506 10mm白月光",
     "tagline": "Crown Chakra crystal talisman.",
     "material": "",
     "energy": [],
@@ -5351,16 +5377,17 @@ export const importedProducts: ImportedProduct[] = [
     "specs": [],
     "careRitual": [],
     "price": 89,
-    "image": "/products/crown-a5-2510.webp",
+    "image": "/products/crown-b1-2506-10mm.webp",
     "images": [
-      "/products/crown-a5-2510.webp",
-      "/products/crown-a5-2510-2.webp",
-      "/products/crown-a5-2510-3.webp",
-      "/products/crown-a5-2510-4.webp",
-      "/products/crown-a5-2510-5.webp",
-      "/products/crown-a5-2510-6.webp",
-      "/products/crown-a5-2510-7.webp",
-      "/products/crown-a5-2510-8.webp"
+      "/products/crown-b1-2506-10mm.webp",
+      "/products/crown-b1-2506-10mm-2.webp",
+      "/products/crown-b1-2506-10mm-3.webp",
+      "/products/crown-b1-2506-10mm-4.webp",
+      "/products/crown-b1-2506-10mm-5.webp",
+      "/products/crown-b1-2506-10mm-6.webp",
+      "/products/crown-b1-2506-10mm-7.webp",
+      "/products/crown-b1-2506-10mm-8.webp",
+      "/products/crown-b1-2506-10mm-9.webp"
     ]
   },
   {
@@ -5386,33 +5413,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/crown-e04-2508-10mm-a-5.webp",
       "/products/crown-e04-2508-10mm-a-6.webp",
       "/products/crown-e04-2508-10mm-a-7.webp"
-    ]
-  },
-  {
-    "id": "crown-b1-2506-10mm",
-    "chakra": "crown",
-    "chakraName": "Crown Chakra",
-    "color": "#d8b4e5",
-    "name": "B1-2506 10mm白月光",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/crown-b1-2506-10mm.webp",
-    "images": [
-      "/products/crown-b1-2506-10mm.webp",
-      "/products/crown-b1-2506-10mm-2.webp",
-      "/products/crown-b1-2506-10mm-3.webp",
-      "/products/crown-b1-2506-10mm-4.webp",
-      "/products/crown-b1-2506-10mm-5.webp",
-      "/products/crown-b1-2506-10mm-6.webp",
-      "/products/crown-b1-2506-10mm-7.webp",
-      "/products/crown-b1-2506-10mm-8.webp",
-      "/products/crown-b1-2506-10mm-9.webp"
     ]
   },
   {
@@ -5657,6 +5657,30 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "crown-8mm",
+    "chakra": "crown",
+    "chakraName": "Crown Chakra",
+    "color": "#d8b4e5",
+    "name": "和田玉葫芦手串8mm",
+    "tagline": "Crown Chakra crystal talisman.",
+    "material": "",
+    "energy": [],
+    "benefits": [],
+    "howToWear": [],
+    "specs": [],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/crown-8mm.webp",
+    "images": [
+      "/products/crown-8mm.webp",
+      "/products/crown-8mm-2.webp",
+      "/products/crown-8mm-3.webp",
+      "/products/crown-8mm-4.webp",
+      "/products/crown-8mm-5.webp",
+      "/products/crown-8mm-6.webp"
+    ]
+  },
+  {
     "id": "crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet",
     "chakra": "crown",
     "chakraName": "Crown Chakra",
@@ -5695,30 +5719,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet-3.webp",
       "/products/crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet-4.webp",
       "/products/crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet-5.webp"
-    ]
-  },
-  {
-    "id": "crown-8mm",
-    "chakra": "crown",
-    "chakraName": "Crown Chakra",
-    "color": "#d8b4e5",
-    "name": "和田玉葫芦手串8mm",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 89,
-    "image": "/products/crown-8mm.webp",
-    "images": [
-      "/products/crown-8mm.webp",
-      "/products/crown-8mm-2.webp",
-      "/products/crown-8mm-3.webp",
-      "/products/crown-8mm-4.webp",
-      "/products/crown-8mm-5.webp",
-      "/products/crown-8mm-6.webp"
     ]
   }
 ]
