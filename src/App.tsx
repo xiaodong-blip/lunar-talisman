@@ -1457,6 +1457,8 @@ function SeriesListingGrid({
           const detail = getTileDetail(tile)
           const action = getTileAction(tile)
           const specs = getTileSpecs(tile)
+          const isProductImage =
+            tile.target.startsWith('/detail/') || tile.id.startsWith('chakra-')
 
           return (
             <button
@@ -1485,10 +1487,11 @@ function SeriesListingGrid({
               <div
                 style={{
                   position: 'relative',
-                  aspectRatio: '16 / 11',
-                  backgroundColor: tile.color,
+                  aspectRatio: isProductImage ? '4 / 3' : '16 / 11',
+                  backgroundColor: isProductImage ? '#fff' : tile.color,
                   backgroundImage: tile.image ? `url(${tile.image})` : undefined,
-                  backgroundSize: 'cover',
+                  backgroundSize: isProductImage ? 'contain' : 'cover',
+                  backgroundRepeat: 'no-repeat',
                   backgroundPosition: 'center',
                 }}
               >
@@ -1536,32 +1539,6 @@ function SeriesListingGrid({
                     {formatProductPrice(getDetailPrice(detail))}
                   </span>
                 ) : null}
-                <div
-                  style={{
-                    position: 'absolute',
-                    left: 14,
-                    right: 14,
-                    bottom: 14,
-                    padding: '12px 14px',
-                    borderRadius: 22,
-                    background: 'rgba(255,255,255,0.2)',
-                    border: '1px solid rgba(255,255,255,0.24)',
-                    color: '#fff',
-                    backdropFilter: 'blur(12px)',
-                  }}
-                >
-                  <h3
-                    style={{
-                      margin: 0,
-                      fontFamily: "'Lobster', cursive",
-                      fontSize: 24,
-                      lineHeight: 1,
-                      whiteSpace: 'pre-line',
-                    }}
-                  >
-                    {getEnglishTitle(tile.id, tile.title)}
-                  </h3>
-                </div>
               </div>
 
               <div
@@ -1572,9 +1549,21 @@ function SeriesListingGrid({
                   flex: 1,
                 }}
               >
-                <p
+                <h3
                   style={{
                     margin: 0,
+                    fontFamily: "'Lobster', cursive",
+                    fontSize: 24,
+                    lineHeight: 1.08,
+                    whiteSpace: 'pre-line',
+                    color: '#3a2530',
+                  }}
+                >
+                  {getEnglishTitle(tile.id, tile.title)}
+                </h3>
+                <p
+                  style={{
+                    margin: '12px 0 0',
                     color: 'rgba(58,37,48,0.64)',
                     lineHeight: 1.65,
                     fontSize: 15,
