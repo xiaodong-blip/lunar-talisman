@@ -289,6 +289,7 @@ function fallbackFor(tagName: string, source: string) {
 
 function translateTextNode(node: Text) {
   const current = node.nodeValue || ''
+  if (node.parentElement?.closest('[data-no-auto-translate]')) return
   if (!han.test(current)) return
 
   const translated = translate(current)
@@ -300,6 +301,7 @@ function translateTextNode(node: Text) {
 }
 
 function translateElementAttributes(element: Element) {
+  if (element.closest('[data-no-auto-translate]')) return
   for (const attribute of ['placeholder', 'aria-label', 'title', 'alt']) {
     const current = element.getAttribute(attribute)
     if (!current || !han.test(current)) continue

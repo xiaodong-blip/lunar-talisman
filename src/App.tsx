@@ -15,11 +15,16 @@ import {
 import AdminPage from './AdminPage'
 import { usePageMeta } from './hooks/usePageMeta'
 import { trackPageView } from './services/analytics'
+import { appendOrder } from './services/orders'
 import type { PublicOrder } from './services/orders'
 import { createPublicOrder, fetchPublishedProducts } from './services/backend'
-import { NotFoundPage } from './pages/NotFoundPage'
 import { useEnglishUi } from './hooks/useEnglishUi'
-import { getProductSeo, getSeriesSeo, homeSeo } from './data/seo'
+import { importedProducts } from './data/importedProducts'
+import {
+  importedSeriesGuides,
+  type GuideSeries,
+  type ImportedSeriesGuide,
+} from './data/importedSeriesGuides'
 
 const PORTAL_BG =
   'https://flick-award-65707097.figma.site/_assets/v11/bbc8d4f1308d5df012c4b0a657b44c6d92609c24.png'
@@ -51,9 +56,9 @@ type Route =
   | { page: 'home' }
   | { page: 'series'; id: string }
   | { page: 'detail'; id: string }
+  | { page: 'guide'; id: string }
   | { page: 'cart' }
   | { page: 'admin' }
-  | { page: 'not-found' }
   | { page: 'legal'; id: 'privacy' | 'terms' | 'shipping' | 'refund' | 'contact' }
 
 type Tile = {
@@ -352,151 +357,123 @@ const ZODIAC_DETAILS: DetailData[] = [
   },
 ]
 
-const DEMO_PRODUCT_BASES = [
-  { id: 'moon-mist', name: '月雾晶光手链', crystal: '月光石', focus: '直觉安抚', color: '#ece7fb', price: 78 },
-  { id: 'rose-orbit', name: '玫瑰星轨手链', crystal: '玫瑰晶', focus: '心轮柔光', color: '#f3cdd6', price: 86 },
-  { id: 'citrine-ray', name: '黄水晶日冕手链', crystal: '黄水晶', focus: '行动自信', color: '#f0e4c0', price: 92 },
-  { id: 'sage-bloom', name: '绿萤石花园项链', crystal: '绿萤石', focus: '情绪平衡', color: '#dcedc2', price: 88 },
-  { id: 'aqua-veil', name: '海蓝宝薄雾项链', crystal: '海蓝宝', focus: '表达清澈', color: '#c3e3f4', price: 96 },
-  { id: 'amethyst-dream', name: '紫水晶梦境手链', crystal: '紫水晶', focus: '洞察灵感', color: '#dcd2f2', price: 89 },
-  { id: 'garnet-root', name: '红石榴石扎根手链', crystal: '红石榴石', focus: '安全稳定', color: '#f3cdd6', price: 75 },
-  { id: 'clear-lunar', name: '白水晶月光坠链', crystal: '白水晶', focus: '意图放大', color: '#ece7fb', price: 102 },
-  { id: 'amber-flame', name: '琥珀火焰护符', crystal: '琥珀', focus: '温暖守护', color: '#f2cfb4', price: 84 },
-  { id: 'lapis-oracle', name: '青金石神谕项链', crystal: '青金石', focus: '内在指引', color: '#dcd2f2', price: 99 },
-]
-
-const SERIES_DEMO_CONFIG: Record<
-  string,
-  { eyebrow: string; prefix: string; desc: string; imageOffset: number; specs: string[] }
-> = {
-  worlds: {
-    eyebrow: 'World Talisman',
-    prefix: '水晶旅程',
-    desc: '为完整能量旅程准备的演示护符，适合测试系列页的浏览节奏与商品密度。',
-    imageOffset: 0,
-    specs: ['旅程入口', '能量宇宙', '演示商品'],
-  },
-  collections: {
-    eyebrow: 'Project Talisman',
-    prefix: '项目入口',
-    desc: '用于项目入口页的演示商品，帮助观察多入口页面的商品卡片排布。',
-    imageOffset: 1,
-    specs: ['项目入口', '系列导航', '演示商品'],
-  },
-  rituals: {
-    eyebrow: 'Ritual Talisman',
-    prefix: '月相仪式',
-    desc: '围绕新月、满月与日常净化设计的演示护符，方便查看仪式系列的商品展示效果。',
-    imageOffset: 2,
-    specs: ['月相仪式', '净化充能', '演示商品'],
-  },
-  chakra: {
-    eyebrow: 'Chakra Talisman',
-    prefix: '脉轮疗愈',
-    desc: '对应七脉轮能量中心的演示护符，方便测试疗愈系列列表的视觉节奏。',
-    imageOffset: 1,
-    specs: ['七脉轮', '能量平衡', '演示商品'],
-  },
-  'chakra-root': {
+const CHAKRA_COLLECTIONS = [
+  {
+    id: 'root',
+    title: 'ROOT\nRoot Chakra',
     eyebrow: 'Root Chakra',
-    prefix: '海底轮',
-    desc: '围绕扎根、安全感与身体稳定感设计的演示护符。',
-    imageOffset: 1,
-    specs: ['海底轮', '土元素', '演示商品'],
+    desc: 'Grounding, safety, and the steady foundation beneath every beginning.',
   },
-  'chakra-sacral': {
+  {
+    id: 'sacral',
+    title: 'SACRAL\nSacral Chakra',
     eyebrow: 'Sacral Chakra',
-    prefix: '脐轮',
-    desc: '围绕创造力、感受力与情绪流动设计的演示护符。',
-    imageOffset: 2,
-    specs: ['脐轮', '水元素', '演示商品'],
+    desc: 'Flow, creativity, and the warmth of feeling fully alive.',
   },
-  'chakra-solar': {
-    eyebrow: 'Solar Plexus',
-    prefix: '太阳轮',
-    desc: '围绕自信、行动力与清晰意志设计的演示护符。',
-    imageOffset: 2,
-    specs: ['太阳轮', '火元素', '演示商品'],
+  {
+    id: 'solar',
+    title: 'SOLAR\nSolar Plexus Chakra',
+    eyebrow: 'Solar Plexus Chakra',
+    desc: 'Confidence, clarity, and the courage to take up your own space.',
   },
-  'chakra-heart': {
+  {
+    id: 'heart',
+    title: 'HEART\nHeart Chakra',
     eyebrow: 'Heart Chakra',
-    prefix: '心轮',
-    desc: '围绕爱、自我接纳与关系疗愈设计的演示护符。',
-    imageOffset: 1,
-    specs: ['心轮', '风元素', '演示商品'],
+    desc: 'Love, compassion, and a softer way of returning to yourself.',
   },
-  'chakra-throat': {
+  {
+    id: 'throat',
+    title: 'THROAT\nThroat Chakra',
     eyebrow: 'Throat Chakra',
-    prefix: '喉轮',
-    desc: '围绕表达、倾听与真实沟通设计的演示护符。',
-    imageOffset: 0,
-    specs: ['喉轮', '以太元素', '演示商品'],
+    desc: 'Truth, expression, and a voice that feels like your own.',
   },
-  'chakra-third-eye': {
+  {
+    id: 'third-eye',
+    title: 'THIRD EYE\nThird Eye Chakra',
     eyebrow: 'Third Eye Chakra',
-    prefix: '眉心轮',
-    desc: '围绕直觉、洞察与梦境感知设计的演示护符。',
-    imageOffset: 0,
-    specs: ['眉心轮', '光元素', '演示商品'],
+    desc: 'Intuition, insight, and the quiet intelligence of inner vision.',
   },
-  'chakra-crown': {
+  {
+    id: 'crown',
+    title: 'CROWN\nCrown Chakra',
     eyebrow: 'Crown Chakra',
-    prefix: '顶轮',
-    desc: '围绕灵性连接、意图放大与月光指引设计的演示护符。',
-    imageOffset: 1,
-    specs: ['顶轮', '意识元素', '演示商品'],
+    desc: 'Stillness, spiritual connection, and a wider field of possibility.',
   },
-  lunar: {
-    eyebrow: 'Lunar Talisman',
-    prefix: '月相仪式',
-    desc: '跟随月相周期呼吸的演示护符，用来预览月相系列的商品列表效果。',
-    imageOffset: 2,
-    specs: ['新月满月', '月光加持', '演示商品'],
-  },
-  crystals: {
-    eyebrow: 'Crystal Talisman',
-    prefix: '水晶护符',
-    desc: '用于全部水晶护符页的演示商品，帮助检查 10 件商品的整体排版。',
-    imageOffset: 0,
-    specs: ['天然水晶', '日常佩戴', '演示商品'],
-  },
-  codex: {
-    eyebrow: 'Codex Talisman',
-    prefix: '月之典籍',
-    desc: '结合水晶知识、测试与仪式指南的演示护符，方便查看知识入口页的商品结构。',
-    imageOffset: 1,
-    specs: ['知识入口', '脉轮指南', '演示商品'],
-  },
-  connect: {
-    eyebrow: 'Connect Talisman',
-    prefix: '开始连接',
-    desc: '为测试、指南与护符连接路径准备的演示商品，方便检查转化入口排版。',
-    imageOffset: 2,
-    specs: ['测试入口', '频率匹配', '演示商品'],
-  },
+] as const
+
+const IMPORTED_DETAILS: DetailData[] = importedProducts.map((product) => ({
+  id: product.id,
+  eyebrow: product.chakraName,
+  title: product.name,
+  desc: product.tagline,
+  color: product.color,
+  image: product.image,
+  specs: [
+    product.chakraName,
+    ...product.specs.slice(0, 2),
+    `$${product.price}`,
+  ],
+  body: [
+    `Material — ${product.material}`,
+    ...product.energy,
+    product.benefits.length ? `Benefits — ${product.benefits.join(' ')}` : '',
+    ...product.howToWear.map((item) => `How to wear — ${item}`),
+    ...product.careRitual.map((item) => `Care & ritual — ${item}`),
+  ].filter(Boolean),
+}))
+
+const IMPORTED_TILES: Tile[] = importedProducts.map((product) => ({
+  id: product.id,
+  title: product.name,
+  desc: product.tagline,
+  color: product.color,
+  image: product.image,
+  eyebrow: product.chakraName,
+  target: `/detail/${product.id}`,
+}))
+
+const CHAKRA_NAV_TILES: Tile[] = CHAKRA_COLLECTIONS.map((chakra) => {
+  const products = importedProducts.filter((product) => product.chakra === chakra.id)
+  const featured = products[0]
+
+  return {
+    id: `chakra-${chakra.id}`,
+    title: chakra.title,
+    desc: `${chakra.desc} ${products.length} talismans await.`,
+    color: featured?.color ?? '#ece7fb',
+    image: featured?.image,
+    eyebrow: chakra.eyebrow,
+    target: `/series/chakra-${chakra.id}`,
+  }
+})
+
+const IMPORTED_PRODUCT_SERIES_BY_ID = new Map(
+  importedProducts.map((product) => [product.id, `chakra-${product.chakra}`]),
+)
+
+function guideToTile(guide: ImportedSeriesGuide): Tile {
+  return {
+    id: guide.id,
+    title: guide.title,
+    desc: guide.excerpt,
+    color: guide.color,
+    image: guide.image,
+    eyebrow: guide.eyebrow,
+    target: `/guide/${guide.id}`,
+  }
 }
 
-const DEMO_SERIES_DETAILS: DetailData[] = Object.entries(SERIES_DEMO_CONFIG).flatMap(
-  ([seriesId, config]) =>
-    DEMO_PRODUCT_BASES.map((base, index) => ({
-      id: `demo-${seriesId}-${base.id}`,
-      eyebrow: config.eyebrow,
-      title: `${config.prefix} · ${base.name}`,
-      desc: `${config.desc} 这一款主打${base.focus}。`,
-      color: base.color,
-      image: CARD_IMAGES[(config.imageOffset + index) % CARD_IMAGES.length],
-      specs: [base.crystal, base.focus, ...config.specs.slice(0, 2), formatProductPrice(base.price)],
-      body: [
-        `这是一件用于页面预览的假商品：${base.name}。它保持 Lunar Talisman 当前的水晶梦幻视觉，用来测试系列页和商品单页的真实浏览效果。`,
-        `正式上架时，可以从后台替换为真实图片、库存、价格、物流说明与仪式描述。当前版本主要用于观察 10 件商品时的排版密度。`,
-      ],
-    })),
-)
+function guideTilesFor(series: GuideSeries): Tile[] {
+  return importedSeriesGuides
+    .filter((guide) => guide.series === series)
+    .map(guideToTile)
+}
 
 const DETAILS: DetailData[] = [
   ...PRODUCTS.filter((product) => !REMOVED_ZODIAC_IDS.has(product.id)),
   ...ZODIAC_DETAILS.filter((detail) => !REMOVED_ZODIAC_IDS.has(detail.id)),
-  ...DEMO_SERIES_DETAILS,
+  ...IMPORTED_DETAILS,
   {
     id: 'chakra',
     eyebrow: 'Collection',
@@ -603,17 +580,20 @@ const DETAILS: DetailData[] = [
   },
 ]
 
-const PRODUCT_TILES: Tile[] = PRODUCTS.filter((product) => !REMOVED_ZODIAC_IDS.has(product.id)).map(
-  (product) => ({
-    id: product.id,
-    title: product.title.replace(' · ', '\n'),
-    desc: product.desc,
-    color: product.color,
-    image: product.image,
-    eyebrow: product.eyebrow,
-    target: `/detail/${product.id}`,
-  }),
-)
+const PRODUCT_TILES: Tile[] = [
+  ...PRODUCTS.filter((product) => !REMOVED_ZODIAC_IDS.has(product.id)).map(
+    (product) => ({
+      id: product.id,
+      title: product.title.replace(' · ', '\n'),
+      desc: product.desc,
+      color: product.color,
+      image: product.image,
+      eyebrow: product.eyebrow,
+      target: `/detail/${product.id}`,
+    }),
+  ),
+  ...IMPORTED_TILES,
+]
 
 const ZODIAC_TILES: Tile[] = [
   {
@@ -726,77 +706,27 @@ const ZODIAC_TILES: Tile[] = [
   },
 ]
 
-const CHAKRA_TILES: Tile[] = [
-  {
-    id: 'root-garnet',
-    title: '海底轮\nRoot Chakra',
-    desc: '扎根、安全感与身体稳定感。',
-    color: '#f3cdd6',
-    image: CARD_IMAGES[1],
-    eyebrow: 'Root Chakra',
-    target: '/series/chakra-root',
-  },
-  {
-    id: 'sacral-moonstone',
-    title: '脐轮\nSacral Chakra',
-    desc: '创造力、感受力与情绪流动。',
-    color: '#f2cfb4',
-    image: CARD_IMAGES[2],
-    eyebrow: 'Sacral Chakra',
-    target: '/series/chakra-sacral',
-  },
-  {
-    id: 'solar-citrine',
-    title: '太阳轮\nSolar Plexus',
-    desc: '自信、行动力与清晰意志。',
-    color: '#f0e4c0',
-    image: CARD_IMAGES[2],
-    eyebrow: 'Solar Plexus',
-    target: '/series/chakra-solar',
-  },
-  {
-    id: 'heart-rose-quartz',
-    title: '心轮\nHeart Chakra',
-    desc: '爱、自我接纳与关系疗愈。',
-    color: '#dcedc2',
-    image: CARD_IMAGES[1],
-    eyebrow: 'Heart Chakra',
-    target: '/series/chakra-heart',
-  },
-  {
-    id: 'throat-aquamarine',
-    title: '喉轮\nThroat Chakra',
-    desc: '表达、倾听与真实沟通。',
-    color: '#c3e3f4',
-    image: CARD_IMAGES[0],
-    eyebrow: 'Throat Chakra',
-    target: '/series/chakra-throat',
-  },
-  {
-    id: 'third-eye-amethyst',
-    title: '眉心轮\nThird Eye Chakra',
-    desc: '直觉、洞察与梦境感知。',
-    color: '#dcd2f2',
-    image: CARD_IMAGES[0],
-    eyebrow: 'Third Eye Chakra',
-    target: '/series/chakra-third-eye',
-  },
-  {
-    id: 'crown-clear-quartz',
-    title: '顶轮\nCrown Chakra',
-    desc: '灵性连接、意图放大与月光指引。',
-    color: '#ece7fb',
-    image: CARD_IMAGES[1],
-    eyebrow: 'Crown Chakra',
-    target: '/series/chakra-crown',
-  },
-]
+const CHAKRA_TILES: Tile[] = CHAKRA_NAV_TILES
+
+const CHAKRA_SERIES: SeriesPageData[] = CHAKRA_COLLECTIONS.map((chakra) => {
+  const products = IMPORTED_TILES.filter((product) => product.id.startsWith(`${chakra.id}-`))
+  const featured = products[0]
+
+  return {
+    id: `chakra-${chakra.id}`,
+    eyebrow: chakra.eyebrow,
+    title: chakra.title.replace(/^[A-Z ]+\n/, ''),
+    desc: `${chakra.desc} Explore ${products.length} pieces curated for this energy centre.`,
+    color: featured?.color ?? '#ece7fb',
+    tiles: products,
+  }
+})
 
 const MAIN_PROJECT_TILES: Tile[] = [
   {
     id: 'worlds',
-    title: 'WORLDS\n水晶旅程',
-    desc: '从脉轮、月相与水晶护符进入完整能量宇宙。',
+    title: 'WORLDS\nCrystal Journey',
+     desc: 'Enter the full energy universe through chakras, moon phases, and crystal talismans.',
     color: '#dcd2f2',
     image: CARD_IMAGES[0],
     eyebrow: 'Worlds',
@@ -804,8 +734,8 @@ const MAIN_PROJECT_TILES: Tile[] = [
   },
   {
     id: 'chakra',
-    title: 'CHAKRAS\n脉轮疗愈',
-    desc: '七个能量中心，从海底轮一路抵达顶轮。',
+    title: 'CHAKRAS\nChakra Healing',
+     desc: 'Seven energy centres, from root to crown.',
     color: '#dcedc2',
     image: CARD_IMAGES[1],
     eyebrow: 'Chakras',
@@ -813,8 +743,8 @@ const MAIN_PROJECT_TILES: Tile[] = [
   },
   {
     id: 'rituals',
-    title: 'RITUALS\n月相仪式',
-    desc: '新月设定意图，满月净化与充能。',
+    title: 'RITUALS\nLunar Rituals',
+     desc: 'Set intentions at the new moon; cleanse and charge at the full moon.',
     color: '#c3e3f4',
     image: CARD_IMAGES[2],
     eyebrow: 'Rituals',
@@ -822,26 +752,17 @@ const MAIN_PROJECT_TILES: Tile[] = [
   },
   {
     id: 'crystals',
-    title: 'CRYSTALS\n水晶护符',
-    desc: '浏览所有水晶饰品与能量单页。',
+    title: 'CRYSTALS\nCrystal Talismans',
+     desc: 'Browse every crystal piece and its energy page.',
     color: '#f3cdd6',
     image: CARD_IMAGES[1],
     eyebrow: 'Crystals',
     target: '/series/crystals',
   },
   {
-    id: 'codex',
-    title: 'CODEX\n月之典籍',
-    desc: '水晶、脉轮与月相知识入口。',
-    color: '#f0e4c0',
-    image: CARD_IMAGES[0],
-    eyebrow: 'Codex',
-    target: '/series/codex',
-  },
-  {
     id: 'connect',
-    title: 'CONNECT\n开始连接',
-    desc: '通过测试、指南与护符找到此刻频率。',
+    title: 'CONNECT\nBegin the Connection',
+     desc: 'Find your present frequency through the quiz, guides, and talismans.',
     color: '#ece7fb',
     image: CARD_IMAGES[2],
     eyebrow: 'Connect',
@@ -853,41 +774,42 @@ const SERIES: SeriesPageData[] = [
   {
     id: 'worlds',
     eyebrow: 'Worlds',
-    title: '水晶旅程',
-    desc: '从脉轮、月相与水晶护符入口进入，找到与你当前频率共振的护符。',
+    title: 'Crystal Journey',
+     desc: 'Enter through chakras, moon phases, and crystal talismans to find your present resonance.',
     color: '#f3cdd6',
     tiles: [
       {
         id: 'chakra',
-        title: '脉轮疗愈',
-        desc: '七个能量中心的完整路径',
+        title: 'Chakra Healing',
+         desc: 'A complete path through seven energy centres',
         color: '#dcedc2',
         image: CARD_IMAGES[1],
         target: '/series/chakra',
       },
       {
         id: 'lunar',
-        title: '月相仪式',
-        desc: '新月、满月与日常净化',
+        title: 'Lunar Rituals',
+         desc: 'New moon, full moon, and everyday cleansing',
         color: '#c3e3f4',
         image: CARD_IMAGES[2],
         target: '/series/lunar',
       },
+      ...guideTilesFor('worlds'),
     ],
   },
   {
     id: 'collections',
     eyebrow: 'Project Portals',
-    title: '项目入口',
-    desc: '从六个大入口进入：旅程、脉轮、仪式、水晶、典籍与连接。',
+    title: 'Project Portals',
+     desc: 'Five portals: journey, chakras, rituals, crystals, and connection.',
     color: '#f0e4c0',
     tiles: MAIN_PROJECT_TILES,
   },
   {
     id: 'rituals',
     eyebrow: 'Rituals',
-    title: '月相仪式',
-    desc: '在新月写下意图，在满月净化水晶，让佩戴成为一段可重复的能量节奏。',
+    title: 'Lunar Rituals',
+     desc: 'Set intentions at the new moon and cleanse your crystals at the full moon.',
     color: '#c3e3f4',
     tiles: [
       ...PRODUCT_TILES.filter((tile) =>
@@ -895,91 +817,37 @@ const SERIES: SeriesPageData[] = [
       ),
       {
         id: 'full-moon-ritual',
-        title: '满月净化\n仪式指南',
-        desc: '八步唤醒晶石能量',
+        title: 'Full Moon\nRitual Guide',
+         desc: 'An eight-step crystal awakening ritual',
         color: '#dcedc2',
         image: CARD_IMAGES[2],
         target: '/detail/full-moon-ritual',
       },
+      ...guideTilesFor('rituals'),
     ],
   },
   {
     id: 'zodiac',
     eyebrow: 'Zodiac',
-    title: '星座守护系列',
-    desc: '从星盘特质出发，为直觉敏锐的人召唤专属守护水晶。',
+    title: 'Zodiac Guardians',
+     desc: 'Call in a crystal guardian aligned with the language of your chart.',
     color: '#dcd2f2',
     tiles: ZODIAC_TILES,
   },
   {
     id: 'chakra',
     eyebrow: 'Chakras',
-    title: '脉轮疗愈系列',
-    desc: '七脉轮完整疗愈路径，每一件水晶都对应一个能量中心。',
+    title: 'Chakra Healing Collection',
+     desc: 'A complete seven-chakra path, with every crystal aligned to an energy centre.',
     color: '#dcedc2',
-    tiles: CHAKRA_TILES,
+    tiles: [...CHAKRA_TILES, ...guideTilesFor('chakra')],
   },
-  {
-    id: 'chakra-root',
-    eyebrow: 'Root Chakra',
-    title: '海底轮系列',
-    desc: '从身体底部重新扎根，把安全感、稳定感与边界感带回日常佩戴。',
-    color: '#f3cdd6',
-    tiles: [],
-  },
-  {
-    id: 'chakra-sacral',
-    eyebrow: 'Sacral Chakra',
-    title: '脐轮系列',
-    desc: '让情绪、创造力与生命热情重新流动，适合需要灵感与柔软感的时刻。',
-    color: '#f2cfb4',
-    tiles: [],
-  },
-  {
-    id: 'chakra-solar',
-    eyebrow: 'Solar Plexus',
-    title: '太阳轮系列',
-    desc: '点亮行动、自信与决断力，让每一次选择都带着更清晰的内在火光。',
-    color: '#f0e4c0',
-    tiles: [],
-  },
-  {
-    id: 'chakra-heart',
-    eyebrow: 'Heart Chakra',
-    title: '心轮系列',
-    desc: '以玫瑰柔光打开爱、自我接纳与关系疗愈，让心重新有呼吸空间。',
-    color: '#dcedc2',
-    tiles: [],
-  },
-  {
-    id: 'chakra-throat',
-    eyebrow: 'Throat Chakra',
-    title: '喉轮系列',
-    desc: '支持真实表达、温柔沟通与清晰倾听，让声音与心意重新对齐。',
-    color: '#c3e3f4',
-    tiles: [],
-  },
-  {
-    id: 'chakra-third-eye',
-    eyebrow: 'Third Eye Chakra',
-    title: '眉心轮系列',
-    desc: '为直觉、洞察、梦境与内在指引准备的紫色频率护符系列。',
-    color: '#dcd2f2',
-    tiles: [],
-  },
-  {
-    id: 'chakra-crown',
-    eyebrow: 'Crown Chakra',
-    title: '顶轮系列',
-    desc: '连接月光、意图与更高层次的自我，让灵性觉醒变成可佩戴的仪式。',
-    color: '#ece7fb',
-    tiles: [],
-  },
+  ...CHAKRA_SERIES,
   {
     id: 'lunar',
     eyebrow: 'Lunar',
-    title: '月相仪式系列',
-    desc: '从新月到满月，每件水晶都由特定月相时刻加持。',
+    title: 'Lunar Ritual Collection',
+     desc: 'From new moon to full moon, each crystal is attuned to a lunar moment.',
     color: '#c3e3f4',
     tiles: PRODUCT_TILES.filter((tile) =>
       ['new-moon-set', 'full-moon-necklace'].includes(tile.id),
@@ -988,67 +856,35 @@ const SERIES: SeriesPageData[] = [
   {
     id: 'crystals',
     eyebrow: 'Crystals',
-    title: '全部水晶护符',
-    desc: '浏览所有水晶产品，进入每件护符自己的能量单页。',
+    title: 'All Crystal Talismans',
+     desc: 'Browse every crystal piece and enter its individual energy page.',
     color: '#f3cdd6',
-    tiles: PRODUCT_TILES,
-  },
-  {
-    id: 'codex',
-    eyebrow: 'Codex',
-    title: '月之典籍',
-    desc: '水晶、脉轮与月相仪式的知识入口。',
-    color: '#f0e4c0',
-    tiles: [
-      {
-        id: 'chakra-test',
-        title: '七脉轮\n自测',
-        desc: '感受哪个能量中心需要平衡',
-        color: '#dcedc2',
-        image: CARD_IMAGES[1],
-        target: '/detail/chakra-test',
-      },
-      {
-        id: 'full-moon-ritual',
-        title: '满月净化\n仪式',
-        desc: '八步唤醒晶石能量',
-        color: '#c3e3f4',
-        image: CARD_IMAGES[2],
-        target: '/detail/full-moon-ritual',
-      },
-    ],
+    tiles: [...guideTilesFor('crystals'), ...PRODUCT_TILES],
   },
   {
     id: 'connect',
     eyebrow: 'Connect',
-    title: '开始连接',
-    desc: '从测试、典籍与水晶入口开始，找到此刻最适合你的护符路径。',
+    title: 'Begin the Connection',
+     desc: 'Start with the quiz or crystals to find your path.',
     color: '#ece7fb',
     tiles: [
       {
         id: 'chakra-test',
-        title: '七脉轮\n自测',
-        desc: '感受哪个能量中心需要平衡',
+        title: 'Seven Chakras\nQuiz',
+         desc: 'Discover which energy centre needs balance',
         color: '#dcedc2',
         image: CARD_IMAGES[1],
         target: '/detail/chakra-test',
       },
       {
-        id: 'codex',
-        title: '月之典籍\n知识入口',
-        desc: '阅读水晶、星座与月相指南',
-        color: '#f0e4c0',
-        image: CARD_IMAGES[0],
-        target: '/series/codex',
-      },
-      {
         id: 'crystals',
-        title: '水晶护符\n全部入口',
-        desc: '直接浏览所有水晶饰品',
+        title: 'Crystal Talismans\nBrowse all',
+         desc: 'Browse every crystal talisman',
         color: '#f3cdd6',
         image: CARD_IMAGES[2],
         target: '/series/crystals',
       },
+      ...guideTilesFor('connect'),
     ],
   },
 ]
@@ -1108,7 +944,7 @@ function saveCartLines(items: CartLine[]) {
 function detailToCartLine(detail: DetailData): CartLine {
   return {
     id: detail.id,
-    name: detail.title.replace(/\n/g, ' '),
+    name: getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' '),
     price: getDetailPrice(detail),
     quantity: 1,
     image: detail.image,
@@ -1181,7 +1017,43 @@ function getTileDetail(tile: Tile) {
 }
 
 function getTileAction(tile: Tile) {
-  return tile.target.startsWith('/detail/') ? '查看详情' : '进入系列'
+  if (tile.target.startsWith('/guide/')) return 'Read guide'
+  return tile.target.startsWith('/detail/') ? 'View details' : 'Enter collection'
+}
+
+const ENGLISH_TITLE_BY_ID: Record<string, string> = {
+  'scorpio-amethyst': 'Scorpio Guardian\nAmethyst Bracelet',
+  'heart-rose-quartz': 'Heart Healing\nRose Quartz Bracelet',
+  'solar-citrine': 'Solar Plexus\nCitrine Courage Bracelet',
+  'new-moon-set': 'New Moon Ritual\nCleansing Set',
+  'root-garnet': 'Root Chakra\nGarnet Grounding Bracelet',
+  'full-moon-necklace': 'Full Moon Blessing\nMoonstone Necklace',
+  'aries-carnelian': 'Aries Guardian\nCarnelian Bracelet',
+  'taurus-rose-quartz': 'Taurus Guardian\nRose Quartz Bracelet',
+  'gemini-aquamarine': 'Gemini Guardian\nAquamarine Necklace',
+  'cancer-moonstone': 'Cancer Guardian\nMoonstone Bracelet',
+  'leo-citrine': 'Leo Guardian\nCitrine Bracelet',
+  'virgo-amazonite': 'Virgo Guardian\nAmazonite Bracelet',
+  'libra-rose-quartz': 'Libra Guardian\nRose Quartz Bracelet',
+  'sagittarius-lapis': 'Sagittarius Guardian\nLapis Necklace',
+  'capricorn-garnet': 'Capricorn Guardian\nGarnet Bracelet',
+  'aquarius-fluorite': 'Aquarius Guardian\nFluorite Bracelet',
+  'pisces-amethyst': 'Pisces Guardian\nAmethyst Bracelet',
+  'sacral-moonstone': 'Sacral Chakra\nMoonstone Bracelet',
+  'throat-aquamarine': 'Throat Chakra\nAquamarine Necklace',
+  'third-eye-amethyst': 'Third Eye Chakra\nAmethyst Bracelet',
+  'crown-clear-quartz': 'Crown Chakra\nClear Quartz Bracelet',
+  'full-moon-ritual': 'Full Moon\nRitual Guide',
+  'chakra-test': 'Seven Chakras\nQuiz',
+  worlds: 'WORLDS\nCrystal Journey',
+  chakra: 'CHAKRAS\nChakra Healing',
+  rituals: 'RITUALS\nLunar Rituals',
+  crystals: 'CRYSTALS\nCrystal Talismans',
+  connect: 'CONNECT\nBegin the Connection',
+}
+
+function getEnglishTitle(id: string, title: string) {
+  return ENGLISH_TITLE_BY_ID[id] ?? title
 }
 
 function getTileSpecs(tile: Tile) {
@@ -1191,10 +1063,8 @@ function getTileSpecs(tile: Tile) {
 }
 
 function getSeriesIdForDetail(detailId: string) {
-  const demoSeriesId = Object.keys(SERIES_DEMO_CONFIG).find((seriesId) =>
-    detailId.startsWith(`demo-${seriesId}-`),
-  )
-  if (demoSeriesId) return demoSeriesId
+  const importedSeriesId = IMPORTED_PRODUCT_SERIES_BY_ID.get(detailId)
+  if (importedSeriesId) return importedSeriesId
   if (CHAKRA_TILES.some((tile) => tile.id === detailId)) return 'chakra'
   if (
     ['new-moon-set', 'full-moon-necklace', 'full-moon-ritual'].includes(detailId)
@@ -1205,28 +1075,15 @@ function getSeriesIdForDetail(detailId: string) {
   return 'crystals'
 }
 
-function getDemoTilesForSeries(seriesId: string) {
-  return DEMO_SERIES_DETAILS.filter((detail) => detail.id.startsWith(`demo-${seriesId}-`)).map(
-    (detail) => ({
-      id: detail.id,
-      title: detail.title.replace(' · ', '\n'),
-      desc: detail.desc,
-      color: detail.color,
-      image: detail.image,
-      eyebrow: detail.eyebrow,
-      target: `/detail/${detail.id}`,
-    }),
-  )
-}
-
 function getSeriesListTitle(id: string) {
-  if (id === 'crystals') return '全部护符'
-  if (id === 'chakra') return '七脉轮护符'
-  if (id === 'lunar' || id === 'rituals') return '月相仪式商品'
-  if (id === 'codex') return '知识与测试入口'
-  if (id === 'connect') return '连接入口'
-  if (id === 'worlds') return '探索路径'
-  return '系列项目'
+  const chakra = CHAKRA_COLLECTIONS.find((item) => `chakra-${item.id}` === id)
+  if (chakra) return `${chakra.eyebrow} talismans`
+  if (id === 'crystals') return 'All talismans'
+  if (id === 'chakra') return 'Chakra talismans'
+  if (id === 'lunar' || id === 'rituals') return 'Lunar ritual pieces'
+  if (id === 'connect') return 'Connection paths'
+  if (id === 'worlds') return 'Explore the paths'
+  return 'Collection pieces'
 }
 
 function SeriesFeaturePanel({
@@ -1247,8 +1104,6 @@ function SeriesFeaturePanel({
       <section
         style={{
           marginTop: 30,
-          width: '100%',
-          minWidth: 0,
           display: 'grid',
           gridTemplateColumns: 'minmax(0, 1fr) auto',
           gap: 28,
@@ -1258,9 +1113,7 @@ function SeriesFeaturePanel({
       >
         <div
           style={{
-            width: '100%',
             maxWidth: 780,
-            minWidth: 0,
           }}
         >
           <div
@@ -1294,42 +1147,31 @@ function SeriesFeaturePanel({
           <h1
             style={{
               margin: '20px 0 0',
-              fontFamily: "'Viaoda Libre', serif",
+              fontFamily: "'Lobster', cursive",
               fontSize: 'clamp(58px, 8vw, 116px)',
               lineHeight: 0.86,
               color: '#fff',
               whiteSpace: 'pre-line',
-              maxWidth: '100%',
-              overflowWrap: 'anywhere',
               textShadow: '0 14px 42px rgba(40, 21, 68, 0.34)',
             }}
-            className="max-[760px]:!text-[48px] max-[760px]:!leading-[0.96]"
           >
             {series.title}
           </h1>
           <p
             style={{
               margin: '22px 0 0',
-              width: 'min(660px, calc(100vw - 40px))',
-              maxWidth: 'calc(100vw - 40px)',
-              minWidth: 0,
-              wordBreak: 'break-all',
-              overflowWrap: 'anywhere',
-              whiteSpace: 'normal',
+              maxWidth: 660,
               fontSize: 'clamp(16px, 1.6vw, 19px)',
               lineHeight: 1.8,
               color: 'rgba(255,255,255,0.72)',
             }}
-            className="max-[760px]:!w-[280px] max-[760px]:!max-w-[280px] max-[760px]:!text-[15px]"
           >
             {series.desc}
           </p>
         </div>
         <div
           style={{
-            minWidth: 0,
-            width: '100%',
-            maxWidth: 260,
+            minWidth: 220,
             border: '1px solid rgba(255,255,255,0.22)',
             borderRadius: 28,
             background:
@@ -1395,8 +1237,6 @@ function SeriesFeaturePanel({
             border: '1px solid rgba(255,255,255,0.3)',
             background:
               'linear-gradient(135deg, rgba(255,255,255,0.82), rgba(236,231,251,0.64))',
-            width: '100%',
-            minWidth: 0,
             boxShadow: '0 30px 90px rgba(38,20,55,0.2)',
             overflow: 'hidden',
             display: 'grid',
@@ -1412,8 +1252,6 @@ function SeriesFeaturePanel({
             onClick={() => navigate(featured.target)}
             style={{
               minHeight: 430,
-              minWidth: 0,
-              width: '100%',
               border: 0,
               padding: 0,
               position: 'relative',
@@ -1454,8 +1292,6 @@ function SeriesFeaturePanel({
 
           <div
             style={{
-              minWidth: 0,
-              width: '100%',
               padding: 'clamp(28px, 4vw, 50px)',
               display: 'flex',
               flexDirection: 'column',
@@ -1476,13 +1312,13 @@ function SeriesFeaturePanel({
             <h2
               style={{
                 margin: '14px 0 0',
-                fontFamily: "'Viaoda Libre', serif",
+                fontFamily: "'Lobster', cursive",
                 fontSize: 'clamp(38px, 5vw, 68px)',
                 lineHeight: 0.92,
                 whiteSpace: 'pre-line',
               }}
             >
-              {featured.title}
+              {getEnglishTitle(featured.id, featured.title)}
             </h2>
             <p
               style={{
@@ -1539,7 +1375,9 @@ function SeriesFeaturePanel({
                 boxShadow: '0 16px 42px rgba(58,37,48,0.18)',
               }}
             >
-              {featuredDetail ? `${formatProductPrice(getDetailPrice(featuredDetail))} · 查看详情` : '进入入口'} →
+              {featuredDetail
+                ? `${formatProductPrice(getDetailPrice(featuredDetail))} · View details`
+                : getTileAction(featured)} →
             </button>
           </div>
         </div>
@@ -1585,7 +1423,7 @@ function SeriesListingGrid({
           <h2
             style={{
               margin: '10px 0 0',
-              fontFamily: "'Viaoda Libre', serif",
+              fontFamily: "'Lobster', cursive",
               fontSize: 'clamp(34px, 4.2vw, 60px)',
               lineHeight: 1,
               color: '#fff',
@@ -1715,13 +1553,13 @@ function SeriesListingGrid({
                   <h3
                     style={{
                       margin: 0,
-                      fontFamily: "'Viaoda Libre', serif",
+                      fontFamily: "'Lobster', cursive",
                       fontSize: 24,
                       lineHeight: 1,
                       whiteSpace: 'pre-line',
                     }}
                   >
-                    {tile.title}
+                    {getEnglishTitle(tile.id, tile.title)}
                   </h3>
                 </div>
               </div>
@@ -1810,18 +1648,9 @@ function SeriesListingGrid({
 function routeFromPath(): Route {
   const [page, id] = window.location.pathname.split('/').filter(Boolean)
 
-  if (page === 'series' && id && SERIES.some((item) => item.id === id && item.id !== 'zodiac')) {
-    return { page: 'series', id }
-  }
-  if (
-    page === 'detail' &&
-    id &&
-    (DETAILS.some((item) => item.id === id && !REMOVED_ZODIAC_IDS.has(item.id)) ||
-      getPublishedAdminProducts().some((item) => `admin-${item.id}` === id && item.status === '上架') ||
-      Object.keys(SERIES_DEMO_CONFIG).some((seriesId) => id.startsWith(`demo-${seriesId}-`)))
-  ) {
-    return { page: 'detail', id }
-  }
+  if (page === 'series' && id) return { page: 'series', id }
+  if (page === 'detail' && id) return { page: 'detail', id }
+  if (page === 'guide' && id) return { page: 'guide', id }
   if (page === 'cart') return { page: 'cart' }
   if (page === 'admin') return { page: 'admin' }
   if (
@@ -1834,8 +1663,7 @@ function routeFromPath(): Route {
     return { page: 'legal', id: page }
   }
 
-  if (!page) return { page: 'home' }
-  return { page: 'not-found' }
+  return { page: 'home' }
 }
 
 function useRoute() {
@@ -1987,25 +1815,20 @@ function PortalImage({
   alt: string
   style?: CSSProperties
 }) {
-  const [failed, setFailed] = useState(false)
   return (
     <img
-      src={failed ? undefined : src}
+      src={src}
       alt={alt}
       draggable={false}
-      onError={() => setFailed(true)}
       style={{
         position: 'absolute',
         inset: 0,
         width: '100%',
         height: '100%',
         objectFit: 'cover',
-        background:
-          'radial-gradient(circle at 50% 28%, rgba(155,142,196,0.35), transparent 26%), linear-gradient(180deg, #1d1020 0%, #0a0608 80%)',
         userSelect: 'none',
         pointerEvents: 'none',
         ...style,
-        opacity: failed ? 1 : style?.opacity,
       }}
     />
   )
@@ -2042,7 +1865,7 @@ function Navigation({
     <button
       type="button"
       onClick={() => (onOpenCart ? onOpenCart() : navigate('/cart'))}
-      aria-label={`Cart, ${cartCount} ${cartCount === 1 ? 'item' : 'items'}`}
+      aria-label={`购物车，共 ${cartCount} 件商品`}
       style={{
         ...navStyle,
         position: 'relative',
@@ -2111,7 +1934,6 @@ function Navigation({
         </button>
         <div style={{ display: 'flex', gap: 36 }}>
           {navButton('Crystals', '/series/crystals')}
-          {navButton('Codex', '/series/codex')}
           {navButton('Connect', '/series/connect')}
           {cartButton}
         </div>
@@ -2127,17 +1949,17 @@ function HeroHeading({
   tablet?: boolean
   desktop?: boolean
 }) {
-  const isLightText = true
+  const isLightText = desktop
 
   return (
     <h1
       style={{
         margin: 0,
-        fontFamily: "'Viaoda Libre', serif",
+        fontFamily: "'Lobster', cursive",
         color: isLightText ? '#fff' : '#3b1a0a',
-        textShadow: '0 2px 24px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.9)',
-        maxWidth: '100%',
-        overflowWrap: 'anywhere',
+        textShadow: isLightText
+          ? '0 2px 24px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.9)'
+          : 'none',
       }}
     >
       <span
@@ -2147,21 +1969,21 @@ function HeroHeading({
             ? 'clamp(32px, 4.5vw, 54px)'
             : tablet
               ? 'clamp(28px, 5vw, 44px)'
-              : 'clamp(20px, 6vw, 24px)',
+              : 'clamp(26px, 7vw, 42px)',
           lineHeight: desktop ? 1.1 : 1.04,
-          letterSpacing: desktop ? '0.04em' : '0.02em',
+          letterSpacing: desktop ? '0.04em' : '0.12em',
         }}
       >
-        LUNAR{' '}
+        Lunar{' '}
         <span
           style={{
             color: desktop ? 'rgba(255,220,180,0.7)' : '#6b2e0e',
             fontSize: '0.8em',
           }}
         >
-          &gt;
+          ·
         </span>{' '}
-        <em style={{ fontStyle: 'italic' }}>TALISMAN</em>
+        <em style={{ fontStyle: 'normal' }}>Talisman</em>
       </span>
       <span
         style={{
@@ -2170,7 +1992,7 @@ function HeroHeading({
             ? 'clamp(50px, 7.5vw, 88px)'
             : tablet
               ? 'clamp(60px, 12vw, 86px)'
-              : 'clamp(46px, 15vw, 60px)',
+              : 'clamp(52px, 16vw, 80px)',
           lineHeight: desktop ? 0.9 : 0.92,
           letterSpacing: desktop ? '-0.02em' : '-0.035em',
         }}
@@ -2198,11 +2020,12 @@ function HeroCopy({
         fontFamily: "'Imprima', sans-serif",
         fontSize: desktop ? 18 : tablet ? 16 : 15,
         lineHeight: desktop ? 1.7 : 1.65,
-        color: 'rgba(255,245,235,0.88)',
-        textShadow: '0 1px 12px rgba(0,0,0,0.8)',
+        color: desktop ? 'rgba(255,245,235,0.88)' : '#5c2d0e',
+        textShadow: desktop ? '0 1px 12px rgba(0,0,0,0.8)' : 'none',
       }}
     >
-      Guided by moonlight, each crystal carries seven-chakra energy. Choose your talisman and begin within.
+      Guided by moonlight, every crystal carries a seven-chakra frequency.
+      Choose your talisman and begin within.
     </p>
   )
 }
@@ -2312,7 +2135,7 @@ function SceneOneUI({
           <button
             key={dot}
             type="button"
-            aria-label={`Jump to experience ${dot + 1}`}
+            aria-label={`跳转到第 ${dot + 1} 段体验`}
             onClick={() => onProgressJump([0, 0.34, 0.72, 0.88][dot])}
             style={{
               appearance: 'none',
@@ -2332,7 +2155,7 @@ function SceneOneUI({
       {isDesktop ? (
         <button
           type="button"
-          aria-label="Scroll down into the seven chakra crystal universe"
+          aria-label="向下滚动进入七脉轮水晶宇宙"
           onClick={onDescend}
           style={{
             appearance: 'none',
@@ -2391,7 +2214,7 @@ function SceneTwoUI({ opacity }: { opacity: number }) {
       <h2
         style={{
           margin: 0,
-          fontFamily: "'Viaoda Libre', serif",
+          fontFamily: "'Lobster', cursive",
           fontSize: 'clamp(28px, 8vw, 78px)',
           color: '#fff',
           letterSpacing: '0.03em',
@@ -2412,7 +2235,7 @@ function SceneTwoUI({ opacity }: { opacity: number }) {
           color: 'rgba(255,255,255,0.82)',
         }}
       >
-        Chakra healing, lunar rituals, and crystal talismans form one journey—each piece meets the energy you need now.
+        脉轮疗愈、月相仪式与水晶护符交织成一条旅程；每一件水晶都对应你此刻最需要的频率。
       </p>
     </section>
   )
@@ -2547,13 +2370,13 @@ function ArcCardSlider({
                 style={{
                   margin: 0,
                   whiteSpace: 'pre-line',
-                  fontFamily: "'Viaoda Libre', serif",
+                  fontFamily: "'Lobster', cursive",
                   fontSize: isMobile ? 22 : 30,
                   lineHeight: 1,
                   color: '#3a2530',
                 }}
               >
-                {card.title}
+                {getEnglishTitle(card.id, card.title)}
               </h3>
               <p
                 style={{
@@ -2669,25 +2492,18 @@ function SeriesPage({
       : adminProducts
           .filter((product) => product.collection === collectionMap[id])
           .map(adminProductToTile)
-  const demoTiles = getDemoTilesForSeries(series.id)
-  const fallbackTiles = series.tiles.length ? series.tiles : demoTiles
   const displaySeries =
     linkedAdminTiles.length > 0
       ? {
           ...series,
-          tiles: [...linkedAdminTiles, ...fallbackTiles].filter(
+          tiles: [...linkedAdminTiles, ...series.tiles].filter(
             (tile) => !REMOVED_ZODIAC_IDS.has(tile.id),
           ),
         }
-      : {
-          ...series,
-          tiles: fallbackTiles.filter((tile) => !REMOVED_ZODIAC_IDS.has(tile.id)),
-        }
-  const seo = getSeriesSeo(id)
+      : { ...series, tiles: series.tiles.filter((tile) => !REMOVED_ZODIAC_IDS.has(tile.id)) }
   usePageMeta({
-    title: seo.title,
-    description: seo.description,
-    noindex: displaySeries.tiles.some((tile) => tile.id.startsWith('demo-')),
+    title: `${displaySeries.title.replace(/\n/g, ' ')} | Lunar Talisman`,
+    description: displaySeries.desc,
   })
 
   return (
@@ -2754,33 +2570,11 @@ function DetailPage({
     adminDetail ??
     DETAILS.find((item) => item.id === id && !REMOVED_ZODIAC_IDS.has(item.id)) ??
     DETAILS.find((item) => item.id === 'chakra-test')!
-  const detailPrice = getDetailPrice(detail)
-  const seo = getProductSeo(detail.id)
   usePageMeta({
-    title: seo.title,
-    description: seo.description,
-    noindex:
-      detail.id.startsWith('demo-') ||
-      detail.id.startsWith('admin-') ||
-      REMOVED_ZODIAC_IDS.has(detail.id),
-    structuredData: {
-      '@context': 'https://schema.org',
-      '@type': 'Product',
-      name: seo.title.replace(' | Lunar Talisman', ''),
-      description: seo.description,
-      image: detail.image ? [detail.image] : undefined,
-      brand: {
-        '@type': 'Brand',
-        name: 'Lunar Talisman',
-      },
-      offers: {
-        '@type': 'Offer',
-        priceCurrency: 'USD',
-        price: detailPrice,
-        url: `https://lunartalisman.com/detail/${detail.id}`,
-      },
-    },
+    title: `${getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')} | Lunar Talisman`,
+    description: detail.desc,
   })
+  const detailPrice = getDetailPrice(detail)
   const detailSeriesId = getSeriesIdForDetail(detail.id)
   const relatedTiles = (
     SERIES.find((item) => item.id === detailSeriesId)?.tiles ?? PRODUCT_TILES
@@ -2789,7 +2583,7 @@ function DetailPage({
     .slice(0, 4)
   const handleAddToCart = () => {
     addToCart(detailToCartLine(detail))
-    setCartNotice('已加入购物车。可以继续浏览，也可以前往结账填写物流和留言。')
+    setCartNotice('Added to cart. Continue exploring or head to checkout to add shipping details and an order note.')
   }
 
   return (
@@ -2829,7 +2623,7 @@ function DetailPage({
           />
           <button
             type="button"
-            onClick={() => navigate('/series/crystals')}
+            onClick={() => navigate(`/series/${detailSeriesId}`)}
             style={{
               position: 'absolute',
               left: 24,
@@ -2844,7 +2638,7 @@ function DetailPage({
               textTransform: 'uppercase',
             }}
           >
-            Browse crystals
+            Back to collection
           </button>
         </div>
 
@@ -2869,7 +2663,7 @@ function DetailPage({
               fontSize: 12,
             }}
           >
-            ← 返回系列
+            ← Back to collection
           </button>
           <p
             style={{
@@ -2885,13 +2679,13 @@ function DetailPage({
           <h1
             style={{
               margin: '12px 0 0',
-              fontFamily: "'Viaoda Libre', serif",
+              fontFamily: "'Lobster', cursive",
               fontSize: 'clamp(48px, 7vw, 82px)',
               lineHeight: 0.92,
               color: '#3a2530',
             }}
           >
-            {detail.title}
+            {getEnglishTitle(detail.id, detail.title)}
           </h1>
           <p
             style={{
@@ -2968,7 +2762,7 @@ function DetailPage({
                     fontSize: 13,
                   }}
                 >
-                  可加入购物车，结账时填写物流地址与订单留言。
+                  Add this talisman to your cart; enter shipping details and an order note at checkout.
                 </div>
               </div>
               <button
@@ -2987,7 +2781,7 @@ function DetailPage({
                   boxShadow: '0 14px 30px rgba(58,37,48,0.22)',
                 }}
               >
-                加入购物车
+                Add to cart
               </button>
             </div>
 
@@ -3015,7 +2809,7 @@ function DetailPage({
                   cursor: 'pointer',
                 }}
               >
-                立即结账
+                Checkout now
               </button>
               {cartNotice ? (
                 <div
@@ -3043,12 +2837,392 @@ function DetailPage({
         }}
       >
         <SeriesListingGrid
-          title="继续探索同频护符"
+          title="Keep exploring your resonance"
           subtitle={`${detail.eyebrow} · Related`}
           tiles={relatedTiles.length ? relatedTiles : PRODUCT_TILES.slice(0, 4)}
           navigate={navigate}
         />
       </div>
+    </AtmosphericShell>
+  )
+}
+
+type GuideBlock =
+  | { type: 'heading'; level: 2 | 3; text: string }
+  | { type: 'quote'; text: string }
+  | { type: 'paragraph'; text: string }
+  | { type: 'list'; ordered: boolean; items: string[] }
+  | { type: 'table'; rows: string[][] }
+
+function cleanGuideText(value: string) {
+  return value
+    .replace(/\*\*(.*?)\*\*/g, '$1')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\[(.*?)\]\([^)]*\)/g, '$1')
+    .trim()
+}
+
+function parseGuideMarkdown(markdown: string): GuideBlock[] {
+  const lines = markdown.replace(/\r\n/g, '\n').split('\n')
+  const blocks: GuideBlock[] = []
+  let index = 0
+
+  while (index < lines.length) {
+    const line = lines[index].trim()
+    if (!line || /^#\s/.test(line)) {
+      index += 1
+      continue
+    }
+
+    const heading = line.match(/^(#{2,3})\s+(.+)$/)
+    if (heading) {
+      blocks.push({
+        type: 'heading',
+        level: heading[1].length as 2 | 3,
+        text: cleanGuideText(heading[2]),
+      })
+      index += 1
+      continue
+    }
+
+    if (line.startsWith('>')) {
+      const quoteLines: string[] = []
+      while (index < lines.length && lines[index].trim().startsWith('>')) {
+        quoteLines.push(lines[index].trim().replace(/^>\s?/, ''))
+        index += 1
+      }
+      blocks.push({ type: 'quote', text: cleanGuideText(quoteLines.join(' ')) })
+      continue
+    }
+
+    if (line.startsWith('|')) {
+      const rows: string[][] = []
+      while (index < lines.length && lines[index].trim().startsWith('|')) {
+        const cells = lines[index]
+          .split('|')
+          .slice(1, -1)
+          .map((cell) => cleanGuideText(cell))
+        if (!cells.every((cell) => /^-+$/.test(cell))) rows.push(cells)
+        index += 1
+      }
+      if (rows.length) blocks.push({ type: 'table', rows })
+      continue
+    }
+
+    const ordered = line.match(/^\d+\.\s+(.+)$/)
+    const unordered = line.match(/^[-*]\s+(.+)$/)
+    if (ordered || unordered) {
+      const items: string[] = []
+      const isOrdered = Boolean(ordered)
+      while (index < lines.length) {
+        const current = lines[index].trim()
+        const match = isOrdered
+          ? current.match(/^\d+\.\s+(.+)$/)
+          : current.match(/^[-*]\s+(.+)$/)
+        if (!match) break
+        items.push(cleanGuideText(match[1]))
+        index += 1
+      }
+      blocks.push({ type: 'list', ordered: isOrdered, items })
+      continue
+    }
+
+    const paragraphLines: string[] = []
+    while (index < lines.length) {
+      const current = lines[index].trim()
+      if (
+        !current ||
+        /^#{1,3}\s/.test(current) ||
+        current.startsWith('>') ||
+        current.startsWith('|') ||
+        /^[-*]\s+/.test(current) ||
+        /^\d+\.\s+/.test(current)
+      ) {
+        break
+      }
+      paragraphLines.push(current)
+      index += 1
+    }
+    if (paragraphLines.length) {
+      blocks.push({ type: 'paragraph', text: cleanGuideText(paragraphLines.join(' ')) })
+      continue
+    }
+    index += 1
+  }
+
+  return blocks
+}
+
+function GuideMarkdown({ markdown }: { markdown: string }) {
+  const blocks = parseGuideMarkdown(markdown)
+
+  return (
+    <div data-no-auto-translate="true">
+      {blocks.map((block, index) => {
+        if (block.type === 'heading') {
+          return block.level === 2 ? (
+            <h2
+              key={`${block.text}-${index}`}
+              style={{
+                margin: index === 0 ? 0 : '38px 0 0',
+                color: '#3a2530',
+                fontFamily: "'Lobster', cursive",
+                fontSize: 'clamp(30px, 4vw, 46px)',
+                lineHeight: 1,
+              }}
+            >
+              {block.text}
+            </h2>
+          ) : (
+            <h3
+              key={`${block.text}-${index}`}
+              style={{
+                margin: '26px 0 0',
+                color: '#3a2530',
+                fontSize: 20,
+                lineHeight: 1.35,
+                fontWeight: 900,
+              }}
+            >
+              {block.text}
+            </h3>
+          )
+        }
+
+        if (block.type === 'quote') {
+          return (
+            <blockquote
+              key={`${block.text}-${index}`}
+              style={{
+                margin: '22px 0 0',
+                borderLeft: '3px solid rgba(58,37,48,0.34)',
+                padding: '6px 0 6px 18px',
+                color: 'rgba(58,37,48,0.68)',
+                fontSize: 18,
+                fontStyle: 'italic',
+                lineHeight: 1.7,
+              }}
+            >
+              {block.text}
+            </blockquote>
+          )
+        }
+
+        if (block.type === 'list') {
+          const List = block.ordered ? 'ol' : 'ul'
+          return (
+            <List
+              key={`list-${index}`}
+              style={{
+                margin: '18px 0 0',
+                paddingLeft: 24,
+                color: 'rgba(58,37,48,0.78)',
+                fontSize: 16,
+                lineHeight: 1.85,
+              }}
+            >
+              {block.items.map((item) => (
+                <li key={item} style={{ marginBottom: 6 }}>
+                  {item}
+                </li>
+              ))}
+            </List>
+          )
+        }
+
+        if (block.type === 'table') {
+          return (
+            <div
+              key={`table-${index}`}
+              style={{
+                marginTop: 22,
+                overflowX: 'auto',
+                border: '1px solid rgba(58,37,48,0.14)',
+                borderRadius: 18,
+                background: 'rgba(255,255,255,0.34)',
+              }}
+            >
+              <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: 460 }}>
+                <tbody>
+                  {block.rows.map((row, rowIndex) => (
+                    <tr key={`${row.join('-')}-${rowIndex}`}>
+                      {row.map((cell, cellIndex) => (
+                        <td
+                          key={`${cell}-${cellIndex}`}
+                          style={{
+                            padding: '12px 14px',
+                            borderBottom:
+                              rowIndex < block.rows.length - 1
+                                ? '1px solid rgba(58,37,48,0.12)'
+                                : 0,
+                            color: 'rgba(58,37,48,0.76)',
+                            fontSize: 14,
+                            fontWeight: rowIndex === 0 ? 900 : 500,
+                            lineHeight: 1.55,
+                            verticalAlign: 'top',
+                          }}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )
+        }
+
+        return (
+          <p
+            key={`${block.text}-${index}`}
+            style={{
+              margin: '18px 0 0',
+              color: 'rgba(58,37,48,0.78)',
+              fontSize: 16,
+              lineHeight: 1.88,
+            }}
+          >
+            {block.text}
+          </p>
+        )
+      })}
+    </div>
+  )
+}
+
+function GuidePage({
+  id,
+  navigate,
+  cartCount,
+  onOpenCart,
+}: {
+  id: string
+  navigate: NavigateFn
+  cartCount: number
+  onOpenCart?: () => void
+}) {
+  const guide = importedSeriesGuides.find((item) => item.id === id) ?? importedSeriesGuides[0]
+  const relatedGuides = guideTilesFor(guide.series)
+    .filter((tile) => tile.id !== guide.id)
+    .slice(0, 3)
+
+  usePageMeta({
+    title: `${guide.title} | Lunar Talisman`,
+    description: guide.excerpt,
+  })
+
+  return (
+    <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
+      <article
+        style={{
+          width: 'min(1120px, calc(100% - 40px))',
+          margin: '0 auto',
+          padding: '128px 0 96px',
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => navigate(`/series/${guide.series}`)}
+          style={{
+            border: '1px solid rgba(255,255,255,0.2)',
+            borderRadius: 999,
+            background: 'rgba(255,255,255,0.08)',
+            color: 'rgba(255,255,255,0.84)',
+            padding: '10px 16px',
+            fontSize: 12,
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+          }}
+        >
+          ← Back to collection
+        </button>
+
+        <section
+          style={{
+            marginTop: 26,
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 0.9fr) minmax(320px, 1.1fr)',
+            gap: 32,
+            alignItems: 'stretch',
+          }}
+          className="max-[900px]:!grid-cols-1"
+        >
+          <div
+            style={{
+              minHeight: 460,
+              borderRadius: 38,
+              border: '1px solid rgba(255,255,255,0.18)',
+              backgroundImage: `url(${guide.image})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              boxShadow: '0 24px 80px rgba(0,0,0,0.34)',
+            }}
+          />
+          <div
+            style={{
+              borderRadius: 38,
+              background: guide.color,
+              padding: 'clamp(28px, 4vw, 48px)',
+              color: '#3a2530',
+              boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 12,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'rgba(58,37,48,0.56)',
+              }}
+            >
+              {guide.eyebrow}
+            </p>
+            <h1
+              style={{
+                margin: '18px 0 0',
+                fontFamily: "'Lobster', cursive",
+                fontSize: 'clamp(46px, 6vw, 76px)',
+                lineHeight: 0.96,
+              }}
+            >
+              {guide.title}
+            </h1>
+            <p
+              style={{
+                margin: '22px 0 0',
+                color: 'rgba(58,37,48,0.68)',
+                fontSize: 18,
+                lineHeight: 1.72,
+              }}
+            >
+              {guide.excerpt}
+            </p>
+          </div>
+        </section>
+
+        <section
+          style={{
+            marginTop: 28,
+            borderRadius: 38,
+            background: 'rgba(255,255,255,0.82)',
+            padding: 'clamp(28px, 5vw, 68px)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.2)',
+          }}
+        >
+          <GuideMarkdown markdown={guide.markdown} />
+        </section>
+
+        {relatedGuides.length ? (
+          <SeriesListingGrid
+            title="Continue the journey"
+            subtitle={`${guide.eyebrow} · Related guides`}
+            tiles={relatedGuides}
+            navigate={navigate}
+          />
+        ) : null}
+      </article>
     </AtmosphericShell>
   )
 }
@@ -3215,7 +3389,7 @@ function LegalPage({
         <h1
           style={{
             margin: '14px 0 0',
-            fontFamily: "'Viaoda Libre', serif",
+            fontFamily: "'Lobster', cursive",
             fontSize: 'clamp(54px, 8vw, 108px)',
             lineHeight: 0.94,
             color: '#fff',
@@ -3285,7 +3459,6 @@ function CartPage({
   usePageMeta({
     title: '购物车 | Lunar Talisman',
     description: '查看购物车、填写物流、留下留言并提交订单。',
-    noindex: true,
   })
 
   const [notice, setNotice] = useState('')
@@ -3372,6 +3545,7 @@ function CartPage({
     setSubmitting(true)
     try {
       const created = await createPublicOrder(order)
+      appendOrder(created)
       setDoneOrderId(created.id)
       clearCart()
       setNotice('订单已进入后台，后续可在后台查看物流与留言。')
@@ -3385,7 +3559,10 @@ function CartPage({
         message: '',
       })
     } catch {
-      setNotice('订单提交失败，请检查网络后重试。购物车和填写内容已保留。')
+      appendOrder(order)
+      setDoneOrderId(order.id)
+      clearCart()
+      setNotice('已保存到本地兜底订单；数据库同步稍后完成时会写入后台。')
     } finally {
       setSubmitting(false)
     }
@@ -3534,28 +3711,28 @@ function CartPage({
                 <MessageSquare size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 姓名
               </span>
-              <input name="name" autoComplete="name" required maxLength={120} value={form.name} onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))} style={formFieldStyle} placeholder="收货人姓名" />
+              <input value={form.name} onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))} style={formFieldStyle} placeholder="收货人姓名" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <Mail size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 邮箱
               </span>
-              <input name="email" type="email" autoComplete="email" required maxLength={254} value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} style={formFieldStyle} placeholder="用于订单通知" />
+              <input type="email" value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} style={formFieldStyle} placeholder="用于订单通知" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <Phone size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 电话
               </span>
-              <input name="tel" type="tel" autoComplete="tel" maxLength={40} value={form.phone} onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))} style={formFieldStyle} placeholder="可选" />
+              <input value={form.phone} onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))} style={formFieldStyle} placeholder="可选" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <MapPin size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 收货地址
               </span>
-              <textarea name="address" autoComplete="street-address" required maxLength={500} rows={3} value={form.address} onChange={(event) => setForm((current) => ({ ...current, address: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="详细地址" />
+              <textarea rows={3} value={form.address} onChange={(event) => setForm((current) => ({ ...current, address: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="详细地址" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
@@ -3572,9 +3749,6 @@ function CartPage({
                 <option value="Europe">Europe</option>
                 <option value="Southeast Asia">Southeast Asia</option>
               </select>
-              <span style={{ fontSize: 12, color: 'rgba(58,37,48,0.52)', lineHeight: 1.5 }}>
-                We currently serve the Americas, Europe, and Southeast Asia.
-              </span>
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
@@ -3582,8 +3756,12 @@ function CartPage({
                 物流方式
               </span>
               <select value={form.shippingMethod} onChange={(event) => setForm((current) => ({ ...current, shippingMethod: event.target.value }))} style={formFieldStyle}>
-                <option value="standard">标准物流 · $8</option>
-                <option value="express">加急物流 · $18</option>
+                <option value="standard">
+                  Standard shipping · ${shippingRates[form.shippingRegion as keyof typeof shippingRates].standard}
+                </option>
+                <option value="express">
+                  Express shipping · ${shippingRates[form.shippingRegion as keyof typeof shippingRates].express}
+                </option>
               </select>
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
@@ -3591,7 +3769,7 @@ function CartPage({
                 <MessageSquare size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 订单留言
               </span>
-              <textarea name="message" maxLength={1000} rows={4} value={form.message} onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="例如：请尽量避光包装 / 送礼备注 / 其他要求" />
+              <textarea rows={4} value={form.message} onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="例如：请尽量避光包装 / 送礼备注 / 其他要求" />
             </label>
 
             <div style={{ marginTop: 8, borderTop: '1px solid rgba(58,37,48,0.12)', paddingTop: 16, display: 'grid', gap: 8 }}>
@@ -3605,7 +3783,7 @@ function CartPage({
             </button>
 
             {notice ? (
-              <div role="status" aria-live="polite" style={{ borderRadius: 18, padding: '12px 14px', background: 'rgba(255,255,255,0.6)', color: '#55744f', fontSize: 13, fontWeight: 800, lineHeight: 1.5 }}>
+              <div style={{ borderRadius: 18, padding: '12px 14px', background: 'rgba(255,255,255,0.6)', color: '#55744f', fontSize: 13, fontWeight: 800, lineHeight: 1.5 }}>
                 {notice}
                 {doneOrderId ? <div style={{ marginTop: 4, color: '#3a2530' }}>订单号：{doneOrderId}</div> : null}
               </div>
@@ -3747,8 +3925,8 @@ function HomePage({
   onOpenCart?: () => void
 }) {
   usePageMeta({
-    title: homeSeo.title,
-    description: homeSeo.description,
+    title: 'Lunar Talisman · 月之护符',
+    description: '高端七脉轮水晶饰品品牌站，进入一场月光、脉轮与水晶护符的沉浸式旅程。',
   })
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -4137,6 +4315,30 @@ function App() {
     )
   }
 
+  if (route.page === 'guide') {
+    return (
+      <>
+        <GuidePage
+          id={route.id}
+          navigate={goTo}
+          cartCount={cartCount}
+          onOpenCart={openCart}
+        />
+        {cartOpen && (
+          <CartPage
+            navigate={goTo}
+            cart={cart}
+            setCart={setCart}
+            clearCart={clearCart}
+            cartCount={cartCount}
+            drawer
+            onClose={closeCart}
+          />
+        )}
+      </>
+    )
+  }
+
   if (route.page === 'cart') {
     return (
       <>
@@ -4156,10 +4358,6 @@ function App() {
 
   if (route.page === 'admin') {
     return <AdminPage navigate={navigate} />
-  }
-
-  if (route.page === 'not-found') {
-    return <NotFoundPage navigate={goTo} />
   }
 
   if (route.page === 'legal') {
