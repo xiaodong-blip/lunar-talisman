@@ -987,6 +987,23 @@ function OrdersTable({
                         <strong>Region:</strong>
                         {' '}{order.shippingRegion || 'Americas'}
                       </div>
+                      {Array.isArray(order.trackingEvents) && order.trackingEvents.length ? (
+                        <div>
+                          <strong>Tracking updates:</strong>
+                          <div style={{ display: 'grid', gap: 5, marginTop: 7 }}>
+                            {[...order.trackingEvents]
+                              .slice(-3)
+                              .reverse()
+                              .map((event) => (
+                                <div key={`${event.at}-${event.status}`} style={{ fontSize: 12 }}>
+                                  <strong>{event.status}</strong>
+                                  {' · '}{event.detail}
+                                  {' · '}<span style={{ color: 'rgba(45,39,48,0.48)' }}>{event.at}</span>
+                                </div>
+                              ))}
+                          </div>
+                        </div>
+                      ) : null}
                     </div>
                   </td>
                 </tr>
@@ -1355,9 +1372,14 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
   const setOrders = (nextOrders: AdminOrder[]) => {
     setOrdersState(nextOrders)
     saveOrders(nextOrders)
-    void saveAdminOrders(nextOrders).catch(() => {
-      // 后台状态更新失败时不打断 UI，下一次登录仍可从本地兜底看到当前修改。
-    })
+    void saveAdminOrders(nextOrders)
+      .then((savedOrders) => {
+        setOrdersState(savedOrders)
+        saveOrders(savedOrders)
+      })
+      .catch(() => {
+        // 后台状态更新失败时不打断 UI，下一次登录仍可从本地兜底看到当前修改。
+      })
   }
 
   const metrics = useMemo(() => {

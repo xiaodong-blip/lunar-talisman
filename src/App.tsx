@@ -17,7 +17,12 @@ import { usePageMeta } from './hooks/usePageMeta'
 import { trackPageView } from './services/analytics'
 import { appendOrder } from './services/orders'
 import type { PublicOrder } from './services/orders'
-import { createPublicOrder, fetchPublishedProducts } from './services/backend'
+import {
+  createPublicOrder,
+  fetchPublishedProducts,
+  trackPublicOrder,
+} from './services/backend'
+import type { PublicTrackingOrder } from './services/backend'
 import { useEnglishUi } from './hooks/useEnglishUi'
 import { importedProducts } from './data/importedProducts'
 import {
@@ -58,6 +63,7 @@ type Route =
   | { page: 'detail'; id: string }
   | { page: 'guide'; id: string }
   | { page: 'cart' }
+  | { page: 'track' }
   | { page: 'admin' }
   | { page: 'legal'; id: 'privacy' | 'terms' | 'shipping' | 'refund' | 'contact' }
 
@@ -1660,6 +1666,7 @@ function routeFromPath(): Route {
   }
   if (page === 'guide' && id) return { page: 'guide', id }
   if (page === 'cart') return { page: 'cart' }
+  if (page === 'track') return { page: 'track' }
   if (page === 'admin') return { page: 'admin' }
   if (
     page === 'privacy' ||
@@ -3555,6 +3562,497 @@ function LegalPage({
   )
 }
 
+const TRACKING_STATUS_LABELS: Record<string, string> = {
+  待发货: 'Order received',
+  备货中: 'Preparing your order',
+  已发货: 'Shipped',
+  运输中: 'In transit',
+  已签收: 'Delivered',
+}
+
+function trackingStatusLabel(status = '') {
+  return TRACKING_STATUS_LABELS[status] || status || 'Order received'
+}
+
+function trackingTime(value = '') {
+  const date = new Date(value)
+  if (Number.isNaN(date.getTime())) return value || 'Recently updated'
+  return new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit',
+  }).format(date)
+}
+
+function carrierTrackingUrl(carrier: string, trackingNumber: string) {
+  const number = encodeURIComponent(trackingNumber.trim())
+  if (!number) return ''
+  const normalizedCarrier = carrier.toLowerCase()
+  if (normalizedCarrier.includes('ups')) return `https://www.ups.com/track?tracknum=${number}`
+  if (normalizedCarrier.includes('usps')) {
+    return `https://tools.usps.com/go/TrackConfirmAction?tLabels=${number}`
+  }
+  if (normalizedCarrier.includes('fedex')) {
+    return `https://www.fedex.com/fedextrack/?trknbr=${number}`
+  }
+  if (normalizedCarrier.includes('dhl')) {
+    return `https://www.dhl.com/global-en/home/tracking.html?tracking-id=${number}`
+  }
+  return `https://www.17track.net/en?nums=${number}`
+}
+
+function TrackOrderPage({
+  navigate,
+  cartCount,
+  onOpenCart,
+}: {
+  navigate: NavigateFn
+  cartCount: number
+  onOpenCart?: () => void
+}) {
+  usePageMeta({
+    title: 'Track Your Order | Lunar Talisman',
+    description:
+      'Track a Lunar Talisman order with the order number and email used at checkout.',
+    noindex: true,
+  })
+
+  const [orderId, setOrderId] = useState('')
+  const [email, setEmail] = useState('')
+  const [order, setOrder] = useState<PublicTrackingOrder | null>(null)
+  const [notice, setNotice] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  const handleLookup = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    setNotice('')
+    setOrder(null)
+    if (!orderId.trim() || !email.trim()) {
+      setNotice('Enter your order number and the email used at checkout.')
+      return
+    }
+
+    setLoading(true)
+    try {
+      setOrder(await trackPublicOrder(orderId, email))
+    } catch (error) {
+      const message = error instanceof Error ? error.message : ''
+      if (message.includes('order_not_found')) {
+        setNotice('We could not match that order number and email. Please check both and try again.')
+      } else if (message.includes('rate_limited')) {
+        setNotice('Too many attempts. Please wait a few minutes before trying again.')
+      } else {
+        setNotice('Tracking is temporarily unavailable. Please try again shortly.')
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const events =
+    order?.trackingEvents?.length
+      ? [...order.trackingEvents].reverse()
+      : order
+        ? [
+            {
+              status: order.shippingStatus || '待发货',
+              detail: 'Your order request has been received and is waiting for fulfilment.',
+              at: order.createdAt,
+            },
+          ]
+        : []
+  const carrierUrl = order
+    ? carrierTrackingUrl(order.trackingCarrier || '', order.trackingNumber || '')
+    : ''
+  const fieldStyle: CSSProperties = {
+    width: '100%',
+    border: '1px solid rgba(58,37,48,0.14)',
+    borderRadius: 16,
+    background: 'rgba(255,255,255,0.84)',
+    color: '#3a2530',
+    padding: '14px 15px',
+    outline: 'none',
+    fontFamily: 'inherit',
+    fontSize: 15,
+  }
+
+  return (
+    <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
+      <section
+        style={{
+          width: 'min(1040px, calc(100% - 40px))',
+          margin: '0 auto',
+          padding: '128px 0 96px',
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => navigate('/')}
+          style={{
+            border: '1px solid rgba(255,255,255,0.18)',
+            borderRadius: 999,
+            background: 'rgba(255,255,255,0.08)',
+            color: 'rgba(255,255,255,0.78)',
+            padding: '10px 16px',
+            fontSize: 12,
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            cursor: 'pointer',
+          }}
+        >
+          ← Back to portal
+        </button>
+        <p
+          style={{
+            margin: '44px 0 0',
+            fontSize: 13,
+            letterSpacing: '0.28em',
+            textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.55)',
+          }}
+        >
+          Order Tracking
+        </p>
+        <h1
+          style={{
+            margin: '14px 0 0',
+            fontFamily: "'Lobster', cursive",
+            fontSize: 'clamp(54px, 8vw, 108px)',
+            lineHeight: 0.94,
+            color: '#fff',
+            textShadow: '0 2px 24px rgba(0,0,0,0.45)',
+          }}
+        >
+          Follow your talisman
+        </h1>
+        <p
+          style={{
+            margin: '22px 0 34px',
+            maxWidth: 680,
+            fontSize: 19,
+            lineHeight: 1.7,
+            color: 'rgba(255,255,255,0.72)',
+          }}
+        >
+          Enter your order number and checkout email. Delivery details are only shown after both
+          details match.
+        </p>
+
+        <div
+          style={{
+            borderRadius: 38,
+            background: 'rgba(255,255,255,0.84)',
+            padding: 'clamp(28px, 4vw, 46px)',
+            color: '#3a2530',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
+          }}
+        >
+          <form
+            onSubmit={handleLookup}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1fr) auto',
+              alignItems: 'end',
+              gap: 14,
+            }}
+            className="max-[760px]:!grid-cols-1"
+          >
+            <label style={{ display: 'grid', gap: 8 }}>
+              <span
+                style={{
+                  color: 'rgba(58,37,48,0.58)',
+                  fontSize: 12,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Order number
+              </span>
+              <input
+                value={orderId}
+                onChange={(event) => setOrderId(event.target.value)}
+                placeholder="LT-20260817-XXXXXXXX"
+                autoComplete="off"
+                style={fieldStyle}
+              />
+            </label>
+            <label style={{ display: 'grid', gap: 8 }}>
+              <span
+                style={{
+                  color: 'rgba(58,37,48,0.58)',
+                  fontSize: 12,
+                  letterSpacing: '0.12em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Checkout email
+              </span>
+              <input
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder="you@example.com"
+                autoComplete="email"
+                style={fieldStyle}
+              />
+            </label>
+            <button
+              type="submit"
+              disabled={loading}
+              style={{
+                border: 0,
+                borderRadius: 16,
+                background: '#3a2530',
+                color: '#fff',
+                padding: '14px 20px',
+                minHeight: 50,
+                fontWeight: 900,
+                cursor: loading ? 'wait' : 'pointer',
+                opacity: loading ? 0.7 : 1,
+                boxShadow: '0 14px 30px rgba(58,37,48,0.18)',
+              }}
+            >
+              {loading ? 'Looking up…' : 'Track order'}
+            </button>
+          </form>
+
+          {notice ? (
+            <p
+              role="status"
+              style={{
+                margin: '18px 0 0',
+                borderRadius: 16,
+                padding: '12px 14px',
+                background: 'rgba(214,151,121,0.14)',
+                color: '#76524a',
+                fontSize: 14,
+                lineHeight: 1.55,
+              }}
+            >
+              {notice}
+            </p>
+          ) : null}
+
+          {order ? (
+            <div style={{ marginTop: 30, display: 'grid', gap: 22 }}>
+              <div
+                style={{
+                  borderRadius: 26,
+                  padding: '22px 24px',
+                  background:
+                    'linear-gradient(135deg, rgba(231,218,255,0.78), rgba(255,245,234,0.76))',
+                  border: '1px solid rgba(58,37,48,0.1)',
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  gap: 18,
+                  flexWrap: 'wrap',
+                }}
+              >
+                <div>
+                  <p
+                    style={{
+                      margin: 0,
+                      color: 'rgba(58,37,48,0.56)',
+                      fontSize: 12,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    {order.id}
+                  </p>
+                  <h2
+                    style={{
+                      margin: '8px 0 0',
+                      fontFamily: "'Viaoda Libre', serif",
+                      fontSize: 30,
+                    }}
+                  >
+                    {trackingStatusLabel(order.shippingStatus)}
+                  </h2>
+                  <p style={{ margin: '8px 0 0', color: 'rgba(58,37,48,0.68)' }}>
+                    {order.product}
+                  </p>
+                </div>
+                <div style={{ minWidth: 190 }}>
+                  <p
+                    style={{
+                      margin: 0,
+                      color: 'rgba(58,37,48,0.56)',
+                      fontSize: 12,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    Delivery
+                  </p>
+                  <p style={{ margin: '8px 0 0', fontWeight: 900 }}>
+                    {order.shippingMethod === 'express' ? 'Express shipping' : 'Standard shipping'}
+                  </p>
+                  <p style={{ margin: '6px 0 0', color: 'rgba(58,37,48,0.68)', fontSize: 14 }}>
+                    {order.shippingRegion || 'Delivery region pending'}
+                  </p>
+                </div>
+              </div>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'minmax(0, 1.1fr) minmax(260px, 0.9fr)',
+                  gap: 22,
+                }}
+                className="max-[760px]:!grid-cols-1"
+              >
+                <section
+                  style={{
+                    borderRadius: 26,
+                    padding: 24,
+                    background: 'rgba(255,255,255,0.58)',
+                    border: '1px solid rgba(58,37,48,0.1)',
+                  }}
+                >
+                  <h3 style={{ margin: 0, fontSize: 20 }}>Delivery timeline</h3>
+                  <div style={{ marginTop: 20, display: 'grid', gap: 0 }}>
+                    {events.map((event, index) => (
+                      <div
+                        key={`${event.at}-${event.status}-${index}`}
+                        style={{
+                          position: 'relative',
+                          display: 'grid',
+                          gridTemplateColumns: '18px minmax(0, 1fr)',
+                          gap: 12,
+                          paddingBottom: index === events.length - 1 ? 0 : 22,
+                        }}
+                      >
+                        <span
+                          style={{
+                            position: 'relative',
+                            width: 14,
+                            height: 14,
+                            marginTop: 4,
+                            borderRadius: 999,
+                            background: index === 0 ? '#806eb4' : '#d5c9e7',
+                            boxShadow: index === 0 ? '0 0 0 5px rgba(128,110,180,0.13)' : 'none',
+                          }}
+                        >
+                          {index !== events.length - 1 ? (
+                            <span
+                              style={{
+                                position: 'absolute',
+                                left: 6,
+                                top: 14,
+                                width: 2,
+                                height: 25,
+                                background: 'rgba(58,37,48,0.12)',
+                              }}
+                            />
+                          ) : null}
+                        </span>
+                        <div>
+                          <strong>{trackingStatusLabel(event.status)}</strong>
+                          <p
+                            style={{
+                              margin: '5px 0 0',
+                              color: 'rgba(58,37,48,0.68)',
+                              fontSize: 14,
+                              lineHeight: 1.55,
+                            }}
+                          >
+                            {event.detail}
+                          </p>
+                          <p
+                            style={{
+                              margin: '7px 0 0',
+                              color: 'rgba(58,37,48,0.46)',
+                              fontSize: 12,
+                            }}
+                          >
+                            {trackingTime(event.at)}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                <aside
+                  style={{
+                    borderRadius: 26,
+                    padding: 24,
+                    background: 'rgba(255,249,241,0.74)',
+                    border: '1px solid rgba(58,37,48,0.1)',
+                    alignSelf: 'start',
+                  }}
+                >
+                  <p
+                    style={{
+                      margin: 0,
+                      color: 'rgba(58,37,48,0.56)',
+                      fontSize: 12,
+                      letterSpacing: '0.12em',
+                      textTransform: 'uppercase',
+                    }}
+                  >
+                    Carrier tracking
+                  </p>
+                  {order.trackingNumber ? (
+                    <>
+                      <h3 style={{ margin: '10px 0 0', fontSize: 20 }}>
+                        {order.trackingCarrier || 'Shipment carrier'}
+                      </h3>
+                      <code
+                        style={{
+                          display: 'block',
+                          marginTop: 12,
+                          overflowWrap: 'anywhere',
+                          color: 'rgba(58,37,48,0.72)',
+                          fontSize: 14,
+                        }}
+                      >
+                        {order.trackingNumber}
+                      </code>
+                      <a
+                        href={carrierUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        style={{
+                          display: 'inline-flex',
+                          marginTop: 18,
+                          borderRadius: 999,
+                          background: '#3a2530',
+                          color: '#fff',
+                          padding: '12px 16px',
+                          fontWeight: 900,
+                          textDecoration: 'none',
+                        }}
+                      >
+                        Open carrier tracking ↗
+                      </a>
+                    </>
+                  ) : (
+                    <p
+                      style={{
+                        margin: '12px 0 0',
+                        color: 'rgba(58,37,48,0.68)',
+                        fontSize: 14,
+                        lineHeight: 1.65,
+                      }}
+                    >
+                      A tracking number will appear here as soon as your parcel is handed to the
+                      carrier.
+                    </p>
+                  )}
+                </aside>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </section>
+    </AtmosphericShell>
+  )
+}
+
 function CartPage({
   navigate,
   cart,
@@ -3737,6 +4235,20 @@ function CartPage({
             >
               继续选购
             </button>
+            <button
+              type="button"
+              onClick={() => navigate('/track')}
+              style={{
+                border: '1px solid rgba(58,37,48,0.16)',
+                borderRadius: 999,
+                background: 'rgba(255,255,255,0.55)',
+                color: '#3a2530',
+                padding: '10px 14px',
+                cursor: 'pointer',
+              }}
+            >
+              Track an order
+            </button>
           </div>
 
           <div style={{ marginTop: 24, display: 'grid', gap: 14 }}>
@@ -3902,6 +4414,25 @@ function CartPage({
               <div style={{ borderRadius: 18, padding: '12px 14px', background: 'rgba(255,255,255,0.6)', color: '#55744f', fontSize: 13, fontWeight: 800, lineHeight: 1.5 }}>
                 {notice}
                 {doneOrderId ? <div style={{ marginTop: 4, color: '#3a2530' }}>订单号：{doneOrderId}</div> : null}
+                {doneOrderId ? (
+                  <button
+                    type="button"
+                    onClick={() => navigate('/track')}
+                    style={{
+                      marginTop: 10,
+                      border: 0,
+                      borderRadius: 999,
+                      background: '#3a2530',
+                      color: '#fff',
+                      padding: '8px 12px',
+                      fontSize: 12,
+                      fontWeight: 900,
+                      cursor: 'pointer',
+                    }}
+                  >
+                    Track this order
+                  </button>
+                ) : null}
               </div>
             ) : null}
           </form>
@@ -4468,6 +4999,25 @@ function App() {
           drawer
           onClose={closeCart}
         />
+      </>
+    )
+  }
+
+  if (route.page === 'track') {
+    return (
+      <>
+        <TrackOrderPage navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
+        {cartOpen && (
+          <CartPage
+            navigate={goTo}
+            cart={cart}
+            setCart={setCart}
+            clearCart={clearCart}
+            cartCount={cartCount}
+            drawer
+            onClose={closeCart}
+          />
+        )}
       </>
     )
   }

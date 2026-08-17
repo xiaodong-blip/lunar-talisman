@@ -144,6 +144,13 @@ export async function handler(event) {
       shippingStatus: '待发货',
       trackingNumber: '',
       trackingCarrier: '',
+      trackingEvents: [
+        {
+          status: '待发货',
+          detail: '订单已提交，正在等待品牌确认。',
+          at: new Date().toISOString(),
+        },
+      ],
       message,
       status: '待处理',
       createdAt: new Date().toISOString(),

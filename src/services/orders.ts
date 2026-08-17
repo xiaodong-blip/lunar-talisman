@@ -19,9 +19,16 @@ export type PublicOrder = {
   shippingStatus?: '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
   trackingNumber?: string
   trackingCarrier?: string
+  trackingEvents?: TrackingEvent[]
   message?: string
   status: '待处理' | '已付款' | '备货中' | '已发货' | '已完成'
   createdAt: string
+}
+
+export type TrackingEvent = {
+  status: string
+  detail: string
+  at: string
 }
 
 const ORDER_KEY = 'lunar-talisman-admin-orders'

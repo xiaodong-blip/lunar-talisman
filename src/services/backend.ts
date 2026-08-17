@@ -1,4 +1,4 @@
-import type { PublicOrder } from './orders'
+import type { PublicOrder, TrackingEvent } from './orders'
 
 export type AdminProductRecord = {
   id: string
@@ -8,6 +8,21 @@ export type AdminProductRecord = {
   stock: number
   image: string
   status: '上架' | '草稿'
+}
+
+export type PublicTrackingOrder = Pick<
+  PublicOrder,
+  | 'id'
+  | 'product'
+  | 'items'
+  | 'shippingMethod'
+  | 'shippingRegion'
+  | 'shippingStatus'
+  | 'trackingNumber'
+  | 'trackingCarrier'
+  | 'createdAt'
+> & {
+  trackingEvents: TrackingEvent[]
 }
 
 const ADMIN_TOKEN_KEY = 'lunar-talisman-admin-token'
@@ -96,6 +111,17 @@ export async function createPublicOrder(order: PublicOrder) {
     headers: { 'Idempotency-Key': idempotencyKey },
     body: JSON.stringify(order),
   })
+  return data.order
+}
+
+export async function trackPublicOrder(orderId: string, email: string) {
+  const data = await requestJson<{ ok: true; order: PublicTrackingOrder }>(
+    '/.netlify/functions/order-tracking',
+    {
+      method: 'POST',
+      body: JSON.stringify({ orderId, email }),
+    },
+  )
   return data.order
 }
 

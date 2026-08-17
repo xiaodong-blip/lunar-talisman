@@ -30,6 +30,10 @@ export function parseJson(event, maxBytes = 64 * 1024) {
   return JSON.parse(event.body)
 }
 
+export function cleanText(value, maxLength = 1000) {
+  return String(value ?? '').trim().slice(0, maxLength)
+}
+
 export function ordersStore() {
   return getStore('lunar-talisman-orders')
 }
