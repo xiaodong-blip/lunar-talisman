@@ -132,6 +132,10 @@ const REMOVED_ZODIAC_IDS = new Set([
 ])
 const REMOVED_IMPORTED_PRODUCT_IDS = new Set([
   'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+  'sacral-sacral-chakra-honey-amber-bracelet-10mm',
+  'sacral-sacral-chakra-passion-orange-garnet-bracelet-6mm',
+  'sacral-sacral-chakra-faceted-carnelian-bracelet-10mm',
+  'sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm',
 ])
 
 const PRODUCTS: DetailData[] = [

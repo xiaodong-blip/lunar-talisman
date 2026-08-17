@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import sharp from 'sharp'
 
 const sourceRoot = 'C:\\Users\\Administrator\\Desktop\\水晶图'
 const projectRoot = process.cwd()
@@ -104,6 +105,28 @@ async function sourceImages(directory) {
     .sort((a, b) => b.score - a.score || a.file.localeCompare(b.file))
 }
 
+async function colorFeature(file) {
+  const { data } = await sharp(file)
+    .rotate()
+    .removeAlpha()
+    .resize({ width: 48, height: 48, fit: 'cover' })
+    .raw()
+    .toBuffer({ resolveWithObject: true })
+  const bins = new Array(64).fill(0)
+  for (let index = 0; index < data.length; index += 3) {
+    const red = data[index] >> 6
+    const green = data[index + 1] >> 6
+    const blue = data[index + 2] >> 6
+    bins[red * 16 + green * 4 + blue] += 1
+  }
+  const magnitude = Math.hypot(...bins) || 1
+  return bins.map((value) => value / magnitude)
+}
+
+function cosineSimilarity(left, right) {
+  return left.reduce((sum, value, index) => sum + value * right[index], 0)
+}
+
 async function main() {
   const raw = await fs.readFile(generatedDataFile, 'utf8')
   const dataJson = raw
@@ -140,6 +163,7 @@ async function main() {
   const errors = []
   const primaryKinds = { white: 0, front: 0, display: 0, angle: 0, numbered: 0, fallback: 0 }
   const fallbackPrimary = []
+  const consistencyScores = []
 
   for (const item of expected) {
     const generated = generatedById.get(item.id)
@@ -173,6 +197,17 @@ async function main() {
       primaryKinds.fallback += 1
       fallbackPrimary.push(`${item.id} → ${primaryName}`)
     }
+
+    if (item.images.length > 1) {
+      const features = await Promise.all(item.images.map(({ file }) => colorFeature(file)))
+      const primaryFeature = features[0]
+      const scores = features.slice(1).map((feature) => cosineSimilarity(primaryFeature, feature))
+      consistencyScores.push({
+        id: item.id,
+        score: Math.min(...scores),
+        mean: scores.reduce((sum, score) => sum + score, 0) / scores.length,
+      })
+    }
   }
 
   if (generatedProducts.length !== expected.length) {
@@ -192,6 +227,13 @@ async function main() {
   if (fallbackPrimary.length) {
     console.log(`Fallback primary files:\n${fallbackPrimary.join('\n')}`)
   }
+  console.log(
+    `Lowest primary-image similarity:\n${consistencyScores
+      .sort((left, right) => left.mean - right.mean)
+      .slice(0, 30)
+      .map((item) => `${item.id} → ${(item.mean * 100).toFixed(1)}%`)
+      .join('\n')}`,
+  )
   console.log(`Errors: ${errors.length}`)
   if (errors.length) {
     console.log(errors.join('\n'))
