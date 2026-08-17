@@ -3103,6 +3103,7 @@ function GuidePage({
   onOpenCart?: () => void
 }) {
   const guide = importedSeriesGuides.find((item) => item.id === id) ?? importedSeriesGuides[0]
+  void GuideMarkdown
   const relatedGuides = guideTilesFor(guide.series)
     .filter((tile) => tile.id !== guide.id)
     .slice(0, 3)
@@ -3200,18 +3201,6 @@ function GuidePage({
               {guide.excerpt}
             </p>
           </div>
-        </section>
-
-        <section
-          style={{
-            marginTop: 28,
-            borderRadius: 38,
-            background: 'rgba(255,255,255,0.82)',
-            padding: 'clamp(28px, 5vw, 68px)',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.2)',
-          }}
-        >
-          <GuideMarkdown markdown={guide.markdown} />
         </section>
 
         {relatedGuides.length ? (
