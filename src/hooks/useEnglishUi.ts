@@ -95,6 +95,7 @@ const PHRASES: Record<string, string> = {
   '管理流量、营收、订单与商品上传。':
     'Manage traffic, revenue, orders, fulfilment, and product publishing.',
   '管理账号': 'Admin account',
+  密码: 'Password',
   '请输入管理密码': 'Enter admin password',
   '正在验证...': 'Verifying…',
   '进入后台': 'Enter admin',

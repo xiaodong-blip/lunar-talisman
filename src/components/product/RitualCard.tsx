@@ -1,4 +1,5 @@
 import { Droplets, Flame, Sparkles } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import type { CrystalProduct } from '../../data/products'
 import { ChakraCard } from '../ui/ChakraCard'
 import { getChakraHex, hexToRgba } from '../ui/chakra'
@@ -9,21 +10,21 @@ type RitualCardProps = {
 
 const ritualSteps = [
   {
-    title: '净化',
+    title: 'Cleanse',
     description:
-      '佩戴前将水晶放在月光下静置，或以白鼠尾草轻烟绕过三圈。',
+      'Rest the crystal under moonlight before wearing it, or pass white sage smoke around it three times.',
     icon: Droplets,
   },
   {
-    title: '充能',
+    title: 'Charge',
     description:
-      '双手捧住护符，闭眼想象对应脉轮被温柔点亮。',
+      'Hold the talisman in both hands and imagine its chakra gently lighting up.',
     icon: Flame,
   },
   {
-    title: '激活',
+    title: 'Activate',
     description:
-      '贴近身体佩戴，念出一句与你当下意图相关的肯定语。',
+      'Wear it close to the body and speak one affirmation connected to your present intention.',
     icon: Sparkles,
   },
 ]
@@ -47,10 +48,10 @@ export function RitualCard({ product }: RitualCardProps) {
               Activation Ritual
             </p>
             <h2 className="mt-3 text-3xl text-text-primary md:text-4xl">
-              激活你的 {product.name}
+              Activate your {product.name}
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-7 text-text-secondary">
-              仪式不需要复杂，关键是让意图被你认真听见。给这件护符一个清晰的开始，它就会成为日常里的能量提醒。
+              The ritual does not need to be complicated. Give this talisman a clear beginning and let it become a daily reminder of your intention.
             </p>
           </div>
 
@@ -81,14 +82,14 @@ export function RitualCard({ product }: RitualCardProps) {
             })}
 
             <div className="rounded-2xl border border-chakra-heart/25 bg-chakra-heart/10 p-4 text-sm text-text-secondary">
-              <span className="font-medium text-text-primary">配套仪式工具：</span>
-              <a href="#" className="ml-2 text-chakra-heart transition-colors hover:text-text-primary">
-                圣木
-              </a>
+              <span className="font-medium text-text-primary">Ritual tools:</span>
+              <Link to="/series/rituals" className="ml-2 text-chakra-heart transition-colors hover:text-text-primary">
+                Palo santo
+              </Link>
               <span className="mx-2 text-text-muted">/</span>
-              <a href="#" className="text-chakra-heart transition-colors hover:text-text-primary">
-                白鼠尾草
-              </a>
+              <Link to="/series/rituals" className="text-chakra-heart transition-colors hover:text-text-primary">
+                White sage
+              </Link>
             </div>
           </div>
         </div>

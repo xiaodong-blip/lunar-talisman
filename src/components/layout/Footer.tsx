@@ -4,26 +4,27 @@ import { useScrollReveal } from '../../hooks/useScrollReveal'
 import { Button } from '../ui/Button'
 
 const quickLinks = [
-  { to: '/', label: '首页' },
-  { to: '/collections', label: '系列' },
-  { to: '/quiz', label: '测试' },
-  { to: '/blog', label: '玄学库' },
-  { to: '/about', label: '关于' },
+  { to: '/', label: 'Home' },
+  { to: '/series/crystals', label: 'Collections' },
+  { to: '/series/connect', label: 'Crystal quiz' },
+  { to: '/series/codex', label: 'Moon codex' },
+  { to: '/contact', label: 'Contact' },
 ]
 
 const chakraGuideLinks = [
-  { label: '海底轮', color: 'hover:text-chakra-root' },
-  { label: '脐轮', color: 'hover:text-chakra-sacral' },
-  { label: '太阳轮', color: 'hover:text-chakra-solar' },
-  { label: '心轮', color: 'hover:text-chakra-heart' },
-  { label: '喉轮', color: 'hover:text-chakra-throat' },
-  { label: '眉心轮', color: 'hover:text-chakra-third-eye' },
-  { label: '顶轮', color: 'hover:text-chakra-crown' },
+  { to: '/series/chakra-root', label: 'Root Chakra', color: 'hover:text-chakra-root' },
+  { to: '/series/chakra-sacral', label: 'Sacral Chakra', color: 'hover:text-chakra-sacral' },
+  { to: '/series/chakra-solar', label: 'Solar Plexus', color: 'hover:text-chakra-solar' },
+  { to: '/series/chakra-heart', label: 'Heart Chakra', color: 'hover:text-chakra-heart' },
+  { to: '/series/chakra-throat', label: 'Throat Chakra', color: 'hover:text-chakra-throat' },
+  { to: '/series/chakra-third-eye', label: 'Third Eye', color: 'hover:text-chakra-third-eye' },
+  { to: '/series/chakra-crown', label: 'Crown Chakra', color: 'hover:text-chakra-crown' },
 ]
 
 type SocialLink = {
   label: string
   color: string
+  href: string
   Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element
 }
 
@@ -96,10 +97,30 @@ function YouTubeGlyph(props: SVGProps<SVGSVGElement>) {
 }
 
 const socialLinks: SocialLink[] = [
-  { label: 'Instagram', color: 'hover:text-chakra-root', Icon: InstagramGlyph },
-  { label: 'TikTok', color: 'hover:text-chakra-sacral', Icon: TikTokGlyph },
-  { label: 'Pinterest', color: 'hover:text-chakra-solar', Icon: PinterestGlyph },
-  { label: 'YouTube', color: 'hover:text-chakra-heart', Icon: YouTubeGlyph },
+  {
+    label: 'Instagram',
+    color: 'hover:text-chakra-root',
+    href: 'https://www.instagram.com/',
+    Icon: InstagramGlyph,
+  },
+  {
+    label: 'TikTok',
+    color: 'hover:text-chakra-sacral',
+    href: 'https://www.tiktok.com/',
+    Icon: TikTokGlyph,
+  },
+  {
+    label: 'Pinterest',
+    color: 'hover:text-chakra-solar',
+    href: 'https://www.pinterest.com/',
+    Icon: PinterestGlyph,
+  },
+  {
+    label: 'YouTube',
+    color: 'hover:text-chakra-heart',
+    href: 'https://www.youtube.com/',
+    Icon: YouTubeGlyph,
+  },
 ]
 
 function FooterColumn({
@@ -130,12 +151,12 @@ export function Footer() {
               </h4>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-7 text-text-secondary">
-              以月光为引，唤醒你的七脉轮能量
+              Guided by moonlight, awaken the energy of all seven chakras.
             </p>
           </FooterColumn>
 
           <FooterColumn delay={0.15}>
-            <h4 className="text-xl text-text-primary">快速链接</h4>
+            <h4 className="text-xl text-text-primary">Quick links</h4>
             <ul className="mt-4 space-y-3 text-sm text-text-secondary">
               {quickLinks.map((item) => (
                 <li key={item.to}>
@@ -151,16 +172,16 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn delay={0.3}>
-            <h4 className="text-xl text-text-primary">脉轮指南</h4>
+            <h4 className="text-xl text-text-primary">Chakra guide</h4>
             <ul className="mt-4 grid grid-cols-2 gap-x-5 gap-y-3 text-sm text-text-secondary xl:grid-cols-1">
               {chakraGuideLinks.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href="#"
+                  <Link
+                    to={item.to}
                     className={`transition-colors duration-300 ${item.color}`}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -169,7 +190,7 @@ export function Footer() {
           <FooterColumn delay={0.45}>
             <h4 className="text-xl text-text-primary">Newsletter</h4>
             <p className="mt-4 text-sm leading-7 text-text-secondary">
-              订阅接收满月仪式指南
+              Subscribe for full moon ritual guidance.
             </p>
             <form
               className="mt-4 flex gap-2"
@@ -181,7 +202,7 @@ export function Footer() {
                 className="min-w-0 flex-1 rounded-lg border border-border bg-white px-4 py-2.5 text-sm text-text-primary outline-none transition-colors placeholder:text-text-muted focus:border-chakra-crown"
               />
               <Button type="submit" variant="primary" size="sm">
-                订阅
+                Subscribe
               </Button>
             </form>
           </FooterColumn>
@@ -192,10 +213,12 @@ export function Footer() {
             @ 2026 Lunar Talisman. Crafted under moonlight.
           </p>
           <div className="flex items-center gap-3">
-            {socialLinks.map(({ Icon, color, label }) => (
+            {socialLinks.map(({ Icon, color, href, label }) => (
               <a
                 key={label}
-                href="#"
+                href={href}
+                target="_blank"
+                rel="noreferrer"
                 className={`flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-text-secondary transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-110 hover:shadow-md ${color}`}
                 aria-label={label}
               >

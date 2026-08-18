@@ -143,6 +143,7 @@ const REMOVED_IMPORTED_PRODUCT_IDS = new Set([
   'sacral-sacral-chakra-faceted-carnelian-bracelet-10mm',
   'sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm',
   'sacral-sacral-chakra-flame-orange-agate-bracelet-10mm',
+  'crown-i02-2503-ddd',
 ])
 
 const PRODUCTS: DetailData[] = [
@@ -974,10 +975,11 @@ function detailToCartLine(detail: DetailData): CartLine {
 }
 
 function adminProductToTile(product: StoredAdminProduct): Tile {
+  const collection = englishCollectionName(product.collection)
   return {
     id: `admin-${product.id}`,
-    title: product.name.replace(' · ', '\n'),
-    desc: `${product.collection} · 库存 ${product.stock} · ${formatProductPrice(product.price)}`,
+    title: englishProductName(product.name, collection, product.id).replace(' · ', '\n'),
+    desc: `${collection} · ${product.stock} in stock · ${formatProductPrice(product.price)}`,
     color: '#ece7fb',
     image: product.image,
     eyebrow: 'Admin Product',
@@ -986,19 +988,30 @@ function adminProductToTile(product: StoredAdminProduct): Tile {
 }
 
 function adminProductToDetail(product: StoredAdminProduct): DetailData {
+  const collection = englishCollectionName(product.collection)
   return {
     id: `admin-${product.id}`,
-    eyebrow: product.collection,
-    title: product.name,
-    desc: `后台上架商品 · 库存 ${product.stock} · ${formatProductPrice(product.price)}`,
+    eyebrow: collection,
+    title: englishProductName(product.name, collection, product.id),
+    desc: `Published product · ${product.stock} in stock · ${formatProductPrice(product.price)}`,
     color: '#ece7fb',
     image: product.image,
-    specs: [product.collection, `库存 ${product.stock}`, formatProductPrice(product.price), '后台上架'],
+    specs: [collection, `${product.stock} in stock`, formatProductPrice(product.price), 'Published'],
     body: [
-      '这件护符由管理后台上传并发布到前台展示。',
-      '当前版本会先用浏览器本地数据打通发布链路；接入真实后端后，可替换为数据库商品信息、库存和订单系统。',
+      'This talisman was published from the brand admin console.',
+      'Product availability and price are maintained by the Lunar Talisman operations team.',
     ],
   }
+}
+
+function englishCollectionName(value: string) {
+  const collectionMap: Record<string, string> = {
+    脉轮疗愈: 'Chakra Healing',
+    月相仪式: 'Lunar Rituals',
+    水晶护符: 'Crystal Talismans',
+    星座守护: 'Zodiac Guardians',
+  }
+  return collectionMap[value] || (CJK_TEXT.test(value) ? 'Crystal Talismans' : value)
 }
 
 function formatProductPrice(value: number) {
@@ -1065,6 +1078,8 @@ const ENGLISH_TITLE_BY_ID: Record<string, string> = {
   'crown-clear-quartz': 'Crown Chakra\nClear Quartz Bracelet',
   'full-moon-ritual': 'Full Moon\nRitual Guide',
   'chakra-test': 'Seven Chakras\nQuiz',
+  lunar: 'Lunar Ritual Collection',
+  collections: 'Crystal Collections',
   worlds: 'WORLDS\nCrystal Journey',
   chakra: 'CHAKRAS\nChakra Healing',
   rituals: 'RITUALS\nLunar Rituals',
@@ -1072,8 +1087,91 @@ const ENGLISH_TITLE_BY_ID: Record<string, string> = {
   connect: 'CONNECT\nBegin the Connection',
 }
 
+const PRODUCT_NAME_TOKENS: Array<[string, string]> = [
+  ['披星戴月', 'Starlit Blessing'],
+  ['甜夏之恋', 'Sweet Summer Love'],
+  ['薄荷夏日', 'Mint Summer'],
+  ['紫气东来', 'Purple Dawn'],
+  ['金水相生', 'Golden Water Harmony'],
+  ['补水聚财', 'Water Wealth'],
+  ['五行喜木', 'Wood Element Blessing'],
+  ['多宝水晶', 'Treasure Crystal'],
+  ['九紫离火', 'Nine Purple Fire'],
+  ['红石榴石', 'Garnet'],
+  ['红玉髓', 'Carnelian'],
+  ['黄水晶', 'Citrine'],
+  ['紫水晶', 'Amethyst'],
+  ['玫瑰晶', 'Rose Quartz'],
+  ['粉水晶', 'Rose Quartz'],
+  ['粉晶', 'Rose Quartz'],
+  ['月光石', 'Moonstone'],
+  ['白水晶', 'Clear Quartz'],
+  ['海蓝宝', 'Aquamarine'],
+  ['黑曜石', 'Obsidian'],
+  ['绿幽灵', 'Green Phantom Quartz'],
+  ['草莓晶', 'Strawberry Quartz'],
+  ['水草玛瑙', 'Moss Agate'],
+  ['玛瑙', 'Agate'],
+  ['玉髓', 'Chalcedony'],
+  ['虎眼', "Tiger's Eye"],
+  ['白月光', 'White Moonstone'],
+  ['星光', 'Starlight'],
+  ['星星', 'Star'],
+  ['葫芦', 'Gourd'],
+  ['吊坠', 'Pendant'],
+  ['平安扣', 'Peace Coin'],
+  ['貔貅', 'Pixiu'],
+  ['补木', 'Wood Element'],
+  ['聚财', 'Wealth'],
+  ['幸福', 'Happiness'],
+  ['好运', 'Good Fortune'],
+  ['守护', 'Guardian'],
+  ['疗愈', 'Healing'],
+  ['能量', 'Energy'],
+  ['天然', 'Natural'],
+  ['手串', 'Bracelet'],
+  ['手链', 'Bracelet'],
+  ['项链', 'Necklace'],
+]
+const CJK_TEXT = /[\u3400-\u9fff]/
+
+function englishProductName(name: string, chakraName = 'Crystal', id = '') {
+  if (!CJK_TEXT.test(name)) return name
+
+  let translated = name
+  for (const [source, target] of PRODUCT_NAME_TOKENS) {
+    translated = translated.replaceAll(source, ` ${target} `)
+  }
+  translated = translated
+    .replace(/[【】「」《》（）()]/g, ' ')
+    .replace(/[\u3400-\u9fff]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  const code = id
+    .split('-')
+    .slice(-2)
+    .join(' ')
+    .replace(/[^A-Za-z0-9. ]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const base = translated || `${chakraName} Crystal Talisman`
+  return code && !/\d/.test(base)
+    ? `${base} · ${code}`
+    : base
+}
+
 function getEnglishTitle(id: string, title: string) {
-  return ENGLISH_TITLE_BY_ID[id] ?? title
+  if (ENGLISH_TITLE_BY_ID[id]) return ENGLISH_TITLE_BY_ID[id]
+  const imported = ACTIVE_IMPORTED_PRODUCTS.find((product) => product.id === id)
+  if (imported) return englishProductName(imported.name, imported.chakraName, imported.id)
+  if (id.startsWith('admin-')) {
+    const adminProduct = getPublishedAdminProducts().find(
+      (product) => `admin-${product.id}` === id,
+    )
+    if (adminProduct) return englishProductName(adminProduct.name, adminProduct.collection, id)
+  }
+  return CJK_TEXT.test(title) ? englishProductName(title, 'Crystal', id) : title
 }
 
 function getTileSpecs(tile: Tile) {
@@ -1660,7 +1758,8 @@ function routeFromPath(): Route {
   if (page === 'series' && id) return { page: 'series', id }
   if (page === 'detail' && id) {
     if (REMOVED_IMPORTED_PRODUCT_IDS.has(id)) {
-      return { page: 'series', id: 'chakra-sacral' }
+      const removedProduct = importedProducts.find((product) => product.id === id)
+      return { page: 'series', id: `chakra-${removedProduct?.chakra ?? 'root'}` }
     }
     return { page: 'detail', id }
   }
@@ -3353,96 +3452,96 @@ function GuidePage({
 const LEGAL_PAGES = {
   privacy: {
     eyebrow: 'Privacy',
-    title: '隐私政策',
-    desc: '我们只收集完成订单、客户服务和网站体验优化所必需的信息。',
+    title: 'Privacy Policy',
+    desc: 'We collect only the information needed to fulfil orders, support customers, and improve the site.',
     sections: [
       {
-        title: '我们收集的信息',
-        body: '当你下单、订阅或联系我们时，可能会收集姓名、邮箱、收货地址、订单内容和必要的浏览数据。',
+        title: 'Information we collect',
+        body: 'When you place an order, subscribe, or contact us, we may collect your name, email, delivery address, order details, and limited browsing data needed to keep the site safe and useful.',
       },
       {
-        title: '信息如何使用',
-        body: '这些信息用于订单履约、物流通知、售后沟通、网站安全和基础数据分析。',
+        title: 'How we use it',
+        body: 'We use this information for order fulfilment, delivery updates, customer support, fraud prevention, site security, and basic performance measurement.',
       },
       {
-        title: '数据保护',
-        body: '正式接入后端后，敏感数据应存放在受保护的数据库和支付平台中，不应暴露在前端代码里。',
+        title: 'Data protection',
+        body: 'Order data is handled through protected server services. We do not intentionally expose customer addresses, phone numbers, or order notes in public pages.',
       },
     ],
   },
   terms: {
     eyebrow: 'Terms',
-    title: '服务条款',
-    desc: '使用 Lunar Talisman 网站即表示你理解并接受本页面列出的基础条款。',
+    title: 'Terms of Service',
+    desc: 'By using Lunar Talisman, you agree to the practical terms that govern browsing, ordering, delivery, and support.',
     sections: [
       {
-        title: '商品说明',
-        body: '水晶饰品因天然纹理、色泽和尺寸可能存在轻微差异，这也是天然晶石的独特之处。',
+        title: 'Product information',
+        body: 'Natural crystal jewellery can vary slightly in colour, pattern, and size. These differences are part of the character of a natural stone and are not manufacturing defects.',
       },
       {
-        title: '能量与疗愈免责声明',
-        body: '网站中的脉轮、水晶能量和仪式内容属于生活方式与灵性体验表达，不替代医疗、心理或专业建议。',
+        title: 'Wellness disclaimer',
+        body: 'Chakra, crystal energy, and ritual content is offered for lifestyle and spiritual reflection. It is not medical, psychological, financial, or professional advice.',
       },
       {
-        title: '订单责任',
-        body: '请在下单前确认商品、数量和收货信息。若地址填写错误，请尽快联系品牌方处理。',
+        title: 'Order responsibility',
+        body: 'Please check the product, quantity, and delivery details before submitting an order request. Contact us promptly if an address needs correcting.',
       },
     ],
   },
   shipping: {
     eyebrow: 'Shipping',
-    title: '配送政策',
-    desc: '我们会在订单确认后尽快准备护符，并提供清晰的发货状态。',
+    title: 'Shipping Policy',
+    desc: 'We prepare each talisman after the order is confirmed and keep the fulfilment status visible.',
     sections: [
       {
-        title: '处理时间',
-        body: '常规商品预计 2-5 个工作日内处理。月相仪式批次可能根据新月或满月日期安排发货。',
+        title: 'Handling time',
+        body: 'Standard pieces are usually prepared within 2–5 business days. Lunar ritual batches may be scheduled around a new moon or full moon date.',
       },
       {
-        title: '物流信息',
-        body: '正式订单系统接入后，发货后会通过邮件发送物流单号和追踪链接。',
+        title: 'Tracking',
+        body: 'Once a carrier accepts the parcel, the tracking number can be viewed from the Track Your Order page using the order number and checkout email.',
       },
       {
-        title: '国际配送',
-        body: '不同国家和地区的配送时效、关税和进口要求可能不同，最终以物流服务商信息为准。',
+        title: 'International delivery',
+        body: 'Delivery times, duties, and import requirements vary by destination. Any local taxes or customs charges are the responsibility of the recipient unless otherwise stated at checkout.',
       },
     ],
   },
   refund: {
     eyebrow: 'Refund',
-    title: '退换货政策',
-    desc: '我们希望每一件护符都被认真选择，也认真抵达。',
+    title: 'Refund & Returns',
+    desc: 'We want every talisman to be chosen with care and to arrive in the condition promised.',
     sections: [
       {
-        title: '可申请场景',
-        body: '如商品在运输中损坏、错发或存在明显质量问题，请在收到后 7 日内联系我们。',
+        title: 'When to contact us',
+        body: 'If an item arrives damaged, incorrect, or with a clear quality issue, contact us within 7 days of delivery with photos and your order number.',
       },
       {
-        title: '不可退换场景',
-        body: '已佩戴、影响二次销售、定制仪式商品或因天然纹理差异产生的主观偏好，一般不支持退换。',
+        title: 'Exclusions',
+        body: 'Worn items, items that cannot be resold, personalised ritual pieces, and preference-based complaints about natural stone variation are generally not eligible for return.',
       },
       {
-        title: '处理方式',
-        body: '请保留包装、商品照片和订单信息。确认后可根据情况安排补发、换货或退款。',
+        title: 'Resolution',
+        body: 'Keep the original packaging, item photos, and order information. After review, we may arrange a replacement, exchange, or refund where appropriate.',
       },
     ],
   },
   contact: {
     eyebrow: 'Contact',
-    title: '联系我们',
-    desc: '关于订单、合作、商品咨询或月相仪式批次，都可以从这里开始。',
+    title: 'Contact Us',
+    desc: 'Questions about orders, collaborations, products, or lunar ritual batches can start here.',
     sections: [
       {
-        title: '客户服务',
-        body: '邮箱：hello@lunartalisman.com。正式邮箱配置完成后，可接入后台工单和自动回复。',
+        title: 'Customer care',
+        body: 'Email hello@lunartalisman.com for order, product, or delivery questions. Please include your order number when one exists.',
       },
       {
-        title: '品牌合作',
-        body: '如果你是内容创作者、买手店或灵性空间主理人，欢迎发送合作意向与渠道介绍。',
+        title: 'Brand partnerships',
+        body: 'Creators, boutiques, and spiritual spaces are welcome to share a short introduction and partnership idea by email.',
       },
       {
-        title: '响应时间',
-        body: '通常会在 1-3 个工作日内回复。满月和新品批次期间可能略有延迟。',
+        title: 'Response time',
+        body: 'We usually reply within 1–3 business days. Full moon periods and new product batches may take a little longer.',
       },
     ],
   },
@@ -4071,8 +4170,8 @@ function CartPage({
   onClose?: () => void
 }) {
   usePageMeta({
-    title: '购物车 | Lunar Talisman',
-    description: '查看购物车、填写物流、留下留言并提交订单。',
+    title: 'Cart & Delivery | Lunar Talisman',
+    description: 'Review your cart, choose delivery, and submit an order request.',
   })
 
   const [notice, setNotice] = useState('')
@@ -4566,14 +4665,18 @@ function HomePage({
   navigate,
   cartCount,
   onOpenCart,
+  pageTitle = 'Lunar Talisman · 月之护符',
+  pageDescription = '高端七脉轮水晶饰品品牌站，进入一场月光、脉轮与水晶护符的沉浸式旅程。',
 }: {
   navigate: NavigateFn
   cartCount: number
   onOpenCart?: () => void
+  pageTitle?: string
+  pageDescription?: string
 }) {
   usePageMeta({
-    title: 'Lunar Talisman · 月之护符',
-    description: '高端七脉轮水晶饰品品牌站，进入一场月光、脉轮与水晶护符的沉浸式旅程。',
+    title: pageTitle,
+    description: pageDescription,
   })
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
@@ -4989,7 +5092,13 @@ function App() {
   if (route.page === 'cart') {
     return (
       <>
-        <HomePage navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
+        <HomePage
+          navigate={goTo}
+          cartCount={cartCount}
+          onOpenCart={openCart}
+          pageTitle="Cart & Delivery | Lunar Talisman"
+          pageDescription="Review your cart, choose delivery, and submit an order request."
+        />
         <CartPage
           navigate={goTo}
           cart={cart}
