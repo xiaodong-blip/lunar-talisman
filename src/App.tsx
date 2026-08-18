@@ -2152,36 +2152,24 @@ function useViewportMode() {
 
 function useMouseParallax() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 })
-  const rawMouseRef = useRef({ x: 0, y: 0 })
-  const smoothMouseRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
     let raf = 0
+    let latest = { x: 0, y: 0 }
 
     const onMouseMove = (event: MouseEvent) => {
-      rawMouseRef.current = {
+      latest = {
         x: (event.clientX / window.innerWidth - 0.5) * 2,
         y: (event.clientY / window.innerHeight - 0.5) * 2,
       }
-    }
-
-    const update = () => {
-      smoothMouseRef.current.x = lerp(
-        smoothMouseRef.current.x,
-        rawMouseRef.current.x,
-        0.07,
-      )
-      smoothMouseRef.current.y = lerp(
-        smoothMouseRef.current.y,
-        rawMouseRef.current.y,
-        0.07,
-      )
-      setMouse({ ...smoothMouseRef.current })
-      raf = requestAnimationFrame(update)
+      if (raf) return
+      raf = window.requestAnimationFrame(() => {
+        raf = 0
+        setMouse(latest)
+      })
     }
 
     window.addEventListener('mousemove', onMouseMove)
-    raf = requestAnimationFrame(update)
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove)
@@ -5000,8 +4988,8 @@ function HomePage({
   navigate,
   cartCount,
   onOpenCart,
-  pageTitle = 'Lunar Talisman · 月之护符',
-  pageDescription = '高端七脉轮水晶饰品品牌站，进入一场月光、脉轮与水晶护符的沉浸式旅程。',
+  pageTitle = 'Lunar Talisman · Crystal Rituals',
+  pageDescription = 'A cinematic crystal talisman house guided by moonlight, chakra energy, and ritual.',
 }: {
   navigate: NavigateFn
   cartCount: number
@@ -5040,18 +5028,30 @@ function HomePage({
     let raf = 0
 
     const update = () => {
+      raf = 0
       const container = containerRef.current
       if (container) {
         const maxScroll = container.scrollHeight - window.innerHeight
         const nextProgress = clamp(window.scrollY / Math.max(1, maxScroll))
         scrollProgressRef.current = nextProgress
-        setScrollProgress(nextProgress)
+        setScrollProgress((current) =>
+          Math.abs(current - nextProgress) > 0.0001 ? nextProgress : current,
+        )
       }
-      raf = requestAnimationFrame(update)
     }
 
-    raf = requestAnimationFrame(update)
-    return () => cancelAnimationFrame(raf)
+    const requestUpdate = () => {
+      if (!raf) raf = window.requestAnimationFrame(update)
+    }
+
+    requestUpdate()
+    window.addEventListener('scroll', requestUpdate, { passive: true })
+    window.addEventListener('resize', requestUpdate)
+    return () => {
+      window.removeEventListener('scroll', requestUpdate)
+      window.removeEventListener('resize', requestUpdate)
+      if (raf) window.cancelAnimationFrame(raf)
+    }
   }, [])
 
   const scrollToProgress = useCallback((targetProgress: number) => {
@@ -5281,11 +5281,13 @@ function HomePage({
 }
 
 function App() {
-  useEnglishUi()
   const { route, navigate } = useRoute()
   const [, refreshAdminProducts] = useState(0)
   const [cart, setCartState] = useState<CartLine[]>(() => readCartLines())
   const [cartOpen, setCartOpen] = useState(route.page === 'cart')
+  useEnglishUi(
+    `${route.page}-${'id' in route ? route.id : ''}-${cartOpen ? 'cart-open' : 'cart-closed'}`,
+  )
   const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0)
 
   const openCart = useCallback(() => {

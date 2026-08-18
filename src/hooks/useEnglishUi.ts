@@ -336,30 +336,16 @@ function translateTree(root: Node) {
   }
 }
 
-export function useEnglishUi() {
+export function useEnglishUi(renderKey = '') {
   useEffect(() => {
     document.documentElement.lang = 'en'
-    translateTree(document.body)
+    document.documentElement.setAttribute('translate', 'yes')
 
-    const observer = new MutationObserver((records) => {
-      for (const record of records) {
-        if (record.type === 'characterData') {
-          translateTree(record.target)
-        }
-        if (record.type === 'attributes' && record.target instanceof Element) {
-          translateElementAttributes(record.target)
-        }
-        for (const node of record.addedNodes) translateTree(node)
-      }
-    })
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-      characterData: true,
-      attributes: true,
-      attributeFilter: ['placeholder', 'aria-label', 'title', 'alt'],
-    })
-    return () => observer.disconnect()
-  }, [])
+    // Translate the current React screen once after it mounts. A persistent
+    // MutationObserver used to rewrite text whenever Chrome Translate changed
+    // the page, which made the browser translator and the app fight over the
+    // same DOM until the tab became unresponsive.
+    const frame = window.requestAnimationFrame(() => translateTree(document.body))
+    return () => window.cancelAnimationFrame(frame)
+  }, [renderKey])
 }
