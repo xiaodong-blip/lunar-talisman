@@ -24,7 +24,7 @@ import {
 } from './services/backend'
 import type { PublicTrackingOrder } from './services/backend'
 import { useEnglishUi } from './hooks/useEnglishUi'
-import { importedProducts } from './data/importedProducts'
+import { importedProducts, type ChakraId } from './data/importedProducts'
 import {
   importedSeriesGuides,
   type GuideSeries,
@@ -422,27 +422,216 @@ const ACTIVE_IMPORTED_PRODUCTS = importedProducts.filter(
   (product) => !REMOVED_IMPORTED_PRODUCT_IDS.has(product.id),
 )
 
-const IMPORTED_DETAILS: DetailData[] = ACTIVE_IMPORTED_PRODUCTS.map((product) => ({
-  id: product.id,
-  eyebrow: product.chakraName,
-  title: product.name,
-  desc: product.tagline,
-  color: product.color,
-  image: product.image,
-  images: product.images,
-  specs: [
-    product.chakraName,
-    ...product.specs.slice(0, 2),
-    `$${product.price}`,
-  ],
-  body: [
-    `Material — ${product.material}`,
-    ...product.energy,
-    product.benefits.length ? `Benefits — ${product.benefits.join(' ')}` : '',
-    ...product.howToWear.map((item) => `How to wear — ${item}`),
-    ...product.careRitual.map((item) => `Care & ritual — ${item}`),
-  ].filter(Boolean),
-}))
+type ChakraDetailContent = {
+  tagline: (name: string) => string
+  material: string
+  energy: string[]
+  benefits: string[]
+  howToWear: string[]
+  careRitual: string[]
+  specs: string[]
+}
+
+const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
+  root: {
+    tagline: (name) =>
+      `${name} is a grounding talisman for steadier days, rooted routines, and a calmer sense of belonging.`,
+    material:
+      'Natural crystal beads selected for a warm, tactile finish, strung on a flexible stretch cord for everyday wear.',
+    energy: [
+      'The Root Chakra is the body’s quiet foundation: safety, steadiness, and the confidence to take the next practical step. This piece is designed as a small visual and tactile reminder to return to the present moment.',
+      'Use it when life feels scattered, when a new season asks for courage, or whenever you want your daily ritual to begin with both feet on the ground.',
+    ],
+    benefits: [
+      'Supports a grounded, settled state of mind.',
+      'Creates a tactile reminder for steady routines and clear boundaries.',
+      'Pairs naturally with morning intention-setting and evening wind-down rituals.',
+    ],
+    howToWear: [
+      'Wear it on the wrist that feels most natural during work, travel, or moments that call for extra steadiness.',
+    ],
+    careRitual: [
+      'Wipe gently with a soft cloth and place it under moonlight overnight when you want to refresh the ritual connection.',
+    ],
+    specs: ['Grounding ritual', 'Everyday stretch fit'],
+  },
+  sacral: {
+    tagline: (name) =>
+      `${name} carries a warm Sacral Chakra rhythm for creativity, emotional flow, and the pleasure of being fully present.`,
+    material:
+      'Natural crystal beads with a polished finish, arranged to feel fluid on the wrist and comfortable through movement.',
+    energy: [
+      'The Sacral Chakra is associated with feeling, creativity, intimacy, and the ability to let life move through you. This talisman is a gentle cue to make room for curiosity instead of forcing every answer.',
+      'Reach for it when inspiration feels distant, emotions feel held back, or you want to reconnect with the simple pleasure of making, moving, and feeling.',
+    ],
+    benefits: [
+      'Encourages creative momentum without pressure.',
+      'Invites softer emotional awareness and healthy flow.',
+      'Makes a beautiful companion for journaling, art, dance, and restorative pauses.',
+    ],
+    howToWear: [
+      'Wear it during creative sessions or on days when you want to stay open to new ideas, conversations, and sensory details.',
+    ],
+    careRitual: [
+      'Clean with a dry or lightly damp soft cloth, then leave it in a calm space overnight before beginning a new intention.',
+    ],
+    specs: ['Creative flow ritual', 'Comfortable everyday fit'],
+  },
+  solar: {
+    tagline: (name) =>
+      `${name} is a Solar Plexus talisman for clear decisions, quiet confidence, and the courage to take up your own space.`,
+    material:
+      'Natural crystal beads chosen for a luminous polish, finished as a lightweight bracelet that can move with an active day.',
+    energy: [
+      'The Solar Plexus Chakra speaks to agency, direction, and the steady warmth of self-trust. This piece turns that idea into a wearable pause before you act, speak, or choose.',
+      'Keep it close when you are starting something new, setting a boundary, or practising the kind of confidence that feels calm rather than performative.',
+    ],
+    benefits: [
+      'Supports a clearer sense of intention before action.',
+      'Turns moments of hesitation into small, repeatable acts of self-trust.',
+      'Complements planning, presentations, movement, and new beginnings.',
+    ],
+    howToWear: [
+      'Wear it on busy or decision-heavy days and touch the beads once before taking your next step.',
+    ],
+    careRitual: [
+      'Polish with a soft cloth and let it rest near a warm window or candlelight during a reset ritual; avoid prolonged heat and water.',
+    ],
+    specs: ['Confidence ritual', 'Lightweight stretch fit'],
+  },
+  heart: {
+    tagline: (name) =>
+      `${name} is a Heart Chakra companion for softer boundaries, self-acceptance, and love that begins at home.`,
+    material:
+      'Natural crystal beads with a smooth, gentle polish designed to sit close to the skin as a daily heart-centred reminder.',
+    energy: [
+      'The Heart Chakra is where care, compassion, grief, and connection meet. This talisman is not a promise to feel perfect; it is a gentle invitation to meet yourself with more room and less judgement.',
+      'Wear it through relationship transitions, quiet self-care, or any day when you want tenderness and discernment to exist together.',
+    ],
+    benefits: [
+      'Encourages self-kindness without losing healthy boundaries.',
+      'Supports reflective moments around connection, trust, and repair.',
+      'Pairs with gratitude practice, breathwork, and restorative evening rituals.',
+    ],
+    howToWear: [
+      'Wear it close to the heart or on the wrist during conversations, journaling, and moments of intentional self-care.',
+    ],
+    careRitual: [
+      'Wipe gently after wear and place it on a clean cloth under soft moonlight as you name one thing you are ready to receive.',
+    ],
+    specs: ['Heart-centred ritual', 'Soft polished finish'],
+  },
+  throat: {
+    tagline: (name) =>
+      `${name} is a Throat Chakra talisman for honest expression, thoughtful listening, and words that feel like your own.`,
+    material:
+      'Natural crystal beads or accents with a clear polished finish, assembled for a light, easy-to-layer everyday piece.',
+    energy: [
+      'The Throat Chakra is the space between inner knowing and spoken truth. This talisman offers a small pause to listen first, then choose language that is clear, kind, and yours.',
+      'Keep it nearby before a difficult conversation, a creative presentation, or any moment when you want to communicate without abandoning yourself.',
+    ],
+    benefits: [
+      'Encourages clear, measured communication.',
+      'Creates a grounding cue before speaking, writing, or listening.',
+      'Supports creative voice and honest self-expression.',
+    ],
+    howToWear: [
+      'Wear it before meetings, writing sessions, or conversations where clarity and compassion both matter.',
+    ],
+    careRitual: [
+      'Clean with a soft cloth and rest it beside a notebook; write one sentence of truth before putting it on again.',
+    ],
+    specs: ['Expression ritual', 'Easy layering profile'],
+  },
+  'third-eye': {
+    tagline: (name) =>
+      `${name} is a Third Eye talisman for intuition, inner clarity, and the quiet intelligence beneath the noise.`,
+    material:
+      'Natural crystal beads selected for depth and light play, polished to make the piece feel intentional in both stillness and motion.',
+    energy: [
+      'The Third Eye Chakra is a language for inner attention: the ability to notice patterns, trust discernment, and let insight arrive without rushing it. This piece is designed as a visual anchor for that pause.',
+      'Use it during meditation, study, dream journaling, or any transition where you want to separate intuition from the volume of outside opinions.',
+    ],
+    benefits: [
+      'Supports reflective attention and pattern recognition.',
+      'Creates a calmer cue for meditation and focused study.',
+      'Encourages discernment before reacting or deciding.',
+    ],
+    howToWear: [
+      'Wear it during quiet work, meditation, or evening reflection; hold the beads for three slow breaths when you need to reset.',
+    ],
+    careRitual: [
+      'Wipe with a soft cloth and leave it in a dim, peaceful place overnight after an especially full day.',
+    ],
+    specs: ['Intuition ritual', 'Polished depth and light'],
+  },
+  crown: {
+    tagline: (name) =>
+      `${name} is a Crown Chakra talisman for stillness, spiritual connection, and a wider field of possibility.`,
+    material:
+      'Natural crystal beads and accents with a light-catching polish, arranged as a quiet piece for ritual, reflection, and everyday wear.',
+    energy: [
+      'The Crown Chakra is less about having every answer and more about making space for meaning, wonder, and a perspective larger than the immediate moment. This talisman marks that space with something you can return to.',
+      'Keep it close during meditation, moon rituals, creative reflection, or the first quiet minutes before a new chapter begins.',
+    ],
+    benefits: [
+      'Encourages stillness and spacious attention.',
+      'Supports personal rituals around reflection, gratitude, and intention.',
+      'Makes a gentle companion for meditation, reading, and moonlit pauses.',
+    ],
+    howToWear: [
+      'Wear it during meditation, reflective walks, or whenever you want a visible reminder to slow down and widen the view.',
+    ],
+    careRitual: [
+      'Place it on a clean cloth under moonlight overnight, then hold it briefly and name the quality you want to carry forward.',
+    ],
+    specs: ['Stillness ritual', 'Light-catching natural stone'],
+  },
+}
+
+function enrichedImportedProduct(product: (typeof importedProducts)[number]) {
+  const content = CHAKRA_DETAIL_CONTENT[product.chakra]
+  const displayName = englishProductName(product.name, product.chakraName, product.id)
+  const isGenericTagline =
+    !product.tagline.trim() ||
+    product.tagline.trim().toLowerCase() === `${product.chakraName.toLowerCase()} crystal talisman.`
+
+  return {
+    desc: isGenericTagline ? content.tagline(displayName) : product.tagline,
+    material: product.material.trim() || content.material,
+    energy: product.energy.length ? product.energy : content.energy,
+    benefits: product.benefits.length ? product.benefits : content.benefits,
+    howToWear: product.howToWear.length ? product.howToWear : content.howToWear,
+    careRitual: product.careRitual.length ? product.careRitual : content.careRitual,
+    specs: product.specs.length ? product.specs : content.specs,
+  }
+}
+
+const IMPORTED_DETAILS: DetailData[] = ACTIVE_IMPORTED_PRODUCTS.map((product) => {
+  const content = enrichedImportedProduct(product)
+
+  return {
+    id: product.id,
+    eyebrow: product.chakraName,
+    title: product.name,
+    desc: content.desc,
+    color: product.color,
+    image: product.image,
+    images: product.images,
+    specs: [
+      product.chakraName,
+      ...content.specs.slice(0, 2),
+      `$${product.price}`,
+    ],
+    body: [
+      `Material — ${content.material}`,
+      ...content.energy,
+      `Benefits — ${content.benefits.join(' ')}`,
+      ...content.howToWear.map((item) => `How to wear — ${item}`),
+      ...content.careRitual.map((item) => `Care & ritual — ${item}`),
+    ],
+  }
+})
 
 const IMPORTED_TILES: Tile[] = ACTIVE_IMPORTED_PRODUCTS.map((product) => ({
   id: product.id,
