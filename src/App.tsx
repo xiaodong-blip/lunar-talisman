@@ -108,6 +108,128 @@ type CartLine = {
   eyebrow: string
 }
 
+type ShippingRegion = 'Americas' | 'Europe' | 'Southeast Asia'
+
+const SHIPPING_DESTINATIONS: Record<ShippingRegion, readonly string[]> = {
+  Americas: [
+    'Antigua and Barbuda',
+    'Argentina',
+    'Bahamas',
+    'Barbados',
+    'Belize',
+    'Bolivia',
+    'Brazil',
+    'Canada',
+    'Chile',
+    'Colombia',
+    'Costa Rica',
+    'Cuba',
+    'Dominica',
+    'Dominican Republic',
+    'Ecuador',
+    'El Salvador',
+    'Grenada',
+    'Guatemala',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Jamaica',
+    'Mexico',
+    'Nicaragua',
+    'Panama',
+    'Paraguay',
+    'Peru',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent and the Grenadines',
+    'Suriname',
+    'Trinidad and Tobago',
+    'United States',
+    'Uruguay',
+    'Venezuela',
+  ],
+  Europe: [
+    'Albania',
+    'Andorra',
+    'Armenia',
+    'Austria',
+    'Azerbaijan',
+    'Belarus',
+    'Belgium',
+    'Bosnia and Herzegovina',
+    'Bulgaria',
+    'Croatia',
+    'Cyprus',
+    'Czechia',
+    'Denmark',
+    'Estonia',
+    'Finland',
+    'France',
+    'Georgia',
+    'Germany',
+    'Greece',
+    'Hungary',
+    'Iceland',
+    'Ireland',
+    'Italy',
+    'Kazakhstan',
+    'Kosovo',
+    'Latvia',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Malta',
+    'Moldova',
+    'Monaco',
+    'Montenegro',
+    'Netherlands',
+    'North Macedonia',
+    'Norway',
+    'Poland',
+    'Portugal',
+    'Romania',
+    'Russia',
+    'San Marino',
+    'Serbia',
+    'Slovakia',
+    'Slovenia',
+    'Spain',
+    'Sweden',
+    'Switzerland',
+    'Turkey',
+    'Ukraine',
+    'United Kingdom',
+    'Vatican City',
+  ],
+  'Southeast Asia': [
+    'Brunei',
+    'Cambodia',
+    'Indonesia',
+    'Laos',
+    'Malaysia',
+    'Myanmar',
+    'Philippines',
+    'Singapore',
+    'Thailand',
+    'Timor-Leste',
+    'Vietnam',
+  ],
+}
+
+const SHIPPING_RATES: Record<ShippingRegion, { standard: number; express: number }> = {
+  Americas: { standard: 8, express: 18 },
+  Europe: { standard: 14, express: 28 },
+  'Southeast Asia': { standard: 12, express: 24 },
+}
+
+function getShippingRegionForCountry(country: string): ShippingRegion {
+  return (
+    (Object.entries(SHIPPING_DESTINATIONS).find(([, countries]) =>
+      countries.includes(country),
+    )?.[0] as ShippingRegion | undefined) ?? 'Americas'
+  )
+}
+
 type StoredAdminProduct = {
   id: string
   name: string
@@ -2144,10 +2266,12 @@ function Navigation({
   navigate,
   cartCount = 0,
   onOpenCart,
+  visible = true,
 }: {
   navigate: NavigateFn
   cartCount?: number
   onOpenCart?: () => void
+  visible?: boolean
 }) {
   const navStyle: CSSProperties = {
     fontFamily: "'Imprima', sans-serif",
@@ -2210,6 +2334,7 @@ function Navigation({
 
   return (
     <nav
+      aria-hidden={!visible}
       style={{
         position: 'fixed',
         inset: '0 0 auto',
@@ -2217,7 +2342,10 @@ function Navigation({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        pointerEvents: 'auto',
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(-22px)',
+        pointerEvents: visible ? 'auto' : 'none',
+        transition: 'opacity 360ms ease, transform 520ms cubic-bezier(0.16, 1, 0.3, 1)',
         background:
           'linear-gradient(180deg, rgba(67,52,104,0.66), rgba(67,52,104,0.36))',
         borderBottom: '1px solid rgba(255,255,255,0.1)',
@@ -4182,7 +4310,9 @@ function TrackOrderPage({
                     {order.shippingMethod === 'express' ? 'Express shipping' : 'Standard shipping'}
                   </p>
                   <p style={{ margin: '6px 0 0', color: 'rgba(58,37,48,0.68)', fontSize: 14 }}>
-                    {order.shippingRegion || 'Delivery region pending'}
+                    {[order.shippingCountry, order.shippingRegion]
+                      .filter(Boolean)
+                      .join(' · ') || 'Delivery destination pending'}
                   </p>
                 </div>
               </div>
@@ -4375,18 +4505,14 @@ function CartPage({
     phone: '',
     address: '',
     shippingRegion: 'Americas',
+    shippingCountry: 'United States',
     shippingMethod: 'standard',
     message: '',
   })
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const shippingRates = {
-    Americas: { standard: 8, express: 18 },
-    Europe: { standard: 14, express: 28 },
-    'Southeast Asia': { standard: 12, express: 24 },
-  }
   const shippingFee =
-    shippingRates[form.shippingRegion as keyof typeof shippingRates]?.[
+    SHIPPING_RATES[form.shippingRegion as ShippingRegion]?.[
       form.shippingMethod as 'standard' | 'express'
     ] ?? 8
   const total = subtotal + (cart.length ? shippingFee : 0)
@@ -4434,6 +4560,7 @@ function CartPage({
       channel: '官网购物车',
       amount: total,
       shippingRegion: form.shippingRegion as PublicOrder['shippingRegion'],
+      shippingCountry: form.shippingCountry,
       shippingMethod: form.shippingMethod,
       shippingFee,
       shippingStatus: '待发货',
@@ -4460,6 +4587,7 @@ function CartPage({
         phone: '',
         address: '',
         shippingRegion: 'Americas',
+        shippingCountry: 'United States',
         shippingMethod: 'standard',
         message: '',
       })
@@ -4655,19 +4783,34 @@ function CartPage({
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
-                Delivery region
+                Delivery country
               </span>
               <select
-                value={form.shippingRegion}
+                value={form.shippingCountry}
                 onChange={(event) =>
-                  setForm((current) => ({ ...current, shippingRegion: event.target.value }))
+                  setForm((current) => ({
+                    ...current,
+                    shippingCountry: event.target.value,
+                    shippingRegion: getShippingRegionForCountry(event.target.value),
+                  }))
                 }
                 style={formFieldStyle}
               >
-                <option value="Americas">Americas</option>
-                <option value="Europe">Europe</option>
-                <option value="Southeast Asia">Southeast Asia</option>
+                {(Object.entries(SHIPPING_DESTINATIONS) as Array<
+                  [ShippingRegion, readonly string[]]
+                >).map(([region, countries]) => (
+                  <optgroup key={region} label={region}>
+                    {countries.map((country) => (
+                      <option key={country} value={country}>
+                        {country}
+                      </option>
+                    ))}
+                  </optgroup>
+                ))}
               </select>
+              <span style={{ fontSize: 12, color: 'rgba(58,37,48,0.54)', lineHeight: 1.45 }}>
+                Shipping rate: {form.shippingRegion}
+              </span>
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
@@ -4676,10 +4819,10 @@ function CartPage({
               </span>
               <select value={form.shippingMethod} onChange={(event) => setForm((current) => ({ ...current, shippingMethod: event.target.value }))} style={formFieldStyle}>
                 <option value="standard">
-                  Standard shipping · ${shippingRates[form.shippingRegion as keyof typeof shippingRates].standard}
+                  Standard shipping · ${SHIPPING_RATES[form.shippingRegion as ShippingRegion].standard}
                 </option>
                 <option value="express">
-                  Express shipping · ${shippingRates[form.shippingRegion as keyof typeof shippingRates].express}
+                  Express shipping · ${SHIPPING_RATES[form.shippingRegion as ShippingRegion].express}
                 </option>
               </select>
             </label>
@@ -5117,7 +5260,12 @@ function HomePage({
           }}
         />
 
-        <Navigation navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart} />
+        <Navigation
+          navigate={navigate}
+          cartCount={cartCount}
+          onOpenCart={onOpenCart}
+          visible={scrollProgress >= 0.7}
+        />
         <SceneOneUI
           opacity={values.scene1Opacity}
           uiVisible={uiVisible}

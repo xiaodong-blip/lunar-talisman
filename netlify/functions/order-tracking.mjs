@@ -25,6 +25,7 @@ function toPublicOrder(order) {
       : [],
     shippingMethod: order.shippingMethod || 'standard',
     shippingRegion: order.shippingRegion || '',
+    shippingCountry: order.shippingCountry || '',
     shippingStatus: order.shippingStatus || '待发货',
     trackingNumber: order.trackingNumber || '',
     trackingCarrier: order.trackingCarrier || '',

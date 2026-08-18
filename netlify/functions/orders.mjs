@@ -74,6 +74,7 @@ export async function handler(event) {
     const message = cleanText(input.message, 1000)
     const shippingMethod = clean(input.shippingMethod, 'standard')
     const shippingRegion = clean(input.shippingRegion, 'Americas')
+    const shippingCountry = cleanText(input.shippingCountry, 120) || shippingRegion
 
     if (!customer || !EMAIL_RE.test(email) || !address) {
       return json(400, { ok: false, error: 'invalid_customer_details' })
@@ -140,6 +141,7 @@ export async function handler(event) {
       amount,
       shippingMethod,
       shippingRegion,
+      shippingCountry,
       shippingFee,
       shippingStatus: '待发货',
       trackingNumber: '',

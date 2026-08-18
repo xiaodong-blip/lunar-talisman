@@ -730,6 +730,8 @@ function OrdersTable({
       '商品',
       '商品明细',
       '订单留言',
+      '配送地区',
+      '配送国家',
       '物流方式',
       '物流费',
       '物流状态',
@@ -751,6 +753,8 @@ function OrdersTable({
         ? order.items.map((item) => `${item.name} x ${item.quantity}`).join('；')
         : '',
       order.message || '',
+      order.shippingRegion || '',
+      order.shippingCountry || '',
       order.shippingMethod || '',
       order.shippingFee || 0,
       order.shippingStatus || '',
@@ -986,6 +990,10 @@ function OrdersTable({
                       <div>
                         <strong>Region:</strong>
                         {' '}{order.shippingRegion || 'Americas'}
+                      </div>
+                      <div>
+                        <strong>Country:</strong>
+                        {' '}{order.shippingCountry || '—'}
                       </div>
                       {Array.isArray(order.trackingEvents) && order.trackingEvents.length ? (
                         <div>

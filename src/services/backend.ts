@@ -17,6 +17,7 @@ export type PublicTrackingOrder = Pick<
   | 'items'
   | 'shippingMethod'
   | 'shippingRegion'
+  | 'shippingCountry'
   | 'shippingStatus'
   | 'trackingNumber'
   | 'trackingCarrier'
