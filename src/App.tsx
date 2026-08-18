@@ -591,7 +591,10 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
 
 function enrichedImportedProduct(product: (typeof importedProducts)[number]) {
   const content = CHAKRA_DETAIL_CONTENT[product.chakra]
-  const displayName = englishProductName(product.name, product.chakraName, product.id)
+  // This runs while the module is being created. Keep it independent of the
+  // later display-name helpers so a product page can never block the whole app
+  // from mounting during startup.
+  const displayName = `${product.chakraName} crystal talisman`
   const isGenericTagline =
     !product.tagline.trim() ||
     product.tagline.trim().toLowerCase() === `${product.chakraName.toLowerCase()} crystal talisman.`
