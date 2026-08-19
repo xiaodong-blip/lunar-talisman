@@ -264,6 +264,9 @@ const REMOVED_IMPORTED_PRODUCT_IDS = new Set([
   'sacral-sacral-chakra-faceted-carnelian-bracelet-10mm',
   'sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm',
   'sacral-sacral-chakra-flame-orange-agate-bracelet-10mm',
+  // The supplier's primary image is an access-denied placeholder rather than
+  // product content, so do not expose its collection card or detail URL.
+  'sacral-sacral-chakra-radiance-sunstone-bracelet-8mm',
   'crown-i02-2503-ddd',
 ])
 
