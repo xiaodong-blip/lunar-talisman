@@ -14,19 +14,18 @@ import {
   ShoppingBag,
   Upload,
 } from 'lucide-react'
-import { readOrders, saveOrders } from './services/orders'
 import type { PublicOrder } from './services/orders'
 import {
-  clearAdminToken,
+  checkAdminSession,
   downloadOrdersCsv,
   fetchAdminOrders,
   fetchAdminProducts,
-  hasAdminToken,
   loginAdmin,
+  logoutAdmin,
   saveAdminOrders,
   saveAdminProducts,
 } from './services/backend'
-import type { AdminProductRecord } from './services/backend'
+import type { AdminOrderUpdate, AdminProductRecord } from './services/backend'
 import { usePageMeta } from './hooks/usePageMeta'
 
 type NavigateFn = (path: string) => void
@@ -41,119 +40,8 @@ type AdminOrder = PublicOrder
 type AdminProduct = AdminProductRecord
 
 const ADMIN_ACCOUNT = 'Lunar Talisman'
-const PRODUCT_KEY = 'lunar-talisman-admin-products'
-
-const initialOrders: AdminOrder[] = [
-  {
-    id: 'LT-20260807-001',
-    customer: 'Mia Chen',
-    email: 'mia@example.com',
-    phone: '+1 213 555 1024',
-    address: '128 Moonstone Ave, Los Angeles, CA 90026, USA',
-    product: '顶轮疗愈 · 白水晶手链',
-    items: [{ id: 'P-001', name: '顶轮疗愈 · 白水晶手链', price: 89, quantity: 1 }],
-    channel: '官网',
-    amount: 89,
-    shippingMethod: 'standard',
-    shippingFee: 8,
-    shippingStatus: '待发货',
-    trackingCarrier: '',
-    trackingNumber: '',
-    message: '请使用礼品包装。',
-    status: '已付款',
-    createdAt: '08/07 10:24',
-  },
-  {
-    id: 'LT-20260807-002',
-    customer: 'Olivia Moon',
-    email: 'olivia@example.com',
-    phone: '+1 718 555 0199',
-    address: '42 Crescent Lane, Brooklyn, NY 11211, USA',
-    product: '满月祝福 · 月光石项链',
-    items: [{ id: 'full-moon-necklace', name: '满月祝福 · 月光石项链', price: 149, quantity: 1 }],
-    channel: 'Instagram',
-    amount: 149,
-    shippingMethod: 'express',
-    shippingFee: 18,
-    shippingStatus: '备货中',
-    trackingCarrier: '',
-    trackingNumber: '',
-    message: '',
-    status: '备货中',
-    createdAt: '08/07 09:42',
-  },
-  {
-    id: 'LT-20260806-019',
-    customer: 'Luna Wang',
-    email: 'luna@example.com',
-    phone: '+1 206 555 0866',
-    address: '908 Sage Street, Seattle, WA 98103, USA',
-    product: '心轮疗愈 · 玫瑰晶手链',
-    items: [{ id: 'heart-rose-quartz', name: '心轮疗愈 · 玫瑰晶手链', price: 69, quantity: 1 }],
-    channel: '官网',
-    amount: 69,
-    shippingMethod: 'standard',
-    shippingFee: 8,
-    shippingStatus: '已发货',
-    trackingCarrier: 'USPS',
-    trackingNumber: '9400111899223857293847',
-    message: '门口可直接放置。',
-    status: '已发货',
-    createdAt: '08/06 22:10',
-  },
-  {
-    id: 'LT-20260806-018',
-    customer: 'Ava Star',
-    email: 'ava@example.com',
-    phone: '+1 512 555 0188',
-    address: '17 Aurora Road, Austin, TX 78704, USA',
-    product: '新月仪式 · 净化套装',
-    items: [{ id: 'new-moon-set', name: '新月仪式 · 净化套装', price: 129, quantity: 1 }],
-    channel: 'TikTok',
-    amount: 129,
-    shippingMethod: 'standard',
-    shippingFee: 8,
-    shippingStatus: '已签收',
-    trackingCarrier: 'UPS',
-    trackingNumber: '1Z999AA10123456784',
-    message: '',
-    status: '已完成',
-    createdAt: '08/06 18:36',
-  },
-]
-
-const initialProducts: AdminProduct[] = [
-  {
-    id: 'P-001',
-    name: '顶轮疗愈 · 白水晶手链',
-    collection: '脉轮疗愈',
-    price: 89,
-    stock: 42,
-    image:
-      'https://images.unsplash.com/photo-1599658880436-c617b95cbc3f?w=600',
-    status: '上架',
-  },
-  {
-    id: 'P-002',
-    name: '心轮疗愈 · 玫瑰晶手链',
-    collection: '脉轮疗愈',
-    price: 69,
-    stock: 31,
-    image:
-      'https://images.unsplash.com/photo-1605100802531-9abce0fdda72?w=600',
-    status: '上架',
-  },
-  {
-    id: 'P-003',
-    name: '新月仪式 · 净化套装',
-    collection: '月相仪式',
-    price: 129,
-    stock: 18,
-    image:
-      'https://images.unsplash.com/photo-1532693322450-2cb5c511067d?w=600',
-    status: '上架',
-  },
-]
+const initialOrders: AdminOrder[] = []
+const initialProducts: AdminProduct[] = []
 
 const trafficData = [
   { label: 'Mon', visits: 860, rate: 2.8 },
@@ -247,17 +135,6 @@ function escapeCsvCell(value: string | number) {
     return `"${text.replace(/"/g, '""')}"`
   }
   return text
-}
-
-function readStoredProducts() {
-  try {
-    const raw = window.localStorage.getItem(PRODUCT_KEY)
-    if (!raw) return initialProducts
-    const parsed = JSON.parse(raw) as AdminProduct[]
-    return Array.isArray(parsed) ? parsed : initialProducts
-  } catch {
-    return initialProducts
-  }
 }
 
 function MetricCard({
@@ -1086,13 +963,12 @@ function ProductManager({
       status: form.status,
     }
     const nextProducts = [nextProduct, ...products]
-    setProducts(nextProducts)
-    window.localStorage.setItem(PRODUCT_KEY, JSON.stringify(nextProducts))
     try {
-      await saveAdminProducts(nextProducts)
+      const savedProducts = await saveAdminProducts(nextProducts)
+      setProducts(savedProducts)
       setNotice('商品已保存到数据库，并已同步到前台商品入口。')
     } catch {
-      setNotice('商品已保存到当前浏览器；数据库同步失败，请检查后台环境变量或稍后重试。')
+      setNotice('数据库同步失败，商品未保存。请检查后台环境变量或稍后重试。')
     } finally {
       setSaving(false)
     }
@@ -1338,13 +1214,27 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
     description: 'Manage Lunar Talisman orders, products, traffic, and revenue.',
     noindex: true,
   })
-  const [authed, setAuthed] = useState(() => hasAdminToken())
+  const [authed, setAuthed] = useState(false)
   const [activeTab, setActiveTab] = useState<AdminTab>('overview')
-  const [orders, setOrdersState] = useState<AdminOrder[]>(() => readOrders(initialOrders))
-  const [products, setProducts] = useState<AdminProduct[]>(() => readStoredProducts())
+  const [orders, setOrdersState] = useState<AdminOrder[]>(initialOrders)
+  const [products, setProducts] = useState<AdminProduct[]>(initialProducts)
 
   useEffect(() => {
     document.title = 'Admin Console | Lunar Talisman'
+  }, [])
+
+  useEffect(() => {
+    let active = true
+    checkAdminSession()
+      .then(() => {
+        if (active) setAuthed(true)
+      })
+      .catch(() => {
+        if (active) setAuthed(false)
+      })
+    return () => {
+      active = false
+    }
   }, [])
 
   useEffect(() => {
@@ -1354,22 +1244,22 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
 
     fetchAdminOrders()
       .then((serverOrders) => {
-        if (!active || serverOrders.length === 0) return
+        if (!active) return
         setOrdersState(serverOrders)
-        saveOrders(serverOrders)
       })
       .catch(() => {
-        // 保留本地兜底数据，避免后台因为网络或环境变量问题空白。
+        // 安全优先：服务端不可用时显示空态，不展示可能过期或误导的演示订单。
+        if (active) setOrdersState([])
       })
 
     fetchAdminProducts()
       .then((serverProducts) => {
-        if (!active || serverProducts.length === 0) return
+        if (!active) return
         setProducts(serverProducts)
-        window.localStorage.setItem(PRODUCT_KEY, JSON.stringify(serverProducts))
       })
       .catch(() => {
-        // 保留本地兜底数据。
+        // 安全优先：商品数据只来自服务端，不落入浏览器本地存储。
+        if (active) setProducts([])
       })
 
     return () => {
@@ -1378,15 +1268,21 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
   }, [authed])
 
   const setOrders = (nextOrders: AdminOrder[]) => {
+    const updates: AdminOrderUpdate[] = nextOrders.map((order) => ({
+      id: order.id,
+      status: order.status,
+      shippingStatus: order.shippingStatus || '待发货',
+      trackingCarrier: order.trackingCarrier || '',
+      trackingNumber: order.trackingNumber || '',
+    }))
     setOrdersState(nextOrders)
-    saveOrders(nextOrders)
-    void saveAdminOrders(nextOrders)
+    void saveAdminOrders(updates)
       .then((savedOrders) => {
         setOrdersState(savedOrders)
-        saveOrders(savedOrders)
       })
       .catch(() => {
-        // 后台状态更新失败时不打断 UI，下一次登录仍可从本地兜底看到当前修改。
+        // 服务端拒绝时回滚，避免 UI 看起来已保存但数据库未更新。
+        setOrdersState(orders)
       })
   }
 
@@ -1404,8 +1300,8 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
     return <AdminLogin onLogin={() => setAuthed(true)} />
   }
 
-  const logout = () => {
-    clearAdminToken()
+  const logout = async () => {
+    await logoutAdmin().catch(() => undefined)
     setAuthed(false)
   }
 

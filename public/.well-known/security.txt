@@ -1,0 +1,4 @@
+Contact: https://lunartalisman.com/contact
+Preferred-Languages: en
+Policy: https://lunartalisman.com/privacy
+Expires: 2027-08-19T00:00:00.000Z

@@ -1,19 +1,25 @@
 import {
   adminAccount,
+  adminSessionCookie,
   enforceRateLimit,
-  getSessionSecret,
+  hasSecureSessionSecret,
   json,
   methodNotAllowed,
   parseJson,
+  requireTrustedOrigin,
   signToken,
   verifyLogin,
 } from './_backend.mjs'
+import { randomUUID } from 'node:crypto'
 
 export async function handler(event) {
   if (event.httpMethod !== 'POST') return methodNotAllowed()
+  if (!requireTrustedOrigin(event)) {
+    return json(403, { ok: false, error: 'untrusted_origin' })
+  }
 
   try {
-    const rate = enforceRateLimit(event, { limit: 8, windowMs: 15 * 60 * 1000 })
+    const rate = enforceRateLimit(event, { limit: 5, windowMs: 15 * 60 * 1000 })
     if (!rate.ok) {
       return json(
         429,
@@ -24,7 +30,7 @@ export async function handler(event) {
     const { account = '', password = '' } = parseJson(event)
     const result = verifyLogin(account, password)
 
-    if (result.setupRequired || !getSessionSecret()) {
+    if (result.setupRequired || !hasSecureSessionSecret()) {
       return json(503, {
         ok: false,
         error: 'admin_security_not_configured',
@@ -40,9 +46,18 @@ export async function handler(event) {
       })
     }
 
-    const expiresAt = Date.now() + 1000 * 60 * 60 * 8
-    const token = signToken({ account: adminAccount(), exp: expiresAt })
-    return json(200, { ok: true, token, expiresAt })
+    const expiresAt = Date.now() + 1000 * 60 * 60
+    const token = signToken({
+      account: adminAccount(),
+      aud: 'lunar-talisman-admin',
+      sid: randomUUID(),
+      exp: expiresAt,
+    })
+    return json(
+      200,
+      { ok: true, expiresAt },
+      { 'Set-Cookie': adminSessionCookie(token, undefined, event) },
+    )
   } catch {
     return json(400, { ok: false, error: 'bad_request' })
   }

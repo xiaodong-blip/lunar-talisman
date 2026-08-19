@@ -10,6 +10,14 @@ export type AdminProductRecord = {
   status: '上架' | '草稿'
 }
 
+export type AdminOrderUpdate = {
+  id: string
+  status: PublicOrder['status']
+  shippingStatus: NonNullable<PublicOrder['shippingStatus']>
+  trackingCarrier: string
+  trackingNumber: string
+}
+
 export type PublicTrackingOrder = Pick<
   PublicOrder,
   | 'id'
@@ -26,11 +34,10 @@ export type PublicTrackingOrder = Pick<
   trackingEvents: TrackingEvent[]
 }
 
-const ADMIN_TOKEN_KEY = 'lunar-talisman-admin-token'
-
 async function requestJson<T>(path: string, init: RequestInit = {}) {
   const response = await fetch(path, {
     ...init,
+    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
       ...(init.headers || {}),
@@ -49,37 +56,25 @@ async function requestJson<T>(path: string, init: RequestInit = {}) {
   return data
 }
 
-export function getAdminToken() {
-  return window.sessionStorage.getItem(ADMIN_TOKEN_KEY) || ''
-}
-
-export function setAdminToken(token: string) {
-  window.sessionStorage.setItem(ADMIN_TOKEN_KEY, token)
-}
-
-export function clearAdminToken() {
-  window.sessionStorage.removeItem(ADMIN_TOKEN_KEY)
-}
-
-export function hasAdminToken() {
-  return Boolean(getAdminToken())
-}
-
-function authHeaders(): Record<string, string> {
-  const token = getAdminToken()
-  return token ? { Authorization: `Bearer ${token}` } : {}
-}
-
 export async function loginAdmin(account: string, password: string) {
-  const data = await requestJson<{ ok: true; token: string; expiresAt: number }>(
+  return requestJson<{ ok: true; expiresAt: number }>(
     '/.netlify/functions/admin-login',
     {
       method: 'POST',
       body: JSON.stringify({ account, password }),
     },
   )
-  setAdminToken(data.token)
-  return data
+}
+
+export async function checkAdminSession() {
+  await requestJson<{ ok: true }>('/.netlify/functions/admin-session')
+  return true
+}
+
+export async function logoutAdmin() {
+  await requestJson<{ ok: true }>('/.netlify/functions/admin-session', {
+    method: 'POST',
+  })
 }
 
 export async function fetchAdminOrders() {
@@ -87,19 +82,17 @@ export async function fetchAdminOrders() {
     '/.netlify/functions/admin-orders',
     {
       method: 'GET',
-      headers: authHeaders(),
     },
   )
   return data.orders
 }
 
-export async function saveAdminOrders(orders: PublicOrder[]) {
+export async function saveAdminOrders(updates: AdminOrderUpdate[]) {
   const data = await requestJson<{ ok: true; orders: PublicOrder[] }>(
     '/.netlify/functions/admin-orders',
     {
       method: 'PUT',
-      headers: authHeaders(),
-      body: JSON.stringify({ orders }),
+      body: JSON.stringify({ updates }),
     },
   )
   return data.orders
@@ -131,7 +124,6 @@ export async function fetchAdminProducts() {
     '/.netlify/functions/admin-products',
     {
       method: 'GET',
-      headers: authHeaders(),
     },
   )
   return data.products
@@ -142,7 +134,6 @@ export async function saveAdminProducts(products: AdminProductRecord[]) {
     '/.netlify/functions/admin-products',
     {
       method: 'PUT',
-      headers: authHeaders(),
       body: JSON.stringify({ products }),
     },
   )
@@ -158,7 +149,7 @@ export async function fetchPublishedProducts() {
 
 export async function downloadOrdersCsv() {
   const response = await fetch('/.netlify/functions/admin-orders-download', {
-    headers: authHeaders(),
+    credentials: 'same-origin',
   })
 
   if (!response.ok) {

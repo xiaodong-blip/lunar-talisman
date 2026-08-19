@@ -8,6 +8,7 @@ import {
   parseJson,
   productsStore,
   readJsonList,
+  requireTrustedOrigin,
 } from './_backend.mjs'
 import { STATIC_CATALOG, catalogMap } from './_catalog.mjs'
 import { randomUUID } from 'node:crypto'
@@ -55,6 +56,7 @@ function getIdempotencyKey(event) {
 export async function handler(event) {
   connectBlobs(event)
   if (event.httpMethod !== 'POST') return methodNotAllowed()
+  if (!requireTrustedOrigin(event)) return json(403, { ok: false, error: 'untrusted_origin' })
 
   const rate = enforceRateLimit(event, { limit: 12, windowMs: 10 * 60 * 1000 })
   if (!rate.ok) {

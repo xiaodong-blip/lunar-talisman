@@ -15,7 +15,6 @@ import {
 import AdminPage from './AdminPage'
 import { usePageMeta } from './hooks/usePageMeta'
 import { trackPageView } from './services/analytics'
-import { appendOrder } from './services/orders'
 import type { PublicOrder } from './services/orders'
 import {
   createPublicOrder,
@@ -4565,7 +4564,6 @@ function CartPage({
     setSubmitting(true)
     try {
       const created = await createPublicOrder(order)
-      appendOrder(created)
       setDoneOrderId(created.id)
       clearCart()
       setNotice('订单已进入后台，后续可在后台查看物流与留言。')
@@ -4580,10 +4578,9 @@ function CartPage({
         message: '',
       })
     } catch {
-      appendOrder(order)
-      setDoneOrderId(order.id)
-      clearCart()
-      setNotice('已保存到本地兜底订单；数据库同步稍后完成时会写入后台。')
+      setNotice(
+        'We could not submit your order securely. Your cart and delivery details are still here—please check your connection and try again.',
+      )
     } finally {
       setSubmitting(false)
     }

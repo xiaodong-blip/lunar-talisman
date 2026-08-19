@@ -7,6 +7,7 @@ import {
   ordersStore,
   parseJson,
   readJsonList,
+  requireTrustedOrigin,
 } from './_backend.mjs'
 
 const KEY = 'orders'
@@ -37,6 +38,7 @@ function toPublicOrder(order) {
 export async function handler(event) {
   connectBlobs(event)
   if (event.httpMethod !== 'POST') return methodNotAllowed()
+  if (!requireTrustedOrigin(event)) return json(403, { ok: false, error: 'untrusted_origin' })
 
   const rate = enforceRateLimit(event, { limit: 10, windowMs: 10 * 60 * 1000 })
   if (!rate.ok) {

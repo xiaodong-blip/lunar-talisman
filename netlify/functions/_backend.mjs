@@ -5,7 +5,8 @@ export const jsonHeaders = {
   'Content-Type': 'application/json; charset=utf-8',
   'Cache-Control': 'no-store',
   'X-Content-Type-Options': 'nosniff',
-  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Referrer-Policy': 'no-referrer',
+  'Cross-Origin-Resource-Policy': 'same-origin',
 }
 
 export function json(statusCode, body, extraHeaders = {}) {
@@ -90,6 +91,11 @@ export function getSessionSecret() {
   return process.env.LUNAR_ADMIN_SESSION_SECRET || ''
 }
 
+export function hasSecureSessionSecret() {
+  const secret = getSessionSecret()
+  return secret.length >= 32 && !/^(.)\1+$/.test(secret)
+}
+
 function safeEqual(a, b) {
   const left = Buffer.from(String(a))
   const right = Buffer.from(String(b))
@@ -110,7 +116,9 @@ export function verifyLogin(account, password) {
 
 export function signToken(payload) {
   const secret = getSessionSecret()
-  if (!secret) throw new Error('Missing LUNAR_ADMIN_SESSION_SECRET')
+  if (!hasSecureSessionSecret()) {
+    throw new Error('LUNAR_ADMIN_SESSION_SECRET must be at least 32 characters')
+  }
   const encodedPayload = Buffer.from(JSON.stringify(payload)).toString('base64url')
   const signature = createHmac('sha256', secret).update(encodedPayload).digest('base64url')
   return `${encodedPayload}.${signature}`
@@ -118,7 +126,7 @@ export function signToken(payload) {
 
 export function verifyToken(token) {
   const secret = getSessionSecret()
-  if (!secret || !token || !token.includes('.')) return false
+  if (!hasSecureSessionSecret() || !token || !token.includes('.')) return false
 
   const [encodedPayload, signature] = token.split('.')
   const expected = createHmac('sha256', secret).update(encodedPayload).digest('base64url')
@@ -126,16 +134,68 @@ export function verifyToken(token) {
 
   try {
     const payload = JSON.parse(Buffer.from(encodedPayload, 'base64url').toString('utf8'))
-    return payload.account === adminAccount() && Number(payload.exp) > Date.now()
+    return (
+      payload.account === adminAccount() &&
+      payload.aud === 'lunar-talisman-admin' &&
+      typeof payload.sid === 'string' &&
+      payload.sid.length >= 16 &&
+      Number(payload.exp) > Date.now()
+    )
   } catch {
     return false
   }
 }
 
+export function getCookie(event, name) {
+  const cookieHeader = String(event?.headers?.cookie || event?.headers?.Cookie || '')
+  const encodedName = `${name}=`
+  for (const item of cookieHeader.split(';')) {
+    const value = item.trim()
+    if (!value.startsWith(encodedName)) continue
+    try {
+      return decodeURIComponent(value.slice(encodedName.length))
+    } catch {
+      return ''
+    }
+  }
+  return ''
+}
+
+export const ADMIN_SESSION_COOKIE = 'lunar_talisman_admin'
+export const ADMIN_SESSION_MAX_AGE_SECONDS = 60 * 60
+
+export function adminSessionCookie(token, maxAge = ADMIN_SESSION_MAX_AGE_SECONDS, event) {
+  const forwardedProto = String(
+    event?.headers?.['x-forwarded-proto'] || event?.headers?.['X-Forwarded-Proto'] || '',
+  )
+  const host = String(event?.headers?.host || event?.headers?.Host || '').toLowerCase()
+  const secure =
+    forwardedProto === 'https' ||
+    (!host.startsWith('localhost') && !host.startsWith('127.0.0.1'))
+  return `${ADMIN_SESSION_COOKIE}=${encodeURIComponent(token)}; Path=/.netlify/functions/; Max-Age=${maxAge}; HttpOnly;${secure ? ' Secure;' : ''} SameSite=Strict`
+}
+
 export function requireAdmin(event) {
-  const auth = event.headers.authorization || event.headers.Authorization || ''
-  const token = auth.startsWith('Bearer ') ? auth.slice(7) : ''
-  return verifyToken(token)
+  return verifyToken(getCookie(event, ADMIN_SESSION_COOKIE))
+}
+
+const ALLOWED_ORIGINS = new Set([
+  'https://lunartalisman.com',
+  'https://www.lunartalisman.com',
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+])
+
+export function isTrustedOrigin(event) {
+  const origin = String(event?.headers?.origin || event?.headers?.Origin || '').trim()
+  if (!origin) return false
+  if (ALLOWED_ORIGINS.has(origin)) return true
+  if (/^https?:\/\/(?:localhost|127\.0\.0\.1):\d+$/i.test(origin)) return true
+  return /^https:\/\/[a-z0-9-]+--lunar-talisman\.netlify\.app$/i.test(origin)
+}
+
+export function requireTrustedOrigin(event) {
+  return isTrustedOrigin(event)
 }
 
 const requestBuckets = new Map()
@@ -153,6 +213,11 @@ export function getClientIp(event) {
 
 export function enforceRateLimit(event, { limit = 20, windowMs = 10 * 60 * 1000 } = {}) {
   const now = Date.now()
+  if (requestBuckets.size > 5000) {
+    for (const [key, bucket] of requestBuckets) {
+      if (now - bucket.startedAt >= windowMs) requestBuckets.delete(key)
+    }
+  }
   const key = `${getClientIp(event)}:${event?.path || 'function'}`
   const bucket = requestBuckets.get(key)
   if (!bucket || now - bucket.startedAt >= windowMs) {
