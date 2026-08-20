@@ -4987,14 +4987,52 @@ function CartPage({
               <Row label="合计" value={formatProductPrice(total)} strong />
             </div>
 
-            <button type="submit" disabled={submitting || paymentReady === null} style={{ border: 0, borderRadius: 999, background: '#3a2530', color: '#fff', padding: '14px 18px', fontWeight: 900, cursor: submitting ? 'wait' : 'pointer', boxShadow: '0 14px 30px rgba(58,37,48,0.22)', opacity: submitting || paymentReady === null ? 0.72 : 1 }}>
-              {submitting
-                ? 'Opening secure checkout...'
-                : paymentReady === null
-                  ? 'Preparing secure checkout...'
-                  : paymentReady
-                    ? 'Pay securely with PayPal'
-                    : 'Secure checkout unavailable'}
+            <button
+              type="submit"
+              disabled={submitting || paymentReady !== true}
+              aria-label="Pay securely with PayPal"
+              style={{
+                border: 0,
+                borderRadius: 14,
+                minHeight: 52,
+                background: paymentReady ? '#ffc439' : 'rgba(58,37,48,0.16)',
+                color: '#003087',
+                padding: '12px 18px',
+                fontWeight: 900,
+                cursor: submitting || paymentReady !== true ? 'wait' : 'pointer',
+                boxShadow: paymentReady ? '0 14px 30px rgba(255,196,57,0.28)' : 'none',
+                opacity: submitting || paymentReady !== true ? 0.72 : 1,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                gap: 9,
+                fontSize: 17,
+                letterSpacing: '-0.02em',
+              }}
+            >
+              {submitting ? (
+                'Opening secure checkout...'
+              ) : paymentReady === null ? (
+                'Preparing PayPal...'
+              ) : paymentReady ? (
+                <>
+                  <span style={{ color: '#003087', fontWeight: 950 }}>Pay</span>
+                  <span style={{ color: '#009cde', fontWeight: 950 }}>Pal</span>
+                  <span
+                    style={{
+                      width: 1,
+                      height: 21,
+                      margin: '0 2px',
+                      background: 'rgba(0,48,135,0.22)',
+                    }}
+                  />
+                  <span style={{ color: '#003087', fontSize: 14, letterSpacing: 0 }}>
+                    Checkout
+                  </span>
+                </>
+              ) : (
+                'PayPal checkout unavailable'
+              )}
             </button>
             <p style={{ margin: 0, color: 'rgba(58,37,48,0.5)', fontSize: 12, lineHeight: 1.5 }}>
               Payment is completed securely on PayPal. We only confirm your order after PayPal verifies the capture.
