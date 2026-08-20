@@ -17,12 +17,17 @@ export type PublicOrder = {
   shippingRegion?: 'Americas' | 'Europe' | 'Southeast Asia'
   shippingCountry?: string
   shippingFee?: number
-  shippingStatus?: '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
+  shippingStatus?: '待支付' | '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
   trackingNumber?: string
   trackingCarrier?: string
   trackingEvents?: TrackingEvent[]
   message?: string
   status: '待处理' | '已付款' | '备货中' | '已发货' | '已完成'
+  paymentStatus?: 'pending' | 'paid' | 'refunded' | 'failed'
+  paymentProvider?: 'paypal' | ''
+  paymentId?: string
+  paymentCaptureId?: string
+  paymentCapturedAt?: string
   createdAt: string
 }
 

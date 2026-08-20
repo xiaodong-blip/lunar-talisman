@@ -9,6 +9,7 @@ import {
   Eye,
   LayoutDashboard,
   LogOut,
+  MessageSquare,
   PackagePlus,
   Search,
   ShoppingBag,
@@ -18,22 +19,31 @@ import type { PublicOrder } from './services/orders'
 import {
   checkAdminSession,
   downloadOrdersCsv,
+  fetchAdminAnalytics,
   fetchAdminOrders,
   fetchAdminProducts,
+  fetchAdminSupportRequests,
   loginAdmin,
   logoutAdmin,
+  refundPaypalOrder,
   saveAdminOrders,
   saveAdminProducts,
+  updateAdminSupportRequest,
 } from './services/backend'
-import type { AdminOrderUpdate, AdminProductRecord } from './services/backend'
+import type {
+  AdminAnalytics,
+  AdminOrderUpdate,
+  AdminProductRecord,
+  SupportRequest,
+} from './services/backend'
 import { usePageMeta } from './hooks/usePageMeta'
 
 type NavigateFn = (path: string) => void
 
-type AdminTab = 'overview' | 'traffic' | 'revenue' | 'orders' | 'products'
+type AdminTab = 'overview' | 'traffic' | 'revenue' | 'orders' | 'support' | 'products'
 
 type OrderStatus = '待处理' | '已付款' | '备货中' | '已发货' | '已完成'
-type ShippingStatus = '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
+type ShippingStatus = '待支付' | '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
 
 type AdminOrder = PublicOrder
 
@@ -43,28 +53,13 @@ const ADMIN_ACCOUNT = 'Lunar Talisman'
 const initialOrders: AdminOrder[] = []
 const initialProducts: AdminProduct[] = []
 
-const trafficData = [
-  { label: 'Mon', visits: 860, rate: 2.8 },
-  { label: 'Tue', visits: 1120, rate: 3.1 },
-  { label: 'Wed', visits: 980, rate: 2.9 },
-  { label: 'Thu', visits: 1460, rate: 3.6 },
-  { label: 'Fri', visits: 1680, rate: 4.2 },
-  { label: 'Sat', visits: 1920, rate: 4.4 },
-  { label: 'Sun', visits: 1530, rate: 3.8 },
-]
-
-const revenueData = [
-  { label: '脉轮疗愈', amount: 4180, color: '#9bd8b6' },
-  { label: '月相仪式', amount: 5360, color: '#f3cf78' },
-  { label: '水晶护符', amount: 2890, color: '#a9d8ff' },
-]
-
 const tabs: Array<{ id: AdminTab; label: string; icon: typeof LayoutDashboard }> =
   [
     { id: 'overview', label: '总览', icon: LayoutDashboard },
     { id: 'traffic', label: '流量监控', icon: BarChart3 },
     { id: 'revenue', label: '营收数据', icon: DollarSign },
     { id: 'orders', label: '订单管理', icon: ShoppingBag },
+    { id: 'support', label: '客户请求', icon: MessageSquare },
     { id: 'products', label: '商品上传', icon: PackagePlus },
   ]
 
@@ -300,7 +295,21 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
   )
 }
 
-function TrafficPanel() {
+function TrafficPanel({
+  trafficData,
+}: {
+  trafficData: AdminAnalytics['traffic']
+}) {
+  if (!trafficData.some((item) => item.visits > 0)) {
+    return (
+      <div style={{ ...styles.glass, borderRadius: 26, padding: 24 }}>
+        <h2 style={{ margin: 0, fontSize: 20 }}>近 7 日流量</h2>
+        <p style={{ margin: '8px 0 0', color: 'rgba(45,39,48,0.55)', fontSize: 14 }}>
+          Real storefront events will appear here as visitors browse, add to cart, and complete checkout.
+        </p>
+      </div>
+    )
+  }
   const minVisits = Math.min(...trafficData.map((item) => item.visits))
   const maxVisits = Math.max(...trafficData.map((item) => item.visits))
   const minRate = Math.min(...trafficData.map((item) => item.rate))
@@ -534,8 +543,13 @@ function TrafficPanel() {
   )
 }
 
-function RevenuePanel() {
-  const total = revenueData.reduce((sum, item) => sum + item.amount, 0)
+function RevenuePanel({ orders }: { orders: AdminOrder[] }) {
+  const revenueData = [
+    { label: 'Paid orders', amount: orders.filter((order) => order.paymentStatus === 'paid').reduce((sum, order) => sum + order.amount, 0), color: '#9bd8b6' },
+    { label: 'Awaiting payment', amount: orders.filter((order) => order.paymentStatus === 'pending').reduce((sum, order) => sum + order.amount, 0), color: '#f3cf78' },
+    { label: 'Refunded', amount: orders.filter((order) => order.paymentStatus === 'refunded').reduce((sum, order) => sum + order.amount, 0), color: '#a9d8ff' },
+  ]
+  const total = Math.max(1, revenueData.reduce((sum, item) => sum + item.amount, 0))
   return (
     <div style={{ ...styles.glass, borderRadius: 26, padding: 24 }}>
       <h2 style={{ margin: 0, fontSize: 20 }}>营收结构</h2>
@@ -577,11 +591,14 @@ function RevenuePanel() {
 function OrdersTable({
   orders,
   setOrders,
+  onRefund,
 }: {
   orders: AdminOrder[]
   setOrders: (orders: AdminOrder[]) => void
+  onRefund: (orderId: string) => Promise<void>
 }) {
   const [query, setQuery] = useState('')
+  const [refundingOrderId, setRefundingOrderId] = useState('')
   const filtered = orders.filter((order) =>
     `${order.id} ${order.customer} ${order.product} ${order.address} ${order.email || ''} ${
       order.phone || ''
@@ -801,7 +818,7 @@ function OrdersTable({
                         color: '#2d2730',
                       }}
                     >
-                      {['待发货', '备货中', '已发货', '运输中', '已签收'].map((status) => (
+                      {['待支付', '待发货', '备货中', '已发货', '运输中', '已签收'].map((status) => (
                         <option key={status}>{status}</option>
                       ))}
                     </select>
@@ -889,6 +906,42 @@ function OrdersTable({
                           </div>
                         </div>
                       ) : null}
+                      {order.paymentProvider === 'paypal' &&
+                      order.paymentStatus === 'paid' &&
+                      order.paymentCaptureId ? (
+                        <button
+                          type="button"
+                          disabled={refundingOrderId === order.id}
+                          onClick={async () => {
+                            if (
+                              !window.confirm(
+                                `Refund PayPal payment for order ${order.id}? This cannot be undone from the website.`,
+                              )
+                            ) {
+                              return
+                            }
+                            setRefundingOrderId(order.id)
+                            try {
+                              await onRefund(order.id)
+                            } finally {
+                              setRefundingOrderId('')
+                            }
+                          }}
+                          style={{
+                            justifySelf: 'start',
+                            border: '1px solid rgba(154,69,69,0.2)',
+                            borderRadius: 999,
+                            background: 'rgba(196,90,90,0.08)',
+                            color: '#9a4545',
+                            padding: '8px 11px',
+                            fontSize: 12,
+                            fontWeight: 800,
+                            cursor: refundingOrderId === order.id ? 'wait' : 'pointer',
+                          }}
+                        >
+                          {refundingOrderId === order.id ? 'Refunding…' : 'Refund PayPal payment'}
+                        </button>
+                      ) : null}
                     </div>
                   </td>
                 </tr>
@@ -896,6 +949,79 @@ function OrdersTable({
             ))}
           </tbody>
         </table>
+      </div>
+    </div>
+  )
+}
+
+function SupportRequestsPanel({
+  requests,
+  onUpdate,
+}: {
+  requests: SupportRequest[]
+  onUpdate: (id: string, status: SupportRequest['status']) => Promise<void>
+}) {
+  const [updatingId, setUpdatingId] = useState('')
+
+  if (!requests.length) {
+    return (
+      <div style={{ ...styles.glass, borderRadius: 26, padding: 24 }}>
+        <h2 style={{ margin: 0, fontSize: 20 }}>客户请求</h2>
+        <p style={{ margin: '8px 0 0', color: 'rgba(45,39,48,0.55)', fontSize: 14 }}>
+          Contact and refund requests submitted from the storefront will appear here.
+        </p>
+      </div>
+    )
+  }
+
+  return (
+    <div style={{ ...styles.glass, borderRadius: 26, padding: 24 }}>
+      <div>
+        <h2 style={{ margin: 0, fontSize: 20 }}>客户请求</h2>
+        <p style={{ margin: '8px 0 20px', color: 'rgba(45,39,48,0.55)', fontSize: 14 }}>
+          Contact messages and refund requests are stored securely and can be tracked through resolution.
+        </p>
+      </div>
+      <div style={{ display: 'grid', gap: 12 }}>
+        {requests.map((request) => (
+          <article
+            key={request.id}
+            style={{
+              border: '1px solid rgba(45,39,48,0.09)',
+              borderRadius: 18,
+              background: 'rgba(255,255,255,0.6)',
+              padding: 16,
+              display: 'grid',
+              gap: 9,
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+              <strong>{request.type === 'refund' ? 'Refund / return' : 'Contact request'}</strong>
+              <select
+                value={request.status}
+                disabled={updatingId === request.id}
+                onChange={async (event) => {
+                  setUpdatingId(request.id)
+                  try {
+                    await onUpdate(request.id, event.target.value as SupportRequest['status'])
+                  } finally {
+                    setUpdatingId('')
+                  }
+                }}
+                style={{ ...inlineFieldStyle, width: 'auto', minWidth: 130 }}
+              >
+                <option value="new">New</option>
+                <option value="in_progress">In progress</option>
+                <option value="resolved">Resolved</option>
+              </select>
+            </div>
+            <div style={{ color: 'rgba(45,39,48,0.64)', fontSize: 13 }}>
+              {request.name} · {request.email} · {request.orderId || 'No order number'}
+            </div>
+            <p style={{ margin: 0, whiteSpace: 'pre-wrap', lineHeight: 1.6 }}>{request.message}</p>
+            <div style={{ color: 'rgba(45,39,48,0.45)', fontSize: 12 }}>{request.id}</div>
+          </article>
+        ))}
       </div>
     </div>
   )
@@ -1218,6 +1344,11 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
   const [activeTab, setActiveTab] = useState<AdminTab>('overview')
   const [orders, setOrdersState] = useState<AdminOrder[]>(initialOrders)
   const [products, setProducts] = useState<AdminProduct[]>(initialProducts)
+  const [analytics, setAnalytics] = useState<AdminAnalytics>({
+    traffic: [],
+    metrics: { pageViews: 0, paidOrders: 0, revenue: 0, pendingOrders: 0 },
+  })
+  const [supportRequests, setSupportRequests] = useState<SupportRequest[]>([])
 
   useEffect(() => {
     document.title = 'Admin Console | Lunar Talisman'
@@ -1257,6 +1388,27 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
         if (!active) return
         setProducts(serverProducts)
       })
+
+    fetchAdminAnalytics()
+      .then((data) => {
+        if (active) setAnalytics(data)
+      })
+
+    fetchAdminSupportRequests()
+      .then((requests) => {
+        if (active) setSupportRequests(requests)
+      })
+      .catch(() => {
+        if (active) setSupportRequests([])
+      })
+      .catch(() => {
+        if (active) {
+          setAnalytics({
+            traffic: [],
+            metrics: { pageViews: 0, paidOrders: 0, revenue: 0, pendingOrders: 0 },
+          })
+        }
+      })
       .catch(() => {
         // 安全优先：商品数据只来自服务端，不落入浏览器本地存储。
         if (active) setProducts([])
@@ -1286,15 +1438,37 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
       })
   }
 
+  const refundOrder = async (orderId: string) => {
+    try {
+      const refunded = await refundPaypalOrder(orderId)
+      setOrdersState((current) =>
+        current.map((order) => (order.id === refunded.id ? refunded : order)),
+      )
+    } catch {
+      window.alert('Refund could not be completed. Please check the PayPal dashboard before trying again.')
+    }
+  }
+
+  const updateSupportRequest = async (
+    id: string,
+    status: SupportRequest['status'],
+  ) => {
+    try {
+      const requests = await updateAdminSupportRequest(id, status)
+      setSupportRequests(requests)
+    } catch {
+      window.alert('The request status could not be saved. Please try again.')
+    }
+  }
+
   const metrics = useMemo(() => {
-    const revenue = orders.reduce((sum, order) => sum + order.amount, 0)
     return {
-      visits: trafficData.reduce((sum, item) => sum + item.visits, 0),
-      revenue,
-      orders: orders.length,
+      visits: analytics.metrics.pageViews,
+      revenue: analytics.metrics.revenue,
+      orders: analytics.metrics.pendingOrders,
       products: products.length,
     }
-  }, [orders, products.length])
+  }, [analytics.metrics, products.length])
 
   if (!authed) {
     return <AdminLogin onLogin={() => setAuthed(true)} />
@@ -1451,17 +1625,25 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
 
           {activeTab === 'overview' ? (
             <div style={{ display: 'grid', gridTemplateColumns: '1.35fr 0.9fr', gap: 22 }}>
-              <TrafficPanel />
-              <RevenuePanel />
+              <TrafficPanel trafficData={analytics.traffic} />
+              <RevenuePanel orders={orders} />
               <div style={{ gridColumn: '1 / -1' }}>
-                <OrdersTable orders={orders} setOrders={setOrders} />
+                <OrdersTable orders={orders} setOrders={setOrders} onRefund={refundOrder} />
               </div>
             </div>
           ) : null}
 
-          {activeTab === 'traffic' ? <TrafficPanel /> : null}
-          {activeTab === 'revenue' ? <RevenuePanel /> : null}
-          {activeTab === 'orders' ? <OrdersTable orders={orders} setOrders={setOrders} /> : null}
+          {activeTab === 'traffic' ? <TrafficPanel trafficData={analytics.traffic} /> : null}
+          {activeTab === 'revenue' ? <RevenuePanel orders={orders} /> : null}
+          {activeTab === 'orders' ? (
+            <OrdersTable orders={orders} setOrders={setOrders} onRefund={refundOrder} />
+          ) : null}
+          {activeTab === 'support' ? (
+            <SupportRequestsPanel
+              requests={supportRequests}
+              onUpdate={updateSupportRequest}
+            />
+          ) : null}
           {activeTab === 'products' ? (
             <ProductManager products={products} setProducts={setProducts} navigate={navigate} />
           ) : null}
@@ -1476,7 +1658,7 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
               fontSize: 13,
             }}
           >
-            当前后台已接入服务端订单与商品存储；支付、物流与邮件接口可在下一阶段继续接入。
+            Orders, payment status, shipment notifications, and storefront activity are now read from secure server services.
           </div>
         </section>
       </div>

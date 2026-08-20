@@ -9,11 +9,13 @@ import {
   requireTrustedOrigin,
   writeJsonList,
 } from './_backend.mjs'
+import { sendShipmentEmail } from './_email.mjs'
+import { siteUrl } from './_paypal.mjs'
 
 const KEY = 'orders'
 const MAX_UPDATES = 500
 const ORDER_STATUSES = new Set(['待处理', '已付款', '备货中', '已发货', '已完成'])
-const SHIPPING_STATUSES = new Set(['待发货', '备货中', '已发货', '运输中', '已签收'])
+const SHIPPING_STATUSES = new Set(['待支付', '待发货', '备货中', '已发货', '运输中', '已签收'])
 
 function cleanEvent(event) {
   if (!event || typeof event !== 'object') return null
@@ -65,10 +67,11 @@ function sanitizeUpdates(value) {
 function mergeOrderUpdates(existingOrders, updates) {
   const existingById = new Map(existingOrders.map((order) => [order.id, order]))
   const updatesById = new Map(updates.map((update) => [update.id, update]))
+  const shipmentNotices = []
 
   if (updates.some((update) => !existingById.has(update.id))) return null
 
-  return existingOrders.map((previous) => {
+  const orders = existingOrders.map((previous) => {
     const update = updatesById.get(previous.id)
     if (!update) return previous
     const currentEvents = Array.isArray(previous.trackingEvents)
@@ -80,12 +83,14 @@ function mergeOrderUpdates(existingOrders, updates) {
       String(previous.trackingCarrier || '') !== update.trackingCarrier ||
       String(previous.trackingNumber || '') !== update.trackingNumber
 
+    const awaitingPaypal =
+      previous.paymentProvider === 'paypal' && previous.paymentStatus !== 'paid'
     const nextOrder = {
       ...previous,
-      status: update.status,
-      shippingStatus: update.shippingStatus,
-      trackingCarrier: update.trackingCarrier,
-      trackingNumber: update.trackingNumber,
+      status: awaitingPaypal ? '待处理' : update.status,
+      shippingStatus: awaitingPaypal ? '待支付' : update.shippingStatus,
+      trackingCarrier: awaitingPaypal ? '' : update.trackingCarrier,
+      trackingNumber: awaitingPaypal ? '' : update.trackingNumber,
     }
 
     if (!shippingChanged) return { ...nextOrder, trackingEvents: currentEvents }
@@ -101,11 +106,19 @@ function mergeOrderUpdates(existingOrders, updates) {
       latest.status === nextEvent.status &&
       latest.detail === nextEvent.detail
 
-    return {
+    const saved = {
       ...nextOrder,
       trackingEvents: alreadyRecorded ? currentEvents : [...currentEvents, nextEvent].slice(-20),
     }
+    if (
+      ['已发货', '运输中', '已签收'].includes(update.shippingStatus) &&
+      (update.trackingNumber || update.shippingStatus !== previous.shippingStatus)
+    ) {
+      shipmentNotices.push(saved)
+    }
+    return saved
   })
+  return { orders, shipmentNotices }
 }
 
 export async function handler(event) {
@@ -129,12 +142,15 @@ export async function handler(event) {
 
       const store = ordersStore()
       const existingOrders = await readJsonList(store, KEY)
-      const savedOrders = mergeOrderUpdates(existingOrders, sanitizedUpdates)
-      if (!savedOrders) {
+      const merged = mergeOrderUpdates(existingOrders, sanitizedUpdates)
+      if (!merged) {
         return json(400, { ok: false, error: 'unknown_order' })
       }
-      await writeJsonList(store, KEY, savedOrders)
-      return json(200, { ok: true, orders: savedOrders })
+      await writeJsonList(store, KEY, merged.orders)
+      await Promise.allSettled(
+        merged.shipmentNotices.map((order) => sendShipmentEmail(order, siteUrl(event))),
+      )
+      return json(200, { ok: true, orders: merged.orders })
     }
 
     return methodNotAllowed()

@@ -43,6 +43,10 @@ export function productsStore() {
   return getStore('lunar-talisman-products')
 }
 
+export function supportStore() {
+  return getStore('lunar-talisman-support')
+}
+
 export function connectBlobs(event) {
   if (!event?.blobs) return
   connectLambda(event)
@@ -72,6 +76,28 @@ export async function appendJsonList(store, key, item, maxRetries = 3) {
   }
   const error = new Error('orders_write_conflict')
   error.code = 'orders_write_conflict'
+  throw error
+}
+
+export async function mutateJsonList(store, key, mutator, maxRetries = 4) {
+  for (let attempt = 0; attempt < maxRetries; attempt += 1) {
+    const current = await store.getWithMetadata(key, { type: 'json' })
+    const list = Array.isArray(current?.data) ? current.data : []
+    const next = await mutator(list)
+    if (!Array.isArray(next)) {
+      const error = new Error('list_mutator_must_return_array')
+      error.code = 'list_mutator_must_return_array'
+      throw error
+    }
+    const result = await store.setJSON(
+      key,
+      next,
+      current?.etag ? { onlyIfMatch: current.etag } : { onlyIfNew: true },
+    )
+    if (result.modified !== false) return next
+  }
+  const error = new Error('list_write_conflict')
+  error.code = 'list_write_conflict'
   throw error
 }
 

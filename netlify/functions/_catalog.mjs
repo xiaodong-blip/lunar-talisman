@@ -1,3 +1,5 @@
+import { IMPORTED_CATALOG } from './_generated-catalog.mjs'
+
 export const STATIC_CATALOG = [
   { id: 'scorpio-amethyst', name: '天蝎守护 · 紫水晶手链', price: 89, stock: 0, status: '下架' },
   { id: 'heart-rose-quartz', name: '心轮疗愈 · 玫瑰晶手链', price: 69, stock: 25, status: '上架' },
@@ -6,6 +8,8 @@ export const STATIC_CATALOG = [
   { id: 'root-garnet', name: '海底轮 · 红石榴石扎根手链', price: 75, stock: 25, status: '上架' },
   { id: 'full-moon-necklace', name: '满月祝福 · 月光石项链', price: 149, stock: 12, status: '上架' },
 ]
+
+export const CHECKOUT_CATALOG = [...STATIC_CATALOG, ...IMPORTED_CATALOG]
 
 export function catalogMap(products = []) {
   return new Map(

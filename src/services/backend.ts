@@ -87,6 +87,27 @@ export async function fetchAdminOrders() {
   return data.orders
 }
 
+export type AdminAnalytics = {
+  traffic: Array<{
+    date: string
+    label: string
+    visits: number
+    rate: number
+    purchases: number
+    checkoutStarts: number
+  }>
+  metrics: {
+    pageViews: number
+    paidOrders: number
+    revenue: number
+    pendingOrders: number
+  }
+}
+
+export async function fetchAdminAnalytics() {
+  return requestJson<{ ok: true } & AdminAnalytics>('/.netlify/functions/admin-analytics')
+}
+
 export async function saveAdminOrders(updates: AdminOrderUpdate[]) {
   const data = await requestJson<{ ok: true; orders: PublicOrder[] }>(
     '/.netlify/functions/admin-orders',
@@ -106,6 +127,100 @@ export async function createPublicOrder(order: PublicOrder) {
     body: JSON.stringify(order),
   })
   return data.order
+}
+
+export async function getPaymentConfiguration() {
+  return requestJson<{
+    ok: true
+    configured: boolean
+    environment: 'sandbox' | 'live'
+    currency: 'USD'
+  }>('/.netlify/functions/paypal-config')
+}
+
+export async function createPaypalOrder(orderId: string) {
+  return requestJson<{ ok: true; paypalOrderId: string; approvalUrl: string }>(
+    '/.netlify/functions/paypal-create-order',
+    {
+      method: 'POST',
+      body: JSON.stringify({ orderId }),
+    },
+  )
+}
+
+export async function capturePaypalOrder(paypalOrderId: string) {
+  const data = await requestJson<{ ok: true; order: PublicOrder }>(
+    '/.netlify/functions/paypal-capture-order',
+    {
+      method: 'POST',
+      body: JSON.stringify({ paypalOrderId }),
+    },
+  )
+  return data.order
+}
+
+export async function cancelPaypalOrder(paypalOrderId: string) {
+  await requestJson<{ ok: true }>('/.netlify/functions/paypal-cancel-order', {
+    method: 'POST',
+    body: JSON.stringify({ paypalOrderId }),
+  })
+}
+
+export async function refundPaypalOrder(orderId: string) {
+  const data = await requestJson<{ ok: true; order: PublicOrder }>(
+    '/.netlify/functions/admin-paypal-refund',
+    {
+      method: 'POST',
+      body: JSON.stringify({ orderId }),
+    },
+  )
+  return data.order
+}
+
+export async function submitSupportRequest(input: {
+  type: 'contact' | 'refund'
+  name: string
+  email: string
+  orderId?: string
+  message: string
+}) {
+  return requestJson<{ ok: true; requestId: string }>('/.netlify/functions/support-request', {
+    method: 'POST',
+    body: JSON.stringify(input),
+  })
+}
+
+export type SupportRequest = {
+  id: string
+  type: 'contact' | 'refund'
+  name: string
+  email: string
+  orderId?: string
+  message: string
+  status: 'new' | 'in_progress' | 'resolved'
+  createdAt: string
+  updatedAt?: string
+}
+
+export async function fetchAdminSupportRequests() {
+  const data = await requestJson<{ ok: true; requests: SupportRequest[] }>(
+    '/.netlify/functions/admin-support',
+  )
+  return data.requests
+}
+
+export async function updateAdminSupportRequest(
+  id: string,
+  status: SupportRequest['status'],
+) {
+  const data = await requestJson<{ ok: true; requests: SupportRequest[] }>(
+    '/.netlify/functions/admin-support',
+    {
+      method: 'PUT',
+      body: JSON.stringify({ id, status }),
+    },
+  )
+  return data.requests
 }
 
 export async function trackPublicOrder(orderId: string, email: string) {

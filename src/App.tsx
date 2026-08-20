@@ -14,11 +14,16 @@ import {
 } from 'lucide-react'
 import AdminPage from './AdminPage'
 import { usePageMeta } from './hooks/usePageMeta'
-import { trackPageView } from './services/analytics'
+import { trackEvent, trackPageView } from './services/analytics'
 import type { PublicOrder } from './services/orders'
 import {
+  cancelPaypalOrder,
+  capturePaypalOrder,
+  createPaypalOrder,
   createPublicOrder,
   fetchPublishedProducts,
+  getPaymentConfiguration,
+  submitSupportRequest,
   trackPublicOrder,
 } from './services/backend'
 import type { PublicTrackingOrder } from './services/backend'
@@ -3030,6 +3035,7 @@ function DetailPage({
     .slice(0, 4)
   const handleAddToCart = () => {
     addToCart(detailToCartLine(detail))
+    trackEvent('add_to_cart', { value: detailPrice })
     setCartNotice('Added to cart. Continue exploring or head to checkout to add shipping details and an order note.')
   }
 
@@ -3965,13 +3971,110 @@ function LegalPage({
               </p>
             </section>
           ))}
+          {id === 'contact' || id === 'refund' ? <SupportRequestForm type={id} /> : null}
         </div>
       </section>
     </AtmosphericShell>
   )
 }
 
+function SupportRequestForm({ type }: { type: 'contact' | 'refund' }) {
+  const [form, setForm] = useState({ name: '', email: '', orderId: '', message: '' })
+  const [notice, setNotice] = useState('')
+  const [sending, setSending] = useState(false)
+
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      setNotice('Please enter your name, email, and message.')
+      return
+    }
+    setSending(true)
+    try {
+      const result = await submitSupportRequest({
+        type: type === 'refund' ? 'refund' : 'contact',
+        name: form.name,
+        email: form.email,
+        orderId: form.orderId,
+        message: form.message,
+      })
+      setNotice(`Request received. Your reference is ${result.requestId}.`)
+      setForm({ name: '', email: '', orderId: '', message: '' })
+    } catch {
+      setNotice('We could not send your request. Please try again shortly.')
+    } finally {
+      setSending(false)
+    }
+  }
+
+  return (
+    <form
+      onSubmit={submit}
+      style={{
+        marginTop: 14,
+        paddingTop: 26,
+        borderTop: '1px solid rgba(58,37,48,0.12)',
+        display: 'grid',
+        gap: 12,
+      }}
+    >
+      <h2 style={{ margin: 0, fontSize: 22 }}>
+        {type === 'refund' ? 'Start a return or refund request' : 'Send a request'}
+      </h2>
+      <div className="max-[640px]:!grid-cols-1" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+        <input
+          value={form.name}
+          onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
+          placeholder="Your name"
+          style={formFieldStyle}
+        />
+        <input
+          type="email"
+          value={form.email}
+          onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
+          placeholder="Email used for your order"
+          style={formFieldStyle}
+        />
+      </div>
+      <input
+        value={form.orderId}
+        onChange={(event) => setForm((current) => ({ ...current, orderId: event.target.value }))}
+        placeholder="Order number (optional for general questions)"
+        style={formFieldStyle}
+      />
+      <textarea
+        rows={5}
+        value={form.message}
+        onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))}
+        placeholder={type === 'refund' ? 'Tell us what arrived and include any relevant details.' : 'How can we help?'}
+        style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }}
+      />
+      <button
+        type="submit"
+        disabled={sending}
+        style={{
+          justifySelf: 'start',
+          border: 0,
+          borderRadius: 999,
+          background: '#3a2530',
+          color: '#fff',
+          padding: '12px 18px',
+          fontWeight: 900,
+          cursor: sending ? 'wait' : 'pointer',
+          opacity: sending ? 0.7 : 1,
+        }}
+      >
+        {sending ? 'Sending…' : 'Send request'}
+      </button>
+      {notice ? (
+        <p style={{ margin: 0, fontSize: 13, color: 'rgba(58,37,48,0.66)' }}>{notice}</p>
+      ) : null}
+    </form>
+  )
+}
+
 const TRACKING_STATUS_LABELS: Record<string, string> = {
+  待支付: 'Awaiting payment',
   待发货: 'Order received',
   备货中: 'Preparing your order',
   已发货: 'Shipped',
@@ -4489,6 +4592,7 @@ function CartPage({
   const [notice, setNotice] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [doneOrderId, setDoneOrderId] = useState('')
+  const [paymentReady, setPaymentReady] = useState<boolean | null>(null)
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -4506,6 +4610,64 @@ function CartPage({
       form.shippingMethod as 'standard' | 'express'
     ] ?? 8
   const total = subtotal + (cart.length ? shippingFee : 0)
+
+  useEffect(() => {
+    let active = true
+    getPaymentConfiguration()
+      .then((config) => {
+        if (active) setPaymentReady(config.configured)
+      })
+      .catch(() => {
+        if (active) setPaymentReady(false)
+      })
+    return () => {
+      active = false
+    }
+  }, [])
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search)
+    const paypalState = query.get('paypal')
+    const paypalOrderId = query.get('token')
+    if (!paypalState || !paypalOrderId) return
+
+    let active = true
+    setSubmitting(true)
+    if (paypalState === 'success') {
+      capturePaypalOrder(paypalOrderId)
+        .then((order) => {
+          if (!active) return
+          setDoneOrderId(order.id)
+          clearCart()
+          trackEvent('purchase', { value: order.amount })
+          setNotice('Payment confirmed. Your order is now in fulfilment, and a confirmation email is on its way.')
+        })
+        .catch(() => {
+          if (active) {
+            setNotice(
+              'We could not confirm the PayPal payment automatically. Please do not pay again—contact support with your PayPal receipt.',
+            )
+          }
+        })
+        .finally(() => {
+          if (active) setSubmitting(false)
+        })
+    } else {
+      cancelPaypalOrder(paypalOrderId)
+        .catch(() => undefined)
+        .finally(() => {
+          if (active) {
+            setNotice('PayPal checkout was cancelled. Your cart is still here whenever you are ready.')
+            setSubmitting(false)
+          }
+        })
+    }
+
+    window.history.replaceState(null, '', '/cart')
+    return () => {
+      active = false
+    }
+  }, [clearCart])
 
   const updateQuantity = (id: string, quantity: number) => {
     setNotice('')
@@ -4526,6 +4688,11 @@ function CartPage({
 
     if (!form.name.trim() || !form.email.trim() || !form.address.trim()) {
       setNotice('请补全姓名、邮箱和收货地址。')
+      return
+    }
+
+    if (paymentReady === false) {
+      setNotice('Secure PayPal checkout is not enabled yet. Please check back shortly.')
       return
     }
 
@@ -4553,9 +4720,10 @@ function CartPage({
       shippingCountry: form.shippingCountry,
       shippingMethod: form.shippingMethod,
       shippingFee,
-      shippingStatus: '待发货',
+      shippingStatus: '待支付',
       message: form.message.trim(),
       status: '待处理',
+      paymentStatus: 'pending',
       createdAt: new Date().toLocaleString('zh-CN', {
         month: '2-digit',
         day: '2-digit',
@@ -4566,23 +4734,14 @@ function CartPage({
 
     setSubmitting(true)
     try {
+      trackEvent('begin_checkout', { value: total })
       const created = await createPublicOrder(order)
-      setDoneOrderId(created.id)
-      clearCart()
-      setNotice('订单已进入后台，后续可在后台查看物流与留言。')
-      setForm({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        shippingRegion: 'Americas',
-        shippingCountry: 'United States',
-        shippingMethod: 'standard',
-        message: '',
-      })
+      const payment = await createPaypalOrder(created.id)
+      trackEvent('payment_started', { value: total })
+      window.location.assign(payment.approvalUrl)
     } catch {
       setNotice(
-        'We could not submit your order securely. Your cart and delivery details are still here—please check your connection and try again.',
+        'We could not start secure PayPal checkout. Your cart and delivery details are still here—please check your connection and try again.',
       )
     } finally {
       setSubmitting(false)
@@ -4828,9 +4987,18 @@ function CartPage({
               <Row label="合计" value={formatProductPrice(total)} strong />
             </div>
 
-            <button type="submit" disabled={submitting} style={{ border: 0, borderRadius: 999, background: '#3a2530', color: '#fff', padding: '14px 18px', fontWeight: 900, cursor: submitting ? 'wait' : 'pointer', boxShadow: '0 14px 30px rgba(58,37,48,0.22)', opacity: submitting ? 0.72 : 1 }}>
-              {submitting ? '提交订单中...' : '提交订单'}
+            <button type="submit" disabled={submitting || paymentReady === null} style={{ border: 0, borderRadius: 999, background: '#3a2530', color: '#fff', padding: '14px 18px', fontWeight: 900, cursor: submitting ? 'wait' : 'pointer', boxShadow: '0 14px 30px rgba(58,37,48,0.22)', opacity: submitting || paymentReady === null ? 0.72 : 1 }}>
+              {submitting
+                ? 'Opening secure checkout...'
+                : paymentReady === null
+                  ? 'Preparing secure checkout...'
+                  : paymentReady
+                    ? 'Pay securely with PayPal'
+                    : 'Secure checkout unavailable'}
             </button>
+            <p style={{ margin: 0, color: 'rgba(58,37,48,0.5)', fontSize: 12, lineHeight: 1.5 }}>
+              Payment is completed securely on PayPal. We only confirm your order after PayPal verifies the capture.
+            </p>
 
             {notice ? (
               <div style={{ borderRadius: 18, padding: '12px 14px', background: 'rgba(255,255,255,0.6)', color: '#55744f', fontSize: 13, fontWeight: 800, lineHeight: 1.5 }}>

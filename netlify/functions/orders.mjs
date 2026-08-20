@@ -1,5 +1,4 @@
 import {
-  appendJsonList,
   connectBlobs,
   enforceRateLimit,
   json,
@@ -10,12 +9,14 @@ import {
   readJsonList,
   requireTrustedOrigin,
 } from './_backend.mjs'
-import { STATIC_CATALOG, catalogMap } from './_catalog.mjs'
+import { CHECKOUT_CATALOG, catalogMap } from './_catalog.mjs'
 import { randomUUID } from 'node:crypto'
 
 const KEY = 'orders'
 const MAX_ITEMS = 50
 const MAX_QUANTITY = 20
+const DEFAULT_STOCK = 20
+const PAYMENT_RESERVATION_WINDOW_MS = 30 * 60 * 1000
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const SHIPPING_RATES = {
   Americas: { standard: 8, express: 18 },
@@ -36,21 +37,40 @@ function parseItems(value) {
   return value
     .map((item) => ({
       id: cleanText(item?.id, 120),
-      quantity: Math.min(
-        MAX_QUANTITY,
-        Math.max(1, Math.floor(Number(item?.quantity) || 0)),
-      ),
+      quantity: Math.min(MAX_QUANTITY, Math.max(1, Math.floor(Number(item?.quantity) || 0))),
     }))
     .filter((item) => item.id)
 }
 
 function getIdempotencyKey(event) {
   return cleanText(
-    event?.headers?.['idempotency-key'] ||
-      event?.headers?.['Idempotency-Key'] ||
-      '',
+    event?.headers?.['idempotency-key'] || event?.headers?.['Idempotency-Key'] || '',
     100,
   )
+}
+
+function normalizedStock(product) {
+  const stock = Math.floor(Number(product?.stock))
+  return Number.isFinite(stock) && stock >= 0 ? stock : DEFAULT_STOCK
+}
+
+function activeReservedQuantity(orders, productId) {
+  const now = Date.now()
+  return orders.reduce((total, order) => {
+    if (!['pending', 'paid'].includes(order?.paymentStatus)) return total
+    if (
+      order.paymentStatus === 'pending' &&
+      now - new Date(order.createdAt).getTime() > PAYMENT_RESERVATION_WINDOW_MS
+    ) {
+      return total
+    }
+    const quantity = Array.isArray(order.items)
+      ? order.items
+          .filter((item) => item?.id === productId)
+          .reduce((sum, item) => sum + Math.max(0, Number(item.quantity) || 0), 0)
+      : 0
+    return total + quantity
+  }, 0)
 }
 
 export async function handler(event) {
@@ -93,8 +113,10 @@ export async function handler(event) {
       return json(400, { ok: false, error: 'items_must_be_non_empty' })
     }
 
+    const store = ordersStore()
+    const existingOrders = await readJsonList(store, KEY)
     const dynamicProducts = await readJsonList(productsStore(), 'products')
-    const catalog = catalogMap(dynamicProducts.length ? dynamicProducts : STATIC_CATALOG)
+    const catalog = catalogMap([...CHECKOUT_CATALOG, ...dynamicProducts])
     const items = []
     let subtotal = 0
 
@@ -103,16 +125,19 @@ export async function handler(event) {
       if (!product || product.status !== '上架') {
         return json(400, { ok: false, error: 'product_unavailable', productId: requested.id })
       }
-      if (product.stock > 0 && requested.quantity > product.stock) {
+      const available = Math.max(
+        0,
+        normalizedStock(product) - activeReservedQuantity(existingOrders, product.id),
+      )
+      if (requested.quantity > available) {
         return json(409, {
           ok: false,
           error: 'insufficient_stock',
           productId: requested.id,
-          available: product.stock,
+          available,
         })
       }
-      const lineTotal = product.price * requested.quantity
-      subtotal += lineTotal
+      subtotal += product.price * requested.quantity
       items.push({
         id: product.id,
         name: product.name,
@@ -124,49 +149,60 @@ export async function handler(event) {
     const shippingFee = SHIPPING_RATES[shippingRegion][shippingMethod]
     const amount = subtotal + shippingFee
     const idempotencyKey = getIdempotencyKey(event)
-    const store = ordersStore()
-    const existingOrders = await readJsonList(store, KEY)
-    if (idempotencyKey) {
-      const existing = existingOrders.find((order) => order.id === idempotencyKey)
-      if (existing) return json(200, { ok: true, duplicate: true, order: existing })
+    for (let attempt = 0; attempt < 3; attempt += 1) {
+      const current = await store.getWithMetadata(KEY, { type: 'json' })
+      const existingOrders = Array.isArray(current?.data) ? current.data : []
+      const duplicate = idempotencyKey
+        ? existingOrders.find((order) => order.idempotencyKey === idempotencyKey)
+        : null
+      if (duplicate) return json(200, { ok: true, duplicate: true, order: duplicate })
+
+      const order = {
+        id: `LT-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${randomUUID().slice(0, 8)}`,
+        idempotencyKey,
+        customer,
+        email,
+        phone,
+        address,
+        product:
+          items.length === 1 ? items[0].name : `${items[0].name} and ${items.length - 1} more`,
+        items,
+        channel: 'Website checkout',
+        amount,
+        shippingMethod,
+        shippingRegion,
+        shippingCountry,
+        shippingFee,
+        shippingStatus: '待支付',
+        trackingNumber: '',
+        trackingCarrier: '',
+        trackingEvents: [
+          {
+            status: '待支付',
+            detail: 'Checkout created. Awaiting secure payment confirmation.',
+            at: new Date().toISOString(),
+          },
+        ],
+        message,
+        status: '待处理',
+        paymentStatus: 'pending',
+        paymentProvider: '',
+        paymentId: '',
+        paymentCapturedAt: '',
+        createdAt: new Date().toISOString(),
+      }
+
+      const result = await store.setJSON(
+        KEY,
+        [order, ...existingOrders],
+        current?.etag ? { onlyIfMatch: current.etag } : { onlyIfNew: true },
+      )
+      if (result.modified !== false) return json(201, { ok: true, order })
     }
 
-    const order = {
-      id: `LT-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${randomUUID().slice(0, 8)}`,
-      customer,
-      email,
-      phone,
-      address,
-      product: items.length === 1 ? items[0].name : `${items[0].name} 等 ${items.length} 件商品`,
-      items,
-      channel: '官网购物车',
-      amount,
-      shippingMethod,
-      shippingRegion,
-      shippingCountry,
-      shippingFee,
-      shippingStatus: '待发货',
-      trackingNumber: '',
-      trackingCarrier: '',
-      trackingEvents: [
-        {
-          status: '待发货',
-          detail: '订单已提交，正在等待品牌确认。',
-          at: new Date().toISOString(),
-        },
-      ],
-      message,
-      status: '待处理',
-      createdAt: new Date().toISOString(),
-    }
-
-    await appendJsonList(store, KEY, order)
-    return json(201, { ok: true, order })
+    return json(409, { ok: false, error: 'order_write_conflict' })
   } catch (error) {
     const status = error?.code === 'request_body_too_large' ? 413 : 500
-    return json(status, {
-      ok: false,
-      error: error?.code || 'order_create_failed',
-    })
+    return json(status, { ok: false, error: error?.code || 'order_create_failed' })
   }
 }
