@@ -35,6 +35,8 @@ import {
   type ImportedSeriesGuide,
 } from './data/importedSeriesGuides'
 
+const SITE_ORIGIN = 'https://lunartalisman.com'
+
 const PORTAL_BG =
   'https://flick-award-65707097.figma.site/_assets/v11/bbc8d4f1308d5df012c4b0a657b44c6d92609c24.png'
 const CURTAIN_LEFT =
@@ -2939,6 +2941,27 @@ function SeriesPage({
   usePageMeta({
     title: `${displaySeries.title.replace(/\n/g, ' ')} | Lunar Talisman`,
     description: displaySeries.desc,
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: displaySeries.title.replace(/\n/g, ' '),
+      description: displaySeries.desc,
+      url: `${SITE_ORIGIN}/series/${id}`,
+      isPartOf: {
+        '@type': 'WebSite',
+        name: 'Lunar Talisman',
+        url: SITE_ORIGIN,
+      },
+      mainEntity: {
+        '@type': 'ItemList',
+        itemListElement: displaySeries.tiles.slice(0, 50).map((tile, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          name: tile.title.replace(/\n/g, ' '),
+          url: `${SITE_ORIGIN}${tile.target}`,
+        })),
+      },
+    },
   })
 
   return (
@@ -3022,12 +3045,35 @@ function DetailPage({
   useEffect(() => {
     setActiveImage(primaryGalleryImage)
   }, [detail.id, primaryGalleryImage])
+  const detailPrice = getDetailPrice(detail)
+  const detailSeriesId = getSeriesIdForDetail(detail.id)
   usePageMeta({
     title: `${getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')} | Lunar Talisman`,
     description: detail.desc,
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Product',
+      name: getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' '),
+      description: detail.desc,
+      url: `${SITE_ORIGIN}/detail/${detail.id}`,
+      image: galleryImages
+        .slice(0, 8)
+        .map((image) => (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`)),
+      brand: {
+        '@type': 'Brand',
+        name: 'Lunar Talisman',
+      },
+      category: detail.eyebrow,
+      offers: {
+        '@type': 'Offer',
+        url: `${SITE_ORIGIN}/detail/${detail.id}`,
+        priceCurrency: 'USD',
+        price: detailPrice,
+        availability: 'https://schema.org/InStock',
+        itemCondition: 'https://schema.org/NewCondition',
+      },
+    },
   })
-  const detailPrice = getDetailPrice(detail)
-  const detailSeriesId = getSeriesIdForDetail(detail.id)
   const relatedTiles = (
     SERIES.find((item) => item.id === detailSeriesId)?.tiles ?? PRODUCT_TILES
   )
@@ -3782,6 +3828,28 @@ function GuidePage({
   usePageMeta({
     title: `${guide.title} | Lunar Talisman`,
     description: guide.excerpt,
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: guide.title,
+      description: guide.excerpt,
+      url: `${SITE_ORIGIN}/guide/${guide.id}`,
+      image: guide.image.startsWith('http') ? guide.image : `${SITE_ORIGIN}${guide.image}`,
+      author: {
+        '@type': 'Organization',
+        name: 'Lunar Talisman',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Lunar Talisman',
+        url: SITE_ORIGIN,
+      },
+      isPartOf: {
+        '@type': 'CollectionPage',
+        name: `${guide.series} crystal guides`,
+        url: `${SITE_ORIGIN}/series/${guide.series}`,
+      },
+    },
   })
 
   return (
@@ -5328,6 +5396,25 @@ function HomePage({
   usePageMeta({
     title: pageTitle,
     description: pageDescription,
+    structuredData: {
+      '@context': 'https://schema.org',
+      '@graph': [
+        {
+          '@type': 'Organization',
+          name: 'Lunar Talisman',
+          url: SITE_ORIGIN,
+          logo: `${SITE_ORIGIN}/og-image.svg`,
+          description:
+            'Crystal jewelry, chakra bracelets, lunar rituals, and reflective crystal education.',
+        },
+        {
+          '@type': 'WebSite',
+          name: 'Lunar Talisman',
+          url: SITE_ORIGIN,
+          description: pageDescription,
+        },
+      ],
+    },
   })
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)

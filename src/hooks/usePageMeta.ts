@@ -8,6 +8,8 @@ type PageMeta = {
 }
 
 const containsChinese = /[\u3400-\u9fff]/
+const SITE_ORIGIN = 'https://lunartalisman.com'
+const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}/og-image.svg`
 
 function englishMeta(value: string, fallback: string) {
   return containsChinese.test(value) ? fallback : value
@@ -19,6 +21,8 @@ export function usePageMeta({
   noindex = false,
   structuredData,
 }: PageMeta) {
+  const serializedStructuredData = structuredData ? JSON.stringify(structuredData) : ''
+
   useEffect(() => {
     const safeTitle = englishMeta(title, 'Lunar Talisman · Crystal Rituals')
     const safeDescription = englishMeta(
@@ -40,7 +44,7 @@ export function usePageMeta({
 
     descriptionMeta.content = safeDescription
 
-    const canonicalUrl = `${window.location.origin}${window.location.pathname}`
+    const canonicalUrl = `${SITE_ORIGIN}${window.location.pathname}`
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonical) {
       canonical = document.createElement('link')
@@ -63,6 +67,34 @@ export function usePageMeta({
     setMeta('og:description', safeDescription)
     setMeta('og:url', canonicalUrl)
     setMeta('og:type', 'website')
+    setMeta('og:site_name', 'Lunar Talisman')
+    setMeta('og:locale', 'en_US')
+    setMeta('og:image', DEFAULT_OG_IMAGE)
+    setMeta('og:image:alt', 'Lunar Talisman crystal jewelry and chakra rituals')
+
+    let twitterCard = document.querySelector<HTMLMetaElement>('meta[name="twitter:card"]')
+    if (!twitterCard) {
+      twitterCard = document.createElement('meta')
+      twitterCard.name = 'twitter:card'
+      document.head.appendChild(twitterCard)
+    }
+    twitterCard.content = 'summary_large_image'
+
+    const setNameMeta = (name: string, content: string) => {
+      let meta = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`)
+      if (!meta) {
+        meta = document.createElement('meta')
+        meta.name = name
+        document.head.appendChild(meta)
+      }
+      meta.content = content
+    }
+
+    setNameMeta('author', 'Lunar Talisman')
+    setNameMeta('twitter:title', safeTitle)
+    setNameMeta('twitter:description', safeDescription)
+    setNameMeta('twitter:image', DEFAULT_OG_IMAGE)
+    setNameMeta('twitter:image:alt', 'Lunar Talisman crystal jewelry and chakra rituals')
 
     let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]')
     if (!robots) {
@@ -72,9 +104,18 @@ export function usePageMeta({
     }
     robots.content = noindex ? 'noindex, nofollow, noarchive' : 'index, follow'
 
+    let alternate = document.querySelector<HTMLLinkElement>('link[rel="alternate"][hreflang="en"]')
+    if (!alternate) {
+      alternate = document.createElement('link')
+      alternate.rel = 'alternate'
+      alternate.hreflang = 'en'
+      document.head.appendChild(alternate)
+    }
+    alternate.href = canonicalUrl
+
     const scriptId = 'lunar-talisman-page-jsonld'
     const existingScript = document.getElementById(scriptId)
-    if (!structuredData) {
+    if (!serializedStructuredData) {
       existingScript?.remove()
       return
     }
@@ -82,7 +123,7 @@ export function usePageMeta({
     const script = existingScript ?? document.createElement('script')
     script.id = scriptId
     script.setAttribute('type', 'application/ld+json')
-    script.textContent = JSON.stringify(structuredData)
+    script.textContent = serializedStructuredData
     if (!existingScript) document.head.appendChild(script)
-  }, [description, noindex, structuredData, title])
+  }, [description, noindex, serializedStructuredData, title])
 }
