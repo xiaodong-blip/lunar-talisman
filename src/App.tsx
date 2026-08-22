@@ -3043,225 +3043,162 @@ function DetailPage({
     <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
       <article
         style={{
-          width: 'min(1120px, calc(100% - 40px))',
+          width: 'min(1220px, calc(100% - 28px))',
           margin: '0 auto',
-          padding: '128px 0 96px',
+          padding: '96px 0 72px',
           display: 'grid',
-          gridTemplateColumns: 'minmax(0, 0.9fr) minmax(320px, 1.1fr)',
-          gap: 34,
+          gap: 22,
           alignItems: 'start',
         }}
-        className="max-[900px]:!grid-cols-1"
+        className="max-[900px]:!w-[calc(100%-20px)] max-[900px]:!pt-[88px]"
       >
-        <div style={{ display: 'grid', gap: 14 }}
-        >
-          <div
+        <section
           style={{
-            minHeight: 'clamp(380px, 48vw, 560px)',
-            borderRadius: 38,
-            border: '1px solid rgba(255,255,255,0.18)',
-            backgroundColor: '#fff',
-            backgroundImage: displayedImage ? `url(${displayedImage})` : undefined,
-            backgroundSize: 'contain',
-            backgroundRepeat: 'no-repeat',
-            backgroundPosition: 'center',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.34)',
-            position: 'relative',
-            overflow: 'hidden',
+            gridColumn: '1 / -1',
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1.08fr) minmax(280px, 320px)',
+            gap: 18,
+            padding: '24px clamp(20px, 3vw, 34px)',
+            borderRadius: 34,
+            border: '1px solid rgba(255,255,255,0.22)',
+            background:
+              'linear-gradient(135deg, rgba(255,255,255,0.78), rgba(244,233,255,0.52))',
+            boxShadow: '0 24px 68px rgba(55,27,66,0.12)',
+            backdropFilter: 'blur(18px)',
+            WebkitBackdropFilter: 'blur(18px)',
           }}
+          className="max-[900px]:!grid-cols-1"
         >
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background:
-                'linear-gradient(to top, rgba(58,37,48,0.36), rgba(58,37,48,0) 32%)',
-            }}
-          />
-          <button
-            type="button"
-            onClick={() => navigate(`/series/${detailSeriesId}`)}
-            style={{
-              position: 'absolute',
-              left: 24,
-              bottom: 24,
-              border: '1px solid rgba(255,255,255,0.22)',
-              borderRadius: 999,
-              background: 'rgba(255,255,255,0.08)',
-              color: '#fff',
-              padding: '12px 18px',
-              fontSize: 13,
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-            }}
-          >
-            Back to collection
-          </button>
-          </div>
-          {galleryImages.length > 1 ? (
+          <div style={{ minWidth: 0 }}>
+            <button
+              type="button"
+              onClick={() => navigate('/series/' + detailSeriesId)}
+              style={{
+                border: '1px solid rgba(58,37,48,0.16)',
+                borderRadius: 999,
+                background: 'rgba(255,255,255,0.72)',
+                color: '#3a2530',
+                padding: '10px 15px',
+                fontSize: 12,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              Back to collection
+            </button>
+
             <div
               style={{
+                marginTop: 16,
                 display: 'flex',
-                gap: 10,
-                overflowX: 'auto',
-                padding: '2px 2px 6px',
-                scrollbarWidth: 'thin',
+                flexWrap: 'wrap',
+                gap: 8,
+                alignItems: 'center',
               }}
-              aria-label="Product image gallery"
             >
-              {galleryImages.map((image, index) => {
-                const isActive = image === displayedImage
-
-                return (
-                  <button
-                    key={image}
-                    type="button"
-                    onClick={() => setActiveImage(image)}
-                    aria-label={`View product image ${index + 1}`}
-                    aria-pressed={isActive}
-                    style={{
-                      flex: '0 0 82px',
-                      width: 82,
-                      height: 82,
-                      padding: 0,
-                      borderRadius: 18,
-                      overflow: 'hidden',
-                      background: '#fff',
-                      border: isActive
-                        ? '2px solid rgba(58,37,48,0.78)'
-                        : '1px solid rgba(255,255,255,0.5)',
-                      boxShadow: isActive
-                        ? '0 10px 24px rgba(58,37,48,0.2)'
-                        : '0 7px 18px rgba(58,37,48,0.1)',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    <img
-                      src={image}
-                      alt={`${getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')} view ${index + 1}`}
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                        display: 'block',
-                      }}
-                    />
-                  </button>
-                )
-              })}
-            </div>
-          ) : null}
-        </div>
-
-        <div
-          style={{
-            borderRadius: 38,
-            background: detail.color,
-            padding: 'clamp(28px, 4vw, 48px)',
-            color: '#3a2530',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
-          }}
-        >
-          <button
-            type="button"
-            onClick={() => navigate(`/series/${detailSeriesId}`)}
-            style={{
-              border: '1px solid rgba(58,37,48,0.22)',
-              borderRadius: 999,
-              background: 'transparent',
-              color: 'rgba(58,37,48,0.68)',
-              padding: '8px 14px',
-              fontSize: 12,
-            }}
-          >
-            ← Back to collection
-          </button>
-          <p
-            style={{
-              margin: '28px 0 0',
-              fontSize: 12,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'rgba(58,37,48,0.56)',
-            }}
-          >
-            {detail.eyebrow}
-          </p>
-          <h1
-            style={{
-              margin: '12px 0 0',
-              fontFamily: "'Lobster', cursive",
-              fontSize: 'clamp(42px, 4.8vw, 68px)',
-              lineHeight: 0.98,
-              color: '#3a2530',
-            }}
-          >
-            {getEnglishTitle(detail.id, detail.title)}
-          </h1>
-          <p
-            style={{
-              margin: '18px 0 0',
-              fontSize: 19,
-              lineHeight: 1.65,
-              color: 'rgba(58,37,48,0.68)',
-            }}
-          >
-            {detail.desc}
-          </p>
-          <div
-            style={{
-              marginTop: 24,
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: 8,
-            }}
-          >
-            {detail.specs.map((spec) => (
               <span
-                key={spec}
                 style={{
-                  border: '1px solid rgba(58,37,48,0.22)',
-                  borderRadius: 999,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: 8,
                   padding: '8px 12px',
-                  fontSize: 13,
-                  color: 'rgba(58,37,48,0.68)',
+                  borderRadius: 999,
+                  background: 'rgba(58,37,48,0.08)',
+                  color: '#3a2530',
+                  fontSize: 12,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
                 }}
               >
-                {spec}
+                <span
+                  style={{
+                    width: 8,
+                    height: 8,
+                    borderRadius: '50%',
+                    background: 'linear-gradient(135deg, #ff9f6e, #f0c36b)',
+                    boxShadow: '0 0 12px rgba(240, 195, 107, 0.6)',
+                  }}
+                />
+                {detail.eyebrow}
               </span>
-            ))}
+              <span
+                style={{
+                  padding: '8px 12px',
+                  borderRadius: 999,
+                  background: 'rgba(58,37,48,0.06)',
+                  color: 'rgba(58,37,48,0.68)',
+                  fontSize: 12,
+                  letterSpacing: '0.14em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Curated piece
+              </span>
+            </div>
+
+            <h1
+              style={{
+                margin: '14px 0 0',
+                fontFamily: "'Lobster', cursive",
+                fontSize: 'clamp(42px, 5vw, 72px)',
+                lineHeight: 0.92,
+                color: '#3a2530',
+                maxWidth: 860,
+              }}
+            >
+              {getEnglishTitle(detail.id, detail.title)}
+            </h1>
+
+            <p
+              style={{
+                margin: '14px 0 0',
+                fontSize: 18,
+                lineHeight: 1.72,
+                color: 'rgba(58,37,48,0.72)',
+                maxWidth: 720,
+              }}
+            >
+              {detail.desc}
+            </p>
           </div>
+
           <div
             style={{
-              marginTop: 28,
-              borderTop: '1px solid rgba(58,37,48,0.14)',
-              paddingTop: 22,
+              minWidth: 280,
+              maxWidth: 320,
+              flex: '0 1 320px',
+              padding: '18px 18px 16px',
+              borderRadius: 28,
+              background: 'rgba(58,37,48,0.08)',
+              border: '1px solid rgba(58,37,48,0.1)',
             }}
           >
             <div
               style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                gap: 14,
-                flexWrap: 'wrap',
+                fontSize: 13,
+                letterSpacing: '0.18em',
+                textTransform: 'uppercase',
+                color: 'rgba(58,37,48,0.56)',
               }}
             >
-              <div>
-                <div style={{ fontSize: 28, fontWeight: 900 }}>
-                  {formatProductPrice(detailPrice)}
-                </div>
-                <div
-                  style={{
-                    marginTop: 4,
-                    color: 'rgba(58,37,48,0.58)',
-                    fontSize: 13,
-                  }}
-                >
-                  Add this talisman to your cart; enter shipping details and an order note at checkout.
-                </div>
-              </div>
+              Price
+            </div>
+            <div
+              style={{
+                marginTop: 10,
+                fontSize: 34,
+                fontWeight: 900,
+                letterSpacing: '-0.04em',
+                color: '#3a2530',
+              }}
+            >
+              {formatProductPrice(detailPrice)}
+            </div>
+            <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: 'rgba(58,37,48,0.64)' }}>
+              Secure checkout on cart page with shipping details and order note.
+            </div>
+            <div style={{ marginTop: 16, display: 'grid', gap: 10 }}>
               <button
                 type="button"
                 onClick={handleAddToCart}
@@ -3270,9 +3207,9 @@ function DetailPage({
                   borderRadius: 999,
                   background: '#3a2530',
                   color: '#fff',
-                  padding: '13px 18px',
+                  padding: '14px 18px',
                   fontSize: 13,
-                  letterSpacing: '0.1em',
+                  letterSpacing: '0.12em',
                   textTransform: 'uppercase',
                   cursor: 'pointer',
                   boxShadow: '0 14px 30px rgba(58,37,48,0.22)',
@@ -3280,16 +3217,6 @@ function DetailPage({
               >
                 Add to cart
               </button>
-            </div>
-
-            <div
-              style={{
-                marginTop: 18,
-                display: 'flex',
-                gap: 10,
-                flexWrap: 'wrap',
-              }}
-            >
               <button
                 type="button"
                 onClick={() => {
@@ -3297,26 +3224,223 @@ function DetailPage({
                   onOpenCart?.()
                 }}
                 style={{
-                  border: '1px solid rgba(58,37,48,0.2)',
+                  border: '1px solid rgba(58,37,48,0.14)',
                   borderRadius: 999,
-                  background: 'rgba(255,255,255,0.7)',
+                  background: 'rgba(255,255,255,0.72)',
                   color: '#3a2530',
-                  padding: '12px 16px',
+                  padding: '13px 18px',
                   fontWeight: 900,
                   cursor: 'pointer',
                 }}
               >
                 Checkout now
               </button>
+            </div>
+            <div
+              style={{
+                marginTop: 14,
+                display: 'grid',
+                gap: 8,
+                fontSize: 12,
+                color: 'rgba(58,37,48,0.68)',
+                lineHeight: 1.4,
+              }}
+            >
+              <div>• In stock and ready to ship</div>
+              <div>• PayPal secure checkout enabled</div>
+              <div>• Worldwide delivery supported</div>
+            </div>
+          </div>
+        </section>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'minmax(0, 1.08fr) minmax(320px, 0.92fr)',
+            gap: 22,
+            alignItems: 'start',
+          }}
+          className="max-[900px]:!grid-cols-1"
+        >
+          <section style={{ display: 'grid', gap: 16, alignContent: 'start' }}>
+            <div
+              style={{
+                position: 'relative',
+                minHeight: 'clamp(380px, 46vw, 560px)',
+                borderRadius: 34,
+                border: '1px solid rgba(255,255,255,0.18)',
+                background:
+                  'linear-gradient(180deg, rgba(255,255,255,0.88), rgba(247,240,255,0.72))',
+                boxShadow: '0 22px 68px rgba(0,0,0,0.30)',
+                overflow: 'hidden',
+              }}
+            >
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  backgroundImage: displayedImage ? 'url(' + displayedImage + ')' : undefined,
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundPosition: 'center',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'linear-gradient(to top, rgba(58,37,48,0.24), rgba(58,37,48,0) 28%)',
+                }}
+              />
+              {detailPrice ? (
+                <div
+                  style={{
+                    position: 'absolute',
+                    right: 18,
+                    top: 18,
+                    borderRadius: 999,
+                    background: 'rgba(58,37,48,0.82)',
+                    color: '#fff',
+                    padding: '10px 14px',
+                    fontSize: 12,
+                    fontWeight: 900,
+                    letterSpacing: '0.08em',
+                  }}
+                >
+                  {formatProductPrice(detailPrice)}
+                </div>
+              ) : null}
+            </div>
+
+            {galleryImages.length > 1 ? (
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(88px, 1fr))',
+                  gap: 10,
+                  alignItems: 'stretch',
+                }}
+                aria-label="Product image gallery"
+              >
+                {galleryImages.map((image, index) => {
+                  const isActive = image === displayedImage
+                  return (
+                    <button
+                      key={image}
+                      type="button"
+                      onClick={() => setActiveImage(image)}
+                      aria-label={'View product image ' + (index + 1)}
+                      aria-pressed={isActive}
+                      style={{
+                        height: 96,
+                        padding: 10,
+                        borderRadius: 20,
+                        overflow: 'hidden',
+                        background: isActive ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.68)',
+                        border: isActive
+                          ? '2px solid rgba(58,37,48,0.72)'
+                          : '1px solid rgba(255,255,255,0.56)',
+                        boxShadow: isActive
+                          ? '0 10px 24px rgba(58,37,48,0.18)'
+                          : '0 8px 18px rgba(58,37,48,0.08)',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <img
+                        src={image}
+                        alt={getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ') + ' view ' + (index + 1)}
+                        loading={index === 0 ? 'eager' : 'lazy'}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'contain',
+                          display: 'block',
+                        }}
+                      />
+                    </button>
+                  )
+                })}
+              </div>
+            ) : null}
+          </section>
+
+          <aside
+            style={{
+              borderRadius: 34,
+              background: detail.color,
+              padding: 'clamp(22px, 3.4vw, 36px)',
+              color: '#3a2530',
+              boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
+              alignSelf: 'start',
+              position: 'sticky',
+              top: 88,
+              maxWidth: 560,
+            }}
+            className="max-[900px]:!sticky max-[900px]:!top-0"
+          >
+            <p
+              style={{
+                margin: 0,
+                fontSize: 12,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'rgba(58,37,48,0.56)',
+              }}
+            >
+              Craft notes
+            </p>
+            <div style={{ marginTop: 14, display: 'grid', gap: 10 }}>
+              {detail.specs.map((spec) => (
+                <div
+                  key={spec}
+                  style={{
+                    border: '1px solid rgba(58,37,48,0.18)',
+                    borderRadius: 999,
+                    padding: '10px 14px',
+                    fontSize: 13,
+                    color: 'rgba(58,37,48,0.76)',
+                    background: 'rgba(255,255,255,0.22)',
+                  }}
+                >
+                  {spec}
+                </div>
+              ))}
+            </div>
+
+            <div
+              style={{
+                marginTop: 18,
+                borderTop: '1px solid rgba(58,37,48,0.12)',
+                paddingTop: 18,
+                display: 'grid',
+                gap: 12,
+              }}
+            >
+              <div style={{ display: 'grid', gap: 6 }}>
+                <div style={{ fontSize: 18, fontWeight: 900 }}>Designed to feel quiet</div>
+                <div style={{ color: 'rgba(58,37,48,0.66)', fontSize: 13, lineHeight: 1.7 }}>
+                  Refined enough to sit inside your day, present enough to feel intentional.
+                </div>
+              </div>
+              <div
+                style={{
+                  fontSize: 13,
+                  lineHeight: 1.7,
+                  color: 'rgba(58,37,48,0.70)',
+                }}
+              >
+                {detail.desc.length > 140 ? detail.desc.slice(0, 140) + '…' : detail.desc}
+              </div>
               {cartNotice ? (
                 <div
                   style={{
-                    borderRadius: 999,
-                    padding: '12px 14px',
+                    borderRadius: 22,
+                    padding: '14px 16px',
                     background: 'rgba(255,255,255,0.54)',
                     color: '#55744f',
                     fontSize: 13,
-                    lineHeight: 1.4,
+                    lineHeight: 1.5,
                     fontWeight: 800,
                   }}
                 >
@@ -3324,74 +3448,72 @@ function DetailPage({
                 </div>
               ) : null}
             </div>
-          </div>
+          </aside>
         </div>
-      </article>
-      {detail.body.length ? (
-        <section
-          style={{
-            width: 'min(920px, calc(100% - 40px))',
-            margin: '-36px auto 86px',
-            padding: 'clamp(28px, 4vw, 48px)',
-            borderRadius: 38,
-            border: '1px solid rgba(255,255,255,0.28)',
-            background:
-              'linear-gradient(135deg, rgba(255,255,255,0.72), rgba(238,231,251,0.56))',
-            boxShadow: '0 24px 72px rgba(60,33,80,0.12)',
-            color: '#3a2530',
-            backdropFilter: 'blur(18px)',
-            WebkitBackdropFilter: 'blur(18px)',
-          }}
-        >
-          <p
+
+        {detail.body.length ? (
+          <section
             style={{
-              margin: 0,
-              fontSize: 12,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'rgba(58,37,48,0.52)',
+              width: '100%',
+              padding: 'clamp(26px, 3.6vw, 40px)',
+              borderRadius: 34,
+              border: '1px solid rgba(255,255,255,0.28)',
+              background:
+                'linear-gradient(135deg, rgba(255,255,255,0.76), rgba(238,231,251,0.58))',
+              boxShadow: '0 24px 72px rgba(60,33,80,0.12)',
+              color: '#3a2530',
+              backdropFilter: 'blur(18px)',
+              WebkitBackdropFilter: 'blur(18px)',
             }}
           >
-            The ritual behind your talisman
-          </p>
-          <h2
-            style={{
-              margin: '12px 0 24px',
-              fontFamily: "'Lobster', cursive",
-              fontSize: 'clamp(30px, 4vw, 46px)',
-              lineHeight: 1,
-            }}
-          >
-            Made to be part of your everyday ritual
-          </h2>
-          {detail.body.map((paragraph) => (
             <p
-              key={paragraph}
               style={{
-                margin: '0 0 16px',
-                fontSize: 16,
-                lineHeight: 1.8,
-                color: 'rgba(58,37,48,0.72)',
+                margin: 0,
+                fontSize: 12,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+                color: 'rgba(58,37,48,0.52)',
               }}
             >
-              {paragraph}
+              The ritual behind your talisman
             </p>
-          ))}
-        </section>
-      ) : null}
-      <div
-        style={{
-          width: 'min(1120px, calc(100% - 40px))',
-          margin: '0 auto 96px',
-        }}
-      >
-        <SeriesListingGrid
-          title="Keep exploring your resonance"
-          subtitle={`${detail.eyebrow} · Related`}
-          tiles={relatedTiles.length ? relatedTiles : PRODUCT_TILES.slice(0, 4)}
-          navigate={navigate}
-        />
-      </div>
+            <h2
+              style={{
+                margin: '12px 0 22px',
+                fontFamily: "'Lobster', cursive",
+                fontSize: 'clamp(28px, 3.6vw, 42px)',
+                lineHeight: 1,
+              }}
+            >
+              Made to be part of your everyday ritual
+            </h2>
+            <div style={{ display: 'grid', gap: 14 }}>
+              {detail.body.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  style={{
+                    margin: 0,
+                    fontSize: 16,
+                    lineHeight: 1.8,
+                    color: 'rgba(58,37,48,0.74)',
+                  }}
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <div style={{ marginTop: 6 }}>
+          <SeriesListingGrid
+            title="Keep exploring your resonance"
+            subtitle={detail.eyebrow + ' · Related'}
+            tiles={relatedTiles.length ? relatedTiles : PRODUCT_TILES.slice(0, 4)}
+            navigate={navigate}
+          />
+        </div>
+      </article>
     </AtmosphericShell>
   )
 }
