@@ -4929,9 +4929,13 @@ function CartPage({
       const payment = await createPaypalOrder(created.id)
       trackEvent('payment_started', { value: total })
       window.location.assign(payment.approvalUrl)
-    } catch {
+    } catch (error) {
+      const message =
+        error instanceof Error && error.message
+          ? error.message
+          : 'We could not start secure PayPal checkout. Please try again.'
       setNotice(
-        'We could not start secure PayPal checkout. Your cart and delivery details are still here—please check your connection and try again.',
+        `${message} Your cart and delivery details are still here.`,
       )
     } finally {
       setSubmitting(false)

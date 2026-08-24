@@ -21,6 +21,33 @@ function money(value) {
   return Number(value || 0).toFixed(2)
 }
 
+function paypalFailure(error) {
+  const details = error?.details || {}
+  const issue = Array.isArray(details?.details) ? details.details[0]?.issue : ''
+  const code = String(issue || details?.name || error?.code || 'paypal_create_order_failed')
+  const messages = {
+    AUTHENTICATION_FAILURE:
+      'PayPal rejected the Live API credentials. Recheck the Live Client ID and Secret in Netlify.',
+    INVALID_CLIENT:
+      'PayPal rejected the Live API credentials. Recheck the Live Client ID and Secret in Netlify.',
+    PAYEE_ACCOUNT_RESTRICTED:
+      'PayPal cannot receive this payment because the merchant account is restricted or not fully verified.',
+    PAYEE_NOT_ENABLED_FOR_CARD_PROCESSING:
+      'PayPal payments are not enabled for this merchant account yet. Complete the account onboarding in PayPal.',
+    RECEIVER_ACCOUNT_RESTRICTED:
+      'PayPal cannot receive this payment because the merchant account is restricted or not fully verified.',
+    CURRENCY_NOT_SUPPORTED:
+      'This PayPal account is not currently enabled to receive USD payments.',
+  }
+  return {
+    code,
+    message:
+      messages[code] ||
+      'PayPal could not create the payment. Please retry, or check the PayPal Live account status.',
+    debugId: String(details?.debug_id || '').slice(0, 120),
+  }
+}
+
 export async function handler(event) {
   connectBlobs(event)
   if (event.httpMethod !== 'POST') return methodNotAllowed()
@@ -114,6 +141,12 @@ export async function handler(event) {
     return json(201, { ok: true, paypalOrderId: paypalOrder.id, approvalUrl })
   } catch (error) {
     const status = error?.code === 'request_body_too_large' ? 413 : 502
-    return json(status, { ok: false, error: error?.code || 'paypal_create_order_failed' })
+    const failure = paypalFailure(error)
+    return json(status, {
+      ok: false,
+      error: failure.code,
+      message: failure.message,
+      debugId: failure.debugId,
+    })
   }
 }
