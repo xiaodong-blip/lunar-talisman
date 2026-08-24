@@ -28,6 +28,7 @@ import {
   refundPaypalOrder,
   saveAdminOrders,
   saveAdminProducts,
+  submitProductUrlsToIndexNow,
   updateAdminSupportRequest,
 } from './services/backend'
 import type {
@@ -1056,6 +1057,7 @@ function ProductManager({
   })
   const [notice, setNotice] = useState('')
   const [saving, setSaving] = useState(false)
+  const [notifying, setNotifying] = useState(false)
 
   const updateField = (key: keyof typeof form, value: string) => {
     setNotice('')
@@ -1090,9 +1092,13 @@ function ProductManager({
     }
     const nextProducts = [nextProduct, ...products]
     try {
-      const savedProducts = await saveAdminProducts(nextProducts)
-      setProducts(savedProducts)
-      setNotice('商品已保存到数据库，并已同步到前台商品入口。')
+      const saved = await saveAdminProducts(nextProducts)
+      setProducts(saved.products)
+      setNotice(
+        saved.indexNow?.accepted
+          ? '商品已保存、同步前台，并已通知搜索引擎。'
+          : '商品已保存到数据库，并已同步到前台商品入口。',
+      )
     } catch {
       setNotice('数据库同步失败，商品未保存。请检查后台环境变量或稍后重试。')
     } finally {
@@ -1106,6 +1112,26 @@ function ProductManager({
       image: '',
       status: '上架',
     })
+  }
+
+  const notifySearchEngines = async () => {
+    setNotifying(true)
+    setNotice('')
+    try {
+      const paths = [
+        '/',
+        '/series/crystals',
+        ...products
+          .filter((product) => product.status === '上架')
+          .map((product) => `/detail/admin-${product.id}`),
+      ]
+      const response = await submitProductUrlsToIndexNow(paths)
+      setNotice(`已向搜索引擎提交 ${response.result.submitted} 个商品页面。`)
+    } catch {
+      setNotice('搜索引擎暂时未确认提交，请稍后重试。')
+    } finally {
+      setNotifying(false)
+    }
   }
 
   return (
@@ -1254,13 +1280,23 @@ function ProductManager({
               上架商品会同步到前台水晶护符入口。
             </p>
           </div>
-          <button
-            type="button"
-            onClick={() => navigate('/series/crystals')}
-            style={styles.subtleButton}
-          >
-            前台商品页
-          </button>
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+            <button
+              type="button"
+              onClick={notifySearchEngines}
+              disabled={notifying || products.length === 0}
+              style={{ ...styles.subtleButton, opacity: notifying || products.length === 0 ? 0.58 : 1 }}
+            >
+              {notifying ? '提交中...' : '提交给搜索引擎'}
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('/series/crystals')}
+              style={styles.subtleButton}
+            >
+              前台商品页
+            </button>
+          </div>
         </div>
         <div style={{ display: 'grid', gap: 14, marginTop: 20 }}>
           {products.map((product) => (

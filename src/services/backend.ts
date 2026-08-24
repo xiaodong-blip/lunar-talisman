@@ -245,14 +245,28 @@ export async function fetchAdminProducts() {
 }
 
 export async function saveAdminProducts(products: AdminProductRecord[]) {
-  const data = await requestJson<{ ok: true; products: AdminProductRecord[] }>(
+  const data = await requestJson<{
+    ok: true
+    products: AdminProductRecord[]
+    indexNow?: { attempted: boolean; accepted: boolean; submitted: number; status: number }
+  }>(
     '/.netlify/functions/admin-products',
     {
       method: 'PUT',
       body: JSON.stringify({ products }),
     },
   )
-  return data.products
+  return data
+}
+
+export async function submitProductUrlsToIndexNow(paths: string[]) {
+  return requestJson<{
+    ok: true
+    result: { attempted: boolean; accepted: boolean; submitted: number; status: number }
+  }>('/.netlify/functions/indexnow-submit', {
+    method: 'POST',
+    body: JSON.stringify({ paths }),
+  })
 }
 
 export async function fetchPublishedProducts() {

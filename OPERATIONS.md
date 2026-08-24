@@ -57,6 +57,10 @@ The platform verifies paid amount, currency, local order reference, capture stat
 - Public tracking requires both order number and checkout email; it never returns address, phone, notes, or payment details.
 - Contact and refund forms write securely to server storage and can notify your operations inbox.
 - Admin metrics use real server-side storefront events and confirmed paid orders rather than sample revenue.
+- IndexNow is enabled. Every admin product create, price/stock/status edit, or removal notifies
+  the canonical home page, crystal collection, and affected product detail URLs. The **商品上传**
+  panel also has a manual **提交给搜索引擎** button for re-submitting the current published
+  admin catalogue. The public key file is intentionally deployed at the site root.
 
 ## Release checks
 

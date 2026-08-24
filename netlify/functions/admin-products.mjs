@@ -9,6 +9,7 @@ import {
   requireTrustedOrigin,
   writeJsonList,
 } from './_backend.mjs'
+import { submitIndexNow } from './_indexnow.mjs'
 
 const KEY = 'products'
 const MAX_PRODUCTS = 500
@@ -60,6 +61,23 @@ function sanitizeProducts(value) {
   return products
 }
 
+function changedProductPaths(previous, next) {
+  const previousById = new Map(previous.map((product) => [product.id, product]))
+  const nextById = new Map(next.map((product) => [product.id, product]))
+  const changedIds = new Set([...previousById.keys(), ...nextById.keys()])
+  const paths = []
+
+  for (const id of changedIds) {
+    const before = previousById.get(id)
+    const after = nextById.get(id)
+    if (JSON.stringify(before) !== JSON.stringify(after)) {
+      paths.push(`/detail/admin-${id}`)
+    }
+  }
+
+  return paths.length ? ['/', '/series/crystals', ...paths] : []
+}
+
 export async function handler(event) {
   connectBlobs(event)
   if (!requireAdmin(event)) return json(401, { ok: false, error: 'unauthorized' })
@@ -80,8 +98,18 @@ export async function handler(event) {
       }
 
       const store = productsStore()
+      const previousProducts = await readJsonList(store, KEY)
       await writeJsonList(store, KEY, sanitizedProducts)
-      return json(200, { ok: true, products: sanitizedProducts })
+      const changedPaths = changedProductPaths(previousProducts, sanitizedProducts)
+      let indexNow = { attempted: false, accepted: false, submitted: 0, status: 0 }
+      if (changedPaths.length) {
+        try {
+          indexNow = await submitIndexNow(changedPaths)
+        } catch {
+          // Saving inventory must never fail merely because a search engine is unavailable.
+        }
+      }
+      return json(200, { ok: true, products: sanitizedProducts, indexNow })
     }
 
     return methodNotAllowed()
