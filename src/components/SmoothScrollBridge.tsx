@@ -10,6 +10,7 @@ export function SmoothScrollBridge() {
       lerp: 0.1,
       smoothWheel: true,
       duration: 1.1,
+      allowNestedScroll: true,
     })
 
     lenis.on('scroll', ScrollTrigger.update)

@@ -4947,8 +4947,30 @@ function CartPage({
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose?.()
     }
+
+    const body = document.body
+    const root = document.documentElement
+    const previousBodyOverflow = body.style.overflow
+    const previousBodyOverscroll = body.style.overscrollBehavior
+    const previousBodyPaddingRight = body.style.paddingRight
+    const previousRootOverflow = root.style.overflow
+    const scrollbarWidth = window.innerWidth - root.clientWidth
+
+    // The drawer is the only scrolling surface while checkout is open.
+    // This stops background/Lenis scrolling and avoids two competing scrollbars.
+    body.style.overflow = 'hidden'
+    body.style.overscrollBehavior = 'none'
+    root.style.overflow = 'hidden'
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`
+
     window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
+    return () => {
+      body.style.overflow = previousBodyOverflow
+      body.style.overscrollBehavior = previousBodyOverscroll
+      body.style.paddingRight = previousBodyPaddingRight
+      root.style.overflow = previousRootOverflow
+      window.removeEventListener('keydown', onKeyDown)
+    }
   }, [drawer, onClose])
 
   const content = (
@@ -5281,11 +5303,18 @@ function CartPage({
         }}
       >
         <aside
+          data-lenis-prevent
           style={{
             marginLeft: 'auto',
-            height: '100%',
+            height: '100dvh',
+            maxHeight: '100dvh',
             width: 'min(520px, 100%)',
             overflowY: 'auto',
+            overflowX: 'hidden',
+            overscrollBehavior: 'contain',
+            WebkitOverflowScrolling: 'touch',
+            scrollbarGutter: 'stable',
+            touchAction: 'pan-y',
             background:
               'linear-gradient(180deg, rgba(255,255,255,0.9), rgba(236,231,251,0.84) 46%, rgba(255,245,255,0.88))',
             borderLeft: '1px solid rgba(255,255,255,0.52)',
