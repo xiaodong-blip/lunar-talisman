@@ -21,6 +21,23 @@ function money(value) {
   return Number(value || 0).toFixed(2)
 }
 
+function wait(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds))
+}
+
+async function findPayableOrder(store, orderId) {
+  // Netlify Blobs can take a brief moment to surface a write made by the
+  // immediately preceding checkout function invocation. Retry the read before
+  // reporting a missing order, so a buyer never has to press PayPal twice.
+  for (let attempt = 0; attempt < 5; attempt += 1) {
+    const orders = await readJsonList(store, KEY)
+    const order = orders.find((item) => item?.id === orderId)
+    if (order) return order
+    if (attempt < 4) await wait(180)
+  }
+  return null
+}
+
 function paypalFailure(error) {
   const details = error?.details || {}
   const issue = Array.isArray(details?.details) ? details.details[0]?.issue : ''
@@ -71,8 +88,7 @@ export async function handler(event) {
     if (!safeOrderId) return json(400, { ok: false, error: 'invalid_order_id' })
 
     const store = ordersStore()
-    const orders = await readJsonList(store, KEY)
-    const payableOrder = orders.find((order) => order?.id === safeOrderId)
+    const payableOrder = await findPayableOrder(store, safeOrderId)
 
     if (!payableOrder) return json(404, { ok: false, error: 'order_not_found' })
     if (payableOrder.paymentStatus === 'paid') {
