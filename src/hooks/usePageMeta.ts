@@ -113,6 +113,17 @@ export function usePageMeta({
     }
     alternate.href = canonicalUrl
 
+    let defaultAlternate = document.querySelector<HTMLLinkElement>(
+      'link[rel="alternate"][hreflang="x-default"]',
+    )
+    if (!defaultAlternate) {
+      defaultAlternate = document.createElement('link')
+      defaultAlternate.rel = 'alternate'
+      defaultAlternate.hreflang = 'x-default'
+      document.head.appendChild(defaultAlternate)
+    }
+    defaultAlternate.href = canonicalUrl
+
     const scriptId = 'lunar-talisman-page-jsonld'
     const existingScript = document.getElementById(scriptId)
     if (!serializedStructuredData) {

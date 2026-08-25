@@ -68,6 +68,7 @@ type Route =
   | { page: 'series'; id: string }
   | { page: 'detail'; id: string }
   | { page: 'guide'; id: string }
+  | { page: 'notFound' }
   | { page: 'cart' }
   | { page: 'track' }
   | { page: 'admin' }
@@ -2078,15 +2079,26 @@ function SeriesListingGrid({
 function routeFromPath(): Route {
   const [page, id] = window.location.pathname.split('/').filter(Boolean)
 
-  if (page === 'series' && id) return { page: 'series', id }
-  if (page === 'detail' && id) {
-    if (REMOVED_IMPORTED_PRODUCT_IDS.has(id)) {
-      const removedProduct = importedProducts.find((product) => product.id === id)
-      return { page: 'series', id: `chakra-${removedProduct?.chakra ?? 'root'}` }
-    }
-    return { page: 'detail', id }
+  if (page === 'series' && id) {
+    return SERIES.some((series) => series.id === id) ? { page: 'series', id } : { page: 'notFound' }
   }
-  if (page === 'guide' && id) return { page: 'guide', id }
+  if (page === 'detail' && id) {
+    const isPublishedDetail =
+      !REMOVED_IMPORTED_PRODUCT_IDS.has(id) &&
+      !REMOVED_ZODIAC_IDS.has(id) &&
+      DETAILS.some((detail) => detail.id === id)
+    const isPublishedAdminDetail =
+      id.startsWith('admin-') &&
+      getPublishedAdminProducts().some((product) => `admin-${product.id}` === id)
+    return isPublishedDetail || isPublishedAdminDetail
+      ? { page: 'detail', id }
+      : { page: 'notFound' }
+  }
+  if (page === 'guide' && id) {
+    return importedSeriesGuides.some((guide) => guide.id === id)
+      ? { page: 'guide', id }
+      : { page: 'notFound' }
+  }
   if (page === 'cart') return { page: 'cart' }
   if (page === 'track') return { page: 'track' }
   if (page === 'admin') return { page: 'admin' }
@@ -2100,7 +2112,7 @@ function routeFromPath(): Route {
     return { page: 'legal', id: page }
   }
 
-  return { page: 'home' }
+  return page ? { page: 'notFound' } : { page: 'home' }
 }
 
 function useRoute() {
@@ -4168,6 +4180,121 @@ function LegalPage({
   )
 }
 
+function NotFoundPage({
+  navigate,
+  cartCount,
+  onOpenCart,
+}: {
+  navigate: NavigateFn
+  cartCount: number
+  onOpenCart?: () => void
+}) {
+  usePageMeta({
+    title: 'Page Not Found | Lunar Talisman',
+    description:
+      'The Lunar Talisman page you requested is no longer available. Explore our current crystal collections instead.',
+    noindex: true,
+  })
+
+  return (
+    <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
+      <section
+        style={{
+          width: 'min(860px, calc(100% - 40px))',
+          minHeight: '100vh',
+          margin: '0 auto',
+          padding: 'clamp(150px, 20vh, 220px) 0 96px',
+          textAlign: 'center',
+        }}
+      >
+        <p
+          style={{
+            margin: 0,
+            fontSize: 12,
+            letterSpacing: '0.28em',
+            textTransform: 'uppercase',
+            color: 'rgba(255,255,255,0.6)',
+          }}
+        >
+          Page moved
+        </p>
+        <h1
+          style={{
+            maxWidth: 680,
+            margin: '18px auto 0',
+            fontFamily: "'Lobster', cursive",
+            fontSize: 'clamp(58px, 10vw, 116px)',
+            lineHeight: 0.92,
+            color: '#fff',
+            textShadow: '0 2px 24px rgba(0,0,0,0.45)',
+          }}
+        >
+          This path has
+          <br />
+          dissolved.
+        </h1>
+        <p
+          style={{
+            maxWidth: 560,
+            margin: '24px auto 0',
+            fontSize: 'clamp(17px, 2vw, 20px)',
+            lineHeight: 1.7,
+            color: 'rgba(255,255,255,0.76)',
+          }}
+        >
+          The talisman or guide you requested is no longer available. Continue with the
+          current crystal collections.
+        </p>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: 12,
+            marginTop: 34,
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => navigate('/series/crystals')}
+            style={{
+              border: '1px solid rgba(255,255,255,0.4)',
+              borderRadius: 999,
+              background: 'rgba(255,255,255,0.9)',
+              color: '#3a2530',
+              padding: '13px 20px',
+              fontSize: 12,
+              fontWeight: 700,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+            }}
+          >
+            Explore talismans
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate('/')}
+            style={{
+              border: '1px solid rgba(255,255,255,0.25)',
+              borderRadius: 999,
+              background: 'rgba(255,255,255,0.08)',
+              color: '#fff',
+              padding: '13px 20px',
+              fontSize: 12,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              cursor: 'pointer',
+            }}
+          >
+            Return home
+          </button>
+        </div>
+      </section>
+    </AtmosphericShell>
+  )
+}
+
 function SupportRequestForm({ type }: { type: 'contact' | 'refund' }) {
   const [form, setForm] = useState({ name: '', email: '', orderId: '', message: '' })
   const [notice, setNotice] = useState('')
@@ -5417,8 +5544,9 @@ function HomePage({
   navigate,
   cartCount,
   onOpenCart,
-  pageTitle = 'Lunar Talisman · Crystal Rituals',
-  pageDescription = 'A cinematic crystal talisman house guided by moonlight, chakra energy, and ritual.',
+  pageTitle = 'Lunar Talisman · Crystal Jewelry & Chakra Rituals',
+  pageDescription =
+    'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.',
 }: {
   navigate: NavigateFn
   cartCount: number
@@ -5929,6 +6057,25 @@ function App() {
     return (
       <>
         <LegalPage id={route.id} navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
+        {cartOpen && (
+          <CartPage
+            navigate={goTo}
+            cart={cart}
+            setCart={setCart}
+            clearCart={clearCart}
+            cartCount={cartCount}
+            drawer
+            onClose={closeCart}
+          />
+        )}
+      </>
+    )
+  }
+
+  if (route.page === 'notFound') {
+    return (
+      <>
+        <NotFoundPage navigate={goTo} cartCount={cartCount} onOpenCart={openCart} />
         {cartOpen && (
           <CartPage
             navigate={goTo}

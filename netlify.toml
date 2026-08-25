@@ -37,6 +37,7 @@
   for = "/.netlify/functions/*"
   [headers.values]
     Cache-Control = "no-store"
+    X-Robots-Tag = "noindex, nofollow, noarchive"
 
 [[redirects]]
   from = "/"
@@ -212,6 +213,54 @@
   from = "/detail/full-moon-ritual"
   to = "/index.html"
   status = 200
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm"
+  to = "/series/chakra-sacral"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-honey-amber-bracelet-10mm"
+  to = "/series/chakra-sacral"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-passion-orange-garnet-bracelet-6mm"
+  to = "/series/chakra-sacral"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm"
+  to = "/series/chakra-sacral"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm"
+  to = "/series/chakra-sacral"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-flame-orange-agate-bracelet-10mm"
+  to = "/series/chakra-sacral"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm"
+  to = "/series/chakra-sacral"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/detail/crown-i02-2503-ddd"
+  to = "/series/chakra-crown"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/series/*"

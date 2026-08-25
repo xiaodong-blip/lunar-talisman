@@ -4,5 +4,6 @@ Disallow: /admin
 Disallow: /cart
 Disallow: /track
 Disallow: /detail/admin-
+Disallow: /.netlify/
 
 Sitemap: https://lunartalisman.com/sitemap.xml
