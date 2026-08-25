@@ -89,17 +89,38 @@ export async function verifyPaypalWebhook(event, webhookEvent) {
   const webhookId = configValue('PAYPAL_WEBHOOK_ID')
   if (!webhookId) return false
 
+  const authAlgo = event?.headers?.['paypal-auth-algo'] || event?.headers?.['PayPal-Auth-Algo']
+  const certUrl = event?.headers?.['paypal-cert-url'] || event?.headers?.['PayPal-Cert-Url']
+  const transmissionId =
+    event?.headers?.['paypal-transmission-id'] || event?.headers?.['PayPal-Transmission-Id']
+  const transmissionSig =
+    event?.headers?.['paypal-transmission-sig'] || event?.headers?.['PayPal-Transmission-Sig']
+  const transmissionTime =
+    event?.headers?.['paypal-transmission-time'] || event?.headers?.['PayPal-Transmission-Time']
+
+  // Reject malformed requests before calling PayPal. Besides returning a
+  // truthful 400 response, this prevents unsigned internet noise from
+  // consuming the webhook's PayPal API allowance.
+  if (
+    !authAlgo ||
+    !certUrl ||
+    !transmissionId ||
+    !transmissionSig ||
+    !transmissionTime ||
+    !webhookEvent ||
+    typeof webhookEvent !== 'object'
+  ) {
+    return false
+  }
+
   const verification = await paypalRequest('/v1/notifications/verify-webhook-signature', {
     method: 'POST',
     body: JSON.stringify({
-      auth_algo: event?.headers?.['paypal-auth-algo'] || event?.headers?.['PayPal-Auth-Algo'],
-      cert_url: event?.headers?.['paypal-cert-url'] || event?.headers?.['PayPal-Cert-Url'],
-      transmission_id:
-        event?.headers?.['paypal-transmission-id'] || event?.headers?.['PayPal-Transmission-Id'],
-      transmission_sig:
-        event?.headers?.['paypal-transmission-sig'] || event?.headers?.['PayPal-Transmission-Sig'],
-      transmission_time:
-        event?.headers?.['paypal-transmission-time'] || event?.headers?.['PayPal-Transmission-Time'],
+      auth_algo: authAlgo,
+      cert_url: certUrl,
+      transmission_id: transmissionId,
+      transmission_sig: transmissionSig,
+      transmission_time: transmissionTime,
       webhook_id: webhookId,
       webhook_event: webhookEvent,
     }),
