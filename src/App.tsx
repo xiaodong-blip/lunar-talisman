@@ -37,16 +37,14 @@ import {
 
 const SITE_ORIGIN = 'https://lunartalisman.com'
 
-const PORTAL_BG =
-  'https://flick-award-65707097.figma.site/_assets/v11/bbc8d4f1308d5df012c4b0a657b44c6d92609c24.png'
-const CURTAIN_LEFT =
-  'https://flick-award-65707097.figma.site/_assets/v11/535b5bc4f8b600a7758bc74dc3540f405f0b89a6.png'
-const CURTAIN_RIGHT =
-  'https://flick-award-65707097.figma.site/_assets/v11/ab14033a7fe6dcedbae303726331b6a26d9d201c.png'
-const WORLD_BG =
-  'https://flick-award-65707097.figma.site/_assets/v11/4f4f0651516e75fbfeebf87e12be372c0683a7fd.png'
-const BOTTOM_CLOUDS =
-  'https://flick-award-65707097.figma.site/_assets/v11/fb811f79bccceab1c4cdbb81b5524632cffc9c52.png'
+// These atmospheric layers are deliberately served from this site rather than
+// the old Figma prototype host. That keeps the current visual intact while
+// removing an external single point of failure from the homepage experience.
+const PORTAL_BG = '/atmosphere/portal.webp'
+const CURTAIN_LEFT = '/atmosphere/curtain-left.webp'
+const CURTAIN_RIGHT = '/atmosphere/curtain-right.webp'
+const WORLD_BG = '/atmosphere/world.webp'
+const BOTTOM_CLOUDS = '/atmosphere/bottom-clouds.webp'
 
 const CARD_IMAGES = [
   'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260525_160507_2ccbb4eb-1469-484f-af25-59168ad9a233.png&w=1280&q=85',
