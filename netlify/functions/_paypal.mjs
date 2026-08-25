@@ -24,6 +24,10 @@ export function isPaypalConfigured() {
   return paypalConfig().configured
 }
 
+export function isPaypalWebhookConfigured() {
+  return Boolean(configValue('PAYPAL_WEBHOOK_ID'))
+}
+
 export function siteUrl(event) {
   const configured = configValue('SITE_URL').replace(/\/+$/, '')
   if (/^https:\/\//i.test(configured)) return configured

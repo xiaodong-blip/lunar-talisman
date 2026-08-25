@@ -133,6 +133,7 @@ export async function getPaymentConfiguration() {
   return requestJson<{
     ok: true
     configured: boolean
+    webhookConfigured: boolean
     environment: 'sandbox' | 'live'
     currency: 'USD'
   }>('/.netlify/functions/paypal-config')

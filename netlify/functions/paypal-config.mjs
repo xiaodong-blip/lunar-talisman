@@ -1,5 +1,5 @@
 import { json, methodNotAllowed } from './_backend.mjs'
-import { paypalConfig } from './_paypal.mjs'
+import { isPaypalWebhookConfigured, paypalConfig } from './_paypal.mjs'
 
 export async function handler(event) {
   if (event.httpMethod !== 'GET') return methodNotAllowed()
@@ -7,6 +7,7 @@ export async function handler(event) {
   return json(200, {
     ok: true,
     configured: config.configured,
+    webhookConfigured: isPaypalWebhookConfigured(),
     environment: config.environment,
     currency: 'USD',
   })
