@@ -909,7 +909,8 @@ function OrdersTable({
                       ) : null}
                       {order.paymentProvider === 'paypal' &&
                       order.paymentStatus === 'paid' &&
-                      order.paymentCaptureId ? (
+                      order.paymentCaptureId &&
+                      order.refundStatus !== 'pending' ? (
                         <button
                           type="button"
                           disabled={refundingOrderId === order.id}
@@ -1476,10 +1477,13 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
 
   const refundOrder = async (orderId: string) => {
     try {
-      const refunded = await refundPaypalOrder(orderId)
+      const result = await refundPaypalOrder(orderId)
       setOrdersState((current) =>
-        current.map((order) => (order.id === refunded.id ? refunded : order)),
+        current.map((order) => (order.id === result.order.id ? result.order : order)),
       )
+      if (result.pending) {
+        window.alert('PayPal has received the refund request. The order will update after PayPal confirms it.')
+      }
     } catch {
       window.alert('Refund could not be completed. Please check the PayPal dashboard before trying again.')
     }

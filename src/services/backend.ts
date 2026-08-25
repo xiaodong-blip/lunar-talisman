@@ -167,14 +167,13 @@ export async function cancelPaypalOrder(paypalOrderId: string) {
 }
 
 export async function refundPaypalOrder(orderId: string) {
-  const data = await requestJson<{ ok: true; order: PublicOrder }>(
+  return requestJson<{ ok: true; order: PublicOrder; pending?: boolean }>(
     '/.netlify/functions/admin-paypal-refund',
     {
       method: 'POST',
       body: JSON.stringify({ orderId }),
     },
   )
-  return data.order
 }
 
 export async function submitSupportRequest(input: {

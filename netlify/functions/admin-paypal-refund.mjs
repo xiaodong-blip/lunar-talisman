@@ -36,6 +36,9 @@ export async function handler(event) {
     if (order.paymentStatus === 'refunded') {
       return json(200, { ok: true, order, duplicate: true })
     }
+    if (order.refundStatus === 'pending' && order.refundId) {
+      return json(200, { ok: true, order, pending: true, duplicate: true })
+    }
 
     const refund = await paypalRequest(
       `/v2/payments/captures/${encodeURIComponent(order.paymentCaptureId)}/refund`,
@@ -51,6 +54,31 @@ export async function handler(event) {
     }
 
     const now = new Date().toISOString()
+    if (refund.status === 'PENDING') {
+      let pendingOrder
+      await mutateJsonList(store, KEY, (orders) =>
+        orders.map((item) => {
+          if (item?.id !== safeOrderId || item.refundStatus === 'pending') return item
+          pendingOrder = {
+            ...item,
+            refundId: refund.id || '',
+            refundStatus: 'pending',
+            refundRequestedAt: now,
+            trackingEvents: [
+              ...(Array.isArray(item.trackingEvents) ? item.trackingEvents.slice(-19) : []),
+              {
+                status: 'Refund pending',
+                detail: 'PayPal received the refund request and is processing it.',
+                at: now,
+              },
+            ],
+          }
+          return pendingOrder
+        }),
+      )
+      return json(202, { ok: true, order: pendingOrder || order, pending: true })
+    }
+
     let refundedOrder
     await mutateJsonList(store, KEY, (orders) =>
       orders.map((item) => {
@@ -59,6 +87,7 @@ export async function handler(event) {
           ...item,
           paymentStatus: 'refunded',
           refundId: refund.id || '',
+          refundStatus: 'completed',
           refundedAt: now,
           status: '已完成',
           trackingEvents: [

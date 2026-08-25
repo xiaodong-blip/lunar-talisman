@@ -16,6 +16,10 @@ function paypalOrderIdFromEvent(event) {
   return event?.resource?.supplementary_data?.related_ids?.order_id || ''
 }
 
+function paypalCaptureIdFromRefundEvent(event) {
+  return event?.resource?.supplementary_data?.related_ids?.capture_id || ''
+}
+
 function money(value) {
   return Number(value || 0).toFixed(2)
 }
@@ -47,8 +51,60 @@ export async function handler(event) {
     const verified = await verifyPaypalWebhook(event, webhookEvent)
     if (!verified) return json(400, { ok: false, error: 'invalid_webhook_signature' })
 
-    if (webhookEvent.event_type !== 'PAYMENT.CAPTURE.COMPLETED') {
+    const eventType = webhookEvent.event_type
+    if (!['PAYMENT.CAPTURE.COMPLETED', 'PAYMENT.CAPTURE.REFUNDED'].includes(eventType)) {
       return json(200, { ok: true, ignored: true })
+    }
+
+    if (eventType === 'PAYMENT.CAPTURE.REFUNDED') {
+      const captureId = paypalCaptureIdFromRefundEvent(webhookEvent)
+      const refundId = String(webhookEvent.resource?.id || '').trim()
+      if (!captureId || !refundId || webhookEvent.resource?.status !== 'COMPLETED') {
+        return json(200, { ok: true, ignored: true })
+      }
+
+      const store = ordersStore()
+      const order = (await readJsonList(store, KEY)).find(
+        (item) =>
+          item?.paymentProvider === 'paypal' &&
+          item?.paymentCaptureId === captureId,
+      )
+      if (!order) return json(200, { ok: true, ignored: true })
+      if (order.paymentStatus === 'refunded') return json(200, { ok: true, duplicate: true })
+
+      const now = new Date().toISOString()
+      let refundedOrder
+      await mutateJsonList(store, KEY, (orders) =>
+        orders.map((item) => {
+          if (
+            item?.paymentProvider !== 'paypal' ||
+            item?.paymentCaptureId !== captureId ||
+            item.paymentStatus === 'refunded'
+          ) {
+            return item
+          }
+          refundedOrder = {
+            ...item,
+            paymentStatus: 'refunded',
+            refundId,
+            refundStatus: 'completed',
+            refundedAt: now,
+            status: '已完成',
+            trackingEvents: [
+              ...(Array.isArray(item.trackingEvents) ? item.trackingEvents.slice(-19) : []),
+              {
+                status: 'Refund completed',
+                detail: 'PayPal confirmed the refund.',
+                at: now,
+              },
+            ],
+          }
+          return refundedOrder
+        }),
+      )
+
+      if (refundedOrder) await sendRefundEmail(refundedOrder)
+      return json(200, { ok: true })
     }
 
     const paypalOrderId = paypalOrderIdFromEvent(webhookEvent)
