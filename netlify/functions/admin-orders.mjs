@@ -2,12 +2,12 @@ import {
   connectBlobs,
   json,
   methodNotAllowed,
+  mutateJsonList,
   ordersStore,
   parseJson,
   readJsonList,
   requireAdmin,
   requireTrustedOrigin,
-  writeJsonList,
 } from './_backend.mjs'
 import { sendShipmentEmail } from './_email.mjs'
 import { siteUrl } from './_paypal.mjs'
@@ -141,12 +141,17 @@ export async function handler(event) {
       }
 
       const store = ordersStore()
-      const existingOrders = await readJsonList(store, KEY)
-      const merged = mergeOrderUpdates(existingOrders, sanitizedUpdates)
-      if (!merged) {
-        return json(400, { ok: false, error: 'unknown_order' })
-      }
-      await writeJsonList(store, KEY, merged.orders)
+      let merged
+      await mutateJsonList(store, KEY, (currentOrders) => {
+        const next = mergeOrderUpdates(currentOrders, sanitizedUpdates)
+        if (!next) {
+          const error = new Error('unknown_order')
+          error.code = 'unknown_order'
+          throw error
+        }
+        merged = next
+        return next.orders
+      })
       await Promise.allSettled(
         merged.shipmentNotices.map((order) => sendShipmentEmail(order, siteUrl(event))),
       )
@@ -154,7 +159,10 @@ export async function handler(event) {
     }
 
     return methodNotAllowed()
-  } catch {
+  } catch (error) {
+    if (error?.code === 'unknown_order') {
+      return json(400, { ok: false, error: 'unknown_order' })
+    }
     return json(500, {
       ok: false,
       error: 'orders_store_error',
