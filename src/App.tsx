@@ -4999,12 +4999,12 @@ function CartPage({
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     if (!cart.length) {
-      setNotice('购物车为空，请先加入商品。')
+      setNotice('Your cart is empty. Add a talisman before continuing.')
       return
     }
 
     if (!form.name.trim() || !form.email.trim() || !form.address.trim()) {
-      setNotice('请补全姓名、邮箱和收货地址。')
+      setNotice('Please complete your name, email, and delivery address.')
       return
     }
 
@@ -5024,14 +5024,14 @@ function CartPage({
       product:
         cart.length === 1
           ? cart[0].name
-          : `${cart[0].name} 等 ${cart.reduce((sum, item) => sum + item.quantity, 0)} 件商品`,
+          : `${cart[0].name} and ${cart.reduce((sum, item) => sum + item.quantity, 0) - 1} more`,
       items: cart.map((item) => ({
         id: item.id,
         name: item.name,
         price: item.price,
         quantity: item.quantity,
       })),
-      channel: '官网购物车',
+      channel: 'Website checkout',
       amount: total,
       shippingRegion: form.shippingRegion as PublicOrder['shippingRegion'],
       shippingCountry: form.shippingCountry,
@@ -5041,12 +5041,7 @@ function CartPage({
       message: form.message.trim(),
       status: '待处理',
       paymentStatus: 'pending',
-      createdAt: new Date().toLocaleString('zh-CN', {
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
-      }),
+      createdAt: new Date().toISOString(),
     }
 
     setSubmitting(true)
@@ -5127,7 +5122,7 @@ function CartPage({
                 Checkout
               </p>
               <h1 style={{ margin: '10px 0 0', fontFamily: "'Viaoda Libre', serif", fontSize: 'clamp(42px, 6vw, 72px)', lineHeight: 0.95 }}>
-                购物车与物流信息
+                Cart & delivery
               </h1>
             </div>
             <button
@@ -5142,7 +5137,7 @@ function CartPage({
                 cursor: 'pointer',
               }}
             >
-              继续选购
+              Continue shopping
             </button>
             <button
               type="button"
@@ -5194,18 +5189,18 @@ function CartPage({
                   </p>
                   <h3 style={{ margin: '8px 0 0', fontSize: 22 }}>{item.name}</h3>
                   <p style={{ margin: '8px 0 0', color: 'rgba(58,37,48,0.64)' }}>
-                    {formatProductPrice(item.price)} / 件
+                    {formatProductPrice(item.price)} each
                   </p>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, justifySelf: 'end', flexWrap: 'wrap' }}>
-                  <button type="button" onClick={() => updateQuantity(item.id, item.quantity - 1)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f2ede6', cursor: 'pointer' }} aria-label="减少数量">
+                  <button type="button" onClick={() => updateQuantity(item.id, item.quantity - 1)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f2ede6', cursor: 'pointer' }} aria-label="Decrease quantity">
                     <Minus size={16} />
                   </button>
                   <span style={{ minWidth: 28, textAlign: 'center', fontWeight: 900 }}>{item.quantity}</span>
-                  <button type="button" onClick={() => updateQuantity(item.id, item.quantity + 1)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f2ede6', cursor: 'pointer' }} aria-label="增加数量">
+                  <button type="button" onClick={() => updateQuantity(item.id, item.quantity + 1)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f2ede6', cursor: 'pointer' }} aria-label="Increase quantity">
                     <Plus size={16} />
                   </button>
-                  <button type="button" onClick={() => updateQuantity(item.id, 0)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f9e8e8', cursor: 'pointer' }} aria-label="删除商品">
+                  <button type="button" onClick={() => updateQuantity(item.id, 0)} style={{ border: 0, width: 36, height: 36, borderRadius: 999, background: '#f9e8e8', cursor: 'pointer' }} aria-label="Remove item">
                     <Trash2 size={16} />
                   </button>
                 </div>
@@ -5221,8 +5216,8 @@ function CartPage({
                 }}
               >
                 <ShoppingBag size={44} style={{ margin: '0 auto 14px', opacity: 0.35 }} />
-                <div style={{ fontSize: 18, fontWeight: 900 }}>你的护符尚未被召唤</div>
-                <p style={{ margin: '10px 0 0' }}>先去系列里挑选一件，再回来填写物流和留言。</p>
+                <div style={{ fontSize: 18, fontWeight: 900 }}>Your talisman is waiting to be discovered</div>
+                <p style={{ margin: '10px 0 0' }}>Choose a piece from a collection, then return to arrange delivery and leave a note.</p>
               </div>
             )}
           </div>
@@ -5240,36 +5235,36 @@ function CartPage({
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <Truck size={18} />
-            <h2 style={{ margin: 0, fontSize: 22 }}>结账信息</h2>
+            <h2 style={{ margin: 0, fontSize: 22 }}>Checkout details</h2>
           </div>
           <form onSubmit={handleSubmit} style={{ marginTop: 20, display: 'grid', gap: 12 }}>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <MessageSquare size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
-                姓名
+                Name
               </span>
-              <input value={form.name} onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))} style={formFieldStyle} placeholder="收货人姓名" />
+              <input value={form.name} onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))} style={formFieldStyle} placeholder="Recipient name" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <Mail size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
-                邮箱
+                Email
               </span>
-              <input type="email" value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} style={formFieldStyle} placeholder="用于订单通知" />
+              <input type="email" value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} style={formFieldStyle} placeholder="For order updates" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <Phone size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
-                电话
+                Phone
               </span>
-              <input value={form.phone} onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))} style={formFieldStyle} placeholder="可选" />
+              <input value={form.phone} onChange={(event) => setForm((current) => ({ ...current, phone: event.target.value }))} style={formFieldStyle} placeholder="Optional" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <MapPin size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
-                收货地址
+                Delivery address
               </span>
-              <textarea rows={3} value={form.address} onChange={(event) => setForm((current) => ({ ...current, address: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="详细地址" />
+              <textarea rows={3} value={form.address} onChange={(event) => setForm((current) => ({ ...current, address: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="Full delivery address" />
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
@@ -5305,7 +5300,7 @@ function CartPage({
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <Truck size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
-                物流方式
+                Shipping method
               </span>
               <select value={form.shippingMethod} onChange={(event) => setForm((current) => ({ ...current, shippingMethod: event.target.value }))} style={formFieldStyle}>
                 <option value="standard">
@@ -5319,15 +5314,15 @@ function CartPage({
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <MessageSquare size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
-                订单留言
+                Order note
               </span>
-              <textarea rows={4} value={form.message} onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="例如：请尽量避光包装 / 送礼备注 / 其他要求" />
+              <textarea rows={4} value={form.message} onChange={(event) => setForm((current) => ({ ...current, message: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="e.g. gift wrapping, low-light packaging, or other delivery notes" />
             </label>
 
             <div style={{ marginTop: 8, borderTop: '1px solid rgba(58,37,48,0.12)', paddingTop: 16, display: 'grid', gap: 8 }}>
-              <Row label="商品小计" value={formatProductPrice(subtotal)} />
-              <Row label="物流费用" value={cart.length ? formatProductPrice(shippingFee) : '$0'} />
-              <Row label="合计" value={formatProductPrice(total)} strong />
+              <Row label="Items subtotal" value={formatProductPrice(subtotal)} />
+              <Row label="Shipping" value={cart.length ? formatProductPrice(shippingFee) : '$0'} />
+              <Row label="Total" value={formatProductPrice(total)} strong />
             </div>
 
             <button
@@ -5378,13 +5373,13 @@ function CartPage({
               )}
             </button>
             <p style={{ margin: 0, color: 'rgba(58,37,48,0.5)', fontSize: 12, lineHeight: 1.5 }}>
-              Payment is completed securely on PayPal. We only confirm your order after PayPal verifies the capture.
+              Payment is completed securely on PayPal. We only confirm your order after PayPal verifies the capture. Handling is usually 2–5 business days; local taxes or duties may apply.
             </p>
 
             {notice ? (
               <div style={{ borderRadius: 18, padding: '12px 14px', background: 'rgba(255,255,255,0.6)', color: '#55744f', fontSize: 13, fontWeight: 800, lineHeight: 1.5 }}>
                 {notice}
-                {doneOrderId ? <div style={{ marginTop: 4, color: '#3a2530' }}>订单号：{doneOrderId}</div> : null}
+                {doneOrderId ? <div style={{ marginTop: 4, color: '#3a2530' }}>Order number: {doneOrderId}</div> : null}
                 {doneOrderId ? (
                   <button
                     type="button"
@@ -5416,7 +5411,7 @@ function CartPage({
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="购物车抽屉"
+        aria-label="Cart drawer"
         style={{
           position: 'fixed',
           inset: 0,
@@ -5480,13 +5475,13 @@ function CartPage({
                   color: '#3a2530',
                 }}
               >
-                购物车
+                Cart
               </h2>
             </div>
             <button
               type="button"
               onClick={onClose}
-              aria-label="关闭购物车"
+              aria-label="Close cart"
               style={{
                 width: 42,
                 height: 42,
@@ -5503,7 +5498,7 @@ function CartPage({
             </button>
           </div>
           <div style={{ color: 'rgba(58,37,48,0.58)', fontSize: 13, lineHeight: 1.6, marginBottom: 18 }}>
-            在当前页面右侧完成购物车、物流与留言，不跳转到单独页面。
+            Complete your cart, delivery details, and order note here without leaving the current page.
           </div>
           {content}
         </aside>

@@ -194,6 +194,10 @@ function routeMeta(route, guides, productMap) {
       : legacyProduct?.name || `Crystal Talisman · ${id.replaceAll('-', ' ')}`
     const category = legacyProduct?.category || chakra || 'Crystal Jewelry'
     const price = Number(product?.price || legacyProduct?.price || 89).toFixed(2)
+    const imagePaths = product?.images?.length ? product.images : product?.image ? [product.image] : []
+    const images = imagePaths.length
+      ? imagePaths.map((image) => (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`))
+      : [`${SITE_ORIGIN}/og-image.svg`]
     const description = `${name} — a ${category.toLowerCase()} piece for mindful ritual and everyday wear.`
     return {
       kind: 'product',
@@ -201,7 +205,7 @@ function routeMeta(route, guides, productMap) {
       description,
       heading: name,
       copy: `${description} Available from Lunar Talisman for $${price} USD.`,
-      product: { name, price, category, sku: id },
+      product: { name, price, category, sku: id, images },
     }
   }
 
@@ -265,6 +269,7 @@ function structuredData(meta, canonicalUrl) {
       description: meta.description,
       sku: meta.product.sku,
       category: meta.product.category,
+      image: meta.product.images,
       brand: { '@type': 'Brand', name: 'Lunar Talisman' },
       offers: {
         '@type': 'Offer',

@@ -29,6 +29,10 @@ const products = JSON.parse(source.slice(start + assignment.length, end + 2))
     id: String(product.id),
     name: String(product.name),
     price: Number(product.price),
+    image: String(product.image || ''),
+    images: Array.isArray(product.images)
+      ? product.images.map((image) => String(image)).filter(Boolean).slice(0, 8)
+      : [],
     stock: 20,
     status: '上架',
   }))
