@@ -6,6 +6,24 @@ import { IMPORTED_CATALOG } from '../netlify/functions/_generated-catalog.mjs'
 const siteUrl = 'https://lunartalisman.com'
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
 const publicDir = path.join(rootDir, 'public')
+const CJK = /[\u3400-\u9fff]/
+
+function englishCatalogName(product) {
+  if (!CJK.test(product.name)) return product.name
+  const chakra = Object.entries({
+    root: 'Root Chakra',
+    sacral: 'Sacral Chakra',
+    solar: 'Solar Plexus Chakra',
+    heart: 'Heart Chakra',
+    throat: 'Throat Chakra',
+    'third-eye': 'Third Eye Chakra',
+    crown: 'Crown Chakra',
+  }).find(([prefix]) => product.id.startsWith(`${prefix}-`))?.[1]
+  const identifier = product.id
+    .replace(/^(root|sacral|solar|heart|throat|third-eye|crown)-/, '')
+    .replaceAll('-', ' ')
+  return `${chakra || 'Crystal'} Talisman · ${identifier}`
+}
 
 const staticRoutes = [
   '/',
@@ -52,7 +70,11 @@ const productRoutes = IMPORTED_CATALOG.filter((product) => product.status === '�
   (product) => `/detail/${product.id}`,
 )
 
-const routes = [...new Set([...staticRoutes, ...guideRoutes, ...productRoutes])]
+function canonicalRoute(route) {
+  return route === '/' ? '/' : `${route.replace(/\/+$/, '')}/`
+}
+
+const routes = [...new Set([...staticRoutes, ...guideRoutes, ...productRoutes].map(canonicalRoute))]
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -65,7 +87,7 @@ fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), xml)
 const productLines = IMPORTED_CATALOG.filter((product) => product.status === '上架')
   .map(
     (product) =>
-      `- ${product.name} — ${siteUrl}/detail/${product.id} — crystal talisman product page`,
+      `- ${englishCatalogName(product)} — ${siteUrl}/detail/${product.id}/ — crystal talisman product page`,
   )
   .join('\n')
 
@@ -76,10 +98,10 @@ const llms = `# Lunar Talisman
 ## Canonical site
 
 - ${siteUrl}/
-- ${siteUrl}/series/chakra
-- ${siteUrl}/series/lunar
-- ${siteUrl}/series/crystals
-- ${siteUrl}/series/connect
+- ${siteUrl}/series/chakra/
+- ${siteUrl}/series/lunar/
+- ${siteUrl}/series/crystals/
+- ${siteUrl}/series/connect/
 - ${siteUrl}/sitemap.xml
 
 ## What the site offers

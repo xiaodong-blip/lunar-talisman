@@ -86,6 +86,10 @@ export async function handler(event) {
       'Content-Type': 'text/csv; charset=utf-8',
       'Content-Disposition': `attachment; filename="lunar-talisman-orders-${date}.csv"`,
       'Cache-Control': 'no-store',
+      'X-Content-Type-Options': 'nosniff',
+      'Referrer-Policy': 'no-referrer',
+      'Cross-Origin-Resource-Policy': 'same-origin',
+      'X-Robots-Tag': 'noindex, nofollow, noarchive',
     },
     body: `\uFEFF${csv}`,
   }

@@ -7,6 +7,7 @@ export const jsonHeaders = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'no-referrer',
   'Cross-Origin-Resource-Policy': 'same-origin',
+  'X-Robots-Tag': 'noindex, nofollow, noarchive',
 }
 
 export function json(statusCode, body, extraHeaders = {}) {

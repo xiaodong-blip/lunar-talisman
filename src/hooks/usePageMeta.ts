@@ -15,6 +15,10 @@ function englishMeta(value: string, fallback: string) {
   return containsChinese.test(value) ? fallback : value
 }
 
+function canonicalPathname(pathname: string) {
+  return pathname === '/' ? '/' : `${pathname.replace(/\/+$/, '')}/`
+}
+
 export function usePageMeta({
   title,
   description,
@@ -44,7 +48,7 @@ export function usePageMeta({
 
     descriptionMeta.content = safeDescription
 
-    const canonicalUrl = `${SITE_ORIGIN}${window.location.pathname}`
+    const canonicalUrl = `${SITE_ORIGIN}${canonicalPathname(window.location.pathname)}`
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonical) {
       canonical = document.createElement('link')

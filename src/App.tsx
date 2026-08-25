@@ -2958,7 +2958,7 @@ function SeriesPage({
       '@type': 'CollectionPage',
       name: displaySeries.title.replace(/\n/g, ' '),
       description: displaySeries.desc,
-      url: `${SITE_ORIGIN}/series/${id}`,
+      url: `${SITE_ORIGIN}/series/${id}/`,
       isPartOf: {
         '@type': 'WebSite',
         name: 'Lunar Talisman',
@@ -2970,7 +2970,7 @@ function SeriesPage({
           '@type': 'ListItem',
           position: index + 1,
           name: tile.title.replace(/\n/g, ' '),
-          url: `${SITE_ORIGIN}${tile.target}`,
+          url: `${SITE_ORIGIN}${tile.target}/`,
         })),
       },
     },
@@ -3067,7 +3067,7 @@ function DetailPage({
       '@type': 'Product',
       name: getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' '),
       description: detail.desc,
-      url: `${SITE_ORIGIN}/detail/${detail.id}`,
+      url: `${SITE_ORIGIN}/detail/${detail.id}/`,
       image: galleryImages
         .slice(0, 8)
         .map((image) => (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`)),
@@ -3078,7 +3078,7 @@ function DetailPage({
       category: detail.eyebrow,
       offers: {
         '@type': 'Offer',
-        url: `${SITE_ORIGIN}/detail/${detail.id}`,
+        url: `${SITE_ORIGIN}/detail/${detail.id}/`,
         priceCurrency: 'USD',
         price: detailPrice,
         availability: 'https://schema.org/InStock',
@@ -3845,7 +3845,7 @@ function GuidePage({
       '@type': 'Article',
       headline: guide.title,
       description: guide.excerpt,
-      url: `${SITE_ORIGIN}/guide/${guide.id}`,
+      url: `${SITE_ORIGIN}/guide/${guide.id}/`,
       image: guide.image.startsWith('http') ? guide.image : `${SITE_ORIGIN}${guide.image}`,
       author: {
         '@type': 'Organization',
@@ -3859,7 +3859,7 @@ function GuidePage({
       isPartOf: {
         '@type': 'CollectionPage',
         name: `${guide.series} crystal guides`,
-        url: `${SITE_ORIGIN}/series/${guide.series}`,
+        url: `${SITE_ORIGIN}/series/${guide.series}/`,
       },
     },
   })

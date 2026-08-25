@@ -169,7 +169,9 @@ function readGuides() {
 }
 
 function routeMeta(route, guides, productMap) {
-  if (route === '/') {
+  const normalizedRoute = route === '/' ? '/' : route.replace(/\/+$/, '')
+
+  if (normalizedRoute === '/') {
     return {
       kind: 'website',
       title: 'Lunar Talisman · Crystal Jewelry & Chakra Rituals',
@@ -180,8 +182,8 @@ function routeMeta(route, guides, productMap) {
     }
   }
 
-  if (route.startsWith('/detail/')) {
-    const id = route.slice('/detail/'.length)
+  if (normalizedRoute.startsWith('/detail/')) {
+    const id = normalizedRoute.slice('/detail/'.length)
     const product = productMap.get(id)
     const legacyProduct = LEGACY_PRODUCTS[id]
     const chakra = Object.entries(CHAKRA_BY_PREFIX).find(([prefix]) =>
@@ -203,8 +205,8 @@ function routeMeta(route, guides, productMap) {
     }
   }
 
-  if (route.startsWith('/guide/')) {
-    const guide = guides.get(route.slice('/guide/'.length))
+  if (normalizedRoute.startsWith('/guide/')) {
+    const guide = guides.get(normalizedRoute.slice('/guide/'.length))
     const title = guide?.title || 'Crystal Ritual Guide'
     const description = guide
       ? `${guide.title}: ${guide.excerpt}`
@@ -219,8 +221,8 @@ function routeMeta(route, guides, productMap) {
     }
   }
 
-  if (route.startsWith('/series/')) {
-    const id = route.slice('/series/'.length)
+  if (normalizedRoute.startsWith('/series/')) {
+    const id = normalizedRoute.slice('/series/'.length)
     const chakraId = id.replace(/^chakra-/, '')
     const chakra = CHAKRA_BY_PREFIX[chakraId]
     const data = chakra
@@ -239,8 +241,8 @@ function routeMeta(route, guides, productMap) {
     }
   }
 
-  if (route.slice(1) in LEGAL) {
-    const [title, description] = LEGAL[route.slice(1)]
+  if (normalizedRoute.slice(1) in LEGAL) {
+    const [title, description] = LEGAL[normalizedRoute.slice(1)]
     return { kind: 'page', title: `${title} | Lunar Talisman`, description, heading: title, copy: description }
   }
 
@@ -307,7 +309,8 @@ function structuredData(meta, canonicalUrl) {
 }
 
 function renderPage(template, route, meta) {
-  const canonicalUrl = `${SITE_ORIGIN}${route}`
+  const canonicalRoute = route === '/' ? '/' : `${route.replace(/\/+$/, '')}/`
+  const canonicalUrl = `${SITE_ORIGIN}${canonicalRoute}`
   const jsonLd = JSON.stringify(structuredData(meta, canonicalUrl)).replaceAll('<', '\\u003c')
   const head = `
     <title>${escapeHtml(meta.title)}</title>
@@ -329,7 +332,7 @@ function renderPage(template, route, meta) {
     <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
     <meta name="twitter:image" content="${SITE_ORIGIN}/og-image.svg" />
     <script id="lunar-talisman-page-jsonld" type="application/ld+json">${jsonLd}</script>`
-  const fallback = `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra">Explore chakra collections</a></p></main>`
+  const fallback = `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals/">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra/">Explore chakra collections</a></p></main>`
 
   return template
     .replace(/<title>[\s\S]*?<\/title>/i, '')
