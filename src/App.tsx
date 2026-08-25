@@ -2302,7 +2302,7 @@ function Navigation({
     <button
       type="button"
       onClick={() => (onOpenCart ? onOpenCart() : navigate('/cart'))}
-      aria-label={`购物车，共 ${cartCount} 件商品`}
+      aria-label={`Cart, ${cartCount} item${cartCount === 1 ? '' : 's'}`}
       style={{
         ...navStyle,
         position: 'relative',
@@ -2582,7 +2582,7 @@ function SceneOneUI({
           <button
             key={dot}
             type="button"
-            aria-label={`跳转到第 ${dot + 1} 段体验`}
+            aria-label={`Jump to experience section ${dot + 1}`}
             onClick={() => onProgressJump([0, 0.34, 0.72, 0.88][dot])}
             style={{
               appearance: 'none',
@@ -2602,7 +2602,7 @@ function SceneOneUI({
       {isDesktop ? (
         <button
           type="button"
-          aria-label="向下滚动进入七脉轮水晶宇宙"
+          aria-label="Scroll down to enter the seven-chakra crystal universe"
           onClick={onDescend}
           style={{
             appearance: 'none',
