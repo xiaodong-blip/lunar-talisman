@@ -28,8 +28,10 @@ export type PublicOrder = {
   paymentId?: string
   paymentCaptureId?: string
   paymentCapturedAt?: string
+  paymentFailedAt?: string
+  paymentFailureReason?: string
   refundId?: string
-  refundStatus?: 'pending' | 'completed'
+  refundStatus?: 'pending' | 'completed' | 'failed'
   refundRequestedAt?: string
   refundedAt?: string
   createdAt: string

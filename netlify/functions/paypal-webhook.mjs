@@ -24,6 +24,18 @@ function money(value) {
   return Number(value || 0).toFixed(2)
 }
 
+function paymentFailureDetail(event) {
+  const reason = String(
+    event?.resource?.status_details?.reason ||
+      event?.resource?.status_details?.reason_code ||
+      event?.resource?.status ||
+      'PayPal declined or reversed the payment.',
+  )
+    .trim()
+    .slice(0, 180)
+  return reason || 'PayPal declined or reversed the payment.'
+}
+
 async function verifiesExpectedCapture(paypalOrderId, order, captureId) {
   const paypalOrder = await paypalRequest(
     `/v2/checkout/orders/${encodeURIComponent(paypalOrderId)}`,
@@ -52,7 +64,14 @@ export async function handler(event) {
     if (!verified) return json(400, { ok: false, error: 'invalid_webhook_signature' })
 
     const eventType = webhookEvent.event_type
-    if (!['PAYMENT.CAPTURE.COMPLETED', 'PAYMENT.CAPTURE.REFUNDED'].includes(eventType)) {
+    if (
+      ![
+        'PAYMENT.CAPTURE.COMPLETED',
+        'PAYMENT.CAPTURE.DENIED',
+        'PAYMENT.CAPTURE.REVERSED',
+        'PAYMENT.CAPTURE.REFUNDED',
+      ].includes(eventType)
+    ) {
       return json(200, { ok: true, ignored: true })
     }
 
@@ -118,6 +137,39 @@ export async function handler(event) {
     )
     if (!order) return json(200, { ok: true, ignored: true })
     if (order.paymentStatus === 'paid') return json(200, { ok: true, duplicate: true })
+
+    if (['PAYMENT.CAPTURE.DENIED', 'PAYMENT.CAPTURE.REVERSED'].includes(eventType)) {
+      const now = new Date().toISOString()
+      const failureDetail = paymentFailureDetail(webhookEvent)
+      let failedOrder
+      await mutateJsonList(store, KEY, (orders) =>
+        orders.map((item) => {
+          if (
+            item?.paymentProvider !== 'paypal' ||
+            item?.paymentId !== paypalOrderId ||
+            item.paymentStatus === 'paid'
+          ) {
+            return item
+          }
+          failedOrder = {
+            ...item,
+            paymentStatus: 'failed',
+            paymentFailedAt: now,
+            paymentFailureReason: failureDetail,
+            trackingEvents: [
+              ...(Array.isArray(item.trackingEvents) ? item.trackingEvents.slice(-19) : []),
+              {
+                status: eventType === 'PAYMENT.CAPTURE.REVERSED' ? 'Payment reversed' : 'Payment declined',
+                detail: `PayPal: ${failureDetail}`,
+                at: now,
+              },
+            ],
+          }
+          return failedOrder
+        }),
+      )
+      return json(200, { ok: true, failed: Boolean(failedOrder) })
+    }
 
     const captureId = String(webhookEvent.resource?.id || '').trim()
     const validCapture = await verifiesExpectedCapture(paypalOrderId, order, captureId)
