@@ -7,7 +7,7 @@ import {
   parseJson,
   readJsonList,
 } from './_backend.mjs'
-import { sendOrderPaidEmails } from './_email.mjs'
+import { sendOrderPaidEmails, sendRefundEmail } from './_email.mjs'
 import { paypalRequest, siteUrl, verifyPaypalWebhook } from './_paypal.mjs'
 
 const KEY = 'orders'
