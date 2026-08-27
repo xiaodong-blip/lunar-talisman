@@ -3099,23 +3099,25 @@ function DetailPage({
     <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
       <article
         style={{
-          width: 'min(1220px, calc(100% - 28px))',
+          width: 'min(1220px, calc(100% - 32px))',
           margin: '0 auto',
-          padding: '96px 0 72px',
+          padding: '88px 0 80px',
           display: 'grid',
-          gap: 22,
+          gridTemplateColumns: 'minmax(0, 1.22fr) minmax(320px, 0.78fr)',
+          gap: 24,
           alignItems: 'start',
         }}
-        className="max-[900px]:!w-[calc(100%-20px)] max-[900px]:!pt-[88px]"
+        className="max-[900px]:!w-[calc(100%-20px)] max-[900px]:!grid-cols-1 max-[900px]:!pt-[88px]"
       >
         <section
           style={{
-            gridColumn: '1 / -1',
+            gridColumn: '2',
+            gridRow: '1',
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.08fr) minmax(280px, 320px)',
-            gap: 18,
-            padding: '24px clamp(20px, 3vw, 34px)',
-            borderRadius: 34,
+            gridTemplateColumns: 'minmax(0, 1fr)',
+            gap: 22,
+            padding: 'clamp(22px, 3vw, 32px)',
+            borderRadius: 30,
             border: '1px solid rgba(255,255,255,0.22)',
             background:
               'linear-gradient(135deg, rgba(255,255,255,0.78), rgba(244,233,255,0.52))',
@@ -3123,7 +3125,7 @@ function DetailPage({
             backdropFilter: 'blur(18px)',
             WebkitBackdropFilter: 'blur(18px)',
           }}
-          className="max-[900px]:!grid-cols-1"
+          className="max-[900px]:!col-auto max-[900px]:!row-auto"
         >
           <div style={{ minWidth: 0 }}>
             <button
@@ -3197,10 +3199,11 @@ function DetailPage({
               style={{
                 margin: '14px 0 0',
                 fontFamily: "'Lobster', cursive",
-                fontSize: 'clamp(42px, 5vw, 72px)',
-                lineHeight: 0.92,
+                fontSize: 'clamp(38px, 3.7vw, 54px)',
+                lineHeight: 1,
                 color: '#3a2530',
-                maxWidth: 860,
+                maxWidth: 520,
+                overflowWrap: 'anywhere',
               }}
             >
               {getEnglishTitle(detail.id, detail.title)}
@@ -3209,10 +3212,10 @@ function DetailPage({
             <p
               style={{
                 margin: '14px 0 0',
-                fontSize: 18,
-                lineHeight: 1.72,
+                fontSize: 16,
+                lineHeight: 1.68,
                 color: 'rgba(58,37,48,0.72)',
-                maxWidth: 720,
+                maxWidth: 520,
               }}
             >
               {detail.desc}
@@ -3221,13 +3224,13 @@ function DetailPage({
 
           <div
             style={{
-              minWidth: 280,
-              maxWidth: 320,
-              flex: '0 1 320px',
-              padding: '18px 18px 16px',
-              borderRadius: 28,
-              background: 'rgba(58,37,48,0.08)',
+              minWidth: 0,
+              alignSelf: 'stretch',
+              padding: '22px',
+              borderRadius: 26,
+              background: 'linear-gradient(155deg, rgba(255,255,255,0.58), rgba(58,37,48,0.09))',
               border: '1px solid rgba(58,37,48,0.1)',
+              boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.38)',
             }}
           >
             <div
@@ -3254,7 +3257,7 @@ function DetailPage({
             <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: 'rgba(58,37,48,0.64)' }}>
               Secure checkout on cart page with shipping details and order note.
             </div>
-            <div style={{ marginTop: 16, display: 'grid', gap: 10 }}>
+            <div style={{ marginTop: 18, display: 'grid', gap: 10 }}>
               <button
                 type="button"
                 onClick={handleAddToCart}
@@ -3311,19 +3314,26 @@ function DetailPage({
 
         <div
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1.08fr) minmax(320px, 0.92fr)',
-            gap: 22,
-            alignItems: 'start',
+            display: 'contents',
           }}
-          className="max-[900px]:!grid-cols-1"
         >
-          <section style={{ display: 'grid', gap: 16, alignContent: 'start' }}>
+          <section
+            style={{
+              gridColumn: '1',
+              gridRow: '1 / span 2',
+              display: 'grid',
+              gridTemplateRows: 'minmax(0, 1fr) auto',
+              gap: 16,
+              alignContent: 'start',
+              height: '100%',
+            }}
+            className="max-[900px]:!col-auto max-[900px]:!row-auto"
+          >
             <div
               style={{
                 position: 'relative',
-                minHeight: 'clamp(380px, 46vw, 560px)',
-                borderRadius: 34,
+                minHeight: 'clamp(640px, 57vw, 760px)',
+                borderRadius: 30,
                 border: '1px solid rgba(255,255,255,0.18)',
                 background:
                   'linear-gradient(180deg, rgba(255,255,255,0.88), rgba(247,240,255,0.72))',
@@ -3373,10 +3383,17 @@ function DetailPage({
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(88px, 1fr))',
+                  gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
+                  gridAutoRows: 'minmax(0, 1fr)',
                   gap: 10,
+                  height: 'clamp(400px, 31vw, 500px)',
+                  padding: 4,
+                  borderRadius: 26,
+                  background: 'rgba(255,255,255,0.09)',
+                  border: '1px solid rgba(255,255,255,0.14)',
                   alignItems: 'stretch',
                 }}
+                className="max-[640px]:!grid-cols-3 max-[640px]:!h-auto"
                 aria-label="Product image gallery"
               >
                 {galleryImages.map((image, index) => {
@@ -3389,7 +3406,8 @@ function DetailPage({
                       aria-label={'View product image ' + (index + 1)}
                       aria-pressed={isActive}
                       style={{
-                        height: 96,
+                        height: '100%',
+                        minHeight: 0,
                         padding: 10,
                         borderRadius: 20,
                         overflow: 'hidden',
@@ -3423,17 +3441,19 @@ function DetailPage({
 
           <aside
             style={{
-              borderRadius: 34,
+              gridColumn: '2',
+              gridRow: '2',
+              borderRadius: 30,
               background: detail.color,
-              padding: 'clamp(22px, 3.4vw, 36px)',
+              padding: 'clamp(22px, 3vw, 32px)',
               color: '#3a2530',
               boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
-              alignSelf: 'start',
+              alignSelf: 'stretch',
               position: 'sticky',
               top: 88,
-              maxWidth: 560,
+              maxWidth: 'none',
             }}
-            className="max-[900px]:!sticky max-[900px]:!top-0"
+            className="max-[900px]:!col-auto max-[900px]:!row-auto max-[900px]:!sticky max-[900px]:!top-0"
           >
             <p
               style={{
@@ -3446,15 +3466,27 @@ function DetailPage({
             >
               Craft notes
             </p>
-            <div style={{ marginTop: 14, display: 'grid', gap: 10 }}>
-              {detail.specs.map((spec) => (
+            <div
+              style={{
+                marginTop: 14,
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, minmax(0, 1fr))',
+                gap: 10,
+              }}
+              className="max-[560px]:!grid-cols-1"
+            >
+              {detail.specs.filter((spec) => !spec.trim().startsWith('$')).map((spec) => (
                 <div
                   key={spec}
                   style={{
                     border: '1px solid rgba(58,37,48,0.18)',
-                    borderRadius: 999,
-                    padding: '10px 14px',
+                    borderRadius: 18,
+                    minHeight: 52,
+                    padding: '11px 13px',
                     fontSize: 13,
+                    lineHeight: 1.35,
+                    display: 'flex',
+                    alignItems: 'center',
                     color: 'rgba(58,37,48,0.76)',
                     background: 'rgba(255,255,255,0.22)',
                   }}
@@ -3486,7 +3518,7 @@ function DetailPage({
                   color: 'rgba(58,37,48,0.70)',
                 }}
               >
-                {detail.desc.length > 140 ? detail.desc.slice(0, 140) + '…' : detail.desc}
+                Chosen for its color, texture, and a calm presence that layers easily into everyday wear.
               </div>
               {cartNotice ? (
                 <div
@@ -3510,6 +3542,7 @@ function DetailPage({
         {detail.body.length ? (
           <section
             style={{
+              gridColumn: '1 / -1',
               width: '100%',
               padding: 'clamp(26px, 3.6vw, 40px)',
               borderRadius: 34,
@@ -3561,7 +3594,7 @@ function DetailPage({
           </section>
         ) : null}
 
-        <div style={{ marginTop: 6 }}>
+        <div style={{ gridColumn: '1 / -1', marginTop: 6 }}>
           <SeriesListingGrid
             title="Keep exploring your resonance"
             subtitle={detail.eyebrow + ' · Related'}
