@@ -129,6 +129,29 @@ function adjustedProductPrice(value) {
   return Number.isFinite(price) && price < 100 ? price + 100 : price
 }
 
+function promotionSeed(id) {
+  let hash = 2166136261
+  for (let index = 0; index < id.length; index += 1) {
+    hash ^= id.charCodeAt(index)
+    hash = Math.imul(hash, 16777619)
+  }
+  return hash >>> 0
+}
+
+function getSalePricing(id, value) {
+  const originalPrice = Math.max(1, Math.round(adjustedProductPrice(value)))
+  const seed = promotionSeed(String(id))
+  const discountPercent =
+    originalPrice > 200
+      ? 20 + (seed % 11)
+      : 6 + (seed % 10)
+  const salePrice = Math.max(
+    1,
+    Math.round((originalPrice * (100 - discountPercent)) / 100),
+  )
+  return { originalPrice, salePrice, discountPercent }
+}
+
 function escapeHtml(value = '') {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -198,7 +221,10 @@ function routeMeta(route, guides, productMap) {
       ? englishProductName(product)
       : legacyProduct?.name || `Crystal Talisman · ${id.replaceAll('-', ' ')}`
     const category = legacyProduct?.category || chakra || 'Crystal Jewelry'
-    const price = adjustedProductPrice(product?.price || legacyProduct?.price || 89).toFixed(2)
+    const price = getSalePricing(
+      id,
+      product?.price || legacyProduct?.price || 89,
+    ).salePrice.toFixed(2)
     const imagePaths = product?.images?.length ? product.images : product?.image ? [product.image] : []
     const images = imagePaths.length
       ? imagePaths.map((image) => (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`))

@@ -1299,10 +1299,11 @@ function detailToCartLine(detail: DetailData): CartLine {
 
 function adminProductToTile(product: StoredAdminProduct): Tile {
   const collection = englishCollectionName(product.collection)
+  const pricing = getSalePricing(`admin-${product.id}`, product.price)
   return {
     id: `admin-${product.id}`,
     title: englishProductName(product.name, collection, product.id).replace(' · ', '\n'),
-    desc: `${collection} · ${product.stock} in stock · ${formatProductPrice(product.price)}`,
+    desc: `${collection} · ${product.stock} in stock · ${formatProductPrice(pricing.salePrice)}`,
     color: '#ece7fb',
     image: product.image,
     eyebrow: 'Admin Product',
@@ -1346,7 +1347,30 @@ function adjustedProductPrice(value: number) {
   return Number.isFinite(price) && price < 100 ? price + 100 : price
 }
 
-function getDetailPrice(detail: DetailData) {
+function promotionSeed(id: string) {
+  let hash = 2166136261
+  for (let index = 0; index < id.length; index += 1) {
+    hash ^= id.charCodeAt(index)
+    hash = Math.imul(hash, 16777619)
+  }
+  return hash >>> 0
+}
+
+function getSalePricing(id: string, value: number) {
+  const originalPrice = Math.max(1, Math.round(adjustedProductPrice(value)))
+  const seed = promotionSeed(id)
+  const discountPercent =
+    originalPrice > 200
+      ? 20 + (seed % 11)
+      : 6 + (seed % 10)
+  const salePrice = Math.max(
+    1,
+    Math.round((originalPrice * (100 - discountPercent)) / 100),
+  )
+  return { originalPrice, salePrice, discountPercent }
+}
+
+function getDetailBasePrice(detail: DetailData) {
   const priceSpec = detail.specs.find((spec) => spec.startsWith('$'))
   if (priceSpec) {
     const parsed = Number(priceSpec.replace(/[^0-9.]/g, ''))
@@ -1363,6 +1387,14 @@ function getDetailPrice(detail: DetailData) {
   }
 
   return adjustedProductPrice(priceMap[detail.id] ?? 189)
+}
+
+function getDetailPricing(detail: DetailData) {
+  return getSalePricing(detail.id, getDetailBasePrice(detail))
+}
+
+function getDetailPrice(detail: DetailData) {
+  return getDetailPricing(detail).salePrice
 }
 
 function getTileDetail(tile: Tile) {
@@ -1901,6 +1933,7 @@ function SeriesListingGrid({
       >
         {tiles.map((tile) => {
           const detail = getTileDetail(tile)
+          const pricing = detail ? getDetailPricing(detail) : null
           const action = getTileAction(tile)
           const specs = getTileSpecs(tile)
           const isProductImage =
@@ -1967,7 +2000,7 @@ function SeriesListingGrid({
                 >
                   {tile.eyebrow}
                 </span>
-                {detail ? (
+                {pricing ? (
                   <span
                     style={{
                       position: 'absolute',
@@ -1982,7 +2015,7 @@ function SeriesListingGrid({
                       letterSpacing: '0.08em',
                     }}
                   >
-                    {formatProductPrice(getDetailPrice(detail))}
+                    −{pricing.discountPercent}% · {formatProductPrice(pricing.salePrice)}
                   </span>
                 ) : null}
               </div>
@@ -3061,7 +3094,8 @@ function DetailPage({
   useEffect(() => {
     setActiveImage(primaryGalleryImage)
   }, [detail.id, primaryGalleryImage])
-  const detailPrice = getDetailPrice(detail)
+  const detailPricing = getDetailPricing(detail)
+  const detailPrice = detailPricing.salePrice
   const detailSeriesId = getSeriesIdForDetail(detail.id)
   usePageMeta({
     title: `${getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')} | Lunar Talisman`,
@@ -3260,6 +3294,38 @@ function DetailPage({
             >
               {formatProductPrice(detailPrice)}
             </div>
+            <div
+              style={{
+                marginTop: 7,
+                display: 'flex',
+                alignItems: 'center',
+                flexWrap: 'wrap',
+                gap: 8,
+                fontSize: 13,
+                lineHeight: 1.2,
+              }}
+            >
+              <span
+                style={{
+                  color: 'rgba(58,37,48,0.48)',
+                  textDecoration: 'line-through',
+                }}
+              >
+                {formatProductPrice(detailPricing.originalPrice)}
+              </span>
+              <span
+                style={{
+                  borderRadius: 999,
+                  background: 'rgba(151, 87, 130, 0.12)',
+                  color: '#8d416f',
+                  padding: '5px 8px',
+                  fontWeight: 900,
+                  letterSpacing: '0.04em',
+                }}
+              >
+                Save {detailPricing.discountPercent}%
+              </span>
+            </div>
             <div style={{ marginTop: 8, fontSize: 13, lineHeight: 1.6, color: 'rgba(58,37,48,0.64)' }}>
               Secure checkout on cart page with shipping details and order note.
             </div>
@@ -3372,15 +3438,16 @@ function DetailPage({
                     right: 18,
                     top: 18,
                     borderRadius: 999,
-                    background: 'rgba(58,37,48,0.82)',
+                    background: 'linear-gradient(135deg, #8d416f, #5d385d)',
                     color: '#fff',
                     padding: '10px 14px',
                     fontSize: 12,
                     fontWeight: 900,
                     letterSpacing: '0.08em',
+                    boxShadow: '0 10px 22px rgba(96, 49, 85, 0.28)',
                   }}
                 >
-                  {formatProductPrice(detailPrice)}
+                  −{detailPricing.discountPercent}% off
                 </div>
               ) : null}
             </div>
