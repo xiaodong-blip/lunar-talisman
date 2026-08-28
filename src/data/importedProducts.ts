@@ -3307,7 +3307,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a1-2510.webp",
     "images": [
       "/products/heart-a1-2510.webp",
@@ -3334,7 +3334,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a2-2506.webp",
     "images": [
       "/products/heart-a2-2506.webp",
@@ -3360,7 +3360,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a3-2501-8mm.webp",
     "images": [
       "/products/heart-a3-2501-8mm.webp",
@@ -3386,7 +3386,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a2-2508-4mm.webp",
     "images": [
       "/products/heart-a2-2508-4mm.webp",
@@ -3411,7 +3411,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a4-2503.webp",
     "images": [
       "/products/heart-a4-2503.webp",
@@ -3433,7 +3433,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a4-2504.webp",
     "images": [
       "/products/heart-a4-2504.webp",
@@ -3459,7 +3459,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a4-2506-10mm.webp",
     "images": [
       "/products/heart-a4-2506-10mm.webp",
@@ -3484,7 +3484,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a8-2504.webp",
     "images": [
       "/products/heart-a8-2504.webp",
@@ -3511,7 +3511,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a8-2505.webp",
     "images": [
       "/products/heart-a8-2505.webp",
@@ -3538,7 +3538,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a7-2510.webp",
     "images": [
       "/products/heart-a7-2510.webp",
@@ -3564,7 +3564,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a8-2510-10mm.webp",
     "images": [
       "/products/heart-a8-2510-10mm.webp",
@@ -3592,7 +3592,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b10-2506.webp",
     "images": [
       "/products/heart-b10-2506.webp",
@@ -3612,7 +3612,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a9-2506-6mm.webp",
     "images": [
       "/products/heart-a9-2506-6mm.webp",
@@ -3632,7 +3632,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b2-2507-10mm.webp",
     "images": [
       "/products/heart-b2-2507-10mm.webp",
@@ -3658,7 +3658,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b3-2502.webp",
     "images": [
       "/products/heart-b3-2502.webp",
@@ -3683,7 +3683,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b3-2509-10mm.webp",
     "images": [
       "/products/heart-b3-2509-10mm.webp",
@@ -3708,7 +3708,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b4-2507-8mm.webp",
     "images": [
       "/products/heart-b4-2507-8mm.webp",
@@ -3730,7 +3730,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b4-2508-10mm.webp",
     "images": [
       "/products/heart-b4-2508-10mm.webp",
@@ -3753,7 +3753,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b7-2502.webp",
     "images": [
       "/products/heart-b7-2502.webp",
@@ -3780,7 +3780,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b7-2503.webp",
     "images": [
       "/products/heart-b7-2503.webp",
@@ -3804,7 +3804,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b8-2503-8mm.webp",
     "images": [
       "/products/heart-b8-2503-8mm.webp",
@@ -3829,7 +3829,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-c10-2507.webp",
     "images": [
       "/products/heart-c10-2507.webp",
@@ -3855,7 +3855,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-c6-2510-12mm.webp",
     "images": [
       "/products/heart-c6-2510-12mm.webp",
@@ -3880,7 +3880,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-d5-2508.webp",
     "images": [
       "/products/heart-d5-2508.webp",
@@ -3904,7 +3904,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-f01-2505.webp",
     "images": [
       "/products/heart-f01-2505.webp",
@@ -3926,7 +3926,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-g07-2509.webp",
     "images": [
       "/products/heart-g07-2509.webp",
@@ -3950,7 +3950,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-g08-2507.webp",
     "images": [
       "/products/heart-g08-2507.webp",
@@ -3974,7 +3974,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-h06-2504-10mm.webp",
     "images": [
       "/products/heart-h06-2504-10mm.webp",
@@ -3995,7 +3995,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-h06-2507.webp",
     "images": [
       "/products/heart-h06-2507.webp",
@@ -4018,7 +4018,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-h07-2501-10mm.webp",
     "images": [
       "/products/heart-h07-2501-10mm.webp",
@@ -4042,7 +4042,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i02-2504.webp",
     "images": [
       "/products/heart-i02-2504.webp",
@@ -4066,7 +4066,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i03-2501.webp",
     "images": [
       "/products/heart-i03-2501.webp",
@@ -4088,7 +4088,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i06-2503.webp",
     "images": [
       "/products/heart-i06-2503.webp",
@@ -4111,7 +4111,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i06-2505-10mm.webp",
     "images": [
       "/products/heart-i06-2505-10mm.webp",
@@ -4133,7 +4133,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i09-2502-10m.webp",
     "images": [
       "/products/heart-i09-2502-10m.webp",
@@ -4155,7 +4155,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-8mm.webp",
     "images": [
       "/products/heart-8mm.webp",
@@ -4220,7 +4220,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-a6-2507.webp",
     "images": [
       "/products/throat-a6-2507.webp",
@@ -4247,7 +4247,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-b6-2501.webp",
     "images": [
       "/products/throat-b6-2501.webp",
@@ -4273,7 +4273,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-d5-2506-8mm.webp",
     "images": [
       "/products/throat-d5-2506-8mm.webp",
@@ -4297,7 +4297,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-b7-2506.webp",
     "images": [
       "/products/throat-b7-2506.webp",
@@ -4322,7 +4322,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-d5-2507-8mm.webp",
     "images": [
       "/products/throat-d5-2507-8mm.webp",
@@ -4345,7 +4345,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2503.webp",
     "images": [
       "/products/throat-e03-2503.webp",
@@ -4368,7 +4368,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2504.webp",
     "images": [
       "/products/throat-e03-2504.webp",
@@ -4391,7 +4391,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2506.webp",
     "images": [
       "/products/throat-e03-2506.webp",
@@ -4414,7 +4414,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2505.webp",
     "images": [
       "/products/throat-e03-2505.webp",
@@ -4437,7 +4437,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2507.webp",
     "images": [
       "/products/throat-e03-2507.webp",
@@ -4460,7 +4460,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2508.webp",
     "images": [
       "/products/throat-e03-2508.webp",
@@ -4484,7 +4484,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2509.webp",
     "images": [
       "/products/throat-e03-2509.webp",
@@ -4507,7 +4507,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2510.webp",
     "images": [
       "/products/throat-e03-2510.webp",
@@ -4528,7 +4528,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2501.webp",
     "images": [
       "/products/throat-e04-2501.webp",
@@ -4550,7 +4550,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2502.webp",
     "images": [
       "/products/throat-e04-2502.webp",
@@ -4573,7 +4573,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2504.webp",
     "images": [
       "/products/throat-e04-2504.webp",
@@ -4596,7 +4596,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2503.webp",
     "images": [
       "/products/throat-e04-2503.webp",
@@ -4618,7 +4618,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-f07-2507-8mm.webp",
     "images": [
       "/products/throat-f07-2507-8mm.webp",
@@ -4641,7 +4641,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-i06-2510-5-6mm.webp",
     "images": [
       "/products/throat-i06-2510-5-6mm.webp",
@@ -4663,7 +4663,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-i07-2501.webp",
     "images": [
       "/products/throat-i07-2501.webp",
@@ -4685,7 +4685,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-i09-2503-8mm-12mm.webp",
     "images": [
       "/products/throat-i09-2503-8mm-12mm.webp",
@@ -4706,7 +4706,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a2-2507.webp",
     "images": [
       "/products/third-eye-a2-2507.webp",
@@ -4731,7 +4731,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a3-2503.webp",
     "images": [
       "/products/third-eye-a3-2503.webp",
@@ -4756,7 +4756,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a4-2503.webp",
     "images": [
       "/products/third-eye-a4-2503.webp",
@@ -4782,7 +4782,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a5-2504-10mm.webp",
     "images": [
       "/products/third-eye-a5-2504-10mm.webp",
@@ -4808,7 +4808,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a5-2506-8mm.webp",
     "images": [
       "/products/third-eye-a5-2506-8mm.webp",
@@ -4836,7 +4836,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a8-2503-12mm.webp",
     "images": [
       "/products/third-eye-a8-2503-12mm.webp",
@@ -4863,7 +4863,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a6-2508.webp",
     "images": [
       "/products/third-eye-a6-2508.webp",
@@ -4891,7 +4891,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b1-2501.webp",
     "images": [
       "/products/third-eye-b1-2501.webp",
@@ -4919,7 +4919,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b1-2508-6mm.webp",
     "images": [
       "/products/third-eye-b1-2508-6mm.webp",
@@ -4945,7 +4945,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b5-2509.webp",
     "images": [
       "/products/third-eye-b5-2509.webp",
@@ -4971,7 +4971,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b2-2508-8mm.webp",
     "images": [
       "/products/third-eye-b2-2508-8mm.webp",
@@ -4998,7 +4998,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b6-2502.webp",
     "images": [
       "/products/third-eye-b6-2502.webp",
@@ -5023,7 +5023,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b5-2508.webp",
     "images": [
       "/products/third-eye-b5-2508.webp",
@@ -5047,7 +5047,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b6-2503.webp",
     "images": [
       "/products/third-eye-b6-2503.webp",
@@ -5072,7 +5072,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-e09-2506-9-10mm.webp",
     "images": [
       "/products/third-eye-e09-2506-9-10mm.webp",
@@ -5095,7 +5095,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-f07-2503-8mm.webp",
     "images": [
       "/products/third-eye-f07-2503-8mm.webp",
@@ -5117,7 +5117,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i06-2506-12mm.webp",
     "images": [
       "/products/third-eye-i06-2506-12mm.webp",
@@ -5137,7 +5137,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-c10-2501.webp",
     "images": [
       "/products/third-eye-c10-2501.webp",
@@ -5160,7 +5160,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i07-2508.webp",
     "images": [
       "/products/third-eye-i07-2508.webp",
@@ -5183,7 +5183,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i08-2509-8mm.webp",
     "images": [
       "/products/third-eye-i08-2509-8mm.webp",
@@ -5206,7 +5206,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i10-2505.webp",
     "images": [
       "/products/third-eye-i10-2505.webp",
@@ -5228,7 +5228,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-8mm.webp",
     "images": [
       "/products/third-eye-8mm.webp",
@@ -5251,7 +5251,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-crystal-talisman.webp",
     "images": [
       "/products/third-eye-crystal-talisman.webp",
@@ -5277,7 +5277,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a4-2507-10mm-12mm.webp",
     "images": [
       "/products/crown-a4-2507-10mm-12mm.webp",
@@ -5303,7 +5303,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a5-2510.webp",
     "images": [
       "/products/crown-a5-2510.webp",
@@ -5329,7 +5329,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a6-2510-10mm.webp",
     "images": [
       "/products/crown-a6-2510-10mm.webp",
@@ -5349,7 +5349,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a9-2502-8mm.webp",
     "images": [
       "/products/crown-a9-2502-8mm.webp",
@@ -5376,7 +5376,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-b1-2506-10mm.webp",
     "images": [
       "/products/crown-b1-2506-10mm.webp",
@@ -5403,7 +5403,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-e04-2508-10mm-a.webp",
     "images": [
       "/products/crown-e04-2508-10mm-a.webp",
@@ -5428,7 +5428,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-e06-2509-12mm.webp",
     "images": [
       "/products/crown-e06-2509-12mm.webp",
@@ -5449,7 +5449,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-f02-2507-10mm.webp",
     "images": [
       "/products/crown-f02-2507-10mm.webp",
@@ -5472,7 +5472,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-g09-2505.webp",
     "images": [
       "/products/crown-g09-2505.webp",
@@ -5493,7 +5493,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-h03-2506-10mm.webp",
     "images": [
       "/products/crown-h03-2506-10mm.webp",
@@ -5516,7 +5516,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i01-2504-12mm.webp",
     "images": [
       "/products/crown-i01-2504-12mm.webp",
@@ -5536,7 +5536,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i02-2503-ddd.webp",
     "images": [
       "/products/crown-i02-2503-ddd.webp",
@@ -5558,7 +5558,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i02-2509.webp",
     "images": [
       "/products/crown-i02-2509.webp",
@@ -5581,7 +5581,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i02-2510.webp",
     "images": [
       "/products/crown-i02-2510.webp",
@@ -5606,7 +5606,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i03-2503.webp",
     "images": [
       "/products/crown-i03-2503.webp",
@@ -5669,7 +5669,7 @@ export const importedProducts: ImportedProduct[] = [
     "howToWear": [],
     "specs": [],
     "careRitual": [],
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-8mm.webp",
     "images": [
       "/products/crown-8mm.webp",

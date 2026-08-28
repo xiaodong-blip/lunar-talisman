@@ -70,12 +70,12 @@ const LEGACY_PRODUCTS = {
   'heart-rose-quartz': {
     name: 'Heart Healing Rose Quartz Bracelet',
     category: 'Heart Chakra Crystal Jewelry',
-    price: 69,
+    price: 169,
   },
   'solar-citrine': {
     name: 'Solar Plexus Citrine Courage Bracelet',
     category: 'Solar Plexus Chakra Crystal Jewelry',
-    price: 79,
+    price: 179,
   },
   'new-moon-set': {
     name: 'New Moon Ritual Cleansing Set',
@@ -85,43 +85,48 @@ const LEGACY_PRODUCTS = {
   'root-garnet': {
     name: 'Root Chakra Garnet Grounding Bracelet',
     category: 'Root Chakra Crystal Jewelry',
-    price: 74,
+    price: 174,
   },
   'full-moon-necklace': {
     name: 'Full Moon Moonstone Blessing Necklace',
     category: 'Lunar Crystal Jewelry',
-    price: 89,
+    price: 189,
   },
   'chakra-test': {
     name: 'Seven Chakra Crystal Bracelet',
     category: 'Chakra Crystal Jewelry',
-    price: 89,
+    price: 189,
   },
   'sacral-moonstone': {
     name: 'Sacral Moonstone Flow Bracelet',
     category: 'Sacral Chakra Crystal Jewelry',
-    price: 82,
+    price: 182,
   },
   'throat-aquamarine': {
     name: 'Throat Chakra Aquamarine Voice Bracelet',
     category: 'Throat Chakra Crystal Jewelry',
-    price: 84,
+    price: 184,
   },
   'third-eye-amethyst': {
     name: 'Third Eye Amethyst Intuition Bracelet',
     category: 'Third Eye Chakra Crystal Jewelry',
-    price: 86,
+    price: 186,
   },
   'crown-clear-quartz': {
     name: 'Crown Chakra Clear Quartz Clarity Bracelet',
     category: 'Crown Chakra Crystal Jewelry',
-    price: 88,
+    price: 188,
   },
   'full-moon-ritual': {
     name: 'Full Moon Crystal Ritual Set',
     category: 'Lunar Ritual Set',
     price: 119,
   },
+}
+
+function adjustedProductPrice(value) {
+  const price = Number(value)
+  return Number.isFinite(price) && price < 100 ? price + 100 : price
 }
 
 function escapeHtml(value = '') {
@@ -193,7 +198,7 @@ function routeMeta(route, guides, productMap) {
       ? englishProductName(product)
       : legacyProduct?.name || `Crystal Talisman · ${id.replaceAll('-', ' ')}`
     const category = legacyProduct?.category || chakra || 'Crystal Jewelry'
-    const price = Number(product?.price || legacyProduct?.price || 89).toFixed(2)
+    const price = adjustedProductPrice(product?.price || legacyProduct?.price || 89).toFixed(2)
     const imagePaths = product?.images?.length ? product.images : product?.image ? [product.image] : []
     const images = imagePaths.length
       ? imagePaths.map((image) => (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`))

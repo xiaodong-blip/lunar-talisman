@@ -1151,7 +1151,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a1-2510",
     "name": "A1-2510 披星戴月手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a1-2510.webp",
     "images": [
       "/products/heart-a1-2510.webp",
@@ -1169,7 +1169,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a2-2506",
     "name": "A2-2506 粉荔枝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a2-2506.webp",
     "images": [
       "/products/heart-a2-2506.webp",
@@ -1187,7 +1187,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a3-2501-8mm",
     "name": "A3-2501 绿幽灵珠子约8mm-铜款",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a3-2501-8mm.webp",
     "images": [
       "/products/heart-a3-2501-8mm.webp",
@@ -1205,7 +1205,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a2-2508-4mm",
     "name": "A2-2508 水草玛瑙手绳4mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a2-2508-4mm.webp",
     "images": [
       "/products/heart-a2-2508-4mm.webp",
@@ -1222,7 +1222,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a4-2503",
     "name": "A4-2503 【鎏金岁月】粉水晶",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a4-2503.webp",
     "images": [
       "/products/heart-a4-2503.webp",
@@ -1236,7 +1236,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a4-2504",
     "name": "A4-2504 五行喜木-（升级款）",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a4-2504.webp",
     "images": [
       "/products/heart-a4-2504.webp",
@@ -1254,7 +1254,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a4-2506-10mm",
     "name": "A4-2506 九尾狐马粉晶10mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a4-2506-10mm.webp",
     "images": [
       "/products/heart-a4-2506-10mm.webp",
@@ -1271,7 +1271,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a8-2504",
     "name": "A8-2504 草莓晶星星手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a8-2504.webp",
     "images": [
       "/products/heart-a8-2504.webp",
@@ -1289,7 +1289,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a8-2505",
     "name": "A8-2505 草莓晶转运手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a8-2505.webp",
     "images": [
       "/products/heart-a8-2505.webp",
@@ -1307,7 +1307,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a7-2510",
     "name": "A7-2510 草莓晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a7-2510.webp",
     "images": [
       "/products/heart-a7-2510.webp",
@@ -1325,7 +1325,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a8-2510-10mm",
     "name": "A8-2510 10mm草莓晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a8-2510-10mm.webp",
     "images": [
       "/products/heart-a8-2510-10mm.webp",
@@ -1343,7 +1343,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b10-2506",
     "name": "B10-2506 【多喜乐】葡萄石-双圈平安扣手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b10-2506.webp",
     "images": [
       "/products/heart-b10-2506.webp",
@@ -1355,7 +1355,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-a9-2506-6mm",
     "name": "A9-2506 【甜夏之恋】6mm草莓晶玉髓手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-a9-2506-6mm.webp",
     "images": [
       "/products/heart-a9-2506-6mm.webp",
@@ -1367,7 +1367,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b2-2507-10mm",
     "name": "B2-2507 【薄荷夏日】多宝水晶手串-10mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b2-2507-10mm.webp",
     "images": [
       "/products/heart-b2-2507-10mm.webp",
@@ -1385,7 +1385,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b3-2502",
     "name": "B3-2502 粉晶方糖九紫离火手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b3-2502.webp",
     "images": [
       "/products/heart-b3-2502.webp",
@@ -1402,7 +1402,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b3-2509-10mm",
     "name": "B3-2509 10mm-补木五行貔貅多宝",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b3-2509-10mm.webp",
     "images": [
       "/products/heart-b3-2509-10mm.webp",
@@ -1419,7 +1419,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b4-2507-8mm",
     "name": "B4-2507 8mm补木五行手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b4-2507-8mm.webp",
     "images": [
       "/products/heart-b4-2507-8mm.webp",
@@ -1433,7 +1433,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b4-2508-10mm",
     "name": "B4-2508 10mm补木五行手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b4-2508-10mm.webp",
     "images": [
       "/products/heart-b4-2508-10mm.webp",
@@ -1448,7 +1448,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b7-2502",
     "name": "B7-2502 粉色系",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b7-2502.webp",
     "images": [
       "/products/heart-b7-2502.webp",
@@ -1466,7 +1466,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b7-2503",
     "name": "B7-2503 绿色系",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b7-2503.webp",
     "images": [
       "/products/heart-b7-2503.webp",
@@ -1482,7 +1482,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-b8-2503-8mm",
     "name": "B8-2503 水晶烟花多宝手链8mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-b8-2503-8mm.webp",
     "images": [
       "/products/heart-b8-2503-8mm.webp",
@@ -1499,7 +1499,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-c10-2507",
     "name": "C10-2507 可转动雪花_粉水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-c10-2507.webp",
     "images": [
       "/products/heart-c10-2507.webp",
@@ -1517,7 +1517,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-c6-2510-12mm",
     "name": "C6-2510 约12MM左右绿发晶+黑金超+白幽灵+白水晶方糖+葡萄石跑环",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-c6-2510-12mm.webp",
     "images": [
       "/products/heart-c6-2510-12mm.webp",
@@ -1534,7 +1534,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-d5-2508",
     "name": "D5-2508 【樱落恋】粉水晶银猫眼手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-d5-2508.webp",
     "images": [
       "/products/heart-d5-2508.webp",
@@ -1550,7 +1550,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-f01-2505",
     "name": "F01-2505",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-f01-2505.webp",
     "images": [
       "/products/heart-f01-2505.webp",
@@ -1564,7 +1564,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-g07-2509",
     "name": "G07-2509 【五行补木】情绪-多宝水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-g07-2509.webp",
     "images": [
       "/products/heart-g07-2509.webp",
@@ -1580,7 +1580,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-g08-2507",
     "name": "G08-2507 超级赚【事业青】",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-g08-2507.webp",
     "images": [
       "/products/heart-g08-2507.webp",
@@ -1596,7 +1596,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-h06-2504-10mm",
     "name": "H06-2504 【青萤逐瑞】-10mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-h06-2504-10mm.webp",
     "images": [
       "/products/heart-h06-2504-10mm.webp",
@@ -1609,7 +1609,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-h06-2507",
     "name": "H06-2507 【清缘载福】-多宝水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-h06-2507.webp",
     "images": [
       "/products/heart-h06-2507.webp",
@@ -1624,7 +1624,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-h07-2501-10mm",
     "name": "H07-2501 【清凉盛夏】水晶手串-10mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-h07-2501-10mm.webp",
     "images": [
       "/products/heart-h07-2501-10mm.webp",
@@ -1640,7 +1640,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-i02-2504",
     "name": "I02-2504 【五行水生木】水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i02-2504.webp",
     "images": [
       "/products/heart-i02-2504.webp",
@@ -1656,7 +1656,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-i03-2501",
     "name": "I03-2501 【良缘将至】天然白水晶+草莓晶",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i03-2501.webp",
     "images": [
       "/products/heart-i03-2501.webp",
@@ -1670,7 +1670,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-i06-2503",
     "name": "I06-2503 补水木五行水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i06-2503.webp",
     "images": [
       "/products/heart-i06-2503.webp",
@@ -1685,7 +1685,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-i06-2505-10mm",
     "name": "I06-2505 天然粉水晶手串-10mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i06-2505-10mm.webp",
     "images": [
       "/products/heart-i06-2505-10mm.webp",
@@ -1699,7 +1699,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-i09-2502-10m",
     "name": "I09-2502 【绯晶迎禧】10m草莓晶+黄塔晶",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-i09-2502-10m.webp",
     "images": [
       "/products/heart-i09-2502-10m.webp",
@@ -1713,7 +1713,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "heart-8mm",
     "name": "绿檀玉葫芦手串8mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/heart-8mm.webp",
     "images": [
       "/products/heart-8mm.webp",
@@ -1744,7 +1744,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-a6-2507",
     "name": "A6-2507 蓝晶石黄塔晶手链",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-a6-2507.webp",
     "images": [
       "/products/throat-a6-2507.webp",
@@ -1762,7 +1762,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-b6-2501",
     "name": "B6-2501 薰衣草海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-b6-2501.webp",
     "images": [
       "/products/throat-b6-2501.webp",
@@ -1780,7 +1780,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-d5-2506-8mm",
     "name": "D5-2506 【远离焦虑】能量清泉-8mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-d5-2506-8mm.webp",
     "images": [
       "/products/throat-d5-2506-8mm.webp",
@@ -1796,7 +1796,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-b7-2506",
     "name": "B7-2506 蝴蝶",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-b7-2506.webp",
     "images": [
       "/products/throat-b7-2506.webp",
@@ -1813,7 +1813,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-d5-2507-8mm",
     "name": "D5-2507 【好运降临】净化负能量-8mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-d5-2507-8mm.webp",
     "images": [
       "/products/throat-d5-2507-8mm.webp",
@@ -1828,7 +1828,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2503",
     "name": "E03-2503 【水瓶座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2503.webp",
     "images": [
       "/products/throat-e03-2503.webp",
@@ -1843,7 +1843,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2504",
     "name": "E03-2504 【双鱼座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2504.webp",
     "images": [
       "/products/throat-e03-2504.webp",
@@ -1858,7 +1858,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2506",
     "name": "E03-2506 【天蝎座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2506.webp",
     "images": [
       "/products/throat-e03-2506.webp",
@@ -1873,7 +1873,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2505",
     "name": "E03-2505 【金牛座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2505.webp",
     "images": [
       "/products/throat-e03-2505.webp",
@@ -1888,7 +1888,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2507",
     "name": "E03-2507 【摩羯座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2507.webp",
     "images": [
       "/products/throat-e03-2507.webp",
@@ -1903,7 +1903,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2508",
     "name": "E03-2508 【处女座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2508.webp",
     "images": [
       "/products/throat-e03-2508.webp",
@@ -1919,7 +1919,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2509",
     "name": "E03-2509 【射手座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2509.webp",
     "images": [
       "/products/throat-e03-2509.webp",
@@ -1934,7 +1934,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e03-2510",
     "name": "E03-2510 【天秤座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e03-2510.webp",
     "images": [
       "/products/throat-e03-2510.webp",
@@ -1947,7 +1947,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e04-2501",
     "name": "E04-2501 【双子座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2501.webp",
     "images": [
       "/products/throat-e04-2501.webp",
@@ -1961,7 +1961,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e04-2502",
     "name": "E04-2502 【狮子座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2502.webp",
     "images": [
       "/products/throat-e04-2502.webp",
@@ -1976,7 +1976,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e04-2504",
     "name": "E04-2504 【巨蟹座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2504.webp",
     "images": [
       "/products/throat-e04-2504.webp",
@@ -1991,7 +1991,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-e04-2503",
     "name": "E04-2503 【白羊座】海蓝宝手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-e04-2503.webp",
     "images": [
       "/products/throat-e04-2503.webp",
@@ -2005,7 +2005,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-f07-2507-8mm",
     "name": "F07-2507 8mm天河石紫水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-f07-2507-8mm.webp",
     "images": [
       "/products/throat-f07-2507-8mm.webp",
@@ -2020,7 +2020,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-i06-2510-5-6mm",
     "name": "I06-2510 【夏日清凉】海蓝宝(约5-6mm)随形手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-i06-2510-5-6mm.webp",
     "images": [
       "/products/throat-i06-2510-5-6mm.webp",
@@ -2034,7 +2034,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-i07-2501",
     "name": "I07-2501 【冰海蓝魄】天然海蓝宝蓝晶石手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-i07-2501.webp",
     "images": [
       "/products/throat-i07-2501.webp",
@@ -2048,7 +2048,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "throat-i09-2503-8mm-12mm",
     "name": "I09-2503 8mm灰月光+12mm蓝虎眼",
-    "price": 89,
+    "price": 189,
     "image": "/products/throat-i09-2503-8mm-12mm.webp",
     "images": [
       "/products/throat-i09-2503-8mm-12mm.webp",
@@ -2061,7 +2061,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-a2-2507",
     "name": "A2-2507 薰衣草紫阿塞",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a2-2507.webp",
     "images": [
       "/products/third-eye-a2-2507.webp",
@@ -2078,7 +2078,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-a3-2503",
     "name": "A3-2503 紫水晶款",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a3-2503.webp",
     "images": [
       "/products/third-eye-a3-2503.webp",
@@ -2095,7 +2095,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-a4-2503",
     "name": "A4-2503 【鎏金岁月】紫水晶",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a4-2503.webp",
     "images": [
       "/products/third-eye-a4-2503.webp",
@@ -2113,7 +2113,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-a5-2504-10mm",
     "name": "A5-2504 紫水晶貔貅+白水晶【珠经-10mm】",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a5-2504-10mm.webp",
     "images": [
       "/products/third-eye-a5-2504-10mm.webp",
@@ -2131,7 +2131,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-a5-2506-8mm",
     "name": "A5-2506 紫水晶貔貅+刻面白水晶【珠经-8mm】",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a5-2506-8mm.webp",
     "images": [
       "/products/third-eye-a5-2506-8mm.webp",
@@ -2149,7 +2149,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-a8-2503-12mm",
     "name": "A8-2503 12mm钻圈款",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a8-2503-12mm.webp",
     "images": [
       "/products/third-eye-a8-2503-12mm.webp",
@@ -2167,7 +2167,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-a6-2508",
     "name": "A6-2508 乌拉圭紫水晶白水晶手链",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-a6-2508.webp",
     "images": [
       "/products/third-eye-a6-2508.webp",
@@ -2185,7 +2185,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-b1-2501",
     "name": "B1-2501 九紫离火紫水晶手链",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b1-2501.webp",
     "images": [
       "/products/third-eye-b1-2501.webp",
@@ -2203,7 +2203,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-b1-2508-6mm",
     "name": "B1-2508 紫金砂珍珠6mm手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b1-2508-6mm.webp",
     "images": [
       "/products/third-eye-b1-2508-6mm.webp",
@@ -2221,7 +2221,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-b5-2509",
     "name": "B5-2509 切面白水晶紫水晶手链",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b5-2509.webp",
     "images": [
       "/products/third-eye-b5-2509.webp",
@@ -2239,7 +2239,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-b2-2508-8mm",
     "name": "B2-2508 【紫玉生香】-8mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b2-2508-8mm.webp",
     "images": [
       "/products/third-eye-b2-2508-8mm.webp",
@@ -2257,7 +2257,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-b6-2502",
     "name": "B6-2502 紫水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b6-2502.webp",
     "images": [
       "/products/third-eye-b6-2502.webp",
@@ -2274,7 +2274,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-b5-2508",
     "name": "B5-2508 薰衣草紫水晶玉兔手链",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b5-2508.webp",
     "images": [
       "/products/third-eye-b5-2508.webp",
@@ -2290,7 +2290,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-b6-2503",
     "name": "B6-2503 紫水晶星星手链",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-b6-2503.webp",
     "images": [
       "/products/third-eye-b6-2503.webp",
@@ -2307,7 +2307,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-e09-2506-9-10mm",
     "name": "E09-2506 紫塔+黑金超七+黄虎眼珠经约9-10mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-e09-2506-9-10mm.webp",
     "images": [
       "/products/third-eye-e09-2506-9-10mm.webp",
@@ -2322,7 +2322,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-f07-2503-8mm",
     "name": "F07-2503 8mm紫水晶绿东陵手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-f07-2503-8mm.webp",
     "images": [
       "/products/third-eye-f07-2503-8mm.webp",
@@ -2336,7 +2336,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-i06-2506-12mm",
     "name": "I06-2506 【芋泥啵啵】天然紫水晶手串-12mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i06-2506-12mm.webp",
     "images": [
       "/products/third-eye-i06-2506-12mm.webp",
@@ -2348,7 +2348,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-c10-2501",
     "name": "C10-2501",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-c10-2501.webp",
     "images": [
       "/products/third-eye-c10-2501.webp",
@@ -2363,7 +2363,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-i07-2508",
     "name": "I07-2508 【暮山紫蔼】天然紫水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i07-2508.webp",
     "images": [
       "/products/third-eye-i07-2508.webp",
@@ -2378,7 +2378,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-i08-2509-8mm",
     "name": "I08-2509 8mm紫水晶草莓晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i08-2509-8mm.webp",
     "images": [
       "/products/third-eye-i08-2509-8mm.webp",
@@ -2393,7 +2393,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-i10-2505",
     "name": "I10-2505 【紫气东来】九紫离火手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-i10-2505.webp",
     "images": [
       "/products/third-eye-i10-2505.webp",
@@ -2407,7 +2407,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-8mm",
     "name": "紫金砂葫芦手串8mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-8mm.webp",
     "images": [
       "/products/third-eye-8mm.webp",
@@ -2422,7 +2422,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "third-eye-crystal-talisman",
     "name": "【紫菱】天然紫水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/third-eye-crystal-talisman.webp",
     "images": [
       "/products/third-eye-crystal-talisman.webp",
@@ -2440,7 +2440,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-a4-2507-10mm-12mm",
     "name": "A4-2507 白水晶10mm+海蓝宝12mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a4-2507-10mm-12mm.webp",
     "images": [
       "/products/crown-a4-2507-10mm-12mm.webp",
@@ -2458,7 +2458,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-a5-2510",
     "name": "A5-2510 拉长石草莓晶手串+月亮吊坠",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a5-2510.webp",
     "images": [
       "/products/crown-a5-2510.webp",
@@ -2476,7 +2476,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-a6-2510-10mm",
     "name": "A6-2510 10mm白月光手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a6-2510-10mm.webp",
     "images": [
       "/products/crown-a6-2510-10mm.webp",
@@ -2488,7 +2488,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-a9-2502-8mm",
     "name": "A9-2502 8mm天然白水晶+猫眼珠手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-a9-2502-8mm.webp",
     "images": [
       "/products/crown-a9-2502-8mm.webp",
@@ -2506,7 +2506,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-b1-2506-10mm",
     "name": "B1-2506 10mm白月光",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-b1-2506-10mm.webp",
     "images": [
       "/products/crown-b1-2506-10mm.webp",
@@ -2524,7 +2524,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-e04-2508-10mm-a",
     "name": "E04-2508 10mm白月光水晶手串-A款",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-e04-2508-10mm-a.webp",
     "images": [
       "/products/crown-e04-2508-10mm-a.webp",
@@ -2541,7 +2541,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-e06-2509-12mm",
     "name": "E06-2509 白水晶+粉晶12mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-e06-2509-12mm.webp",
     "images": [
       "/products/crown-e06-2509-12mm.webp",
@@ -2554,7 +2554,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-f02-2507-10mm",
     "name": "F02-2507 10mm灰月光 金虎眼 蓝虎眼",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-f02-2507-10mm.webp",
     "images": [
       "/products/crown-f02-2507-10mm.webp",
@@ -2569,7 +2569,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-g09-2505",
     "name": "G09-2505 【星光旋律】水晶手串",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-g09-2505.webp",
     "images": [
       "/products/crown-g09-2505.webp",
@@ -2582,7 +2582,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-h03-2506-10mm",
     "name": "H03-2506 【净界之息】白阿赛-10mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-h03-2506-10mm.webp",
     "images": [
       "/products/crown-h03-2506-10mm.webp",
@@ -2597,7 +2597,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-i01-2504-12mm",
     "name": "I01-2504 【莹白灵澈】-12mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i01-2504-12mm.webp",
     "images": [
       "/products/crown-i01-2504-12mm.webp",
@@ -2609,7 +2609,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-i02-2509",
     "name": "I02-2509 【补水聚财】天然白水晶+海蓝宝",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i02-2509.webp",
     "images": [
       "/products/crown-i02-2509.webp",
@@ -2624,7 +2624,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-i02-2510",
     "name": "I02-2510 【玉见幸福】天然白水晶+和田玉",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i02-2510.webp",
     "images": [
       "/products/crown-i02-2510.webp",
@@ -2641,7 +2641,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-i03-2503",
     "name": "I03-2503 【金水相生】天然白水晶+黑曜石",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-i03-2503.webp",
     "images": [
       "/products/crown-i03-2503.webp",
@@ -2670,7 +2670,7 @@ export const IMPORTED_CATALOG = [
   {
     "id": "crown-8mm",
     "name": "和田玉葫芦手串8mm",
-    "price": 89,
+    "price": 189,
     "image": "/products/crown-8mm.webp",
     "images": [
       "/products/crown-8mm.webp",

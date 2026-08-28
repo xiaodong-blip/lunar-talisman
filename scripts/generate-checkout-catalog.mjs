@@ -28,7 +28,7 @@ const products = JSON.parse(source.slice(start + assignment.length, end + 2))
   .map((product) => ({
     id: String(product.id),
     name: String(product.name),
-    price: Number(product.price),
+    price: Number(product.price) < 100 ? Number(product.price) + 100 : Number(product.price),
     image: String(product.image || ''),
     images: Array.isArray(product.images)
       ? product.images.map((image) => String(image)).filter(Boolean).slice(0, 8)

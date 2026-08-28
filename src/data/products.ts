@@ -26,7 +26,7 @@ export const products: CrystalProduct[] = [
     id: 'scorpio-amethyst',
     name: '天蝎守护 · 紫水晶手链',
     subtitle: 'Scorpio Guardian Amethyst',
-    price: 89,
+    price: 189,
     originalPrice: 109,
     description:
       '专为天蝎座打造的守护手链。紫水晶对应眉心轮，传说能增强直觉力，在月食之夜尤为强大。每一颗紫水晶珠都经过新月仪式净化，承载着深邃的转化能量。',
@@ -46,7 +46,7 @@ export const products: CrystalProduct[] = [
     id: 'heart-rose-quartz',
     name: '心轮疗愈 · 玫瑰晶手链',
     subtitle: 'Heart Chakra Rose Quartz',
-    price: 69,
+    price: 169,
     description:
       '玫瑰晶是心轮的代表水晶，传说能打开心扉，吸引无条件的爱。每一颗玫瑰晶都在满月之夜经过月光净化。',
     collection: 'chakra',
@@ -63,8 +63,8 @@ export const products: CrystalProduct[] = [
     id: 'solar-citrine',
     name: '太阳轮 · 黄水晶勇气手链',
     subtitle: 'Solar Plexus Citrine',
-    price: 79,
-    originalPrice: 99,
+    price: 179,
+    originalPrice: 199,
     description:
       '黄水晶对应太阳轮，是自信与行动力的水晶化身。传说佩戴者可增强决断力，驱散自我怀疑。满月加持后能量更强。',
     collection: 'chakra',
@@ -101,7 +101,7 @@ export const products: CrystalProduct[] = [
     id: 'root-garnet',
     name: '海底轮 · 红石榴石扎根手链',
     subtitle: 'Root Chakra Garnet',
-    price: 75,
+    price: 175,
     description:
       '红石榴石对应海底轮，帮助你扎根大地、找到安全感与稳定感。适合感到焦虑或不安全时佩戴。',
     collection: 'chakra',

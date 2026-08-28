@@ -742,6 +742,7 @@ function enrichedImportedProduct(product: (typeof importedProducts)[number]) {
 
 const IMPORTED_DETAILS: DetailData[] = ACTIVE_IMPORTED_PRODUCTS.map((product) => {
   const content = enrichedImportedProduct(product)
+  const price = adjustedProductPrice(product.price)
 
   return {
     id: product.id,
@@ -754,7 +755,7 @@ const IMPORTED_DETAILS: DetailData[] = ACTIVE_IMPORTED_PRODUCTS.map((product) =>
     specs: [
       product.chakraName,
       ...content.specs.slice(0, 2),
-      `$${product.price}`,
+      `$${price}`,
     ],
     body: [
       `Material — ${content.material}`,
@@ -1340,23 +1341,28 @@ function formatProductPrice(value: number) {
   return `$${value.toLocaleString('en-US')}`
 }
 
+function adjustedProductPrice(value: number) {
+  const price = Number(value)
+  return Number.isFinite(price) && price < 100 ? price + 100 : price
+}
+
 function getDetailPrice(detail: DetailData) {
   const priceSpec = detail.specs.find((spec) => spec.startsWith('$'))
   if (priceSpec) {
     const parsed = Number(priceSpec.replace(/[^0-9.]/g, ''))
-    if (Number.isFinite(parsed) && parsed > 0) return parsed
+    if (Number.isFinite(parsed) && parsed > 0) return adjustedProductPrice(parsed)
   }
 
   const priceMap: Record<string, number> = {
-    'scorpio-amethyst': 89,
-    'heart-rose-quartz': 69,
-    'solar-citrine': 79,
+    'scorpio-amethyst': 189,
+    'heart-rose-quartz': 169,
+    'solar-citrine': 179,
     'new-moon-set': 129,
-    'root-garnet': 75,
+    'root-garnet': 175,
     'full-moon-necklace': 149,
   }
 
-  return priceMap[detail.id] ?? 89
+  return adjustedProductPrice(priceMap[detail.id] ?? 189)
 }
 
 function getTileDetail(tile: Tile) {
