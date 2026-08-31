@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Lunar Talisman",
+  "url": "https://lunartalisman.com/",
+  "description": "English-language crystal jewelry, chakra stones, lunar rituals, and crystal education.",
+  "areaServed": [
+    "Americas",
+    "Europe",
+    "Southeast Asia"
+  ],
+  "knowsAbout": [
+    "crystal jewelry",
+    "crystal meanings",
+    "chakra stones",
+    "crystal cleansing rituals",
+    "gemstone symbolism"
+  ]
+}

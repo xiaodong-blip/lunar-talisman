@@ -8,7 +8,13 @@ declare global {
 }
 
 function getMeasurementId() {
-  return import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined
+  // GA4 Measurement IDs are public client-side identifiers. Keep the
+  // deployment working even when Netlify's optional VITE variable has not
+  // been added yet; an environment value can still override this later.
+  return (
+    (import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined)?.trim() ||
+    'G-XKT36WN4FE'
+  )
 }
 
 function recordStorefrontEvent(name: string, value?: number, path?: string) {

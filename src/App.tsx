@@ -548,6 +548,236 @@ const CHAKRA_COLLECTIONS = [
   },
 ] as const
 
+const CHAKRA_SEO_META: Record<
+  string,
+  { title: string; description: string; keywords: string[] }
+> = {
+  root: {
+    title: 'Root Chakra Stones for Grounding & Safety',
+    description:
+      'Explore root chakra stones and crystal bracelets for grounding, safety, stability, and reflective everyday ritual.',
+    keywords: ['root chakra stones', 'root chakra bracelet', 'grounding crystals', 'crystals for protection'],
+  },
+  sacral: {
+    title: 'Sacral Chakra Stones for Creativity & Passion',
+    description:
+      'Explore sacral chakra stones and crystal bracelets for creativity, passion, emotional flow, and joyful ritual.',
+    keywords: ['sacral chakra stones', 'sacral chakra bracelet', 'creativity crystals', 'passion crystals'],
+  },
+  solar: {
+    title: 'Solar Plexus Chakra Stones for Confidence & Personal Power',
+    description:
+      'Explore solar plexus chakra stones for confidence, clarity, courage, wealth intentions, and personal power.',
+    keywords: ['solar plexus chakra stones', 'confidence crystals', 'crystals for wealth', 'chakra bracelet'],
+  },
+  heart: {
+    title: 'Heart Chakra Stones for Love & Compassion',
+    description:
+      'Explore heart chakra stones for love, compassion, emotional balance, and mindful relationship rituals.',
+    keywords: ['heart chakra stones', 'heart chakra bracelet', 'rose quartz meaning', 'crystals for love'],
+  },
+  throat: {
+    title: 'Throat Chakra Stones for Truth & Expression',
+    description:
+      'Explore throat chakra stones for clear expression, honest communication, and a confident everyday voice.',
+    keywords: ['throat chakra stones', 'throat chakra bracelet', 'communication crystals', 'blue crystals'],
+  },
+  'third-eye': {
+    title: 'Third Eye Chakra Stones for Intuition & Insight',
+    description:
+      'Explore third eye chakra stones for intuition, insight, meditation, and reflective inner vision.',
+    keywords: ['third eye chakra crystals', 'third eye chakra bracelet', 'amethyst meaning', 'intuition crystals'],
+  },
+  crown: {
+    title: 'Crown Chakra Stones for Spiritual Connection & Clarity',
+    description:
+      'Explore crown chakra stones for spiritual connection, clarity, stillness, and lunar reflection.',
+    keywords: ['crown chakra crystals', 'crown chakra bracelet', 'clear quartz meaning', 'spiritual crystals'],
+  },
+}
+
+const SERIES_SEO_META: Record<
+  string,
+  { title: string; description: string; keywords: string[] }
+> = {
+  worlds: {
+    title: 'Crystal Healing Guide & Crystal Meanings',
+    description:
+      'Explore crystal healing traditions, crystal meanings, chakra stones, lunar rituals, and mindful crystal jewelry.',
+    keywords: ['crystal healing', 'crystal meanings', 'healing crystals', 'crystal meaning guide'],
+  },
+  collections: {
+    title: 'Crystal Jewelry, Chakra Bracelets & Gemstone Jewelry',
+    description:
+      'Shop crystal jewelry, gemstone bracelets, chakra bracelets, and healing crystal jewelry from Lunar Talisman.',
+    keywords: ['crystal jewelry', 'gemstone jewelry', 'crystal bracelet', 'healing crystals jewelry'],
+  },
+  rituals: {
+    title: 'How to Cleanse Crystals & Moon Ritual Guides',
+    description:
+      'Learn how to cleanse crystals at home, charge crystals safely, and create new moon and full moon rituals.',
+    keywords: ['how to cleanse crystals', 'how to cleanse crystals at home', 'how to charge crystals', 'new moon ritual', 'full moon ritual'],
+  },
+  chakra: {
+    title: 'Chakra Stones in Order & 7 Chakra Meanings',
+    description:
+      'Explore chakra stones in order, chakra stones meaning and colors, seven chakra collections, and chakra bracelets.',
+    keywords: ['chakra stones in order', 'chakra stones meaning', 'chakra stones chart', 'chakra stones bracelet', '7 chakras and their meanings'],
+  },
+  lunar: {
+    title: 'Moon Phases & Crystals: New Moon and Full Moon Rituals',
+    description:
+      'Use moon phases and crystals as a reflective rhythm for new moon intentions, full moon release, cleansing, and charging.',
+    keywords: ['moon phases and crystals', 'new moon ritual crystals', 'full moon ritual crystals', 'crystal cleansing'],
+  },
+  crystals: {
+    title: 'Crystal Meanings Chart & Healing Crystal Jewelry',
+    description:
+      'Browse a crystal meanings chart, gemstone meanings, healing crystals, crystal bracelets, necklaces, and talisman jewelry.',
+    keywords: ['crystal meaning chart', 'gemstone meanings chart', 'healing crystals', 'crystal shop online', 'healing crystals jewelry'],
+  },
+  connect: {
+    title: 'Crystals for Beginners: Choose Your Crystal Bracelet',
+    description:
+      'A beginner-friendly path to crystal meanings, chakra stones, crystal bracelets, gifts, and mindful everyday wear.',
+    keywords: ['crystals for beginners', 'crystal bracelet for women', 'crystal bracelet for men', 'crystal gift for her', 'crystal gift for him'],
+  },
+}
+
+const GUIDE_SEO_META: Record<
+  string,
+  { title: string; description: string; keywords: string[] }
+> = {
+  'chakra-seven-chakras-explained': {
+    title: '7 Chakras and Their Meanings: Chakra Stones in Order',
+    description:
+      'A clear guide to the seven chakras, chakra stones in order, colors, traditional meanings, and reflective practice.',
+    keywords: ['7 chakras and their meanings', 'chakra stones in order', 'chakra stones chart', 'chakra stones meaning'],
+  },
+  'crystals-00': {
+    title: 'Crystal Meanings Chart & Gemstone Meanings Guide',
+    description:
+      'Use this crystal meanings chart and gemstone meanings guide to compare traditional symbolism, colors, care, and ritual use.',
+    keywords: ['crystal meaning chart', 'crystal meaning guide', 'gemstone meanings chart', 'crystal meanings list'],
+  },
+  'worlds-08': {
+    title: 'Crystals for Beginners: A Practical Starting Guide',
+    description:
+      'Learn how to choose, wear, cleanse, and care for your first crystal without overcomplicating the ritual.',
+    keywords: ['crystals for beginners', 'how to use crystals for beginners', 'crystal bracelet'],
+  },
+  'rituals-05': {
+    title: 'How to Cleanse Crystals at Home',
+    description:
+      'Learn safe ways to cleanse crystals at home with moonlight, selenite, sound, and mineral-aware care.',
+    keywords: ['how to cleanse crystals', 'how to cleanse crystals at home', 'cleanse crystals with selenite', 'cleanse crystals with moonlight'],
+  },
+  'rituals-06': {
+    title: 'How to Charge Crystals Safely',
+    description:
+      'Learn reflective ways to charge crystals with moonlight, intention, sound, and care-safe placement.',
+    keywords: ['how to charge crystals', 'how to charge crystals on a full moon', 'crystal charging methods'],
+  },
+  'rituals-01': {
+    title: 'New Moon Crystal Ritual for Fresh Intentions',
+    description:
+      'A simple new moon crystal ritual for setting intentions, journaling, and beginning a new reflective cycle.',
+    keywords: ['new moon ritual', 'new moon ritual crystals', 'new moon manifestation ritual'],
+  },
+  'rituals-02': {
+    title: 'Full Moon Crystal Ritual for Release & Reflection',
+    description:
+      'A simple full moon crystal ritual for gratitude, release, cleansing, and reflective closure.',
+    keywords: ['full moon ritual', 'full moon ritual crystals', 'releasing ritual during full moon'],
+  },
+  'rituals-moon-phase-guide': {
+    title: 'Moon Phases and Crystals: A Practical Guide',
+    description:
+      'Understand moon phases and crystals as a reflective rhythm for intention setting, cleansing, charging, and release.',
+    keywords: ['moon phases and crystals', 'phases of the moon', 'crystals for full moon'],
+  },
+  'connect-crystal-care-faq': {
+    title: 'Crystal Care FAQ: Meanings, Wearing & Cleansing',
+    description:
+      'Answers to common questions about crystal meanings, choosing a bracelet, wearing crystals, cleansing, and care.',
+    keywords: ['crystal meanings', 'crystal bracelet', 'how to cleanse crystals', 'crystals for beginners'],
+  },
+}
+
+function getProductSeoMeta(id: string, title: string) {
+  const source = `${id} ${title}`.toLowerCase()
+  if (source.includes('amethyst')) {
+    return {
+      title: 'Amethyst Bracelet Meaning & Benefits',
+      description:
+        'Explore amethyst bracelet meaning, traditional benefits, care, and mindful everyday wear from Lunar Talisman.',
+      keywords: ['amethyst meaning', 'amethyst benefits', 'healing crystal bracelet'],
+    }
+  }
+  if (source.includes('rose quartz')) {
+    return {
+      title: 'Rose Quartz Bracelet for Love & Emotional Balance',
+      description:
+        'Explore rose quartz meaning, traditional love symbolism, care, and reflective crystal jewelry rituals.',
+      keywords: ['rose quartz meaning', 'crystals for love', 'crystal bracelet'],
+    }
+  }
+  if (source.includes('citrine') || source.includes('yellow crystal')) {
+    return {
+      title: 'Citrine Crystal Bracelet for Confidence & Wealth',
+      description:
+        'Explore citrine meaning, traditional confidence and wealth symbolism, care, and crystal bracelet styling.',
+      keywords: ['citrine meaning', 'crystals for wealth', 'citrine bracelet'],
+    }
+  }
+  if (source.includes('moonstone')) {
+    return {
+      title: 'Moonstone Jewelry for Intuition & Emotional Balance',
+      description:
+        'Explore moonstone meaning, traditional intuition symbolism, care, and lunar-inspired crystal jewelry.',
+      keywords: ['moonstone meaning', 'moonstone necklace', 'healing crystals'],
+    }
+  }
+  if (/love|heart|rose|strawberry/.test(source)) {
+    return {
+      title: 'Crystal Bracelet for Love & Relationships',
+      description:
+        'Explore crystal meanings and traditional love symbolism for mindful relationship rituals and everyday crystal jewelry.',
+      keywords: ['crystal for love', 'best crystal for love and relationships', 'crystal bracelet'],
+    }
+  }
+  if (/wealth|fortune|prosperity|money|citrine|tiger.?s.eye/.test(source)) {
+    return {
+      title: 'Crystal Bracelet for Wealth & Good Fortune',
+      description:
+        'Explore traditional wealth, abundance, and good-fortune symbolism in crystal bracelets and gemstone jewelry.',
+      keywords: ['crystal for money and wealth', 'crystals for money manifestation', 'crystal for good luck and success'],
+    }
+  }
+  if (/protect|guardian|obsidian|black/.test(source)) {
+    return {
+      title: 'Protective Crystal Bracelet for Negative Energy',
+      description:
+        'Explore traditional protection symbolism, grounding crystal meanings, care, and reflective everyday wear.',
+      keywords: ['crystal for protection from negative energy', 'crystals for negative energy protection', 'grounding crystals'],
+    }
+  }
+  if (/sleep|calm|peace|moon/.test(source)) {
+    return {
+      title: 'Crystal Jewelry for Calm, Sleep & Reflection',
+      description:
+        'Explore traditional calm and sleep symbolism, moon-inspired crystal meanings, care, and mindful evening ritual.',
+      keywords: ['crystal for sleep', 'best crystals for restful sleep', 'moonstone meaning'],
+    }
+  }
+  return {
+    title: `${title.replace(/\n/g, ' ')} Meaning & Benefits`,
+    description:
+      'Explore traditional crystal meanings, materials, care notes, and reflective ritual context for this Lunar Talisman piece.',
+    keywords: ['crystal meanings', 'crystal bracelet', 'crystal jewelry'],
+  }
+}
+
 const ACTIVE_IMPORTED_PRODUCTS = importedProducts.filter(
   (product) => !REMOVED_IMPORTED_PRODUCT_IDS.has(product.id),
 )
@@ -2987,14 +3217,19 @@ function SeriesPage({
           ),
         }
       : { ...series, tiles: series.tiles.filter((tile) => !REMOVED_ZODIAC_IDS.has(tile.id)) }
+  const chakraSeo = CHAKRA_SEO_META[id.replace(/^chakra-/, '')]
+  const genericSeo = SERIES_SEO_META[id]
+  const seriesTitle = chakraSeo?.title ?? genericSeo?.title ?? displaySeries.title.replace(/\n/g, ' ')
+  const seriesDescription = chakraSeo?.description ?? genericSeo?.description ?? displaySeries.desc
   usePageMeta({
-    title: `${displaySeries.title.replace(/\n/g, ' ')} | Lunar Talisman`,
-    description: displaySeries.desc,
+    title: `${seriesTitle} | Lunar Talisman`,
+    description: seriesDescription,
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'CollectionPage',
-      name: displaySeries.title.replace(/\n/g, ' '),
-      description: displaySeries.desc,
+      name: seriesTitle,
+      description: seriesDescription,
+      keywords: chakraSeo?.keywords ?? genericSeo?.keywords ?? ['crystal jewelry', 'crystal bracelet', 'healing crystals'],
       url: `${SITE_ORIGIN}/series/${id}/`,
       isPartOf: {
         '@type': 'WebSite',
@@ -3097,14 +3332,19 @@ function DetailPage({
   const detailPricing = getDetailPricing(detail)
   const detailPrice = detailPricing.salePrice
   const detailSeriesId = getSeriesIdForDetail(detail.id)
+  const productSeo = getProductSeoMeta(
+    detail.id,
+    getEnglishTitle(detail.id, detail.title),
+  )
   usePageMeta({
-    title: `${getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')} | Lunar Talisman`,
-    description: detail.desc,
+    title: `${productSeo.title} | Lunar Talisman`,
+    description: productSeo.description,
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'Product',
       name: getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' '),
-      description: detail.desc,
+      description: productSeo.description,
+      keywords: productSeo.keywords,
       url: `${SITE_ORIGIN}/detail/${detail.id}/`,
       image: galleryImages
         .slice(0, 8)
@@ -3121,6 +3361,11 @@ function DetailPage({
         price: detailPrice,
         availability: 'https://schema.org/InStock',
         itemCondition: 'https://schema.org/NewCondition',
+      },
+      isRelatedTo: {
+        '@type': 'CollectionPage',
+        name: `${detailSeriesId} crystal collection`,
+        url: `${SITE_ORIGIN}/series/${detailSeriesId}/`,
       },
     },
   })
@@ -3940,15 +4185,17 @@ function GuidePage({
   const relatedGuides = guideTilesFor(guide.series)
     .filter((tile) => tile.id !== guide.id)
     .slice(0, 3)
+  const guideSeo = GUIDE_SEO_META[id]
 
   usePageMeta({
-    title: `${guide.title} | Lunar Talisman`,
-    description: guide.excerpt,
+    title: `${guideSeo?.title ?? guide.title} | Lunar Talisman`,
+    description: guideSeo?.description ?? guide.excerpt,
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: guide.title,
-      description: guide.excerpt,
+      headline: guideSeo?.title ?? guide.title,
+      description: guideSeo?.description ?? guide.excerpt,
+      keywords: guideSeo?.keywords ?? ['crystal guide', 'crystal meanings', 'crystal rituals'],
       url: `${SITE_ORIGIN}/guide/${guide.id}/`,
       image: guide.image.startsWith('http') ? guide.image : `${SITE_ORIGIN}${guide.image}`,
       author: {

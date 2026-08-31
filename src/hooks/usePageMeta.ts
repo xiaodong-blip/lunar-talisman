@@ -19,13 +19,41 @@ function canonicalPathname(pathname: string) {
   return pathname === '/' ? '/' : `${pathname.replace(/\/+$/, '')}/`
 }
 
+function withBreadcrumb(
+  data: Record<string, unknown>,
+  canonicalUrl: string,
+  pageTitle: string,
+) {
+  const breadcrumb = {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Lunar Talisman', item: `${SITE_ORIGIN}/` },
+      ...(canonicalUrl === `${SITE_ORIGIN}/`
+        ? []
+        : [{ '@type': 'ListItem', position: 2, name: pageTitle, item: canonicalUrl }]),
+    ],
+  }
+  if (Array.isArray(data['@graph'])) {
+    return {
+      ...data,
+      '@graph': [...data['@graph'], breadcrumb],
+    }
+  }
+  return {
+    '@context': data['@context'] || 'https://schema.org',
+    '@graph': [data, breadcrumb],
+  }
+}
+
 export function usePageMeta({
   title,
   description,
   noindex = false,
   structuredData,
 }: PageMeta) {
-  const serializedStructuredData = structuredData ? JSON.stringify(structuredData) : ''
+  const serializedStructuredData = structuredData
+    ? JSON.stringify(structuredData)
+    : ''
 
   useEffect(() => {
     const safeTitle = englishMeta(title, 'Lunar Talisman · Crystal Rituals')
@@ -49,6 +77,9 @@ export function usePageMeta({
     descriptionMeta.content = safeDescription
 
     const canonicalUrl = `${SITE_ORIGIN}${canonicalPathname(window.location.pathname)}`
+    const structuredDataWithBreadcrumb = structuredData
+      ? withBreadcrumb(structuredData, canonicalUrl, safeTitle.replace(/\s+\|.*$/, ''))
+      : null
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonical) {
       canonical = document.createElement('link')
@@ -138,7 +169,9 @@ export function usePageMeta({
     const script = existingScript ?? document.createElement('script')
     script.id = scriptId
     script.setAttribute('type', 'application/ld+json')
-    script.textContent = serializedStructuredData
+    script.textContent = structuredDataWithBreadcrumb
+      ? JSON.stringify(structuredDataWithBreadcrumb)
+      : serializedStructuredData
     if (!existingScript) document.head.appendChild(script)
-  }, [description, noindex, serializedStructuredData, title])
+  }, [description, noindex, serializedStructuredData, structuredData, title])
 }

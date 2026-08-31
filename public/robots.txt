@@ -6,4 +6,19 @@ Disallow: /track
 Disallow: /detail/admin-
 Disallow: /.netlify/
 
+# AI/search assistants may read public editorial and catalog pages.
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+Disallow: /cart
+Disallow: /track
+Disallow: /.netlify/
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+Disallow: /cart
+Disallow: /track
+Disallow: /.netlify/
+
 Sitemap: https://lunartalisman.com/sitemap.xml
