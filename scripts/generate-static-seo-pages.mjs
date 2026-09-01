@@ -224,6 +224,20 @@ const GUIDE_SEO_BY_ID = {
 }
 
 function productSeo(product, id, category) {
+  const legacySeo = {
+    'chakra-test': {
+      title: 'Seven Chakra Crystal Bracelet Guide & Quiz',
+      keywords: ['seven chakra bracelet', 'chakra stones meaning', '7 chakras and their meanings'],
+    },
+    'crown-clear-quartz': {
+      title: 'Crown Chakra Clear Quartz Bracelet Meaning & Benefits',
+      keywords: ['crown chakra bracelet', 'clear quartz meaning', 'crown chakra crystals'],
+    },
+  }[id]
+  if (legacySeo) {
+    return legacySeo
+  }
+
   const source = `${product?.name || ''} ${id}`.toLowerCase()
   const rules = [
     [/amethyst/, 'Amethyst Bracelet Meaning & Benefits', ['amethyst meaning', 'amethyst benefits', 'healing crystal bracelet']],
@@ -238,9 +252,21 @@ function productSeo(product, id, category) {
     [/sleep|calm|peace|moon/, 'Crystal Jewelry for Calm, Sleep & Reflection', ['crystal for sleep', 'best crystals for restful sleep', 'moonstone meaning']],
   ]
   const matched = rules.find(([pattern]) => pattern.test(source))
-  const title = matched?.[1] || `${englishProductName(product || { id, name: '' })} Meaning & Benefits`
+  const fallbackName = englishProductName(product || { id, name: '' })
+  const safeFallbackName =
+    fallbackName && !/^(?:crystal talisman|crystal jewelry)$/i.test(fallbackName.trim())
+      ? fallbackName
+      : `${category} Crystal Bracelet`
+  // A legacy record without a keyword match must still produce a complete
+  // title. Empty titles create broken snippets such as “Meaning & Benefits”.
+  const title =
+    matched?.[1] ||
+    `${safeFallbackName.replace(/\s*·\s*[a-z]\d[\w -]*$/i, '').trim()} Meaning & Benefits`
   const keywords = [...(matched?.[2] || []), category.toLowerCase(), 'crystal jewelry']
-  return { title, keywords }
+  return {
+    title: title || `${category} Crystal Bracelet Meaning & Benefits`,
+    keywords: [...new Set(keywords.filter(Boolean))],
+  }
 }
 
 const LEGAL = {
@@ -652,7 +678,10 @@ function renderPage(template, route, meta) {
     .replace(/<meta\s+name="twitter:[^"]+"[\s\S]*?>/gi, '')
     .replace(/<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi, '')
     .replace('</head>', `${head}\n  </head>`)
-    .replace('<div id="root"></div>', `<div id="root">${fallback}</div>`)
+    // index.html contains a small semantic homepage fallback inside #root.
+    // Replace the complete root contents for every generated route so a
+    // product/guide page never inherits the homepage H1.
+    .replace(/<div id="root">[\s\S]*?<\/div>/i, `<div id="root">${fallback}</div>`)
 }
 
 if (!fs.existsSync(path.join(distDir, 'index.html'))) {

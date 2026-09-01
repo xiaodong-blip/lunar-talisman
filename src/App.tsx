@@ -1,5 +1,6 @@
 ﻿import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { CSSProperties, FormEvent, ReactNode, WheelEvent } from 'react'
+import { lazy, Suspense } from 'react'
 import {
   Minus,
   Plus,
@@ -12,7 +13,7 @@ import {
   MapPin,
   X,
 } from 'lucide-react'
-import AdminPage from './AdminPage'
+const AdminPage = lazy(() => import('./AdminPage'))
 import { usePageMeta } from './hooks/usePageMeta'
 import { trackEvent, trackPageView } from './services/analytics'
 import type { PublicOrder } from './services/orders'
@@ -5252,11 +5253,6 @@ function CartPage({
   drawer?: boolean
   onClose?: () => void
 }) {
-  usePageMeta({
-    title: 'Cart & Delivery | Lunar Talisman',
-    description: 'Review your cart, choose delivery, and submit an order request.',
-  })
-
   const [notice, setNotice] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [doneOrderId, setDoneOrderId] = useState('')
@@ -5890,6 +5886,7 @@ function HomePage({
   navigate,
   cartCount,
   onOpenCart,
+  noindex = false,
   pageTitle = 'Lunar Talisman · Crystal Jewelry & Chakra Rituals',
   pageDescription =
     'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.',
@@ -5897,12 +5894,14 @@ function HomePage({
   navigate: NavigateFn
   cartCount: number
   onOpenCart?: () => void
+  noindex?: boolean
   pageTitle?: string
   pageDescription?: string
 }) {
   usePageMeta({
     title: pageTitle,
     description: pageDescription,
+    noindex,
     structuredData: {
       '@context': 'https://schema.org',
       '@graph': [
@@ -6360,6 +6359,7 @@ function App() {
           navigate={goTo}
           cartCount={cartCount}
           onOpenCart={openCart}
+          noindex
           pageTitle="Cart & Delivery | Lunar Talisman"
           pageDescription="Review your cart, choose delivery, and submit an order request."
         />
@@ -6396,7 +6396,26 @@ function App() {
   }
 
   if (route.page === 'admin') {
-    return <AdminPage navigate={navigate} />
+    return (
+      <Suspense
+        fallback={
+          <div
+            style={{
+              minHeight: '100vh',
+              display: 'grid',
+              placeItems: 'center',
+              background: '#f6f3ee',
+              color: '#2d2730',
+              fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif',
+            }}
+          >
+            Loading admin…
+          </div>
+        }
+      >
+        <AdminPage navigate={navigate} />
+      </Suspense>
+    )
   }
 
   if (route.page === 'legal') {

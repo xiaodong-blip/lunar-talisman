@@ -18,12 +18,22 @@ function clean(value, maxLength = 180) {
 function diagnosticError(error) {
   const details = error?.details || {}
   const firstIssue = Array.isArray(details?.details) ? details.details[0] : {}
+  const code = clean(firstIssue?.issue || details?.name || error?.code || 'paypal_lookup_failed', 80)
+  const httpStatus = Number(error?.paypalStatus || 0) || null
+  const historicalOrderUnavailable =
+    httpStatus === 404 && code === 'INVALID_RESOURCE_ID'
   return {
     ok: false,
-    httpStatus: Number(error?.paypalStatus || 0) || null,
-    code: clean(firstIssue?.issue || details?.name || error?.code || 'paypal_lookup_failed', 80),
+    httpStatus,
+    code,
     message: clean(firstIssue?.description || details?.message || '', 180),
     debugId: clean(details?.debug_id || '', 120),
+    classification: historicalOrderUnavailable
+      ? 'paypal_order_not_found_or_environment_mismatch'
+      : 'paypal_api_error',
+    action: historicalOrderUnavailable
+      ? 'This PayPal order is not visible to the configured application. It may belong to Sandbox, another Live app, or an expired historical session. Create a new checkout order after confirming the Live credentials and webhook belong to the same PayPal app.'
+      : 'Review the PayPal error code and debug ID, then verify the configured Live app and account status.',
   }
 }
 
