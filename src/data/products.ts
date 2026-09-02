@@ -29,7 +29,7 @@ export const products: CrystalProduct[] = [
     price: 189,
     originalPrice: 109,
     description:
-      '专为天蝎座打造的守护手链。紫水晶对应眉心轮，传说能增强直觉力，在月食之夜尤为强大。每一颗紫水晶珠都经过新月仪式净化，承载着深邃的转化能量。',
+      'A guardian bracelet crafted for Scorpio. Amethyst resonates with the third eye chakra and is traditionally said to heighten intuition, with a particular intensity during eclipses. Every amethyst bead is cleansed in a new moon ritual, carrying a deep energy of transformation.',
     collection: 'zodiac',
     zodiacSigns: ['scorpio', 'pisces'],
     primaryChakra: 'third-eye',
@@ -48,7 +48,7 @@ export const products: CrystalProduct[] = [
     subtitle: 'Heart Chakra Rose Quartz',
     price: 169,
     description:
-      '玫瑰晶是心轮的代表水晶，传说能打开心扉，吸引无条件的爱。每一颗玫瑰晶都在满月之夜经过月光净化。',
+      "Rose quartz is the heart chakra's signature stone, traditionally believed to open the heart and draw in unconditional love. Every bead in this bracelet is cleansed under the full moon before it reaches you.",
     collection: 'chakra',
     primaryChakra: 'heart',
     element: '风',
@@ -66,7 +66,7 @@ export const products: CrystalProduct[] = [
     price: 179,
     originalPrice: 199,
     description:
-      '黄水晶对应太阳轮，是自信与行动力的水晶化身。传说佩戴者可增强决断力，驱散自我怀疑。满月加持后能量更强。',
+      'Citrine resonates with the solar plexus chakra — the crystal embodiment of confidence and action. It is traditionally said to strengthen decisiveness and dissolve self-doubt, and its energy is amplified by a full moon blessing.',
     collection: 'chakra',
     primaryChakra: 'solar',
     element: '火',
@@ -84,7 +84,7 @@ export const products: CrystalProduct[] = [
     price: 129,
     originalPrice: 159,
     description:
-      '新月仪式限定套装：白水晶手链 + 白鼠尾草棒 + 仪式指南卡。白水晶是顶轮的最高振动水晶，在新月之夜与月光共振。',
+      'A new moon ritual set: clear quartz bracelet, white sage bundle, and ritual guide card. Clear quartz is the crown chakra’s high-vibration stone, believed to resonate with moonlight on the new moon night.',
     collection: 'lunar',
     moonPhase: 'new-moon',
     primaryChakra: 'crown',
@@ -103,7 +103,7 @@ export const products: CrystalProduct[] = [
     subtitle: 'Root Chakra Garnet',
     price: 175,
     description:
-      '红石榴石对应海底轮，帮助你扎根大地、找到安全感与稳定感。适合感到焦虑或不安全时佩戴。',
+      'Red garnet resonates with the root chakra, helping you feel anchored, secure, and steady. Traditionally said to bring a sense of safety, it is a grounding companion for anxious or uncertain days.',
     collection: 'chakra',
     primaryChakra: 'root',
     element: '土',
@@ -120,7 +120,7 @@ export const products: CrystalProduct[] = [
     subtitle: 'Full Moon Moonstone Necklace',
     price: 149,
     description:
-      '满月之夜加持的月光石项链。月光石对应顶轮与眉心轮，传说能增强直觉与灵视力。925 银链 + 天然月光石吊坠。',
+      'A moonstone necklace blessed on the night of the full moon. Moonstone is traditionally associated with the crown and third eye chakras and is said to sharpen intuition and inner vision. Crafted with a 925 sterling silver chain and a natural moonstone pendant.',
     collection: 'lunar',
     moonPhase: 'full-moon',
     primaryChakra: 'crown',

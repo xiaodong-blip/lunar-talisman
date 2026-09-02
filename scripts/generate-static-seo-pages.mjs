@@ -1,7 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { IMPORTED_CATALOG } from '../netlify/functions/_generated-catalog.mjs'
 
 const SITE_ORIGIN = 'https://lunartalisman.com'
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
@@ -9,6 +8,7 @@ const distDir = path.join(rootDir, 'dist')
 const sitemapPath = path.join(rootDir, 'public', 'sitemap.xml')
 const guidesPath = path.join(rootDir, 'src', 'data', 'importedSeriesGuides.ts')
 const guideSeoPath = path.join(rootDir, 'src', 'data', 'guideSeo.ts')
+const productsPath = path.join(rootDir, 'src', 'data', 'importedProducts.ts')
 
 const CJK = /[\u3400-\u9fff]/
 const CHAKRA_BY_PREFIX = {
@@ -283,31 +283,43 @@ const LEGACY_PRODUCTS = {
     name: 'Heart Healing Rose Quartz Bracelet',
     category: 'Heart Chakra Crystal Jewelry',
     price: 169,
+    description: "Rose quartz is the heart chakra's signature stone, traditionally believed to open the heart and draw in unconditional love. Every bead in this bracelet is cleansed under the full moon before it reaches you.",
+    image: 'https://images.unsplash.com/photo-1605100802531-9abce0fdda72?w=600',
   },
   'solar-citrine': {
     name: 'Solar Plexus Citrine Courage Bracelet',
     category: 'Solar Plexus Chakra Crystal Jewelry',
     price: 179,
+    description: 'Citrine resonates with the solar plexus chakra — the crystal embodiment of confidence and action. It is traditionally said to strengthen decisiveness and dissolve self-doubt, and its energy is amplified by a full moon blessing.',
+    image: 'https://images.unsplash.com/photo-1599586120429-48281b6f0ece?w=600',
   },
   'new-moon-set': {
     name: 'New Moon Ritual Cleansing Set',
     category: 'Lunar Ritual Set',
     price: 129,
+    description: 'A new moon ritual set: clear quartz bracelet, white sage bundle, and ritual guide card. Clear quartz is the crown chakra’s high-vibration stone, believed to resonate with moonlight on the new moon night.',
+    image: 'https://images.unsplash.com/photo-1532693322450-2cb5c511067d?w=600',
   },
   'root-garnet': {
     name: 'Root Chakra Garnet Grounding Bracelet',
     category: 'Root Chakra Crystal Jewelry',
     price: 174,
+    description: 'Red garnet resonates with the root chakra, helping you feel anchored, secure, and steady. Traditionally said to bring a sense of safety, it is a grounding companion for anxious or uncertain days.',
+    image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600',
   },
   'full-moon-necklace': {
     name: 'Full Moon Moonstone Blessing Necklace',
     category: 'Lunar Crystal Jewelry',
     price: 189,
+    description: 'A moonstone necklace blessed on the night of the full moon. Moonstone is traditionally associated with the crown and third eye chakras and is said to sharpen intuition and inner vision. Crafted with a 925 sterling silver chain and a natural moonstone pendant.',
+    image: 'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=600',
   },
   'chakra-test': {
     name: 'Seven Chakra Crystal Bracelet',
     category: 'Chakra Crystal Jewelry',
     price: 189,
+    description: 'A seven chakra crystal bracelet designed as a gentle reminder to return to balance, breath, and intentional everyday ritual.',
+    image: `${SITE_ORIGIN}/og-image.svg`,
   },
   'sacral-moonstone': {
     name: 'Sacral Moonstone Flow Bracelet',
@@ -401,6 +413,18 @@ function readGuideSeo() {
   const start = source.indexOf(assignment)
   if (start < 0) throw new Error('Could not locate guide SEO metadata.')
   return JSON.parse(source.slice(start + assignment.length).trim())
+}
+
+function readImportedProducts() {
+  const source = fs.readFileSync(productsPath, 'utf8')
+  const assignment = 'export const importedProducts: ImportedProduct[] = '
+  const start = source.indexOf(assignment)
+  if (start < 0) throw new Error('Could not locate imported product data.')
+  const jsonStart = start + assignment.length
+  const end = source.lastIndexOf('\n]')
+  if (end < jsonStart) throw new Error('Could not parse imported product data.')
+  const products = JSON.parse(source.slice(jsonStart, end + 2))
+  return new Map(products.map((product) => [product.id, product]))
 }
 
 function guideSeo(guide) {
@@ -552,15 +576,16 @@ function routeMeta(route, guides, productMap) {
     const imagePaths = product?.images?.length ? product.images : product?.image ? [product.image] : []
     const images = imagePaths.length
       ? imagePaths.map((image) => (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`))
-      : [`${SITE_ORIGIN}/og-image.svg`]
+      : legacyProduct?.image ? [legacyProduct.image] : [`${SITE_ORIGIN}/og-image.svg`]
     const seo = productSeo(product, id, category)
     const productSeriesPrefix = Object.keys(CHAKRA_BY_PREFIX).find((prefix) =>
       id.startsWith(`${prefix}-`),
     )
-    const description = `${seo.title}. A ${category.toLowerCase()} piece for mindful ritual and everyday wear. Explore traditional crystal meanings, materials, care, and reflective ritual context at Lunar Talisman.`
+    const intro = product?.tagline?.trim() || legacyProduct?.description || `${seo.title}. A ${category.toLowerCase()} piece for mindful ritual and everyday wear.`
+    const description = intro.slice(0, 155)
     return {
       kind: 'product',
-      title: `${seo.title} · ${id} | Lunar Talisman`,
+      title: `${name} | Lunar Talisman`,
       description,
       heading: name,
       copy: `${description} Available from Lunar Talisman for $${price} USD.`,
@@ -570,6 +595,29 @@ function routeMeta(route, guides, productMap) {
         category,
         sku: id,
         images,
+        tagline: intro,
+        material: product?.material || `A thoughtfully finished ${category.toLowerCase()} piece selected for comfortable everyday wear and reflective ritual.`,
+        energy: product?.energy || [
+          `This ${category.toLowerCase()} talisman is designed as a visible reminder to pause, notice your intention, and return to a steadier rhythm.`,
+          'Use it during meditation, journaling, moon rituals, or any quiet transition where a tactile cue helps you stay present.',
+          'Its color, texture, and natural variation invite a slower kind of attention: notice what you feel, name what matters, and let the ritual remain practical.',
+          'There is no required belief system. Treat the piece as a personal symbol that helps you make space for calm, courage, connection, or renewal.',
+        ],
+        benefits: product?.benefits || [
+          'Offers a tangible focus for mindful intention setting.',
+          'Layers easily into an everyday jewelry ritual.',
+          'Makes a meaningful companion for reflection and personal growth.',
+          'Creates a simple tactile cue for returning to your chosen intention throughout the day.',
+        ],
+        howToWear: product?.howToWear || [
+          'Wear it on the wrist or keep it nearby during a reflective practice.',
+          'Pair it with a simple breath, journaling prompt, or lunar ritual.',
+        ],
+        careRitual: product?.careRitual || [
+          'Wipe gently with a soft dry cloth and store away from hard surfaces.',
+          'For a reset, place it on a clean cloth under moonlight and set a quiet intention.',
+        ],
+        specs: product?.specs || [category, 'Natural crystal or gemstone', 'Mindful everyday wear'],
         keywords: seo.keywords,
         seriesPath: productSeriesPrefix ? `series/chakra-${productSeriesPrefix}` : 'series/crystals',
       },
@@ -604,6 +652,16 @@ function routeMeta(route, guides, productMap) {
   if (normalizedRoute.startsWith('/series/')) {
     const id = normalizedRoute.slice('/series/'.length)
     const chakraId = id.replace(/^chakra-/, '')
+    const guideIdByChakra = {
+      root: 'worlds-01',
+      sacral: 'worlds-02',
+      solar: 'worlds-03',
+      heart: 'worlds-04',
+      throat: 'worlds-05',
+      'third-eye': 'worlds-06',
+      crown: 'worlds-07',
+    }
+    const chakraGuide = guideIdByChakra[chakraId] ? guides.get(guideIdByChakra[chakraId]) : null
     const chakra = CHAKRA_BY_PREFIX[chakraId]
       const data = chakra
       ? {
@@ -620,6 +678,7 @@ function routeMeta(route, guides, productMap) {
       copy: data.description,
       collection: data.title,
       keywords: data.keywords || CORE_KEYWORDS,
+      intro: chakraGuide?.markdown || '',
     }
   }
 
@@ -669,7 +728,7 @@ function structuredData(meta, canonicalUrl) {
         priceCurrency: 'USD',
         price: meta.product.price,
         availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
+        itemCondition: 'https://schema.org/NewCondition',
       },
       breadcrumb,
     }
@@ -756,16 +815,20 @@ function renderPage(template, route, meta) {
     <meta property="og:title" content="${escapeHtml(meta.title)}" />
     <meta property="og:description" content="${escapeHtml(meta.description)}" />
     <meta property="og:url" content="${canonicalUrl}" />
-    <meta property="og:image" content="${SITE_ORIGIN}/og-image.svg" />
+    <meta property="og:image" content="${meta.kind === 'product' && meta.product.images?.[0] ? escapeHtml(meta.product.images[0]) : `${SITE_ORIGIN}/og-image.svg`}" />
     <meta property="og:image:alt" content="Lunar Talisman crystal jewelry and chakra rituals" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${escapeHtml(meta.title)}" />
     <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
-    <meta name="twitter:image" content="${SITE_ORIGIN}/og-image.svg" />
+    <meta name="twitter:image" content="${meta.kind === 'product' && meta.product.images?.[0] ? escapeHtml(meta.product.images[0]) : `${SITE_ORIGIN}/og-image.svg`}" />
     <script id="lunar-talisman-page-jsonld" type="application/ld+json">${jsonLd}</script>`
   const fallback =
     meta.kind === 'article'
       ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.description)}</p><div class="guide-content">${renderGuideMarkdown(meta.article?.markdown || '')}</div><p><a href="${SITE_ORIGIN}/series/${escapeHtml(meta.article?.series || 'crystals')}/">Browse related crystal guides</a></p></article></main>`
+      : meta.kind === 'product'
+        ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article data-no-auto-translate="true"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.product.tagline || meta.description)}</p>${meta.product.material ? `<h2>Material</h2><p>${escapeHtml(meta.product.material)}</p>` : ''}${meta.product.energy?.length ? `<h2>Energy &amp; Meaning</h2>${meta.product.energy.map((item) => `<p>${escapeHtml(item)}</p>`).join('')}` : ''}${meta.product.benefits?.length ? `<h2>Benefits</h2><ul>${meta.product.benefits.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.howToWear?.length ? `<h2>How to wear</h2><ul>${meta.product.howToWear.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.careRitual?.length ? `<h2>Care &amp; ritual</h2><ul>${meta.product.careRitual.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.specs?.length ? `<h2>Specs</h2><ul>${meta.product.specs.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}<h2>Ritual context</h2><p>This piece is made for an intentional everyday rhythm: a small, tactile reminder to pause before a decision, return to your breath, and notice what your body and attention are asking for. Wear it alongside journaling, meditation, a quiet walk, or a moon-phase practice. Crystal traditions are personal and symbolic; there is no single required way to work with a stone. Let the color, texture, and weight become part of a routine that feels honest, practical, and easy to repeat.</p><p>Over time, the meaning of a talisman can deepen through use. Keep the bracelet or necklace close to the moments you want to remember, and allow your own experience to guide how often you wear, rest, cleanse, and store it.</p></article></main>`
+        : meta.kind === 'collection'
+          ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article data-no-auto-translate="true"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.description)}</p><div class="guide-content">${renderGuideMarkdown(meta.intro || '')}</div></article></main>`
       : `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals/">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra/">Explore chakra collections</a></p></main>`
 
   return template
@@ -794,7 +857,7 @@ const routes = [...fs.readFileSync(sitemapPath, 'utf8').matchAll(/<loc>https:\/\
   .filter((route) => route !== '/')
 const guides = readGuides()
 const guideSeoMap = readGuideSeo()
-const productMap = new Map(IMPORTED_CATALOG.map((product) => [product.id, product]))
+const productMap = readImportedProducts()
 
 for (const route of routes) {
   const targetDir = path.join(distDir, route.replace(/^\//, ''))

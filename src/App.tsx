@@ -283,7 +283,7 @@ const PRODUCTS: DetailData[] = [
     id: 'scorpio-amethyst',
     eyebrow: 'Zodiac Guardian',
     title: '天蝎守护 · 紫水晶手链',
-    desc: '眉心轮的直觉之石，为天蝎与双鱼守护。',
+    desc: 'A guardian bracelet crafted for Scorpio. Amethyst resonates with the third eye chakra and is traditionally said to heighten intuition, with a particular intensity during eclipses. Every amethyst bead is cleansed in a new moon ritual, carrying a deep energy of transformation.',
     color: '#dcd2f2',
     image: CARD_IMAGES[0],
     specs: ['眉心轮', '紫水晶', '水象星座', '新月净化'],
@@ -296,7 +296,7 @@ const PRODUCTS: DetailData[] = [
     id: 'heart-rose-quartz',
     eyebrow: 'Heart Chakra',
     title: '心轮疗愈 · 玫瑰晶手链',
-    desc: '心轮柔光，打开爱与自我接纳。',
+    desc: "Rose quartz is the heart chakra's signature stone, traditionally believed to open the heart and draw in unconditional love. Every bead in this bracelet is cleansed under the full moon before it reaches you.",
     color: '#f3cdd6',
     image: CARD_IMAGES[1],
     specs: ['心轮', '玫瑰晶', '爱与关系', '满月净化'],
@@ -309,7 +309,7 @@ const PRODUCTS: DetailData[] = [
     id: 'solar-citrine',
     eyebrow: 'Solar Plexus',
     title: '太阳轮 · 黄水晶勇气手链',
-    desc: '太阳轮金色频率，点亮行动与自信。',
+    desc: 'Citrine resonates with the solar plexus chakra — the crystal embodiment of confidence and action. It is traditionally said to strengthen decisiveness and dissolve self-doubt, and its energy is amplified by a full moon blessing.',
     color: '#f0e4c0',
     image: CARD_IMAGES[2],
     specs: ['太阳轮', '黄水晶', '行动力', '火元素'],
@@ -322,7 +322,7 @@ const PRODUCTS: DetailData[] = [
     id: 'new-moon-set',
     eyebrow: 'Lunar Ritual',
     title: '新月仪式 · 净化套装',
-    desc: '白水晶、鼠尾草与意图卡的开端仪式。',
+    desc: 'A new moon ritual set: clear quartz bracelet, white sage bundle, and ritual guide card. Clear quartz is the crown chakra’s high-vibration stone, believed to resonate with moonlight on the new moon night.',
     color: '#c3e3f4',
     image: CARD_IMAGES[0],
     specs: ['新月', '白水晶', '鼠尾草', '意图书写'],
@@ -335,7 +335,7 @@ const PRODUCTS: DetailData[] = [
     id: 'root-garnet',
     eyebrow: 'Root Chakra',
     title: '海底轮 · 红石榴石扎根手链',
-    desc: '海底轮扎根感，把安全感交还身体。',
+    desc: 'Red garnet resonates with the root chakra, helping you feel anchored, secure, and steady. Traditionally said to bring a sense of safety, it is a grounding companion for anxious or uncertain days.',
     color: '#f3cdd6',
     image: CARD_IMAGES[1],
     specs: ['海底轮', '红石榴石', '土元素', '安全感'],
@@ -348,7 +348,7 @@ const PRODUCTS: DetailData[] = [
     id: 'full-moon-necklace',
     eyebrow: 'Full Moon',
     title: '满月祝福 · 月光石项链',
-    desc: '顶轮与眉心轮的满月祝福项链。',
+    desc: 'A moonstone necklace blessed on the night of the full moon. Moonstone is traditionally associated with the crown and third eye chakras and is said to sharpen intuition and inner vision. Crafted with a 925 sterling silver chain and a natural moonstone pendant.',
     color: '#dcedc2',
     image: CARD_IMAGES[2],
     specs: ['满月', '月光石', '顶轮', '直觉'],
@@ -3278,14 +3278,16 @@ function DetailPage({
     detail.id,
     getEnglishTitle(detail.id, detail.title),
   )
+  const detailTitle = getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' ')
+  const detailDescription = detail.desc.trim().slice(0, 155)
   usePageMeta({
-    title: `${productSeo.title} · ${detail.id} | Lunar Talisman`,
-    description: productSeo.description,
+    title: `${detailTitle} | Lunar Talisman`,
+    description: detailDescription,
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'Product',
-      name: getEnglishTitle(detail.id, detail.title).replace(/\n/g, ' '),
-      description: productSeo.description,
+      name: detailTitle,
+      description: detailDescription,
       keywords: productSeo.keywords,
       url: `${SITE_ORIGIN}/detail/${detail.id}/`,
       image: galleryImages
@@ -3801,6 +3803,7 @@ function DetailPage({
 
         {detail.body.length ? (
           <section
+            data-no-auto-translate="true"
             style={{
               gridColumn: '1 / -1',
               width: '100%',
