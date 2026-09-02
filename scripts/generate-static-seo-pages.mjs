@@ -8,6 +8,7 @@ const rootDir = fileURLToPath(new URL('..', import.meta.url))
 const distDir = path.join(rootDir, 'dist')
 const sitemapPath = path.join(rootDir, 'public', 'sitemap.xml')
 const guidesPath = path.join(rootDir, 'src', 'data', 'importedSeriesGuides.ts')
+const guideSeoPath = path.join(rootDir, 'src', 'data', 'guideSeo.ts')
 
 const CJK = /[\u3400-\u9fff]/
 const CHAKRA_BY_PREFIX = {
@@ -387,24 +388,19 @@ function englishProductName(product) {
 
 function readGuides() {
   const source = fs.readFileSync(guidesPath, 'utf8')
-  const records = [...source.matchAll(
-    /^\s*"id": "([^"]+)",[\s\S]*?^\s*"series": "([^"]+)",[\s\S]*?^\s*"title": "([^"]+)",[\s\S]*?^\s*"eyebrow": "([^"]+)",[\s\S]*?^\s*"excerpt": "([^"]+)"/gm,
-  )]
+  const assignment = 'export const importedSeriesGuides: ImportedSeriesGuide[] = '
+  const start = source.indexOf(assignment)
+  if (start < 0) throw new Error('Could not locate imported guide data.')
+  const guides = JSON.parse(source.slice(start + assignment.length).trim())
+  return new Map(guides.map((guide) => [guide.id, guide]))
+}
 
-  return new Map(
-    records.map((match) => [
-      match[1],
-      {
-        id: match[1],
-        series: match[2],
-        title: CJK.test(match[3]) ? 'Crystal Ritual Guide' : match[3],
-        eyebrow: CJK.test(match[4]) ? 'Crystal Guide' : match[4],
-        excerpt: CJK.test(match[5])
-          ? 'A practical Lunar Talisman guide to crystal rituals, chakra reflection, and mindful jewelry.'
-          : match[5],
-      },
-    ]),
-  )
+function readGuideSeo() {
+  const source = fs.readFileSync(guideSeoPath, 'utf8')
+  const assignment = 'export const GUIDE_SEO_META: Record<string, GuideSeoRecord> = '
+  const start = source.indexOf(assignment)
+  if (start < 0) throw new Error('Could not locate guide SEO metadata.')
+  return JSON.parse(source.slice(start + assignment.length).trim())
 }
 
 function guideSeo(guide) {
@@ -434,6 +430,94 @@ function guideSeo(guide) {
     }
   }
   return null
+}
+
+function inlineMarkdown(value) {
+  return escapeHtml(value)
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+}
+
+function renderGuideMarkdown(markdown) {
+  const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n')
+  const output = []
+  let paragraph = []
+  let list = null
+
+  const flushParagraph = () => {
+    if (paragraph.length) {
+      output.push(`<p>${inlineMarkdown(paragraph.join(' '))}</p>`)
+      paragraph = []
+    }
+  }
+  const flushList = () => {
+    if (!list) return
+    output.push(`<${list.ordered ? 'ol' : 'ul'}>${list.items.map((item) => `<li>${inlineMarkdown(item)}</li>`).join('')}</${list.ordered ? 'ol' : 'ul'}>`)
+    list = null
+  }
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index].trim()
+    if (!line) {
+      flushParagraph()
+      flushList()
+      continue
+    }
+    const heading = line.match(/^(#{2,3})\s+(.+)$/)
+    if (heading) {
+      flushParagraph()
+      flushList()
+      output.push(`<h${heading[1].length}>${inlineMarkdown(heading[2])}</h${heading[1].length}>`)
+      continue
+    }
+    if (line.startsWith('# ')) {
+      flushParagraph()
+      flushList()
+      continue
+    }
+    if (line.startsWith('>')) {
+      flushParagraph()
+      flushList()
+      output.push(`<blockquote>${inlineMarkdown(line.replace(/^>\s?/, ''))}</blockquote>`)
+      continue
+    }
+    const listItem = line.match(/^([-*]|\d+\.)\s+(.+)$/)
+    if (listItem) {
+      flushParagraph()
+      const ordered = /^\d+\./.test(listItem[1])
+      if (!list || list.ordered !== ordered) {
+        flushList()
+        list = { ordered, items: [] }
+      }
+      list.items.push(listItem[2])
+      continue
+    }
+    if (line.startsWith('|')) {
+      flushParagraph()
+      flushList()
+      const rows = []
+      while (index < lines.length && lines[index].trim().startsWith('|')) {
+        const row = lines[index].trim().split('|').slice(1, -1).map((cell) => cell.trim())
+        if (!row.every((cell) => /^[-: ]+$/.test(cell))) rows.push(row)
+        index += 1
+      }
+      index -= 1
+      if (rows.length) {
+        output.push(`<table><tbody>${rows.map((row, rowIndex) => `<tr>${row.map((cell) => `<${rowIndex === 0 ? 'th' : 'td'}>${inlineMarkdown(cell)}</${rowIndex === 0 ? 'th' : 'td'}>`).join('')}</tr>`).join('')}</tbody></table>`)
+      }
+      continue
+    }
+    paragraph.push(line)
+  }
+  flushParagraph()
+  flushList()
+  return output.join('\n')
+}
+
+function faqGraphNode(faq) {
+  if (!faq || typeof faq !== 'object') return null
+  const { ['@context']: _context, ...node } = faq
+  return node
 }
 
 function routeMeta(route, guides, productMap) {
@@ -476,7 +560,7 @@ function routeMeta(route, guides, productMap) {
     const description = `${seo.title}. A ${category.toLowerCase()} piece for mindful ritual and everyday wear. Explore traditional crystal meanings, materials, care, and reflective ritual context at Lunar Talisman.`
     return {
       kind: 'product',
-      title: `${seo.title} | Lunar Talisman`,
+      title: `${seo.title} · ${id} | Lunar Talisman`,
       description,
       heading: name,
       copy: `${description} Available from Lunar Talisman for $${price} USD.`,
@@ -494,7 +578,8 @@ function routeMeta(route, guides, productMap) {
 
   if (normalizedRoute.startsWith('/guide/')) {
     const guide = guides.get(normalizedRoute.slice('/guide/'.length))
-    const seo = GUIDE_SEO_BY_ID[normalizedRoute.slice('/guide/'.length)] || guideSeo(guide)
+    const guideId = normalizedRoute.slice('/guide/'.length)
+    const seo = guideSeoMap[guideId] || GUIDE_SEO_BY_ID[guideId] || guideSeo(guide)
     const title = seo?.title || guide?.title || 'Crystal Ritual Guide'
     const description = seo?.description || (guide
       ? `${guide.title}: ${guide.excerpt}`
@@ -505,7 +590,14 @@ function routeMeta(route, guides, productMap) {
       description,
       heading: title,
       copy: description,
-      article: { title, series: guide?.series || 'crystals', howTo: seo?.howTo, faq: seo?.faq },
+      article: {
+        title,
+        series: guide?.series || 'crystals',
+        markdown: guide?.markdown || '',
+        howTo: seo?.howTo,
+        faq: seo?.faq,
+        keywords: seo?.keywords || [],
+      },
     }
   }
 
@@ -588,6 +680,7 @@ function structuredData(meta, canonicalUrl) {
         '@type': 'Article',
         headline: meta.article.title,
         description: meta.description,
+        keywords: meta.article.keywords || [],
         mainEntityOfPage: canonicalUrl,
         author: { '@type': 'Organization', name: 'Lunar Talisman' },
         publisher: { '@type': 'Organization', name: 'Lunar Talisman', url: SITE_ORIGIN },
@@ -608,14 +701,18 @@ function structuredData(meta, canonicalUrl) {
       })
     }
     if (meta.article.faq) {
-      graph.push({
-        '@type': 'FAQPage',
-        mainEntity: meta.article.faq.map(([question, answer]) => ({
-          '@type': 'Question',
-          name: question,
-          acceptedAnswer: { '@type': 'Answer', text: answer },
-        })),
-      })
+      graph.push(
+        Array.isArray(meta.article.faq)
+          ? {
+              '@type': 'FAQPage',
+              mainEntity: meta.article.faq.map(([question, answer]) => ({
+                '@type': 'Question',
+                name: question,
+                acceptedAnswer: { '@type': 'Answer', text: answer },
+              })),
+            }
+          : faqGraphNode(meta.article.faq),
+      )
     }
     return { '@context': 'https://schema.org', '@graph': graph }
   }
@@ -666,7 +763,10 @@ function renderPage(template, route, meta) {
     <meta name="twitter:description" content="${escapeHtml(meta.description)}" />
     <meta name="twitter:image" content="${SITE_ORIGIN}/og-image.svg" />
     <script id="lunar-talisman-page-jsonld" type="application/ld+json">${jsonLd}</script>`
-  const fallback = `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals/">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra/">Explore chakra collections</a></p></main>`
+  const fallback =
+    meta.kind === 'article'
+      ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.description)}</p><div class="guide-content">${renderGuideMarkdown(meta.article?.markdown || '')}</div><p><a href="${SITE_ORIGIN}/series/${escapeHtml(meta.article?.series || 'crystals')}/">Browse related crystal guides</a></p></article></main>`
+      : `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals/">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra/">Explore chakra collections</a></p></main>`
 
   return template
     .replace(/<title>[\s\S]*?<\/title>/i, '')
@@ -693,6 +793,7 @@ const routes = [...fs.readFileSync(sitemapPath, 'utf8').matchAll(/<loc>https:\/\
   .map((match) => match[1] || '/')
   .filter((route) => route !== '/')
 const guides = readGuides()
+const guideSeoMap = readGuideSeo()
 const productMap = new Map(IMPORTED_CATALOG.map((product) => [product.id, product]))
 
 for (const route of routes) {

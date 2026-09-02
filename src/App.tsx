@@ -35,6 +35,7 @@ import {
   type GuideSeries,
   type ImportedSeriesGuide,
 } from './data/importedSeriesGuides'
+import { GUIDE_SEO_META } from './data/guideSeo'
 
 const SITE_ORIGIN = 'https://lunartalisman.com'
 
@@ -642,66 +643,6 @@ const SERIES_SEO_META: Record<
     description:
       'A beginner-friendly path to crystal meanings, chakra stones, crystal bracelets, gifts, and mindful everyday wear.',
     keywords: ['crystals for beginners', 'crystal bracelet for women', 'crystal bracelet for men', 'crystal gift for her', 'crystal gift for him'],
-  },
-}
-
-const GUIDE_SEO_META: Record<
-  string,
-  { title: string; description: string; keywords: string[] }
-> = {
-  'chakra-seven-chakras-explained': {
-    title: '7 Chakras and Their Meanings: Chakra Stones in Order',
-    description:
-      'A clear guide to the seven chakras, chakra stones in order, colors, traditional meanings, and reflective practice.',
-    keywords: ['7 chakras and their meanings', 'chakra stones in order', 'chakra stones chart', 'chakra stones meaning'],
-  },
-  'crystals-00': {
-    title: 'Crystal Meanings Chart & Gemstone Meanings Guide',
-    description:
-      'Use this crystal meanings chart and gemstone meanings guide to compare traditional symbolism, colors, care, and ritual use.',
-    keywords: ['crystal meaning chart', 'crystal meaning guide', 'gemstone meanings chart', 'crystal meanings list'],
-  },
-  'worlds-08': {
-    title: 'Crystals for Beginners: A Practical Starting Guide',
-    description:
-      'Learn how to choose, wear, cleanse, and care for your first crystal without overcomplicating the ritual.',
-    keywords: ['crystals for beginners', 'how to use crystals for beginners', 'crystal bracelet'],
-  },
-  'rituals-05': {
-    title: 'How to Cleanse Crystals at Home',
-    description:
-      'Learn safe ways to cleanse crystals at home with moonlight, selenite, sound, and mineral-aware care.',
-    keywords: ['how to cleanse crystals', 'how to cleanse crystals at home', 'cleanse crystals with selenite', 'cleanse crystals with moonlight'],
-  },
-  'rituals-06': {
-    title: 'How to Charge Crystals Safely',
-    description:
-      'Learn reflective ways to charge crystals with moonlight, intention, sound, and care-safe placement.',
-    keywords: ['how to charge crystals', 'how to charge crystals on a full moon', 'crystal charging methods'],
-  },
-  'rituals-01': {
-    title: 'New Moon Crystal Ritual for Fresh Intentions',
-    description:
-      'A simple new moon crystal ritual for setting intentions, journaling, and beginning a new reflective cycle.',
-    keywords: ['new moon ritual', 'new moon ritual crystals', 'new moon manifestation ritual'],
-  },
-  'rituals-02': {
-    title: 'Full Moon Crystal Ritual for Release & Reflection',
-    description:
-      'A simple full moon crystal ritual for gratitude, release, cleansing, and reflective closure.',
-    keywords: ['full moon ritual', 'full moon ritual crystals', 'releasing ritual during full moon'],
-  },
-  'rituals-moon-phase-guide': {
-    title: 'Moon Phases and Crystals: A Practical Guide',
-    description:
-      'Understand moon phases and crystals as a reflective rhythm for intention setting, cleansing, charging, and release.',
-    keywords: ['moon phases and crystals', 'phases of the moon', 'crystals for full moon'],
-  },
-  'connect-crystal-care-faq': {
-    title: 'Crystal Care FAQ: Meanings, Wearing & Cleansing',
-    description:
-      'Answers to common questions about crystal meanings, choosing a bracelet, wearing crystals, cleansing, and care.',
-    keywords: ['crystal meanings', 'crystal bracelet', 'how to cleanse crystals', 'crystals for beginners'],
   },
 }
 
@@ -3338,7 +3279,7 @@ function DetailPage({
     getEnglishTitle(detail.id, detail.title),
   )
   usePageMeta({
-    title: `${productSeo.title} | Lunar Talisman`,
+    title: `${productSeo.title} · ${detail.id} | Lunar Talisman`,
     description: productSeo.description,
     structuredData: {
       '@context': 'https://schema.org',
@@ -4125,25 +4066,28 @@ function GuideMarkdown({ markdown }: { markdown: string }) {
                 <tbody>
                   {block.rows.map((row, rowIndex) => (
                     <tr key={`${row.join('-')}-${rowIndex}`}>
-                      {row.map((cell, cellIndex) => (
-                        <td
-                          key={`${cell}-${cellIndex}`}
-                          style={{
-                            padding: '12px 14px',
-                            borderBottom:
-                              rowIndex < block.rows.length - 1
-                                ? '1px solid rgba(58,37,48,0.12)'
-                                : 0,
-                            color: 'rgba(58,37,48,0.76)',
-                            fontSize: 14,
-                            fontWeight: rowIndex === 0 ? 900 : 500,
-                            lineHeight: 1.55,
-                            verticalAlign: 'top',
-                          }}
-                        >
-                          {cell}
-                        </td>
-                      ))}
+                      {row.map((cell, cellIndex) => {
+                        const Cell = rowIndex === 0 ? 'th' : 'td'
+                        return (
+                          <Cell
+                            key={`${cell}-${cellIndex}`}
+                            style={{
+                              padding: '12px 14px',
+                              borderBottom:
+                                rowIndex < block.rows.length - 1
+                                  ? '1px solid rgba(58,37,48,0.12)'
+                                  : 0,
+                              color: 'rgba(58,37,48,0.76)',
+                              fontSize: 14,
+                              fontWeight: rowIndex === 0 ? 900 : 500,
+                              lineHeight: 1.55,
+                              verticalAlign: 'top',
+                            }}
+                          >
+                            {cell}
+                          </Cell>
+                        )
+                      })}
                     </tr>
                   ))}
                 </tbody>
@@ -4170,6 +4114,12 @@ function GuideMarkdown({ markdown }: { markdown: string }) {
   )
 }
 
+function faqGraphNode(faq: Record<string, unknown> | null | undefined) {
+  if (!faq) return null
+  const { ['@context']: _context, ...node } = faq
+  return node
+}
+
 function GuidePage({
   id,
   navigate,
@@ -4182,38 +4132,73 @@ function GuidePage({
   onOpenCart?: () => void
 }) {
   const guide = importedSeriesGuides.find((item) => item.id === id) ?? importedSeriesGuides[0]
-  void GuideMarkdown
   const relatedGuides = guideTilesFor(guide.series)
     .filter((tile) => tile.id !== guide.id)
     .slice(0, 3)
   const guideSeo = GUIDE_SEO_META[id]
+  const faqJsonLd = faqGraphNode(guideSeo?.faq)
 
   usePageMeta({
     title: `${guideSeo?.title ?? guide.title} | Lunar Talisman`,
     description: guideSeo?.description ?? guide.excerpt,
-    structuredData: {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: guideSeo?.title ?? guide.title,
-      description: guideSeo?.description ?? guide.excerpt,
-      keywords: guideSeo?.keywords ?? ['crystal guide', 'crystal meanings', 'crystal rituals'],
-      url: `${SITE_ORIGIN}/guide/${guide.id}/`,
-      image: guide.image.startsWith('http') ? guide.image : `${SITE_ORIGIN}${guide.image}`,
-      author: {
-        '@type': 'Organization',
-        name: 'Lunar Talisman',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'Lunar Talisman',
-        url: SITE_ORIGIN,
-      },
-      isPartOf: {
-        '@type': 'CollectionPage',
-        name: `${guide.series} crystal guides`,
-        url: `${SITE_ORIGIN}/series/${guide.series}/`,
-      },
-    },
+    structuredData: faqJsonLd
+      ? {
+          '@context': 'https://schema.org',
+          '@graph': [
+            {
+              '@type': 'Article',
+              headline: guideSeo?.title ?? guide.title,
+              description: guideSeo?.description ?? guide.excerpt,
+              keywords: guideSeo?.keywords?.length
+                ? guideSeo.keywords
+                : ['crystal guide', 'crystal meanings', 'crystal rituals'],
+              url: `${SITE_ORIGIN}/guide/${guide.id}/`,
+              image: guide.image.startsWith('http')
+                ? guide.image
+                : `${SITE_ORIGIN}${guide.image}`,
+              author: {
+                '@type': 'Organization',
+                name: 'Lunar Talisman',
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'Lunar Talisman',
+                url: SITE_ORIGIN,
+              },
+              isPartOf: {
+                '@type': 'CollectionPage',
+                name: `${guide.series} crystal guides`,
+                url: `${SITE_ORIGIN}/series/${guide.series}/`,
+              },
+            },
+            faqJsonLd,
+          ],
+        }
+      : {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: guideSeo?.title ?? guide.title,
+          description: guideSeo?.description ?? guide.excerpt,
+          keywords: guideSeo?.keywords?.length
+            ? guideSeo.keywords
+            : ['crystal guide', 'crystal meanings', 'crystal rituals'],
+          url: `${SITE_ORIGIN}/guide/${guide.id}/`,
+          image: guide.image.startsWith('http') ? guide.image : `${SITE_ORIGIN}${guide.image}`,
+          author: {
+            '@type': 'Organization',
+            name: 'Lunar Talisman',
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Lunar Talisman',
+            url: SITE_ORIGIN,
+          },
+          isPartOf: {
+            '@type': 'CollectionPage',
+            name: `${guide.series} crystal guides`,
+            url: `${SITE_ORIGIN}/series/${guide.series}/`,
+          },
+        },
   })
 
   return (
@@ -4304,6 +4289,19 @@ function GuidePage({
               {guide.excerpt}
             </p>
           </div>
+        </section>
+
+        <section
+          aria-label="Guide content"
+          style={{
+            marginTop: 34,
+            borderRadius: 38,
+            background: 'rgba(255,255,255,0.86)',
+            padding: 'clamp(28px, 4vw, 54px)',
+            boxShadow: '0 24px 80px rgba(0,0,0,0.16)',
+          }}
+        >
+          <GuideMarkdown markdown={guide.markdown} />
         </section>
 
         {relatedGuides.length ? (
