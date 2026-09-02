@@ -11,7 +11,6 @@ const REMOVED_PRODUCT_IDS = new Set([
   'sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm',
   'sacral-sacral-chakra-flame-orange-agate-bracelet-10mm',
   'sacral-sacral-chakra-radiance-sunstone-bracelet-8mm',
-  'crown-i02-2503-ddd',
 ])
 
 const source = await readFile(sourcePath, 'utf8')

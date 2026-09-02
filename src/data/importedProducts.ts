@@ -74,48 +74,47 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-emotional-stability-water-element-bracelet-8mm",
+    "id": "root-autumn-winter-blessing-red-agate-bracelet-12mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
     "color": "#d98b7b",
-    "name": "Emotional Stability Water-Element Bracelet 8mm",
-    "tagline": "Deep ink blues and midnight blacks that flow like water — the bracelet that steadies your emotions when anxiety rises and the world feels too loud.",
-    "material": "A water-element mix of genuine stones in deep blues, blacks, and cool greys: glossy black obsidian with its mirror-like sheen, serene blue chalcedony in soft powder blue, grey agate with quiet banding, and labradorite beads that flash electric blue and green when they catch the light. The 8mm beads alternate in a balanced rhythm, giving the bracelet a cool, liquid feel — calm to the touch, mesmerizing to watch.",
+    "name": "Autumn-Winter Blessing Red Agate Bracelet 12mm",
+    "tagline": "For the season of harvest and rest — a warm 12mm band of red agate that turns your hard work into rewards and your worries into quiet, grounded peace.",
+    "material": "Natural red agate in 12mm beads with a deeper, riper red than its spring counterpart — the color of autumn fruit and winter hearths. Fine natural banding in cream and russet tones runs through each bead, and the high polish reveals a rich, almost glossy depth. Because every stone is naturally banded, each bracelet carries its own unique pattern, like a signature of the season it embodies.",
     "energy": [
-      "Water is the element of flow and emotional intelligence — in Five Elements theory, water nourishes and calms. This mix works on the Root Chakra through darkness and depth: black stones absorb excess emotional charge and ground it, while blue stones soothe the mind into fluidity. The result is a bracelet that does not suppress your feelings — it lets them move through you without sweeping you away. It is for anyone who feels too much and needs a container, not a wall.",
+      "Autumn asks us to harvest; winter asks us to rest — and both require a strong Root Chakra. This bracelet carries the energy of reaping what you have sown and trusting that your foundation will carry you through the quiet months. It reminds you that stability is not loud; it is the steady warmth that keeps burning when everything else cools down. For anyone who has worked hard and needs proof that it was worth it, this is the stone.",
       "Real-Life Signs You May Recognize",
       "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
     ],
     "benefits": [
-      "Emotional steadiness — ride waves of feeling without being capsized by them.",
-      "Anxiety release — black obsidian absorbs stress like a sponge and grounds it.",
-      "Clarity in chaos — labradorite's flash brings insight when emotions cloud judgment.",
-      "Self-trust — water energy helps you trust your own inner compass.",
-      "Restful mind — cool tones quiet the loop of overthinking, especially at night."
+      "Rewards for your effort — it aligns you with the energy of receiving what you have earned.",
+      "Financial steadiness — helps money settle and stay rather than slip away.",
+      "Warmth through hardship — its deep red glow soothes in difficult, lonely seasons.",
+      "Patience and trust — it teaches that quiet consistency beats frantic effort.",
+      "Inner sanctuary — a sense of home within yourself, no matter the weather outside."
     ],
     "howToWear": [
-      "Wear it during emotionally demanding days — difficult conversations, big changes, high-pressure weeks. Its cool tones work with almost any outfit, especially neutrals and blues. Keep it on your non-dominant wrist to receive its calming flow, and reach for it whenever you feel your thoughts starting to spiral."
+      "Wear it through the final quarter of the year — negotiations, reviews, year-end decisions — when you need to close chapters with confidence. Its deep color pairs beautifully with winter neutrals and holiday dressing. By night, keep it by your bedside as a warmth talisman for restful, secure sleep."
     ],
     "specs": [
-      "Bead size: 8mm mixed water-element stones (obsidian, chalcedony, grey agate, labradorite)",
-      "Approx. 18–19 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 14–17 cm"
+      "Bead size: 12mm natural red agate",
+      "Approx. 12–13 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 15–18 cm"
     ],
     "careRitual": [
-      "Rinse under cool running water monthly to wash the stones clean; dry gently and avoid heat. On a full moon, place the bracelet under direct moonlight for one night. As you put it on, breathe out slowly and say: \"I flow, but I do not break. My calm is my anchor.\""
+      "Clean with a soft dry cloth; keep away from perfumes and ultrasonic cleaners. On the winter solstice or any full moon, leave it under moonlight overnight to recharge. Hold it in your palms and affirm: \"What I have built is enough. I rest in my roots, and abundance returns to me.\""
     ],
-    "price": 472,
-    "image": "/products/root-emotional-stability-water-element-bracelet-8mm.webp",
+    "price": 163,
+    "image": "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
     "images": [
-      "/products/root-emotional-stability-water-element-bracelet-8mm.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-2.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-3.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-4.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-5.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-6.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-7.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-8.webp",
-      "/products/root-emotional-stability-water-element-bracelet-8mm-9.webp"
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-2.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-3.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-4.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-5.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-6.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-7.webp",
+      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-8.webp"
     ]
   },
   {
@@ -209,47 +208,48 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-autumn-winter-blessing-red-agate-bracelet-12mm",
+    "id": "root-emotional-stability-water-element-bracelet-8mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
     "color": "#d98b7b",
-    "name": "Autumn-Winter Blessing Red Agate Bracelet 12mm",
-    "tagline": "For the season of harvest and rest — a warm 12mm band of red agate that turns your hard work into rewards and your worries into quiet, grounded peace.",
-    "material": "Natural red agate in 12mm beads with a deeper, riper red than its spring counterpart — the color of autumn fruit and winter hearths. Fine natural banding in cream and russet tones runs through each bead, and the high polish reveals a rich, almost glossy depth. Because every stone is naturally banded, each bracelet carries its own unique pattern, like a signature of the season it embodies.",
+    "name": "Emotional Stability Water-Element Bracelet 8mm",
+    "tagline": "Deep ink blues and midnight blacks that flow like water — the bracelet that steadies your emotions when anxiety rises and the world feels too loud.",
+    "material": "A water-element mix of genuine stones in deep blues, blacks, and cool greys: glossy black obsidian with its mirror-like sheen, serene blue chalcedony in soft powder blue, grey agate with quiet banding, and labradorite beads that flash electric blue and green when they catch the light. The 8mm beads alternate in a balanced rhythm, giving the bracelet a cool, liquid feel — calm to the touch, mesmerizing to watch.",
     "energy": [
-      "Autumn asks us to harvest; winter asks us to rest — and both require a strong Root Chakra. This bracelet carries the energy of reaping what you have sown and trusting that your foundation will carry you through the quiet months. It reminds you that stability is not loud; it is the steady warmth that keeps burning when everything else cools down. For anyone who has worked hard and needs proof that it was worth it, this is the stone.",
+      "Water is the element of flow and emotional intelligence — in Five Elements theory, water nourishes and calms. This mix works on the Root Chakra through darkness and depth: black stones absorb excess emotional charge and ground it, while blue stones soothe the mind into fluidity. The result is a bracelet that does not suppress your feelings — it lets them move through you without sweeping you away. It is for anyone who feels too much and needs a container, not a wall.",
       "Real-Life Signs You May Recognize",
       "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
     ],
     "benefits": [
-      "Rewards for your effort — it aligns you with the energy of receiving what you have earned.",
-      "Financial steadiness — helps money settle and stay rather than slip away.",
-      "Warmth through hardship — its deep red glow soothes in difficult, lonely seasons.",
-      "Patience and trust — it teaches that quiet consistency beats frantic effort.",
-      "Inner sanctuary — a sense of home within yourself, no matter the weather outside."
+      "Emotional steadiness — ride waves of feeling without being capsized by them.",
+      "Anxiety release — black obsidian absorbs stress like a sponge and grounds it.",
+      "Clarity in chaos — labradorite's flash brings insight when emotions cloud judgment.",
+      "Self-trust — water energy helps you trust your own inner compass.",
+      "Restful mind — cool tones quiet the loop of overthinking, especially at night."
     ],
     "howToWear": [
-      "Wear it through the final quarter of the year — negotiations, reviews, year-end decisions — when you need to close chapters with confidence. Its deep color pairs beautifully with winter neutrals and holiday dressing. By night, keep it by your bedside as a warmth talisman for restful, secure sleep."
+      "Wear it during emotionally demanding days — difficult conversations, big changes, high-pressure weeks. Its cool tones work with almost any outfit, especially neutrals and blues. Keep it on your non-dominant wrist to receive its calming flow, and reach for it whenever you feel your thoughts starting to spiral."
     ],
     "specs": [
-      "Bead size: 12mm natural red agate",
-      "Approx. 12–13 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 15–18 cm"
+      "Bead size: 8mm mixed water-element stones (obsidian, chalcedony, grey agate, labradorite)",
+      "Approx. 18–19 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 14–17 cm"
     ],
     "careRitual": [
-      "Clean with a soft dry cloth; keep away from perfumes and ultrasonic cleaners. On the winter solstice or any full moon, leave it under moonlight overnight to recharge. Hold it in your palms and affirm: \"What I have built is enough. I rest in my roots, and abundance returns to me.\""
+      "Rinse under cool running water monthly to wash the stones clean; dry gently and avoid heat. On a full moon, place the bracelet under direct moonlight for one night. As you put it on, breathe out slowly and say: \"I flow, but I do not break. My calm is my anchor.\""
     ],
-    "price": 163,
-    "image": "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
+    "price": 472,
+    "image": "/products/root-emotional-stability-water-element-bracelet-8mm.webp",
     "images": [
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-2.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-3.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-4.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-5.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-6.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-7.webp",
-      "/products/root-autumn-winter-blessing-red-agate-bracelet-12mm-8.webp"
+      "/products/root-emotional-stability-water-element-bracelet-8mm.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-2.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-3.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-4.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-5.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-6.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-7.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-8.webp",
+      "/products/root-emotional-stability-water-element-bracelet-8mm-9.webp"
     ]
   },
   {
@@ -343,49 +343,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-night-anchor-silver-sheen-obsidian-labradorite-bracelet",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Night Anchor — Silver Sheen Obsidian & Labradorite Bracelet",
-    "tagline": "The anchor you need in the dark — black obsidian's silver moonlight and labradorite's electric flash, holding you steady when life feels unmoored.",
-    "material": "A striking pairing of two dark, luminous stones: silver-sheen obsidian (银曜石) in deep black with a liquid silver shimmer that ripples across the surface as you move, and labradorite (拉长石) in smoky grey-green with flashes of electric blue, violet, and gold that appear and vanish like northern lights. The 10mm beads alternate dark and darker, but the stones' inner light makes this bracelet anything but dull — it is night sky captured in mineral form.",
-    "energy": [
-      "This is the \"Night Anchor\" — a talisman for the moments when you feel unmoored: big transitions, endings, unfamiliar cities, anxious nights. Silver-sheen obsidian grounds you through the Root Chakra, absorbing fear and psychic noise like a sponge. Labradorite works higher, guarding your aura and illuminating hidden paths when you cannot see the way forward. Together, they anchor you in the dark while showing you the way out of it. This is for people going through change who need to feel safe while they find their footing.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Safe through transition — grounding for moves, breakups, job changes, and new chapters.",
-      "Fear absorption — obsidian drinks up the anxiety that keeps you awake at night.",
-      "Clear direction — labradorite's flash reveals options you could not see before.",
-      "Protective aura — a shield that keeps others' chaos out of your space.",
-      "Self-trust in the unknown — the courage to keep moving when the path is unclear."
-    ],
-    "howToWear": [
-      "Wear it during periods of change — new jobs, new cities, new relationships — and at night when worry keeps you from rest. Its dark, shimmery look pairs beautifully with both casual and formal wear. Keep it on your left wrist to receive its anchoring energy, and touch it when you feel the ground shifting beneath you."
-    ],
-    "specs": [
-      "Bead size: 10mm (silver-sheen obsidian + labradorite)",
-      "Approx. 16–17 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 15–18 cm"
-    ],
-    "careRitual": [
-      "Rinse under cool water monthly and dry gently; avoid heat and harsh sunlight. On the new moon — a time of beginnings — place it under moonlight overnight. As you put it on, say: \"I am anchored in the dark. I trust my path. I move forward, steady and unafraid.\""
-    ],
-    "price": 276,
-    "image": "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet.webp",
-    "images": [
-      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet.webp",
-      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-2.webp",
-      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-3.webp",
-      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-4.webp",
-      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-5.webp",
-      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-6.webp",
-      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-7.webp"
-    ]
-  },
-  {
     "id": "root-fire-element-five-elements-bracelet-8mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -427,6 +384,49 @@ export const importedProducts: ImportedProduct[] = [
       "/products/root-fire-element-five-elements-bracelet-8mm-6.webp",
       "/products/root-fire-element-five-elements-bracelet-8mm-7.webp",
       "/products/root-fire-element-five-elements-bracelet-8mm-8.webp"
+    ]
+  },
+  {
+    "id": "root-night-anchor-silver-sheen-obsidian-labradorite-bracelet",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Night Anchor — Silver Sheen Obsidian & Labradorite Bracelet",
+    "tagline": "The anchor you need in the dark — black obsidian's silver moonlight and labradorite's electric flash, holding you steady when life feels unmoored.",
+    "material": "A striking pairing of two dark, luminous stones: silver-sheen obsidian (银曜石) in deep black with a liquid silver shimmer that ripples across the surface as you move, and labradorite (拉长石) in smoky grey-green with flashes of electric blue, violet, and gold that appear and vanish like northern lights. The 10mm beads alternate dark and darker, but the stones' inner light makes this bracelet anything but dull — it is night sky captured in mineral form.",
+    "energy": [
+      "This is the \"Night Anchor\" — a talisman for the moments when you feel unmoored: big transitions, endings, unfamiliar cities, anxious nights. Silver-sheen obsidian grounds you through the Root Chakra, absorbing fear and psychic noise like a sponge. Labradorite works higher, guarding your aura and illuminating hidden paths when you cannot see the way forward. Together, they anchor you in the dark while showing you the way out of it. This is for people going through change who need to feel safe while they find their footing.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
+    ],
+    "benefits": [
+      "Safe through transition — grounding for moves, breakups, job changes, and new chapters.",
+      "Fear absorption — obsidian drinks up the anxiety that keeps you awake at night.",
+      "Clear direction — labradorite's flash reveals options you could not see before.",
+      "Protective aura — a shield that keeps others' chaos out of your space.",
+      "Self-trust in the unknown — the courage to keep moving when the path is unclear."
+    ],
+    "howToWear": [
+      "Wear it during periods of change — new jobs, new cities, new relationships — and at night when worry keeps you from rest. Its dark, shimmery look pairs beautifully with both casual and formal wear. Keep it on your left wrist to receive its anchoring energy, and touch it when you feel the ground shifting beneath you."
+    ],
+    "specs": [
+      "Bead size: 10mm (silver-sheen obsidian + labradorite)",
+      "Approx. 16–17 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 15–18 cm"
+    ],
+    "careRitual": [
+      "Rinse under cool water monthly and dry gently; avoid heat and harsh sunlight. On the new moon — a time of beginnings — place it under moonlight overnight. As you put it on, say: \"I am anchored in the dark. I trust my path. I move forward, steady and unafraid.\""
+    ],
+    "price": 276,
+    "image": "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet.webp",
+    "images": [
+      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet.webp",
+      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-2.webp",
+      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-3.webp",
+      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-4.webp",
+      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-5.webp",
+      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-6.webp",
+      "/products/root-night-anchor-silver-sheen-obsidian-labradorite-bracelet-7.webp"
     ]
   },
   {
@@ -598,48 +598,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-red-beauty-agate-bracelet-10mm",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Red Beauty Agate Bracelet 10mm",
-    "tagline": "For the woman who wants to glow from the inside out — 10mm of rose-red agate that roots your confidence and lets your natural radiance do the talking.",
-    "material": "Natural red agate in elegant 10mm beads with a rosier, softer red than our other agate pieces — the color of blush and embers rather than fire. Delicate white banding drifts through each bead like clouds across a sunset, and the high polish gives the stone a warm, feminine luster that flatters every skin tone. The balanced 10mm size sits beautifully on the wrist — substantial enough to notice, graceful enough to wear every day.",
-    "energy": [
-      "Red Beauty agate works on the Root Chakra through warmth rather than force: it grounds you in self-worth — the quiet knowing that you are enough, that you belong in every room you enter. This is the foundation that beauty actually grows from: not performance, but presence. The stone's gentle red energy also stirs the fires of the lower chakras, giving you that magnetic aliveness that people describe as \"good energy.\" It is for anyone who has been told to shrink, and is ready to glow instead.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Rooted self-worth — confidence that comes from within, not from approval.",
-      "Natural magnetism — a warm presence that draws people and opportunities.",
-      "Inner calm radiance — beauty that survives stress and sleepless nights.",
-      "Courage to be seen — the quiet nerve to show up as yourself.",
-      "Emotional warmth — soft grounding that melts self-doubt and anxiety."
-    ],
-    "howToWear": [
-      "Wear it daily on the left wrist as your personal glow talisman — through dates, interviews, presentations, and ordinary days that deserve extraordinary energy. It pairs beautifully with gold or silver jewelry and elevates the simplest outfit. Touch it before any moment where you need to remember your worth."
-    ],
-    "specs": [
-      "Bead size: 10mm natural red agate",
-      "Approx. 16–17 beads per bracelet",
-      "Stretch elastic cord, fits wrists approx. 14–17 cm"
-    ],
-    "careRitual": [
-      "Rinse briefly under lukewarm water and pat dry; avoid harsh chemicals. On each new moon — a time of renewal — place it under moonlight overnight. As you wear it, affirm: \"I am rooted in my worth. I glow from within, and the world sees what I already know.\""
-    ],
-    "price": 186,
-    "image": "/products/root-red-beauty-agate-bracelet-10mm.webp",
-    "images": [
-      "/products/root-red-beauty-agate-bracelet-10mm.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-2.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-3.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-4.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-5.webp",
-      "/products/root-red-beauty-agate-bracelet-10mm-6.webp"
-    ]
-  },
-  {
     "id": "root-red-fortune-red-agate-bracelet-12mm",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -680,6 +638,48 @@ export const importedProducts: ImportedProduct[] = [
       "/products/root-red-fortune-red-agate-bracelet-12mm-5.webp",
       "/products/root-red-fortune-red-agate-bracelet-12mm-6.webp",
       "/products/root-red-fortune-red-agate-bracelet-12mm-7.webp"
+    ]
+  },
+  {
+    "id": "root-red-beauty-agate-bracelet-10mm",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Red Beauty Agate Bracelet 10mm",
+    "tagline": "For the woman who wants to glow from the inside out — 10mm of rose-red agate that roots your confidence and lets your natural radiance do the talking.",
+    "material": "Natural red agate in elegant 10mm beads with a rosier, softer red than our other agate pieces — the color of blush and embers rather than fire. Delicate white banding drifts through each bead like clouds across a sunset, and the high polish gives the stone a warm, feminine luster that flatters every skin tone. The balanced 10mm size sits beautifully on the wrist — substantial enough to notice, graceful enough to wear every day.",
+    "energy": [
+      "Red Beauty agate works on the Root Chakra through warmth rather than force: it grounds you in self-worth — the quiet knowing that you are enough, that you belong in every room you enter. This is the foundation that beauty actually grows from: not performance, but presence. The stone's gentle red energy also stirs the fires of the lower chakras, giving you that magnetic aliveness that people describe as \"good energy.\" It is for anyone who has been told to shrink, and is ready to glow instead.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
+    ],
+    "benefits": [
+      "Rooted self-worth — confidence that comes from within, not from approval.",
+      "Natural magnetism — a warm presence that draws people and opportunities.",
+      "Inner calm radiance — beauty that survives stress and sleepless nights.",
+      "Courage to be seen — the quiet nerve to show up as yourself.",
+      "Emotional warmth — soft grounding that melts self-doubt and anxiety."
+    ],
+    "howToWear": [
+      "Wear it daily on the left wrist as your personal glow talisman — through dates, interviews, presentations, and ordinary days that deserve extraordinary energy. It pairs beautifully with gold or silver jewelry and elevates the simplest outfit. Touch it before any moment where you need to remember your worth."
+    ],
+    "specs": [
+      "Bead size: 10mm natural red agate",
+      "Approx. 16–17 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 14–17 cm"
+    ],
+    "careRitual": [
+      "Rinse briefly under lukewarm water and pat dry; avoid harsh chemicals. On each new moon — a time of renewal — place it under moonlight overnight. As you wear it, affirm: \"I am rooted in my worth. I glow from within, and the world sees what I already know.\""
+    ],
+    "price": 186,
+    "image": "/products/root-red-beauty-agate-bracelet-10mm.webp",
+    "images": [
+      "/products/root-red-beauty-agate-bracelet-10mm.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-2.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-3.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-4.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-5.webp",
+      "/products/root-red-beauty-agate-bracelet-10mm-6.webp"
     ]
   },
   {
@@ -932,48 +932,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-metal-born-water-five-elements-bracelet",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Metal-Born Water Five Elements Bracelet",
-    "tagline": "Metal begets water, and water carries fortune — the Five Elements bracelet that turns clarity into flow, and flow into results.",
-    "material": "A Five Elements mix built on the \"metal generates water\" (金生水) cycle: silver-white and clear stones — white quartz with its pure transparency, silver-sheen obsidian flashing metallic light, and creamy white crystal accents — flowing into the water family of deep black obsidian and serene blue agate. The 8mm beads alternate from bright to dark in a deliberate rhythm, telling the story of metal dissolving into water, clarity becoming flow.",
-    "energy": [
-      "In Five Elements theory, metal generates water — and this bracelet is designed around that exact cycle. Metal is the element of clarity, precision, and discernment: knowing what you want and cutting away what you do not. Water is the element of flow, wisdom, and career: carrying that clarity into motion and results. Grounded through the Root Chakra by its dark stones, this mix gives you the mind of metal and the momentum of water — clear thinking that actually moves your life forward. It is for overthinkers and planners who are ready to become doers.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Clarity into action — knowing what you want, then moving toward it.",
-      "Career momentum — water energy that carries your decisions into results.",
-      "Decisive mind — metal's precision cuts through doubt and overthinking.",
-      "Grounded confidence — dark roots that hold you while you flow.",
-      "Balanced energy — the perfect complement of bright and deep."
-    ],
-    "howToWear": [
-      "Wear it on the left wrist during planning, decision-making, and career moves — any time you need to think clearly and then act. Its bright-and-dark palette pairs with both professional and casual wear. Keep it on through seasons of change, when clarity and flow matter most."
-    ],
-    "specs": [
-      "Bead size: approx. 8mm Five Elements mix (white quartz, silver-sheen obsidian, black obsidian, blue agate)",
-      "Metal-water cycle design",
-      "Stretch elastic cord, fits wrists approx. 14–17 cm"
-    ],
-    "careRitual": [
-      "Wipe with a soft cloth; avoid harsh chemicals. On the full moon, place it under moonlight overnight to recharge. As you wear it, affirm: \"I see clearly, and I move with it. My clarity becomes flow, my flow becomes results, and my roots hold steady beneath it all.\""
-    ],
-    "price": 420,
-    "image": "/products/root-metal-born-water-five-elements-bracelet.webp",
-    "images": [
-      "/products/root-metal-born-water-five-elements-bracelet.webp",
-      "/products/root-metal-born-water-five-elements-bracelet-2.webp",
-      "/products/root-metal-born-water-five-elements-bracelet-3.webp",
-      "/products/root-metal-born-water-five-elements-bracelet-4.webp",
-      "/products/root-metal-born-water-five-elements-bracelet-5.webp",
-      "/products/root-metal-born-water-five-elements-bracelet-6.webp"
-    ]
-  },
-  {
     "id": "root-water-fire-five-elements-bracelet",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -1016,6 +974,45 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "root-aged-in-time-red-fire-agate-clear-quartz-bracelet",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Aged in Time — Red Fire Agate & Clear Quartz Bracelet",
+    "tagline": "Brewed slowly by time, like fine wine — red fire agate and clear quartz for the wisdom, warmth, and quiet power that only years can create.",
+    "material": "A pairing of two natural treasures in 8mm beads: red flower agate (红花胶) with its translucent body and vivid crimson inclusions — flowers of fire suspended inside the stone — and clear quartz with its pure, glassy transparency. The red beads glow with inner life; the quartz beads sparkle with clean light. Together they read as a bracelet aged by time: depth and clarity, passion and perspective, side by side.",
+    "energy": [
+      "\"Time brews\" (时光之酿) — like wine aged in darkness, like wisdom earned through experience. Red fire agate carries the record of pressure and time: its crimson inclusions formed slowly inside the stone, a reminder that beauty and strength are not instant. Clear quartz, the master amplifier, magnifies that energy and adds clarity — the perspective that only experience gives. Grounded in the Root Chakra, this combination is for people who have been through seasons — hard ones, long ones, transformative ones — and are ready to wear the proof of what they became.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
+    ],
+    "benefits": [
+      "Earned wisdom — a daily reminder that your past built your strength.",
+      "Warmed perspective — passion matured into steady, grounded warmth.",
+      "Amplified presence — quartz multiplies your natural authority and calm.",
+      "Emotional depth — the beauty of someone who has weathered storms.",
+      "Self-completion — the quiet confidence of being fully, patiently formed."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist during reflective seasons, anniversaries, milestones, and moments when you need to remember how far you have come. Its red-and-clear palette is elegant enough for formal wear and warm enough for daily life. Keep it close when you doubt your own journey."
+    ],
+    "specs": [
+      "Bead size: approx. 8mm (red flower agate + clear quartz)",
+      "Approx. 18–19 beads per bracelet",
+      "Stretch elastic cord, fits wrists approx. 14–17 cm"
+    ],
+    "careRitual": [
+      "Rinse under lukewarm water and pat dry; avoid harsh chemicals. On the full moon, place it under moonlight overnight — quartz loves the moon. As you wear it, affirm: \"Everything I have lived has become my strength. I am aged in time, and time has made me rich.\""
+    ],
+    "price": 267,
+    "image": "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet.webp",
+    "images": [
+      "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet.webp",
+      "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet-2.webp",
+      "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet-3.webp"
+    ]
+  },
+  {
     "id": "root-water-element-five-elements-bracelet",
     "chakra": "root",
     "chakraName": "Root Chakra",
@@ -1054,42 +1051,84 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "root-aged-in-time-red-fire-agate-clear-quartz-bracelet",
+    "id": "root-metal-born-water-five-elements-bracelet",
     "chakra": "root",
     "chakraName": "Root Chakra",
     "color": "#d98b7b",
-    "name": "Aged in Time — Red Fire Agate & Clear Quartz Bracelet",
-    "tagline": "Brewed slowly by time, like fine wine — red fire agate and clear quartz for the wisdom, warmth, and quiet power that only years can create.",
-    "material": "A pairing of two natural treasures in 8mm beads: red flower agate (红花胶) with its translucent body and vivid crimson inclusions — flowers of fire suspended inside the stone — and clear quartz with its pure, glassy transparency. The red beads glow with inner life; the quartz beads sparkle with clean light. Together they read as a bracelet aged by time: depth and clarity, passion and perspective, side by side.",
+    "name": "Metal-Born Water Five Elements Bracelet",
+    "tagline": "Metal begets water, and water carries fortune — the Five Elements bracelet that turns clarity into flow, and flow into results.",
+    "material": "A Five Elements mix built on the \"metal generates water\" (金生水) cycle: silver-white and clear stones — white quartz with its pure transparency, silver-sheen obsidian flashing metallic light, and creamy white crystal accents — flowing into the water family of deep black obsidian and serene blue agate. The 8mm beads alternate from bright to dark in a deliberate rhythm, telling the story of metal dissolving into water, clarity becoming flow.",
     "energy": [
-      "\"Time brews\" (时光之酿) — like wine aged in darkness, like wisdom earned through experience. Red fire agate carries the record of pressure and time: its crimson inclusions formed slowly inside the stone, a reminder that beauty and strength are not instant. Clear quartz, the master amplifier, magnifies that energy and adds clarity — the perspective that only experience gives. Grounded in the Root Chakra, this combination is for people who have been through seasons — hard ones, long ones, transformative ones — and are ready to wear the proof of what they became.",
+      "In Five Elements theory, metal generates water — and this bracelet is designed around that exact cycle. Metal is the element of clarity, precision, and discernment: knowing what you want and cutting away what you do not. Water is the element of flow, wisdom, and career: carrying that clarity into motion and results. Grounded through the Root Chakra by its dark stones, this mix gives you the mind of metal and the momentum of water — clear thinking that actually moves your life forward. It is for overthinkers and planners who are ready to become doers.",
       "Real-Life Signs You May Recognize",
       "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
     ],
     "benefits": [
-      "Earned wisdom — a daily reminder that your past built your strength.",
-      "Warmed perspective — passion matured into steady, grounded warmth.",
-      "Amplified presence — quartz multiplies your natural authority and calm.",
-      "Emotional depth — the beauty of someone who has weathered storms.",
-      "Self-completion — the quiet confidence of being fully, patiently formed."
+      "Clarity into action — knowing what you want, then moving toward it.",
+      "Career momentum — water energy that carries your decisions into results.",
+      "Decisive mind — metal's precision cuts through doubt and overthinking.",
+      "Grounded confidence — dark roots that hold you while you flow.",
+      "Balanced energy — the perfect complement of bright and deep."
     ],
     "howToWear": [
-      "Wear it on the left wrist during reflective seasons, anniversaries, milestones, and moments when you need to remember how far you have come. Its red-and-clear palette is elegant enough for formal wear and warm enough for daily life. Keep it close when you doubt your own journey."
+      "Wear it on the left wrist during planning, decision-making, and career moves — any time you need to think clearly and then act. Its bright-and-dark palette pairs with both professional and casual wear. Keep it on through seasons of change, when clarity and flow matter most."
     ],
     "specs": [
-      "Bead size: approx. 8mm (red flower agate + clear quartz)",
-      "Approx. 18–19 beads per bracelet",
+      "Bead size: approx. 8mm Five Elements mix (white quartz, silver-sheen obsidian, black obsidian, blue agate)",
+      "Metal-water cycle design",
       "Stretch elastic cord, fits wrists approx. 14–17 cm"
     ],
     "careRitual": [
-      "Rinse under lukewarm water and pat dry; avoid harsh chemicals. On the full moon, place it under moonlight overnight — quartz loves the moon. As you wear it, affirm: \"Everything I have lived has become my strength. I am aged in time, and time has made me rich.\""
+      "Wipe with a soft cloth; avoid harsh chemicals. On the full moon, place it under moonlight overnight to recharge. As you wear it, affirm: \"I see clearly, and I move with it. My clarity becomes flow, my flow becomes results, and my roots hold steady beneath it all.\""
     ],
-    "price": 267,
-    "image": "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet.webp",
+    "price": 420,
+    "image": "/products/root-metal-born-water-five-elements-bracelet.webp",
     "images": [
-      "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet.webp",
-      "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet-2.webp",
-      "/products/root-aged-in-time-red-fire-agate-clear-quartz-bracelet-3.webp"
+      "/products/root-metal-born-water-five-elements-bracelet.webp",
+      "/products/root-metal-born-water-five-elements-bracelet-2.webp",
+      "/products/root-metal-born-water-five-elements-bracelet-3.webp",
+      "/products/root-metal-born-water-five-elements-bracelet-4.webp",
+      "/products/root-metal-born-water-five-elements-bracelet-5.webp",
+      "/products/root-metal-born-water-five-elements-bracelet-6.webp"
+    ]
+  },
+  {
+    "id": "root-dark-water-radiance-obsidian-family-bracelet",
+    "chakra": "root",
+    "chakraName": "Root Chakra",
+    "color": "#d98b7b",
+    "name": "Dark Water Radiance — Obsidian Family Bracelet",
+    "tagline": "The full obsidian family in one bracelet — gold-sheened black, rutilated depth, and icy clarity — the deepest protection you can wear.",
+    "material": "A powerful assembly of the obsidian family in mixed sizes: 8mm gold obsidian (金曜石) — deep black volcanic glass flashing with golden sheen, like light trapped in the dark — black rutilated quartz (黑发晶) with fine golden-black needle inclusions suspended inside translucent stone, and larger 10mm and 12mm ice obsidian (冰曜石) with its cool, frosted clarity. The varied bead sizes create an organic, textured rhythm around the wrist — each stone different, all born of the same protective lineage.",
+    "energy": [
+      "\"Dark water bearing radiance\" (玄水承辉) — this is the obsidian family's promise: in the deepest dark, light still shines. Obsidian is the Root Chakra's ultimate guardian, absorbing negative energy, deflecting harm, and keeping you anchored in reality. Gold obsidian adds the radiance — the reminder that protection does not mean fear, but freedom: the freedom to move through the world because you are guarded. Black rutilated quartz deepens the shield, and ice obsidian cools and clarifies. This is full-body armor for the soul, worn as jewelry.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
+    ],
+    "benefits": [
+      "Absolute protection — the obsidian family's centuries-old shielding power.",
+      "Grounding in chaos — anchors you when the world feels unstable.",
+      "Negative energy absorption — a filter between you and draining environments.",
+      "Hidden radiance — gold sheen reminds you light lives inside the dark.",
+      "Fearless movement — the courage to go anywhere, guarded."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist as your daily guardian — at work, while traveling, in crowds, or during difficult seasons. Its mixed sizes give it a bold, modern look that pairs with leather, metal, and casual wear. Keep it on when you walk into rooms full of strangers; this is armor you will not want to take off."
+    ],
+    "specs": [
+      "Mixed sizes: 8mm gold obsidian, 8mm black rutilated quartz, 10mm & 12mm ice obsidian",
+      "Mixed-bead organic design",
+      "Stretch elastic cord, fits wrists approx. 15–18 cm"
+    ],
+    "careRitual": [
+      "Rinse under cool water monthly and pat dry; obsidian is volcanic glass — avoid hard knocks. On the full moon, place it under moonlight overnight to clear absorbed energy. As you wear it, affirm: \"I am guarded, I am grounded, and light lives in my dark. I move through the world unafraid.\""
+    ],
+    "price": 194,
+    "image": "/products/root-dark-water-radiance-obsidian-family-bracelet.webp",
+    "images": [
+      "/products/root-dark-water-radiance-obsidian-family-bracelet.webp",
+      "/products/root-dark-water-radiance-obsidian-family-bracelet-2.webp",
+      "/products/root-dark-water-radiance-obsidian-family-bracelet-3.webp"
     ]
   },
   {
@@ -1133,45 +1172,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/root-five-elements-fire-starfire-multi-stone-bracelet-5.webp",
       "/products/root-five-elements-fire-starfire-multi-stone-bracelet-6.webp",
       "/products/root-five-elements-fire-starfire-multi-stone-bracelet-7.webp"
-    ]
-  },
-  {
-    "id": "root-dark-water-radiance-obsidian-family-bracelet",
-    "chakra": "root",
-    "chakraName": "Root Chakra",
-    "color": "#d98b7b",
-    "name": "Dark Water Radiance — Obsidian Family Bracelet",
-    "tagline": "The full obsidian family in one bracelet — gold-sheened black, rutilated depth, and icy clarity — the deepest protection you can wear.",
-    "material": "A powerful assembly of the obsidian family in mixed sizes: 8mm gold obsidian (金曜石) — deep black volcanic glass flashing with golden sheen, like light trapped in the dark — black rutilated quartz (黑发晶) with fine golden-black needle inclusions suspended inside translucent stone, and larger 10mm and 12mm ice obsidian (冰曜石) with its cool, frosted clarity. The varied bead sizes create an organic, textured rhythm around the wrist — each stone different, all born of the same protective lineage.",
-    "energy": [
-      "\"Dark water bearing radiance\" (玄水承辉) — this is the obsidian family's promise: in the deepest dark, light still shines. Obsidian is the Root Chakra's ultimate guardian, absorbing negative energy, deflecting harm, and keeping you anchored in reality. Gold obsidian adds the radiance — the reminder that protection does not mean fear, but freedom: the freedom to move through the world because you are guarded. Black rutilated quartz deepens the shield, and ice obsidian cools and clarifies. This is full-body armor for the soul, worn as jewelry.",
-      "Real-Life Signs You May Recognize",
-      "Do you lie awake at night replaying worries that won't let go? Feel restless, ungrounded, or constantly \"on edge\" for no clear reason? Struggle to speak up at work, or feel financially uncertain no matter how hard you try? These are the classic signs of a depleted Root Chakra — the energy center that governs your sense of safety, stability, and belonging. When it is out of balance, life can feel like walking on shifting sand. This bracelet works by re-anchoring that foundation, drawing scattered energy down into your body and reassuring your nervous system that you are safe. Many wearers report sleeping more soundly, standing taller in difficult conversations, and waking with a quiet \"everything is going to be okay\" that had been missing for years."
-    ],
-    "benefits": [
-      "Absolute protection — the obsidian family's centuries-old shielding power.",
-      "Grounding in chaos — anchors you when the world feels unstable.",
-      "Negative energy absorption — a filter between you and draining environments.",
-      "Hidden radiance — gold sheen reminds you light lives inside the dark.",
-      "Fearless movement — the courage to go anywhere, guarded."
-    ],
-    "howToWear": [
-      "Wear it on the left wrist as your daily guardian — at work, while traveling, in crowds, or during difficult seasons. Its mixed sizes give it a bold, modern look that pairs with leather, metal, and casual wear. Keep it on when you walk into rooms full of strangers; this is armor you will not want to take off."
-    ],
-    "specs": [
-      "Mixed sizes: 8mm gold obsidian, 8mm black rutilated quartz, 10mm & 12mm ice obsidian",
-      "Mixed-bead organic design",
-      "Stretch elastic cord, fits wrists approx. 15–18 cm"
-    ],
-    "careRitual": [
-      "Rinse under cool water monthly and pat dry; obsidian is volcanic glass — avoid hard knocks. On the full moon, place it under moonlight overnight to clear absorbed energy. As you wear it, affirm: \"I am guarded, I am grounded, and light lives in my dark. I move through the world unafraid.\""
-    ],
-    "price": 194,
-    "image": "/products/root-dark-water-radiance-obsidian-family-bracelet.webp",
-    "images": [
-      "/products/root-dark-water-radiance-obsidian-family-bracelet.webp",
-      "/products/root-dark-water-radiance-obsidian-family-bracelet-2.webp",
-      "/products/root-dark-water-radiance-obsidian-family-bracelet-3.webp"
     ]
   },
   {
@@ -1341,30 +1341,30 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "sacral-sacral-chakra-radiance-sunstone-bracelet-8mm",
+    "id": "sacral-sacral-chakra-honey-amber-bracelet-10mm",
     "chakra": "sacral",
     "chakraName": "Sacral Chakra",
     "color": "#e4ad7b",
-    "name": "Sacral Chakra Radiance Sunstone Bracelet 8mm",
-    "tagline": "Carry the sun in your pocket — because joy is a choice you deserve to make daily.",
-    "material": "Natural Sunstone beads, 8mm round. Captures golden-orange light with tiny aventurescence sparkles — the stone of warmth, optimism, and solar vitality.",
+    "name": "Sacral Chakra Honey Amber Bracelet 10mm",
+    "tagline": "Ancient sunlight frozen in time — because your inner light deserves to be remembered.",
+    "material": "Genuine Baltic Amber beads, 10mm, honey and cognac tones. Fossilized tree resin over 40 million years old — warm, luminous, and naturally lightweight.",
     "energy": [
       "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
       "Real-Life Signs You May Recognize",
       "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
     ],
     "benefits": [
-      "Awakens optimism and joy — for days that feel heavy for no reason",
-      "Restores personal power and self-confidence — know your worth",
-      "Dispels fear and anxiety — replace dread with radiant certainty",
-      "Recharges emotional energy — after giving too much to everyone else",
-      "Connects you to inner warmth — even in your coldest season"
+      "Carries ancient wisdom — connect to something older than your worries",
+      "Warms the heart and soothes the spirit — gentle comfort in hard times",
+      "Clears negativity with soft, enveloping energy — no force needed",
+      "Supports emotional healing — release what no longer serves you",
+      "Brings patience and calm — slow down, you are right on time"
     ],
     "howToWear": [
-      "Wear daily as a reminder of your inner sun. Ideal for morning routines, meditation, and days when you need extra warmth and courage."
+      "Wear close to the skin to absorb its warmth. Beautiful alone or layered. Known as a comforting companion for sensitive souls."
     ],
     "specs": [
-      "Material: 太阳石 Sunstone",
+      "Material: 波罗的海琥珀 Amber",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1372,12 +1372,12 @@ export const importedProducts: ImportedProduct[] = [
     "careRitual": [
       "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
     ],
-    "price": 243,
-    "image": "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm.webp",
+    "price": 333,
+    "image": "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm.webp",
     "images": [
-      "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm.webp",
-      "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm-2.webp",
-      "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm-3.webp"
+      "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm.webp",
+      "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm-2.webp",
+      "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm-3.webp"
     ]
   },
   {
@@ -1420,30 +1420,30 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "sacral-sacral-chakra-honey-amber-bracelet-10mm",
+    "id": "sacral-sacral-chakra-radiance-sunstone-bracelet-8mm",
     "chakra": "sacral",
     "chakraName": "Sacral Chakra",
     "color": "#e4ad7b",
-    "name": "Sacral Chakra Honey Amber Bracelet 10mm",
-    "tagline": "Ancient sunlight frozen in time — because your inner light deserves to be remembered.",
-    "material": "Genuine Baltic Amber beads, 10mm, honey and cognac tones. Fossilized tree resin over 40 million years old — warm, luminous, and naturally lightweight.",
+    "name": "Sacral Chakra Radiance Sunstone Bracelet 8mm",
+    "tagline": "Carry the sun in your pocket — because joy is a choice you deserve to make daily.",
+    "material": "Natural Sunstone beads, 8mm round. Captures golden-orange light with tiny aventurescence sparkles — the stone of warmth, optimism, and solar vitality.",
     "energy": [
       "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
       "Real-Life Signs You May Recognize",
       "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
     ],
     "benefits": [
-      "Carries ancient wisdom — connect to something older than your worries",
-      "Warms the heart and soothes the spirit — gentle comfort in hard times",
-      "Clears negativity with soft, enveloping energy — no force needed",
-      "Supports emotional healing — release what no longer serves you",
-      "Brings patience and calm — slow down, you are right on time"
+      "Awakens optimism and joy — for days that feel heavy for no reason",
+      "Restores personal power and self-confidence — know your worth",
+      "Dispels fear and anxiety — replace dread with radiant certainty",
+      "Recharges emotional energy — after giving too much to everyone else",
+      "Connects you to inner warmth — even in your coldest season"
     ],
     "howToWear": [
-      "Wear close to the skin to absorb its warmth. Beautiful alone or layered. Known as a comforting companion for sensitive souls."
+      "Wear daily as a reminder of your inner sun. Ideal for morning routines, meditation, and days when you need extra warmth and courage."
     ],
     "specs": [
-      "Material: 波罗的海琥珀 Amber",
+      "Material: 太阳石 Sunstone",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1451,12 +1451,12 @@ export const importedProducts: ImportedProduct[] = [
     "careRitual": [
       "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
     ],
-    "price": 333,
-    "image": "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm.webp",
+    "price": 243,
+    "image": "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm.webp",
     "images": [
-      "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm.webp",
-      "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm-2.webp",
-      "/products/sacral-sacral-chakra-honey-amber-bracelet-10mm-3.webp"
+      "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm.webp",
+      "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm-2.webp",
+      "/products/sacral-sacral-chakra-radiance-sunstone-bracelet-8mm-3.webp"
     ]
   },
   {
@@ -1539,6 +1539,45 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm",
+    "chakra": "sacral",
+    "chakraName": "Sacral Chakra",
+    "color": "#e4ad7b",
+    "name": "Sacral Chakra Inner Fire Fire Agate Bracelet 8mm",
+    "tagline": "A fire that cannot be extinguished — because you were never meant to dim yourself.",
+    "material": "Natural Fire Agate beads, 8mm. Deep orange and red with iridescent fiery flashes within the stone — a talisman of inner fire and protective strength.",
+    "energy": [
+      "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
+      "Real-Life Signs You May Recognize",
+      "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
+    ],
+    "benefits": [
+      "Ignites inner fire and determination — the ember is still glowing",
+      "Protects against energetic exhaustion — keep your flame burning",
+      "Grounds intense energy — power with control",
+      "Encourages action over hesitation — now is the moment",
+      "Transforms stagnant energy into forward motion"
+    ],
+    "howToWear": [
+      "Wear on the dominant wrist for action energy. A striking statement piece for bold, driven souls."
+    ],
+    "specs": [
+      "Material: 火焰玛瑙 Fire Agate",
+      "Bead Size: as specified in product name",
+      "Style: Elastic stretch bracelet",
+      "Series: Sacral Chakra Collection"
+    ],
+    "careRitual": [
+      "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
+    ],
+    "price": 222,
+    "image": "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
+    "images": [
+      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
+      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm-2.webp"
+    ]
+  },
+  {
     "id": "sacral-sacral-chakra-creativity-orange-calcite-bracelet-8mm",
     "chakra": "sacral",
     "chakraName": "Sacral Chakra",
@@ -1613,45 +1652,6 @@ export const importedProducts: ImportedProduct[] = [
     "images": [
       "/products/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm.webp",
       "/products/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm-2.webp"
-    ]
-  },
-  {
-    "id": "sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm",
-    "chakra": "sacral",
-    "chakraName": "Sacral Chakra",
-    "color": "#e4ad7b",
-    "name": "Sacral Chakra Inner Fire Fire Agate Bracelet 8mm",
-    "tagline": "A fire that cannot be extinguished — because you were never meant to dim yourself.",
-    "material": "Natural Fire Agate beads, 8mm. Deep orange and red with iridescent fiery flashes within the stone — a talisman of inner fire and protective strength.",
-    "energy": [
-      "This bracelet is attuned to the Sacral Chakra, the second energy center located below the navel — the seat of creativity, passion, sensuality, and emotional flow. It governs your ability to experience pleasure, connect deeply with others, and move through life with joyful spontaneity. When this chakra is open, you feel inspired, expressive, and fully alive. This piece carries the orange frequency of the Sacral Chakra, gently harmonizing this center so energy moves freely through your body.",
-      "Real-Life Signs You May Recognize",
-      "Do you feel like the color has drained out of your days? Struggle to feel excited about anything, or find yourself going through the motions without real joy? Maybe creativity feels blocked, your close relationships feel distant, or pleasure — the simple delight of being alive — has quietly disappeared. These are the classic signs of a congested Sacral Chakra, the energy center of passion, creativity, and emotional flow. When it is blocked, you can feel emotionally numb even when life looks fine on paper. This bracelet works by reopening that channel, restoring your appetite for life, your spark in relationships, and your confidence to create. Many wearers describe it as \"the day I started feeling like myself again.\""
-    ],
-    "benefits": [
-      "Ignites inner fire and determination — the ember is still glowing",
-      "Protects against energetic exhaustion — keep your flame burning",
-      "Grounds intense energy — power with control",
-      "Encourages action over hesitation — now is the moment",
-      "Transforms stagnant energy into forward motion"
-    ],
-    "howToWear": [
-      "Wear on the dominant wrist for action energy. A striking statement piece for bold, driven souls."
-    ],
-    "specs": [
-      "Material: 火焰玛瑙 Fire Agate",
-      "Bead Size: as specified in product name",
-      "Style: Elastic stretch bracelet",
-      "Series: Sacral Chakra Collection"
-    ],
-    "careRitual": [
-      "Clean your crystal gently with lukewarm water and a soft cloth — avoid harsh chemicals. Recharge it under the light of a full moon, or during a new moon for fresh intentions. For a deeper ritual: hold the bracelet in both hands, close your eyes, and visualize warm orange light flowing from the stone into your lower abdomen, filling you with creative energy and joy. Repeat your intention three times. Your talisman is ready to walk with you again."
-    ],
-    "price": 222,
-    "image": "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
-    "images": [
-      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm.webp",
-      "/products/sacral-sacral-chakra-inner-fire-fire-agate-bracelet-8mm-2.webp"
     ]
   },
   {
@@ -1860,46 +1860,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-zhakilamu-wealth-mix-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Zhakilamu Wealth Mix Bracelet",
-    "tagline": "Blessed by the Tibetan goddess of wealth and career — because fortune favors those who carry a little divine backup.",
-    "material": "A rich multi-stone mix of four golden materials, each bead 8–10mm: Yellow Crystal with clean honey clarity, Golden Tiger's Eye with rippling chatoyant bands, Golden Rutilated Quartz shot through with glittering golden needles, and warm Citrine with soft amber glow. The bracelet is anchored by a Zhakilamu pendant — the revered Tibetan deity of prosperity, career success, and protection, traditionally honored by those who seek business fortune.",
-    "energy": [
-      "An amplified Solar Plexus talisman: four golden stones layer their frequencies — rutilated quartz magnifies, tiger's eye steels your will, yellow crystal broadcasts, and citrine magnetizes wealth. The Zhakilamu pendant adds the protective, blessing-bearing energy of a goddess known for granting career breakthroughs to the devoted.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Opens the flow of career and business wealth, the special domain of Zhakilamu's blessing",
-      "Magnifies every intention you set, so effort converts into visible results faster",
-      "Builds the lion-hearted confidence needed to take the risks success demands",
-      "Guards your money and reputation against loss, gossip, and workplace rivalry",
-      "Unifies willpower, action, and charm into one unstoppable professional presence"
-    ],
-    "howToWear": [
-      "Wear on the left wrist for receiving wealth, or keep the Zhakilamu pendant close to your heart on the right side during important career events — signings, launches, interviews. The mixed 8–10mm beads carry a handcrafted, talismanic feel perfect for those who want jewelry with a story."
-    ],
-    "specs": [
-      "Bead size: 8–10mm; materials: Yellow Crystal, Golden Tiger's Eye, Golden Rutilated Quartz, Citrine + Zhakilamu pendant; elastic cord."
-    ],
-    "careRitual": [
-      "Keep dry and away from chemicals; cleanse with a soft cloth. On the full moon, place the bracelet on a clean surface with the pendant facing upward to charge. As it rests, thank Zhakilamu for what you already have — gratitude is the currency she honors most."
-    ],
-    "price": 555,
-    "image": "/products/solar-zhakilamu-wealth-mix-bracelet.webp",
-    "images": [
-      "/products/solar-zhakilamu-wealth-mix-bracelet.webp",
-      "/products/solar-zhakilamu-wealth-mix-bracelet-2.webp",
-      "/products/solar-zhakilamu-wealth-mix-bracelet-3.webp",
-      "/products/solar-zhakilamu-wealth-mix-bracelet-4.webp",
-      "/products/solar-zhakilamu-wealth-mix-bracelet-5.webp",
-      "/products/solar-zhakilamu-wealth-mix-bracelet-6.webp"
-    ]
-  },
-  {
     "id": "solar-citrine-crescent-moon-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -1987,39 +1947,43 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-amber-glow-tigers-eye-bracelet",
+    "id": "solar-zhakilamu-wealth-mix-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
     "color": "#ead58a",
-    "name": "Amber Glow Tiger's Eye Bracelet",
-    "tagline": "See clearly, decide boldly, move like you mean it — because hesitation is the only real competitor you have.",
-    "material": "An elegant 10mm pairing of Yellow Crystal and Golden Tiger's Eye. The Yellow Crystal glows with clean honey transparency, while the Tiger's Eye reveals layered bands of amber, gold, and deep brown that shimmer and shift with every turn of the wrist — the signature \"tiger's eye\" chatoyancy that makes each bead feel alive. Together they read as a warm, luminous strand of autumn light.",
+    "name": "Zhakilamu Wealth Mix Bracelet",
+    "tagline": "Blessed by the Tibetan goddess of wealth and career — because fortune favors those who carry a little divine backup.",
+    "material": "A rich multi-stone mix of four golden materials, each bead 8–10mm: Yellow Crystal with clean honey clarity, Golden Tiger's Eye with rippling chatoyant bands, Golden Rutilated Quartz shot through with glittering golden needles, and warm Citrine with soft amber glow. The bracelet is anchored by a Zhakilamu pendant — the revered Tibetan deity of prosperity, career success, and protection, traditionally honored by those who seek business fortune.",
     "energy": [
-      "A classic Solar Plexus duo: Tiger's Eye lends grounded courage, sharp perception, and willpower, while Yellow Crystal amplifies personal radiance and abundance. This is the energy of a leader mid-stride — calm on the surface, powerful underneath, and completely certain of the next move.",
+      "An amplified Solar Plexus talisman: four golden stones layer their frequencies — rutilated quartz magnifies, tiger's eye steels your will, yellow crystal broadcasts, and citrine magnetizes wealth. The Zhakilamu pendant adds the protective, blessing-bearing energy of a goddess known for granting career breakthroughs to the devoted.",
       "Real-Life Signs You May Recognize",
       "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
     ],
     "benefits": [
-      "Sharpens judgment — you see through fog, flattery, and false options quickly",
-      "Reinforces willpower so you finish what you start, even when it gets hard",
-      "Projects quiet authority that earns respect without a single word",
-      "Anchors wealth-building habits with earthy, stable persistence",
-      "Balances ambition with patience, so you don't burn out before the breakthrough"
+      "Opens the flow of career and business wealth, the special domain of Zhakilamu's blessing",
+      "Magnifies every intention you set, so effort converts into visible results faster",
+      "Builds the lion-hearted confidence needed to take the risks success demands",
+      "Guards your money and reputation against loss, gossip, and workplace rivalry",
+      "Unifies willpower, action, and charm into one unstoppable professional presence"
     ],
     "howToWear": [
-      "An everyday essential for professionals, students, and entrepreneurs — wear it on the left wrist during work and study, on the right when you are negotiating or presenting. The warm amber tones complement gold watches, earth-tone clothing, and wooden beads alike."
+      "Wear on the left wrist for receiving wealth, or keep the Zhakilamu pendant close to your heart on the right side during important career events — signings, launches, interviews. The mixed 8–10mm beads carry a handcrafted, talismanic feel perfect for those who want jewelry with a story."
     ],
     "specs": [
-      "Bead size: 10mm; materials: natural Yellow Crystal + Golden Tiger's Eye; elastic cord."
+      "Bead size: 8–10mm; materials: Yellow Crystal, Golden Tiger's Eye, Golden Rutilated Quartz, Citrine + Zhakilamu pendant; elastic cord."
     ],
     "careRitual": [
-      "Keep dry, avoid perfume, and polish with a soft cloth. Charge under the full moon once a month; as it rests, review your recent decisions and thank the stone for the clarity — then state one decision you will make boldly this month."
+      "Keep dry and away from chemicals; cleanse with a soft cloth. On the full moon, place the bracelet on a clean surface with the pendant facing upward to charge. As it rests, thank Zhakilamu for what you already have — gratitude is the currency she honors most."
     ],
-    "price": 611,
-    "image": "/products/solar-amber-glow-tigers-eye-bracelet.webp",
+    "price": 555,
+    "image": "/products/solar-zhakilamu-wealth-mix-bracelet.webp",
     "images": [
-      "/products/solar-amber-glow-tigers-eye-bracelet.webp",
-      "/products/solar-amber-glow-tigers-eye-bracelet-2.webp"
+      "/products/solar-zhakilamu-wealth-mix-bracelet.webp",
+      "/products/solar-zhakilamu-wealth-mix-bracelet-2.webp",
+      "/products/solar-zhakilamu-wealth-mix-bracelet-3.webp",
+      "/products/solar-zhakilamu-wealth-mix-bracelet-4.webp",
+      "/products/solar-zhakilamu-wealth-mix-bracelet-5.webp",
+      "/products/solar-zhakilamu-wealth-mix-bracelet-6.webp"
     ]
   },
   {
@@ -2108,90 +2072,39 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-signature-citrine-pendant-bracelet",
+    "id": "solar-amber-glow-tigers-eye-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
     "color": "#ead58a",
-    "name": "Signature Citrine Pendant Bracelet",
-    "tagline": "For the ones who don't follow trends — because your power looks better when it's designed by you.",
-    "material": "A niche, designer-crafted piece: fine 8mm Citrine beads in warm golden tones, accented with delicate Strawberry Quartz rounds that blush rose-pink between the gold. A polished gold-tone pendant — the collection's signature charm — dangles as the focal point. The slim bead profile and curated accents give it a boutique, one-of-a-kind feel that mass-market crystal bracelets can't touch.",
+    "name": "Amber Glow Tiger's Eye Bracelet",
+    "tagline": "See clearly, decide boldly, move like you mean it — because hesitation is the only real competitor you have.",
+    "material": "An elegant 10mm pairing of Yellow Crystal and Golden Tiger's Eye. The Yellow Crystal glows with clean honey transparency, while the Tiger's Eye reveals layered bands of amber, gold, and deep brown that shimmer and shift with every turn of the wrist — the signature \"tiger's eye\" chatoyancy that makes each bead feel alive. Together they read as a warm, luminous strand of autumn light.",
     "energy": [
-      "A refined Solar Plexus expression: Citrine brings self-confidence and abundance, Strawberry Quartz softens it with charm and self-love, and the pendant seals the design as a personal talisman. It carries the energy of someone who knows their own taste — and knows their own worth.",
+      "A classic Solar Plexus duo: Tiger's Eye lends grounded courage, sharp perception, and willpower, while Yellow Crystal amplifies personal radiance and abundance. This is the energy of a leader mid-stride — calm on the surface, powerful underneath, and completely certain of the next move.",
       "Real-Life Signs You May Recognize",
       "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
     ],
     "benefits": [
-      "Amplifies personal magnetism — your presence becomes memorable, your ideas stick",
-      "Boosts self-expression, giving you the courage to show up exactly as you are",
-      "Attracts wealth with elegance, for those who want success without shouting",
-      "Nurtures self-worth: you wear what you love because you believe you deserve it",
-      "Serves as a daily anchor of identity — a reminder of who you are becoming"
+      "Sharpens judgment — you see through fog, flattery, and false options quickly",
+      "Reinforces willpower so you finish what you start, even when it gets hard",
+      "Projects quiet authority that earns respect without a single word",
+      "Anchors wealth-building habits with earthy, stable persistence",
+      "Balances ambition with patience, so you don't burn out before the breakthrough"
     ],
     "howToWear": [
-      "The 8mm beads sit slim and refined, designed for layering with fine chains, watches, or other dainty bracelets. Wear it to creative meetings, first dates, gallery openings — anywhere you want to feel curated and in control. It also makes an intentional gift for someone with impeccable taste."
+      "An everyday essential for professionals, students, and entrepreneurs — wear it on the left wrist during work and study, on the right when you are negotiating or presenting. The warm amber tones complement gold watches, earth-tone clothing, and wooden beads alike."
     ],
     "specs": [
-      "Bead size: 8mm; materials: natural Citrine + Strawberry Quartz accents + gold-tone signature pendant; elastic cord."
+      "Bead size: 10mm; materials: natural Yellow Crystal + Golden Tiger's Eye; elastic cord."
     ],
     "careRitual": [
-      "Keep away from water and perfumes; clean the pendant with a dry polishing cloth. On the full moon, rest the bracelet on a clean cloth under moonlight, holding the pendant in your palm as you affirm: \"My taste is mine, my power is mine, my path is mine.\""
+      "Keep dry, avoid perfume, and polish with a soft cloth. Charge under the full moon once a month; as it rests, review your recent decisions and thank the stone for the clarity — then state one decision you will make boldly this month."
     ],
-    "price": 263,
-    "image": "/products/solar-signature-citrine-pendant-bracelet.webp",
+    "price": 611,
+    "image": "/products/solar-amber-glow-tigers-eye-bracelet.webp",
     "images": [
-      "/products/solar-signature-citrine-pendant-bracelet.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-2.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-3.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-4.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-5.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-6.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-7.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-8.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-9.webp",
-      "/products/solar-signature-citrine-pendant-bracelet-10.webp"
-    ]
-  },
-  {
-    "id": "solar-solar-citrine-statement-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Solar Citrine Statement Bracelet",
-    "tagline": "Bold beads for a bold season — because the world takes you as seriously as you take yourself.",
-    "material": "Substantial 12mm natural Citrine beads in a radiant, sun-warmed gold — translucent, juicy, and full of light. Each bead carries the stone's classic honey-amber glow with natural clarity and soft internal veils, giving the strand a rich, dimensional depth. This is Citrine at its most confident size: impossible to ignore, impossible to mistake for anything else.",
-    "energy": [
-      "A pure expression of the Solar Plexus Chakra. Citrine is the merchant's stone, the success stone, the \"bring me the life I actually want\" stone — and at 12mm, its energy is unmissable. It radiates self-confidence, joy, and the magnetic warmth that draws prosperity the way sunlight draws flowers.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Declares your presence — you walk into rooms and people pay attention",
-      "Attracts prosperity with open, generous energy instead of anxious grasping",
-      "Restores optimism when self-doubt has been shading your outlook gold-gray",
-      "Empowers decisive action: you trust your choices and move without apology",
-      "Elevates your baseline mood — the stone's solar frequency is simply cheering to wear"
-    ],
-    "howToWear": [
-      "Wear it solo as a statement on the left wrist during important career moments, or stack with silver and gold for casual days. The bold 12mm profile makes it perfect for the person who wants their ambition literally visible on their skin."
-    ],
-    "specs": [
-      "Bead size: 12mm; materials: natural Citrine; elastic cord; polished finish."
-    ],
-    "careRitual": [
-      "Avoid water and prolonged direct sunlight to protect the golden tone; wipe with a dry cloth. On the full moon, charge it under moonlight, then hold it to your solar plexus and affirm: \"I am my own source of light, and I am worthy of every good thing.\""
-    ],
-    "price": 145,
-    "image": "/products/solar-solar-citrine-statement-bracelet.webp",
-    "images": [
-      "/products/solar-solar-citrine-statement-bracelet.webp",
-      "/products/solar-solar-citrine-statement-bracelet-2.webp",
-      "/products/solar-solar-citrine-statement-bracelet-3.webp",
-      "/products/solar-solar-citrine-statement-bracelet-4.webp",
-      "/products/solar-solar-citrine-statement-bracelet-5.webp",
-      "/products/solar-solar-citrine-statement-bracelet-6.webp",
-      "/products/solar-solar-citrine-statement-bracelet-7.webp",
-      "/products/solar-solar-citrine-statement-bracelet-8.webp",
-      "/products/solar-solar-citrine-statement-bracelet-9.webp"
+      "/products/solar-amber-glow-tigers-eye-bracelet.webp",
+      "/products/solar-amber-glow-tigers-eye-bracelet-2.webp"
     ]
   },
   {
@@ -2238,6 +2151,50 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-signature-citrine-pendant-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Signature Citrine Pendant Bracelet",
+    "tagline": "For the ones who don't follow trends — because your power looks better when it's designed by you.",
+    "material": "A niche, designer-crafted piece: fine 8mm Citrine beads in warm golden tones, accented with delicate Strawberry Quartz rounds that blush rose-pink between the gold. A polished gold-tone pendant — the collection's signature charm — dangles as the focal point. The slim bead profile and curated accents give it a boutique, one-of-a-kind feel that mass-market crystal bracelets can't touch.",
+    "energy": [
+      "A refined Solar Plexus expression: Citrine brings self-confidence and abundance, Strawberry Quartz softens it with charm and self-love, and the pendant seals the design as a personal talisman. It carries the energy of someone who knows their own taste — and knows their own worth.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Amplifies personal magnetism — your presence becomes memorable, your ideas stick",
+      "Boosts self-expression, giving you the courage to show up exactly as you are",
+      "Attracts wealth with elegance, for those who want success without shouting",
+      "Nurtures self-worth: you wear what you love because you believe you deserve it",
+      "Serves as a daily anchor of identity — a reminder of who you are becoming"
+    ],
+    "howToWear": [
+      "The 8mm beads sit slim and refined, designed for layering with fine chains, watches, or other dainty bracelets. Wear it to creative meetings, first dates, gallery openings — anywhere you want to feel curated and in control. It also makes an intentional gift for someone with impeccable taste."
+    ],
+    "specs": [
+      "Bead size: 8mm; materials: natural Citrine + Strawberry Quartz accents + gold-tone signature pendant; elastic cord."
+    ],
+    "careRitual": [
+      "Keep away from water and perfumes; clean the pendant with a dry polishing cloth. On the full moon, rest the bracelet on a clean cloth under moonlight, holding the pendant in your palm as you affirm: \"My taste is mine, my power is mine, my path is mine.\""
+    ],
+    "price": 263,
+    "image": "/products/solar-signature-citrine-pendant-bracelet.webp",
+    "images": [
+      "/products/solar-signature-citrine-pendant-bracelet.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-2.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-3.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-4.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-5.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-6.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-7.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-8.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-9.webp",
+      "/products/solar-signature-citrine-pendant-bracelet-10.webp"
+    ]
+  },
+  {
     "id": "solar-golden-rutilated-quartz-cats-eye-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2280,6 +2237,49 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-solar-citrine-statement-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Solar Citrine Statement Bracelet",
+    "tagline": "Bold beads for a bold season — because the world takes you as seriously as you take yourself.",
+    "material": "Substantial 12mm natural Citrine beads in a radiant, sun-warmed gold — translucent, juicy, and full of light. Each bead carries the stone's classic honey-amber glow with natural clarity and soft internal veils, giving the strand a rich, dimensional depth. This is Citrine at its most confident size: impossible to ignore, impossible to mistake for anything else.",
+    "energy": [
+      "A pure expression of the Solar Plexus Chakra. Citrine is the merchant's stone, the success stone, the \"bring me the life I actually want\" stone — and at 12mm, its energy is unmissable. It radiates self-confidence, joy, and the magnetic warmth that draws prosperity the way sunlight draws flowers.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Declares your presence — you walk into rooms and people pay attention",
+      "Attracts prosperity with open, generous energy instead of anxious grasping",
+      "Restores optimism when self-doubt has been shading your outlook gold-gray",
+      "Empowers decisive action: you trust your choices and move without apology",
+      "Elevates your baseline mood — the stone's solar frequency is simply cheering to wear"
+    ],
+    "howToWear": [
+      "Wear it solo as a statement on the left wrist during important career moments, or stack with silver and gold for casual days. The bold 12mm profile makes it perfect for the person who wants their ambition literally visible on their skin."
+    ],
+    "specs": [
+      "Bead size: 12mm; materials: natural Citrine; elastic cord; polished finish."
+    ],
+    "careRitual": [
+      "Avoid water and prolonged direct sunlight to protect the golden tone; wipe with a dry cloth. On the full moon, charge it under moonlight, then hold it to your solar plexus and affirm: \"I am my own source of light, and I am worthy of every good thing.\""
+    ],
+    "price": 145,
+    "image": "/products/solar-solar-citrine-statement-bracelet.webp",
+    "images": [
+      "/products/solar-solar-citrine-statement-bracelet.webp",
+      "/products/solar-solar-citrine-statement-bracelet-2.webp",
+      "/products/solar-solar-citrine-statement-bracelet-3.webp",
+      "/products/solar-solar-citrine-statement-bracelet-4.webp",
+      "/products/solar-solar-citrine-statement-bracelet-5.webp",
+      "/products/solar-solar-citrine-statement-bracelet-6.webp",
+      "/products/solar-solar-citrine-statement-bracelet-7.webp",
+      "/products/solar-solar-citrine-statement-bracelet-8.webp",
+      "/products/solar-solar-citrine-statement-bracelet-9.webp"
+    ]
+  },
+  {
     "id": "solar-metal-phase-pi-xiu-wealth-mix",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2316,46 +2316,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-metal-phase-pi-xiu-wealth-mix-3.webp",
       "/products/solar-metal-phase-pi-xiu-wealth-mix-4.webp",
       "/products/solar-metal-phase-pi-xiu-wealth-mix-5.webp"
-    ]
-  },
-  {
-    "id": "solar-metal-phase-five-elements-bracelet-8mm",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Metal-Phase Five Elements Bracelet (8mm)",
-    "tagline": "Balance the five, strengthen the one — because the element you're missing is the one holding you back.",
-    "material": "An 8mm Five Elements bracelet with emphasis on the Metal phase: luminous Citrine and Golden Rutilated Quartz represent golden Metal, white crystal adds its crisp clarity, with warm earthy and watery accent stones completing the five-element cycle. The result is a balanced yet Metal-forward palette of gold, white, and warm neutrals — jewelry with a feng shui purpose.",
-    "energy": [
-      "A Solar Plexus design that works through Chinese Five Elements theory. Metal (金) governs clarity, decisiveness, discipline, and wealth in Chinese culture. This bracelet harmonizes all five elements while pouring extra energy into the Metal phase — ideal when your chart leans deficient in Metal and you need sharper judgment and firmer boundaries.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Sharpens mental clarity and decisive thinking in work and money matters",
-      "Recharges discipline — the quiet engine behind every success story",
-      "Harmonizes your energy field, easing friction at work and home",
-      "Attracts the \"gold\" of wealth through the element that represents it",
-      "Strengthens inner authority: you say no cleanly and mean it"
-    ],
-    "howToWear": [
-      "Wear daily on the left wrist as a gentle, continuous rebalancing — through workdays, study sessions, and negotiations. The slim 8mm profile makes it an easy everyday companion that layers with watches and other bracelets without competing."
-    ],
-    "specs": [
-      "Bead size: 8mm; materials: Citrine, Golden Rutilated Quartz, white crystal + Five Elements accent stones; elastic cord."
-    ],
-    "careRitual": [
-      "Keep dry and away from perfumes; wipe with a soft cloth. On the full moon, charge under moonlight and hold the bracelet while you name one decision you will make with total clarity this month — then make it."
-    ],
-    "price": 111,
-    "image": "/products/solar-metal-phase-five-elements-bracelet-8mm.webp",
-    "images": [
-      "/products/solar-metal-phase-five-elements-bracelet-8mm.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-8mm-2.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-8mm-3.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-8mm-4.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-8mm-5.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-8mm-6.webp"
     ]
   },
   {
@@ -2399,44 +2359,43 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-metal-phase-five-elements-bracelet-10mm",
+    "id": "solar-metal-phase-five-elements-bracelet-8mm",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
     "color": "#ead58a",
-    "name": "Metal-Phase Five Elements Bracelet (10mm)",
-    "tagline": "A stronger dose of Metal for a stronger version of you — because balance is good, but momentum is better.",
-    "material": "The 10mm edition of our Metal-phase Five Elements bracelet: generous beads of golden Citrine and needle-filled Golden Rutilated Quartz lead the gold-and-white palette, joined by crisp white crystal and warming accent stones that complete the five-element cycle. At 10mm the bracelet carries more presence — a substantial, confident band of gold and light with a visible feng shui purpose.",
+    "name": "Metal-Phase Five Elements Bracelet (8mm)",
+    "tagline": "Balance the five, strengthen the one — because the element you're missing is the one holding you back.",
+    "material": "An 8mm Five Elements bracelet with emphasis on the Metal phase: luminous Citrine and Golden Rutilated Quartz represent golden Metal, white crystal adds its crisp clarity, with warm earthy and watery accent stones completing the five-element cycle. The result is a balanced yet Metal-forward palette of gold, white, and warm neutrals — jewelry with a feng shui purpose.",
     "energy": [
-      "Rooted in the Solar Plexus, this piece leans into the Metal element (金) — the phase of clarity, discipline, decisive action, and wealth in Chinese Five Elements theory. Where the 8mm version whispers rebalance, this one speaks: it floods your field with Metal energy while keeping all five elements in harmony.",
+      "A Solar Plexus design that works through Chinese Five Elements theory. Metal (金) governs clarity, decisiveness, discipline, and wealth in Chinese culture. This bracelet harmonizes all five elements while pouring extra energy into the Metal phase — ideal when your chart leans deficient in Metal and you need sharper judgment and firmer boundaries.",
       "Real-Life Signs You May Recognize",
       "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
     ],
     "benefits": [
-      "Gives decisive action a structural upgrade — you commit and follow through",
-      "Strengthens the wealth element directly, supporting income and negotiation power",
-      "Cuts through analysis paralysis with cold, clean clarity",
-      "Recharges discipline and boundaries in equal measure",
-      "Harmonizes your five elements so the new confidence actually sticks"
+      "Sharpens mental clarity and decisive thinking in work and money matters",
+      "Recharges discipline — the quiet engine behind every success story",
+      "Harmonizes your energy field, easing friction at work and home",
+      "Attracts the \"gold\" of wealth through the element that represents it",
+      "Strengthens inner authority: you say no cleanly and mean it"
     ],
     "howToWear": [
-      "Wear on the left wrist during high-stakes weeks — audits, negotiations, launches, contracts. The bolder 10mm beads give it presence in professional settings while the golden tones keep it wearable with everything from suits to sweaters."
+      "Wear daily on the left wrist as a gentle, continuous rebalancing — through workdays, study sessions, and negotiations. The slim 8mm profile makes it an easy everyday companion that layers with watches and other bracelets without competing."
     ],
     "specs": [
-      "Bead size: 10mm; materials: Citrine, Golden Rutilated Quartz, white crystal + Five Elements accent stones; elastic cord."
+      "Bead size: 8mm; materials: Citrine, Golden Rutilated Quartz, white crystal + Five Elements accent stones; elastic cord."
     ],
     "careRitual": [
-      "Keep dry, avoid harsh sunlight and chemicals; wipe with a soft cloth. On the full moon, charge under moonlight while affirming: \"I decide with clarity, I act with discipline, and my wealth is in harmony.\""
+      "Keep dry and away from perfumes; wipe with a soft cloth. On the full moon, charge under moonlight and hold the bracelet while you name one decision you will make with total clarity this month — then make it."
     ],
-    "price": 121,
-    "image": "/products/solar-metal-phase-five-elements-bracelet-10mm.webp",
+    "price": 111,
+    "image": "/products/solar-metal-phase-five-elements-bracelet-8mm.webp",
     "images": [
-      "/products/solar-metal-phase-five-elements-bracelet-10mm.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-10mm-2.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-10mm-3.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-10mm-4.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-10mm-5.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-10mm-6.webp",
-      "/products/solar-metal-phase-five-elements-bracelet-10mm-7.webp"
+      "/products/solar-metal-phase-five-elements-bracelet-8mm.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-8mm-2.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-8mm-3.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-8mm-4.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-8mm-5.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-8mm-6.webp"
     ]
   },
   {
@@ -2477,6 +2436,47 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-earth-phase-five-elements-bracelet-8mm-4.webp",
       "/products/solar-earth-phase-five-elements-bracelet-8mm-5.webp",
       "/products/solar-earth-phase-five-elements-bracelet-8mm-6.webp"
+    ]
+  },
+  {
+    "id": "solar-metal-phase-five-elements-bracelet-10mm",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Metal-Phase Five Elements Bracelet (10mm)",
+    "tagline": "A stronger dose of Metal for a stronger version of you — because balance is good, but momentum is better.",
+    "material": "The 10mm edition of our Metal-phase Five Elements bracelet: generous beads of golden Citrine and needle-filled Golden Rutilated Quartz lead the gold-and-white palette, joined by crisp white crystal and warming accent stones that complete the five-element cycle. At 10mm the bracelet carries more presence — a substantial, confident band of gold and light with a visible feng shui purpose.",
+    "energy": [
+      "Rooted in the Solar Plexus, this piece leans into the Metal element (金) — the phase of clarity, discipline, decisive action, and wealth in Chinese Five Elements theory. Where the 8mm version whispers rebalance, this one speaks: it floods your field with Metal energy while keeping all five elements in harmony.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Gives decisive action a structural upgrade — you commit and follow through",
+      "Strengthens the wealth element directly, supporting income and negotiation power",
+      "Cuts through analysis paralysis with cold, clean clarity",
+      "Recharges discipline and boundaries in equal measure",
+      "Harmonizes your five elements so the new confidence actually sticks"
+    ],
+    "howToWear": [
+      "Wear on the left wrist during high-stakes weeks — audits, negotiations, launches, contracts. The bolder 10mm beads give it presence in professional settings while the golden tones keep it wearable with everything from suits to sweaters."
+    ],
+    "specs": [
+      "Bead size: 10mm; materials: Citrine, Golden Rutilated Quartz, white crystal + Five Elements accent stones; elastic cord."
+    ],
+    "careRitual": [
+      "Keep dry, avoid harsh sunlight and chemicals; wipe with a soft cloth. On the full moon, charge under moonlight while affirming: \"I decide with clarity, I act with discipline, and my wealth is in harmony.\""
+    ],
+    "price": 121,
+    "image": "/products/solar-metal-phase-five-elements-bracelet-10mm.webp",
+    "images": [
+      "/products/solar-metal-phase-five-elements-bracelet-10mm.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-10mm-2.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-10mm-3.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-10mm-4.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-10mm-5.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-10mm-6.webp",
+      "/products/solar-metal-phase-five-elements-bracelet-10mm-7.webp"
     ]
   },
   {
@@ -2559,46 +2559,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-golden-rutilated-quartz-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Golden Rutilated Quartz Bracelet",
-    "tagline": "Gold threads woven into crystal — because some fortunes are simply impossible to overlook.",
-    "material": "Pure Golden Rutilated Quartz: clear, glassy quartz beads threaded through with vivid golden rutile needles — fine as spun silk in some, bold as lightning bolts in others. The needles float inside each bead at every angle, so the bracelet catches the light from any direction and throws back a constellation of gold sparks. This is the classic, unadulterated version of the fortune stone.",
-    "energy": [
-      "The definitive Solar Plexus amplifier. Golden Rutilated Quartz combines Citrine's wealth magnetism with the amplifying power of quartz and the conductive energy of golden rutile — the \"golden antenna\" effect. It takes whatever you are building — a career, a business, a reputation — and turns up the volume, broadcasting your intentions and pulling opportunity back to you.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Amplifies your focus into results — what you put energy into, it magnifies",
-      "Attracts career wealth and entrepreneurial breakthroughs with visible momentum",
-      "Dissolves self-doubt by broadcasting your capability louder than your fears",
-      "Recharges motivation when ambition runs low on battery",
-      "Carries the classic \"wealth emperor\" blessing of the golden needle stone"
-    ],
-    "howToWear": [
-      "Wear on the left wrist to receive, on the right to project — during interviews, pitches, launches, and long work sprints. The golden sparkle elevates any outfit, from crisp shirts to evening dresses, and the stone's reputation travels with it."
-    ],
-    "specs": [
-      "Bead size: approximately 9mm; materials: natural Golden Rutilated Quartz; elastic cord."
-    ],
-    "careRitual": [
-      "Avoid water and perfume; wipe with a dry soft cloth. On the full moon, charge it under moonlight, then hold it and speak one goal you want amplified — career, wealth, or creation. Let the golden threads carry it outward all month."
-    ],
-    "price": 121,
-    "image": "/products/solar-golden-rutilated-quartz-bracelet.webp",
-    "images": [
-      "/products/solar-golden-rutilated-quartz-bracelet.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-2.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-3.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-4.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-5.webp",
-      "/products/solar-golden-rutilated-quartz-bracelet-6.webp"
-    ]
-  },
-  {
     "id": "solar-rainbow-rutilated-quartz-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2637,6 +2597,46 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-rainbow-rutilated-quartz-bracelet-5.webp",
       "/products/solar-rainbow-rutilated-quartz-bracelet-6.webp",
       "/products/solar-rainbow-rutilated-quartz-bracelet-7.webp"
+    ]
+  },
+  {
+    "id": "solar-golden-rutilated-quartz-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Golden Rutilated Quartz Bracelet",
+    "tagline": "Gold threads woven into crystal — because some fortunes are simply impossible to overlook.",
+    "material": "Pure Golden Rutilated Quartz: clear, glassy quartz beads threaded through with vivid golden rutile needles — fine as spun silk in some, bold as lightning bolts in others. The needles float inside each bead at every angle, so the bracelet catches the light from any direction and throws back a constellation of gold sparks. This is the classic, unadulterated version of the fortune stone.",
+    "energy": [
+      "The definitive Solar Plexus amplifier. Golden Rutilated Quartz combines Citrine's wealth magnetism with the amplifying power of quartz and the conductive energy of golden rutile — the \"golden antenna\" effect. It takes whatever you are building — a career, a business, a reputation — and turns up the volume, broadcasting your intentions and pulling opportunity back to you.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Amplifies your focus into results — what you put energy into, it magnifies",
+      "Attracts career wealth and entrepreneurial breakthroughs with visible momentum",
+      "Dissolves self-doubt by broadcasting your capability louder than your fears",
+      "Recharges motivation when ambition runs low on battery",
+      "Carries the classic \"wealth emperor\" blessing of the golden needle stone"
+    ],
+    "howToWear": [
+      "Wear on the left wrist to receive, on the right to project — during interviews, pitches, launches, and long work sprints. The golden sparkle elevates any outfit, from crisp shirts to evening dresses, and the stone's reputation travels with it."
+    ],
+    "specs": [
+      "Bead size: approximately 9mm; materials: natural Golden Rutilated Quartz; elastic cord."
+    ],
+    "careRitual": [
+      "Avoid water and perfume; wipe with a dry soft cloth. On the full moon, charge it under moonlight, then hold it and speak one goal you want amplified — career, wealth, or creation. Let the golden threads carry it outward all month."
+    ],
+    "price": 121,
+    "image": "/products/solar-golden-rutilated-quartz-bracelet.webp",
+    "images": [
+      "/products/solar-golden-rutilated-quartz-bracelet.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-2.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-3.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-4.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-5.webp",
+      "/products/solar-golden-rutilated-quartz-bracelet-6.webp"
     ]
   },
   {
@@ -2951,6 +2951,42 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-fire-begets-earth-bracelet",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Fire Begets Earth Bracelet",
+    "tagline": "From burning passion to lasting ground — because fire that transforms becomes soil that holds everything.",
+    "material": "A Five Elements bracelet honoring the cycle of \"Fire produces Earth\" (火生土): warm golden Citrine and honey-toned Yellow Crystal represent the Earth being born, while rich red-orange accent stones carry the Fire that births it — deep cinnabar reds, burnt sienna, and sunset tones that flicker between the gold like embers. The palette is autumn bonfire: gold, flame, and fertile earth.",
+    "energy": [
+      "A Solar Plexus design built on the Five Elements generating cycle: Fire (火) is the mother of Earth (土), and Earth is the mother of Metal — wealth. By wearing Fire and Earth in creative order, you transform raw passion and effort into grounded, lasting results. It is the energy of burning through limitation and rising as something stable and rich.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Converts fiery motivation into grounded, lasting achievement",
+      "Breaks stagnation — Fire energy melts old blocks, Earth energy holds the new form",
+      "Builds endurance: passion becomes discipline, sparks become steady flame",
+      "Supports transformation seasons — career changes, creative rebirths, fresh starts",
+      "Balances drive with stability, so intensity doesn't burn you out"
+    ],
+    "howToWear": [
+      "Wear during seasons of change and rebuilding — new ventures, fitness transformations, major decisions. The gold-and-ember palette makes a warm statement in autumn and winter wardrobes, pairing beautifully with denim, black, and burgundy."
+    ],
+    "specs": [
+      "Bead size: approximately 10mm; materials: Citrine, Yellow Crystal + red-orange Fire accent stones; elastic cord."
+    ],
+    "careRitual": [
+      "Keep dry and away from harsh chemicals; wipe with a soft cloth. On the full moon, charge it under moonlight and name one old pattern you are burning away and one new foundation you are building in its place."
+    ],
+    "price": 345,
+    "image": "/products/solar-fire-begets-earth-bracelet.webp",
+    "images": [
+      "/products/solar-fire-begets-earth-bracelet.webp",
+      "/products/solar-fire-begets-earth-bracelet-2.webp"
+    ]
+  },
+  {
     "id": "solar-tri-stone-pi-xiu-prosperity-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
@@ -2991,39 +3027,42 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "solar-fire-begets-earth-bracelet",
+    "id": "solar-earth-water-five-elements-bracelet",
     "chakra": "solar",
     "chakraName": "Solar Plexus Chakra",
     "color": "#ead58a",
-    "name": "Fire Begets Earth Bracelet",
-    "tagline": "From burning passion to lasting ground — because fire that transforms becomes soil that holds everything.",
-    "material": "A Five Elements bracelet honoring the cycle of \"Fire produces Earth\" (火生土): warm golden Citrine and honey-toned Yellow Crystal represent the Earth being born, while rich red-orange accent stones carry the Fire that births it — deep cinnabar reds, burnt sienna, and sunset tones that flicker between the gold like embers. The palette is autumn bonfire: gold, flame, and fertile earth.",
+    "name": "Earth-Water Five Elements Bracelet",
+    "tagline": "The earth that holds and the water that flows — because fortune needs both a foundation and a current.",
+    "material": "A Five Elements bracelet strengthening the Earth and Water phases together: warm golden Yellow Crystal and honey Citrine represent Earth's stability, while Aquamarine and clear quartz accent beads bring Water's cool, flowing clarity. The palette — amber and bronze beside pale aqua and crystal — is quietly gorgeous: the colors of riverbeds and river stones, warm earth meeting cool water.",
     "energy": [
-      "A Solar Plexus design built on the Five Elements generating cycle: Fire (火) is the mother of Earth (土), and Earth is the mother of Metal — wealth. By wearing Fire and Earth in creative order, you transform raw passion and effort into grounded, lasting results. It is the energy of burning through limitation and rising as something stable and rich.",
+      "A Solar Plexus design working through the Five Elements: Earth (土) for stability and storage, Water (水) for flow, wisdom, and wealth circulation. This bracelet feeds both phases — grounding your ambition while keeping your money and ideas moving. It is the energy of a reservoir: deep, still, and always feeding the stream.",
       "Real-Life Signs You May Recognize",
       "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
     ],
     "benefits": [
-      "Converts fiery motivation into grounded, lasting achievement",
-      "Breaks stagnation — Fire energy melts old blocks, Earth energy holds the new form",
-      "Builds endurance: passion becomes discipline, sparks become steady flame",
-      "Supports transformation seasons — career changes, creative rebirths, fresh starts",
-      "Balances drive with stability, so intensity doesn't burn you out"
+      "Balances stability with flow — hold wealth without letting it stagnate",
+      "Strengthens patience (Earth) and adaptability (Water) in equal measure",
+      "Supports wise money management: safe storage plus healthy circulation",
+      "Soothes emotional turbulence with water's cooling, clarifying frequency",
+      "Harmonizes the elements most relevant to long-term financial health"
     ],
     "howToWear": [
-      "Wear during seasons of change and rebuilding — new ventures, fitness transformations, major decisions. The gold-and-ember palette makes a warm statement in autumn and winter wardrobes, pairing beautifully with denim, black, and burgundy."
+      "Wear during financial planning, negotiations, or seasons of transition when you need both footing and flexibility. The amber-and-aqua palette is distinctive and elegant, pairing well with neutrals, denim, and summer whites."
     ],
     "specs": [
-      "Bead size: approximately 10mm; materials: Citrine, Yellow Crystal + red-orange Fire accent stones; elastic cord."
+      "Bead size: approximately 9–10mm; materials: Yellow Crystal, Citrine + Aquamarine and clear quartz accents; elastic cord."
     ],
     "careRitual": [
-      "Keep dry and away from harsh chemicals; wipe with a soft cloth. On the full moon, charge it under moonlight and name one old pattern you are burning away and one new foundation you are building in its place."
+      "Keep dry and away from harsh light; wipe with a soft cloth. On the full moon, charge it under moonlight and affirm: \"I am steady as earth, I flow like water, and my fortune moves with me.\""
     ],
-    "price": 345,
-    "image": "/products/solar-fire-begets-earth-bracelet.webp",
+    "price": 222,
+    "image": "/products/solar-earth-water-five-elements-bracelet.webp",
     "images": [
-      "/products/solar-fire-begets-earth-bracelet.webp",
-      "/products/solar-fire-begets-earth-bracelet-2.webp"
+      "/products/solar-earth-water-five-elements-bracelet.webp",
+      "/products/solar-earth-water-five-elements-bracelet-2.webp",
+      "/products/solar-earth-water-five-elements-bracelet-3.webp",
+      "/products/solar-earth-water-five-elements-bracelet-4.webp",
+      "/products/solar-earth-water-five-elements-bracelet-5.webp"
     ]
   },
   {
@@ -3063,45 +3102,6 @@ export const importedProducts: ImportedProduct[] = [
       "/products/solar-rolling-fortune-bracelet-3.webp",
       "/products/solar-rolling-fortune-bracelet-4.webp",
       "/products/solar-rolling-fortune-bracelet-5.webp"
-    ]
-  },
-  {
-    "id": "solar-earth-water-five-elements-bracelet",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Earth-Water Five Elements Bracelet",
-    "tagline": "The earth that holds and the water that flows — because fortune needs both a foundation and a current.",
-    "material": "A Five Elements bracelet strengthening the Earth and Water phases together: warm golden Yellow Crystal and honey Citrine represent Earth's stability, while Aquamarine and clear quartz accent beads bring Water's cool, flowing clarity. The palette — amber and bronze beside pale aqua and crystal — is quietly gorgeous: the colors of riverbeds and river stones, warm earth meeting cool water.",
-    "energy": [
-      "A Solar Plexus design working through the Five Elements: Earth (土) for stability and storage, Water (水) for flow, wisdom, and wealth circulation. This bracelet feeds both phases — grounding your ambition while keeping your money and ideas moving. It is the energy of a reservoir: deep, still, and always feeding the stream.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Balances stability with flow — hold wealth without letting it stagnate",
-      "Strengthens patience (Earth) and adaptability (Water) in equal measure",
-      "Supports wise money management: safe storage plus healthy circulation",
-      "Soothes emotional turbulence with water's cooling, clarifying frequency",
-      "Harmonizes the elements most relevant to long-term financial health"
-    ],
-    "howToWear": [
-      "Wear during financial planning, negotiations, or seasons of transition when you need both footing and flexibility. The amber-and-aqua palette is distinctive and elegant, pairing well with neutrals, denim, and summer whites."
-    ],
-    "specs": [
-      "Bead size: approximately 9–10mm; materials: Yellow Crystal, Citrine + Aquamarine and clear quartz accents; elastic cord."
-    ],
-    "careRitual": [
-      "Keep dry and away from harsh light; wipe with a soft cloth. On the full moon, charge it under moonlight and affirm: \"I am steady as earth, I flow like water, and my fortune moves with me.\""
-    ],
-    "price": 222,
-    "image": "/products/solar-earth-water-five-elements-bracelet.webp",
-    "images": [
-      "/products/solar-earth-water-five-elements-bracelet.webp",
-      "/products/solar-earth-water-five-elements-bracelet-2.webp",
-      "/products/solar-earth-water-five-elements-bracelet-3.webp",
-      "/products/solar-earth-water-five-elements-bracelet-4.webp",
-      "/products/solar-earth-water-five-elements-bracelet-5.webp"
     ]
   },
   {
@@ -3174,42 +3174,6 @@ export const importedProducts: ImportedProduct[] = [
     "images": [
       "/products/solar-flowing-gold-vein-tigers-eye-bracelet-12mm.webp",
       "/products/solar-flowing-gold-vein-tigers-eye-bracelet-12mm-2.webp"
-    ]
-  },
-  {
-    "id": "solar-grand-slam-multi-strand-bracelet-6mm",
-    "chakra": "solar",
-    "chakraName": "Solar Plexus Chakra",
-    "color": "#ead58a",
-    "name": "Grand Slam Multi-Strand Bracelet (6mm)",
-    "tagline": "All the gold, wrapped around your wrist — because when fortune comes, it should come in multiples.",
-    "material": "Natural Yellow Crystal (golden quartz) in fine 6mm beads, wound into multiple strands that wrap the wrist in a layered halo of warm golden light. The multi-strand construction creates real volume: strand over strand of honey-transparent gold, catching the light from every angle. Slim beads, abundant presence — a \"grand slam\" of golden quartz.",
-    "energy": [
-      "A generous, amplified dose of Solar Plexus energy. The multi-strand format multiplies the stone's frequency — more crystal surface touching your skin, more golden light in your field. The \"Grand Slam\" spirit is about winning big on every front: wealth, career, confidence, and the full sweep of personal power.",
-      "Real-Life Signs You May Recognize",
-      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
-    ],
-    "benefits": [
-      "Multiplies your abundance pull — layered strands, layered luck",
-      "Boosts confidence on a grand scale: you feel wrapped in golden support",
-      "Elevates any outfit with its rich, layered texture — statement without effort",
-      "Supports big goals and big seasons — the energy of aiming for the full sweep",
-      "Adds a protective layer of warmth and light to your daily energy field"
-    ],
-    "howToWear": [
-      "Wear it as the centerpiece of your wrist stack, or alone when you want the full effect — it reads as jewelry, not just a crystal, so it works for dinners, events, and date nights as easily as the office. The 6mm strands drape elegantly on most wrists."
-    ],
-    "specs": [
-      "Bead size: 6mm; materials: natural Yellow Crystal (golden quartz), multi-strand construction; secure elastic; wrap-around design."
-    ],
-    "careRitual": [
-      "Keep dry and away from perfumes; wipe with a soft cloth. On the full moon, charge it under moonlight while affirming: \"I win on every level — abundance comes to me in multiples.\""
-    ],
-    "price": 263,
-    "image": "/products/solar-grand-slam-multi-strand-bracelet-6mm.webp",
-    "images": [
-      "/products/solar-grand-slam-multi-strand-bracelet-6mm.webp",
-      "/products/solar-grand-slam-multi-strand-bracelet-6mm-2.webp"
     ]
   },
   {
@@ -3295,19 +3259,205 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "solar-grand-slam-multi-strand-bracelet-6mm",
+    "chakra": "solar",
+    "chakraName": "Solar Plexus Chakra",
+    "color": "#ead58a",
+    "name": "Grand Slam Multi-Strand Bracelet (6mm)",
+    "tagline": "All the gold, wrapped around your wrist — because when fortune comes, it should come in multiples.",
+    "material": "Natural Yellow Crystal (golden quartz) in fine 6mm beads, wound into multiple strands that wrap the wrist in a layered halo of warm golden light. The multi-strand construction creates real volume: strand over strand of honey-transparent gold, catching the light from every angle. Slim beads, abundant presence — a \"grand slam\" of golden quartz.",
+    "energy": [
+      "A generous, amplified dose of Solar Plexus energy. The multi-strand format multiplies the stone's frequency — more crystal surface touching your skin, more golden light in your field. The \"Grand Slam\" spirit is about winning big on every front: wealth, career, confidence, and the full sweep of personal power.",
+      "Real-Life Signs You May Recognize",
+      "Do you second-guess every decision, big or small? Feel invisible in meetings, or swallow your opinions because you're not sure they matter? Struggle to start — and finish — the things you know you want? That hollow feeling of \"I'm not enough\" often traces back to the Solar Plexus Chakra, the energy center of personal power, confidence, and will. When it is weak, you rely on others' approval instead of your own inner compass. This bracelet works by reigniting that inner fire: the steady, quiet certainty that your voice counts and your actions carry weight. Many wearers notice it within days — walking into rooms differently, saying no without guilt, and finally trusting their own judgment."
+    ],
+    "benefits": [
+      "Multiplies your abundance pull — layered strands, layered luck",
+      "Boosts confidence on a grand scale: you feel wrapped in golden support",
+      "Elevates any outfit with its rich, layered texture — statement without effort",
+      "Supports big goals and big seasons — the energy of aiming for the full sweep",
+      "Adds a protective layer of warmth and light to your daily energy field"
+    ],
+    "howToWear": [
+      "Wear it as the centerpiece of your wrist stack, or alone when you want the full effect — it reads as jewelry, not just a crystal, so it works for dinners, events, and date nights as easily as the office. The 6mm strands drape elegantly on most wrists."
+    ],
+    "specs": [
+      "Bead size: 6mm; materials: natural Yellow Crystal (golden quartz), multi-strand construction; secure elastic; wrap-around design."
+    ],
+    "careRitual": [
+      "Keep dry and away from perfumes; wipe with a soft cloth. On the full moon, charge it under moonlight while affirming: \"I win on every level — abundance comes to me in multiples.\""
+    ],
+    "price": 263,
+    "image": "/products/solar-grand-slam-multi-strand-bracelet-6mm.webp",
+    "images": [
+      "/products/solar-grand-slam-multi-strand-bracelet-6mm.webp",
+      "/products/solar-grand-slam-multi-strand-bracelet-6mm-2.webp"
+    ]
+  },
+  {
+    "id": "heart-a2-2506",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Lychee Rose Quartz Bracelet",
+    "tagline": "Pale rose quartz in the blush of a ripe lychee, sweet, soft, quietly luminous. For the kind of love that does not shout but shows up daily, asking only that you receive it.",
+    "material": "Each bead is a pale, milky-pink rose quartz with the soft translucency of fresh lychee flesh, catching light from within rather than flashing it back. Natural variation in tone keeps every strand one of a kind, while a smooth, rounded polish makes the surface pleasant against the skin. The beads are finished on a sturdy elastic cord and sit close to the wrist for an understated, feminine line.",
+    "energy": [
+      "The heart chakra is the symbolic center of softness, the place where we learn that tenderness is not weakness. Rose quartz is traditionally associated with this energy center, said to remind us of our own worth and to warm the way we relate to others. The lychee has long been cherished across cultures as a fruit of sweetness and good fortune, and this stone borrows that quality: a gentle, everyday sweetness you can wear.",
+      "Real-Life Signs You May Recognize",
+      "Perhaps you give sweetness to everyone and taste very little of it yourself, or you have learned to expect that softness will be taken for granted. Maybe you are tired of being the one who understands, and you simply want to feel met. If that sounds like you, nothing about you needs fixing; your heart is only asking for its own share of gentleness. Wearing this bracelet makes that a daily, wearable promise. Each pale bead is a small cue to speak to yourself the way you speak to someone you love, and to notice that receiving is not selfish; it is how love stays alive."
+    ],
+    "benefits": [
+      "A pale blush that flatters every skin tone and reads softly in daylight.",
+      "Lightweight beads sit close to the wrist without sliding or twisting.",
+      "Layers easily with fine gold chains for a warm, feminine stack.",
+      "The kind of piece you keep on through work, dinner, and sleep.",
+      "A small visual cue to soften your schedule and your inner critic."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist, the receiving side, where its soft pink can work its quiet reminder all day. It layers beautifully with a dainty gold chain bracelet or a simple watch."
+    ],
+    "specs": [
+      "Stones: pale rose quartz",
+      "Shape: smooth rounded beads",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the beads away from perfume, lotion, and hot water. Leave it on a windowsill during the full moon to let the moonlight soften and refresh it. As you fasten it, say: 'May I receive as freely as I give.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-a2-2506.webp",
+    "images": [
+      "/products/heart-a2-2506.webp",
+      "/products/heart-a2-2506-2.webp",
+      "/products/heart-a2-2506-3.webp",
+      "/products/heart-a2-2506-4.webp",
+      "/products/heart-a2-2506-5.webp",
+      "/products/heart-a2-2506-6.webp",
+      "/products/heart-a2-2506-7.webp",
+      "/products/heart-a2-2506-8.webp"
+    ]
+  },
+  {
+    "id": "heart-a2-2508-4mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Moss Agate Cord Bracelet 4mm",
+    "tagline": "Misty green moss agate beads, each one holding a tiny landscape of ferns and forest floors. A bracelet for the season of new beginnings, for hearts learning to grow toward spring again.",
+    "material": "Small 4 mm beads of moss agate carry soft sage and sea-green tones, shot through with darker inclusions that read like ferns, moss, and underwater grass. The natural patterns mean no two beads are the same, and each is polished to a quiet gloss that lets the inner landscape show. Threaded on a supple cord, the bracelet sits lightly at the wrist and moves easily through a day of typing, writing, or walking.",
+    "energy": [
+      "The heart chakra is the symbolic center where love meets courage, and moss agate has long been its companion for growth. In crystal tradition the stone is said to carry the patient energy of living things, the quiet persistence of moss finding its way across stone. Green itself is the color of renewal, and this bracelet speaks to a heart that is ready to put down new roots, to trust again, to bloom again, and to believe that soft things can also be strong.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have been carrying a winter, a loss, a disappointment, a season when trust froze mid-air, and you are not sure how to start again. Or you pour energy into everyone else's growth while your own feels stalled, waiting for permission to begin. You might simply feel tired of starting over. If so, this small green strand is a gentle place to begin again. Wearing this bracelet asks nothing of you but to be noticed. Let the soft greens and the tiny fern-like patterns remind you that growth is rarely loud; it happens in small, daily increments, and it is still happening in you."
+    ],
+    "benefits": [
+      "Tiny 4 mm beads keep the bracelet delicate, light, and easy to wear daily.",
+      "Cool, misty greens that suit neutral, navy, and white wardrobes.",
+      "Light enough to forget, present enough to catch in the mirror.",
+      "A soothing texture to touch during busy or restless moments.",
+      "Stacks beautifully with other green stones or a plain silver bangle."
+    ],
+    "howToWear": [
+      "Wear it on your left wrist as an everyday companion, or let it stack with a few favorite cords and chains. It is small enough for the office and organic enough for the weekend."
+    ],
+    "specs": [
+      "Bead size: 4 mm",
+      "Stones: moss agate",
+      "Cord: supple cord, adjustable fit"
+    ],
+    "careRitual": [
+      "Wipe the beads clean with a soft, damp cloth and keep the cord dry; remove it before showering or swimming. On the full moon, lay it flat in moonlight to refresh its calm. As you tie it on, say: 'I am growing, quietly and on my own time.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-a2-2508-4mm.webp",
+    "images": [
+      "/products/heart-a2-2508-4mm.webp",
+      "/products/heart-a2-2508-4mm-2.webp",
+      "/products/heart-a2-2508-4mm-3.webp",
+      "/products/heart-a2-2508-4mm-4.webp",
+      "/products/heart-a2-2508-4mm-5.webp",
+      "/products/heart-a2-2508-4mm-6.webp",
+      "/products/heart-a2-2508-4mm-7.webp"
+    ]
+  },
+  {
+    "id": "heart-a3-2501-8mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Green Phantom Quartz Bracelet 8mm Copper",
+    "tagline": "Green phantom quartz in deep forest tones, holding its own ghostly history in every bead. Accented in warm copper, this bracelet honors growth you can see, and the quiet kind still forming inside you.",
+    "material": "Eight-millimeter beads of green phantom quartz show layers of soft white and forest green suspended inside clear quartz, like tiny landscapes frozen in glass. Each bead reveals its own internal scene; no two phantoms align, and the surface is polished to a smooth, watery gloss. Warm copper-toned accents break the row of green at intervals, giving the bracelet a grounded, softly antique character.",
+    "energy": [
+      "The heart chakra is the symbolic well where love is grown, not just given, and green is its native color. Green phantom quartz is said to carry the memory of slow, patient growth: each phantom layer marks a pause, a restart, a season of becoming. In crystal tradition it is associated with steady expansion and the kind of abundance that accumulates quietly, layer by layer. It speaks to hearts that are building something real, a life, a trust, a self, without needing applause.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you measure yourself by what is finished and overlook what is still forming, or you push for fast results in love and work and feel restless when growth is slow. You may even carry an old belief that you must be fully whole before you are worthy of being chosen. Wearing this bracelet makes space for the unfinished. Each green bead holds a phantom, a version of itself still becoming, and asks you to treat your own becoming with the same patience. Let it be a small permission slip to grow quietly, to trust the layers, and to believe that what is forming in you now is already part of your wholeness."
+    ],
+    "benefits": [
+      "Layered green depth that looks different in morning light than candlelight.",
+      "Warm copper accents that keep the green from feeling cool or clinical.",
+      "8 mm beads with enough presence to read as a statement, not a whisper.",
+      "A natural conversation starter for anyone drawn to inner landscapes.",
+      "A quiet daily reminder that slow growth is still growth, and still counts."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist, close to the receiving side of your heart, or stack it with plain copper and bronze pieces. It holds its own at the office and softens beautifully against cream and moss-toned knits."
+    ],
+    "specs": [
+      "Bead size: 8 mm",
+      "Stones: green phantom quartz",
+      "Accents: copper tones",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe gently with a soft, dry cloth and keep it away from water, perfume, and harsh cleaners to protect the copper finish. Let it rest in full-moon light once a month to clear accumulated energy. As you wear it, say: 'I trust what is still growing in me.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-a3-2501-8mm.webp",
+    "images": [
+      "/products/heart-a3-2501-8mm.webp",
+      "/products/heart-a3-2501-8mm-2.webp",
+      "/products/heart-a3-2501-8mm-3.webp",
+      "/products/heart-a3-2501-8mm-4.webp",
+      "/products/heart-a3-2501-8mm-5.webp",
+      "/products/heart-a3-2501-8mm-6.webp",
+      "/products/heart-a3-2501-8mm-7.webp",
+      "/products/heart-a3-2501-8mm-8.webp"
+    ]
+  },
+  {
     "id": "heart-a1-2510",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A1-2510 披星戴月手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Starry Night Rose Quartz Bracelet",
+    "tagline": "Blush rose quartz beads glow like a wearable night sky, pink light for slow evenings and trusting conversations. A constellation for your wrist when your heart needs reminding it is safe to open.",
+    "material": "Rounded beads of rose quartz in muted blush and powder pink sit in an easy rhythm around the wrist, their soft translucency catching lamplight like far-off stars. Natural color variation means no two beads are exactly alike, and each one is polished to a gentle gloss that feels smooth and cool at first touch. The strand is finished on a sturdy elastic cord, keeping the bracelet light enough for all-day wear.",
+    "energy": [
+      "The heart chakra is the symbolic seat of love, trust, and the wish to be seen as we truly are. Rose quartz is its traditional companion, said to mirror back the tenderness we often reserve for others. The name Starry Night is a small poetry: in crystal tradition, stars have long stood for guidance, for hopes that survive the dark, and for the softness of being witnessed. Wear this stone as a gentle invitation to let your own light be one of them.",
+      "Real-Life Signs You May Recognize",
+      "Maybe trust does not come easily; you replay old conversations, brace for disappointment, and keep a small part of yourself in reserve. Or perhaps you are the one who listens to everyone else's night sky and forgets your own light. You may feel loving and loved, and still rarely seen. If this resonates, it is only a sign that your heart is asking for kinder company. Wearing this bracelet turns that wish into something tangible, soft pink beads to touch when self-doubt grows loud. Let each one say, gently, that you are allowed to be seen, to be soft, and to trust that the right people will stay for exactly who you are."
+    ],
+    "benefits": [
+      "Soft blush tones that flatter every skin tone and read as romantic, not loud.",
+      "Light, flat beads that sit comfortably under cuffs and sleeves.",
+      "A quiet focal point for evening outfits, pajamas, and everything between.",
+      "Pairs naturally with silver or gold, because soft pink flatters both.",
+      "Reach for it on days that ask a little more of your heart."
+    ],
+    "howToWear": [
+      "Wear it on your left wrist, where you catch sight of it during quiet moments, over a silk sleeve or against bare skin. It is an easy everyday layer that also earns its place at dinner."
+    ],
+    "specs": [
+      "Stones: rose quartz",
+      "Finish: polished to a soft gloss",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Clean gently with a soft, damp cloth and keep rose quartz away from perfume, lotion, and hot water. On the night of the full moon, place it on a windowsill to rest and recharge in the moonlight. As you fasten it, whisper: 'I am allowed to be seen and loved as I am.'"
+    ],
+    "price": 89,
     "image": "/products/heart-a1-2510.webp",
     "images": [
       "/products/heart-a1-2510.webp",
@@ -3322,118 +3472,37 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-a2-2506",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A2-2506 粉荔枝手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-a2-2506.webp",
-    "images": [
-      "/products/heart-a2-2506.webp",
-      "/products/heart-a2-2506-2.webp",
-      "/products/heart-a2-2506-3.webp",
-      "/products/heart-a2-2506-4.webp",
-      "/products/heart-a2-2506-5.webp",
-      "/products/heart-a2-2506-6.webp",
-      "/products/heart-a2-2506-7.webp",
-      "/products/heart-a2-2506-8.webp"
-    ]
-  },
-  {
-    "id": "heart-a3-2501-8mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A3-2501 绿幽灵珠子约8mm-铜款",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-a3-2501-8mm.webp",
-    "images": [
-      "/products/heart-a3-2501-8mm.webp",
-      "/products/heart-a3-2501-8mm-2.webp",
-      "/products/heart-a3-2501-8mm-3.webp",
-      "/products/heart-a3-2501-8mm-4.webp",
-      "/products/heart-a3-2501-8mm-5.webp",
-      "/products/heart-a3-2501-8mm-6.webp",
-      "/products/heart-a3-2501-8mm-7.webp",
-      "/products/heart-a3-2501-8mm-8.webp"
-    ]
-  },
-  {
-    "id": "heart-a2-2508-4mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A2-2508 水草玛瑙手绳4mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-a2-2508-4mm.webp",
-    "images": [
-      "/products/heart-a2-2508-4mm.webp",
-      "/products/heart-a2-2508-4mm-2.webp",
-      "/products/heart-a2-2508-4mm-3.webp",
-      "/products/heart-a2-2508-4mm-4.webp",
-      "/products/heart-a2-2508-4mm-5.webp",
-      "/products/heart-a2-2508-4mm-6.webp",
-      "/products/heart-a2-2508-4mm-7.webp"
-    ]
-  },
-  {
-    "id": "heart-a4-2503",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A4-2503 【鎏金岁月】粉水晶",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-a4-2503.webp",
-    "images": [
-      "/products/heart-a4-2503.webp",
-      "/products/heart-a4-2503-2.webp",
-      "/products/heart-a4-2503-3.webp",
-      "/products/heart-a4-2503-4.webp"
-    ]
-  },
-  {
     "id": "heart-a4-2504",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A4-2504 五行喜木-（升级款）",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Wood Element Upgrade Mix Bracelet",
+    "tagline": "A curated mix of green-toned stones for the wood element, the Five Elements quality of growth, kindness, and spring. This upgraded edition layers richer texture and quiet momentum for hearts ready to expand.",
+    "material": "A single strand gathers an upgraded range of natural stone beads in the wood element palette, layered greens, mossy depths, and warm earthy neutrals in rounded, easy shapes. Different stones take light differently: some gleam softly, others carry a matte, organic finish, and the mix is what gives the bracelet its texture. Natural color variation between beads is expected and part of the design. The strand is finished on a sturdy elastic cord for effortless all-day wear.",
+    "energy": [
+      "In Five Elements tradition, wood is the element of growth, the season of spring, the small green shoot that eventually moves stone. The heart chakra shares that story: it is the symbolic center where love is cultivated, and like a young tree it needs kind conditions to expand. This mix is tuned to the wood element, said in traditional thought to support renewal, kindness, and forward motion. Wearing it is a quiet way of telling yourself that you are in a season of becoming, not of standing still.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you feel like you have been the same version of yourself for too long, or your kindness runs outward so steadily that there is nothing left for your own new growth. Perhaps you avoid change because it has hurt before, and staying small feels safer than sprouting. If that is familiar, you are not stuck; you are dormant, which is different. Wearing this bracelet is a small vote for your next season. Let the greens remind you that you are allowed to grow without apologizing for the space you take, and let each bead mark a quiet yes to the new things you have been circling. Spring always comes to those who keep tending themselves."
+    ],
+    "benefits": [
+      "A changeable strand that shows new texture and color at every angle.",
+      "Built for daily wear; the mix asks for no fuss and hides nothing.",
+      "Greens and earthy neutrals that keep company with denim and linen alike.",
+      "A gentle external cue for a season of new growth and fresh starts.",
+      "The upgraded edition means more layers, more interest, more staying power."
+    ],
+    "howToWear": [
+      "Wear it on your left wrist where you will see it during the day, alone or stacked with a simple gold bangle. It suits the commute, the studio, and everything in between."
+    ],
+    "specs": [
+      "Stones: upgraded Five Elements mix tuned to wood",
+      "Palette: layered greens with earthy neutrals",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the stones away from perfume, lotion, and hot water. Once a month, let the strand rest in full-moon light to clear the mix. As you wear it, say: 'I give myself permission to grow into my next season.'"
+    ],
+    "price": 89,
     "image": "/products/heart-a4-2504.webp",
     "images": [
       "/products/heart-a4-2504.webp",
@@ -3447,19 +3516,77 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "heart-a4-2503",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Gilded Times Rose Quartz Bracelet",
+    "tagline": "Rose quartz in warm, timeless pink, threaded with gilded accents that catch the light like old memories. A bracelet for love that ages well, for tenderness that only deepens with the years.",
+    "material": "Rounded beads of rose quartz in soft, romantic pinks are interspersed with warm gilded tones, giving the strand the feeling of an heirloom caught mid-glow. The stone is polished to a smooth, gentle luster that flatters candlelight, with natural variation in shade from powder to deeper blush. Finished on a sturdy elastic cord, it sits comfortably on the wrist with just enough shine to feel special and enough restraint to wear every day.",
+    "energy": [
+      "The heart chakra is the symbolic keeper of love's history, the part of us that remembers every kindness and every scar. Rose quartz is traditionally associated with this center, said to hold the memory of affection and to teach the heart to be gentle with its own past. The gilded tones add a second language: the warmth of gold has long stood for what we choose to treasure, what we decide is worth keeping. Together, they honor love that has lasted and love still being written.",
+      "Real-Life Signs You May Recognize",
+      "Perhaps you have loved long enough to collect some scars, and a part of you has learned to expect people to leave. Maybe you replay the endings more than the beginnings, or you stay in a role, the steady one, the giver, because it feels safer than asking for more. If any of this sits close, your heart is not hardened; it is simply seasoned. Wearing this bracelet invites you to treat your history with the tenderness it deserves. Let the rose quartz soften the story you tell yourself about the past, and let the gilded beads mark the parts worth keeping: the love you gave, the lessons you kept, and the version of you that is still learning to receive."
+    ],
+    "benefits": [
+      "Gilded accents catch candlelight and give the strand an heirloom glow.",
+      "Soft romantic pinks that pair with everything from grey cashmere to black.",
+      "A refined daytime shine that is noticeable but never loud.",
+      "A comfortable size that reads clearly without weighing down the wrist.",
+      "An everyday reminder that what has lasted is worth keeping close."
+    ],
+    "howToWear": [
+      "Wear it on your left wrist with gold-tone watches and rings for a polished, heirloom feel. It moves easily from a workday blazer to a silk dress at dinner."
+    ],
+    "specs": [
+      "Stones: rose quartz",
+      "Accents: gilded gold tones",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and avoid perfume, lotion, and prolonged sun to protect both stone and gilding. Each full moon, set it in moonlight to recharge its gentle warmth. As you put it on, say: 'What I have loved and lived is part of my beauty.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-a4-2503.webp",
+    "images": [
+      "/products/heart-a4-2503.webp",
+      "/products/heart-a4-2503-2.webp",
+      "/products/heart-a4-2503-3.webp",
+      "/products/heart-a4-2503-4.webp"
+    ]
+  },
+  {
     "id": "heart-a4-2506-10mm",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A4-2506 九尾狐马粉晶10mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Nine Tail Fox Rose Quartz Bracelet 10mm",
+    "tagline": "Ten-millimeter rose quartz in a deep, confident pink, named for the nine-tailed fox of folklore, a creature of devotion and allure. A bracelet for loving with your whole heart without losing yourself in it.",
+    "material": "Large, confident ten-millimeter beads of rose quartz in a rich, saturated pink, deeper and more present than the paler grades, with a gentle translucency that glows rather than glitters. Each bead is rounded and polished to a smooth, silky finish that sits warmly against the skin. The bold size and deep tone give the bracelet real presence on the wrist, and it is finished on a sturdy elastic cord that keeps the stones secure through everyday wear.",
+    "energy": [
+      "The heart chakra is the symbolic seat of devotion, love that is freely chosen and freely given. Rose quartz, its traditional stone, is said to teach the heart to love itself first, without apology. The nine-tailed fox adds a second story: in East Asian folklore she is a figure of fierce loyalty and quiet magnetism, devoted yet never diminished. This bracelet brings the two together, softness with spine, tenderness with self-possession, for anyone who wants to love deeply and still belong to yourself.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you love in a way that is total, all in, all the time, and you have learned, more than once, that it leaves you hollow. Or you keep your softer side guarded because showing it has cost you before, and you would rather be admired from a distance than risk being known. Perhaps you long for devotion but secretly doubt you are the kind of person it finds. Wearing this bracelet reminds you that loving deeply and keeping yourself are not opposites. Let the deep pink hold your worth the way you hold other people's, and let the fox's quiet confidence remind you: you can be devoted and still choose yourself, every single day."
+    ],
+    "benefits": [
+      "Bold 10 mm beads with real presence on a bare wrist.",
+      "Deep saturated pink that flatters pale and deeper skin tones alike.",
+      "Wear it as a standalone statement or to anchor a layered stack.",
+      "A daily nudge toward devotion that never asks you to disappear.",
+      "The fox folklore gives it a story worth telling over dinner."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist as a statement piece; it carries enough presence to be worn alone. Let it catch the light on a bare arm, or pair it with a fine chain for contrast."
+    ],
+    "specs": [
+      "Bead size: 10 mm",
+      "Stones: rose quartz, deep pink grade",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep rose quartz away from perfume, lotion, and hot water. On full-moon nights, place it in moonlight to refresh its glow. As you fasten it, say: 'I can love deeply and still choose myself.'"
+    ],
+    "price": 89,
     "image": "/products/heart-a4-2506-10mm.webp",
     "images": [
       "/products/heart-a4-2506-10mm.webp",
@@ -3472,30 +3599,47 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-a8-2504",
+    "id": "heart-a7-2510",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A8-2504 草莓晶星星手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-a8-2504.webp",
+    "name": "Strawberry Quartz Bracelet Classic",
+    "tagline": "Strawberry quartz in its classic form, rose-pink crystal dotted with red inclusions like tiny seeds of courage. A timeless strand for those who believe self-love is the bravest love of all.",
+    "material": "Rose-pink quartz carries tiny red inclusions throughout, giving each bead the look of crushed strawberries suspended in clear crystal. The stones are rounded and polished to a smooth, honest gloss that lets those inner flecks catch the light from every angle. Natural variation in the density of inclusions means every strand has its own character. Finished on a sturdy elastic cord, the bracelet sits evenly on the wrist and is built for steady, daily wear.",
+    "energy": [
+      "The heart chakra is the symbolic center of courage in love, the willingness to open, to risk, to be soft in a world that rewards armor. Strawberry quartz is said to carry that spark: the red inclusions are traditionally read as seeds of passion and self-worth, reminders that you are inherently valuable, not because of what you do but because of who you are. It is a stone for steady hearts that want to love boldly and rest in their own goodness.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you are brilliant at championing everyone else, partners, friends, colleagues, and strangely quiet when it comes to championing yourself. Or you wait for someone else's approval before you believe you are enough, and the waiting has started to feel endless. Perhaps you simply feel tired of proving your worth. Wearing this bracelet is a small, visible vote for yourself. Let the strawberry flecks remind you of the seeds already planted in you, your courage, your softness, your earned wisdom, and let each bead be a quiet affirmation that you do not need to earn love that is already yours."
+    ],
+    "benefits": [
+      "The red inclusions catch light and give each bead its own tiny sparkle.",
+      "Rose-pink base that pairs easily with warm and cool wardrobes alike.",
+      "Rounded beads that sit flat and comfortable through long working days.",
+      "A gentle, wearable reminder that your worth is not up for debate.",
+      "Classic enough for daily wear, distinctive enough to be noticed."
+    ],
+    "howToWear": [
+      "Wear it daily on the left wrist as your quiet companion, over a shirt cuff or alone. It is the kind of piece that becomes part of your handwriting."
+    ],
+    "specs": [
+      "Stones: strawberry quartz",
+      "Finish: rounded beads, polished gloss",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the quartz away from perfume, lotion, and harsh sunlight for long periods. Once a month, leave it in full-moon light to refresh its warmth. As you wear it, say: 'I am already enough, and I act like it.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-a7-2510.webp",
     "images": [
-      "/products/heart-a8-2504.webp",
-      "/products/heart-a8-2504-2.webp",
-      "/products/heart-a8-2504-3.webp",
-      "/products/heart-a8-2504-4.webp",
-      "/products/heart-a8-2504-5.webp",
-      "/products/heart-a8-2504-6.webp",
-      "/products/heart-a8-2504-7.webp",
-      "/products/heart-a8-2504-8.webp",
-      "/products/heart-a8-2504-9.webp"
+      "/products/heart-a7-2510.webp",
+      "/products/heart-a7-2510-2.webp",
+      "/products/heart-a7-2510-3.webp",
+      "/products/heart-a7-2510-4.webp",
+      "/products/heart-a7-2510-5.webp",
+      "/products/heart-a7-2510-6.webp",
+      "/products/heart-a7-2510-7.webp",
+      "/products/heart-a7-2510-8.webp"
     ]
   },
   {
@@ -3503,15 +3647,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A8-2505 草莓晶转运手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Strawberry Quartz Fortune Turn Bracelet",
+    "tagline": "Strawberry quartz for those who believe fortune can be turned, gently, toward home. Said to help a drifting season right itself, one soft pink bead at a time.",
+    "material": "Warm strawberry quartz beads in rose-pink carry their signature red inclusions, giving each stone the look of summer fruit set in clear crystal. The beads are rounded and smoothly polished, sitting in an even, comfortable rhythm around the wrist. Each bead sits loose enough to turn against its neighbors, a small, tactile nod to the bracelet's name, and a quiet occupation for restless fingers.",
+    "energy": [
+      "The heart chakra is the symbolic center of life's turning points, the quiet pivot points where love, luck, and self-worth change direction. Strawberry quartz is said to carry courage and self-belief, the very qualities that make a change of fortune possible. And the idea of turning is an old one: in many traditions, a small turn or spin is thought to catch drifting luck and re-aim it. This bracelet gathers both meanings, the inner turn toward self-worth and the outer turn toward a kinder season.",
+      "Real-Life Signs You May Recognize",
+      "Maybe it has felt like a long stretch of no, doors closing, plans stalling, love arriving late, and you have started to brace for the next one. Or you carry a quiet guilt about wanting things to go your way, as if hoping for good fortune made you greedy. Perhaps you simply need a reason to believe the tide can turn. Wearing this bracelet gives that belief a physical form. Each bead turning against the next is a small motion of change, a reminder that seasons shift and so can yours. Let the strawberry quartz steady your self-worth while the turning beads mark each day as a fresh chance to point yourself toward the good you are ready for."
+    ],
+    "benefits": [
+      "Loose, turning beads give restless hands a quiet, tactile comfort.",
+      "Warm strawberry tones that read as lucky and lovely at once.",
+      "An easy everyday size that layers or stands alone with equal grace.",
+      "A tangible reminder that your season can turn in your favor.",
+      "Designed to be touched, a bead to turn when you need a small reset."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist where you can turn a bead without thinking, during calls, commutes, and the pauses between decisions. It keeps its easy charm from desk to dinner."
+    ],
+    "specs": [
+      "Stones: strawberry quartz",
+      "Design: freely turning beads",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the quartz clear of perfume, lotion, and hot water. On the full moon, set the bracelet in moonlight and give each bead a gentle turn to set a fresh intention. Say: 'I turn my face toward my own good fortune.'"
+    ],
+    "price": 89,
     "image": "/products/heart-a8-2505.webp",
     "images": [
       "/products/heart-a8-2505.webp",
@@ -3526,45 +3688,37 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-a7-2510",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "A7-2510 草莓晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-a7-2510.webp",
-    "images": [
-      "/products/heart-a7-2510.webp",
-      "/products/heart-a7-2510-2.webp",
-      "/products/heart-a7-2510-3.webp",
-      "/products/heart-a7-2510-4.webp",
-      "/products/heart-a7-2510-5.webp",
-      "/products/heart-a7-2510-6.webp",
-      "/products/heart-a7-2510-7.webp",
-      "/products/heart-a7-2510-8.webp"
-    ]
-  },
-  {
     "id": "heart-a8-2510-10mm",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A8-2510 10mm草莓晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Strawberry Quartz Bracelet 10mm",
+    "tagline": "Ten-millimeter strawberry quartz, larger beads, deeper presence, the same rose-pink warmth dotted with red. A bracelet that asks to be noticed, for a self-love that no longer apologizes for taking up space.",
+    "material": "Generous ten-millimeter beads of strawberry quartz give the classic stone a bolder voice: the rose-pink body is there, warm and translucent, with red inclusions scattered through each bead like crushed fruit. The larger size lets you see deeper into every stone, where the color gathers in soft, uneven clouds. Polished to a smooth gloss and finished on a sturdy elastic cord, the bracelet sits with quiet authority on the wrist, substantial but never heavy.",
+    "energy": [
+      "The heart chakra is the symbolic center of self-worth, the part of us that decides whether we are allowed to be seen, fully and without shrinking. Strawberry quartz speaks directly to that decision, said to warm courage and remind the heart of its own value. This ten-millimeter edition makes the message harder to miss: bigger stones, more presence, the same quiet truth. It is for anyone ready to stop making herself smaller so that other people can feel comfortable.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have spent years being the easy person, agreeable, small, quick to reassure everyone that you are fine. Or you downplay your wins and your wants, because taking up space has felt like an imposition. Perhaps you have simply forgotten what it feels like to be fully present without monitoring yourself. Wearing this bracelet is a daily declaration that you are allowed to take up room. Let the weight of the larger beads remind you that presence is not arrogance; it is simply honesty. Each time you notice the strawberry quartz at your wrist, let it be a small practice in standing fully in your own life, visible, unshrinking, and entirely yourself."
+    ],
+    "benefits": [
+      "10 mm beads with real weight, a grounding and centering presence.",
+      "A deep rose-pink body that flatters candlelight and daylight equally.",
+      "Noticeable enough to draw a compliment, honest enough to wear daily.",
+      "A constant, tactile reminder that you may take up space.",
+      "Statement presence without the weight of a heavy cuff or bangle."
+    ],
+    "howToWear": [
+      "Wear it alone on the left wrist so the size can speak for itself, or pair it with a single fine bangle for contrast. It carries a day at the office and an evening out with equal ease."
+    ],
+    "specs": [
+      "Bead size: 10 mm",
+      "Stones: strawberry quartz",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the stone away from perfume, lotion, and hot water. Set it in full-moon light once a month to restore its warmth and clarity. As you fasten it, say: 'I take up space, and that is my birthright.'"
+    ],
+    "price": 89,
     "image": "/products/heart-a8-2510-10mm.webp",
     "images": [
       "/products/heart-a8-2510-10mm.webp",
@@ -3580,23 +3734,48 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-b10-2506",
+    "id": "heart-a8-2504",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B10-2506 【多喜乐】葡萄石-双圈平安扣手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-b10-2506.webp",
+    "name": "Strawberry Quartz Star Bracelet",
+    "tagline": "Strawberry quartz with a star woven into the design, a wish you can wear close to your pulse. For dreamers who also show up, and hearts that want permission to shine softly.",
+    "material": "The bracelet pairs classic strawberry quartz, rose-pink crystal with red inclusions, with star accents that echo the sky's oldest symbol of guidance. The pink beads are rounded and polished to a soft gloss, each one catching light through its inner flecks, while the star shapes add a crisp, celestial counterpoint. Natural variation in color and inclusion density keeps the strand organic, and it is finished on a sturdy elastic cord for easy wear.",
+    "energy": [
+      "The heart chakra is the symbolic place where we decide what to wish for and what to work for. Strawberry quartz brings its familiar message, self-worth, steady courage, love that starts within, while the star carries an older meaning: guidance, hope, and the promise that you are never entirely lost. In crystal tradition, wearing a wish near the heart or pulse is said to keep it tended. This bracelet does exactly that, a small constellation of intention for hearts that dream and act in equal measure.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have stopped letting yourself wish, because too many wishes have gone unanswered and it felt safer to expect less. Or you pour yourself into other people's dreams while your own star sits quietly in the corner. Perhaps you are ambitious and tender at once, and you have been told those two things cannot live in the same heart. Wearing this bracelet gives your wishes a small, tangible home. Let the strawberry quartz hold your self-worth steady while the star keeps your direction clear, and let each day you wear it count as one more quiet yes to the dreams you almost stopped naming."
+    ],
+    "benefits": [
+      "Star accents give the strand a celestial lift that still suits weekdays.",
+      "Strawberry quartz flecks add warmth and depth to the rose-pink base.",
+      "Sized to move easily from morning meetings to midnight wishes.",
+      "A soft reminder that dreaming and showing up belong together.",
+      "Pairs well with dainty necklaces, fine chains, and simple gold studs."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist, close to your pulse, where a wish traditionally rests best. It is easy enough for the office and charming enough for a night under real stars."
+    ],
+    "specs": [
+      "Stones: strawberry quartz",
+      "Accents: star details",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe gently with a soft, damp cloth and keep it away from perfume and hot water. Set it in full-moon light once a month to refresh both stone and wish. As you put it on, say: 'I keep my dreams close and my courage closer.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-a8-2504.webp",
     "images": [
-      "/products/heart-b10-2506.webp",
-      "/products/heart-b10-2506-2.webp"
+      "/products/heart-a8-2504.webp",
+      "/products/heart-a8-2504-2.webp",
+      "/products/heart-a8-2504-3.webp",
+      "/products/heart-a8-2504-4.webp",
+      "/products/heart-a8-2504-5.webp",
+      "/products/heart-a8-2504-6.webp",
+      "/products/heart-a8-2504-7.webp",
+      "/products/heart-a8-2504-8.webp",
+      "/products/heart-a8-2504-9.webp"
     ]
   },
   {
@@ -3604,15 +3783,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "A9-2506 【甜夏之恋】6mm草莓晶玉髓手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Sweet Summer Love Strawberry Quartz Chalcedony 6mm",
+    "tagline": "Six-millimeter beads of strawberry quartz and chalcedony, blush pink and milky white, sweet as the first week of summer. A luminous strand for a heart that wants to love joyfully, without armor or agenda.",
+    "material": "Delicate six-millimeter beads alternate the rosy warmth of strawberry quartz with the milky translucence of chalcedony, pink and white working together like sugar and cream. The smaller size keeps the bracelet light and feminine, catching summer light in soft, diffused flashes. Both stones are polished to a smooth, gentle gloss with natural color variation in tone throughout. Finished on a sturdy elastic cord, the strand wraps the wrist in an easy, dainty fit.",
+    "energy": [
+      "The heart chakra is the symbolic seat of love in its lightest register, the kind that is playful, uncomplicated, and freely given. Strawberry quartz brings its signature warmth and self-worth, while chalcedony is traditionally associated with clear communication and gentle harmony, said to soften words and calm frayed feelings. Together, the two stones speak a language of easy affection: love that does not need to be dramatic to be real, and connection that feels like the first warm day of the year.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have come to expect love to be complicated, to require long explanations, careful choreography, and a certain amount of suffering to count as real. Or you hold your affection in reserve because lightness has felt naive, and seriousness has felt safer. Perhaps you miss the version of yourself who loved without an exit plan. Wearing this bracelet gives you back that lightness, in a form you can touch. Let the blush and white beads remind you that love can be simple and still be profound, and that joy is not a reward you earn after the hard parts; it is allowed right now, in the middle of an ordinary Tuesday, whenever you decide to let it in."
+    ],
+    "benefits": [
+      "Blush and milky-white pairing that reads as soft, fresh, and feminine.",
+      "Delicate 6 mm beads that stack beautifully with other fine pieces.",
+      "A light-catching finish that glows in summer sun and candlelight.",
+      "Barely-there weight that is easy to forget and lovely to notice.",
+      "A wearable vote for love that stays uncomplicated and joyful."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist as a delicate daily layer, alone or stacked with a fine gold chain bracelet. It is made for summer dresses, linen shirts, and easy afternoons."
+    ],
+    "specs": [
+      "Bead size: 6 mm",
+      "Stones: strawberry quartz and chalcedony",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep both stones away from perfume, lotion, and hot water. Let the bracelet rest in full-moon light once a month to keep it clear and bright. As you wear it, say: 'Joy is allowed to be simple.'"
+    ],
+    "price": 89,
     "image": "/products/heart-a9-2506-6mm.webp",
     "images": [
       "/products/heart-a9-2506-6mm.webp",
@@ -3620,29 +3817,42 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-b2-2507-10mm",
+    "id": "heart-b10-2506",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B2-2507 【薄荷夏日】多宝水晶手串-10mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-b2-2507-10mm.webp",
+    "name": "Prehnite Double Strand Peace Pendant Bracelet",
+    "tagline": "Two strands of apple-green prehnite meet at a peace-bi pendant, an ancient disc said to carry protection and smooth passage. For the wish that love moves gently, and you arrive at every season unharmed.",
+    "material": "Two slender strands of prehnite beads in pale apple green come together at a smooth peace-bi pendant, a disc with a round opening at its center, inspired by the ancient jade bi. The stone is softly translucent, showing inner textures that shift as the light moves, and each bead is polished to a gentle gloss. The double-strand structure gives the bracelet a fuller, more present look than a single row, and it is finished on a sturdy elastic cord.",
+    "energy": [
+      "The heart chakra is the symbolic center of love that protects rather than imprisons, care with boundaries, affection with safety. Prehnite is traditionally associated with unconditional love and quiet foresight, said to help the heart see clearly and forgive without forgetting. The peace-bi pendant adds an older protection story: in Chinese tradition, the round bi disc has long been worn to guard the wearer and keep passage smooth. Together they form a quiet wish: that you love openly and stay safe in the loving.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you love with your whole chest and then lie awake replaying every risk you just took, or you have learned to keep a piece of yourself back because open affection has been used against you before. Perhaps you are the protector in your family and circle, and no one thinks to protect you in return. If this lands close, it is not a flaw; it is a heart that has been brave without a net. Wearing this bracelet is that net, in small form. Let the double strands feel like double steadiness, and let the peace bi at your wrist carry the oldest wish there is: that you may love fully, move freely, and be kept safe while you do."
+    ],
+    "benefits": [
+      "Double strands give the wrist a fuller, more layered presence.",
+      "Apple-green tones that stay cool and fresh against every skin tone.",
+      "The peace-bi pendant adds a meaningful and old-world focal point.",
+      "Prehnite's soft translucency glows subtly in daylight, dusk, and lamplight.",
+      "A wearable wish for loving openly and staying safe in the loving."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist where the peace-bi pendant can rest against the inner wrist, or slide it higher where you catch sight of it often. It lends a considered, talisman-like note to linen and silk alike."
+    ],
+    "specs": [
+      "Design: double strand",
+      "Stones: prehnite",
+      "Pendant: peace-bi disc",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep prehnite away from perfume, lotion, and hot water. On full-moon nights, lay the bracelet flat in moonlight to refresh the stone and the wish it carries. As you fasten it, say: 'I love openly, and I am kept safe.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-b10-2506.webp",
     "images": [
-      "/products/heart-b2-2507-10mm.webp",
-      "/products/heart-b2-2507-10mm-2.webp",
-      "/products/heart-b2-2507-10mm-3.webp",
-      "/products/heart-b2-2507-10mm-4.webp",
-      "/products/heart-b2-2507-10mm-5.webp",
-      "/products/heart-b2-2507-10mm-6.webp",
-      "/products/heart-b2-2507-10mm-7.webp",
-      "/products/heart-b2-2507-10mm-8.webp"
+      "/products/heart-b10-2506.webp",
+      "/products/heart-b10-2506-2.webp"
     ]
   },
   {
@@ -3650,15 +3860,34 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B3-2502 粉晶方糖九紫离火手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Rose Quartz Sugar Cube Nine Purple Fire Bracelet",
+    "tagline": "Cube-cut rose quartz, like sugar cubes dipped in blush, set for the nine-purple fire era, the season in Chinese tradition said to favor warmth, joy, and being truly seen. Sweetness with heat, worn daily.",
+    "material": "Rose quartz cut into small cube shapes like sugar cubes, pale pink and softly polished, gives this bracelet a crisp, architectural texture that catches light in flat, even flashes. The cubes are polished to a smooth finish with softened edges, so the shape reads clearly without feeling sharp. Natural color variation runs from pale powder to warmer rosy tones, and the cubes are finished on a sturdy elastic cord in an even, rhythmic sequence around the wrist.",
+    "energy": [
+      "The heart chakra is the symbolic hearth of love, warmth that is meant to be felt, not just known. Rose quartz, its traditional stone, is said to teach self-acceptance and tender, honest affection. The name Nine Purple Fire reaches further: in Chinese metaphysical tradition, the nine-purple star governs a long era now unfolding, a period said to favor joy, celebration, romance, and the courage to be seen. This bracelet braids the two, pink for softness, fire for radiance, for a love both gentle and unafraid of its own glow.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have learned to dim your warmth, to be liked, to be safe, to avoid being called too much, and radiance now feels like a risk rather than a birthright. Or you give heat to everyone else's fire and arrive home cold, wondering who keeps the hearth for you. Perhaps you are simply ready to be seen, and terrified of it at the same time. Wearing this bracelet lets you practice glow in small, daily doses. Let the cube-cut rose quartz hold your softness while the fire in the name reminds you that warmth is not something to apologize for. You were not made to be a quiet ember; you were made to be a warm, visible, unashamed flame."
+    ],
+    "benefits": [
+      "Cube-cut texture that looks crisp by day and glows by candlelight.",
+      "Powder-to-rosy pink range that flatters gold, silver, and bare skin.",
+      "The architectural sugar-cube shape is a fresh take on a classic stone.",
+      "A daily reminder that your warmth is yours to keep and to give.",
+      "Quiet enough for the workday, radiant enough for evenings out."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist where the cubes catch the light through a workday, then let it catch candlelight at dinner. It holds its own beside a watch or a stack of fine bangles."
+    ],
+    "specs": [
+      "Cut: cube, sugar-cube shape",
+      "Stones: rose quartz",
+      "Theme: Nine Purple Fire era",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the rose quartz away from perfume, lotion, and hot water. On the full moon, set it in moonlight to refresh both the stone and the fire it carries. As you fasten it, say: 'My warmth is not too much; it is exactly right.'"
+    ],
+    "price": 89,
     "image": "/products/heart-b3-2502.webp",
     "images": [
       "/products/heart-b3-2502.webp",
@@ -3675,15 +3904,34 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B3-2509 10mm-补木五行貔貅多宝",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Wood Element Pi Xiu Mix Bracelet 10mm",
+    "tagline": "A ten-millimeter wood-element mix in layered greens, anchored by a Pi Xiu accent, the mythic guardian said to draw fortune close and keep it safe. For those growing something they intend to keep.",
+    "material": "This ten-millimeter mix gathers natural stone beads in the wood element palette, layered greens, mossy depths, and warm earthy tones, with a Pi Xiu accent bead set among them. The mix keeps the eye moving: glassy stones beside matte ones, lighter greens beside deeper ones, all in rounded shapes that sit comfortably together. Natural color variation is expected across the strand, and the bracelet is finished on a sturdy elastic cord for steady, everyday wear.",
+    "energy": [
+      "The heart chakra is the symbolic center of growth that is tended and kept, love built over time like a tree needing both sun and shelter. In Five Elements tradition, wood is the element of spring and expansion, and the greens of this mix are said in crystal lore to carry renewal and steady emotional balance. The Pi Xiu adds an older note: in Chinese tradition, this mythic guardian is said to draw good fortune near and hold it fast, a companion for hearts growing something real.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have watched good things slip away, opportunities, friendships, quiet progress, because you gave them away or failed to guard them. Or you pour your growth into shared spaces where no one waters it back, and you are tired of starting over from dry soil. Perhaps you are learning that receiving protection is not weakness. Wearing this bracelet pairs the wood element's steady growth with the Pi Xiu's old promise of keeping. Let it remind you that what you are building deserves a guardian, and that you can be both the tender gardener and the fierce keeper of your own life. Growth you protect is growth that stays."
+    ],
+    "benefits": [
+      "A Pi Xiu accent adds a protective focal point with an old, auspicious story.",
+      "Wood-element greens that ground the wrist without ever feeling heavy.",
+      "10 mm beads with a substantial, satisfying weight on the wrist.",
+      "A daily reminder that what you grow, you may also guard.",
+      "The mix keeps it interesting; the Pi Xiu keeps it meaningful."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist as a daily guardian, substantial enough to feel present, subtle enough for the office. Let the Pi Xiu sit where you can see it when you need reminding that you are protected."
+    ],
+    "specs": [
+      "Bead size: 10 mm",
+      "Stones: wood-element natural mix",
+      "Accent: Pi Xiu",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the stones away from perfume, lotion, and hot water. Once a month, set the bracelet in full-moon light to clear the mix and renew the Pi Xiu's old charge. As you wear it, say: 'I grow what I love, and I keep it safe.'"
+    ],
+    "price": 89,
     "image": "/products/heart-b3-2509-10mm.webp",
     "images": [
       "/products/heart-b3-2509-10mm.webp",
@@ -3696,19 +3944,82 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "heart-b2-2507-10mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Mint Summer Mix Bracelet 10mm",
+    "tagline": "A ten-millimeter mix of cool mint and soft green stones, a handful of summer mornings, iced and luminous, strung for your wrist. For days when a bracelet should feel like a deep breath.",
+    "material": "This summer mix gathers ten-millimeter beads in a mineral palette, pale mint, seafoam, milky white, and the occasional deeper green for contrast. The different stones bring different textures: some catch the light with a glassy gleam, while others keep a soft, matte calm. Because it is a natural mix, no two strands are identical, and the varied tones keep it interesting from every angle. It is finished on a sturdy elastic cord and sits comfortably through warm, bare-armed days.",
+    "energy": [
+      "The heart chakra is the symbolic center of refreshment, the capacity to begin again without bitterness, to let new people and new seasons in. Cool green and white stones speak to that quality: in crystal tradition, pale greens are associated with renewal and emotional balance, said to wash away the mental heat of a long week. This mint-toned mix is tuned to summer in the truest sense, light, restorative, and unhurried. Wearing it is like keeping a cool drink of water close to your skin.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have been running hot, deadlines, caregiving, everyone's feelings but your own, and your heart feels like it has not had a weekend in months. Or you hold onto arguments and old heat long after they are over, replaying them when you should be resting. Perhaps you crave more ease and do not know where to begin. Wearing this bracelet is a small climate change for your wrist. Let the cool mint tones lower the temperature of your thoughts, and let each bead be a tiny pause in a hurried day. You are not asking for an escape, just for the version of you that remembers how to exhale, and this bracelet is a gentle, daily reminder that refreshment is not a luxury."
+    ],
+    "benefits": [
+      "Cool mint and seafoam tones that visually cool down any warm-weather outfit.",
+      "A natural mix; every angle shows a different stone and story.",
+      "Substantial 10 mm beads with an airy, light summer feel.",
+      "Pale greens and whites that keep company with white, denim, and gold.",
+      "A daily reminder to exhale, even on the busiest of days."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist through warm months, alone on bare skin or stacked with a simple silver cuff. It reads as effortless with linen, white shirts, and swimwear alike."
+    ],
+    "specs": [
+      "Bead size: 10 mm",
+      "Stones: natural summer mix in mint, seafoam, and white",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the mix away from perfume, lotion, and hot water. Once a month, set the strand in full-moon light to clear and refresh the stones. As you wear it, say: 'I give myself permission to exhale.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-b2-2507-10mm.webp",
+    "images": [
+      "/products/heart-b2-2507-10mm.webp",
+      "/products/heart-b2-2507-10mm-2.webp",
+      "/products/heart-b2-2507-10mm-3.webp",
+      "/products/heart-b2-2507-10mm-4.webp",
+      "/products/heart-b2-2507-10mm-5.webp",
+      "/products/heart-b2-2507-10mm-6.webp",
+      "/products/heart-b2-2507-10mm-7.webp",
+      "/products/heart-b2-2507-10mm-8.webp"
+    ]
+  },
+  {
     "id": "heart-b4-2507-8mm",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B4-2507 8mm补木五行手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Wood Element Five Elements Bracelet 8mm",
+    "tagline": "Eight-millimeter beads in the five traditional colors, green, red, gold, earth, and water-dark, arranged with the wood element given the lead. A Five Elements bracelet for balance you can feel, growth you can wear.",
+    "material": "This eight-millimeter Five Elements bracelet follows the traditional color language of wood, fire, earth, metal, and water: greens, reds, warm earth tones, pale golds, and deep water-dark beads, led by greens in a wood-element emphasis. The stones are rounded and polished to an even, comfortable gloss, and the five color families are spaced so the bracelet reads as one continuous, balanced whole rather than five separate parts. Finished on a sturdy elastic cord, it sits securely on the wrist.",
+    "energy": [
+      "The heart chakra is the symbolic center of harmony, the place where giving and receiving, softness and strength, are meant to meet in balance. In Five Elements tradition, the five elements describe the rhythms of life, and wood is the element of spring: growth, kindness, and new direction. This bracelet carries all five colors so the whole system stays in conversation, with wood given the lead. Wearing it is a small reminder that balance is not static; it is a rhythm you can step back into.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you feel stretched between too many roles, caregiver, earner, peacekeeper, and your giving has outpaced your receiving for so long that balance sounds like a foreign language. Or you swing between all-or-nothing: pouring yourself out, then going cold, never quite finding the middle. Perhaps you simply want your days to feel less like a tug of war. Wearing this bracelet is a visible compass back to center. Let the five colors remind you that you contain many elements, soft and strong, serious and playful, giver and receiver, and that they are not in conflict. The greens lead for a reason: growth is your season now, and balance is how you make room for it."
+    ],
+    "benefits": [
+      "All five traditional colors in one bracelet, a complete system on your wrist.",
+      "Greens lead the sequence, tilting the balance toward growth and renewal.",
+      "8 mm beads sized for everyday wear and easy stacking.",
+      "A quiet, visible reminder that balance is a rhythm, not a finish line.",
+      "Grounded enough for the office, meaningful enough to never take off."
+    ],
+    "howToWear": [
+      "Wear it on the left wrist as an everyday companion, where the five colors show softly under a shirt cuff or fully on a bare arm. It suits long workdays and weekends alike."
+    ],
+    "specs": [
+      "Bead size: 8 mm",
+      "Design: Five Elements sequence, wood-led",
+      "Stones: natural mix in five color families",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe with a soft, damp cloth and keep the mix away from perfume, lotion, and hot water. On the full moon, set the bracelet in moonlight to rebalance the five elements it carries. As you fasten it, say: 'I return to balance, and growth finds me there.'"
+    ],
+    "price": 89,
     "image": "/products/heart-b4-2507-8mm.webp",
     "images": [
       "/products/heart-b4-2507-8mm.webp",
@@ -3722,15 +4033,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B4-2508 10mm补木五行手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Wood Element Five Elements Bracelet 10mm",
+    "tagline": "In the Chinese five elements, wood is the energy of quiet growth — the spring push that helps a guarded heart soften, trust again, and grow toward warmth at its own pace.",
+    "material": "A five-element bracelet in generously sized 10 mm beads, led by the wood element's soft greens and finished with the warm reds, golden earth tones, whites, and deep blue-blacks that complete the traditional five-element palette. Each stone is polished to a smooth, glossy finish that catches the light softly, while natural color variation and delicate inclusions keep every bead quietly individual. Strung on a sturdy elastic cord for a comfortable, secure fit around most wrists.",
+    "energy": [
+      "The heart chakra sits at the center of the chest, the meeting point of giving and receiving. Its colors are green and pink — the hues of growth and tenderness. In traditional Chinese belief, wood is the element that feeds this center: it is said to nourish steady growth, kindness, and the courage to put down roots in love. This bracelet carries that wood energy in ten-millimeter beads, a small daily companion for a heart learning to open.",
+      "Real-Life Signs You May Recognize",
+      "Do you give endlessly to others, then feel strangely empty when no one returns the favor? Do you hold your feelings close because past disappointments taught you it was safer, or stay in relationships that have quietly stopped growing? These are familiar signs of a guarded heart, one that has learned to protect itself a little too well. Wearing this bracelet won't change that overnight — it simply places a small reminder at your wrist: growth happens slowly, like wood in spring, and you are allowed to grow too. Let each green bead soften your own expectations, and let each turn of the bracelet invite a little more trust."
+    ],
+    "benefits": [
+      "Traditional wood-element energy said to nurture growth, warmth, and the heart's quiet renewal.",
+      "A full 10 mm presence that feels substantial without ever feeling heavy.",
+      "Five-element palette pairs beautifully with casual layers and office neutrals alike.",
+      "Polished gloss and natural color variation make every bracelet one of a kind.",
+      "Sturdy elastic cord for all-day comfort, from morning coffee to evening ease."
+    ],
+    "howToWear": [
+      "Wear it on your non-dominant wrist, where it rests near your pulse and stays within easy sight. Let it layer with a simple watch or sit alone as a quiet statement of growth."
+    ],
+    "specs": [
+      "Bead size: 10 mm, five-element mix led by green wood tones",
+      "Style: single-strand stretch bracelet",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the night of the full moon, rest it in clean moonlight for a few hours to refresh its energy. As you put it back on, say softly: 'I grow at my own pace, and my heart stays open.'"
+    ],
+    "price": 89,
     "image": "/products/heart-b4-2508-10mm.webp",
     "images": [
       "/products/heart-b4-2508-10mm.webp",
@@ -3745,15 +4074,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B7-2502 粉色系",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Pink Series Rose Quartz Pearl Bracelet",
+    "tagline": "A tender pairing of rose quartz and luminous pearls — pink, in every quiet shade, for the moments when you need to remember that softness is strength.",
+    "material": "The pink series comes together here in two classic materials: softly blushing rose quartz beads polished to a gentle, satin-like glow, and round pearl beads whose soft, layered lustre shifts quietly in the light. Together the palette moves from pale blush to cream-white, with natural color variation from bead to bead. The pearls add a refined, even rhythm to the rosy warmth of the quartz, all strung on a sturdy elastic cord for easy everyday wear.",
+    "energy": [
+      "The heart chakra is the body's center of love, trust, and self-acceptance, and its color is pink — the shade of tenderness given freely. Rose quartz has long been called the stone of the heart; it is said to soften self-criticism and make room for warmer connections. Pearls carry their own old meaning of calm and purity, traditionally believed to soothe frayed emotions and bring patience. Together, they speak the same gentle language: love that begins with how you treat yourself.",
+      "Real-Life Signs You May Recognize",
+      "Do you say yes when you mean no, then quietly resent the people you were trying to please? Do you give your warmest energy to everyone except yourself, or feel tearful and heavy for no clear reason after long days of caring for others? These are familiar signs that your heart has been pouring outward without ever being refilled. Wearing this bracelet will not refill you by magic — it simply keeps a small, pink promise at your wrist: that what you offer others, you also deserve. Let the quartz soften your inner critic, and let the pearls remind you to pause and receive."
+    ],
+    "benefits": [
+      "Rose quartz, the traditional stone of self-love, paired with pearl's calming patience.",
+      "Soft pink and cream tones that flatter every skin tone and wardrobe.",
+      "Satin-polished beads with a refined, lustrous finish made for daily wear.",
+      "A gentle visual cue to give yourself the warmth you give others.",
+      "Sturdy elastic cord keeps the delicate palette secure through busy days."
+    ],
+    "howToWear": [
+      "Wear it alone when you want its message to yourself to be the day's quiet theme, or layer it with a slim gold or silver piece. It suits everything from linen shirts to evening dresses."
+    ],
+    "specs": [
+      "Style: single-strand pink series with rose quartz and pearl beads",
+      "Finish: polished gloss and natural lustre variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. Once a month, set it in full moonlight overnight to refresh its soft energy. As you wear it, hold the intention: 'I receive warmth as freely as I give it.'"
+    ],
+    "price": 89,
     "image": "/products/heart-b7-2502.webp",
     "images": [
       "/products/heart-b7-2502.webp",
@@ -3772,15 +4119,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B7-2503 绿色系",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Green Series Aventurine Chalcedony Bracelet",
+    "tagline": "Green, in its healing shades — aventurine for luck that grows quietly, chalcedony for words that soften, together a bracelet for hearts learning to exhale.",
+    "material": "A green-series pairing of natural aventurine and chalcedony in polished round beads. Aventurine glows with soft sage to sea-glass green, its surface carrying the delicate glitter of natural inclusions; chalcedony brings a cooler, milky translucency in paler green. Alternated, the two greens form a calm, rhythmic gradient that reads like a still garden. Each bead is polished smooth, with natural color variation from stone to stone, and the bracelet is strung on a sturdy elastic cord for comfortable all-day wear.",
+    "energy": [
+      "The heart chakra opens to the world in green — the color of steady growth, fresh starts, and forgiveness. Aventurine is traditionally called the stone of opportunity; it is said to encourage optimism and the small courageous steps that luck seems to follow. Chalcedony has long been valued for calming the mind and softening communication, helping feelings find kind words. Worn together, these greens speak to the heart's two needs: room to grow and peace to do it in.",
+      "Real-Life Signs You May Recognize",
+      "Do your words come out sharper than you mean when you are tired? Do you hold onto grudges longer than you want to, replaying a conversation you wish had gone differently? Maybe you have noticed a closed-in feeling — a tightness around the chest when a difficult talk is coming, or a habit of expecting the worst from people. These are signs of a heart braced against friction. This bracelet is not a shield against hard conversations; it is simply a green reminder to enter them softly. Let aventurine nudge you toward the next good step, and chalcedony keep your tone kind while you take it."
+    ],
+    "benefits": [
+      "Aventurine, the traditional stone of opportunity, for hearts ready to grow again.",
+      "Chalcedony is said to calm the mind and help feelings find their kindest words.",
+      "Cool green palette that reads as calm polish, from studio to garden party.",
+      "Natural glitter and milky translucency give each bead its own quiet character.",
+      "Smooth polished finish and sturdy cord for effortless everyday wear."
+    ],
+    "howToWear": [
+      "Wear it on the wrist you gesture with, so its greens stay in your line of sight during conversations that matter. It layers beautifully with other green or neutral pieces."
+    ],
+    "specs": [
+      "Style: green series pairing of aventurine and chalcedony rounds",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, lay it in clean moonlight overnight to refresh its energy. As you wear it, repeat your quiet intention: 'I speak gently, I grow steadily, and I forgive as I go.'"
+    ],
+    "price": 89,
     "image": "/products/heart-b7-2503.webp",
     "images": [
       "/products/heart-b7-2503.webp",
@@ -3796,15 +4161,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "B8-2503 水晶烟花多宝手链8mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Crystal Fireworks Mix Bracelet 8mm",
+    "tagline": "A celebration you can wear — small polished crystals catching light like fireworks frozen mid-burst, a bracelet for the days your heart wants to feel light again.",
+    "material": "An eight-millimeter multistone mix built for sparkle: clear, glassy crystals share the strand with softly tinted companion stones and occasional faceted beads that catch the light like a firework frozen mid-burst. No two bracelets are alike — tones drift from bright and translucent to gently milky, with natural color variation in every bead. The small 8 mm size makes the piece delicate and easy to layer, while the polished finish and sturdy elastic cord keep the celebration going all day.",
+    "energy": [
+      "At the center of the chest, the heart chakra is where we learn to give and to receive — and sometimes it simply needs to remember joy. A multistone mix is traditionally thought to offer overall balance, letting each crystal's quiet character round out the others'. Clear stones are said to bring lightness and clarity of feeling; soft pink and green tones echo the heart's own colors of tenderness and growth. Together they make a bracelet for hearts that want to feel bright again.",
+      "Real-Life Signs You May Recognize",
+      "Have the days started to blur into one another — the same routines, the same careful moods, the same feeling of going through the motions? Do you notice that you laugh less easily than you used to, or that small pleasures no longer quite reach you? These are familiar signs of a heart that has grown heavy without any single dramatic cause. This bracelet will not rearrange your life; it only asks you to notice small lights again. Let its sparkle catch your eye through a dull afternoon, and let that moment be enough — joy, like fireworks, returns in small bright flashes."
+    ],
+    "benefits": [
+      "An 8 mm multistone mix that sparkles like a firework frozen mid-burst.",
+      "Clear and softly tinted crystals said to lift the heart's sense of lightness.",
+      "Delicate scale layers easily with other bracelets or shines on its own.",
+      "Natural color variation means your strand is truly one of a kind.",
+      "Polished glassy finish made to catch light through the dullest day."
+    ],
+    "howToWear": [
+      "Wear it stacked with other heart-chakra pieces for a layered sparkle, or alone against a simple cuff. Its small beads suit desks, dinners, and everything between."
+    ],
+    "specs": [
+      "Bead size: 8 mm multistone crystal mix",
+      "Style: single-strand stretch bracelet",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. Once a month, set it under full moonlight overnight so its sparkle stays bright. As you slip it on, smile and say: 'I give myself permission to feel joy in small things.'"
+    ],
+    "price": 89,
     "image": "/products/heart-b8-2503-8mm.webp",
     "images": [
       "/products/heart-b8-2503-8mm.webp",
@@ -3821,15 +4204,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "C10-2507 可转动雪花_粉水晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Rose Quartz Rotating Snowflake Bracelet",
+    "tagline": "Rose quartz at your wrist, and above it a snowflake that turns as you move — because no two hearts, like no two snowflakes, were ever meant to be the same.",
+    "material": "Softly blushing rose quartz beads, each polished to a smooth, glossy finish with natural color variation from pale pink to deeper rose, form the body of the bracelet. A delicate snowflake charm rests at the center, free to rotate as you move so it catches the light from every angle. The design pairs the warmth of the pink stone with the crisp, gentle geometry of winter, finished on a sturdy elastic cord that sits comfortably around most wrists.",
+    "energy": [
+      "The heart chakra, at the center of the chest, is the home of love, trust, and the courage to be exactly who you are. Rose quartz is the stone most closely tied to this center; it is said to soften self-criticism and open the way to warmer connections. The snowflake adds a different kind of message: in nature, no two snowflakes are alike, and the same is traditionally said of souls. Together they remind you that your particular way of loving is not a flaw — it is your signature.",
+      "Real-Life Signs You May Recognize",
+      "Do you constantly compare your relationships to other people's, sure that everyone else loves more easily? Do you apologize for who you are — too sensitive, too careful, too much — in the hope of being accepted? Maybe you have turned your uniqueness into a reason to hide, saving your real self for no one in particular. This bracelet cannot change how others see you, and it does not need to. Let the rose quartz soften the voice that calls you wrong, and let the turning snowflake remind you, several times a day, that being one of a kind is the whole point of being you."
+    ],
+    "benefits": [
+      "A snowflake charm that rotates freely, catching light as naturally as you move.",
+      "Rose quartz, the traditional stone of self-love, in softly varied pink tones.",
+      "A daily reminder that your particular heart was never meant to be copied.",
+      "Polished gloss and natural color variation keep every piece one of a kind.",
+      "Gentle winter imagery balances the warmth of pink quartz beautifully."
+    ],
+    "howToWear": [
+      "Wear it where the charm can turn freely — the wrist you move most is ideal. It looks lovely against wool sweaters in winter and simple white linen in summer."
+    ],
+    "specs": [
+      "Style: rose quartz stretch bracelet with a free-rotating snowflake charm",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, place it under open moonlight for a night to refresh its energy. As you fasten it, whisper: 'I am one of a kind, and that is exactly how I am meant to love.'"
+    ],
+    "price": 89,
     "image": "/products/heart-c10-2507.webp",
     "images": [
       "/products/heart-c10-2507.webp",
@@ -3847,15 +4248,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "C6-2510 约12MM左右绿发晶+黑金超+白幽灵+白水晶方糖+葡萄石跑环",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Green Rutilated Multi Stone Runner Bracelet 12mm",
+    "tagline": "Twelve millimeters of green rutilated quartz — needles of gold caught in green glass — strung with white phantom and clear crystal for a heart that wants room to breathe.",
+    "material": "Substantial twelve-millimeter beads of green rutilated quartz, whose clear green body carries fine golden needles inside, share the strand with black-and-gold super seven, white phantom quartz, and crisp square-cut clear crystal spacers for contrast and sparkle. A smooth prehnite runner ring finishes the design, letting the cord slide easily to adjust the fit. Every bead is polished to a glossy finish with natural color variation, and the adjustable cord means one bracelet can sit gracefully on almost any wrist.",
+    "energy": [
+      "The heart chakra breathes in green, the color of growth, trust, and letting go of what no longer serves you. Green rutilated quartz is said to be a stone of gentle release — its golden rutile needles are traditionally thought to help untangle complicated feelings the way light untangles shadow. White phantom quartz and clear crystal spacers add a note of clarity, while the prehnite runner ring is valued for its calm, steadying presence. This is a bracelet for hearts carrying more than they were meant to hold.",
+      "Real-Life Signs You May Recognize",
+      "Do you feel the weight of other people's stories — their hurts, their expectations — as if they were your own? Do you find yourself exhausted after conversations that should have been simple, or unable to say what you need because you are too busy absorbing the room? These are familiar signs of a heart without clear edges, one that takes everything in and struggles to let anything out. This bracelet will not build that wall for you. Instead, its adjustable runner ring offers a gentler idea: a fit that can loosen when you need space and tighten when you need closeness, worn at a size that feels like breathing room."
+    ],
+    "benefits": [
+      "Generous 12 mm green rutilated quartz with fine golden needles in every bead.",
+      "Adjustable runner cord with a smooth prehnite ring — one size that truly fits.",
+      "Traditional heart-chakra green, said to help untangle feelings that have grown complex.",
+      "White phantom and clear crystal spacers bring clarity and contrast to the strand.",
+      "A multistone mix believed to bring overall balance, not just one note of energy."
+    ],
+    "howToWear": [
+      "Slip it on and slide the prehnite runner ring until the fit feels like breathing room — loose enough for ease, close enough to feel present. It holds its own as a single statement piece."
+    ],
+    "specs": [
+      "Bead size: approx. 12 mm green rutilated quartz with mixed accents",
+      "Style: multistone bracelet on an adjustable runner cord",
+      "Smooth prehnite runner ring; fits most wrist sizes"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, set it in clean moonlight overnight to refresh the stones. As you adjust the ring to your wrist, say: 'I take up exactly the space I need, and I let the rest go.'"
+    ],
+    "price": 89,
     "image": "/products/heart-c6-2510-12mm.webp",
     "images": [
       "/products/heart-c6-2510-12mm.webp",
@@ -3872,15 +4291,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "D5-2508 【樱落恋】粉水晶银猫眼手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Sakura Falling Rose Quartz Silver Cat's Eye Bracelet",
+    "tagline": "Petals of pink rose quartz falling into silver cat's eye shimmer — for the heart that is learning to let love arrive gently, like spring, without force.",
+    "material": "Rose quartz in soft, petal-like pinks — polished to a smooth gloss with natural color variation across the strand — is punctuated by silver cat's eye beads whose pale band of light glides as the bracelet moves, like moonlight on water. The rhythm of blush pink and silvery shimmer echoes blossom petals drifting through evening light. Each bead is finished with a gentle polish, and the piece is strung on a sturdy elastic cord for comfortable everyday wear.",
+    "energy": [
+      "The heart chakra is the seat of love and self-acceptance, and no stone speaks its language more softly than rose quartz. It is said to open the heart to warmth, to soften old self-criticism, and to make room for affection to arrive. Silver cat's eye adds a watchful, gliding light: cat's eye stones are traditionally believed to heighten gentle awareness and steady the emotions. Like petals that do not rush the branch, this bracelet is for love that is allowed to fall into place in its own time.",
+      "Real-Life Signs You May Recognize",
+      "Do you push people away just as they start to get close, convinced the other shoe is about to drop? Do you find yourself overthinking every gesture of affection, reading small signs as warnings, or feeling that good things are never really meant for you? These are familiar patterns of a heart that has learned to expect loss. This bracelet will not erase those lessons, and it will not rush you. It only keeps a different story within sight: petals falling, nothing forced, spring arriving exactly on schedule. Wear it, and let the soft motion of cat's eye remind you that some good things simply stay."
+    ],
+    "benefits": [
+      "Rose quartz, the traditional stone of self-love, in petal-soft shades of pink.",
+      "Silver cat's eye beads whose band of light glides as you move.",
+      "A gentle reminder that love does not need to be rushed or earned by force.",
+      "Blush and silver palette that pairs beautifully with gold or silver jewelry.",
+      "Polished gloss and natural color variation for a truly individual strand."
+    ],
+    "howToWear": [
+      "Wear it on your left wrist, close to the heart, where its motion stays in your awareness through the day. It looks especially lovely with soft neutrals and spring pastels."
+    ],
+    "specs": [
+      "Style: alternating rose quartz and silver cat's eye stretch bracelet",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, let it rest in clean moonlight overnight. As you wear it, hold the thought: 'I let good things arrive gently, and I stay open to receive them.'"
+    ],
+    "price": 89,
     "image": "/products/heart-d5-2508.webp",
     "images": [
       "/products/heart-d5-2508.webp",
@@ -3896,15 +4333,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "F01-2505",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Rose Quartz Jade Accent Bracelet",
+    "tagline": "Rose quartz for the love you give yourself, jade for the harmony that follows — two soft stones, one quiet bracelet, worn close to the heart.",
+    "material": "A warm strand of rose quartz in softly varied pinks — from pale blush to deeper rose — polished to a smooth, glossy finish. Between the pink rounds sit smooth green jade accent beads, their cool, calm color the perfect counterpoint to the quartz's warmth. Natural color variation and the occasional soft inclusion mark every stone as genuine and individual. The bracelet is finished on a sturdy elastic cord, comfortable enough to wear from morning meetings to quiet evenings.",
+    "energy": [
+      "At the center of the chest, the heart chakra governs the quiet work of loving — others, and yourself. Rose quartz is its most faithful stone; it is said to melt self-judgment and make space for tenderness to grow. Jade carries an older, steadier song: in traditional East Asian belief, jade is treasured as a stone of protection, harmony, and calm, long worn close to the body for its soothing presence. Together, rose and jade offer the heart warmth and serenity in equal measure.",
+      "Real-Life Signs You May Recognize",
+      "Do you pour warmth into everyone around you, then feel uneasy when someone tries to pour it back? Do you find closeness unsettling — a quiet discomfort when affection is offered, a habit of deflecting compliments before they land? Perhaps harmony feels like something you give, never something you get to rest in. This bracelet cannot rewrite those habits overnight. What it can do is sit quietly on your wrist, pairing the love you give with the harmony you deserve, until the two begin to feel like one natural rhythm. Wear it as permission to receive."
+    ],
+    "benefits": [
+      "Rose quartz, the classic heart stone, for kindness that begins with yourself.",
+      "Green jade accents, traditionally treasured for harmony and calm presence.",
+      "A quiet pairing of self-love and serenity, visible in two soft colors.",
+      "Polished gloss with natural color variation in every genuine stone.",
+      "Comfortable stretch cord for all-day wear, from desk to dinner."
+    ],
+    "howToWear": [
+      "Wear it on the wrist you reach out with, so its greens and pinks stay in view when you give or receive. It complements both gold and silver effortlessly."
+    ],
+    "specs": [
+      "Style: rose quartz bracelet with smooth green jade accent beads",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the night of the full moon, set it in clean moonlight to refresh its energy. As you put it on, breathe once and say: 'I give warmth, and I am equally worthy of receiving it.'"
+    ],
+    "price": 89,
     "image": "/products/heart-f01-2505.webp",
     "images": [
       "/products/heart-f01-2505.webp",
@@ -3918,15 +4373,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "G07-2509 【五行补木】情绪-多宝水晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Wood Element Emotion Mix Bracelet",
+    "tagline": "A multistone emotion mix rooted in the wood element — soft greens and gentle tones said to help a busy heart feel steady, not numb, on heavy days.",
+    "material": "A wood-element emotion mix of polished stones in soft sage greens, cream whites, and warm neutral accents, gathered in smooth round beads that sit comfortably together. As with any multistone bracelet, the exact blend varies from strand to strand, giving each piece its own rhythm of color and natural stone character. Beads are polished to a gentle gloss with natural color variation and subtle inclusions, and the mix is strung on a sturdy elastic cord for easy, all-day wear.",
+    "energy": [
+      "In traditional Chinese thought, each of the five elements nourishes a different part of life, and wood is the element of growth — of the tender persistence that lets things root, rise, and reach toward light. The heart chakra, center of love and connection, is said to be fed by this kind of quiet growth, especially when emotions feel tangled or heavy. An emotion mix like this one is traditionally worn for overall balance, letting varied stones support the heart as a whole rather than through any single note.",
+      "Real-Life Signs You May Recognize",
+      "Do your emotions arrive in sudden, unannounced waves — fine one hour, overwhelmed the next — leaving you unsure which version of yourself will show up? Do you feel everything too quickly for others, then scold yourself for feeling at all? Maybe you have learned to smooth your face into calm while something unsettled churns underneath. This bracelet is not a mood cure, and it will not pretend your feelings away. It simply anchors the wood-element idea that emotions, like trees, move through seasons: what feels stormy now is still growing. Wear it as a steady companion for your next emotional weather."
+    ],
+    "benefits": [
+      "A multistone emotion mix said to support the heart with gentle, overall balance.",
+      "Soft wood-element greens, traditionally linked to steady growth and renewal.",
+      "Each strand varies naturally, so your blend of colors is entirely your own.",
+      "Smooth polished beads that feel calming simply to touch and turn.",
+      "A quiet visual anchor for days when emotions feel bigger than usual."
+    ],
+    "howToWear": [
+      "Wear it through your most emotionally demanding days — difficult conversations, big changes, long to-do lists. Its soft palette works with nearly everything you already own."
+    ],
+    "specs": [
+      "Style: multistone wood-element emotion mix, stretch bracelet",
+      "Finish: polished gloss with natural color and bead variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, leave it in clean moonlight overnight to settle the mix. As you wear it, say to yourself: 'My feelings are allowed to move through me; I am still growing.'"
+    ],
+    "price": 89,
     "image": "/products/heart-g07-2509.webp",
     "images": [
       "/products/heart-g07-2509.webp",
@@ -3938,19 +4411,78 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "heart-h06-2507",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Clear Fate Carry Blessings Mix Bracelet",
+    "tagline": "A multistone mix of clear and softly tinted crystals — for gently clearing what has passed and carrying forward only what truly blesses you.",
+    "material": "A layered multistone bracelet built around clear, translucent crystals, with softly tinted companion stones in varied shapes and finishes — some faceted for quiet sparkle, some smooth and milky, some holding natural inclusions that catch the light. Because the blend varies from strand to strand, each bracelet has its own rhythm of clarity and color. Beads are polished to a gentle gloss with natural color variation, and the piece is strung on a sturdy elastic cord for easy everyday wear.",
+    "energy": [
+      "The heart chakra sits at the center of the chest, where we hold what we love — and, sometimes, what we should have released long ago. Clear crystals are traditionally said to bring clarity of mind and heart, helping old emotional patterns become visible, while a multistone mix is believed to offer overall balance so no single feeling dominates. In this bracelet, clear and softly tinted stones work as one: clarity to see what is finished, and gentle color to warm whatever you choose to carry forward.",
+      "Real-Life Signs You May Recognize",
+      "Do you carry old friendships, old words, old versions of people in your heart long after they have ended? Do you find yourself rehearsing grievances from years ago, or keeping ties that drain you out of loyalty rather than love? Perhaps you have noticed that your heart feels full — but full of the past, with little room left for what is here now. This bracelet is not permission to be careless with people. It is a softer idea: that clearing is also a kind of care. Wear it as a daily cue to ask what deserves to be carried forward, and to set the rest down gently."
+    ],
+    "benefits": [
+      "Clear crystals, traditionally said to bring clarity to a cluttered heart.",
+      "Softly tinted companion stones said to warm whatever you choose to keep.",
+      "Multistone balance — no single stone, no single feeling, dominates the mix.",
+      "Varied cuts and finishes catch the light in interesting, quiet ways.",
+      "A gentle daily cue to release the past and carry forward what blesses you."
+    ],
+    "howToWear": [
+      "Wear it as a daily companion while you sort through a change — a move, a breakup, a season of letting go. Its clear, bright tones pair well with both minimal and layered looks."
+    ],
+    "specs": [
+      "Style: multistone mix of clear and softly tinted crystals",
+      "Finish: mixed polished cuts with natural variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, set it under open moonlight for a night so the mix can clear itself. As you wear it, say: 'I release what has passed, and I carry forward only what blesses me.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-h06-2507.webp",
+    "images": [
+      "/products/heart-h06-2507.webp",
+      "/products/heart-h06-2507-2.webp",
+      "/products/heart-h06-2507-3.webp",
+      "/products/heart-h06-2507-4.webp",
+      "/products/heart-h06-2507-5.webp"
+    ]
+  },
+  {
     "id": "heart-g08-2507",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "G08-2507 超级赚【事业青】",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Career Green Mix Bracelet",
+    "tagline": "Green for growth, worn into every meeting — a career mix of calming greens said to help you speak with warmth, listen with patience, and rise at your own pace.",
+    "material": "A career-minded mix of polished green stones in a deliberately quiet palette — cool sage, sea-glass, and deep forest greens that read as calm and composed in a meeting room, yet catch the light as you move. The multistone blend varies naturally from strand to strand, with glossy finishes, soft inclusions, and natural color variation marking each bead as genuine. A sturdy elastic cord keeps it easy to wear from your first email to your final call.",
+    "energy": [
+      "The heart chakra is the center of trust and connection, and green — its color of growth — is the shade we most associate with things getting steadily better. In traditional symbolism, green is said to encourage clear communication, patience, and the kind of calm confidence that lets good work speak for itself. Worn as a career bracelet, this green mix carries that idea into professional life: not loud ambition, but the steady, visible growth of something well tended.",
+      "Real-Life Signs You May Recognize",
+      "Do you feel anxious before every important conversation at work, bracing for judgment before a word is spoken? Do you rehearse your sentences, then soften them until they disappear, or walk away from meetings wishing you had said the thing you actually meant? Perhaps you have noticed that you rise by serving everyone else's agenda and never quite your own. This bracelet will not negotiate for you or hand you a promotion. What it offers is simpler: a green reminder, worn through the workday, that growth is patient, that your voice belongs in the room, and that you can move forward at a pace that does not cost you your calm."
+    ],
+    "benefits": [
+      "Traditional green symbolism for growth, worn as a calm companion at work.",
+      "A quiet, polished palette that looks composed in meetings and beyond.",
+      "Green is said to encourage patient communication and steady professional growth.",
+      "Natural color variation across the mix keeps your strand one of a kind.",
+      "Comfortable stretch cord made for long days of wear without distraction."
+    ],
+    "howToWear": [
+      "Wear it to work — on your dominant wrist if you gesture when you speak, on the other if you prefer to listen first. It moves easily from the office to dinner without changing."
+    ],
+    "specs": [
+      "Style: multistone green career mix, stretch bracelet",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, rest it in clean moonlight overnight to refresh its green energy. Before a big meeting, hold it briefly and say: 'I grow steadily, I speak kindly, and I am exactly where I need to be.'"
+    ],
+    "price": 89,
     "image": "/products/heart-g08-2507.webp",
     "images": [
       "/products/heart-g08-2507.webp",
@@ -3966,15 +4498,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "H06-2504 【青萤逐瑞】-10mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Green Fluorite Bracelet 10mm",
+    "tagline": "Ten millimeters of green fluorite, clear as spring water — for the heart that needs a little less noise and a little more calm, worn close to the pulse.",
+    "material": "Natural green fluorite in round ten-millimeter beads, ranging from pale mint to deeper sea green, often with the soft banding and glassy translucency that fluorite is known for. Some beads are crystal-clear, others carry gentle internal veils and natural color variation that make each stone individual. The beads are polished to a smooth, glossy finish that feels cool and calm against the skin, and the bracelet is strung on a sturdy elastic cord for a comfortable fit through long days.",
+    "energy": [
+      "Green fluorite speaks to the heart chakra in the color of renewal, while fluorite itself has long been called the stone of clear sight. It is said to bring mental clarity to emotional situations — helping a racing mind slow down so the heart can actually be heard. Where some heart stones warm, green fluorite soothes: it is traditionally believed to soften overwhelm, steady scattered thoughts, and help you see your own feelings without the usual static. A bracelet for hearts that think too much and feel too fast.",
+      "Real-Life Signs You May Recognize",
+      "Do you lie in bed replaying conversations, decoding tones and silences long after they ended? Do you feel everything — then immediately doubt whether what you felt was real or reasonable? Maybe your heart and mind run on different clocks: feelings arrive instantly, while understanding trails hours behind. This bracelet will not switch off your thinking; it does not ask you to. Instead, ten millimeters of green fluorite at your wrist offers a pause — a clear, cool reminder to let one thought finish before the next begins, and to trust that your feelings make sense even before you have fully explained them to yourself."
+    ],
+    "benefits": [
+      "Traditional stone of clarity, said to help a racing mind slow and soften.",
+      "Heart-chakra green in a generous 10 mm size with visible depth.",
+      "Glassy translucency and soft banding make every bead quietly individual.",
+      "Cool, smooth finish that feels calming simply against the skin.",
+      "Sturdy elastic cord for comfortable wear from restless nights to busy days."
+    ],
+    "howToWear": [
+      "Wear it whenever your thoughts start to spiral — at your desk, in the car, or before sleep. Its cool green suits neutral and earthy wardrobes especially well."
+    ],
+    "specs": [
+      "Bead size: 10 mm natural green fluorite",
+      "Style: single-strand stretch bracelet",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, leave it in clean moonlight overnight to settle and refresh the stone. As you wear it, breathe out slowly and say: 'I think less, I feel clearly, and my calm is enough.'"
+    ],
+    "price": 89,
     "image": "/products/heart-h06-2504-10mm.webp",
     "images": [
       "/products/heart-h06-2504-10mm.webp",
@@ -3983,66 +4533,37 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "heart-h06-2507",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "H06-2507 【清缘载福】-多宝水晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-h06-2507.webp",
-    "images": [
-      "/products/heart-h06-2507.webp",
-      "/products/heart-h06-2507-2.webp",
-      "/products/heart-h06-2507-3.webp",
-      "/products/heart-h06-2507-4.webp",
-      "/products/heart-h06-2507-5.webp"
-    ]
-  },
-  {
-    "id": "heart-h07-2501-10mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "H07-2501 【清凉盛夏】水晶手串-10mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-h07-2501-10mm.webp",
-    "images": [
-      "/products/heart-h07-2501-10mm.webp",
-      "/products/heart-h07-2501-10mm-2.webp",
-      "/products/heart-h07-2501-10mm-3.webp",
-      "/products/heart-h07-2501-10mm-4.webp",
-      "/products/heart-h07-2501-10mm-5.webp",
-      "/products/heart-h07-2501-10mm-6.webp"
-    ]
-  },
-  {
     "id": "heart-i02-2504",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "I02-2504 【五行水生木】水晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Water Wood Five Elements Bracelet",
+    "tagline": "In the five elements, water nourishes wood — flow feeding growth — a bracelet for the heart that wants to trust the current and still grow roots.",
+    "material": "A five-element bracelet in which water and wood lead the palette: the watery blues, greys, and ink-blacks of calm deep water moving into the soft greens of new growth, with warm earth, red, and pale metal tones completing the traditional five-element spectrum. The polished round beads carry natural color variation and quiet inclusions that mark each stone as genuine. Strung on a sturdy elastic cord, the bracelet mixes cool and warm tones into one balanced, easy-to-wear strand.",
+    "energy": [
+      "The heart chakra, center of love and connection, is nourished in traditional Chinese belief by wood — the element of growth, kindness, and the courage to keep reaching toward light. Water, in the same tradition, is what feeds the wood: flexible, patient, and endlessly adaptive. A water-wood bracelet therefore carries a complete little story: let yourself be fluid enough to move with change, and rooted enough to grow through it. It is said to support hearts learning to trust both the current and their own deep anchor.",
+      "Real-Life Signs You May Recognize",
+      "Do you resist change even when you know it is right — clinging to the familiar until it becomes uncomfortable, then feeling guilty for staying so long? Or the opposite: do you adapt so completely to other people that you lose the shape of your own life, growing wherever you are planted whether or not the soil suits you? These are the two poles of a heart that has not yet learned to trust its own motion. This bracelet offers neither extreme. It carries a five-element idea: water yields and yet never disappears, and wood grows without uprooting itself. Wear it as a reminder that flexibility and steadiness belong together."
+    ],
+    "benefits": [
+      "Traditional five-element design in which water nourishes wood and growth follows flow.",
+      "Cool watery blues meeting soft greens — a palette that calms and renews.",
+      "A daily reminder that you can adapt without losing your own direction.",
+      "Visible natural color variation and inclusions in every polished stone.",
+      "Sturdy elastic cord, comfortable from morning commutes to evening ease."
+    ],
+    "howToWear": [
+      "Wear it during seasons of change — new roles, new cities, new chapters — when you need both flexibility and steadiness. Its mixed palette pairs with nearly everything."
+    ],
+    "specs": [
+      "Style: five-element stretch bracelet led by water and wood tones",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, rest it in clean moonlight overnight to refresh the whole mix. As you wear it, say: 'I move with what changes, and I grow where I am rooted.'"
+    ],
+    "price": 89,
     "image": "/products/heart-i02-2504.webp",
     "images": [
       "/products/heart-i02-2504.webp",
@@ -4054,19 +4575,79 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "heart-h07-2501-10mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Cool Summer Green Chalcedony Cat's Eye Moonstone Bracelet 10mm",
+    "tagline": "A cool summer trio in ten millimeters — sea-green chalcedony, gliding cat's eye, and moonlit moonstone — for hearts that need shade from the heat of their own feelings.",
+    "material": "A cooling summer mix in ten-millimeter beads: sea-green chalcedony in soft, translucent mint tones, cat's eye beads whose pale band of light glides as they move, and moonstone in creamy white with a soft, floating glow. The three stones alternate in a rhythm like light on cool water. Each bead is polished to a smooth, satiny finish with natural color variation, and the bracelet is strung on a sturdy elastic cord for comfortable wear through the warmest months.",
+    "energy": [
+      "The heart chakra, center of love and trust, can run hot — especially in summer, when feelings surface faster and patience runs thin. Green chalcedony is said to cool and soothe the heart, softening words before they sting; it has long been valued for gentle communication. Cat's eye adds a gliding, watchful shimmer, traditionally believed to steady the emotions, while moonstone — the stone of new beginnings — is said to bring calm perspective and a sense of ease. Together they are a summer breeze for the heart.",
+      "Real-Life Signs You May Recognize",
+      "Do small frustrations flare faster in warm weather — a sharp word to someone you love, regret following before the sentence even ends? Do you feel restless and overheated emotionally, your patience shorter, your temper quicker, your tolerance for noise near zero? Maybe you have been running on adrenaline and ice water, hoping to cool down from the outside. This bracelet will not change the weather or your calendar. It simply brings the idea of shade: ten millimeters of cool green, gliding light, and moonlit calm at your wrist, a reminder to pause before you speak and to let your feelings find their natural, cooler temperature."
+    ],
+    "benefits": [
+      "Sea-green chalcedony, traditionally valued for soothing words and gentle communication.",
+      "Cat's eye's gliding band of light, traditionally said to steady the emotions.",
+      "Moonstone, the stone of new beginnings, for calm perspective and ease.",
+      "A cool-toned trio that visibly lowers the temperature of any outfit.",
+      "Smooth satin polish and natural variation, made for warm-season wear."
+    ],
+    "howToWear": [
+      "Wear it on long, hot days when your patience runs thin and your feelings run high. Its cool palette is made for linen, white, and light denim."
+    ],
+    "specs": [
+      "Bead size: 10 mm mix of green chalcedony, cat's eye, and moonstone",
+      "Style: single-strand stretch bracelet",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, place it under clean moonlight for a night, as moonstone loves the moon. As you wear it, say softly: 'I stay cool where it matters, and my words come out kinder than my heat.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-h07-2501-10mm.webp",
+    "images": [
+      "/products/heart-h07-2501-10mm.webp",
+      "/products/heart-h07-2501-10mm-2.webp",
+      "/products/heart-h07-2501-10mm-3.webp",
+      "/products/heart-h07-2501-10mm-4.webp",
+      "/products/heart-h07-2501-10mm-5.webp",
+      "/products/heart-h07-2501-10mm-6.webp"
+    ]
+  },
+  {
     "id": "heart-i03-2501",
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "I03-2501 【良缘将至】天然白水晶+草莓晶",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Good Fate Awaits Clear Quartz Strawberry Quartz Bracelet",
+    "tagline": "Clear quartz for clarity, strawberry quartz for warmth — because good things tend to find the hearts that stay open enough to recognize them.",
+    "material": "A luminous pairing of clear quartz and strawberry quartz: clear quartz in glassy rounds that catch and scatter light, and strawberry quartz in soft rosy pink with delicate darker inclusions like tiny seeds. Alternated, the two read as fresh and quietly radiant — clarity and warmth in conversation. Beads are polished to a smooth, glossy finish with natural color variation from stone to stone, and the bracelet is strung on a sturdy elastic cord for easy everyday wear.",
+    "energy": [
+      "The heart chakra, center of love and openness, is traditionally served by two very different helpers here. Strawberry quartz — rose quartz's rarer, seed-speckled cousin — is said to carry the heart's warmth: tenderness, hope, and the soft courage to want connection again. Clear quartz, long valued across traditions as a stone of clarity and amplification, is said to make intentions clear and steady. Worn together, strawberry quartz warms the heart while clear quartz keeps its wishes legible — a pairing for anyone ready for good things to find them.",
+      "Real-Life Signs You May Recognize",
+      "Have you closed yourself off to new people without quite deciding to — not from bitterness, but from tiredness, from having tried and been disappointed before? Do you notice yourself assuming that warmth is risky, that hope is naive, or that your luck with love has simply run its course? These are familiar signs of a heart keeping itself safe at the price of staying empty. This bracelet will not deliver a person to your door or rewrite your history. It only keeps a gentle idea within reach: that being clear about what you want, and staying warm while you wait, is said to be how good things find their way to you."
+    ],
+    "benefits": [
+      "Strawberry quartz, said to carry the heart's warmth and hope for connection.",
+      "Clear quartz, long valued for clarity and for steadying intention.",
+      "A bright, rosy palette that looks fresh from morning to evening.",
+      "Visible inclusions in the strawberry quartz make each bead unmistakably genuine.",
+      "The pairing itself — warmth plus clarity — for hearts open to what is coming."
+    ],
+    "howToWear": [
+      "Wear it when you are meeting new people — or simply when you want to feel a little more open to the day. Its pink-and-clear tones are lovely against both neutral and bright wardrobes."
+    ],
+    "specs": [
+      "Style: alternating clear quartz and strawberry quartz stretch bracelet",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, let it rest in clean moonlight overnight to brighten both stones. As you wear it, hold the thought: 'I stay clear about what I want, and warm enough to recognize it when it arrives.'"
+    ],
+    "price": 89,
     "image": "/products/heart-i03-2501.webp",
     "images": [
       "/products/heart-i03-2501.webp",
@@ -4080,15 +4661,33 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "I06-2503 补水木五行水晶手串",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Water Wood Balance Mix Bracelet",
+    "tagline": "A balance mix of water and wood — cool flow and quiet growth held together on one wrist, for hearts learning to hold both softness and strength.",
+    "material": "A multistone balance mix in which the five elements' water and wood energies set the tone: cool blues, soft greys, and ink-deep tones meet gentle greens and creamy whites, with smaller accents of the other element colors woven through. Polished round beads with a smooth, glossy finish carry natural color variation and quiet inclusions, so the exact blend differs pleasingly from strand to strand. The sturdy elastic cord keeps the balanced mix comfortable and easy to wear all day.",
+    "energy": [
+      "In traditional Chinese belief, water and wood hold a natural partnership: water nourishes wood, and wood gives water somewhere to grow — flow and structure completing each other. For the heart chakra, the center of love and trust, this balance is said to be especially supportive: water's flexibility softens rigidity, while wood's steady growth prevents aimless drifting. A balance mix like this one is traditionally worn to harmonize the whole, keeping no single energy too loud — a bracelet for hearts that want neither to freeze nor to flood.",
+      "Real-Life Signs You May Recognize",
+      "Do you swing between extremes — all in with people one month, walls up the next — and wonder why closeness always ends the same way? Do you give until you are empty, then pull away until you are lonely, never quite finding the middle? Maybe you have come to believe that softness and strength cannot live in the same heart. This bracelet was made to suggest otherwise. Its water stones carry the idea of yielding without breaking; its wood stones, the idea of growing without forcing. Worn together, they are a small daily lesson in balance: you can be tender and firm, adaptable and anchored, in the same moment — and that is not a contradiction, it is a skill."
+    ],
+    "benefits": [
+      "Water and wood in one mix — flexibility and growth balanced strand by strand.",
+      "Cool and green tones that calm the eye and the mood.",
+      "Traditional balance idea: no single element energy dominates the bracelet.",
+      "A wearable daily reminder that softness and strength belong together.",
+      "Polished, natural stones with variation that keeps your strand unique."
+    ],
+    "howToWear": [
+      "Wear it on days when you feel pulled toward one extreme — too guarded or too giving. Its mixed tones layer easily with both warm and cool outfits."
+    ],
+    "specs": [
+      "Style: multistone balance mix of water and wood element tones",
+      "Finish: polished gloss with natural color variation",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, set it under clean moonlight overnight so the mix can rebalance itself. As you wear it, breathe evenly and say: 'I can be soft and strong, yielding and anchored, all at once.'"
+    ],
+    "price": 89,
     "image": "/products/heart-i06-2503.webp",
     "images": [
       "/products/heart-i06-2503.webp",
@@ -4103,67 +4702,39 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "heart",
     "chakraName": "Heart Chakra",
     "color": "#a9d7a8",
-    "name": "I06-2505 天然粉水晶手串-10mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
+    "name": "Natural Rose Quartz Bracelet 10mm",
+    "tagline": "Pure natural rose quartz in full ten-millimeter rounds — no accents, no apologies — for the heart that is ready to be gentle with itself, plainly and daily.",
+    "material": "Natural rose quartz in honest ten-millimeter rounds, worn unadorned: no accent beads, no metallic spacers, just the stone, end to end. The color ranges from pale blush to soft rose, with natural clouds, tiny fractures, and gentle color variation marking each bead as genuine, unenhanced quartz. Beads are polished to a smooth, satiny gloss that feels warm and comforting against the skin, and the bracelet is finished on a sturdy elastic cord for easy all-day wear.",
+    "energy": [
+      "The heart chakra, at the center of the chest, governs the way we love — and the way we treat ourselves when no one is watching. Rose quartz is the stone most associated with this center; it is said to soften self-criticism, ease harsh self-judgment, and open the way to warmer connections. In its simplest form — a plain strand of natural rose quartz — that message is at its clearest: there is nothing to add, nothing to prove. The stone alone, worn daily, is the practice.",
+      "Real-Life Signs You May Recognize",
+      "Do you speak to yourself in a voice you would never use with a friend — calling yourself foolish, lazy, or too much when you fall short? Do you apologize for taking up space, for resting, for wanting things, as though your needs were an inconvenience? Perhaps you have given so much of your gentleness away that none is left for the person who needs it most. This bracelet makes no grand promises. It simply places ten millimeters of natural rose quartz where you will see it dozens of times a day, each glance a small, wordless correction: softer, kinder, more patient with yourself — the way you already are with everyone else."
+    ],
+    "benefits": [
+      "Unadorned natural rose quartz — the classic self-love stone, nothing added.",
+      "Full 10 mm beads with visible natural clouds and color variation.",
+      "A soft, satiny finish that feels warm and comforting on the skin.",
+      "Dozens of small daily glances at a stone said to soften self-criticism.",
+      "Plain design that works with every wardrobe and every mood."
+    ],
+    "howToWear": [
+      "Wear it every day, on whichever wrist you check most often, so the stone meets your eyes throughout ordinary hours. It sits beautifully alone or stacked with your other talismans."
+    ],
+    "specs": [
+      "Bead size: 10 mm natural rose quartz",
+      "Style: single-strand stretch bracelet, unadorned",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the night of the full moon, let it rest in clean moonlight to refresh its gentle energy. As you put it on each morning, say: 'I am learning to be as kind to myself as I am to everyone else.'"
+    ],
+    "price": 89,
     "image": "/products/heart-i06-2505-10mm.webp",
     "images": [
       "/products/heart-i06-2505-10mm.webp",
       "/products/heart-i06-2505-10mm-2.webp",
       "/products/heart-i06-2505-10mm-3.webp",
       "/products/heart-i06-2505-10mm-4.webp"
-    ]
-  },
-  {
-    "id": "heart-i09-2502-10m",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "I09-2502 【绯晶迎禧】10m草莓晶+黄塔晶",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-i09-2502-10m.webp",
-    "images": [
-      "/products/heart-i09-2502-10m.webp",
-      "/products/heart-i09-2502-10m-2.webp",
-      "/products/heart-i09-2502-10m-3.webp",
-      "/products/heart-i09-2502-10m-4.webp"
-    ]
-  },
-  {
-    "id": "heart-8mm",
-    "chakra": "heart",
-    "chakraName": "Heart Chakra",
-    "color": "#a9d7a8",
-    "name": "绿檀玉葫芦手串8mm",
-    "tagline": "Heart Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/heart-8mm.webp",
-    "images": [
-      "/products/heart-8mm.webp",
-      "/products/heart-8mm-2.webp",
-      "/products/heart-8mm-3.webp",
-      "/products/heart-8mm-4.webp",
-      "/products/heart-8mm-5.webp",
-      "/products/heart-8mm-6.webp"
     ]
   },
   {
@@ -4208,19 +4779,116 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "heart-8mm",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Green Sandalwood Jade Gourd Bracelet 8mm",
+    "tagline": "Warm green sandalwood grounds the wrist with earthy calm, while a smooth jade gourd, a traditional emblem of protection and good fortune, keeps that feeling close. Wear it when you need steady, tender support.",
+    "material": "Eight-millimeter beads of green sandalwood in warm honey-brown tones are strung with a single smooth jade gourd accent, polished to a soft gloss, as the strand's quiet focal point. The wood shows honest natural variation in grain and shade, and the pale green-brown palette deepens gently with wear. Finished on a sturdy elastic cord, the bracelet sits evenly on the wrist for easy, everyday comfort.",
+    "energy": [
+      "The heart chakra is the symbolic center of love, trust, and the quiet courage it takes to feel safe. Green sandalwood is traditionally associated with grounding warmth and a calm, steady presence, while the gourd has long been carried as an emblem of protection and wholeness, said to shelter what you are building. Together they speak to a heart that wants to open slowly, on its own terms, and hold giving and receiving in balance.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you give until your own reserves feel thin, or you hold people at arm's length because trusting has burned you before. Perhaps rest feels like something you have to earn, and your chest carries a low hum of not enough. If any of that sounds familiar, you are not broken; you are guarding a tender place. Wearing this bracelet offers a quiet ritual of return. The warm wood at your wrist and the small jade gourd become anchors you can touch whenever you need to feel held, a reminder that you are allowed to receive, to rest, and to let good things in without first proving you deserve them."
+    ],
+    "benefits": [
+      "Warm wood tones that ground an outfit the way a deep breath settles a room.",
+      "The smooth jade gourd accent gives your eye and your hand a quiet place to rest.",
+      "8 mm beads keep the bracelet neat enough for the office and sturdy enough for every day.",
+      "Pairs quietly with linen, denim, and everything you already reach for.",
+      "A grounding companion for long days when your energy runs outward."
+    ],
+    "howToWear": [
+      "Wear it on your left wrist, the receiving side, or close to your chest where you can reach for it during long meetings and longer thoughts. It sits quietly under a cuff or alone on bare skin."
+    ],
+    "specs": [
+      "Bead size: 8 mm",
+      "Stones: green sandalwood",
+      "Accent: jade gourd bead",
+      "Closure: sturdy elastic cord"
+    ],
+    "careRitual": [
+      "Wipe the beads with a soft, dry cloth and keep them away from perfume, lotion, and hot water. Once a month, set the bracelet in the light of the full moon to refresh its quiet energy. As you fasten it, say: 'I am safe to give, and safe to receive.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-8mm.webp",
+    "images": [
+      "/products/heart-8mm.webp",
+      "/products/heart-8mm-2.webp",
+      "/products/heart-8mm-3.webp",
+      "/products/heart-8mm-4.webp",
+      "/products/heart-8mm-5.webp",
+      "/products/heart-8mm-6.webp"
+    ]
+  },
+  {
+    "id": "heart-i09-2502-10m",
+    "chakra": "heart",
+    "chakraName": "Heart Chakra",
+    "color": "#a9d7a8",
+    "name": "Crimson Greeting Strawberry Quartz Yellow Crystal Bracelet 10mm",
+    "tagline": "Crimson-pink strawberry quartz meeting warm yellow crystal — a bracelet that greets each day with color, for hearts ready to welcome joy at the door.",
+    "material": "A warm, celebratory pairing in ten-millimeter beads: strawberry quartz in rich crimson-pink, its rosy body dotted with delicate darker inclusions, meeting golden yellow crystal beads that glow like late-afternoon sun. The two tones alternate in a bright, rhythmic pattern that feels like a greeting — cheerful without being loud. Each bead is polished to a smooth, glossy finish with natural color variation from stone to stone, and the bracelet is strung on a sturdy elastic cord for comfortable, easy wear.",
+    "energy": [
+      "The heart chakra is the center of love and warmth, and it is said to open most easily in the company of joy. Strawberry quartz — rose quartz's radiant relative — is traditionally thought to carry tenderness, hope, and the courage to feel affection again; its crimson speaks of love not afraid to be seen. Yellow crystal adds a complementary note: the bright, sociable warmth of shared laughter. Together they form a greeting: joy knocking at the heart's door, and the heart deciding, this time, to answer.",
+      "Real-Life Signs You May Recognize",
+      "Have you noticed that you brace for bad news even on good days, waiting for the other shoe to drop instead of enjoying the moment? Do you find it easier to share in other people's happiness than to let any be yours — celebrating their wins while quietly dimming your own? Maybe joy feels unfamiliar now, like a room you used to know. This bracelet cannot manufacture happiness or guarantee your good news. What it offers is a daily, wearable greeting: crimson and gold at your wrist, reminding you that you are allowed to meet good moments with open arms instead of folded ones — and that welcoming joy is itself a form of courage."
+    ],
+    "benefits": [
+      "Rich strawberry quartz in crimson-pink, traditionally tied to hope and affection.",
+      "Warm golden yellow crystal accents that glow like late-afternoon sunlight.",
+      "A bright, celebratory palette that lifts even the most ordinary days.",
+      "10 mm beads with visible inclusions that mark the quartz as genuine.",
+      "A wearable reminder that joy is worth greeting with open arms."
+    ],
+    "howToWear": [
+      "Wear it on mornings that need a warmer opening note, or on days when you want to carry a little celebration with you. Its crimson and gold brighten neutral and earthy looks alike."
+    ],
+    "specs": [
+      "Bead size: 10 mm alternating strawberry quartz and yellow crystal",
+      "Style: single-strand stretch bracelet",
+      "Stretch elastic cord fits most wrists comfortably"
+    ],
+    "careRitual": [
+      "Wipe your bracelet gently with a soft, dry cloth and keep it away from perfume, lotion, and hot water. On the full moon, place it under clean moonlight overnight so its brightness can renew. As you wear it each morning, say: 'I greet this day with an open heart, and I am willing to receive its joy.'"
+    ],
+    "price": 89,
+    "image": "/products/heart-i09-2502-10m.webp",
+    "images": [
+      "/products/heart-i09-2502-10m.webp",
+      "/products/heart-i09-2502-10m-2.webp",
+      "/products/heart-i09-2502-10m-3.webp",
+      "/products/heart-i09-2502-10m-4.webp"
+    ]
+  },
+  {
     "id": "throat-a6-2507",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "A6-2507 蓝晶石黄塔晶手链",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Golden Clarity Kyanite and Yellow Crystal Bracelet",
+    "tagline": "Words carry farthest when the mind is clear. This pairing of blue kyanite and golden yellow crystal is said to calm the space between thought and speech.",
+    "material": "This single-strand bracelet brings together blue kyanite and warm yellow crystal beads. The kyanite reads in muted shades of slate and sky, while the yellow crystals glow softly beside it — a quiet play of cool and sunlit color. Both stones are left close to their natural finish, so each bead carries its own slight variation in tone and texture. Together they form a wrist piece that is easy to wear daily and easy on the eye.",
+    "energy": [
+      "The throat chakra rests at the neck, and in traditional belief it is where honest words begin. Blue kyanite is said to steady that center — to turn hurried, half-formed thoughts into speech you actually mean. The yellow crystal beside it is said to brighten a hesitant mind, adding warmth to messages that might otherwise come out flat. Worn together, the pair is said to help you say the true thing, calmly, the first time.",
+      "Real-Life Signs You May Recognize",
+      "You know the feeling of a sentence stuck in your chest, perfectly formed but unwilling to cross your lips. Or you nod along in a meeting while your real opinion waits, unspoken, in the hallway of your mind. Perhaps you have said yes when you meant not yet, then replayed the moment later. None of this makes you inarticulate — it makes you human. The hope carried by this bracelet is quieter than a fix: that a little more blue calm and a little more golden warmth near your pulse might remind you to speak in your own time, in your own words, and let the rest follow."
+    ],
+    "benefits": [
+      "Reflects the blue tones traditionally tied to clear, unhurried communication.",
+      "Kyanite is said to help thoughts arrive as words, without static or second-guessing.",
+      "Yellow crystal is said to add a layer of optimism to what you say.",
+      "A grounded companion for difficult conversations and quiet moments alike.",
+      "Sits gently on the wrist as a reminder to mean the words you offer."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Bead mix: blue kyanite with yellow crystal beads",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-a6-2507.webp",
     "images": [
       "/products/throat-a6-2507.webp",
@@ -4235,19 +4903,72 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "throat-b7-2506",
+    "chakra": "throat",
+    "chakraName": "Throat Chakra",
+    "color": "#9fcde0",
+    "name": "Metamorphosis Slate Blue Agate and Gold Butterfly Bracelet",
+    "tagline": "A slate-blue agate strand crowned with a small gold butterfly — said to remind you that a quiet voice can still become something new, given time and trust.",
+    "material": "This piece is strung with slate-blue agate beads, whose muted blue-gray tones shift subtly from bead to bead, and finished with a small gold butterfly that rests among them. The agate carries the calm, weathered look of a river stone, while the butterfly adds a single glint of warm metal. The pairing suggests change — something slow and deliberate gradually becoming visible — and the cool blue keeps the whole strand close to the throat chakra's palette.",
+    "energy": [
+      "Agate is said to be a stone of slow, steady change, and the slate-blue shades worn here echo the throat chakra's cool color. Traditional belief holds that this bracelet speaks to transitions in how we express ourselves — moving from silence to speech, or from practiced words to honest ones. The gold butterfly is said to be a quiet emblem of that metamorphosis: the moment a thought finally finds its wings.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the season when your voice was small — agreeing in rooms where you had opinions, letting practiced phrases stand in for real ones. Perhaps you are in the middle of that change now, not yet sure what your honest voice sounds like. Or you have already begun, and need something to mark how far you have come. This bracelet's hope is unhurried: that a band of slate-blue calm and a glint of gold might accompany your own metamorphosis, whatever stage it is in, and remind you that becoming someone who speaks plainly is not a single event — it is a quiet, ongoing becoming."
+    ],
+    "benefits": [
+      "Slate-blue agate is said to steady the mind before difficult conversations.",
+      "The gold butterfly motif is said to honor growth in how you express yourself.",
+      "Blue tones echo the throat chakra and its calm, honest center.",
+      "A daily token of patience for whatever change you are mid-way through.",
+      "Muted blue-gray beads blend easily with neutrals, denim, and gold jewelry."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Beads: slate-blue agate with a gold butterfly accent",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/throat-b7-2506.webp",
+    "images": [
+      "/products/throat-b7-2506.webp",
+      "/products/throat-b7-2506-2.webp",
+      "/products/throat-b7-2506-3.webp",
+      "/products/throat-b7-2506-4.webp",
+      "/products/throat-b7-2506-5.webp",
+      "/products/throat-b7-2506-6.webp",
+      "/products/throat-b7-2506-7.webp"
+    ]
+  },
+  {
     "id": "throat-b6-2501",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "B6-2501 薰衣草海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Lavender Whisper Lavender Aquamarine Bracelet",
+    "tagline": "Lavender aquamarine blends sea-blue calm with a violet hush — said to soften the voice so that tender truths can be spoken without fear.",
+    "material": "This bracelet is strung with lavender aquamarine, a pale stone that hovers between aqua and violet. In natural light it reads as a whisper of blue with a soft lilac undertone, and each bead shows the subtle variations in depth of color that natural stones do. The overall impression is quiet, cool, and luminous — closer to morning mist than to deep ocean, and easy to wear beside almost any color in your wardrobe.",
+    "energy": [
+      "The throat chakra, at the center of the neck, is traditionally linked to the color blue and to the act of honest expression. Lavender aquamarine carries that blue but softens it, and is said to bring a gentler current to the voice — useful when the words you need to say are kind ones, or hard ones wrapped in kindness. In traditional belief it encourages speech that is true yet tender, spoken at a volume that matches the moment.",
+      "Real-Life Signs You May Recognize",
+      "Perhaps you stay quiet when a gentler version of the truth might actually help. You may rehearse a difficult conversation at two in the morning — the sentences ready, the courage thin — then say nothing the next day. Or you apologize for taking up space when you speak, adding sorry to thoughts that deserved none. This piece does not promise to make you bold overnight. Its quieter hope is that wearing a soft blue near your throat may remind you that honesty can be gentle, that your voice deserves room, and that tender words, said slowly, often land the deepest."
+    ],
+    "benefits": [
+      "A pale blue-violet stone that is said to ease the nerves around difficult truths.",
+      "Traditional belief links its cool color to calm, considered speech.",
+      "Soft enough for daily wear beside quiet, sensitive personalities.",
+      "A visible reminder to speak tenderly and still be heard.",
+      "Its lilac undertone adds a soft, romantic note to any outfit."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Beads: natural lavender aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-b6-2501.webp",
     "images": [
       "/products/throat-b6-2501.webp",
@@ -4265,15 +4986,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "D5-2506 【远离焦虑】能量清泉-8mm",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Still Water Anxiety Relief Kyanite and Clear Quartz Bracelet 8mm",
+    "tagline": "Kyanite and clear quartz in still, cool beads — said to quiet the inner chatter so that what you finally say is what you truly mean.",
+    "material": "Eight-millimeter beads of blue kyanite and clear quartz alternate around this bracelet, a cool, watery pairing. The kyanite brings muted blue, from pale slate to deeper sky; the clear quartz is limpid and light-catching. At eight millimeters the beads hold a substantial presence without feeling heavy, and the two stones trade color and clarity in an even rhythm around the wrist, like still water catching the light in two registers.",
+    "energy": [
+      "Clear quartz is said to be a gentle amplifier, and blue kyanite a stone of calm alignment — together, in traditional belief, they are thought to quiet the noise between your thoughts and your words. The throat chakra, seated at the neck, is linked to saying what is true; this pairing is said to help you reach that truth through stillness rather than force, letting anxious loops settle before you speak.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the moment the room goes quiet and your mind fills with static — every possible sentence rehearsed and discarded in seconds. Or the habit of agreeing quickly, just to end the tension of not having spoken. Sometimes you answer with what is easiest rather than what is real, and the mismatch sits with you long after. This bracelet makes no grand promise. Its quieter hope is that kyanite's cool blue and quartz's clear light, worn at the wrist or held at the throat, might give anxious thoughts somewhere to rest — so that when you do speak, the voice that comes out is unmistakably yours."
+    ],
+    "benefits": [
+      "A pairing said to calm racing thoughts before they reach your voice.",
+      "Blue kyanite is traditionally linked to orderly, honest communication.",
+      "Clear quartz is said to bring light and simplicity to muddled words.",
+      "Eight-millimeter beads give the bracelet a steady, grounded feel.",
+      "A still-water reminder for mornings when the inner noise is loud."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Bead size: approximately 8 mm; blue kyanite alternating with clear quartz",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-d5-2506-8mm.webp",
     "images": [
       "/products/throat-d5-2506-8mm.webp",
@@ -4285,44 +5020,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-b7-2506",
-    "chakra": "throat",
-    "chakraName": "Throat Chakra",
-    "color": "#9fcde0",
-    "name": "B7-2506 蝴蝶",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/throat-b7-2506.webp",
-    "images": [
-      "/products/throat-b7-2506.webp",
-      "/products/throat-b7-2506-2.webp",
-      "/products/throat-b7-2506-3.webp",
-      "/products/throat-b7-2506-4.webp",
-      "/products/throat-b7-2506-5.webp",
-      "/products/throat-b7-2506-6.webp",
-      "/products/throat-b7-2506-7.webp"
-    ]
-  },
-  {
     "id": "throat-d5-2507-8mm",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "D5-2507 【好运降临】净化负能量-8mm",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Good Fortune Purifying Kyanite and Aquamarine Bracelet 8mm",
+    "tagline": "Kyanite and aquamarine, two blues of the sea and sky — said to clear the path between heart and voice, and to bring luck to words spoken honestly.",
+    "material": "Eight-millimeter beads alternate between two blues here — kyanite in its muted, matte tones and aquamarine with a clearer, watery gleam. The effect is a strand that moves from quiet slate to pale sea as it circles the wrist. Both stones belong to the same cool family of color, so the bracelet reads as one continuous blue, easy to pair with anything and calming to look at throughout a long day.",
+    "energy": [
+      "Aquamarine is said to carry the calm of the sea into speech, and kyanite is said to keep communication honest and aligned — in traditional belief, the two together are thought to purify the channel between what you feel and what you say. Blue is the color of the throat chakra, and these stones wear that blue in two registers: one reflective, one clear. Their shared gift is said to be a voice that flows rather than strains.",
+      "Real-Life Signs You May Recognize",
+      "Maybe you have felt the gap between a kind heart and a clumsy tongue — meaning well, then wincing at how the words came out. Or you hold back an honest compliment because expressing warmth feels exposed. And there is the quieter habit of letting someone else's version of a story stand because correcting it would take energy you do not have. This bracelet offers no dramatic fix. Its hope is modest and real: that two purifying blues at your wrist might remind you to say the true, kind thing while the impulse is fresh — and that honesty, practiced gently, begins to feel like good fortune of its own."
+    ],
+    "benefits": [
+      "Two blues said to work together for clear, heartfelt speech.",
+      "Aquamarine is said to bring the sea's calm into your words.",
+      "Kyanite is said to keep what you say aligned with what you mean.",
+      "Eight-millimeter beads give the strand a comfortable, substantial presence.",
+      "A quiet reminder that good fortune often follows words spoken with honesty."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Bead size: approximately 8 mm; kyanite alternating with aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-d5-2507-8mm.webp",
     "images": [
       "/products/throat-d5-2507-8mm.webp",
@@ -4333,88 +5057,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-e03-2503",
-    "chakra": "throat",
-    "chakraName": "Throat Chakra",
-    "color": "#9fcde0",
-    "name": "E03-2503 【水瓶座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/throat-e03-2503.webp",
-    "images": [
-      "/products/throat-e03-2503.webp",
-      "/products/throat-e03-2503-2.webp",
-      "/products/throat-e03-2503-3.webp",
-      "/products/throat-e03-2503-4.webp",
-      "/products/throat-e03-2503-5.webp"
-    ]
-  },
-  {
-    "id": "throat-e03-2504",
-    "chakra": "throat",
-    "chakraName": "Throat Chakra",
-    "color": "#9fcde0",
-    "name": "E03-2504 【双鱼座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/throat-e03-2504.webp",
-    "images": [
-      "/products/throat-e03-2504.webp",
-      "/products/throat-e03-2504-2.webp",
-      "/products/throat-e03-2504-3.webp",
-      "/products/throat-e03-2504-4.webp",
-      "/products/throat-e03-2504-5.webp"
-    ]
-  },
-  {
-    "id": "throat-e03-2506",
-    "chakra": "throat",
-    "chakraName": "Throat Chakra",
-    "color": "#9fcde0",
-    "name": "E03-2506 【天蝎座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/throat-e03-2506.webp",
-    "images": [
-      "/products/throat-e03-2506.webp",
-      "/products/throat-e03-2506-2.webp",
-      "/products/throat-e03-2506-3.webp",
-      "/products/throat-e03-2506-4.webp",
-      "/products/throat-e03-2506-5.webp"
-    ]
-  },
-  {
     "id": "throat-e03-2505",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2505 【金牛座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Steady Voice Aquamarine Bracelet for Taurus",
+    "tagline": "For the Taurus who values the right word over the fast one, aquamarine is said to keep the voice steady, patient, and true to what you know.",
+    "material": "This Taurus piece is strung entirely with aquamarine, a cool pale-blue stone that holds light the way still water does. The beads are natural, so each one differs slightly in clarity and depth of tone — some almost clear, others carrying a fuller sea-blue. On the wrist, the strand reads calm and grounded, with a quiet luminosity that does not shout. It is the kind of piece meant to be worn often and to wear well, like a steady companion.",
+    "energy": [
+      "For Taurus, known for measuring words before releasing them, aquamarine is said to reward that patience with clarity. In traditional belief the stone steadies the throat chakra, keeping speech slow enough to be honest and sure enough to be heard. Where a hurried voice stumbles, a steady one simply arrives. Aquamarine is said to help the deliberate speaker trust their own pace — to say the true thing at the right speed, without apology and without rush.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the habit of saying little until you are certain, then finding the moment has passed and the certain words go unspoken. Or you hold a strong, well-formed opinion and let a quicker voice claim the floor. Perhaps you were taught that steady people do not make a fuss, so you have practiced quietness into a default. This bracelet does not ask you to become louder. Its hope is that the calm blue at your wrist might remind you that your careful voice is worth the wait — that you can speak at your own pace and still be heard, and that certainty, voiced in your own time, has a weight no hurry can match."
+    ],
+    "benefits": [
+      "Aquamarine is said to keep deliberate speech calm and unhurried.",
+      "A grounding blue for the Taurus who thinks before speaking.",
+      "Cool sea tones echo the throat chakra's steady, honest center.",
+      "A reminder that your measured voice deserves to be heard.",
+      "Simple, enduring beads suit the Taurus love of lasting things."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Taurus; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-e03-2505.webp",
     "images": [
       "/products/throat-e03-2505.webp",
@@ -4425,26 +5094,114 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-e03-2507",
+    "id": "throat-e03-2504",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2507 【摩羯座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Tide of Feelings Aquamarine Bracelet for Pisces",
+    "tagline": "For the Pisces who feels everything before saying any of it, aquamarine is said to turn deep tides of feeling into words that can finally be spoken.",
+    "material": "Strung entirely in aquamarine, this bracelet is a study in watery blues — pale and translucent where light passes through, deeper and more gathered where it does not. The beads are natural stone, each one slightly different in clarity, like looking at the sea from different depths. On the wrist it reads cool, fluid, and quietly luminous, the kind of blue associated with tides and with the calm that rests beneath them.",
+    "energy": [
+      "For Pisces, known for feeling in full color before a single word is chosen, aquamarine is said to offer feelings a safe passage outward. In traditional belief, the stone calms the waters of emotion so that what is felt deeply can be named without drowning in itself. Blue is the color of the throat chakra, and for a sign that often carries its inner tide in silence, this gentle stone is said to be a bridge between the heart's weather and the spoken word.",
+      "Real-Life Signs You May Recognize",
+      "You may know what it is to feel a conversation before it happens — every undertone registered, your own reply forming somewhere below the surface and rarely rising. Perhaps you absorb others' moods so completely that your own opinion gets lost in theirs. Or you are moved by something true and beautiful, and the words to say so arrive only later, alone. This bracelet offers no remedy for depth. Its hope is that a watery blue at your wrist might help one feeling at a time find its way to the surface — that you can be both tender and articulate, and that the tide of your inner life does not have to stay silent to be safe."
+    ],
+    "benefits": [
+      "Aquamarine is said to help deep feelings find their way into words.",
+      "A calming blue for the Pisces whose inner tide runs strong.",
+      "Sea-blue tones echo the throat chakra's gift for honest expression.",
+      "A gentle reminder that feeling deeply and speaking clearly can coexist.",
+      "Fluid, luminous beads make this an easy everyday piece for sensitive wearers."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Pisces; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
-    "image": "/products/throat-e03-2507.webp",
+    "price": 89,
+    "image": "/products/throat-e03-2504.webp",
     "images": [
-      "/products/throat-e03-2507.webp",
-      "/products/throat-e03-2507-2.webp",
-      "/products/throat-e03-2507-3.webp",
-      "/products/throat-e03-2507-4.webp",
-      "/products/throat-e03-2507-5.webp"
+      "/products/throat-e03-2504.webp",
+      "/products/throat-e03-2504-2.webp",
+      "/products/throat-e03-2504-3.webp",
+      "/products/throat-e03-2504-4.webp",
+      "/products/throat-e03-2504-5.webp"
+    ]
+  },
+  {
+    "id": "throat-e03-2503",
+    "chakra": "throat",
+    "chakraName": "Throat Chakra",
+    "color": "#9fcde0",
+    "name": "Visionary Voice Aquamarine Bracelet for Aquarius",
+    "tagline": "For the Aquarius known for seeing what others miss, aquamarine is said to give those visions words — steady, honest, and unafraid of being first.",
+    "material": "This zodiac piece is made of aquamarine beads in soft, watery blues that shift with the light, from nearly clear to pale ocean. Each bead is a natural stone, so no two are exactly alike in tone or translucency. The overall strand reads cool, clean, and luminous — the kind of blue that makes you think of still water at midday. It is a classic single-strand bracelet with an easy, everyday presence.",
+    "energy": [
+      "For Aquarius, known for a mind that runs ahead of the room, aquamarine is said to give that vision a clear channel — traditional belief holds that its sea-blue tones help turn far-seeing thoughts into words others can follow. The throat chakra, seated at the neck, is where ideas learn to speak. With aquamarine nearby, the flow is said to run from insight to expression without the current getting lost in between.",
+      "Real-Life Signs You May Recognize",
+      "You may know the feeling of being understood a beat too late — your idea arrives early, and by the time the group catches up you have already moved on, so you stop offering it. Or you hold the longer view in silence because explaining it feels like too much effort. Perhaps you are so used to being the one who sees ahead that you rarely say how much you want to be heard yourself. This bracelet does not promise an audience. Its hope is gentler: that a calm blue at your wrist might remind you that your voice is worth the pause — that the thing you see clearly deserves to be spoken, even if the room needs a moment to arrive."
+    ],
+    "benefits": [
+      "Aquamarine is said to channel far-seeing thoughts into clear words.",
+      "A cool blue companion for the Aquarius who thinks ahead of the room.",
+      "Sea-toned beads echo the throat chakra's calm, expressive blue.",
+      "A reminder that your far-sighted voice deserves its own moment.",
+      "Wears well with both everyday looks and considered evening style."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Zodiac piece for Aquarius; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/throat-e03-2503.webp",
+    "images": [
+      "/products/throat-e03-2503.webp",
+      "/products/throat-e03-2503-2.webp",
+      "/products/throat-e03-2503-3.webp",
+      "/products/throat-e03-2503-4.webp",
+      "/products/throat-e03-2503-5.webp"
+    ]
+  },
+  {
+    "id": "throat-e03-2506",
+    "chakra": "throat",
+    "chakraName": "Throat Chakra",
+    "color": "#9fcde0",
+    "name": "Deep Water Truth Aquamarine Bracelet for Scorpio",
+    "tagline": "For the Scorpio who keeps the deepest truths in the deepest water, aquamarine is said to help them rise — clear, deliberate, and safe to say.",
+    "material": "This bracelet is strung in aquamarine, a pale sea-blue stone chosen for the way it holds depth without darkness. The beads are natural and vary subtly — some catching the light almost clear, others carrying a stronger oceanic tone. Around the wrist, the strand reads as cool and composed, the color of deep water seen from above: quiet on the surface, substantial underneath. It is a single-strand bracelet of classic proportion.",
+    "energy": [
+      "For Scorpio, known for keeping the truest things close and unspoken, aquamarine is said to offer a gentler route to the surface. Traditional belief describes the stone as water that clarifies — helping words rise from the deep places without losing their weight or their honesty. The throat chakra governs what we choose to voice, and for a sign that measures trust carefully, this sea-blue stone is said to make revelation feel less like exposure and more like relief.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the particular loneliness of being fully understood by almost no one — your inner life rich and guarded, your spoken self a smaller, safer version. Perhaps you have learned to answer questions with true but partial words, keeping the real sentence for yourself. Or you protect others from your intensity, editing yourself until the sharp, honest thing becomes a smooth, silent one. This bracelet asks for nothing dramatic. Its hope is that a band of deep-water blue at your wrist might give one guarded truth permission to surface — that honesty can be offered at your own pace, and that being truly known begins with one clear sentence, spoken when you choose."
+    ],
+    "benefits": [
+      "Aquamarine is said to help guarded truths rise gently into speech.",
+      "Deep-water blue echoes the throat chakra's gift for real words.",
+      "A quiet ally for the Scorpio who trusts before they speak.",
+      "A reminder that being known can begin with a single clear sentence.",
+      "Cool, composed beads suit a presence that speaks softly and means it."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Zodiac piece for Scorpio; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/throat-e03-2506.webp",
+    "images": [
+      "/products/throat-e03-2506.webp",
+      "/products/throat-e03-2506-2.webp",
+      "/products/throat-e03-2506-3.webp",
+      "/products/throat-e03-2506-4.webp",
+      "/products/throat-e03-2506-5.webp"
     ]
   },
   {
@@ -4452,15 +5209,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2508 【处女座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Clear Mind Clear Voice Aquamarine Bracelet for Virgo",
+    "tagline": "For the Virgo who edits every sentence before it leaves the room, aquamarine is said to quiet the inner editor and let the clear voice through.",
+    "material": "This Virgo bracelet is strung entirely in aquamarine, a clean pale-blue stone that suits a mind that likes things in order. The beads are natural, each one a slightly different register of the same cool blue — some near-transparent, some with a fuller watery tone — strung in an even, uninterrupted strand. The overall effect is precise and serene: a piece for someone who notices details, in colors that will not argue with the rest of your day.",
+    "energy": [
+      "For Virgo, known for refining thoughts until they are almost too polished to release, aquamarine is said to be the stone that lets a finished thought finally leave the mouth. In traditional belief, its clear sea-blue tones bring composure to the throat chakra, so that precision serves expression instead of delaying it. It is said to help the careful speaker trust that a well-chosen word, spoken at last, is better than a perfect one kept silent.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the feeling of writing the perfect reply and sending nothing — or rehearsing a sentence until the moment for it has quietly passed. Perhaps you hold yourself to a standard in conversation that no live exchange could meet, then judge the silence afterward. You might even believe that if a thing cannot be said precisely, it is better not said at all. This bracelet is not asking you to lower your standards. Its hope is gentler: that the clear, still blue at your wrist might help you release the sentence at ninety percent — that a voice need not be flawless to be true, and that the words you almost say are often exactly the ones someone needed to hear."
+    ],
+    "benefits": [
+      "Aquamarine is said to let well-formed thoughts finally be spoken.",
+      "A clear, orderly blue for the Virgo who values precision.",
+      "Echoes the throat chakra's link between a clear mind and a clear voice.",
+      "A reminder that a true sentence does not need to be perfect.",
+      "Clean, even aquamarine beads suit a quiet, considered, detail-loving aesthetic."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Virgo; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-e03-2508.webp",
     "images": [
       "/products/throat-e03-2508.webp",
@@ -4472,19 +5243,70 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "throat-e03-2507",
+    "chakra": "throat",
+    "chakraName": "Throat Chakra",
+    "color": "#9fcde0",
+    "name": "Mountain Voice Aquamarine Bracelet for Capricorn",
+    "tagline": "For the Capricorn who climbs first and speaks later, aquamarine is said to give the high, quiet places a voice — steady as stone, clear as alpine air.",
+    "material": "This Capricorn bracelet is strung in natural aquamarine, beads of pale sea-blue with the cool clarity of mountain air. The stones vary bead to bead — some nearly translucent, others holding a deeper glacial tone — and together they read as one continuous, quiet blue. On the wrist it is understated and composed, the kind of piece that does its work without demanding attention, fitting easily beside tailored neutrals and serious days.",
+    "energy": [
+      "For Capricorn, known for reaching summits before allowing themselves rest or words, aquamarine is said to lend the voice what the climb already taught you — steadiness. In traditional belief, the stone clears the throat chakra the way cold air clears a high ridge, sharpening intention into concise, honest speech. It is said to help the reserved speaker say the essential thing without ornament, trusting that a well-built sentence, like a well-built life, needs no excess.",
+      "Real-Life Signs You May Recognize",
+      "You may know the pattern of doing the work and letting the telling go undone — assuming results should speak, then finding they rarely do alone. Perhaps you wait to be asked, or you keep your goals private so long that naming them out loud feels like a risk. You might even hear that you never said anything and feel the familiar weight of a sentence you had fully composed but never released. This bracelet offers no push toward small talk. Its hope is that a clear, cold blue at your wrist might make room for your own announcements — that the things you have built and the person you have become deserve to be spoken, in your own measured way, at your own chosen moment."
+    ],
+    "benefits": [
+      "Aquamarine is said to sharpen intention into concise, honest speech.",
+      "A clear, composed blue for the Capricorn who leads quietly.",
+      "Echoes the throat chakra's gift for saying the essential thing.",
+      "A reminder that what you build deserves to be named out loud.",
+      "Understated aquamarine beads fit easily into serious days and tailored wardrobes."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Zodiac piece for Capricorn; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/throat-e03-2507.webp",
+    "images": [
+      "/products/throat-e03-2507.webp",
+      "/products/throat-e03-2507-2.webp",
+      "/products/throat-e03-2507-3.webp",
+      "/products/throat-e03-2507-4.webp",
+      "/products/throat-e03-2507-5.webp"
+    ]
+  },
+  {
     "id": "throat-e03-2509",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2509 【射手座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Arrow of Truth Aquamarine Bracelet for Sagittarius",
+    "tagline": "For the Sagittarius whose honesty flies ahead of tact, aquamarine is said to aim the arrow of truth so it lands as wisdom, not wound.",
+    "material": "Strung in natural aquamarine, this Sagittarius bracelet has the pale, far-reaching blue of open sky above clear water. The beads are natural stones, each catching light a little differently — some clear and bright, others carrying a deeper oceanic tone — and the strand runs smooth and even around the wrist. It is a straightforward, well-made piece with nothing fussy about it, the kind of blue that pairs as easily with travel days as with a desk by a window.",
+    "energy": [
+      "For Sagittarius, known for aiming straight at the truth, aquamarine is said to give that honesty a steadier flight. In traditional belief, the stone cools the throat chakra enough that candor can land gently — the same truth, delivered with the sea's patience instead of the arrow's hurry. It is said to help the direct speaker keep the aim true while softening the impact, so that what you say opens doors rather than closing them.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the aftermath of a too-honest moment — the point was valid, the delivery left a bruise, and you replay it on the drive home. Perhaps you have learned to swallow the truthful observation because you have seen what it does unaimed, and now the silence feels just as wrong. Or you are the one people come to for the real answer, and you carry the weight of always giving it. This bracelet does not ask you to be less honest. Its hope is that the clear blue at your wrist might add a pause between the thought and the arrow — enough for the same truth to arrive as a gift rather than a challenge, and for your candor to be remembered as wisdom."
+    ],
+    "benefits": [
+      "Aquamarine is said to give honesty a gentler, steadier flight.",
+      "Open-sky blue for the Sagittarius who values the truth.",
+      "Echoes the throat chakra's balance between candor and care.",
+      "A reminder that the true thing can also be the kind thing.",
+      "Simple, robust aquamarine beads suit a life that keeps moving forward."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Sagittarius; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-e03-2509.webp",
     "images": [
       "/products/throat-e03-2509.webp",
@@ -4499,15 +5321,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E03-2510 【天秤座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Balanced Voice Aquamarine Bracelet for Libra",
+    "tagline": "For the Libra who weighs every side before choosing a word, aquamarine is said to settle the scales and let your own voice be one of them.",
+    "material": "This Libra bracelet is strung in aquamarine, a balanced pale blue that sits comfortably between clear and cool. The natural beads vary subtly — some nearly translucent, others holding a soft oceanic depth — strung in an even rhythm around the wrist. There is an easy symmetry to the strand that suits a sign drawn to harmony: nothing loud, nothing missing, just an uninterrupted circle of watery blue that finishes any outfit without ever competing with it.",
+    "energy": [
+      "For Libra, known for weighing every side until speaking feels almost unfair to the others, aquamarine is said to add your own voice to the balance. In traditional belief, the stone steadies the throat chakra so that fairness does not become silence — reminding the careful listener that their considered view is itself one of the sides that deserves to be heard. It is said to help the harmonious speaker find the middle path between yielding and being heard.",
+      "Real-Life Signs You May Recognize",
+      "You may know the particular exhaustion of holding everyone's perspective so well that your own has no chair at the table. Perhaps you wait to speak until the conversation has already found its shape, then decide not to disturb the peace. Or you say that either way works so often that people stop asking what you actually prefer — and a small part of you wishes they would. This bracelet does not ask you to stop considering others. Its hope is quieter: that the balanced blue at your wrist might remind you that your preference is data too — that harmony includes your voice, and that a true opinion, offered kindly, rarely disturbs the peace as much as silence does."
+    ],
+    "benefits": [
+      "Aquamarine is said to let your voice join the balance you keep.",
+      "A harmonious blue for the Libra who listens before speaking.",
+      "Echoes the throat chakra's link between fairness and expression.",
+      "A reminder that your preference is part of the equation too.",
+      "Even, symmetrical aquamarine beads suit a taste for quiet harmony."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Libra; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-e03-2510.webp",
     "images": [
       "/products/throat-e03-2510.webp",
@@ -4520,15 +5356,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E04-2501 【双子座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "True Twin Aquamarine Bracelet for Gemini",
+    "tagline": "For the Gemini who holds two thoughts at once, aquamarine is said to help both of them speak as one true, unhurried voice.",
+    "material": "This Gemini piece is strung in natural aquamarine, a pale blue stone that seems to hold two lights at once — clear like glass in some beads, deeper like sea water in others. Strung together, the two registers of blue alternate around the wrist in a rhythm that feels conversational rather than repetitive. The effect is a single strand that still has an inner dialogue, cool and bright, suited to a quick-moving mind that likes its jewelry to keep up.",
+    "energy": [
+      "For Gemini, known for holding two thoughts — sometimes two truths — in mind at once, aquamarine is said to help them settle into a single clear sentence. In traditional belief, the stone steadies the throat chakra so that quickness becomes agility rather than contradiction: the speaker says the truer thing, not merely the cleverer one. It is said to help the fast mind slow its words to match its honesty.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the experience of meaning both things you said, then watching someone choose one and feeling misread either way. Perhaps you adapt your words to whoever is listening so smoothly that later you cannot remember which version was yours. Or you have a public voice and a private one, and the gap between them has begun to cost you energy. This bracelet does not ask you to become simpler. Its hope is that the clear, doubled blue at your wrist might help your many thoughts find one honest through-line — that you can be quick and still be consistent, and that the voice you trust most is the one that says the true thing in any company."
+    ],
+    "benefits": [
+      "Aquamarine is said to weave quick thoughts into one honest sentence.",
+      "A clear blue for the Gemini who speaks in many registers.",
+      "Echoes the throat chakra's call for words that match your meaning.",
+      "A reminder that agility and honesty can share one voice.",
+      "Bright, fluid aquamarine beads suit a lively, expressive everyday style."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Gemini; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-e04-2501.webp",
     "images": [
       "/products/throat-e04-2501.webp",
@@ -4542,15 +5392,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E04-2502 【狮子座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Radiant Roar Aquamarine Bracelet for Leo",
+    "tagline": "For the Leo whose voice was made to fill a room, aquamarine is said to keep the roar warm, honest, and worth leaning in to hear.",
+    "material": "This Leo bracelet is strung in aquamarine, and it is an interesting choice for a sign that often wears gold and fire: a cool, clear sea-blue that stands out precisely because it does not shout. The natural beads vary from near-transparent to a deeper watery tone, strung in an even strand that catches light as it moves. On the wrist it has presence without volume — the kind of piece that draws a second look rather than a first gasp.",
+    "energy": [
+      "For Leo, known for a voice that naturally commands attention, aquamarine is said to add something unexpected: restraint. In traditional belief, the stone cools the throat chakra enough that the lion's roar becomes a choice rather than a reflex — warm, deliberate, and therefore more powerful. It is said to help the natural performer speak from genuine feeling rather than from habit, so that every word carries weight because it was meant.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the moment you realize people are listening to how you say things and assuming you have said more than you meant. Perhaps you fill silences because you were taught that presence means talking, then wonder later what you actually wanted to say. Or you give generously — words, warmth, energy — and occasionally wish someone would ask what you need to hear for a change. This bracelet does not ask you to dim anything. Its hope is that the cool blue at your wrist might make room between your warmth and your volume — that your voice can fill a room and still be honest, and that the people who lean in are hearing the real you, not the performance."
+    ],
+    "benefits": [
+      "Aquamarine is said to give a powerful voice a deliberate, warm tone.",
+      "Cool sea-blue for the Leo whose warmth already fills rooms.",
+      "Echoes the throat chakra's balance between presence and honesty.",
+      "A reminder that a roar chosen is stronger than a roar on reflex.",
+      "An unexpected, luminous aquamarine blue that flatters a golden wardrobe."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Leo; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-e04-2502.webp",
     "images": [
       "/products/throat-e04-2502.webp",
@@ -4561,19 +5425,69 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "throat-e04-2503",
+    "chakra": "throat",
+    "chakraName": "Throat Chakra",
+    "color": "#9fcde0",
+    "name": "First Flame Clear Voice Aquamarine Bracelet for Aries",
+    "tagline": "For the Aries who speaks before the thought cools, aquamarine is said to keep the first flame clear — brave words, chosen rather than rushed.",
+    "material": "Strung in natural aquamarine, this Aries bracelet pairs a sign of fire with the coolest of blues — and the contrast is the point. The beads run from near-clear to a gentle oceanic tone, strung in a smooth, even strand that feels energetic rather than heavy. On the wrist it reads as a cool current against warm skin, a piece that moves when you move and catches light when you gesture. It is understated in size and unmistakable in color.",
+    "energy": [
+      "For Aries, known for speaking first and refining later, aquamarine is said to lend the fire a channel of cool water. In traditional belief, the stone steadies the throat chakra so that the first instinct becomes a clear sentence rather than a spark that lands where it was not aimed. It is said to help the quick speaker keep the courage of the first word while giving it the clarity of a second thought.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the pattern of blurting the brave truth, then spending the evening explaining what you actually meant. Perhaps you are so used to being first — first to speak, first to decide, first to defend — that pausing feels like losing your turn. Or you have been told, more than once, that you come on strong, and you have started holding back the very things that make you you. This bracelet does not ask you to slow your fire. Its hope is that the cool blue at your wrist might add a single breath between impulse and word — enough for the first flame to arrive as clarity instead of sparks, and for your courage to be heard as strength, not heat."
+    ],
+    "benefits": [
+      "Aquamarine is said to cool the first impulse into a clear sentence.",
+      "A fire-meets-water blue for the Aries who leads with words.",
+      "Echoes the throat chakra's gift for brave, unhurried speech.",
+      "A reminder that courage lands best when it is aimed with care.",
+      "A bright, cool aquamarine accent for an energetic, warm-toned wardrobe."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Zodiac piece for Aries; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/throat-e04-2503.webp",
+    "images": [
+      "/products/throat-e04-2503.webp",
+      "/products/throat-e04-2503-2.webp",
+      "/products/throat-e04-2503-3.webp",
+      "/products/throat-e04-2503-4.webp"
+    ]
+  },
+  {
     "id": "throat-e04-2504",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "E04-2504 【巨蟹座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Shell and Sea Aquamarine Bracelet for Cancer",
+    "tagline": "For the Cancer who protects a tender inner tide, aquamarine is said to be the shell that lets some of it out — safe, soft, and heard.",
+    "material": "This Cancer piece is strung in natural aquamarine, a pale sea-blue stone that holds the soft, private light of water inside a shell. The beads vary gently — some nearly clear, others holding a deeper oceanic tone — and the strand runs smooth and close around the wrist. There is something sheltering about the color, a blue that asks nothing and gives the eye a place to rest, suited to a wearer whose inner life is deep and carefully guarded.",
+    "energy": [
+      "For Cancer, known for a rich inner tide kept carefully within the shell, aquamarine is said to offer one small, safe opening. In traditional belief, the stone soothes the throat chakra into trusting that some feelings can be spoken without becoming vulnerable in the wrong way. It is said to help the protective speaker choose — deliberately, gently — which inner waters to release, and to find that naming a feeling often softens its weight.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the habit of caring for everyone's feelings except the ones you are carrying yourself, then feeling unseen in the middle of being endlessly supportive. Perhaps you have learned that showing your inner weather invites weather from others, so you keep the forecast private. Or the words are ready — tender and true — and they simply wait for a safer room than the one you are in. This bracelet does not ask you to open the shell all at once. Its hope is that the sea-blue at your wrist might make one small release feel safe — that you can be both the protector and the one protected, and that the people who love you are waiting for your words, not just your care."
+    ],
+    "benefits": [
+      "Aquamarine is said to make tender feelings safe to release.",
+      "A sheltering sea-blue for the Cancer who gives and guards.",
+      "Echoes the throat chakra's power to name what we carry.",
+      "A reminder that being cared for begins with being heard.",
+      "Soft, rounded aquamarine beads suit a gentle, intuitive personal style."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Zodiac piece for Cancer; beads of natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-e04-2504.webp",
     "images": [
       "/products/throat-e04-2504.webp",
@@ -4584,41 +5498,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "throat-e04-2503",
-    "chakra": "throat",
-    "chakraName": "Throat Chakra",
-    "color": "#9fcde0",
-    "name": "E04-2503 【白羊座】海蓝宝手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/throat-e04-2503.webp",
-    "images": [
-      "/products/throat-e04-2503.webp",
-      "/products/throat-e04-2503-2.webp",
-      "/products/throat-e04-2503-3.webp",
-      "/products/throat-e04-2503-4.webp"
-    ]
-  },
-  {
     "id": "throat-f07-2507-8mm",
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "F07-2507 8mm天河石紫水晶手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Tranquil Truth Amazonite and Amethyst Bracelet 8mm",
+    "tagline": "Amazonite and amethyst, blue-green calm and violet clarity — said to make the truth easier to speak and softer to hear.",
+    "material": "This bracelet alternates eight-millimeter beads of amazonite and amethyst — amazonite in its signature blue-green, amethyst in soft violet. The two colors sit across from each other on the wheel of cool tones, and together they make a strand that is neither fully blue nor fully purple, but a quiet meeting of both. At eight millimeters the beads are present without being heavy, and the natural stones vary subtly in tone and pattern, as natural stones should.",
+    "energy": [
+      "Amazonite is said to be a stone of tranquil truth — speech that is honest and still gentle — and it is one of the stones traditionally linked to the throat chakra. Here it is paired with amethyst, said to bring a violet calm to a busy mind. In traditional belief the two together are thought to help you say the true thing without your heart racing, and to help the listener receive it without defenses rising. Blue-green meets violet; courage meets composure.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the specific strain of holding back a truth to keep the peace, then finding the peace was never really kept. Perhaps your honesty comes out either too sharp or too late, and you cannot seem to find the middle register. Or you are gentle by nature and have learned that gentle people sometimes have to work twice as hard to be believed when they finally mean no. This bracelet offers a quiet middle way. Its hope is that amazonite's blue-green steadiness and amethyst's violet hush, worn together at your wrist, might help you speak the tranquil truth — firm enough to be real, soft enough to be received — and to trust that you can be both kind and clear in the same sentence."
+    ],
+    "benefits": [
+      "Amazonite is traditionally linked to speech that is honest and gentle at once.",
+      "Amethyst is said to add a violet calm when truth feels risky.",
+      "Eight-millimeter beads of blue-green and violet echo the throat chakra's colors.",
+      "A reminder that truth spoken softly is still truth.",
+      "The cool pairing suits a serene, considered personal style."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Bead size: approximately 8 mm; amazonite alternating with amethyst",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-f07-2507-8mm.webp",
     "images": [
       "/products/throat-f07-2507-8mm.webp",
@@ -4633,15 +5539,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "I06-2510 【夏日清凉】海蓝宝(约5-6mm)随形手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Summer Breeze Free Form Aquamarine Bracelet 5 6mm",
+    "tagline": "Free-form aquamarine, cool and uneven like sea glass — said to carry a summer breeze into the words you were too shy to say.",
+    "material": "This bracelet is made of free-form aquamarine beads, approximately five to six millimeters across — small, irregular pieces of pale sea-blue stone, soft at the edges but never perfectly round. Because each bead is cut freely, the strand has a natural, uneven rhythm, like shells collected along a shoreline. The tones run from near-clear to gentle oceanic blue, and the small size keeps the whole piece light and airy, as its name suggests.",
+    "energy": [
+      "Free-form aquamarine carries the throat chakra's blue in its most unpolished form, and in traditional belief that roughness is part of the gift: speech does not need to be perfect to be true. Aquamarine is said to bring the calm of the sea into expression, and worn in these small, breezy beads, it is said to make honesty feel lighter — less like a weight lifted and more like a window opened on a summer day.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the shyness that arrives exactly when the words matter — a meeting, a first hello, a sentence you have practiced that still will not leave your mouth. Perhaps you save your real opinions for people you trust completely, and even then you offer them quietly, ready to take them back. Or you wish you could speak the way you write: clearer, braver, less edited. This bracelet is not a lecture about confidence. Its hope is as light as its name — that wearing a few cool, uneven beads might make expression feel less like a test and more like a breeze; that the sentence you are too shy to say is often the one someone is waiting to hear, and it does not need to be perfect, only yours."
+    ],
+    "benefits": [
+      "Small free-form aquamarine beads feel light and easy to wear daily.",
+      "Aquamarine is said to bring summer calm into hesitant speech.",
+      "Free-form shapes echo the idea that true words need not be perfect.",
+      "A soft blue reminder that shy voices still deserve the floor.",
+      "The five-to-six-millimeter size suits delicate wrists and layered looks."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Bead size: approximately 5–6 mm; free-form natural aquamarine",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-i06-2510-5-6mm.webp",
     "images": [
       "/products/throat-i06-2510-5-6mm.webp",
@@ -4655,15 +5575,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "I07-2501 【冰海蓝魄】天然海蓝宝蓝晶石手串",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Frozen Ocean Soul Aquamarine and Kyanite Bracelet",
+    "tagline": "Aquamarine and kyanite, two blues of the frozen deep — said to thaw the words you have kept on ice until they are ready to speak.",
+    "material": "This bracelet layers two blues: aquamarine in its clearer, watery register and kyanite in muted slate tones, strung together in a single strand. The pairing is like looking into arctic water — pale and luminous in one bead, deep and still in the next. Both are natural stones, so the colors vary gently across the bracelet, and together they read as one continuous, cold-toned blue, quiet and substantial, the color of a frozen ocean beginning to remember it is water.",
+    "energy": [
+      "Aquamarine and kyanite are both stones traditionally linked to the throat chakra, and in traditional belief they are said to work on different layers of expression: kyanite keeps communication aligned with what you truly mean, while aquamarine brings the calm to say it. Frozen together in one strand, they are said to help words that have been kept under ice — private, protected, long-held — begin to move again, gently and at their own pace.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the sentences you have kept for years in perfect condition — the apology, the declaration, the honest answer — preserved so long that speaking them now feels like breaking something precious. Perhaps you learned early that some feelings are safer frozen, and you have become skilled at the art of not saying. Or the thaw has already begun, and you need a companion for the awkward, hopeful middle stage. This bracelet makes no promises about timing. Its hope is that two deep blues, worn together, might remind you that ice is still water — that the words you have kept so carefully have not expired, and that letting them move again, one syllable at a time, is not a loss but a release."
+    ],
+    "benefits": [
+      "Two throat-chakra blues said to align words with their true meaning.",
+      "Aquamarine is said to bring calm; kyanite is said to bring alignment.",
+      "A companion for long-held words that are ready to thaw.",
+      "Cool, layered aquamarine and kyanite tones suit a private, depth-loving wearer.",
+      "The pairing is said to help honesty move at its own pace."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Beads: aquamarine and kyanite in a single strand",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-i07-2501.webp",
     "images": [
       "/products/throat-i07-2501.webp",
@@ -4677,15 +5611,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "throat",
     "chakraName": "Throat Chakra",
     "color": "#9fcde0",
-    "name": "I09-2503 8mm灰月光+12mm蓝虎眼",
-    "tagline": "Throat Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Moon and Guardian Grey Moonstone and Blue Tiger's Eye Bracelet",
+    "tagline": "Grey moonstone and blue tiger's eye, intuition and quiet protection — said to steady the voice that speaks from deep, honest places.",
+    "material": "This bracelet pairs eight-millimeter grey moonstone with larger twelve-millimeter blue tiger's eye, creating a deliberate rhythm of sizes as well as colors. The moonstone is soft and misty — grey, luminous, moonlight in mineral form — while the blue tiger's eye shows a deeper, silkier blue with the shifting sheen the stone is known for. Worn together, smaller pale beads and larger dark ones alternate around the wrist in a pattern that feels both lunar and grounded.",
+    "energy": [
+      "Grey moonstone is said to carry a quiet, intuitive knowing, and blue tiger's eye — in its blue form — is traditionally linked to clear-sighted protection; together, in traditional belief, they are said to give the throat chakra a voice that is both instinctive and safe. The moonstone speaks for the inner self that often has no words yet; the blue tiger's eye stands guard while those words find their way out. One soft, one steady.",
+      "Real-Life Signs You May Recognize",
+      "You may recognize the feeling of knowing something is true before you can explain why — an intuition you trust in private but struggle to defend out loud. Perhaps you hold back because the room feels unsafe, or because past words came back to you unkindly, and you have learned to check for exits before you speak. Or you are the one others lean on for steadiness, and you have less practice asking for it yourself. This bracelet offers a quiet alliance. Its hope is that the misty moonstone and the guardian blue might work as a pair at your wrist — one helping you trust what you sense, the other helping you feel protected while you say it — so that the deep, honest voice you keep inside begins to find the light."
+    ],
+    "benefits": [
+      "Grey moonstone is said to honor intuition that arrives before words.",
+      "Blue tiger's eye is said to offer a steadying sense of protection.",
+      "Two bead sizes create a calm, grounding rhythm on the wrist.",
+      "A pairing for truths you feel before you can fully explain.",
+      "Moonlit grey and guardian blue tones suit quiet, reflective wearers."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Bead sizes: approximately 8 mm grey moonstone and 12 mm blue tiger's eye",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a stretch cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/throat-i09-2503-8mm-12mm.webp",
     "images": [
       "/products/throat-i09-2503-8mm-12mm.webp",
@@ -4694,69 +5642,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "third-eye-a2-2507",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "A2-2507 薰衣草紫阿塞",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/third-eye-a2-2507.webp",
-    "images": [
-      "/products/third-eye-a2-2507.webp",
-      "/products/third-eye-a2-2507-2.webp",
-      "/products/third-eye-a2-2507-3.webp",
-      "/products/third-eye-a2-2507-4.webp",
-      "/products/third-eye-a2-2507-5.webp",
-      "/products/third-eye-a2-2507-6.webp",
-      "/products/third-eye-a2-2507-7.webp"
-    ]
-  },
-  {
-    "id": "third-eye-a3-2503",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "A3-2503 紫水晶款",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/third-eye-a3-2503.webp",
-    "images": [
-      "/products/third-eye-a3-2503.webp",
-      "/products/third-eye-a3-2503-2.webp",
-      "/products/third-eye-a3-2503-3.webp",
-      "/products/third-eye-a3-2503-4.webp",
-      "/products/third-eye-a3-2503-5.webp",
-      "/products/third-eye-a3-2503-6.webp",
-      "/products/third-eye-a3-2503-7.webp"
-    ]
-  },
-  {
     "id": "third-eye-a4-2503",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "A4-2503 【鎏金岁月】紫水晶",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Gilded Times Amethyst Bracelet",
+    "tagline": "Vintage-gold spacers meet deep violet amethyst in a bracelet that feels like an heirloom found at dusk — for making decisions with the poise of someone who has already made peace with them.",
+    "material": "Gilded Times pairs rounds of deep violet amethyst with warm, gold-toned gilded spacers that catch the light like old gilt catching a candle flame. The gold is softly antiqued rather than shiny-new, giving the strand a lived-in, heirloom quality. Amethyst brings its usual glassy depth, while the gilded accents read as quiet luxury — the kind of piece that looks vintage even on its first wearing.",
+    "energy": [
+      "At its heart this is amethyst work: the stone of the quiet mind, said to slow the chatter and sharpen the inner eye until intuition speaks plainly. The gilded accents add a second layer of belief — gold is traditionally associated with warmth, worth, and the confidence to claim your own value. Together they make a talisman for decision-making that is both clear-headed and self-assured, calming the mind without dimming your fire.",
+      "Real-Life Signs You May Recognize",
+      "Do you re-read your own messages before sending, certain you missed the tone? Do you let small slights replay because you did not speak up in the moment? Third-eye imbalance often shows up as this fog of second-guessing wearing the mask of politeness — agreeing, then regretting, then rehearsing what you should have said. Gilded Times is said to steady that inner critic: the amethyst clarifying what you actually think, the warm gold helping you trust it enough to say it. Wear it into the conversation you have been postponing; the words you need are already inside you, and this strand is simply permission to let them out."
+    ],
+    "benefits": [
+      "Pairs amethyst's clear-headed calm with gilded warmth and easy self-assurance.",
+      "Is said to steady the inner critic and soften decision fatigue.",
+      "Antiqued gold accents give a vintage-luxury finish that never shouts.",
+      "Encourages you to speak your mind with warmth instead of apology.",
+      "A refined third-eye companion for work, dinners, and big conversations."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Deep violet amethyst rounds with warm gilded metal spacers",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-a4-2503.webp",
     "images": [
       "/products/third-eye-a4-2503.webp",
@@ -4774,15 +5686,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "A5-2504 紫水晶貔貅+白水晶【珠经-10mm】",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Pi Xiu Clear Quartz Bracelet 10mm",
+    "tagline": "Amethyst rounds and clear quartz carry a carved Pi Xiu — the fabled guardian that traditional belief says draws fortune in — for protecting both your focus and your momentum.",
+    "material": "Ten-millimeter amethyst rounds alternate with clear quartz for a two-tone strand of violet and brilliant white, anchored by a hand-carved Pi Xiu — the winged lion-like guardian of Chinese legend. Traditionally depicted with a wide mouth to draw fortune in and a sealed back to keep it, the Pi Xiu here is carved in a pale stone with careful detail. The pairing is classic: amethyst for the quiet mind, clear quartz for amplification.",
+    "energy": [
+      "Amethyst anchors the third-eye energy here, said to calm the mental noise so intuition has room to surface. Clear quartz is traditionally called the master healer for its believed power to amplify whatever it touches — in this case, your own clarity. The carved Pi Xiu carries an older, earthier promise from Chinese tradition: a guardian said to pull in opportunity and hold it close, so the insights you gain actually turn into momentum.",
+      "Real-Life Signs You May Recognize",
+      "You have good ideas; your problem is keeping them. A plan excites you on Tuesday and dissolves by Thursday under a pile of doubt. You sense an opportunity is right, but you hesitate until it passes, then recognize it only in hindsight. This bracelet speaks to that pattern: amethyst is said to quiet the second-guessing, clear quartz to magnify the signal, and the Pi Xiu to hold what you attract within reach. Wear it the next time you are about to commit — and notice how much easier saying yes becomes when the guardian is doing the worrying for you."
+    ],
+    "benefits": [
+      "Clear quartz is said to amplify amethyst's calming, clarifying effect.",
+      "The carved Pi Xiu is traditionally believed to draw and guard opportunity.",
+      "Substantial 10mm beads give the strand a grounded, confident presence.",
+      "Is said to help good ideas survive long enough to become decisions.",
+      "A two-stone talisman for focus, fortune, and steady, grounded follow-through."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "10mm amethyst and clear quartz rounds with a hand-carved Pi Xiu charm",
+      "Approx. 6.7–7.5 in (17–19 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-a5-2504-10mm.webp",
     "images": [
       "/products/third-eye-a5-2504-10mm.webp",
@@ -4796,19 +5722,111 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-a2-2507",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "Lavender Azeztulite Bracelet",
+    "tagline": "Pale-lilac azeztulite beads, luminous as the first minute of dawn — for readers of between-the-lines, dreamers who remember too much, and anyone tired of their own loud thoughts.",
+    "material": "Lavender azeztulite is a pale, milky-lilac member of the quartz family, prized in crystal circles for its soft, candlelit glow rather than a hard shine. The beads here show gentle bands of white and violet, like clouds thinning at first light. Azeztulite is a relatively modern name for a luminous quartz; the lavender variety is said to carry the clearest, dreamiest expression of the stone, and no two beads are exactly alike.",
+    "energy": [
+      "This is third-eye work in the softest register. Lavender azeztulite is said to wake the inner eye slowly — not with a jolt but with a gradual clearing, the way morning light fills a room. Amethyst energy runs through it in diluted form, encouraging intuition, dream recall, and the calm between thoughts. Keep it close when you are trying to hear yourself over the day's volume.",
+      "Real-Life Signs You May Recognize",
+      "You wake with fragments of dreams you cannot shake, as if they are trying to tell you something. You read people easily but second-guess every read. Your intuition shows up in the shower or the car — never when someone is actually waiting for an answer. Wearing lavender azeztulite is said to shorten the distance between that quiet knowing and your daily choices. Try this: when a hunch arrives, thank it out loud before the doubt does. Over time, trusting small inner answers becomes a habit the noise cannot reach, and your decisions start to feel lighter and more your own."
+    ],
+    "benefits": [
+      "Is said to ease overthinking by softening the edge between thoughts.",
+      "A soft violet classic traditionally cherished for dream recall and inner guidance.",
+      "A pale-lilac neutral that flatters every skin tone and every season.",
+      "Helps you notice your own hunches before you talk yourself out of them.",
+      "A gentle everyday anchor for meditation, journaling, and quiet reflection."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Hand-strung lavender azeztulite beads with natural white-violet banding",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-a2-2507.webp",
+    "images": [
+      "/products/third-eye-a2-2507.webp",
+      "/products/third-eye-a2-2507-2.webp",
+      "/products/third-eye-a2-2507-3.webp",
+      "/products/third-eye-a2-2507-4.webp",
+      "/products/third-eye-a2-2507-5.webp",
+      "/products/third-eye-a2-2507-6.webp",
+      "/products/third-eye-a2-2507-7.webp"
+    ]
+  },
+  {
+    "id": "third-eye-a3-2503",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "Amethyst Bracelet Classic",
+    "tagline": "The essential amethyst strand: classic round beads in that deep, contemplative violet, for clearing the space between your thoughts and hearing the answer you already know.",
+    "material": "Classic round amethyst beads, hand-selected for a steady, saturated violet with the stone's signature glassy depth. Amethyst is a variety of quartz whose purple comes from natural iron and trace elements, and this strand shows the honest, unenhanced color that has made it the world's favorite meditation stone for centuries. Slight natural variation in tone is the fingerprint of real stone.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind. It is said to slow the noise between thoughts and sharpen the inner eye, helping you trust the answer that arrives before the overthinking does. Worn or held, it supports the third-eye chakra — the seat of intuition between your brows — encouraging clarity, calm focus, and the gentle courage to act on what you sense rather than on what you can prove.",
+      "Real-Life Signs You May Recognize",
+      "You catch your mind rehearsing tomorrow's conversation at two in the morning. You stand in the grocery aisle frozen by a choice that should take three seconds. You have a good feeling about a decision but keep asking other people to make it for you. Amethyst will not decide for you; it is said to do something quieter — it clears the static so your own answer becomes audible. Wear it for a week and notice how often the right call was already sitting underneath the second-guessing, waiting for the volume to drop."
+    ],
+    "benefits": [
+      "Is said to calm a busy mind and support clearer, calmer decisions.",
+      "Offers gentle support to the third-eye chakra and honest self-trust.",
+      "A timeless violet that moves from studio to supper seamlessly.",
+      "Helps you pause between feeling and reaction when it matters most.",
+      "A faithful daily companion for meditation, journaling, and quiet reflection."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Classic round amethyst beads in deep natural violet",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-a3-2503.webp",
+    "images": [
+      "/products/third-eye-a3-2503.webp",
+      "/products/third-eye-a3-2503-2.webp",
+      "/products/third-eye-a3-2503-3.webp",
+      "/products/third-eye-a3-2503-4.webp",
+      "/products/third-eye-a3-2503-5.webp",
+      "/products/third-eye-a3-2503-6.webp",
+      "/products/third-eye-a3-2503-7.webp"
+    ]
+  },
+  {
     "id": "third-eye-a5-2506-8mm",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "A5-2506 紫水晶貔貅+刻面白水晶【珠经-8mm】",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Pi Xiu Faceted Clear Quartz Bracelet 8mm",
+    "tagline": "A carved Pi Xiu guard rides between amethyst rounds and faceted clear quartz — sparkle and stillness in one bracelet, for holding your nerve when opportunity finally knocks.",
+    "material": "This 8mm edition pairs matte-soft amethyst rounds with faceted clear quartz beads that scatter light like tiny prisms, plus a hand-carved Pi Xiu — the winged guardian of Chinese legend. Traditional belief holds that the Pi Xiu draws fortune in with its open mouth and guards it with its sealed back. The contrast of smooth violet and sparkling white makes it one of the most-worn guardian styles in the collection.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, and it does the third-eye work here: said to slow the noise, clarify perception, and help you trust the answer beneath the thinking. The faceted clear quartz beads are said to act like little magnifiers, brightening intention and keeping energy moving. Around them, the carved Pi Xiu brings a guardian's energy from Chinese tradition — believed to welcome opportunity and discourage it from wandering off.",
+      "Real-Life Signs You May Recognize",
+      "You notice you are sharpest right after deciding and foggiest while deciding. Opportunities arrive, and you run them through a committee of doubts before they pass. Meanwhile your intuition — that quick, certain voice — keeps getting voted down by the louder members. This bracelet is for closing the gap between sensing and acting. Amethyst quiets the committee; the faceted quartz is said to sharpen the signal; and the Pi Xiu, as the guardian of tradition, is believed to hold the door open for what you are ready to receive. Wear it and let your first instinct lead; you will find it has been right more often than the committee admits."
+    ],
+    "benefits": [
+      "Faceted clear quartz is said to brighten focus and keep intention moving.",
+      "Amethyst supports calm, decisive third-eye energy through the whole day.",
+      "Pi Xiu, the traditional guardian, is believed to welcome and keep opportunity.",
+      "The lighter 8mm beads suit slimmer wrists and comfortable all-day wear.",
+      "Sparkle and stillness combined in one bracelet, for nerve, clarity, and follow-through."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "8mm amethyst rounds with faceted clear quartz and a carved Pi Xiu charm",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-a5-2506-8mm.webp",
     "images": [
       "/products/third-eye-a5-2506-8mm.webp",
@@ -4824,46 +5842,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "third-eye-a8-2503-12mm",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "A8-2503 12mm钻圈款",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/third-eye-a8-2503-12mm.webp",
-    "images": [
-      "/products/third-eye-a8-2503-12mm.webp",
-      "/products/third-eye-a8-2503-12mm-2.webp",
-      "/products/third-eye-a8-2503-12mm-3.webp",
-      "/products/third-eye-a8-2503-12mm-4.webp",
-      "/products/third-eye-a8-2503-12mm-5.webp",
-      "/products/third-eye-a8-2503-12mm-6.webp",
-      "/products/third-eye-a8-2503-12mm-7.webp",
-      "/products/third-eye-a8-2503-12mm-8.webp",
-      "/products/third-eye-a8-2503-12mm-9.webp"
-    ]
-  },
-  {
     "id": "third-eye-a6-2508",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "A6-2508 乌拉圭紫水晶白水晶手链",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Uruguayan Amethyst Clear Quartz Bracelet",
+    "tagline": "Uruguayan amethyst — the deep, smoky-violet crown jewel of amethyst — strung with clear quartz for a third-eye talisman that asks you to see clearly, then trust what you see.",
+    "material": "Uruguayan amethyst is the most coveted amethyst in the world, mined from the basalt fields of Uruguay and famous for its unusually deep, smoky-saturated violet — often dark enough to look almost black at the heart. Here those dramatic rounds are paired with bright clear quartz, setting twilight against noon. Natural color zoning and tiny inclusions are expected in fine Uruguayan stone; no two beads tell quite the same story.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, and Uruguayan amethyst is its most intense expression — said to carry the deepest, most concentrated energy of the family. It works directly on the third-eye chakra, the seat of inner vision between your brows, helping you cut through surface noise to see situations as they are. Clear quartz is said to amplify that clarity and keep it practical, turning insight into everyday judgment.",
+      "Real-Life Signs You May Recognize",
+      "Have you been right about people, then talked yourself out of it? Do you re-check, re-read, and re-decide long after the answer was obvious? Uruguayan amethyst is said to be for the kind of clarity that arrives with weight — the knowing that does not need to be explained or defended. Wear it during the decision you keep circling. It will not shout; it is said to simply hold the noise down until the truth at the center of the matter becomes visible to you. And once you see it, you may find that trusting it is easier than you expected — because the deepest stone carries the quietest certainty."
+    ],
+    "benefits": [
+      "Uruguayan amethyst is prized for its unusually deep, concentrated violet.",
+      "Is said to offer the clearest, most grounded third-eye support.",
+      "Clear quartz is said to amplify inner vision into everyday judgment.",
+      "A statement hue that reads as both powerful and serene.",
+      "For seeing situations clearly, and learning to trust what you see."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Deep violet Uruguayan amethyst rounds paired with clear quartz",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-a6-2508.webp",
     "images": [
       "/products/third-eye-a6-2508.webp",
@@ -4879,19 +5884,74 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-a8-2503-12mm",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "Amethyst Diamond Circle Bracelet 12mm",
+    "tagline": "Generous 12mm amethyst rounds set off by slim diamond-pavé circles — a bracelet with presence for the woman who wants her clarity to look as deliberate as her decisions.",
+    "material": "Twelve-millimeter amethyst beads — large, weighty, and richly violet — are separated by slim metal rings set with a full circle of tiny clear stones, a design style sometimes called a diamond circle. The effect is jewelry-like rather than purely mineral: each bead is framed like a gem in a gallery. The metallic sparkle plays against amethyst's glassy calm, giving the strand a polished, evening-ready finish that still keeps its third-eye soul.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, and at 12mm it brings that quiet with authority — a larger bead is said to hold and radiate energy more steadily, making this a bracelet for people who need calm that can keep up with a full schedule. The circle of stones around each bead carries traditional circle symbolism of wholeness and completion, gently echoing the third-eye invitation: see your situation whole, then act.",
+      "Real-Life Signs You May Recognize",
+      "You carry more than most people know, and your mind pays the interest at night. Decisions feel heavier lately — not because they are harder, but because your reserves are running low. This bracelet is amethyst for exactly that moment: said to lift the weight of overthinking and restore the clear, unhurried view you have when you are rested. The diamond circles carry their own quiet message: you are already whole, and nothing about the decision is missing. Wear the generous weight on your wrist as a reminder that you can move slowly and still move forward, one clear step at a time."
+    ],
+    "benefits": [
+      "Substantial 12mm beads offer a grounding, quietly noticeable presence on the wrist.",
+      "The diamond-circle detailing gives the whole strand a refined, jewelry-grade polish.",
+      "Is said to restore clear perspective when mental reserves run low.",
+      "Its circle symbolism of wholeness echoes calm, unhurried, complete decision-making.",
+      "Transitions effortlessly from a daytime desk to an elegant evening out."
+    ],
+    "howToWear": [],
+    "specs": [
+      "12mm amethyst rounds framed by slim diamond-pavé circle spacers",
+      "Approx. 6.7–7.5 in (17–19 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-a8-2503-12mm.webp",
+    "images": [
+      "/products/third-eye-a8-2503-12mm.webp",
+      "/products/third-eye-a8-2503-12mm-2.webp",
+      "/products/third-eye-a8-2503-12mm-3.webp",
+      "/products/third-eye-a8-2503-12mm-4.webp",
+      "/products/third-eye-a8-2503-12mm-5.webp",
+      "/products/third-eye-a8-2503-12mm-6.webp",
+      "/products/third-eye-a8-2503-12mm-7.webp",
+      "/products/third-eye-a8-2503-12mm-8.webp",
+      "/products/third-eye-a8-2503-12mm-9.webp"
+    ]
+  },
+  {
     "id": "third-eye-b1-2501",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "B1-2501 九紫离火紫水晶手链",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Nine Purple Fire Bracelet",
+    "tagline": "Inspired by the Nine Purple Fire star of classical feng shui — an auspicious nine-year cycle said to favor visibility, creativity, and renewal — in amethyst violet for the bold era ahead.",
+    "material": "A deep violet amethyst strand created in homage to the Nine Purple Fire — the influential star of period nine in classical Chinese feng shui, the auspicious cycle said to govern the current era with fire energy. The beads are chosen for a warm, radiant purple, the color that traditional belief ties to this fiery period of visibility and reinvention. Simple, uncluttered, and deeply wearable, it lets the symbolism do the talking.",
+    "energy": [
+      "Amethyst does the timeless work here: the stone of the quiet mind, said to clear the static between thoughts and open the third eye's natural knowing. What makes this strand distinct is the Nine Purple Fire — in classical feng shui, the star of period nine, traditionally believed to usher in an era of fire: visibility, creativity, and reinvention. Wearing amethyst in its color is said to align you with that renewal, clearing old mental patterns so the new cycle can actually begin.",
+      "Real-Life Signs You May Recognize",
+      "Perhaps you feel it already: doors opening for people who simply showed up, while you stay in the background perfecting things no one asked for. Old ways of working are not yielding what they once did, and the strategies that used to feel safe now feel heavy. This is the signature ache of a changing era — the mind holding on to habits the new cycle has outgrown. Nine Purple Fire amethyst is said to help you release that grip: quieting the fear of being seen, and sharpening the intuition that tells you which new direction is genuinely yours."
+    ],
+    "benefits": [
+      "Honors the Nine Purple Fire star, symbol of the current fiery era.",
+      "Is said to support visibility, reinvention, and bold creative renewal.",
+      "Amethyst calms the mind beneath the boldness, keeping you steady.",
+      "A meaningful gift for anyone stepping into a new chapter.",
+      "Radiant violet beads with a quietly powerful feng shui story."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Deep violet amethyst rounds in a radiant, warm tone",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-b1-2501.webp",
     "images": [
       "/products/third-eye-b1-2501.webp",
@@ -4911,15 +5971,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "B1-2508 紫金砂珍珠6mm手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Purple Cinnabar Pearl Bracelet 6mm",
+    "tagline": "Six-millimeter purple cinnabar beads threaded with luminous pearls — a delicate, dressy strand that brings third-eye stillness to the wrist without interrupting a single conversation.",
+    "material": "Delicate 6mm beads of purple cinnabar — the traditional Chinese compound stone with a deep wine-plum sheen — are strung in a gentle rhythm with soft white pearls. The pairing is unexpectedly elegant: mineral darkness against oceanic luster, small enough to read as fine jewelry rather than a statement piece. Light moves differently across the two surfaces, so the strand catches the eye from across a room and rewards a closer look.",
+    "energy": [
+      "The third-eye invitation here is quiet and social rather than solitary. Amethyst-family purple in the cinnabar beads is said to calm the running commentary so you can be genuinely present; pearls carry their own older symbolism — traditionally associated with the moon, grace, and emotional steadiness. Together they make a talisman for intuition that works in rooms full of people: hearing the real message beneath the words, and trusting your read of a room.",
+      "Real-Life Signs You May Recognize",
+      "Do you leave gatherings exhausted — not from people, but from replaying everything you said? Do you nod along while a quieter part of you registers something off, only to confirm it later? This bracelet is for those social hours. The cinnabar is said to steady the mental replay; the pearls to keep you emotionally even; and the two together to help you trust the impressions that arrive mid-conversation. Wear it to the next room you have to read — a meeting, a dinner, a difficult talk — and notice how often your first read is the right one."
+    ],
+    "benefits": [
+      "A refined pairing of purple cinnabar and luminous white pearls.",
+      "Is said to calm the mental replay after conversations end.",
+      "The pearls carry traditional moon energy of grace and emotional steadiness.",
+      "The delicate 6mm scale suits the office, the dinner table, and daintier wrists.",
+      "Helps you trust your first read of a person or a room."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "6mm purple cinnabar beads alternated with white pearls",
+      "Approx. 6.3–6.7 in (16–17 cm) inner circumference; fits smaller to average wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-b1-2508-6mm.webp",
     "images": [
       "/products/third-eye-b1-2508-6mm.webp",
@@ -4933,45 +6007,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "third-eye-b5-2509",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "B5-2509 切面白水晶紫水晶手链",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/third-eye-b5-2509.webp",
-    "images": [
-      "/products/third-eye-b5-2509.webp",
-      "/products/third-eye-b5-2509-2.webp",
-      "/products/third-eye-b5-2509-3.webp",
-      "/products/third-eye-b5-2509-4.webp",
-      "/products/third-eye-b5-2509-5.webp",
-      "/products/third-eye-b5-2509-6.webp",
-      "/products/third-eye-b5-2509-7.webp",
-      "/products/third-eye-b5-2509-8.webp"
-    ]
-  },
-  {
     "id": "third-eye-b2-2508-8mm",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "B2-2508 【紫玉生香】-8mm",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Purple Jade Bracelet 8mm",
+    "tagline": "Eight-millimeter purple jade in a smooth, misted lavender — a gemstone classic reimagined for the third eye, said to bring the poise of jade to the clarity of amethyst tones.",
+    "material": "Purple jade — the lavender-to-mauve member of the jade family — is cut into smooth 8mm rounds with the cool, dense feel that only true jade has. Its color ranges from milky lilac to a deeper violet, sometimes with soft mottling that gives each bead a subtle landscape of its own. Jade has been carved and worn in China for millennia; this softer purple variety pairs that heritage with the third eye's favorite color family.",
+    "energy": [
+      "Jade is perhaps the most quietly revered stone in Chinese tradition — carried for generations, said to bring steadiness, protection, and grace to whoever wears it. In this purple expression it meets the third-eye realm: lavender is the color of intuition, and purple jade is believed to marry jade's grounding calm with that inner clarity. The result is a bracelet that steadies the mind without dulling it — for people who need to think clearly and stay gracious while doing it.",
+      "Real-Life Signs You May Recognize",
+      "You pride yourself on staying composed, but lately the composure is costing you — you swallow your true take to keep the peace, then second-guess yourself in private. Purple jade is said to be a gentle corrective: its traditional energy supports emotional steadiness, while its lavender hue quietly invites the inner eye to weigh in. Wear it through the meetings and family dinners where you tend to defer, and notice how much easier it becomes to hold both at once — your calm and your honest perception — without losing either. The jade itself has held this role for centuries: steady, quiet, and unshakeable."
+    ],
+    "benefits": [
+      "Purple jade combines jade's traditional steadiness with lavender intuition beautifully.",
+      "Is said to keep you composed while you trust your own read.",
+      "Smooth, dense 8mm beads with a cool, soothing, grounding touch.",
+      "Helps you stay gracious without ever silencing your inner voice.",
+      "An heirloom-quality classic in a rare, soft, and gentle colorway."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "8mm smooth round purple jade beads in lavender-mauve tones",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-b2-2508-8mm.webp",
     "images": [
       "/products/third-eye-b2-2508-8mm.webp",
@@ -4990,15 +6052,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "B6-2502 紫水晶手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Classic Bracelet",
+    "tagline": "The everyday amethyst — a clean, honest strand of natural violet that works as hard as you do, quietly steadying the mind from meeting to meditation and back.",
+    "material": "The everyday workhorse of the third-eye collection: natural amethyst in a true, medium violet, cut into smooth rounds and strung with nothing to distract from the stone itself. Its color sits between the pale lavender and the dark Uruguayan extremes — the classic amethyst most people picture — with the stone's gentle natural zoning visible on close inspection. Understated, unpretentious, and made to be worn daily.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, and no version of it is more dependable than this classic expression. It is said to slow the noise between thoughts and open the inner eye so intuition can be heard — not in dramatic flashes, but in the small, steady knowings that accumulate through a day. Because it asks nothing of you, it is the easiest stone to wear daily, and daily wear is where its quiet influence is said to build.",
+      "Real-Life Signs You May Recognize",
+      "Some days the problem is not big decisions — it is the thousand small ones that arrive before noon. By mid-afternoon you are short with people who do not deserve it, and by evening you cannot remember what you actually wanted. A classic amethyst strand will not hand you a finished plan, but it is said to do something more useful: lower the ambient mental volume so the important items become obvious. Wear it daily for a month and let the small, clear moments accumulate — the pause before the sharp reply, the answer that arrives without effort, the evening that ends quieter than it began."
+    ],
+    "benefits": [
+      "A true, medium violet — the amethyst most people picture first.",
+      "Is said to lower ambient mental noise through daily wear.",
+      "A plain, honest design that suits every wrist and every room.",
+      "Easy to layer, easy to forget you are wearing, easy to miss when you are not.",
+      "The dependable everyday companion for a quiet, clear third-eye life."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural round amethyst beads in classic medium violet",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-b6-2502.webp",
     "images": [
       "/products/third-eye-b6-2502.webp",
@@ -5011,19 +6087,73 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-b5-2509",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "Faceted Clear Quartz Amethyst Bracelet",
+    "tagline": "Amethyst and faceted clear quartz in an alternating sparkle — the classic clarity pairing, cut to catch light from every angle, for minds that want both stillness and shine.",
+    "material": "Alternating beads of amethyst and faceted clear quartz create a rhythm of violet and white fire. The clear quartz is cut into many-faceted beads that split light like tiny chandeliers, while the amethyst keeps its smooth, glassy calm. The pairing is a traditional favorite for mental work — one stone for quieting the noise, the other for amplifying what remains — and the faceting adds a contemporary, jewelry-forward shine.",
+    "energy": [
+      "This is amethyst and clear quartz doing what they are said to do best, together. Amethyst quiets the running commentary and opens the third eye to what lies beneath it; clear quartz is traditionally called the great amplifier, believed to strengthen the energy of any stone it shares a strand with — here, your own clarity. The facets are not just decorative: in crystal tradition, cut surfaces are said to help energy move and radiate more freely.",
+      "Real-Life Signs You May Recognize",
+      "You are rarely short on ideas — you are short on stillness. One idea chases the next so quickly that nothing gets chosen, and you second-guess the moment you choose. This strand is designed for that exact traffic jam. The amethyst is said to slow the flow to a walk; the faceted quartz is believed to take whatever clear thought remains and make it louder, more certain, easier to act on. Wear it when the list in your head outgrows the day, give the strongest item the first turn, and let the rest wait their turn quietly."
+    ],
+    "benefits": [
+      "A two-stone classic: amethyst to quiet, clear quartz to amplify.",
+      "Faceted quartz is said to help clarity radiate and circulate.",
+      "A strand of catch-the-light faceting wrapped around a meditative violet soul.",
+      "Supports actually choosing your best ideas, not just generating them.",
+      "Equally at home over a keyboard or a candlelit table."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Alternating amethyst rounds and faceted clear quartz beads",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-b5-2509.webp",
+    "images": [
+      "/products/third-eye-b5-2509.webp",
+      "/products/third-eye-b5-2509-2.webp",
+      "/products/third-eye-b5-2509-3.webp",
+      "/products/third-eye-b5-2509-4.webp",
+      "/products/third-eye-b5-2509-5.webp",
+      "/products/third-eye-b5-2509-6.webp",
+      "/products/third-eye-b5-2509-7.webp",
+      "/products/third-eye-b5-2509-8.webp"
+    ]
+  },
+  {
     "id": "third-eye-b5-2508",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "B5-2508 薰衣草紫水晶玉兔手链",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Lavender Amethyst Jade Rabbit Bracelet",
+    "tagline": "Pale lavender amethyst with a carved jade moon rabbit — the companion of the moon in Chinese legend — for dreamers who want their intuition as gentle as their nights are long.",
+    "material": "Soft lavender amethyst — paler and dreamier than classic violet — is strung with a small hand-carved jade rabbit, the moon rabbit of Chinese legend who keeps the moon company and pounds the elixir of life beneath the cassia tree. The charm is carved in pale jade with the rabbit's long ears and round haunches clearly defined. Milky amethyst tones and the cool jade carving make this one of the most tender strands in the third-eye collection.",
+    "energy": [
+      "The jade rabbit is no ordinary charm. In Chinese tradition it is the moon's companion — a figure of quiet devotion, said to carry gentle, receptive energy and a long memory of cycles. Paired with lavender amethyst, the moonstone-soft expression of the third-eye stone, it makes a talisman for intuition that arrives softly: dreams you remember, hunches you trust, moods you can name. Not every answer needs to be loud — some are best delivered in the quiet.",
+      "Real-Life Signs You May Recognize",
+      "Your best ideas tend to arrive at night, just as you are drifting off — then evaporate by morning. You feel things deeply, and sometimes you cannot tell your intuition from your worry. The moon rabbit is said to help with exactly this boundary. Its lunar energy supports the soft, cyclical knowing that lavender amethyst then steadies into something usable: clearer dreams, calmer nights, and a growing ability to tell the whisper from the noise. Keep it by the bed; give the night its work, and let the morning find you a little more sure of what you sensed in the dark."
+    ],
+    "benefits": [
+      "Lavender amethyst beads in their softest, dreamiest, most tender expression.",
+      "The jade moon rabbit carries gentle lunar energy from Chinese legend.",
+      "Is said to support dream recall and quiet nighttime intuition.",
+      "Helps you gently tell real inner guidance from everyday worry.",
+      "A tender, meaningful gift for a favorite dreamer in your life."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Lavender amethyst beads with a hand-carved pale jade rabbit charm",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-b5-2508.webp",
     "images": [
       "/products/third-eye-b5-2508.webp",
@@ -5039,15 +6169,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "B6-2503 紫水晶星星手链",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Star Bracelet",
+    "tagline": "Amethyst rounds with a small star charm, for nights when you need the sky's oldest reassurance — that the pattern is there even when you cannot see it yet.",
+    "material": "Classic amethyst rounds in a steady violet are finished with a small star charm — polished metal, dimensional and clean, with points that catch the light as the bracelet moves. Stars have guided travelers since the first human looked up, and this charm carries that quiet navigation symbolism onto the wrist. The amethyst needs no introduction; together the pair makes a simple, meaningful strand for people who think best after dark.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, said to clear the static between thoughts and open the third eye to what lies beneath. The star charm adds an older kind of guidance: travelers have long read the sky to find their way, and a star is traditionally a fixed point of truth in a shifting world. This strand is said to be a little like navigating by starlight — patient, and sure of direction even before the path is visible.",
+      "Real-Life Signs You May Recognize",
+      "You do your clearest thinking at night, when everyone else has stopped talking — and by morning the clarity has usually faded into the day's demands. You sense your direction better than you can articulate it, which makes it dangerously easy to doubt. Amethyst and star are said to work together on this: the stone keeps the nighttime clarity from evaporating, and the charm reminds you that the direction you sensed was real, even when the daylight makes it hard to feel. Wear it, and keep trusting the sky you saw — it was showing you the way before you knew you needed one."
+    ],
+    "benefits": [
+      "Amethyst holds the quiet; the star charm holds the direction.",
+      "Star symbolism of patient, reliable guidance through times of uncertainty.",
+      "Is said to help your clearest nighttime thoughts survive into the morning.",
+      "A delicate, luminous little accent riding along the deep-violet strand.",
+      "A thoughtful gift for anyone navigating a big, uncertain change."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Classic amethyst rounds with a polished metal star charm",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-b6-2503.webp",
     "images": [
       "/products/third-eye-b6-2503.webp",
@@ -5064,15 +6208,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "E09-2506 紫塔+黑金超七+黄虎眼珠经约9-10mm",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Purple Tower Super Seven Tiger's Eye Bracelet 9 10mm",
+    "tagline": "Purple-tower amethyst, black-gold super seven, and tiger's eye in one substantial 9–10mm strand — grounding, protective, and quietly powerful for decisions that need both gut and gravity.",
+    "material": "Three stones with very different voices, sized at a substantial 9–10mm: deep violet amethyst, often faceted into tower-like cuts that give this style its name; black-gold super seven — a dark, golden-sheened variety of the famed seven-mineral stone; and honey-toned tiger's eye with its signature silky band of moving light. The mix is earthy and rich, catching the eye differently from every angle as the stones turn against the light.",
+    "energy": [
+      "Each stone brings a different gift to the third eye. Amethyst is the stone of the quiet mind, said to clear the noise and open inner vision. Super seven — named for the seven minerals traditionally believed to work together — is said to support the whole energy body, with its dark gold sheen adding a protective note. Tiger's eye is the grounding one: a traditional stone of clear sight and steady nerve, believed to help you see situations honestly and respond with courage. Insight, protection, and steadiness, together.",
+      "Real-Life Signs You May Recognize",
+      "Your decisions tend to be sound — your confidence in them is the problem. You see what needs doing, then hesitate, sensing risk everywhere, or you bulldoze ahead and regret not reading the room. This strand is said to balance those poles: amethyst steadies the overthinking; super seven is believed to shield your energy while you decide; and tiger's eye keeps your feet planted and your perception honest, cutting through both fear and bravado to the plain facts. Wear it when the stakes feel real, and let gut and gravity share the vote — you will find they rarely disagree once the noise is gone."
+    ],
+    "benefits": [
+      "Three complementary stones, together offering clarity, protection, and grounded perception.",
+      "Tiger's eye is a traditional stone for honest sight and steady nerve.",
+      "Super seven is said to support and shield the whole energy body.",
+      "Chunky 9–10mm beads give the strand real presence and satisfying weight.",
+      "Made for high-stakes decisions that need both instinct and honesty."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "9–10mm mixed beads: amethyst, black-gold super seven, tiger's eye",
+      "Approx. 6.7–7.5 in (17–19 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-e09-2506-9-10mm.webp",
     "images": [
       "/products/third-eye-e09-2506-9-10mm.webp",
@@ -5083,19 +6241,70 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-c10-2501",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "Amethyst Citrine Rutilated Quartz Mix Bracelet",
+    "tagline": "A painterly mix of amethyst, citrine, and rutilated quartz — violet, gold, and sunlit thread — for third-eye work that keeps one foot in the warm, bright world of action.",
+    "material": "Three stones in one easy rhythm: deep amethyst for the violet anchor, honey-gold citrine for warmth, and rutilated quartz — clear quartz threaded through with fine golden needles of rutile. Each bead brings a different texture: amethyst's glassy depth, citrine's sunny glow, and rutilated quartz's inner sparkle of light. The mix is intentionally varied in tone, so the strand reads like a sunset held at wrist height.",
+    "energy": [
+      "The third-eye stone is amethyst, but this strand refuses to live only in the head. Amethyst is said to quiet the noise and open inner vision; citrine, the stone of sunlight and will, is traditionally believed to warm ideas into action; rutilated quartz is said to help energy travel — threading a clear path from thought to deed. Together they make a talisman for intuition that lands somewhere: clarity you can act on, warmth you can feel, momentum you can see.",
+      "Real-Life Signs You May Recognize",
+      "Are you brilliant at insight and slow at execution? You see the right move clearly, then sit on it while the moment passes — or you act fast and wish you had paused to feel the situation out. This trio is said to balance exactly that axis: amethyst slows you enough to sense what is true, citrine warms you enough to move, and rutilated quartz is believed to connect the two so your knowing becomes doing. Wear it as a bridge between the quiet inner answer and the life that is waiting for it, and let the sunlight stone remind you that clarity was always meant to arrive somewhere."
+    ],
+    "benefits": [
+      "Amethyst, citrine, and rutilated quartz — insight, warmth, and gentle momentum.",
+      "Is said to turn clear inner knowing into timely action.",
+      "Citrine brings sunny will; rutilated quartz is said to thread the path.",
+      "A warm, painterly stone palette that flatters soft, neutral wardrobes.",
+      "For the thinker who is ready to become a doer."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Mixed beads: amethyst, honey citrine, and rutilated quartz",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-c10-2501.webp",
+    "images": [
+      "/products/third-eye-c10-2501.webp",
+      "/products/third-eye-c10-2501-2.webp",
+      "/products/third-eye-c10-2501-3.webp",
+      "/products/third-eye-c10-2501-4.webp",
+      "/products/third-eye-c10-2501-5.webp"
+    ]
+  },
+  {
     "id": "third-eye-f07-2503-8mm",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "F07-2503 8mm紫水晶绿东陵手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Green Aventurine Bracelet 8mm",
+    "tagline": "Amethyst violet and green aventurine, side by side — the third eye and the heart in one bracelet, for decisions made with both clarity and compassion.",
+    "material": "An 8mm two-tone strand: deep violet amethyst beads alternating with soft green aventurine, the gentle quartz whose shimmering inclusions give it a subtle, glimmering depth like sunlight on jade. The contrast is calm and botanical — grape violet against moss green — and the two stones sit comfortably together in both scale and finish. It is a quietly unusual pairing that reads as natural and considered rather than loud.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, said to clear the mental noise and open the third eye to honest perception. Green aventurine is traditionally the stone of the heart — believed to support emotional ease, optimism, and the courage to be gentle. Worn together, they are said to balance seeing clearly with feeling kindly: the violet steadies the thinking, the green softens the judgment. Decisions made in that space tend to be both wise and humane.",
+      "Real-Life Signs You May Recognize",
+      "Have you noticed that your sharpest observations come out harsh, and your kindest moments come out vague? When the third eye and the heart are out of step, insight turns to criticism and compassion turns to people-pleasing. This bracelet is said to help them work as one: amethyst quiets the rush to judge, while green aventurine is believed to keep your perception warm enough to be genuinely useful. Wear it into the conversation where you need to be both honest and kind — you are allowed to be both, and the strand is a quiet reminder that the two are not opposites but partners."
+    ],
+    "benefits": [
+      "Amethyst for clear sight; green aventurine for a warm heart.",
+      "Is said to soften judgment without ever dulling your perception.",
+      "A calm botanical palette of violet and green that pairs with everything earthy.",
+      "Gently supports honest conversations that are delivered with real kindness.",
+      "Quietly balances clear thinking and warm feeling in one easy strand."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "8mm alternating amethyst and green aventurine beads",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-f07-2503-8mm.webp",
     "images": [
       "/products/third-eye-f07-2503-8mm.webp",
@@ -5109,15 +6318,29 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "I06-2506 【芋泥啵啵】天然紫水晶手串-12mm",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Taro Cream Bracelet 12mm",
+    "tagline": "Milky taro-cream amethyst at a generous 12mm — soft as a favorite dessert, steady as a good decision, for when you want comfort and clarity in the same breath.",
+    "material": "The name says it all: these 12mm amethyst beads carry the milky, lavender-cream tone of taro soft serve — the pale, clouded purple beloved of the dessert that inspired it. Unlike glassy clear amethyst, this stone is creamy and opaque, with soft white marbling that makes each bead look almost edible. Large and smooth, they sit with a satisfying weight that makes the strand feel like a comfort object as much as a talisman.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, but this is amethyst in its gentlest key — pale, milky, and soothing, like clarity that arrives as a comfort rather than a correction. It is said to work on the third eye the way a warm drink works on a long day: softening the edges of anxious thinking, easing the tightness behind the forehead, and helping intuition surface without force. For anyone whose overthinking feels less like noise and more like worry, this softer amethyst is a kinder companion.",
+      "Real-Life Signs You May Recognize",
+      "Your mind does not race so much as it worries — the same loop, the same what-ifs, circling until they start to feel like facts. You are tired of being told to think positively; you would settle for thinking less. Taro-cream amethyst is said to meet you there: its milky energy is traditionally considered soothing rather than stimulating, believed to quiet the worry-loop and leave the mind soft and receptive, so clearer thoughts can drift in on their own. Wear it on the heavy days and let the comfort do some of the work — clarity does not always have to arrive with effort."
+    ],
+    "benefits": [
+      "Creamy, milky amethyst beads in a soothing pale-lavender tone, soft to the touch.",
+      "Is said to ease repetitive worry more than it energizes or stimulates.",
+      "Generous 12mm beads with a comforting, soft, almost edible feel.",
+      "For gentler clarity on days when the mind feels heavy.",
+      "A wearable comfort object with real third-eye depth beneath the softness."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "12mm milky taro-cream amethyst beads with soft marbling",
+      "Approx. 6.7–7.5 in (17–19 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-i06-2506-12mm.webp",
     "images": [
       "/products/third-eye-i06-2506-12mm.webp",
@@ -5125,65 +6348,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "third-eye-c10-2501",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "C10-2501",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/third-eye-c10-2501.webp",
-    "images": [
-      "/products/third-eye-c10-2501.webp",
-      "/products/third-eye-c10-2501-2.webp",
-      "/products/third-eye-c10-2501-3.webp",
-      "/products/third-eye-c10-2501-4.webp",
-      "/products/third-eye-c10-2501-5.webp"
-    ]
-  },
-  {
-    "id": "third-eye-i07-2508",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "I07-2508 【暮山紫蔼】天然紫水晶手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/third-eye-i07-2508.webp",
-    "images": [
-      "/products/third-eye-i07-2508.webp",
-      "/products/third-eye-i07-2508-2.webp",
-      "/products/third-eye-i07-2508-3.webp",
-      "/products/third-eye-i07-2508-4.webp",
-      "/products/third-eye-i07-2508-5.webp"
-    ]
-  },
-  {
     "id": "third-eye-i08-2509-8mm",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "I08-2509 8mm紫水晶草莓晶手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Amethyst Strawberry Quartz Bracelet 8mm",
+    "tagline": "Amethyst violet meets strawberry quartz's blushing pink at 8mm — a tender two-tone strand for intuition that keeps its softness, even when it is right.",
+    "material": "Two pinks and purples in one affectionate strand: classic amethyst beads in clear violet alternating with strawberry quartz — the blushing pink quartz whose tiny red inclusions give it its name and its gentle, flecked sparkle. At 8mm the two tones read as a soft ombré from violet to rose. Strawberry quartz is quartz first, so the pair shares a family resemblance that makes the color contrast feel effortless.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, and strawberry quartz is its gentle younger sister — traditionally associated with the heart, believed to carry soft, self-kind energy that amethyst's cool clarity sometimes lacks. Worn together at the third eye, they are said to balance discernment with gentleness: the violet helps you perceive clearly, the pink helps you receive what you perceive without self-criticism. Insight is easier to accept when it arrives wrapped in kindness.",
+      "Real-Life Signs You May Recognize",
+      "You are perceptive — sometimes painfully so. You notice the shift in a friend's voice, the flaw in a plan, the thing no one else has mentioned yet — and then you spend the evening wondering if you were too harsh just for seeing it. This strand is for that tenderness gap: amethyst keeps your perception sharp, while strawberry quartz is said to remind you that seeing clearly does not require being hard — on others or on yourself. Wear it, and let your accuracy keep its warmth; the world needs people who notice things and still know how to be gentle."
+    ],
+    "benefits": [
+      "Amethyst and strawberry quartz, with clarity wrapped in gentle kindness.",
+      "Is said to soften the self-criticism around your own perceptions.",
+      "A violet-to-rose palette that is softly flattering and easy to wear.",
+      "For perceptive people who need help being gentle with themselves.",
+      "Heart and third eye, quietly keeping each other in check."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "8mm alternating amethyst and strawberry quartz beads",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-i08-2509-8mm.webp",
     "images": [
       "/products/third-eye-i08-2509-8mm.webp",
@@ -5194,19 +6385,70 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-i07-2508",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "Twilight Purple Amethyst Bracelet",
+    "tagline": "Twilight purple amethyst, named for the violet haze that settles over mountains at dusk — for the hour when day-noise fades and the quiet mind finally gets its turn.",
+    "material": "Twilight Purple is a poetic name for a genuine quality of amethyst: the deep, smoky dusky violet that seems to hold the last light of evening. Its color falls between classic purple and the darker Uruguayan tones, with a soft, atmospheric depth like hills fading into dusk — the misty mountain purple that inspired the name. The beads carry subtle variation that shifts as light moves across them, from plum to violet to near-lavender.",
+    "energy": [
+      "There is a reason dusk is the traditional hour for reflection: as the visible world softens, the inner one becomes audible. Twilight-purple amethyst is said to carry that quality in stone — deepening the third-eye work of classic amethyst into something more contemplative, helping the mind lay down the day's brightness and open to what arrives in the quiet. It is the stone for people whose clearest thoughts come in the in-between hours, when the noise has finally thinned.",
+      "Real-Life Signs You May Recognize",
+      "By evening you are running on the fumes of patience — the day's decisions, other people's needs, and your own deferred wants all stacked up. And yet it is often exactly then, in the winding-down hour, that the thought you have been missing finally surfaces. Twilight-purple amethyst is said to honor that rhythm rather than fight it. Wear it as a signal to yourself that the evening belongs to reflection, and give the last quiet hour of the day to the questions that actually matter. The answers are usually waiting there — the dusk has always been a good listener."
+    ],
+    "benefits": [
+      "A dusky, atmospheric violet inspired by mountains fading into twilight.",
+      "Is said to support the reflective, end-of-day turn toward the inner world.",
+      "Shifts gently from deep plum to lavender as the light changes.",
+      "For thinkers whose clearest moments come in the quiet hours.",
+      "An elegant, contemplative addition to any third-eye crystal collection you own."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Twilight-toned amethyst beads in deep smoky dusky violet",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-i07-2508.webp",
+    "images": [
+      "/products/third-eye-i07-2508.webp",
+      "/products/third-eye-i07-2508-2.webp",
+      "/products/third-eye-i07-2508-3.webp",
+      "/products/third-eye-i07-2508-4.webp",
+      "/products/third-eye-i07-2508-5.webp"
+    ]
+  },
+  {
     "id": "third-eye-i10-2505",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "I10-2505 【紫气东来】九紫离火手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Purple Qi from the East Nine Purple Fire Bracelet",
+    "tagline": "Two auspicious names, one bracelet: the purple cloud that heralds good fortune from the east, and the Nine Purple Fire of the new era — amethyst for a season of visible, welcome change.",
+    "material": "Purple Qi from the East — zi qi dong lai — is one of the most beloved phrases in Chinese tradition, drawn from the legend of a purple cloud that heralded the arrival of a great sage. This strand pairs that meaning with the Nine Purple Fire, the auspicious star of the current feng shui period, in violet amethyst. The beads carry a warm, deep purple chosen to echo both the legendary cloud and the era it names.",
+    "energy": [
+      "This bracelet carries two layers of traditional meaning. Purple Qi from the East is said to mark the approach of something auspicious — in old tales, a sage; in daily life, the good fortune you have been quietly preparing for. The Nine Purple Fire names the star that classical feng shui believes governs this era of visibility and renewal. Amethyst anchors it all in the quiet mind: said to keep you clear-headed enough to recognize good fortune when it arrives, instead of mistaking it for noise.",
+      "Real-Life Signs You May Recognize",
+      "You have been quietly preparing — skills, healing, patience — while the world seemed to reward louder people. Now the season is changing, and you can feel it in the air: doors that were closed are opening, and suddenly being ready matters more than being loud. This bracelet is for that threshold moment. Its traditional meanings are said to help you recognize the auspicious turn and step through it without the old self-doubt following you. Wear it as a marker of the era you are entering, and let the eastern purple light do the announcing — your part is simply to walk forward."
+    ],
+    "benefits": [
+      "Purple Qi from the East — an auspicious herald of good fortune.",
+      "Nine Purple Fire ties it to the current era of visibility and renewal.",
+      "Is said to help you recognize opportunity as it arrives.",
+      "Deep, warm violet with a rich double-layer meaning and quiet presence.",
+      "A powerful, meaningful marker for a season of personal reinvention."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Deep violet amethyst rounds with a warm, radiant tone",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-i10-2505.webp",
     "images": [
       "/products/third-eye-i10-2505.webp",
@@ -5216,42 +6458,33 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "third-eye-8mm",
-    "chakra": "third-eye",
-    "chakraName": "Third Eye Chakra",
-    "color": "#b2a9e1",
-    "name": "紫金砂葫芦手串8mm",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/third-eye-8mm.webp",
-    "images": [
-      "/products/third-eye-8mm.webp",
-      "/products/third-eye-8mm-2.webp",
-      "/products/third-eye-8mm-3.webp",
-      "/products/third-eye-8mm-4.webp",
-      "/products/third-eye-8mm-5.webp"
-    ]
-  },
-  {
     "id": "third-eye-crystal-talisman",
     "chakra": "third-eye",
     "chakraName": "Third Eye Chakra",
     "color": "#b2a9e1",
-    "name": "【紫菱】天然紫水晶手串",
-    "tagline": "Third Eye Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Natural Amethyst Bracelet",
+    "tagline": "Natural amethyst in the raw, honest violet it grew — no tricks, no heat, no theater — for people who want their clarity as genuine as the stone that carries it.",
+    "material": "Natural amethyst, presented without enhancement — the color it grew with, the inclusions it collected, the small irregularities that mark real stone. Its violet is true and unforced, ranging bead to bead with the gentle zoning natural amethyst is known for. This is amethyst for purists: no dye, no heat treatment, nothing added to please the eye. What you see is what formed underground, which is precisely the point.",
+    "energy": [
+      "There is a particular trust in wearing a stone exactly as nature made it. Natural amethyst is the third-eye classic in its most honest form — said to quiet the restless mind and open the inner eye to clear perception, without needing enhancement to do so. Some traditions hold that untreated stones carry their energy most directly, unmediated by human alteration. For those who value authenticity — in objects and in answers — this strand offers amethyst at its most truthful.",
+      "Real-Life Signs You May Recognize",
+      "You can usually tell when something has been over-polished — a story, a person, a decision presented too smoothly. You trust the versions with edges, the ones that own their irregularities. This bracelet speaks the same language: its natural variation is not a flaw but a signature. Amethyst is said to work gently on the mind whether enhanced or not, and wearing the unenhanced stone is a daily reminder that your own unpolished instincts deserve the same respect. Clarity, like this violet, is most reliable when it has not been edited to please someone else — and yours is allowed to keep its natural edges."
+    ],
+    "benefits": [
+      "Untreated, unenhanced amethyst in its fully natural color and zoning.",
+      "For people who trust authenticity over polish — in stone and in self.",
+      "Natural variation makes every strand genuinely one of a kind.",
+      "Is said to support honest, unedited inner perception and self-trust.",
+      "A purist's third-eye talisman, true to the ground it came from."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural, untreated round amethyst beads with visible color zoning",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Stretch elastic cord; arrives in a Lunar Talisman linen pouch"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/third-eye-crystal-talisman.webp",
     "images": [
       "/products/third-eye-crystal-talisman.webp",
@@ -5265,19 +6498,72 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "third-eye-8mm",
+    "chakra": "third-eye",
+    "chakraName": "Third Eye Chakra",
+    "color": "#b2a9e1",
+    "name": "Purple Cinnabar Gourd Bracelet 8mm",
+    "tagline": "Deep plum-purple cinnabar gourds, strung at eight millimeters — a small, tactile anchor for days when your thoughts refuse to settle and your intuition needs a quiet door.",
+    "material": "Purple cinnabar is a traditional Chinese compound stone, pressed from cinnabar powder and a deep violet-purple binder into a rich wine-plum finish. Each bead is shaped like a gourd (hulu), the classic symbol that traditional belief says cups and holds what is precious, from fortune to focus. At 8mm, the gourds sit close to the skin in a continuous, gently rounded strand that glows like dark amethyst in low light.",
+    "energy": [
+      "Amethyst is the stone of the quiet mind, and this bracelet borrows that same deep violet language through purple cinnabar. It is said to soften the hum of constant thinking so the inner eye can open — the still space between your brows where knowing lives before words arrive. The gourd shape adds an older layer of belief: a small vessel said to hold your clarity safe, keeping insight near and distraction far.",
+      "Real-Life Signs You May Recognize",
+      "You finish a workday and realize you have been replaying the same conversation for hours. Someone asks what you feel, and the honest answer arrives about ten minutes too late. Small decisions — what to eat, what to reply — start to feel heavier than they should. The bracelet offers a small reset: when your hand finds the cool gourds, take three slow breaths and ask the question once more. It is said that the answer waiting underneath is usually the right one, and that the gourds help you trust it. Over time, that pause becomes the habit that saves you from the spiral."
+    ],
+    "benefits": [
+      "Is said to quiet racing thoughts so your own inner voice can finally be heard.",
+      "The gourd form is traditionally believed to gather and guard clarity through the day.",
+      "Wear it as a tactile pause button for decision fatigue and mental spirals.",
+      "Its deep plum hue pairs with everything, from linen to black-tie evenings.",
+      "A grounding third-eye companion for meditation, meetings, and long to-do lists."
+    ],
+    "howToWear": [],
+    "specs": [
+      "8mm purple cinnabar gourd-shaped beads",
+      "Approx. 6.3–7 in (16–18 cm) inner circumference; fits most wrists",
+      "Strung on a strong, stretchy elastic cord",
+      "Arrives in a Lunar Talisman linen pouch"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/third-eye-8mm.webp",
+    "images": [
+      "/products/third-eye-8mm.webp",
+      "/products/third-eye-8mm-2.webp",
+      "/products/third-eye-8mm-3.webp",
+      "/products/third-eye-8mm-4.webp",
+      "/products/third-eye-8mm-5.webp"
+    ]
+  },
+  {
     "id": "crown-a4-2507-10mm-12mm",
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "A4-2507 白水晶10mm+海蓝宝12mm",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Clear Quartz Aquamarine Bracelet 10 12mm",
+    "tagline": "Layered clear quartz and cool aquamarine create a bracelet for the days you need both clarity and calm — a luminous pairing believed to quiet the noise and lift your mind toward the bigger picture.",
+    "material": "Alternating rounds of clear quartz and pale aquamarine move from small to large in a gentle graduated rhythm. Clear quartz is traditionally treasured as the stone of pure light, while aquamarine takes its name and its color from the sea, evoking water, stillness, and depth. Together they cool and clarify. The graduated sizing gives the strand a gentle visual rhythm.",
+    "energy": [
+      "The Crown Chakra is the traditional seat of clarity and connection, the place where we feel ourselves opening to something greater. Clear quartz has long been called the stone of pure light, said to quiet a racing mind. Aquamarine, named for the sea, carries the cooling energy of water, and together the two are believed to restore a clear, calm perspective when life feels loud, an anchor for days when you need both.",
+      "Real-Life Signs You May Recognize",
+      "Do you end most days with a head full of noise, unable to find the one clear thought you were looking for? Do you feel disconnected from yourself and from anything larger than your schedule, present everywhere yet nowhere at all? These are quiet signs of a congested Crown Chakra, the center of clarity and connection. The alternating rhythm of clear quartz and cool aquamarine is believed to help settle that inner static, like water smoothing a stone. Many wearers describe thinking more clearly and feeling calmer, as though a long-cluttered room had finally been aired out."
+    ],
+    "benefits": [
+      "Clear quartz is traditionally called the stone of pure light and clarity.",
+      "Aquamarine takes its name from the sea and is traditionally linked to calm water.",
+      "Believed to clear mental fog and help you see your path more clearly.",
+      "Supports a felt sense of purpose when life begins to feel mechanical.",
+      "A gentle anchor for meditation and for moments when you feel scattered."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural clear quartz and aquamarine beads",
+      "Clear quartz approx. 10mm, aquamarine approx. 12mm",
+      "Cool, water-clear polished finish",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-a4-2507-10mm-12mm.webp",
     "images": [
       "/products/crown-a4-2507-10mm-12mm.webp",
@@ -5295,15 +6581,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "A5-2510 拉长石草莓晶手串+月亮吊坠",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Labradorite Strawberry Quartz Moon Pendant Bracelet",
+    "tagline": "Rose-toned strawberry quartz and dark labradorite meet beneath a small moon charm, a poetic trio for dreamers, believed to soften the heart while keeping your gaze turned gently skyward.",
+    "material": "Strawberry quartz, with its warm rosy body and sparkling inclusions, sits beside dark labradorite that flashes blue and gold as it catches the light. A small moon-shaped pendant finishes the strand. The contrast of soft pink and deep grey feels both tender and mysterious. Labradorite is traditionally loved for its shifting play of color, which is said to spark imagination and quiet wonder.",
+    "energy": [
+      "The Crown Chakra is where we sense connection to something larger, and this bracelet was designed to keep that feeling close. Labradorite is said to hold the northern lights within it, awakening imagination and quiet wonder. Strawberry quartz adds a warm, tender note of self-compassion, while the moon pendant ties the strand to lunar rhythm, a traditional emblem of intuition and inner knowing. It is a quiet invitation to soften and look up.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel your days have become mechanical — wake, work, scroll, sleep — with little sense of why you are doing any of it? Do you long for depth, mystery, or a feeling of being guided, yet dismiss that longing as impractical? These are quiet signs of an underactive Crown Chakra, the energy center of connection and meaning. Labradorite is said to awaken imagination, while the small moon pendant honors the intuitive pull of lunar rhythm. Many wearers describe this bracelet as a gentle invitation to soften, look up, and remember they belong to something vast and luminous."
+    ],
+    "benefits": [
+      "Labradorite is said to hold the northern lights and to awaken quiet wonder.",
+      "Strawberry quartz adds a tender note of warmth and gentle self-acceptance.",
+      "The small moon pendant honors lunar rhythm and the pull of intuition.",
+      "Gently encourages you to pause, breathe, and remember what matters most.",
+      "Believed to restore a sense of belonging when you feel disconnected from others."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural strawberry quartz and labradorite beads",
+      "Small moon-shaped pendant accent",
+      "Polished round beads",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-a5-2510.webp",
     "images": [
       "/products/crown-a5-2510.webp",
@@ -5321,15 +6622,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "A6-2510 10mm白月光手串",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "White Moonstone Bracelet 10mm",
+    "tagline": "Like a piece of the night sky, white moonstone glows with a soft adularescent sheen — a traditional stone of intuition, believed to settle the mind and tune you to the moon's slow rhythm.",
+    "material": "White moonstone glows with a soft adularescent sheen — a pale blue light that seems to float beneath the surface, like moonlight on still water. Each 10mm bead is smooth and cool to the touch, with an opalescent shimmer that shifts as you move your wrist. Moonstone's quiet, milky glow makes it a natural choice for evening and reflection.",
+    "energy": [
+      "White moonstone has always been tied to the moon, and through the moon to the rhythms of intuition, reflection, and inner knowing. For the Crown Chakra, traditional belief holds that such lunar energy helps the mind settle, so that clarity can arrive on its own. This 10mm strand carries that quiet, silvery presence with you through the day and into rest. Women in particular have long kept moonstone close, honoring its link to the moon's cycles.",
+      "Real-Life Signs You May Recognize",
+      "Do you feel as though the color has drained out of your days, even when life looks fine from the outside? Do you struggle to quiet your mind, especially at night when you long for rest? These are quiet signs of a Crown Chakra that has drifted out of balance — the center of connection, meaning, and inner peace. White moonstone's soft, moonlit glow is traditionally associated with intuition and calm, a reminder that not everything needs to be figured out at once. Many wearers describe this bracelet as a return to themselves: sleeping more deeply, thinking more gently, and feeling, for no obvious reason, more at peace."
+    ],
+    "benefits": [
+      "White moonstone is traditionally linked to intuition and the quiet rhythm of the moon.",
+      "Its adularescent sheen is said to soothe the mind and soften anxious evenings.",
+      "A traditional companion for meditation, worn to help thoughts settle on their own.",
+      "Said to restore a gentle sense of connection when you feel closed off or alone.",
+      "A soothing presence for evenings when your mind keeps replaying the day."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural white moonstone beads",
+      "Approx. 10mm bead size",
+      "Soft adularescent sheen",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-a6-2510-10mm.webp",
     "images": [
       "/products/crown-a6-2510-10mm.webp",
@@ -5341,15 +6657,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "A9-2502 8mm天然白水晶+猫眼珠手串",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Clear Quartz Cat's Eye Bracelet 8mm",
+    "tagline": "A clear quartz strand threaded with luminous cat's-eye beads, this bracelet is said to bring a childlike sense of wonder back to ordinary days, and a steady light to wandering thoughts.",
+    "material": "A foundation of natural clear quartz in smooth 8mm beads, threaded with luminous cat's-eye beads that catch the light in a single bright line. Clear quartz is traditionally known as the stone of light and clarity, while cat's-eye adds a warm, honeyed gleam. The two stones alternate in a quiet, almost hypnotic rhythm that is pleasant to wear all day.",
+    "energy": [
+      "Clear quartz is the traditional stone of the Crown Chakra, valued for its pure, luminous clarity, and is said to help the mind find stillness. The warm cat's-eye beads threaded through this bracelet add a note of grounded wonder, like sunlight catching on a familiar path. Together they support a sense of quiet openness, helping you feel connected rather than closed, even on days when the world feels demanding.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel closed off — to new people, new ideas, even to your own quiet wishes? Do you go through the motions with a sense that wonder has quietly left the building? These are quiet signs of a guarded Crown Chakra, the energy center of connection and inner light. Clear quartz is traditionally called the stone of pure light, and the cat's-eye beads threaded through it add a warm note of childhood curiosity. Many wearers describe this bracelet as a gentle reopening: noticing beauty again, feeling more present, and remembering that life is allowed to feel luminous."
+    ],
+    "benefits": [
+      "Clear quartz is traditionally called the stone of pure light and clarity.",
+      "The cat's-eye beads catch light in a single bright line, like small suns.",
+      "Said to help you feel connected to something larger than daily routines.",
+      "Worn close to the skin, it keeps a reminder of quiet purpose within reach.",
+      "May ease the sense that something essential is missing from your days."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural clear quartz and cat's-eye beads",
+      "Approx. 8mm bead size",
+      "Warm honeyed cat's-eye gleam",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-a9-2502-8mm.webp",
     "images": [
       "/products/crown-a9-2502-8mm.webp",
@@ -5368,15 +6699,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "B1-2506 10mm白月光",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "White Moonstone Bracelet 10mm Classic",
+    "tagline": "The classic expression of lunar elegance, this white moonstone bracelet shimmers with an adularescent glow that traditional belief links to intuition, inner calm, and the gentle rhythms of the moon.",
+    "material": "White moonstone, with its signature adularescent sheen, is the quiet heart of this classic strand. The 10mm beads glow softly, catching the light in pale blues and silvers, and their smooth rounded shape sits comfortably and elegantly on the wrist. It is a design that never shouts, content to shimmer quietly beside you.",
+    "energy": [
+      "The Crown Chakra governs our felt connection to the vast and the eternal, and moonstone is one of the stones most traditionally associated with that openness. Its adularescent glow has been likened to reflected moonlight, said to soothe the mind and invite contemplative calm. Wearing this classic strand is a quiet way of keeping lunar serenity within reach. It is a bracelet for anyone who longs to feel less rushed and more connected.",
+      "Real-Life Signs You May Recognize",
+      "Do you feel disconnected — from others, from yourself, from anything larger than your to-do list? Do you sense that something essential is missing, even when everything is technically fine? These are classic signs of an underactive Crown Chakra, the energy center of connection, meaning, and inner peace. This moonstone strand carries the calm of traditional lunar symbolism, believed to soothe the mind and soften the edges of a long day. Many wearers describe it as a return to themselves: sleeping more deeply, thinking more clearly, and feeling, for no obvious reason, simply at peace."
+    ],
+    "benefits": [
+      "The adularescent sheen of moonstone is said to soothe a restless mind.",
+      "Believed to encourage restful nights and a more peaceful inner dialogue.",
+      "A traditional companion for meditation, worn to help thoughts settle on their own.",
+      "Believed to restore a sense of belonging when you feel disconnected from others.",
+      "Its adularescent glow is said to calm the mind and invite contemplative stillness."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural white moonstone beads",
+      "Approx. 10mm bead size",
+      "Classic round bead profile",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-b1-2506-10mm.webp",
     "images": [
       "/products/crown-b1-2506-10mm.webp",
@@ -5395,15 +6741,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "E04-2508 10mm白月光水晶手串-A款",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "White Moonstone Bracelet 10mm A Style",
+    "tagline": "A refined take on white moonstone, this bracelet is arranged bead by bead to catch the light like water, traditionally worn to quiet an overactive mind and restore a sense of inner calm.",
+    "material": "White moonstone chosen for its clearest adularescent glow is hand-strung in this refined A-style arrangement. Each 10mm bead holds a pale blue shimmer that drifts across the surface as it moves, giving the strand a cool, watery luminescence. The subtle, even color is chosen to pair easily with everything you wear.",
+    "energy": [
+      "In traditional crystal practice, the Crown Chakra opens us to inspiration and a sense of belonging to the whole. White moonstone is believed to echo the moon's own quiet light, steadying emotions and sharpening intuition. This A-style arrangement, with its even, luminous beads, is a refined companion for meditation, rest, and the small pauses that return you to yourself. Many wearers describe feeling lighter by evening, as if the day has been gently set down.",
+      "Real-Life Signs You May Recognize",
+      "Do you find yourself rushing from one thing to the next, unable to remember the last time you felt truly still? Do you feel spiritually dry, longing for depth but too tired to look for it? These are quiet signs of a Crown Chakra in need of gentle attention, the center of connection and inner peace. This A-style white moonstone bracelet is believed to carry the moon's calming rhythm, a traditional companion for meditation and quiet reflection. Many wearers describe a slow unfurling: pausing more often, listening to their own intuition, and feeling less heavy by the end of the day."
+    ],
+    "benefits": [
+      "Its adularescent sheen is said to soothe the mind and soften anxious evenings.",
+      "Believed to encourage restful nights and a more peaceful inner dialogue.",
+      "A traditional companion for meditation, worn to help thoughts settle on their own.",
+      "Worn close to the skin, it keeps a reminder of quiet purpose within reach.",
+      "Believed to restore a sense of belonging when you feel disconnected from others."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural white moonstone beads",
+      "Approx. 10mm bead size",
+      "Refined A-style arrangement",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-e04-2508-10mm-a.webp",
     "images": [
       "/products/crown-e04-2508-10mm-a.webp",
@@ -5420,15 +6781,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "E06-2509 白水晶+粉晶12mm",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Clear Quartz Rose Quartz Bracelet 12mm",
+    "tagline": "Substantial 12mm beads of clear quartz and gentle rose quartz alternate like light and tenderness — a traditional pairing believed to bring clarity to the mind without asking the heart to grow cold.",
+    "material": "Generous 12mm beads of clear quartz and soft rose quartz alternate around the strand, pairing the traditional clarity of crystal with rose quartz's gentle pink warmth. The larger size gives the bracelet a satisfying weight and presence. Rose quartz is traditionally known as the stone of tender, open-hearted love. Together the two stones feel balanced — bright, warm, and quietly alive.",
+    "energy": [
+      "Clear quartz, the classic stone of the Crown Chakra, is said to lift the mind toward clarity and stillness. Rose quartz, traditionally the stone of the heart, keeps that clarity warm and kind rather than cold. This pairing honors an old idea — that true clarity never asks you to abandon tenderness — and makes it easy to wear both at once. The generous 12mm beads give the design a grounded, substantial feel.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel that life has become all doing and no feeling, efficient, productive, and strangely empty? Do you struggle to connect with people because your mind is always somewhere else? These are quiet signs of an over-busy Crown Chakra, the center of clarity, connection, and meaning. Clear quartz is said to bring light to the mind, while rose quartz keeps that light gentle and warm-hearted. Many wearers describe this bracelet as a bridge between head and heart: thinking clearly without growing cold, and caring deeply without losing perspective."
+    ],
+    "benefits": [
+      "Clear quartz is traditionally called the stone of pure light and clarity.",
+      "Rose quartz is traditionally the stone of the heart, keeping clarity kind.",
+      "Believed to calm a busy mind and make space for quiet reflection.",
+      "Said to help you feel connected to something larger than daily routines.",
+      "May ease the sense that something essential is missing from your days."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural clear quartz and rose quartz beads",
+      "Approx. 12mm bead size",
+      "Generous, substantial profile",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-e06-2509-12mm.webp",
     "images": [
       "/products/crown-e06-2509-12mm.webp",
@@ -5441,15 +6817,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "F02-2507 10mm灰月光 金虎眼 蓝虎眼",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Grey Moonstone Tiger's Eye Trio Bracelet 10mm",
+    "tagline": "Three stones in one quiet conversation — grey moonstone for lunar calm, golden tiger's eye for steady warmth, and blue tiger's eye for clear sight — believed to anchor you without dulling your dreams.",
+    "material": "Grey moonstone with its soft sheen joins golden tiger's eye and blue tiger's eye in a three-stone rhythm. Moonstone brings the quiet glow of lunar light; tiger's eye is traditionally admired for its chatoyant band, which gleams like the eye of a great cat. The 10mm beads alternate in a composed sequence that is as pleasant to look at as it is to wear.",
+    "energy": [
+      "The Crown Chakra asks us to feel both connected and grounded — open to the infinite without losing our footing. Grey moonstone brings the moon's quiet clarity, while golden and blue tiger's eye are traditionally seen as stones of protection and steady perception. Together the trio is believed to balance daydreams with down-to-earth confidence. It is a grounding yet luminous choice for the dreamer who also needs to get things done.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel scattered — pulled in a dozen directions, with no clear sense of which way is yours? Do you long to feel both grounded and inspired, but settle for neither? These are quiet signs of a Crown Chakra that could use rebalancing, the center of connection, meaning, and inner peace. Grey moonstone brings lunar calm, while golden and blue tiger's eye are traditionally seen as stones of protection and clear perception. Many wearers describe this trio as a steadying presence: feet more firmly on the ground, mind more quietly open, and a clearer sense of the path ahead."
+    ],
+    "benefits": [
+      "Grey moonstone carries the moon's calm into the middle of busy days.",
+      "Tiger's eye is traditionally admired as a stone of protection and clear sight.",
+      "Golden and blue tiger's eye together are said to balance warmth with focus.",
+      "Said to help you feel connected to something larger than daily routines.",
+      "Tiger's eye is traditionally worn to keep your feet on the ground and your eyes open."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural grey moonstone, golden tiger's eye, and blue tiger's eye beads",
+      "Approx. 10mm bead size",
+      "Three-stone alternating rhythm",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-f02-2507-10mm.webp",
     "images": [
       "/products/crown-f02-2507-10mm.webp",
@@ -5464,15 +6855,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "G09-2505 【星光旋律】水晶手串",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Starlight Melody Bracelet",
+    "tagline": "A bracelet named for the music of the night, mixing luminous crystals in soft star-white tones, said to carry the quiet romance of starlight, so daily life begins to feel less hurried and more meaningful.",
+    "material": "This bracelet is a melody of softly luminous crystals in white, cream, and pale grey tones, arranged so the light seems to ripple along the strand. Named for the music of the night sky, it gathers clear, star-like stones into one wearable constellation. No two strands catch the light in quite the same way.",
+    "energy": [
+      "This bracelet borrows its name from the idea that even the night sky hums with quiet music. For the Crown Chakra, traditional belief points to light and stillness as the doorway to connection, and these luminous white and pale-toned crystals are said to carry exactly that quality. Wearing them is like keeping a small piece of starlight near your pulse. A reminder that you belong to something vast and gentle.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel like you are living on fast-forward, watching your own days blur past? Do you sense that something essential is missing — a sense of wonder, of direction, of belonging to something larger? These are quiet signs of an underactive Crown Chakra, the energy center of connection and meaning. A bracelet named for the music of the night is a reminder that even darkness has a melody. Many wearers describe this strand as a small anchor of calm: noticing the sky again, moving more slowly, and feeling, without quite knowing why, that things are gently falling into place."
+    ],
+    "benefits": [
+      "Clear quartz is traditionally called the stone of pure light and clarity.",
+      "Believed to carry a quiet, star-like light into ordinary days.",
+      "Said to help you feel connected to something larger than daily routines.",
+      "Supports a felt sense of purpose when life begins to feel mechanical.",
+      "A soothing presence for evenings when your mind keeps replaying the day."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural multi-crystal beads in white and pale tones",
+      "Softly luminous, polished finish",
+      "Melodic mixed-stone arrangement",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-g09-2505.webp",
     "images": [
       "/products/crown-g09-2505.webp",
@@ -5481,19 +6887,69 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
+    "id": "crown-i01-2504-12mm",
+    "chakra": "crown",
+    "chakraName": "Crown Chakra",
+    "color": "#d8b4e5",
+    "name": "Clear Quartz Luminous Bracelet 12mm",
+    "tagline": "Big, luminous 12mm beads of pure clear quartz — traditionally called the stone of light — believed to sweep mental fog aside and remind you that clarity has always been your birthright.",
+    "material": "Pure clear quartz in generous 12mm beads — luminous, almost watery to the eye, with the internal sparkle that has made quartz the most treasured of crystals for centuries. The clarity is so fine the beads seem lit from within. Clear quartz is traditionally called the stone of pure light, a companion for clarity and quiet meditation.",
+    "energy": [
+      "Clear quartz is the Crown Chakra's traditional companion, long called the stone of pure light. In this 12mm strand the quartz is so clear it appears almost liquid, and is said to reflect light back toward clarity of thought. Traditional belief holds that such transparency helps dissolve mental fog, making space for meaning, direction, and quiet certainty. It is clarity you can wear, for days when your own direction feels blurry.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel foggy — unable to see which direction is right for you, even when the answer should be obvious? Do you overthink every choice until the way forward blurs? These are quiet signs of a clouded Crown Chakra, the center of clarity, connection, and inner vision. Clear quartz has long been called the stone of pure light, and this luminous strand is believed to help sweep the fog aside. Many wearers describe it as seeing life in higher definition: decisions feel clearer, direction feels steadier, and the quiet knowing you had forgotten slowly becomes impossible to ignore."
+    ],
+    "benefits": [
+      "Clear quartz is traditionally called the stone of pure light and clarity.",
+      "Believed to calm a busy mind and make space for quiet reflection.",
+      "Said to help you feel connected to something larger than daily routines.",
+      "May ease the sense that something essential is missing from your days.",
+      "The larger 12mm beads give the strand a grounded, reassuring weight."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Natural clear quartz beads",
+      "Approx. 12mm bead size",
+      "Luminous, almost watery clarity",
+      "Strung on a durable stretch cord"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/crown-i01-2504-12mm.webp",
+    "images": [
+      "/products/crown-i01-2504-12mm.webp",
+      "/products/crown-i01-2504-12mm-2.webp"
+    ]
+  },
+  {
     "id": "crown-h03-2506-10mm",
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "H03-2506 【净界之息】白阿赛-10mm",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "White Azeztulite Bracelet 10mm",
+    "tagline": "White azeztulite is prized for its bright, clear light, and this 10mm strand is said to hold that radiance steady — a gentle companion for meditation when your mind will not sit still.",
+    "material": "White azeztulite is a rare, luminous crystal prized for its unusually bright, clear white color. In this 10mm strand, the polished beads hold a clean, radiant glow that seems deeper than ordinary quartz. White azeztulite is believed to carry a very high, still vibration, which makes it a favorite for meditation and quiet reflection.",
+    "energy": [
+      "White azeztulite is a rare crystal said to carry a higher, clearer light than most stones, which is why it is traditionally associated with the Crown Chakra and with deep meditation. Practitioners believe its bright white radiance helps quiet inner chatter so that stillness can surface. For anyone who feels spiritually dry or rushed, it offers a gentle return to spaciousness. The 10mm beads keep that presence close without ever feeling heavy.",
+      "Real-Life Signs You May Recognize",
+      "Do you find it hard to sit still — even for five quiet minutes — because your mind immediately fills with noise? Do you feel spiritually dry, wanting depth but unable to find the doorway? These are quiet signs of a congested Crown Chakra, the energy center of connection, meaning, and inner peace. White azeztulite is believed to carry an unusually clear, high light, making it a traditional companion for meditation. Many wearers describe this bracelet as a quiet doorway back to themselves: thoughts settling, breath slowing, and a sense of spaciousness returning to lives that had begun to feel small."
+    ],
+    "benefits": [
+      "White azeztulite is believed to carry a clear, high light that quiets inner chatter.",
+      "A traditional companion for meditation when your mind refuses to settle.",
+      "Believed to calm a busy mind and make space for quiet reflection.",
+      "Believed to quiet inner chatter and leave room for stillness.",
+      "Believed to restore a sense of belonging when you feel disconnected from others."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural white azeztulite beads",
+      "Approx. 10mm bead size",
+      "Bright, clear white radiance",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-h03-2506-10mm.webp",
     "images": [
       "/products/crown-h03-2506-10mm.webp",
@@ -5504,39 +6960,34 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "crown-i01-2504-12mm",
-    "chakra": "crown",
-    "chakraName": "Crown Chakra",
-    "color": "#d8b4e5",
-    "name": "I01-2504 【莹白灵澈】-12mm",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/crown-i01-2504-12mm.webp",
-    "images": [
-      "/products/crown-i01-2504-12mm.webp",
-      "/products/crown-i01-2504-12mm-2.webp"
-    ]
-  },
-  {
     "id": "crown-i02-2503-ddd",
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "I02-2503 ddd",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Multi Crystal Rainbow Mix Bracelet",
+    "tagline": "A joyful gathering of softly colored crystals on one strand — a tiny rainbow for your wrist, said to lift heavy moods and remind you that variety, not sameness, makes a life luminous.",
+    "material": "A cheerful gathering of multi-colored crystals — clear, rosy, amber, and soft grey tones among them — strung in an easygoing rainbow rhythm. The mix changes with the light, revealing new shades as you move through your day. Designed to be worn with everything, it pairs the bright energy of clear stone with the warmth of softly colored companions.",
+    "energy": [
+      "The Crown Chakra, in traditional teaching, is less about any single color than about wholeness — the sense that everything belongs. This rainbow mix of clear and softly colored crystals is said to echo that idea, gathering many shades into one harmonious strand. Wearing it is a small daily reminder that variety and unity can hold hands. Each bead keeps its own color, and together they feel effortless.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel that your life has narrowed — the same rooms, the same routines, the same thoughts circling back? Do you sense that something colorful, spacious, or unexpected has quietly gone missing? These are quiet signs of a Crown Chakra longing for wholeness, the energy center of connection, meaning, and inner peace. This rainbow mix is a reminder that you are not one single note but a whole spectrum. Many wearers describe it as a lift: noticing small beauties again, feeling lighter in crowded rooms, and remembering that variety — not sameness — is what makes a life luminous."
+    ],
+    "benefits": [
+      "A spectrum of softly colored crystals, said to lift heavy moods and heavy days.",
+      "Said to lift heavy moods and remind you that variety makes life luminous.",
+      "Gently encourages you to pause, breathe, and remember what matters most.",
+      "Believed to help you feel whole, with all your colors welcome at once.",
+      "A cheerful companion for days when your spirit needs a little more color."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural multi-color crystal beads",
+      "Mixed polished round beads",
+      "Cheerful rainbow arrangement",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-i02-2503-ddd.webp",
     "images": [
       "/products/crown-i02-2503-ddd.webp",
@@ -5550,15 +7001,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "I02-2509 【补水聚财】天然白水晶+海蓝宝",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Clear Quartz Aquamarine Prosperity Bracelet",
+    "tagline": "Clear quartz and cool aquamarine, paired under the old Chinese saying that Water nourishes wealth — a luminous bracelet meant to keep your energy clear, calm, and quietly abundant through long workdays.",
+    "material": "Natural clear quartz beads sit beside the soft seafoam blues of aquamarine in this prosperity bracelet. In traditional Chinese culture, the pairing is associated with the element of Water, which is said to nourish wealth and steady fortune. The alternating clear and blue beads read like light playing on moving water.",
+    "energy": [
+      "For the Crown Chakra, traditional belief links clarity of mind with the ability to see one's own path. Clear quartz is said to provide that luminous clarity, while aquamarine carries the calm of deep water. In traditional Chinese thought, this pairing honors Water, the element said to nourish wealth — prosperity understood as steady flow rather than grasping. A bracelet for those who want to move through work and life with an uncluttered, open heart.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel that no matter how hard you work, something essential stays out of reach — calm, direction, or a sense that your efforts are moving you somewhere real? Do you carry tension in your shoulders and ambition in your head, but little ease in between? These are quiet signs of a Crown Chakra that could use more flow, the center of clarity and connection. In traditional Chinese thought, this clear quartz and aquamarine pairing honors Water, the element said to nourish wealth — abundance as steady movement rather than strain. Many wearers describe it as permission to soften: working with more clarity, trusting the current, and letting good things arrive."
+    ],
+    "benefits": [
+      "Clear quartz is traditionally called the stone of pure light and clarity.",
+      "Aquamarine carries the calm of deep water into your working day.",
+      "In traditional Chinese belief, water nourishes wealth and supports steady flow.",
+      "Believed to clear mental fog and help you see your path more clearly.",
+      "Worn close, it is said to steady your energy through long workdays."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural clear quartz and aquamarine beads",
+      "Water-clear and seafoam blue tones",
+      "Polished round beads",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-i02-2509.webp",
     "images": [
       "/products/crown-i02-2509.webp",
@@ -5573,15 +7039,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "I02-2510 【玉见幸福】天然白水晶+和田玉",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Clear Quartz Hetian Jade Happiness Bracelet",
+    "tagline": "Clear quartz and creamy Hetian jade woven together — a traditional Chinese pairing said to meet happiness halfway, so the good things in life stop rushing past unnoticed and start lingering.",
+    "material": "Clear quartz and creamy Hetian jade are paired here in a design inspired by the Chinese phrase for meeting happiness — jade has long been honored in China for its warm, smooth touch and its association with good fortune and gentle joy. The clean white of the quartz lets the jade's soft celadon-cream tone feel quiet and luminous.",
+    "energy": [
+      "This bracelet joins clear quartz, the Crown Chakra's stone of light, with Hetian jade, which China has honored for millennia as a stone of gentle good fortune. Traditional belief associates jade with serenity and a warm, unhurried joy. Together the two are said to help you feel more at home in your own life. Its Chinese name is a small wish — that you meet happiness along the way.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel that happiness is always just ahead — after the project, after the weekend, after everything settles down? Do you sense that you have been postponing joy while waiting for a life that never quite arrives? These are quiet signs of a Crown Chakra that could use rebalancing, the center of connection, meaning, and inner peace. This bracelet's Chinese name is a small wish: that you meet happiness along the way. The warm Hetian jade and clear quartz are said to carry that wish with them. Many wearers describe it as a reminder to arrive: noticing the good that is already here, and feeling, for no obvious reason, quietly content."
+    ],
+    "benefits": [
+      "Hetian jade has long been treasured for its warm, smooth touch and calm presence.",
+      "Clear quartz is traditionally called the stone of pure light and clarity.",
+      "Said to help you feel more at home in your own life and body.",
+      "Said to remind you that happiness is something you carry, not chase.",
+      "Believed to help you feel more present in the life you are actually living."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural clear quartz and Hetian jade beads",
+      "Warm cream and celadon tones",
+      "Smooth, polished finish",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-i02-2510.webp",
     "images": [
       "/products/crown-i02-2510.webp",
@@ -5598,15 +7079,30 @@ export const importedProducts: ImportedProduct[] = [
     "chakra": "crown",
     "chakraName": "Crown Chakra",
     "color": "#d8b4e5",
-    "name": "I03-2503 【金水相生】天然白水晶+黑曜石",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
+    "name": "Clear Quartz Obsidian Water Metal Bracelet",
+    "tagline": "Black obsidian and clear quartz, arranged in the spirit of the old Chinese saying that Metal gives birth to Water — a grounding, clarifying bracelet for days when you need both roots and sky.",
+    "material": "Black obsidian, smooth and mirror-dark, alternates with beads of clear quartz in a design shaped by the old Chinese idea that Metal gives birth to Water. Obsidian has long been kept as a grounding stone, while clear quartz is traditionally the stone of light and clarity. The high-contrast pattern is bold yet easy to wear.",
+    "energy": [
+      "Clear quartz opens the Crown Chakra to light, while obsidian, in traditional practice, is a grounding stone that returns scattered energy to the body. The design draws on an old Chinese saying — Metal gives birth to Water — in which strength quietly becomes flow. Together the pair is said to balance rootedness with clarity. It is for days when you need both roots beneath you and a clear view ahead.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes feel ungrounded — ideas everywhere, but no solid ground beneath them, and no clear next step? Do you swing between overthinking and shutting down, unable to find the middle? These are quiet signs of a Crown Chakra that needs both light and roots, the center of connection, meaning, and inner peace. This bracelet draws on an old Chinese saying — Metal gives birth to Water — in which steadiness becomes flow. Obsidian is traditionally worn for grounding, clear quartz for clarity. Many wearers describe the pairing as a quiet balance: feet planted, mind clear, and a sense of moving forward without forcing it."
+    ],
+    "benefits": [
+      "Clear quartz is traditionally the stone of light and clarity.",
+      "Obsidian is traditionally worn as a grounding stone for scattered energy.",
+      "The old saying Metal gives birth to Water speaks to steady, unhurried flow.",
+      "Obsidian is said to return scattered energy to the body and ground your steps.",
+      "Believed to help you move forward without forcing, steady and clear."
+    ],
     "howToWear": [],
-    "specs": [],
+    "specs": [
+      "Natural clear quartz and black obsidian beads",
+      "High-contrast alternating pattern",
+      "Polished mirror-dark obsidian",
+      "Strung on a durable stretch cord"
+    ],
     "careRitual": [],
-    "price": 189,
+    "price": 89,
     "image": "/products/crown-i03-2503.webp",
     "images": [
       "/products/crown-i03-2503.webp",
@@ -5657,30 +7153,6 @@ export const importedProducts: ImportedProduct[] = [
     ]
   },
   {
-    "id": "crown-8mm",
-    "chakra": "crown",
-    "chakraName": "Crown Chakra",
-    "color": "#d8b4e5",
-    "name": "和田玉葫芦手串8mm",
-    "tagline": "Crown Chakra crystal talisman.",
-    "material": "",
-    "energy": [],
-    "benefits": [],
-    "howToWear": [],
-    "specs": [],
-    "careRitual": [],
-    "price": 189,
-    "image": "/products/crown-8mm.webp",
-    "images": [
-      "/products/crown-8mm.webp",
-      "/products/crown-8mm-2.webp",
-      "/products/crown-8mm-3.webp",
-      "/products/crown-8mm-4.webp",
-      "/products/crown-8mm-5.webp",
-      "/products/crown-8mm-6.webp"
-    ]
-  },
-  {
     "id": "crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet",
     "chakra": "crown",
     "chakraName": "Crown Chakra",
@@ -5719,6 +7191,45 @@ export const importedProducts: ImportedProduct[] = [
       "/products/crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet-3.webp",
       "/products/crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet-4.webp",
       "/products/crown-fortune-peace-double-strand-clear-quartz-shoushan-bracelet-5.webp"
+    ]
+  },
+  {
+    "id": "crown-8mm",
+    "chakra": "crown",
+    "chakraName": "Crown Chakra",
+    "color": "#d8b4e5",
+    "name": "Hetian Jade Gourd Bracelet 8mm",
+    "tagline": "Hetian jade has been treasured for centuries as a stone of quiet good fortune; this smooth gourd bracelet carries an old wish for wholeness, a gentle reminder that peace is worn, not waited for.",
+    "material": "Carved from smooth, creamy Hetian jade, prized in China for thousands of years for its warm, gentle touch, the gourd is a traditional emblem of wholeness and steady good fortune. Each softly rounded bead fits comfortably against the wrist, the jade's cool-soft surface growing more personal the longer you wear it. No two beads are identical, which gives every bracelet its own quiet character.",
+    "energy": [
+      "The Crown Chakra sits at the top of the head, where traditional practice says we meet the sense of being part of something larger than ourselves. Hetian jade has been honored in China for thousands of years as a stone of serene good fortune, and is said to carry a calm, steadying presence. The gourd, an old emblem of wholeness, deepens that quiet symbolism, making this bracelet a gentle companion for remembering what matters.",
+      "Real-Life Signs You May Recognize",
+      "Do you sometimes move through the days at full speed, checking things off, yet feel that something essential is missing? Do you struggle to remember what actually matters, or feel hollow in the middle of a full life? These are quiet signs of an underactive Crown Chakra, the energy center of connection, meaning, and inner peace. The smooth weight of Hetian jade against your wrist is a small, steady anchor, and the gourd has been a traditional emblem of wholeness for centuries. Many wearers describe it as a return to themselves: sleeping a little more deeply and feeling, for no obvious reason, quietly at ease."
+    ],
+    "benefits": [
+      "Hetian jade has long been treasured for its warm, smooth touch and calm presence.",
+      "The gourd shape is a traditional emblem of wholeness and quiet good fortune.",
+      "Said to help you feel more at home in your own life and body.",
+      "Believed to bring a steadying warmth to days that feel rushed or hollow.",
+      "A quiet reminder that peace is something you wear, not something you wait for."
+    ],
+    "howToWear": [],
+    "specs": [
+      "Natural Hetian jade gourd beads",
+      "Approx. 8mm bead size",
+      "Smooth, warm polished finish",
+      "Strung on a durable stretch cord"
+    ],
+    "careRitual": [],
+    "price": 89,
+    "image": "/products/crown-8mm.webp",
+    "images": [
+      "/products/crown-8mm.webp",
+      "/products/crown-8mm-2.webp",
+      "/products/crown-8mm-3.webp",
+      "/products/crown-8mm-4.webp",
+      "/products/crown-8mm-5.webp",
+      "/products/crown-8mm-6.webp"
     ]
   }
 ]
