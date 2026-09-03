@@ -10,6 +10,14 @@ type PageMeta = {
 const containsChinese = /[\u3400-\u9fff]/
 const SITE_ORIGIN = 'https://lunartalisman.com'
 const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}/og-image.svg`
+const SITE_DESCRIPTION =
+  'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.'
+
+function isGraphNodeOfType(node: unknown, type: string) {
+  if (!node || typeof node !== 'object') return false
+  const record = node as { ['@type']?: unknown }
+  return record['@type'] === type
+}
 
 function englishMeta(value: string, fallback: string) {
   return containsChinese.test(value) ? fallback : value
@@ -42,6 +50,38 @@ function withBreadcrumb(
   return {
     '@context': data['@context'] || 'https://schema.org',
     '@graph': [data, breadcrumb],
+  }
+}
+
+function withGlobalSchema(
+  data: Record<string, unknown>,
+  pageDescription: string,
+) {
+  const orgNode = {
+    '@type': 'Organization',
+    name: 'Lunar Talisman',
+    url: SITE_ORIGIN,
+    logo: DEFAULT_OG_IMAGE,
+    description: 'Crystal jewelry, chakra bracelets, lunar rituals, and reflective crystal education.',
+  }
+  const websiteNode = {
+    '@type': 'WebSite',
+    name: 'Lunar Talisman',
+    url: SITE_ORIGIN,
+    description: pageDescription || SITE_DESCRIPTION,
+  }
+
+  const graph = Array.isArray(data['@graph']) ? [...data['@graph']] : [data]
+  const hasOrg = graph.some((node) => isGraphNodeOfType(node, 'Organization'))
+  const hasWebsite = graph.some((node) => isGraphNodeOfType(node, 'WebSite'))
+
+  return {
+    '@context': data['@context'] || 'https://schema.org',
+    '@graph': [
+      ...(hasOrg ? [] : [orgNode]),
+      ...(hasWebsite ? [] : [websiteNode]),
+      ...graph,
+    ],
   }
 }
 
@@ -78,7 +118,11 @@ export function usePageMeta({
 
     const canonicalUrl = `${SITE_ORIGIN}${canonicalPathname(window.location.pathname)}`
     const structuredDataWithBreadcrumb = structuredData
-      ? withBreadcrumb(structuredData, canonicalUrl, safeTitle.replace(/\s+\|.*$/, ''))
+      ? withBreadcrumb(
+          withGlobalSchema(structuredData, safeDescription),
+          canonicalUrl,
+          safeTitle.replace(/\s+\|.*$/, ''),
+        )
       : null
     let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
     if (!canonical) {

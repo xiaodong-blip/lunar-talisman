@@ -8,11 +8,20 @@ const rootDir = fileURLToPath(new URL('..', import.meta.url))
 const publicDir = path.join(rootDir, 'public')
 const CJK = /[\u3400-\u9fff]/
 const SEO_EXCLUDED_PRODUCT_IDS = new Set(['crown-i02-2503-ddd'])
+const SEO_EXCLUDED_TOPIC = /\b(?:aries|taurus|gemini|cancer|leo|virgo|libra|scorpio|sagittarius|capricorn|aquarius|pisces|zodiac|birthstone)\b/i
 
 function isSeoEligibleProduct(product) {
+  const searchableProductText = [
+    product.id,
+    product.name,
+    product.tagline,
+    product.material,
+    product.chakraName,
+  ].join(' ')
   return (
     product.status === '上架' &&
-    !SEO_EXCLUDED_PRODUCT_IDS.has(product.id)
+    !SEO_EXCLUDED_PRODUCT_IDS.has(product.id) &&
+    !SEO_EXCLUDED_TOPIC.test(searchableProductText)
   )
 }
 
@@ -203,7 +212,7 @@ const brandFacts = {
 fs.writeFileSync(path.join(publicDir, 'brand.json'), `${JSON.stringify(brandFacts, null, 2)}\n`)
 
 const keywordResearch = {
-  methodology: 'Google and Bing autocomplete research checked across US, GB, and SG market settings on 2026-08-31. Suggestions indicate query language and intent; they are not fixed monthly search-volume claims. Zodiac aquamarine line products are included as on-sale catalog products and handled as regular product pages.',
+  methodology: 'Google and Bing autocomplete research checked across US, GB, and SG market settings on 2026-08-31. Suggestions indicate query language and intent; they are not fixed monthly search-volume claims. Zodiac, birthstone, and twelve-sign topics are excluded from sitemap and GEO keyword planning.',
   priorityClusters: {
     discovery: ['crystal healing', 'crystal healing stones', 'crystal healing guide', 'crystal meanings chart', 'crystal meanings and uses', 'healing crystals chart', 'crystal jewelry gift ideas'],
     commercial: ['crystal bracelet', 'crystal bracelets for women', 'crystal bracelet for men', 'chakra stones for sale', 'chakra stones bracelet', 'crystal shop online', 'healing crystal jewelry near me online'],

@@ -9,6 +9,8 @@ const sitemapPath = path.join(rootDir, 'public', 'sitemap.xml')
 const guidesPath = path.join(rootDir, 'src', 'data', 'importedSeriesGuides.ts')
 const guideSeoPath = path.join(rootDir, 'src', 'data', 'guideSeo.ts')
 const productsPath = path.join(rootDir, 'src', 'data', 'importedProducts.ts')
+const SITE_DESCRIPTION =
+  'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.'
 
 const CJK = /[\u3400-\u9fff]/
 const CHAKRA_BY_PREFIX = {
@@ -544,6 +546,39 @@ function faqGraphNode(faq) {
   return node
 }
 
+function globalSchemaNodes(canonicalUrl, description = SITE_DESCRIPTION) {
+  return [
+    {
+      '@type': 'Organization',
+      name: 'Lunar Talisman',
+      url: SITE_ORIGIN,
+      logo: `${SITE_ORIGIN}/og-image.svg`,
+      description:
+        'Crystal jewelry, chakra bracelets, lunar rituals, and reflective crystal education.',
+    },
+    {
+      '@type': 'WebSite',
+      name: 'Lunar Talisman',
+      url: SITE_ORIGIN,
+      description,
+    },
+  ]
+}
+
+function ensureGraphSchema(nodes, canonicalUrl, description) {
+  const graph = Array.isArray(nodes) ? [...nodes] : [nodes]
+  const hasOrg = graph.some((node) => node && typeof node === 'object' && node['@type'] === 'Organization')
+  const hasWebSite = graph.some((node) => node && typeof node === 'object' && node['@type'] === 'WebSite')
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      ...(hasOrg ? [] : [globalSchemaNodes(canonicalUrl, description)[0]]),
+      ...(hasWebSite ? [] : [globalSchemaNodes(canonicalUrl, description)[1]]),
+      ...graph,
+    ],
+  }
+}
+
 function routeMeta(route, guides, productMap) {
   const normalizedRoute = route === '/' ? '/' : route.replace(/\/+$/, '')
 
@@ -569,10 +604,11 @@ function routeMeta(route, guides, productMap) {
       ? englishProductName(product)
       : legacyProduct?.name || `Crystal Talisman · ${id.replaceAll('-', ' ')}`
     const category = legacyProduct?.category || chakra || 'Crystal Jewelry'
-    const price = getSalePricing(
-      id,
-      product?.price || legacyProduct?.price || 89,
-    ).salePrice.toFixed(2)
+    const priceValue = Math.max(
+      1,
+      Math.round(Number(product?.price ?? legacyProduct?.price ?? 89)),
+    )
+    const displayPrice = `$${priceValue}`
     const imagePaths = product?.images?.length ? product.images : product?.image ? [product.image] : []
     const images = imagePaths.length
       ? imagePaths.map((image) => (image.startsWith('http') ? image : `${SITE_ORIGIN}${image}`))
@@ -582,16 +618,20 @@ function routeMeta(route, guides, productMap) {
       id.startsWith(`${prefix}-`),
     )
     const intro = product?.tagline?.trim() || legacyProduct?.description || `${seo.title}. A ${category.toLowerCase()} piece for mindful ritual and everyday wear.`
-    const description = intro.slice(0, 155)
+    const description = `${intro} ${product?.material?.trim() || legacyProduct?.description || ''}`
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 180)
     return {
       kind: 'product',
       title: `${name} | Lunar Talisman`,
       description,
       heading: name,
-      copy: `${description} Available from Lunar Talisman for $${price} USD.`,
+      copy: `${description} Available from Lunar Talisman for ${displayPrice} USD.`,
       product: {
         name,
-        price,
+        price: priceValue,
+        displayPrice,
         category,
         sku: id,
         images,
@@ -712,15 +752,14 @@ function structuredData(meta, canonicalUrl) {
     ],
   }
   if (meta.kind === 'product') {
-    return {
-      '@context': 'https://schema.org',
+    const productNode = {
       '@type': 'Product',
       name: meta.product.name,
       description: meta.description,
       sku: meta.product.sku,
       category: meta.product.category,
       keywords: meta.product.keywords,
-      image: meta.product.images,
+      ...(meta.product.images?.length ? { image: [meta.product.images[0]] } : {}),
       brand: { '@type': 'Brand', name: 'Lunar Talisman' },
       offers: {
         '@type': 'Offer',
@@ -730,8 +769,8 @@ function structuredData(meta, canonicalUrl) {
         availability: 'https://schema.org/InStock',
         itemCondition: 'https://schema.org/NewCondition',
       },
-      breadcrumb,
     }
+    return ensureGraphSchema([productNode, breadcrumb], canonicalUrl, meta.description)
   }
   if (meta.kind === 'article') {
     const graph = [
@@ -773,29 +812,39 @@ function structuredData(meta, canonicalUrl) {
           : faqGraphNode(meta.article.faq),
       )
     }
-    return { '@context': 'https://schema.org', '@graph': graph }
+    return ensureGraphSchema(graph, canonicalUrl, meta.description)
   }
   if (meta.kind === 'collection') {
-    return {
-      '@context': 'https://schema.org',
-      '@type': 'CollectionPage',
-      name: meta.collection,
-      description: meta.description,
-      url: canonicalUrl,
-      isPartOf: { '@type': 'WebSite', name: 'Lunar Talisman', url: SITE_ORIGIN },
-      keywords: meta.keywords,
+    return ensureGraphSchema(
+      [
+        {
+          '@type': 'CollectionPage',
+          name: meta.collection,
+          description: meta.description,
+          url: canonicalUrl,
+          isPartOf: { '@type': 'WebSite', name: 'Lunar Talisman', url: SITE_ORIGIN },
+          keywords: meta.keywords,
+        },
+        breadcrumb,
+      ],
+      canonicalUrl,
+      meta.description,
+    )
+  }
+  return ensureGraphSchema(
+    [
+      {
+        '@type': 'WebPage',
+        name: meta.heading,
+        description: meta.description,
+        url: canonicalUrl,
+        isPartOf: { '@type': 'WebSite', name: 'Lunar Talisman', url: SITE_ORIGIN },
+      },
       breadcrumb,
-    }
-  }
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: meta.heading,
-    description: meta.description,
-    url: canonicalUrl,
-    isPartOf: { '@type': 'WebSite', name: 'Lunar Talisman', url: SITE_ORIGIN },
-    breadcrumb,
-  }
+    ],
+    canonicalUrl,
+    meta.description,
+  )
 }
 
 function renderPage(template, route, meta) {
@@ -826,7 +875,7 @@ function renderPage(template, route, meta) {
     meta.kind === 'article'
       ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.description)}</p><div class="guide-content">${renderGuideMarkdown(meta.article?.markdown || '')}</div><p><a href="${SITE_ORIGIN}/series/${escapeHtml(meta.article?.series || 'crystals')}/">Browse related crystal guides</a></p></article></main>`
       : meta.kind === 'product'
-        ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article data-no-auto-translate="true"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.product.tagline || meta.description)}</p>${meta.product.material ? `<h2>Material</h2><p>${escapeHtml(meta.product.material)}</p>` : ''}${meta.product.energy?.length ? `<h2>Energy &amp; Meaning</h2>${meta.product.energy.map((item) => `<p>${escapeHtml(item)}</p>`).join('')}` : ''}${meta.product.benefits?.length ? `<h2>Benefits</h2><ul>${meta.product.benefits.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.howToWear?.length ? `<h2>How to wear</h2><ul>${meta.product.howToWear.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.careRitual?.length ? `<h2>Care &amp; ritual</h2><ul>${meta.product.careRitual.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.specs?.length ? `<h2>Specs</h2><ul>${meta.product.specs.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}<h2>Ritual context</h2><p>This piece is made for an intentional everyday rhythm: a small, tactile reminder to pause before a decision, return to your breath, and notice what your body and attention are asking for. Wear it alongside journaling, meditation, a quiet walk, or a moon-phase practice. Crystal traditions are personal and symbolic; there is no single required way to work with a stone. Let the color, texture, and weight become part of a routine that feels honest, practical, and easy to repeat.</p><p>Over time, the meaning of a talisman can deepen through use. Keep the bracelet or necklace close to the moments you want to remember, and allow your own experience to guide how often you wear, rest, cleanse, and store it.</p></article></main>`
+        ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article data-no-auto-translate="true"><h1>${escapeHtml(meta.heading)}</h1><div style="margin:14px 0 6px;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(58,37,48,0.56)">Price</div><div class="price" style="margin-bottom:16px;font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#3a2530">${escapeHtml(meta.product.displayPrice || `$${meta.product.price}`)}</div><p>${escapeHtml(meta.product.tagline || meta.description)}</p>${meta.product.material ? `<h2>Material</h2><p>${escapeHtml(meta.product.material)}</p>` : ''}${meta.product.energy?.length ? `<h2>Energy &amp; Meaning</h2>${meta.product.energy.map((item) => `<p>${escapeHtml(item)}</p>`).join('')}` : ''}${meta.product.benefits?.length ? `<h2>Benefits</h2><ul>${meta.product.benefits.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.howToWear?.length ? `<h2>How to wear</h2><ul>${meta.product.howToWear.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.careRitual?.length ? `<h2>Care &amp; ritual</h2><ul>${meta.product.careRitual.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.specs?.length ? `<h2>Specs</h2><ul>${meta.product.specs.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}<h2>Ritual context</h2><p>This piece is made for an intentional everyday rhythm: a small, tactile reminder to pause before a decision, return to your breath, and notice what your body and attention are asking for. Wear it alongside journaling, meditation, a quiet walk, or a moon-phase practice. Crystal traditions are personal and symbolic; there is no single required way to work with a stone. Let the color, texture, and weight become part of a routine that feels honest, practical, and easy to repeat.</p><p>Over time, the meaning of a talisman can deepen through use. Keep the bracelet or necklace close to the moments you want to remember, and allow your own experience to guide how often you wear, rest, cleanse, and store it.</p></article></main>`
         : meta.kind === 'collection'
           ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article data-no-auto-translate="true"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.description)}</p><div class="guide-content">${renderGuideMarkdown(meta.intro || '')}</div></article></main>`
       : `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals/">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra/">Explore chakra collections</a></p></main>`
