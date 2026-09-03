@@ -3,15 +3,9 @@ import { readFile, writeFile } from 'node:fs/promises'
 const sourcePath = new URL('../src/data/importedProducts.ts', import.meta.url)
 const outputPath = new URL('../netlify/functions/_generated-catalog.mjs', import.meta.url)
 
-const REMOVED_PRODUCT_IDS = new Set([
-  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
-  'sacral-sacral-chakra-honey-amber-bracelet-10mm',
-  'sacral-sacral-chakra-passion-orange-garnet-bracelet-6mm',
-  'sacral-sacral-chakra-faceted-carnelian-bracelet-10mm',
-  'sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm',
-  'sacral-sacral-chakra-flame-orange-agate-bracelet-10mm',
-  'sacral-sacral-chakra-radiance-sunstone-bracelet-8mm',
-])
+// Keep the checkout catalog aligned with the full imported catalog so all
+// in-stock products remain available to the storefront, sitemap, and backend.
+const REMOVED_PRODUCT_IDS = new Set()
 
 const source = await readFile(sourcePath, 'utf8')
 const assignment = 'export const importedProducts: ImportedProduct[] = '

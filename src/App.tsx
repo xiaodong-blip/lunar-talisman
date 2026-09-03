@@ -250,33 +250,10 @@ type StoredAdminProduct = {
 const ADMIN_PRODUCT_KEY = 'lunar-talisman-admin-products'
 const CART_KEY = 'lunar-talisman-cart'
 const ADMIN_SEED_PRODUCT_IDS = new Set(['P-001', 'P-002', 'P-003'])
-const REMOVED_ZODIAC_IDS = new Set([
-  'zodiac',
-  'scorpio-amethyst',
-  'aries-carnelian',
-  'taurus-rose-quartz',
-  'gemini-aquamarine',
-  'cancer-moonstone',
-  'leo-citrine',
-  'virgo-amazonite',
-  'libra-rose-quartz',
-  'sagittarius-lapis',
-  'capricorn-garnet',
-  'aquarius-fluorite',
-  'pisces-amethyst',
-])
-const REMOVED_IMPORTED_PRODUCT_IDS = new Set([
-  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
-  'sacral-sacral-chakra-honey-amber-bracelet-10mm',
-  'sacral-sacral-chakra-passion-orange-garnet-bracelet-6mm',
-  'sacral-sacral-chakra-faceted-carnelian-bracelet-10mm',
-  'sacral-sacral-chakra-golden-tigers-eye-bracelet-10mm',
-  'sacral-sacral-chakra-flame-orange-agate-bracelet-10mm',
-  // The supplier's primary image is an access-denied placeholder rather than
-  // product content, so do not expose its collection card or detail URL.
-  'sacral-sacral-chakra-radiance-sunstone-bracelet-8mm',
-  'crown-i02-2503-ddd',
-])
+// Legacy exclusion sets are kept empty so the storefront can expose the full
+// in-stock catalog. SEO and sitemap filtering now happen in the build scripts.
+const REMOVED_ZODIAC_IDS = new Set<string>()
+const REMOVED_IMPORTED_PRODUCT_IDS = new Set<string>()
 
 const PRODUCTS: DetailData[] = [
   {

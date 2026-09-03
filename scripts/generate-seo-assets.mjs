@@ -7,6 +7,14 @@ const siteUrl = 'https://lunartalisman.com'
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
 const publicDir = path.join(rootDir, 'public')
 const CJK = /[\u3400-\u9fff]/
+const SEO_EXCLUDED_PRODUCT_IDS = new Set(['crown-i02-2503-ddd'])
+
+function isSeoEligibleProduct(product) {
+  return (
+    product.status === '上架' &&
+    !SEO_EXCLUDED_PRODUCT_IDS.has(product.id)
+  )
+}
 
 function englishCatalogName(product) {
   if (!CJK.test(product.name)) return product.name
@@ -66,7 +74,8 @@ const guideSource = fs.readFileSync(
 const guideIds = [...guideSource.matchAll(/"id":\s*"([^"]+)"/g)].map((match) => match[1])
 const guideRoutes = guideIds.map((id) => `/guide/${id}`)
 
-const productRoutes = IMPORTED_CATALOG.filter((product) => product.status === '上架').map(
+const seoProducts = IMPORTED_CATALOG.filter(isSeoEligibleProduct)
+const productRoutes = seoProducts.map(
   (product) => `/detail/${product.id}`,
 )
 
@@ -84,7 +93,7 @@ ${routes.map((route) => `  <url><loc>${siteUrl}${route}</loc></url>`).join('\n')
 
 fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), xml)
 
-const productLines = IMPORTED_CATALOG.filter((product) => product.status === '上架')
+const productLines = seoProducts
   .map(
     (product) =>
       `- ${englishCatalogName(product)} — ${siteUrl}/detail/${product.id}/ — crystal talisman product page`,
@@ -194,7 +203,7 @@ const brandFacts = {
 fs.writeFileSync(path.join(publicDir, 'brand.json'), `${JSON.stringify(brandFacts, null, 2)}\n`)
 
 const keywordResearch = {
-  methodology: 'Google and Bing autocomplete research checked across US, GB, and SG market settings on 2026-08-31. Suggestions indicate query language and intent; they are not fixed monthly search-volume claims. Zodiac, birthstone, and twelve-sign topics are intentionally excluded from this site plan.',
+  methodology: 'Google and Bing autocomplete research checked across US, GB, and SG market settings on 2026-08-31. Suggestions indicate query language and intent; they are not fixed monthly search-volume claims. Zodiac aquamarine line products are included as on-sale catalog products and handled as regular product pages.',
   priorityClusters: {
     discovery: ['crystal healing', 'crystal healing stones', 'crystal healing guide', 'crystal meanings chart', 'crystal meanings and uses', 'healing crystals chart', 'crystal jewelry gift ideas'],
     commercial: ['crystal bracelet', 'crystal bracelets for women', 'crystal bracelet for men', 'chakra stones for sale', 'chakra stones bracelet', 'crystal shop online', 'healing crystal jewelry near me online'],

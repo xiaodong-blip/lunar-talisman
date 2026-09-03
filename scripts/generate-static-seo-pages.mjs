@@ -596,28 +596,28 @@ function routeMeta(route, guides, productMap) {
         sku: id,
         images,
         tagline: intro,
-        material: product?.material || `A thoughtfully finished ${category.toLowerCase()} piece selected for comfortable everyday wear and reflective ritual.`,
-        energy: product?.energy || [
+        material: product?.material?.trim() || `A thoughtfully finished ${category.toLowerCase()} piece selected for comfortable everyday wear and reflective ritual.`,
+        energy: product?.energy?.length ? product.energy : [
           `This ${category.toLowerCase()} talisman is designed as a visible reminder to pause, notice your intention, and return to a steadier rhythm.`,
           'Use it during meditation, journaling, moon rituals, or any quiet transition where a tactile cue helps you stay present.',
           'Its color, texture, and natural variation invite a slower kind of attention: notice what you feel, name what matters, and let the ritual remain practical.',
           'There is no required belief system. Treat the piece as a personal symbol that helps you make space for calm, courage, connection, or renewal.',
         ],
-        benefits: product?.benefits || [
+        benefits: product?.benefits?.length ? product.benefits : [
           'Offers a tangible focus for mindful intention setting.',
           'Layers easily into an everyday jewelry ritual.',
           'Makes a meaningful companion for reflection and personal growth.',
           'Creates a simple tactile cue for returning to your chosen intention throughout the day.',
         ],
-        howToWear: product?.howToWear || [
+        howToWear: product?.howToWear?.length ? product.howToWear : [
           'Wear it on the wrist or keep it nearby during a reflective practice.',
           'Pair it with a simple breath, journaling prompt, or lunar ritual.',
         ],
-        careRitual: product?.careRitual || [
+        careRitual: product?.careRitual?.length ? product.careRitual : [
           'Wipe gently with a soft dry cloth and store away from hard surfaces.',
           'For a reset, place it on a clean cloth under moonlight and set a quiet intention.',
         ],
-        specs: product?.specs || [category, 'Natural crystal or gemstone', 'Mindful everyday wear'],
+        specs: product?.specs?.length ? product.specs : [category, 'Natural crystal or gemstone', 'Mindful everyday wear'],
         keywords: seo.keywords,
         seriesPath: productSeriesPrefix ? `series/chakra-${productSeriesPrefix}` : 'series/crystals',
       },
