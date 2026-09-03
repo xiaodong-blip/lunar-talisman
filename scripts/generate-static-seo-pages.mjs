@@ -429,6 +429,549 @@ function readImportedProducts() {
   return new Map(products.map((product) => [product.id, product]))
 }
 
+const MAIN_SERIES_IDS = ['worlds', 'collections', 'rituals', 'chakra', 'lunar', 'crystals', 'connect']
+const CHAKRA_IDS = ['root', 'sacral', 'solar', 'heart', 'throat', 'third-eye', 'crown']
+
+const SERIES_GUIDE_MAP = {
+  worlds: ['chakra-seven-chakras-explained', 'crystals-00', 'connect-03', 'rituals-moon-phase-guide', 'crystals-06'],
+  collections: ['crystals-00', 'crystals-04', 'crystals-05', 'crystals-06', 'connect-03'],
+  rituals: ['rituals-01', 'rituals-02', 'rituals-05', 'rituals-06', 'rituals-moon-phase-guide'],
+  chakra: ['chakra-seven-chakras-explained', 'crystals-02', 'crystals-04', 'crystals-05', 'connect-crystal-care-faq'],
+  lunar: ['rituals-01', 'rituals-02', 'rituals-05', 'rituals-06', 'rituals-moon-phase-guide'],
+  crystals: ['crystals-00', 'crystals-02', 'crystals-03', 'crystals-04', 'crystals-05', 'crystals-06'],
+  connect: ['connect-00', 'connect-01', 'connect-02', 'connect-03', 'connect-04', 'connect-05'],
+  root: ['chakra-seven-chakras-explained', 'crystals-02', 'connect-crystal-care-faq', 'rituals-05', 'worlds-08'],
+  sacral: ['chakra-seven-chakras-explained', 'crystals-03', 'connect-03', 'rituals-01', 'rituals-02'],
+  solar: ['chakra-seven-chakras-explained', 'crystals-03', 'connect-03', 'rituals-06', 'crystals-06'],
+  heart: ['chakra-seven-chakras-explained', 'crystals-04', 'connect-03', 'rituals-02', 'crystals-06'],
+  throat: ['chakra-seven-chakras-explained', 'crystals-05', 'connect-04', 'rituals-05', 'crystals-06'],
+  'third-eye': ['chakra-seven-chakras-explained', 'crystals-05', 'connect-01', 'connect-02', 'rituals-06'],
+  crown: ['chakra-seven-chakras-explained', 'crystals-06', 'connect-02', 'rituals-06', 'connect-crystal-care-faq'],
+}
+
+const LEGAL_STATIC_CONTENT = {
+  privacy: {
+    eyebrow: 'Privacy',
+    preface: [
+      'This policy explains, in plain language, how Lunar Talisman handles the information needed to process orders, answer questions, and keep the site safe. It is written as a practical operating draft, with room for customer-facing refinements later.',
+      'We collect only the information that supports the purchase journey: contact details, delivery information, order notes, and limited technical signals that help us detect fraud, measure basic site performance, and respond to support requests.',
+    ],
+    sections: [
+      {
+        title: 'Information we collect',
+        body: [
+          'When you place an order, subscribe to updates, or contact us, we may collect your name, email address, delivery address, order number, selected shipping method, and any message you choose to send. We may also receive basic browser and device information that helps the site load correctly and detect misuse.',
+          'We do not intentionally request sensitive information that is not needed to complete an order. If a customer includes extra personal detail in a message, we only use it to handle that specific request and do not repurpose it for unrelated marketing.',
+        ],
+      },
+      {
+        title: 'How we use information',
+        body: [
+          'We use order data to fulfill purchases, send confirmation and shipping updates, answer support questions, and coordinate returns or refunds when they are appropriate. Limited browsing data helps us understand which pages load correctly, which pages are visited most often, and whether the storefront is behaving as expected.',
+          'We may also use information to protect the site from spam, account abuse, payment issues, or suspicious behavior. We do not sell personal data, and we do not use order details to make public claims about a customer or their purchases.',
+        ],
+      },
+      {
+        title: 'Storage and sharing',
+        body: [
+          'Order and support records may be stored with trusted service providers that help us run the site, process payments, or send email. Those providers are used only for operational purposes and should not use your data for unrelated advertising.',
+          'We keep records only as long as reasonably needed for the sale, support, accounting, dispute handling, and legal obligations that apply to the business. When records are no longer needed, we delete or anonymize them where practical.',
+        ],
+      },
+      {
+        title: 'Your choices',
+        body: [
+          'You may ask us to correct your information, update a delivery detail, or stop receiving non-transactional emails. If you would like a copy of your order history or need a privacy request, contact us using the address on the Contact page and include enough detail to verify your request.',
+          'If this policy changes, the updated version will be posted here with the revised wording that applies going forward. Minor editorial changes may not affect how existing order records are handled.',
+        ],
+      },
+    ],
+    footerNote:
+      'This draft focuses on practical operations rather than legalese. A final version can be reviewed by counsel before launch in each target region.',
+  },
+  terms: {
+    eyebrow: 'Terms',
+    preface: [
+      'By browsing, ordering, or contacting Lunar Talisman, you agree to use the site in a respectful and practical way. This page is an operational draft for a cross-border storefront and should be refined before launch in each market.',
+      'Product pages may describe crystals and rituals in traditional, symbolic language. Those descriptions are part of the brand voice and are not promises of medical, psychological, or financial outcomes.',
+    ],
+    sections: [
+      {
+        title: 'Products and natural variation',
+        body: [
+          'Natural crystals are not machine-made. Beads can differ in color depth, inclusions, texture, polish, and shape. Those differences are part of the product, not defects, unless the page or customer service message identifies a specific issue that materially changes the item from the description.',
+          'Because this is a handmade and natural-stone catalog, photos are meant to show the general appearance of a piece rather than a mathematically identical copy of every bead. We aim to keep the storefront honest and clear, and we will correct a page if a real mistake is found.',
+        ],
+      },
+      {
+        title: 'Order responsibilities',
+        body: [
+          'Please review the item name, quantity, price, shipping destination, and contact information before submitting an order. If you notice a mistake, contact us quickly so we can try to help before fulfillment begins.',
+          'If a parcel cannot be delivered because an address was entered incorrectly or a recipient does not collect it, extra shipping or return charges may apply. The exact outcome depends on the carrier and destination country.',
+        ],
+      },
+      {
+        title: 'Disclaimer for crystal content',
+        body: [
+          'Crystal and energy-related statements on this site are traditional beliefs, symbolic language, and personal ritual guidance. They are not medical advice, psychological advice, or a substitute for professional care.',
+          'Our jewelry is not a medical device. If you have a health concern, please speak with a qualified professional rather than relying on a bracelet, stone, or ritual to solve the issue.',
+        ],
+      },
+      {
+        title: 'Use of the website',
+        body: [
+          'You may not misuse the site, attempt unauthorized access, scrape data in ways that disrupt service, or use the storefront in a manner that violates applicable laws. We may update or remove site content when needed for safety, accuracy, or business operations.',
+          'These terms are written in a simple draft form. If additional legal wording is needed for your jurisdiction, it can be added later without changing the product catalog or core shopping flow.',
+        ],
+      },
+    ],
+    footerNote: 'TBD: final governing-law, dispute-resolution, and regional compliance language can be added once the launch jurisdictions are confirmed.',
+  },
+  shipping: {
+    eyebrow: 'Shipping',
+    preface: [
+      'Each order is prepared with care after payment is confirmed. This policy covers handling, transit, tracking, missing parcels, and the practical realities of international delivery. It intentionally avoids promises that depend on a specific carrier or destination.',
+      'Estimated delivery times are always approximate. Customs, weather, peak seasons, local strikes, and address problems can all change the schedule, so the checkout page or support team may need to give the final word for a specific order.',
+    ],
+    sections: [
+      {
+        title: 'Processing and handling',
+        body: [
+          'Most standard pieces are prepared within a few business days, while ritual batches or high-volume periods may take longer. If an item is made around a new moon or full moon rhythm, the page or product note will say so when relevant.',
+          'Once the parcel is packed, we send the order into the shipping queue and mark the fulfillment status so the customer can follow the next step. If a delay occurs, we try to communicate it early rather than waiting for a frustrated reply.',
+        ],
+      },
+      {
+        title: 'Tracking and delivery',
+        body: [
+          'When a carrier accepts the parcel, tracking details can be shared through the order status page or by email if the checkout flow stores an address the customer can use. Delivery windows vary by region, service level, and customs processing.',
+          'If a parcel appears stalled, we recommend checking the tracking page first, then contacting us with the order number if the carrier has not moved the package for an unusually long period.',
+        ],
+      },
+      {
+        title: 'Lost, delayed, or returned parcels',
+        body: [
+          'If a parcel is marked delivered but cannot be found, please check nearby delivery points and with household members before opening a support request. If the parcel is delayed beyond a reasonable window, contact us and we will help review the carrier notes.',
+          'If a parcel is returned because of an invalid address or failed delivery attempt, we may need to charge for reshipment or handle the order on a case-by-case basis. The exact resolution depends on the country, parcel status, and what the carrier reports.',
+        ],
+      },
+      {
+        title: 'International notes',
+        body: [
+          'Import duties, customs fees, and local taxes are usually the recipient’s responsibility unless a checkout note says otherwise. Some countries inspect parcels more slowly than others, and that timing is outside our direct control.',
+          'If you need a shipping estimate before ordering, use the destination section of the checkout flow or contact support for the current service options available to your region.',
+        ],
+      },
+    ],
+    footerNote: 'TBD: shipping thresholds, free-delivery promotions, and region-specific carriers can be added later without changing the core policy structure.',
+  },
+  refund: {
+    eyebrow: 'Refund',
+    preface: [
+      'Our goal is to ship the right item in the right condition, and to make return or refund handling straightforward when something clearly goes wrong. This draft uses a standard 30-day style window with room for order-specific review.',
+      'Because crystal jewelry is natural and often handmade, some variation is expected. Returns are generally reserved for incorrect, damaged, or materially misdescribed items rather than personal preference alone.',
+    ],
+    sections: [
+      {
+        title: 'When refunds or returns may apply',
+        body: [
+          'If an item arrives damaged, materially incorrect, or clearly different from what was ordered, contact us promptly with photos and the order number. We usually ask customers to reach out within a reasonable window after delivery so the issue can be checked while the parcel details are still fresh.',
+          'If the issue is confirmed, we may offer a replacement, exchange, or refund depending on the situation and the available stock. Some cases can be solved faster with a partial solution, but the goal is always to reach a fair result.',
+        ],
+      },
+      {
+        title: 'What is usually excluded',
+        body: [
+          'Worn items, personalized or custom ritual pieces, and requests based only on natural color variation are usually not eligible for return. Those characteristics are part of working with natural stone and handcrafted jewelry.',
+          'If a product page notes a special batch, a limited ritual release, or another non-returnable condition, that note should be read together with this policy. The product page always has priority for a specific item-level rule.',
+        ],
+      },
+      {
+        title: 'How the process works',
+        body: [
+          'Keep the original packaging, the item photos, and the order record. Send them with your message so the support team can compare the claim against the shipping and product notes. Clear photos help more than a long explanation alone.',
+          'After review, we may ask for the item to be returned, or we may resolve the case without a return if the evidence makes that reasonable. The exact path depends on the condition, the order value, and the region involved.',
+        ],
+      },
+      {
+        title: 'Refund timing',
+        body: [
+          'When a refund is approved, the timing depends on the payment provider and the customer’s bank. We cannot control how long each institution takes to release funds, but we can confirm when the refund has been initiated from our side.',
+          'If the original payment was made through a third-party provider, the provider’s own settlement time may apply. We encourage customers to keep the payment receipt until the full transaction is complete.',
+        ],
+      },
+    ],
+    footerNote: 'TBD: final return-address, restocking-fee, and regional postage allocation rules can be added once the launch support workflow is finalized.',
+  },
+  contact: {
+    eyebrow: 'Contact',
+    preface: [
+      'This page gives visitors a simple way to ask about orders, partnerships, delivery, or product questions. It also includes the main support email and a draft form so the site can collect requests even when the visitor prefers not to email directly.',
+      'If a request is about a refund or a parcel issue, please include the order number and enough detail for support to understand the situation quickly.',
+    ],
+    sections: [
+      {
+        title: 'Customer care',
+        body: [
+          'Email hello@lunartalisman.com for general questions about orders, products, delivery, or the ritual guidance printed on the site. Include your order number whenever you have one, because that reduces back-and-forth and speeds up a useful reply.',
+          'For most requests, one clear message is better than several short ones. Tell us what you need, what item is involved, and what outcome would be most helpful.',
+        ],
+      },
+      {
+        title: 'Partnerships and collaborations',
+        body: [
+          'Creators, retailers, and aligned brand partners may use the same email address to propose collaborations. A short introduction, your audience, and the idea you want to explore are usually enough for the first message.',
+          'We do not promise a reply to every pitch, but we do try to read them with care and respond when the fit is clear.',
+        ],
+      },
+      {
+        title: 'Response timing',
+        body: [
+          'Our target response window is usually one to three business days. Busy launches, shipping peaks, and lunar batch periods can stretch that window a little, especially if the team is also processing orders.',
+          'If a matter is urgent, say so in the subject line and explain why. Urgent should still be used sparingly; it helps the queue stay honest for everyone else.',
+        ],
+      },
+      {
+        title: 'Frequently asked questions',
+        body: [
+          'Q: How do I ask about a missing parcel? A: Send the order number, tracking number if you have it, and the shipping address used at checkout.',
+          'Q: Can you help me change an address? A: Contact us as soon as possible, because address changes become harder once fulfillment has started.',
+        ],
+      },
+    ],
+    form: `
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="margin-top:22px;padding:18px;border-radius:24px;border:1px solid rgba(58,37,48,0.12);background:rgba(255,255,255,0.9);display:grid;gap:12px">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
+        <h2 style="margin:0;font-size:24px">Send a support request</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+          <input name="name" placeholder="Your name" style="padding:14px 16px;border-radius:999px;border:1px solid rgba(58,37,48,0.16);font:inherit" />
+          <input type="email" name="email" placeholder="Email address" required style="padding:14px 16px;border-radius:999px;border:1px solid rgba(58,37,48,0.16);font:inherit" />
+        </div>
+        <input name="orderId" placeholder="Order number (optional for general questions)" style="padding:14px 16px;border-radius:999px;border:1px solid rgba(58,37,48,0.16);font:inherit" />
+        <textarea name="message" rows="5" placeholder="How can we help?" style="padding:14px 16px;border-radius:20px;border:1px solid rgba(58,37,48,0.16);font:inherit;resize:vertical"></textarea>
+        <button type="submit" style="justify-self:start;border:0;border-radius:999px;background:#3a2530;color:#fff;padding:14px 20px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">Send message</button>
+      </form>
+    `,
+    footerNote: 'TBD: if a support portal or region-specific reply address is added later, this form can be swapped without changing the page structure.',
+  },
+}
+
+function formatStaticPrice(value) {
+  return `$${Math.max(0, Math.round(Number(value) || 0))}`
+}
+
+function htmlAttr(value = '') {
+  return escapeHtml(String(value))
+}
+
+function productHref(id) {
+  return `${SITE_ORIGIN}/detail/${id}/`
+}
+
+function guideHref(id) {
+  return `${SITE_ORIGIN}/guide/${id}/`
+}
+
+function seriesHref(id) {
+  return `${SITE_ORIGIN}/series/${id}/`
+}
+
+function selectSeriesProducts(seriesId, productMap) {
+  const products = [...productMap.values()]
+  if (seriesId === 'chakra') {
+    return products.sort((a, b) => CHAKRA_IDS.indexOf(a.chakra) - CHAKRA_IDS.indexOf(b.chakra) || a.name.localeCompare(b.name))
+  }
+  if (seriesId === 'crystals' || seriesId === 'collections' || seriesId === 'worlds' || seriesId === 'connect') {
+    return products.sort((a, b) => a.name.localeCompare(b.name))
+  }
+  if (seriesId === 'rituals' || seriesId === 'lunar') {
+    return products.filter((product) => ['new-moon-set', 'full-moon-necklace'].includes(product.id))
+  }
+  if (seriesId.startsWith('chakra-')) {
+    const chakraId = seriesId.replace(/^chakra-/, '')
+    return products.filter((product) => product.chakra === chakraId)
+  }
+  const chakraKey = CHAKRA_IDS.includes(seriesId) ? seriesId : ''
+  if (chakraKey) {
+    return products.filter((product) => product.chakra === chakraKey)
+  }
+  return products.sort((a, b) => a.name.localeCompare(b.name))
+}
+
+function selectSeriesGuides(seriesId, guides) {
+  const ids = SERIES_GUIDE_MAP[seriesId] || SERIES_GUIDE_MAP.crystals
+  return ids.map((id) => guides.get(id)).filter(Boolean)
+}
+
+function resolveSeriesGuideKey(id, chakraId) {
+  if (id.startsWith('chakra-')) return chakraId
+  if (id === 'chakra') return 'chakra'
+  return id
+}
+
+function selectFeaturedProducts(productMap) {
+  const products = [...productMap.values()]
+  const order = CHAKRA_IDS.flatMap((chakra) => products.filter((product) => product.chakra === chakra).slice(0, 1))
+  const rituals = products.filter((product) => ['new-moon-set', 'full-moon-necklace'].includes(product.id))
+  return [...order, ...rituals].slice(0, 6)
+}
+
+function selectHomepageSeriesLinks() {
+  return MAIN_SERIES_IDS.map((id) => {
+    const labelMap = {
+      worlds: 'Crystal Journey',
+      collections: 'Crystal Collections',
+      rituals: 'Lunar Rituals',
+      chakra: 'Chakra Healing',
+      lunar: 'Lunar Rituals',
+      crystals: 'Crystal Talismans',
+      connect: 'Begin the Connection',
+    }
+    const descriptionMap = {
+      worlds: 'Start with the full crystal journey and the main guide map.',
+      collections: 'Browse the full catalog of jewelry, talismans, and ritual pieces.',
+      rituals: 'Move between new moon, full moon, cleansing, and charging rituals.',
+      chakra: 'Explore the seven chakra collections in their full sequence.',
+      lunar: 'Follow the lunar rhythm through intention, release, and renewal.',
+      crystals: 'Compare crystal meanings and shop the full talisman catalog.',
+      connect: 'Use the quiz and care guides to choose your first piece.',
+    }
+    return {
+      id,
+      label: labelMap[id],
+      description: descriptionMap[id],
+      href: seriesHref(id),
+    }
+  })
+}
+
+function selectCrossSeriesLinks(currentSeriesId) {
+  const mainLinks = MAIN_SERIES_IDS.filter((id) => id !== currentSeriesId)
+  const chakraLinks =
+    currentSeriesId === 'chakra' || currentSeriesId.startsWith('chakra-')
+      ? CHAKRA_IDS.filter((id) => `chakra-${id}` !== currentSeriesId).map((id) => `chakra-${id}`)
+      : []
+  return [...mainLinks, ...chakraLinks].map((id) => ({
+    id,
+    label:
+      id === 'chakra'
+        ? 'Chakra Healing'
+        : id.startsWith('chakra-')
+          ? `${id.replace('chakra-', '').replace(/\b\w/g, (m) => m.toUpperCase())} Chakra`
+          : id.replace(/\b\w/g, (m) => m.toUpperCase()).replace(/-/g, ' '),
+    href: seriesHref(id),
+    description:
+      id === 'chakra'
+        ? 'Open the full chakra collection and guide path.'
+        : id.startsWith('chakra-')
+          ? 'Move to the next chakra-specific collection.'
+          : 'Continue into another catalog hub.',
+  }))
+}
+
+function renderProductCard(product) {
+  const image = product.image
+    ? `<img src="${htmlAttr(product.image.startsWith('http') ? product.image : `${SITE_ORIGIN}${product.image}`)}" alt="${htmlAttr(product.name)}" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:18px;background:#fff" loading="lazy" />`
+    : ''
+  return `
+    <a href="${productHref(product.id)}" style="display:grid;gap:12px;padding:16px;border-radius:24px;border:1px solid rgba(58,37,48,0.12);background:rgba(255,255,255,0.88);box-shadow:0 18px 40px rgba(58,37,48,0.08);color:#3a2530;text-decoration:none">
+      ${image}
+      <div style="display:grid;gap:8px">
+        <h3 style="margin:0;font-size:18px;line-height:1.35">${htmlAttr(product.name)}</h3>
+        <div style="font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(58,37,48,0.56)">${htmlAttr(product.chakraName || 'Crystal')}</div>
+        <div style="font-size:24px;font-weight:900;letter-spacing:-0.03em">${htmlAttr(formatStaticPrice(product.price))}</div>
+      </div>
+    </a>
+  `
+}
+
+function renderGuideCard(guide) {
+  return `
+    <a href="${guideHref(guide.id)}" style="display:grid;gap:8px;padding:16px;border-radius:22px;border:1px solid rgba(58,37,48,0.12);background:rgba(255,255,255,0.88);color:#3a2530;text-decoration:none">
+      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(58,37,48,0.52)">Guide</div>
+      <h3 style="margin:0;font-size:18px;line-height:1.35">${htmlAttr(guide.title)}</h3>
+      <p style="margin:0;font-size:15px;line-height:1.6;color:rgba(58,37,48,0.68)">${htmlAttr(guide.excerpt)}</p>
+    </a>
+  `
+}
+
+function renderSeriesLinks(seriesLinks) {
+  return seriesLinks
+    .map(
+      (series) => `
+        <a href="${series.href}" style="display:grid;gap:4px;padding:14px 16px;border-radius:18px;border:1px solid rgba(58,37,48,0.12);background:rgba(255,255,255,0.82);color:#3a2530;text-decoration:none">
+          <strong style="font-size:15px">${htmlAttr(series.label)}</strong>
+          <span style="font-size:13px;line-height:1.45;color:rgba(58,37,48,0.64)">${htmlAttr(series.description)}</span>
+        </a>`,
+    )
+    .join('')
+}
+
+function renderNewsletterForm() {
+  return `
+    <form name="newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-field" style="display:grid;gap:12px;margin-top:18px;padding:18px;border-radius:24px;border:1px solid rgba(58,37,48,0.12);background:rgba(255,255,255,0.9)">
+      <input type="hidden" name="form-name" value="newsletter" />
+      <p style="display:none"><label>Don’t fill this out if you’re human: <input name="bot-field" /></label></p>
+      <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(58,37,48,0.56)">Newsletter</div>
+      <p style="margin:0;font-size:15px;line-height:1.65;color:rgba(58,37,48,0.72)">Subscribe for moon phase notes, crystal care reminders, and product drops.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <input type="email" name="email" placeholder="your@email.com" required style="min-width:240px;flex:1;padding:14px 16px;border-radius:999px;border:1px solid rgba(58,37,48,0.16);font:inherit" />
+        <button type="submit" style="border:0;border-radius:999px;background:#3a2530;color:#fff;padding:14px 20px;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">Subscribe</button>
+      </div>
+    </form>
+  `
+}
+
+function renderHomeStatic(meta, products, guides) {
+  const featured = Array.isArray(products) ? products : selectFeaturedProducts(products)
+  const seriesLinks = selectHomepageSeriesLinks()
+  const getGuide = (id) => (guides instanceof Map ? guides.get(id) : guides.find((guide) => guide?.id === id))
+  const guideLinks = [
+    getGuide('chakra-seven-chakras-explained'),
+    getGuide('rituals-01'),
+    getGuide('rituals-02'),
+    getGuide('crystals-00'),
+  ].filter(Boolean)
+  return `
+    <main data-no-auto-translate="true" style="max-width:1180px;margin:0 auto;padding:96px 20px 72px;font-family:system-ui,sans-serif;color:#3a2530">
+      <section style="display:grid;gap:18px;align-items:start">
+        <p style="margin:0;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(58,37,48,0.56)">Lunar Talisman</p>
+        <h1 style="margin:0;font-size:clamp(44px,7vw,84px);line-height:0.95;max-width:10ch">${htmlAttr(meta.home.heroTitle)}</h1>
+        <p style="margin:0;max-width:760px;font-size:18px;line-height:1.8;color:rgba(58,37,48,0.74)">${htmlAttr(meta.home.heroDescription)}</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="${seriesHref('chakra')}" style="padding:13px 18px;border-radius:999px;background:#3a2530;color:#fff;text-decoration:none;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">Browse chakra collections</a>
+          <a href="${seriesHref('crystals')}" style="padding:13px 18px;border-radius:999px;border:1px solid rgba(58,37,48,0.16);background:rgba(255,255,255,0.76);color:#3a2530;text-decoration:none;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">Explore crystal talismans</a>
+        </div>
+      </section>
+
+      <section style="margin-top:42px">
+        <h2 style="margin:0 0 18px;font-size:28px">Start with the seven chakra paths</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+          ${renderSeriesLinks(seriesLinks)}
+        </div>
+      </section>
+
+      <section style="margin-top:48px">
+        <h2 style="margin:0 0 18px;font-size:28px">Featured products</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          ${featured.map((product) => renderProductCard(product)).join('')}
+        </div>
+      </section>
+
+      <section style="margin-top:48px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,0.9fr);gap:18px;align-items:start">
+        <div style="padding:22px;border-radius:28px;background:rgba(255,255,255,0.84);border:1px solid rgba(58,37,48,0.12)">
+          <h2 style="margin:0 0 14px;font-size:28px">Why people start here</h2>
+          <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(58,37,48,0.72)">Each talisman is shaped as a small daily cue: natural stone, hand-finished beads, and a clear page for meaning, ritual, and care. The collections are designed to help a visitor move from curiosity to a first piece without having to decode the entire catalog at once.</p>
+          <ul style="margin:16px 0 0;padding-left:18px;font-size:15px;line-height:1.8;color:rgba(58,37,48,0.72)">
+            <li>Natural stone, hand-finished jewelry, and ritual guidance.</li>
+            <li>Visible product pages with clear materials, care, and price.</li>
+            <li>Worldwide delivery, secure checkout, and support pages.</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="margin:0 0 14px;font-size:28px">Recent guide paths</h2>
+          <div style="display:grid;gap:12px">
+            ${guideLinks.map((guide) => renderGuideCard(guide)).join('')}
+          </div>
+        </div>
+      </section>
+
+      <section style="margin-top:48px">
+        <h2 style="margin:0 0 14px;font-size:28px">What to expect</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+          ${[
+            'Natural materials and careful finishing',
+            'Crystal care, ritual, and meaning pages',
+            'Worldwide shipping and order tracking',
+            'Secure checkout and customer support',
+          ]
+            .map((item) => `<div style="padding:16px;border-radius:18px;background:rgba(255,255,255,0.8);border:1px solid rgba(58,37,48,0.12);font-size:15px;line-height:1.65">${htmlAttr(item)}</div>`)
+            .join('')}
+        </div>
+      </section>
+
+      <section style="margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,0.9fr);gap:18px">
+        <div style="padding:22px;border-radius:28px;background:rgba(255,255,255,0.84);border:1px solid rgba(58,37,48,0.12)">
+          <h2 style="margin:0 0 10px;font-size:28px">Explore the catalog</h2>
+          <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(58,37,48,0.72)">Browse by chakra, compare crystal meanings, or open a product to see material, energy, care, and price together in one place.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+            ${MAIN_SERIES_IDS.map((id) => `<a href="${seriesHref(id)}" style="padding:10px 14px;border-radius:999px;background:rgba(58,37,48,0.06);color:#3a2530;text-decoration:none;font-size:14px">${htmlAttr(id === 'chakra' ? 'Chakra' : id.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()))}</a>`).join('')}
+          </div>
+        </div>
+        <div>${renderNewsletterForm()}</div>
+      </section>
+    </main>
+  `
+}
+
+function renderSeriesStatic(meta, products, guides) {
+  const introParagraphs = meta.series?.introParagraphs || [meta.description, `${meta.title} brings together products, guide paths, and related collections so you can move from context into a clear next step.`]
+  const relatedGuides = meta.series?.guides?.length ? meta.series.guides : selectSeriesGuides(meta.series?.id || meta.seriesId || 'crystals', guides)
+  const relatedSeries = meta.series?.relatedSeries || selectCrossSeriesLinks(meta.series?.id || meta.seriesId || 'crystals')
+  const productCards = products.map((product) => renderProductCard(product)).join('')
+  return `
+    <main data-no-auto-translate="true" style="max-width:1200px;margin:0 auto;padding:96px 20px 72px;font-family:system-ui,sans-serif;color:#3a2530">
+      <section style="display:grid;gap:16px;max-width:880px">
+        <p style="margin:0;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(58,37,48,0.56)">${htmlAttr(meta.collectionEyebrow || 'Series')}</p>
+        <h1 style="margin:0;font-size:clamp(42px,6.5vw,80px);line-height:0.95">${htmlAttr(meta.heading)}</h1>
+        ${introParagraphs.slice(0, 2).map((paragraph) => `<p style="margin:0;font-size:17px;line-height:1.8;color:rgba(58,37,48,0.74)">${htmlAttr(paragraph)}</p>`).join('')}
+      </section>
+
+      <section style="margin-top:42px">
+        <h2 style="margin:0 0 18px;font-size:28px">All products in this series</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+          ${productCards}
+        </div>
+      </section>
+
+      <section style="margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,0.8fr);gap:18px;align-items:start">
+        <div>
+          <h2 style="margin:0 0 16px;font-size:28px">Related guides</h2>
+          <div style="display:grid;gap:12px">
+            ${relatedGuides.map((guide) => renderGuideCard(guide)).join('')}
+          </div>
+        </div>
+        <div>
+          <h2 style="margin:0 0 16px;font-size:28px">Explore other series</h2>
+          <div style="display:grid;gap:12px">
+            ${relatedSeries.map((series) => `<a href="${series.href}" style="display:grid;gap:4px;padding:14px 16px;border-radius:18px;background:rgba(255,255,255,0.82);border:1px solid rgba(58,37,48,0.12);color:#3a2530;text-decoration:none"><strong>${htmlAttr(series.label)}</strong><span style="font-size:13px;line-height:1.5;color:rgba(58,37,48,0.64)">${htmlAttr(series.description)}</span></a>`).join('')}
+          </div>
+        </div>
+      </section>
+    </main>
+  `
+}
+
+function renderLegalStatic(meta) {
+  const sections = meta.legal?.sections || []
+  const preface = meta.legal?.preface || []
+  const footerNote = meta.legal?.footerNote || ''
+  return `
+    <main data-no-auto-translate="true" style="max-width:980px;margin:0 auto;padding:96px 20px 72px;font-family:system-ui,sans-serif;color:#3a2530">
+      <section style="display:grid;gap:16px">
+        <p style="margin:0;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:rgba(58,37,48,0.56)">${htmlAttr(meta.legal?.eyebrow || 'Policy')}</p>
+        <h1 style="margin:0;font-size:clamp(42px,6.5vw,78px);line-height:0.96">${htmlAttr(meta.heading)}</h1>
+        <p style="margin:0;max-width:780px;font-size:17px;line-height:1.8;color:rgba(58,37,48,0.74)">${htmlAttr(meta.description)}</p>
+        ${preface.map((paragraph) => `<p style="margin:0;max-width:840px;font-size:16px;line-height:1.8;color:rgba(58,37,48,0.72)">${htmlAttr(paragraph)}</p>`).join('')}
+      </section>
+      <section style="margin-top:36px;display:grid;gap:18px">
+        ${sections
+          .map(
+            (section) => `
+              <article style="padding:22px;border-radius:26px;background:rgba(255,255,255,0.86);border:1px solid rgba(58,37,48,0.12)">
+                <h2 style="margin:0 0 10px;font-size:24px">${htmlAttr(section.title)}</h2>
+                ${section.body.map((paragraph) => `<p style="margin:0 0 12px;font-size:16px;line-height:1.8;color:rgba(58,37,48,0.72)">${htmlAttr(paragraph)}</p>`).join('')}
+              </article>`,
+          )
+          .join('')}
+      </section>
+      ${footerNote ? `<p style="margin:24px 0 0;font-size:14px;line-height:1.7;color:rgba(58,37,48,0.64)">${htmlAttr(footerNote)}</p>` : ''}
+      ${meta.legal?.form || ''}
+    </main>
+  `
+}
+
 function guideSeo(guide) {
   const source = `${guide?.id || ''} ${guide?.title || ''}`.toLowerCase()
   if (/faq|常见问题/.test(source)) {
@@ -583,13 +1126,27 @@ function routeMeta(route, guides, productMap) {
   const normalizedRoute = route === '/' ? '/' : route.replace(/\/+$/, '')
 
   if (normalizedRoute === '/') {
+    const featured = selectFeaturedProducts(productMap)
     return {
-      kind: 'website',
+      kind: 'home',
       title: 'Lunar Talisman · Crystal Jewelry & Chakra Rituals',
       description:
         'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.',
       heading: 'Lunar Talisman Crystal Jewelry & Chakra Rituals',
       copy: 'Explore crystal talismans, chakra collections, lunar rituals, and gemstone bracelet guides.',
+      home: {
+        heroTitle: 'Crystal jewelry for mindful ritual, daily wear, and clear intention.',
+        heroDescription:
+          'Discover natural-stone bracelets, moonlit ritual pieces, and practical crystal guides. The site is organized so you can begin with a chakra path, compare every product, and follow related guides without leaving the page structure behind.',
+        featuredProducts: featured,
+        seriesLinks: selectHomepageSeriesLinks(),
+        guides: [
+          guides.get('chakra-seven-chakras-explained'),
+          guides.get('rituals-01'),
+          guides.get('rituals-02'),
+          guides.get('crystals-00'),
+        ].filter(Boolean),
+      },
     }
   }
 
@@ -710,6 +1267,9 @@ function routeMeta(route, guides, productMap) {
           keywords: CHAKRA_SEO[chakraId]?.keywords || [chakra.toLowerCase(), 'chakra stones', 'crystal bracelet'],
         }
       : SERIES_SEO[id] || SERIES[id] || SERIES.crystals
+    const seriesProducts = selectSeriesProducts(id, productMap)
+    const seriesGuideKey = resolveSeriesGuideKey(id, chakraId)
+    const seriesGuides = selectSeriesGuides(seriesGuideKey, guides)
     return {
       kind: 'collection',
       title: `${data.title} | Lunar Talisman`,
@@ -717,14 +1277,35 @@ function routeMeta(route, guides, productMap) {
       heading: data.title,
       copy: data.description,
       collection: data.title,
+      collectionEyebrow: chakra ? `${chakra} Chakra` : id.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()),
       keywords: data.keywords || CORE_KEYWORDS,
       intro: chakraGuide?.markdown || '',
+      series: {
+        id,
+        products: seriesProducts,
+        guides: (seriesGuides.length ? seriesGuides : selectSeriesGuides('crystals', guides)).slice(0, 5),
+        relatedSeries: selectCrossSeriesLinks(id),
+        introParagraphs: [
+          data.description,
+          chakraGuide?.excerpt
+            ? chakraGuide.excerpt
+            : `This collection brings ${seriesProducts.length} pieces into one place so you can move from theme to product without losing the thread. Open a product page to see the material, price, and care details together, then return here to compare the next piece.`,
+        ],
+      },
     }
   }
 
   if (normalizedRoute.slice(1) in LEGAL) {
     const [title, description] = LEGAL[normalizedRoute.slice(1)]
-    return { kind: 'page', title: `${title} | Lunar Talisman`, description, heading: title, copy: description }
+    const legalContent = LEGAL_STATIC_CONTENT[normalizedRoute.slice(1)] || LEGAL_STATIC_CONTENT.privacy
+    return {
+      kind: 'page',
+      title: `${title} | Lunar Talisman`,
+      description,
+      heading: title,
+      copy: description,
+      legal: legalContent,
+    }
   }
 
   return {
@@ -831,6 +1412,21 @@ function structuredData(meta, canonicalUrl) {
       meta.description,
     )
   }
+  if (meta.kind === 'home') {
+    return ensureGraphSchema(
+      [
+        {
+          '@type': 'WebPage',
+          name: meta.heading,
+          description: meta.description,
+          url: canonicalUrl,
+          isPartOf: { '@type': 'WebSite', name: 'Lunar Talisman', url: SITE_ORIGIN },
+        },
+      ],
+      canonicalUrl,
+      meta.description,
+    )
+  }
   return ensureGraphSchema(
     [
       {
@@ -876,9 +1472,13 @@ function renderPage(template, route, meta) {
       ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.description)}</p><div class="guide-content">${renderGuideMarkdown(meta.article?.markdown || '')}</div><p><a href="${SITE_ORIGIN}/series/${escapeHtml(meta.article?.series || 'crystals')}/">Browse related crystal guides</a></p></article></main>`
       : meta.kind === 'product'
         ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article data-no-auto-translate="true"><h1>${escapeHtml(meta.heading)}</h1><div style="margin:14px 0 6px;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(58,37,48,0.56)">Price</div><div class="price" style="margin-bottom:16px;font-size:34px;font-weight:900;letter-spacing:-0.04em;color:#3a2530">${escapeHtml(meta.product.displayPrice || `$${meta.product.price}`)}</div><p>${escapeHtml(meta.product.tagline || meta.description)}</p>${meta.product.material ? `<h2>Material</h2><p>${escapeHtml(meta.product.material)}</p>` : ''}${meta.product.energy?.length ? `<h2>Energy &amp; Meaning</h2>${meta.product.energy.map((item) => `<p>${escapeHtml(item)}</p>`).join('')}` : ''}${meta.product.benefits?.length ? `<h2>Benefits</h2><ul>${meta.product.benefits.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.howToWear?.length ? `<h2>How to wear</h2><ul>${meta.product.howToWear.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.careRitual?.length ? `<h2>Care &amp; ritual</h2><ul>${meta.product.careRitual.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}${meta.product.specs?.length ? `<h2>Specs</h2><ul>${meta.product.specs.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}</ul>` : ''}<h2>Ritual context</h2><p>This piece is made for an intentional everyday rhythm: a small, tactile reminder to pause before a decision, return to your breath, and notice what your body and attention are asking for. Wear it alongside journaling, meditation, a quiet walk, or a moon-phase practice. Crystal traditions are personal and symbolic; there is no single required way to work with a stone. Let the color, texture, and weight become part of a routine that feels honest, practical, and easy to repeat.</p><p>Over time, the meaning of a talisman can deepen through use. Keep the bracelet or necklace close to the moments you want to remember, and allow your own experience to guide how often you wear, rest, cleanse, and store it.</p></article></main>`
+        : meta.kind === 'home'
+          ? renderHomeStatic(meta, meta.home?.featuredProducts || [], meta.home?.guides || new Map())
         : meta.kind === 'collection'
-          ? `<main style="max-width:900px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><article data-no-auto-translate="true"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.description)}</p><div class="guide-content">${renderGuideMarkdown(meta.intro || '')}</div></article></main>`
-      : `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals/">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra/">Explore chakra collections</a></p></main>`
+          ? renderSeriesStatic(meta, meta.series?.products || [], meta.series?.guides instanceof Array ? new Map(meta.series.guides.map((guide) => [guide.id, guide])) : new Map())
+          : meta.kind === 'page' && meta.legal
+            ? renderLegalStatic(meta)
+            : `<main style="max-width:760px;margin:72px auto;padding:24px;font-family:system-ui,sans-serif;color:#3a2530"><h1>${escapeHtml(meta.heading)}</h1><p>${escapeHtml(meta.copy)}</p><p><a href="${SITE_ORIGIN}/series/crystals/">Browse crystal talismans</a> · <a href="${SITE_ORIGIN}/series/chakra/">Explore chakra collections</a></p></main>`
 
   return template
     .replace(/<title>[\s\S]*?<\/title>/i, '')
@@ -913,5 +1513,9 @@ for (const route of routes) {
   fs.mkdirSync(targetDir, { recursive: true })
   fs.writeFileSync(path.join(targetDir, 'index.html'), renderPage(template, route, routeMeta(route, guides, productMap)))
 }
+
+// The sitemap intentionally omits the root URL, but the root document also
+// needs a complete static fallback for crawlers that do not execute React.
+fs.writeFileSync(path.join(distDir, 'index.html'), renderPage(template, '/', routeMeta('/', guides, productMap)))
 
 console.log(`Generated ${routes.length} static SEO route pages.`)
