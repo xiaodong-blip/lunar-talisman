@@ -1324,7 +1324,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear on the right wrist for active creativity and bold action. Pair with a Sacral Chakra pendant to amplify the flow. Perfect for artists, entrepreneurs, and anyone rebuilding their spark."
     ],
     "specs": [
-      "Material: 红玉髓 Carnelian",
+      "Material: Carnelian",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1364,7 +1364,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear close to the skin to absorb its warmth. Beautiful alone or layered. Known as a comforting companion for sensitive souls."
     ],
     "specs": [
-      "Material: 波罗的海琥珀 Amber",
+      "Material: Amber",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1404,7 +1404,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear on the left wrist to receive calming energy, or right wrist for outward warmth. Beautiful for work, travel, and evenings that need gentleness."
     ],
     "specs": [
-      "Material: 橙玛瑙 Orange Agate",
+      "Material: Orange Agate",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1443,7 +1443,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear daily as a reminder of your inner sun. Ideal for morning routines, meditation, and days when you need extra warmth and courage."
     ],
     "specs": [
-      "Material: 太阳石 Sunstone",
+      "Material: Sunstone",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1483,7 +1483,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear during social gatherings, creative projects, or any day that needs a lift. Pairs beautifully with silver or gold accents."
     ],
     "specs": [
-      "Material: 橙玉髓 Orange Chalcedony",
+      "Material: Orange Chalcedony",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1522,7 +1522,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear on the right wrist during important moments — presentations, decisions, first steps. A powerful ally for the bold-hearted."
     ],
     "specs": [
-      "Material: 橙石榴石 Orange Garnet (Spessartine)",
+      "Material: Orange Garnet (Spessartine)",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1562,7 +1562,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear on the dominant wrist for action energy. A striking statement piece for bold, driven souls."
     ],
     "specs": [
-      "Material: 火焰玛瑙 Fire Agate",
+      "Material: Fire Agate",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1601,7 +1601,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear when processing emotions or starting fresh. Ideal during journaling, therapy days, and creative brainstorms."
     ],
     "specs": [
-      "Material: 橙方解石 Orange Calcite",
+      "Material: Orange Calcite",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1639,7 +1639,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear to work, interviews, and creative sessions. The faceted sparkle makes it equally at home in the office or the studio."
     ],
     "specs": [
-      "Material: 刻面红玉髓 Faceted Carnelian",
+      "Material: Faceted Carnelian",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
@@ -1678,7 +1678,7 @@ export const importedProducts: ImportedProduct[] = [
       "Wear daily as an anchor of confidence. Particularly supportive during negotiations, study, and career transitions."
     ],
     "specs": [
-      "Material: 金虎眼石 Golden Tiger's Eye",
+      "Material: Golden Tiger's Eye",
       "Bead Size: as specified in product name",
       "Style: Elastic stretch bracelet",
       "Series: Sacral Chakra Collection"
