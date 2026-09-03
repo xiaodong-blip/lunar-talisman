@@ -3242,6 +3242,21 @@ function DetailPage({
     [detail.image, detail.images],
   )
   const primaryGalleryImage = galleryImages[0] ?? ''
+  const galleryImageCount = galleryImages.length
+  const thumbnailColumns = Math.min(Math.max(galleryImageCount, 1), 4)
+  const thumbnailStripHeight =
+    galleryImageCount <= 2
+      ? 'clamp(168px, 18vw, 236px)'
+      : galleryImageCount === 3
+        ? 'clamp(188px, 21vw, 276px)'
+        : 'clamp(220px, 25vw, 332px)'
+  const compactGallery = galleryImageCount <= 2
+  const mainGalleryMinHeight =
+    galleryImageCount <= 1
+      ? 'clamp(420px, 43vw, 600px)'
+      : galleryImageCount === 2
+        ? 'clamp(500px, 50vw, 680px)'
+        : 'clamp(640px, 57vw, 760px)'
   const displayedImage = galleryImages.includes(activeImage)
     ? activeImage
     : primaryGalleryImage
@@ -3563,14 +3578,14 @@ function DetailPage({
               gridTemplateRows: 'minmax(0, 1fr) auto',
               gap: 16,
               alignContent: 'start',
-              height: '100%',
+              height: compactGallery ? 'auto' : '100%',
             }}
             className="max-[900px]:!col-auto max-[900px]:!row-auto"
           >
             <div
               style={{
                 position: 'relative',
-                minHeight: 'clamp(640px, 57vw, 760px)',
+                minHeight: mainGalleryMinHeight,
                 borderRadius: 30,
                 border: '1px solid rgba(255,255,255,0.18)',
                 background:
@@ -3622,10 +3637,10 @@ function DetailPage({
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-                  gridAutoRows: 'minmax(0, 1fr)',
+                  gridTemplateColumns: `repeat(${thumbnailColumns}, minmax(0, 1fr))`,
+                  gridAutoRows: '1fr',
                   gap: 10,
-                  height: 'clamp(400px, 31vw, 500px)',
+                  height: thumbnailStripHeight,
                   padding: 4,
                   borderRadius: 26,
                   background: 'rgba(255,255,255,0.09)',
@@ -3647,7 +3662,8 @@ function DetailPage({
                       style={{
                         height: '100%',
                         minHeight: 0,
-                        padding: 10,
+                        aspectRatio: galleryImageCount <= 2 ? '1.18 / 1' : undefined,
+                        padding: galleryImageCount <= 2 ? 8 : 10,
                         borderRadius: 20,
                         overflow: 'hidden',
                         background: isActive ? 'rgba(255,255,255,0.96)' : 'rgba(255,255,255,0.68)',
