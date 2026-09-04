@@ -253,7 +253,9 @@ const ADMIN_SEED_PRODUCT_IDS = new Set(['P-001', 'P-002', 'P-003'])
 // Legacy exclusion sets are kept empty so the storefront can expose the full
 // in-stock catalog. SEO and sitemap filtering now happen in the build scripts.
 const REMOVED_ZODIAC_IDS = new Set<string>()
-const REMOVED_IMPORTED_PRODUCT_IDS = new Set<string>()
+const REMOVED_IMPORTED_PRODUCT_IDS = new Set<string>([
+  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+])
 
 const PRODUCTS: DetailData[] = [
   {
@@ -3113,7 +3115,10 @@ function SeriesPage({
 }) {
   const series = SERIES.find((item) => item.id === id && item.id !== 'zodiac') ?? SERIES[0]
   const adminProducts = getPublishedAdminProducts()
-  const adminTiles = adminProducts
+  const activeAdminProducts = adminProducts.filter(
+    (product) => !REMOVED_IMPORTED_PRODUCT_IDS.has(product.id),
+  )
+  const adminTiles = activeAdminProducts
     .filter((product) => product.collection !== '星座守护')
     .map(adminProductToTile)
   const collectionMap: Record<string, string> = {
@@ -3124,7 +3129,7 @@ function SeriesPage({
   const linkedAdminTiles =
     id === 'crystals'
       ? adminTiles
-      : adminProducts
+      : activeAdminProducts
           .filter((product) => product.collection === collectionMap[id])
           .map(adminProductToTile)
   const displaySeries =

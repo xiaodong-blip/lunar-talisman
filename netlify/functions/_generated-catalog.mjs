@@ -487,19 +487,6 @@ export const IMPORTED_CATALOG = [
     "status": "上架"
   },
   {
-    "id": "sacral-sacral-chakra-vitality-carnelian-bracelet-8mm",
-    "name": "Sacral Chakra Vitality Carnelian Bracelet 8mm",
-    "price": 194,
-    "image": "/products/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm.webp",
-    "images": [
-      "/products/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm.webp",
-      "/products/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm-2.webp",
-      "/products/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm-3.webp"
-    ],
-    "stock": 20,
-    "status": "上架"
-  },
-  {
     "id": "sacral-sacral-chakra-honey-amber-bracelet-10mm",
     "name": "Sacral Chakra Honey Amber Bracelet 10mm",
     "price": 333,

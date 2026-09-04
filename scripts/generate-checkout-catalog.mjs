@@ -5,7 +5,9 @@ const outputPath = new URL('../netlify/functions/_generated-catalog.mjs', import
 
 // Keep the checkout catalog aligned with the full imported catalog so all
 // in-stock products remain available to the storefront, sitemap, and backend.
-const REMOVED_PRODUCT_IDS = new Set()
+const REMOVED_PRODUCT_IDS = new Set([
+  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+])
 
 const source = await readFile(sourcePath, 'utf8')
 const assignment = 'export const importedProducts: ImportedProduct[] = '

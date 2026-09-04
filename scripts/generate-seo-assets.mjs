@@ -7,7 +7,10 @@ const siteUrl = 'https://lunartalisman.com'
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
 const publicDir = path.join(rootDir, 'public')
 const CJK = /[\u3400-\u9fff]/
-const SEO_EXCLUDED_PRODUCT_IDS = new Set(['crown-i02-2503-ddd'])
+const SEO_EXCLUDED_PRODUCT_IDS = new Set([
+  'crown-i02-2503-ddd',
+  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+])
 const SEO_EXCLUDED_TOPIC = /\b(?:aries|taurus|gemini|cancer|leo|virgo|libra|scorpio|sagittarius|capricorn|aquarius|pisces|zodiac|birthstone)\b/i
 
 function isSeoEligibleProduct(product) {

@@ -9,6 +9,9 @@ const sitemapPath = path.join(rootDir, 'public', 'sitemap.xml')
 const guidesPath = path.join(rootDir, 'src', 'data', 'importedSeriesGuides.ts')
 const guideSeoPath = path.join(rootDir, 'src', 'data', 'guideSeo.ts')
 const productsPath = path.join(rootDir, 'src', 'data', 'importedProducts.ts')
+const REMOVED_PRODUCT_IDS = new Set([
+  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+])
 const SITE_DESCRIPTION =
   'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.'
 
@@ -286,7 +289,7 @@ const LEGACY_PRODUCTS = {
     category: 'Heart Chakra Crystal Jewelry',
     price: 169,
     description: "Rose quartz is the heart chakra's signature stone, traditionally believed to open the heart and draw in unconditional love. Every bead in this bracelet is cleansed under the full moon before it reaches you.",
-    image: 'https://images.unsplash.com/photo-1605100802531-9abce0fdda72?w=600',
+    image: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260525_160644_072a7f68-a101-4ded-a332-7d37707dbdd1.png&w=1280&q=85',
   },
   'solar-citrine': {
     name: 'Solar Plexus Citrine Courage Bracelet',
@@ -426,7 +429,11 @@ function readImportedProducts() {
   const end = source.lastIndexOf('\n]')
   if (end < jsonStart) throw new Error('Could not parse imported product data.')
   const products = JSON.parse(source.slice(jsonStart, end + 2))
-  return new Map(products.map((product) => [product.id, product]))
+  return new Map(
+    products
+      .filter((product) => !REMOVED_PRODUCT_IDS.has(product.id))
+      .map((product) => [product.id, product]),
+  )
 }
 
 const MAIN_SERIES_IDS = ['worlds', 'collections', 'rituals', 'chakra', 'lunar', 'crystals', 'connect']
