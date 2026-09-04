@@ -47,6 +47,7 @@ type OrderStatus = '待处理' | '已付款' | '备货中' | '已发货' | '已�
 type ShippingStatus = '待支付' | '待发货' | '备货中' | '已发货' | '运输中' | '已签收'
 
 type AdminOrder = PublicOrder
+type PaymentFilter = 'all' | 'pending' | 'paid'
 
 type AdminProduct = AdminProductRecord
 
@@ -131,6 +132,12 @@ function escapeCsvCell(value: string | number) {
     return `"${text.replace(/"/g, '""')}"`
   }
   return text
+}
+
+function getOrderPaymentState(order: AdminOrder): Exclude<PaymentFilter, 'all'> | 'unknown' {
+  if (order.paymentStatus === 'paid' || order.status === '已付款') return 'paid'
+  if (order.paymentStatus === 'pending' || order.shippingStatus === '待支付') return 'pending'
+  return 'unknown'
 }
 
 function MetricCard({
@@ -599,14 +606,23 @@ function OrdersTable({
   onRefund: (orderId: string) => Promise<void>
 }) {
   const [query, setQuery] = useState('')
+  const [paymentFilter, setPaymentFilter] = useState<PaymentFilter>('all')
   const [refundingOrderId, setRefundingOrderId] = useState('')
-  const filtered = orders.filter((order) =>
-    `${order.id} ${order.customer} ${order.product} ${order.address} ${order.email || ''} ${
-      order.phone || ''
-    } ${order.message || ''} ${order.trackingNumber || ''} ${order.trackingCarrier || ''}`
-      .toLowerCase()
-      .includes(query.toLowerCase()),
-  )
+  const filtered = orders.filter((order) => {
+    const matchesPayment =
+      paymentFilter === 'all' || getOrderPaymentState(order) === paymentFilter
+    const searchText = `${order.id} ${order.customer} ${order.product} ${order.address} ${
+      order.email || ''
+    } ${order.phone || ''} ${order.message || ''} ${order.trackingNumber || ''} ${
+      order.trackingCarrier || ''
+    }`.toLowerCase()
+    return matchesPayment && searchText.includes(query.toLowerCase())
+  })
+  const paymentCounts = {
+    all: orders.length,
+    pending: orders.filter((order) => getOrderPaymentState(order) === 'pending').length,
+    paid: orders.filter((order) => getOrderPaymentState(order) === 'paid').length,
+  }
 
   const downloadOrders = async () => {
     try {
@@ -693,6 +709,48 @@ function OrdersTable({
           </p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+          <div
+            role="group"
+            aria-label="按支付状态筛选"
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 4,
+              padding: 4,
+              borderRadius: 16,
+              background: 'rgba(45,39,48,0.06)',
+              border: '1px solid rgba(45,39,48,0.08)',
+            }}
+          >
+            {([
+              ['all', '全部订单'],
+              ['pending', '待支付'],
+              ['paid', '已支付'],
+            ] as Array<[PaymentFilter, string]>).map(([value, label]) => {
+              const active = paymentFilter === value
+              return (
+                <button
+                  key={value}
+                  type="button"
+                  onClick={() => setPaymentFilter(value)}
+                  aria-pressed={active}
+                  style={{
+                    border: 0,
+                    borderRadius: 12,
+                    padding: '9px 11px',
+                    background: active ? '#2d2730' : 'transparent',
+                    color: active ? '#fff' : 'rgba(45,39,48,0.68)',
+                    fontSize: 12,
+                    fontWeight: 800,
+                    cursor: 'pointer',
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {label} {paymentCounts[value]}
+                </button>
+              )
+            })}
+          </div>
           <button
             type="button"
             onClick={downloadOrders}
