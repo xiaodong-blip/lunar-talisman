@@ -220,6 +220,16 @@
   to = "/index.html"
   status = 200
 
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm/"
+  to = "/404.html"
+  status = 404
+
 
 [[redirects]]
   from = "/series/*"

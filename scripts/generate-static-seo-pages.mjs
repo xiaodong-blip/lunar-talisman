@@ -12,6 +12,14 @@ const productsPath = path.join(rootDir, 'src', 'data', 'importedProducts.ts')
 const REMOVED_PRODUCT_IDS = new Set([
   'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
 ])
+// Keep collection pages aligned with the sitemap and static detail pages.
+// Zodiac products remain intentionally out of the public SEO surface.
+const SEO_EXCLUDED_PRODUCT_IDS = new Set([
+  'crown-i02-2503-ddd',
+  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+])
+const SEO_EXCLUDED_TOPIC =
+  /\b(?:aries|taurus|gemini|cancer|leo|virgo|libra|scorpio|sagittarius|capricorn|aquarius|pisces|zodiac|birthstone)\b/i
 const SITE_DESCRIPTION =
   'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.'
 
@@ -353,34 +361,6 @@ const LEGACY_PRODUCTS = {
   },
 }
 
-function adjustedProductPrice(value) {
-  const price = Number(value)
-  return Number.isFinite(price) && price < 100 ? price + 100 : price
-}
-
-function promotionSeed(id) {
-  let hash = 2166136261
-  for (let index = 0; index < id.length; index += 1) {
-    hash ^= id.charCodeAt(index)
-    hash = Math.imul(hash, 16777619)
-  }
-  return hash >>> 0
-}
-
-function getSalePricing(id, value) {
-  const originalPrice = Math.max(1, Math.round(adjustedProductPrice(value)))
-  const seed = promotionSeed(String(id))
-  const discountPercent =
-    originalPrice > 200
-      ? 20 + (seed % 11)
-      : 6 + (seed % 10)
-  const salePrice = Math.max(
-    1,
-    Math.round((originalPrice * (100 - discountPercent)) / 100),
-  )
-  return { originalPrice, salePrice, discountPercent }
-}
-
 function escapeHtml(value = '') {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -685,7 +665,19 @@ function seriesHref(id) {
 }
 
 function selectSeriesProducts(seriesId, productMap) {
-  const products = [...productMap.values()]
+  const products = [...productMap.values()].filter((product) => {
+    const searchableProductText = [
+      product.id,
+      product.name,
+      product.tagline,
+      product.material,
+      product.chakraName,
+    ].join(' ')
+    return (
+      !SEO_EXCLUDED_PRODUCT_IDS.has(product.id) &&
+      !SEO_EXCLUDED_TOPIC.test(searchableProductText)
+    )
+  })
   if (seriesId === 'chakra') {
     return products.sort((a, b) => CHAKRA_IDS.indexOf(a.chakra) - CHAKRA_IDS.indexOf(b.chakra) || a.name.localeCompare(b.name))
   }
