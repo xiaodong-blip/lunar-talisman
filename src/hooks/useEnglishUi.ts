@@ -52,6 +52,9 @@ const PHRASES: Record<string, string> = {
     'From new moon to full moon, each piece is attuned to a distinct lunar moment.',
   '浏览所有水晶产品，进入每件护符自己的能量单页。':
     'Browse every crystal talisman and enter its individual ritual page.',
+  '主推护符': 'Featured talisman',
+  '每一张卡片都可以进入对应单页，查看材质、仪式说明与订单信息。':
+    'Open any product card to view material, care guidance, and order details.',
   '从脉轮、月相与水晶护符入口进入，找到与你当前频率共振的护符。':
     'Enter through chakras, lunar phases, or crystal talismans to find your current resonance.',
   '在新月写下意图，在满月净化水晶，让佩戴成为一段可重复的能量节奏。':

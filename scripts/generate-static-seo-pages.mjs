@@ -1,6 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { PUBLIC_IMPORTED_PRODUCT_IDS } from './catalog-visibility.mjs'
 
 const SITE_ORIGIN = 'https://lunartalisman.com'
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
@@ -9,9 +10,6 @@ const sitemapPath = path.join(rootDir, 'public', 'sitemap.xml')
 const guidesPath = path.join(rootDir, 'src', 'data', 'importedSeriesGuides.ts')
 const guideSeoPath = path.join(rootDir, 'src', 'data', 'guideSeo.ts')
 const productsPath = path.join(rootDir, 'src', 'data', 'importedProducts.ts')
-const REMOVED_PRODUCT_IDS = new Set([
-  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
-])
 // Keep collection pages aligned with the sitemap and static detail pages.
 // Zodiac products remain intentionally out of the public SEO surface.
 const SEO_EXCLUDED_PRODUCT_IDS = new Set([
@@ -411,7 +409,7 @@ function readImportedProducts() {
   const products = JSON.parse(source.slice(jsonStart, end + 2))
   return new Map(
     products
-      .filter((product) => !REMOVED_PRODUCT_IDS.has(product.id))
+      .filter((product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id))
       .map((product) => [product.id, product]),
   )
 }

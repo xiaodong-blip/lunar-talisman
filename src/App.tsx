@@ -30,6 +30,7 @@ import {
 import type { PublicTrackingOrder } from './services/backend'
 import { useEnglishUi } from './hooks/useEnglishUi'
 import { importedProducts, type ChakraId } from './data/importedProducts'
+import catalogVisibility from './data/catalogVisibility.json'
 import {
   importedSeriesGuides,
   type GuideSeries,
@@ -250,11 +251,16 @@ type StoredAdminProduct = {
 const ADMIN_PRODUCT_KEY = 'lunar-talisman-admin-products'
 const CART_KEY = 'lunar-talisman-cart'
 const ADMIN_SEED_PRODUCT_IDS = new Set(['P-001', 'P-002', 'P-003'])
-// Legacy exclusion sets are kept empty so the storefront can expose the full
-// in-stock catalog. SEO and sitemap filtering now happen in the build scripts.
-const REMOVED_ZODIAC_IDS = new Set<string>()
-const REMOVED_IMPORTED_PRODUCT_IDS = new Set<string>([
-  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
+// The storefront currently carries only red, purple, and pink crystal pieces.
+// Source records remain intact so retired colors can be restored deliberately.
+const PUBLIC_IMPORTED_PRODUCT_IDS = new Set(catalogVisibility.importedProductIds)
+const PUBLIC_LEGACY_PRODUCT_IDS = new Set(catalogVisibility.legacyProductIds)
+const PUBLIC_DETAIL_IDS = new Set([
+  ...catalogVisibility.legacyProductIds,
+  'chakra',
+  'lunar',
+  'chakra-test',
+  'full-moon-ritual',
 ])
 
 const PRODUCTS: DetailData[] = [
@@ -700,7 +706,7 @@ function getProductSeoMeta(id: string, title: string) {
 }
 
 const ACTIVE_IMPORTED_PRODUCTS = importedProducts.filter(
-  (product) => !REMOVED_IMPORTED_PRODUCT_IDS.has(product.id),
+  (product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id),
 )
 
 type ChakraDetailContent = {
@@ -966,8 +972,8 @@ function guideTilesFor(series: GuideSeries): Tile[] {
 }
 
 const DETAILS: DetailData[] = [
-  ...PRODUCTS.filter((product) => !REMOVED_ZODIAC_IDS.has(product.id)),
-  ...ZODIAC_DETAILS.filter((detail) => !REMOVED_ZODIAC_IDS.has(detail.id)),
+  ...PRODUCTS.filter((product) => PUBLIC_LEGACY_PRODUCT_IDS.has(product.id)),
+  ...ZODIAC_DETAILS.filter((detail) => PUBLIC_LEGACY_PRODUCT_IDS.has(detail.id)),
   ...IMPORTED_DETAILS,
   {
     id: 'chakra',
@@ -1073,10 +1079,10 @@ const DETAILS: DetailData[] = [
       '重点不是复杂流程，而是清晰的意图和稳定重复。',
     ],
   },
-]
+].filter((detail) => PUBLIC_DETAIL_IDS.has(detail.id) || PUBLIC_IMPORTED_PRODUCT_IDS.has(detail.id))
 
 const PRODUCT_TILES: Tile[] = [
-  ...PRODUCTS.filter((product) => !REMOVED_ZODIAC_IDS.has(product.id)).map(
+  ...PRODUCTS.filter((product) => PUBLIC_LEGACY_PRODUCT_IDS.has(product.id)).map(
     (product) => ({
       id: product.id,
       title: product.title.replace(' · ', '\n'),
@@ -1727,6 +1733,9 @@ function SeriesFeaturePanel({
   const featured = tiles[0]
   const featuredDetail = featured ? getTileDetail(featured) : null
   const previewTiles = tiles.slice(0, 3)
+  const availableProductCount = tiles.filter((tile) =>
+    tile.target.startsWith('/detail/'),
+  ).length
 
   return (
     <>
@@ -1831,7 +1840,7 @@ function SeriesFeaturePanel({
               lineHeight: 0.9,
             }}
           >
-            {tiles.length}
+            {availableProductCount}
           </div>
           <div
             style={{
@@ -1936,7 +1945,7 @@ function SeriesFeaturePanel({
                 textTransform: 'uppercase',
               }}
             >
-              主推护符
+              Featured talisman
             </p>
             <h2
               style={{
@@ -2070,7 +2079,7 @@ function SeriesListingGrid({
             lineHeight: 1.7,
           }}
         >
-          每一张卡片都可以进入对应单页，查看材质、仪式说明与订单信息。
+          Open any product card to view material, care guidance, and order details.
         </p>
       </div>
 
@@ -2272,8 +2281,6 @@ function routeFromPath(): Route {
   }
   if (page === 'detail' && id) {
     const isPublishedDetail =
-      !REMOVED_IMPORTED_PRODUCT_IDS.has(id) &&
-      !REMOVED_ZODIAC_IDS.has(id) &&
       DETAILS.some((detail) => detail.id === id)
     const isPublishedAdminDetail =
       id.startsWith('admin-') &&
@@ -3116,7 +3123,7 @@ function SeriesPage({
   const series = SERIES.find((item) => item.id === id && item.id !== 'zodiac') ?? SERIES[0]
   const adminProducts = getPublishedAdminProducts()
   const activeAdminProducts = adminProducts.filter(
-    (product) => !REMOVED_IMPORTED_PRODUCT_IDS.has(product.id),
+    (product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id),
   )
   const adminTiles = activeAdminProducts
     .filter((product) => product.collection !== '星座守护')
@@ -3137,10 +3144,19 @@ function SeriesPage({
       ? {
           ...series,
           tiles: [...linkedAdminTiles, ...series.tiles].filter(
-            (tile) => !REMOVED_ZODIAC_IDS.has(tile.id),
+            (tile) =>
+              !tile.target.startsWith('/detail/') ||
+              DETAILS.some((detail) => detail.id === tile.id),
           ),
         }
-      : { ...series, tiles: series.tiles.filter((tile) => !REMOVED_ZODIAC_IDS.has(tile.id)) }
+      : {
+          ...series,
+          tiles: series.tiles.filter(
+            (tile) =>
+              !tile.target.startsWith('/detail/') ||
+              DETAILS.some((detail) => detail.id === tile.id),
+          ),
+        }
   const chakraSeo = CHAKRA_SEO_META[id.replace(/^chakra-/, '')]
   const genericSeo = SERIES_SEO_META[id]
   const seriesTitle = chakraSeo?.title ?? genericSeo?.title ?? displaySeries.title.replace(/\n/g, ' ')
@@ -3235,7 +3251,7 @@ function DetailPage({
     .find((item) => item.id === id)
   const detail =
     adminDetail ??
-    DETAILS.find((item) => item.id === id && !REMOVED_ZODIAC_IDS.has(item.id)) ??
+    DETAILS.find((item) => item.id === id) ??
     DETAILS.find((item) => item.id === 'chakra-test')!
   const galleryImages = useMemo(
     () =>
@@ -3313,7 +3329,12 @@ function DetailPage({
   const relatedTiles = (
     SERIES.find((item) => item.id === detailSeriesId)?.tiles ?? PRODUCT_TILES
   )
-    .filter((tile) => tile.id !== detail.id && !REMOVED_ZODIAC_IDS.has(tile.id))
+    .filter(
+      (tile) =>
+        tile.id !== detail.id &&
+        (!tile.target.startsWith('/detail/') ||
+          DETAILS.some((item) => item.id === tile.id)),
+    )
     .slice(0, 4)
   const handleAddToCart = () => {
     addToCart(detailToCartLine(detail))

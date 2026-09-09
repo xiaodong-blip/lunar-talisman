@@ -1,13 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises'
+import { PUBLIC_IMPORTED_PRODUCT_IDS } from './catalog-visibility.mjs'
 
 const sourcePath = new URL('../src/data/importedProducts.ts', import.meta.url)
 const outputPath = new URL('../netlify/functions/_generated-catalog.mjs', import.meta.url)
-
-// Keep the checkout catalog aligned with the full imported catalog so all
-// in-stock products remain available to the storefront, sitemap, and backend.
-const REMOVED_PRODUCT_IDS = new Set([
-  'sacral-sacral-chakra-vitality-carnelian-bracelet-8mm',
-])
 
 const source = await readFile(sourcePath, 'utf8')
 const assignment = 'export const importedProducts: ImportedProduct[] = '
@@ -19,7 +14,7 @@ if (start < 0 || end < 0) {
 }
 
 const products = JSON.parse(source.slice(start + assignment.length, end + 2))
-  .filter((product) => !REMOVED_PRODUCT_IDS.has(product.id))
+  .filter((product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id))
   .map((product) => ({
     id: String(product.id),
     name: String(product.name),
