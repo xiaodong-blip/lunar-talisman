@@ -122,7 +122,7 @@ export function QuizFlow() {
         <div className="mt-8 flex justify-center">
           <Button variant="outline" size="md" onClick={handleBack}>
             <ArrowLeft size={16} />
-            返回上一题
+            Previous question
           </Button>
         </div>
       ) : null}

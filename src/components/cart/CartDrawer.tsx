@@ -76,12 +76,12 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
         aria-hidden={!open}
       >
         <header className="flex items-center justify-between border-b border-border px-5 py-5">
-          <h2 className="text-3xl text-text-primary">购物车</h2>
+          <h2 className="text-3xl text-text-primary">Your cart</h2>
           <button
             type="button"
             onClick={onClose}
             className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-white text-text-secondary transition-colors hover:text-text-primary"
-            aria-label="关闭购物车"
+            aria-label="Close cart"
           >
             <X size={18} />
           </button>
@@ -90,12 +90,12 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
         {cart.length === 0 ? (
           <div className="flex flex-1 flex-col items-center justify-center px-8 text-center">
             <ShoppingBag size={58} className="text-text-muted" strokeWidth={1.4} />
-            <h3 className="mt-5 text-2xl text-text-primary">你的护符尚未被召唤</h3>
+            <h3 className="mt-5 text-2xl text-text-primary">Your cart is empty</h3>
             <p className="mt-3 text-sm leading-7 text-text-secondary">
-              去系列页或水晶测试里，寻找此刻最适合你的能量。
+              Browse collections or use the crystal finder to choose a piece for today.
             </p>
             <Link to="/quiz" onClick={onClose} className="mt-6">
-              <Button variant="gold" size="md">开始水晶测试</Button>
+              <Button variant="gold" size="md">Open the crystal finder</Button>
             </Link>
           </div>
         ) : (
@@ -126,7 +126,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
                           onClick={() =>
                             updateQuantity(item.product.id, item.quantity - 1)
                           }
-                          aria-label="减少数量"
+                          aria-label="Decrease quantity"
                         >
                           <Minus size={14} />
                         </button>
@@ -139,7 +139,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
                           onClick={() =>
                             updateQuantity(item.product.id, item.quantity + 1)
                           }
-                          aria-label="增加数量"
+                            aria-label="Increase quantity"
                         >
                           <Plus size={14} />
                         </button>
@@ -148,7 +148,7 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
                         type="button"
                         onClick={() => removeFromCart(item.product.id)}
                         className="text-text-muted transition-colors hover:text-chakra-root"
-                        aria-label="删除商品"
+                        aria-label="Remove item"
                       >
                         <Trash2 size={16} />
                       </button>
@@ -160,13 +160,13 @@ export function CartDrawer({ open, onClose }: CartDrawerProps) {
 
             <footer className="border-t border-border px-5 py-5">
               <div className="mb-4 flex items-center justify-between">
-                <span className="text-sm text-text-secondary">总价</span>
+                <span className="text-sm text-text-secondary">Total</span>
                 <span className="text-xl font-semibold text-chakra-solar">
                   {formatCny(totalPrice)}
                 </span>
               </div>
               <Button variant="gold" size="lg" className="w-full">
-                去结账
+                Checkout
               </Button>
             </footer>
           </>

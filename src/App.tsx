@@ -267,79 +267,79 @@ const PRODUCTS: DetailData[] = [
   {
     id: 'scorpio-amethyst',
     eyebrow: 'Zodiac Guardian',
-    title: '天蝎守护 · 紫水晶手链',
+    title: 'Scorpio Guardian · Amethyst Bracelet',
     desc: 'A guardian bracelet crafted for Scorpio. Amethyst resonates with the third eye chakra and is traditionally said to heighten intuition, with a particular intensity during eclipses. Every amethyst bead is cleansed in a new moon ritual, carrying a deep energy of transformation.',
     color: '#dcd2f2',
     image: CARD_IMAGES[0],
-    specs: ['眉心轮', '紫水晶', '水象星座', '新月净化'],
+    specs: ['Amethyst', 'Intuition', 'Water sign', 'New moon care'],
     body: [
-      '专为天蝎座打造的守护手链。紫水晶对应眉心轮，传说能增强直觉力，在月食之夜尤为强大。',
-      '每一颗紫水晶珠都经过新月仪式净化，承载深邃的转化能量，适合在冥想、书写意图和睡前佩戴。',
+      'A guardian bracelet crafted for Scorpio. Amethyst is traditionally associated with intuition and reflective practice.',
+      'Each bead is prepared with a new moon care ritual, making it a thoughtful companion for meditation, journaling, and evening wear.',
     ],
   },
   {
     id: 'heart-rose-quartz',
     eyebrow: 'Heart Chakra',
-    title: '心轮疗愈 · 玫瑰晶手链',
+    title: 'Love & Compassion · Rose Quartz Bracelet',
     desc: "Rose quartz is the heart chakra's signature stone, traditionally believed to open the heart and draw in unconditional love. Every bead in this bracelet is cleansed under the full moon before it reaches you.",
     color: '#f3cdd6',
     image: CARD_IMAGES[1],
-    specs: ['心轮', '玫瑰晶', '爱与关系', '满月净化'],
+    specs: ['Rose quartz', 'Love and compassion', 'Self-acceptance', 'Full moon care'],
     body: [
-      '玫瑰晶是心轮的代表水晶，传说能打开心扉，吸引无条件的爱。',
-      '它不只关于浪漫爱情，也关于自我接纳、柔软边界和重新学习信任。',
+      'Rose quartz is traditionally associated with love, gentleness, and the practice of meeting yourself with care.',
+      'It can be worn as a quiet reminder for softer boundaries, self-acceptance, and meaningful connection.',
     ],
   },
   {
     id: 'solar-citrine',
     eyebrow: 'Solar Plexus',
-    title: '太阳轮 · 黄水晶勇气手链',
+    title: 'Confidence · Citrine Courage Bracelet',
     desc: 'Citrine resonates with the solar plexus chakra — the crystal embodiment of confidence and action. It is traditionally said to strengthen decisiveness and dissolve self-doubt, and its energy is amplified by a full moon blessing.',
     color: '#f0e4c0',
     image: CARD_IMAGES[2],
-    specs: ['太阳轮', '黄水晶', '行动力', '火元素'],
+    specs: ['Citrine', 'Confidence', 'Intentional action', 'Warm golden tone'],
     body: [
-      '黄水晶对应太阳轮，是自信与行动力的水晶化身。',
-      '适合在做决定、启动新计划或需要驱散自我怀疑时佩戴。',
+      'Citrine is traditionally linked with confidence, clarity, and the energy of beginning again.',
+      'Wear it during decisions, new projects, or any moment when a tactile reminder helps you move forward.',
     ],
   },
   {
     id: 'new-moon-set',
     eyebrow: 'Lunar Ritual',
-    title: '新月仪式 · 净化套装',
+    title: 'New Moon Ritual · Crystal Care Set',
     desc: 'A new moon ritual set: clear quartz bracelet, white sage bundle, and ritual guide card. Clear quartz is the crown chakra’s high-vibration stone, believed to resonate with moonlight on the new moon night.',
     color: '#c3e3f4',
     image: CARD_IMAGES[0],
-    specs: ['新月', '白水晶', '鼠尾草', '意图书写'],
+    specs: ['New moon', 'Clear quartz', 'Smoke cleansing', 'Intention journaling'],
     body: [
-      '新月仪式限定套装：白水晶手链、白鼠尾草棒与仪式指南卡。',
-      '适合在新的周期开始时使用，为下一阶段设置温柔而清晰的方向。',
+      'A new moon set with a clear quartz bracelet, cleansing bundle, and ritual guide card.',
+      'Use it at the start of a new cycle to give the next season a gentle, clear direction.',
     ],
   },
   {
     id: 'root-garnet',
     eyebrow: 'Root Chakra',
-    title: '海底轮 · 红石榴石扎根手链',
+    title: 'Grounding · Garnet Bracelet',
     desc: 'Red garnet resonates with the root chakra, helping you feel anchored, secure, and steady. Traditionally said to bring a sense of safety, it is a grounding companion for anxious or uncertain days.',
     color: '#f3cdd6',
     image: CARD_IMAGES[1],
-    specs: ['海底轮', '红石榴石', '土元素', '安全感'],
+    specs: ['Garnet', 'Grounding', 'Earth tone', 'Steady ritual'],
     body: [
-      '红石榴石对应海底轮，帮助你扎根大地、找到稳定感。',
-      '适合在焦虑、漂浮或需要重新建立边界时佩戴。',
+      'Red garnet is traditionally associated with grounding, steadiness, and a sense of returning to the body.',
+      'Wear it when you want a simple tactile cue for boundaries, routine, and a calmer pace.',
     ],
   },
   {
     id: 'full-moon-necklace',
     eyebrow: 'Full Moon',
-    title: '满月祝福 · 月光石项链',
+    title: 'Full Moon Blessing · Moonstone Necklace',
     desc: 'A moonstone necklace blessed on the night of the full moon. Moonstone is traditionally associated with the crown and third eye chakras and is said to sharpen intuition and inner vision. Crafted with a 925 sterling silver chain and a natural moonstone pendant.',
     color: '#dcedc2',
     image: CARD_IMAGES[2],
-    specs: ['满月', '月光石', '顶轮', '直觉'],
+    specs: ['Moonstone', 'Full moon', 'Intuition', '925 sterling silver'],
     body: [
-      '满月之夜加持的月光石项链，与顶轮和眉心轮产生温柔共振。',
-      '适合在满月净化、梦境记录或需要直觉指引时佩戴。',
+      'A moonstone necklace prepared for a full moon ritual and a quiet reflective rhythm.',
+      'Wear it for moonlight care, dream journaling, or any moment when you want to make space for intuition.',
     ],
   },
 ]
@@ -493,93 +493,103 @@ const ZODIAC_DETAILS: DetailData[] = [
 const CHAKRA_COLLECTIONS = [
   {
     id: 'root',
-    title: 'ROOT\nRoot Chakra',
-    eyebrow: 'Root Chakra',
-    desc: 'Grounding, safety, and the steady foundation beneath every beginning.',
+    title: 'GROUNDING\nGrounding Crystals',
+    eyebrow: 'Grounding Crystals',
+    desc: 'Red crystals and grounding rituals for steadiness, protection, and everyday presence.',
   },
   {
     id: 'sacral',
-    title: 'SACRAL\nSacral Chakra',
-    eyebrow: 'Sacral Chakra',
-    desc: 'Flow, creativity, and the warmth of feeling fully alive.',
+    title: 'CREATIVE FLOW\nCreative Flow Crystals',
+    eyebrow: 'Creative Flow Crystals',
+    desc: 'Warm-toned crystals and gentle rituals for creativity, feeling, and renewed momentum.',
   },
   {
     id: 'solar',
-    title: 'SOLAR\nSolar Plexus Chakra',
-    eyebrow: 'Solar Plexus Chakra',
-    desc: 'Confidence, clarity, and the courage to take up your own space.',
+    title: 'CONFIDENCE\nConfidence Crystals',
+    eyebrow: 'Confidence Crystals',
+    desc: 'Golden and sunlit crystals for confidence, clarity, abundance, and intentional action.',
   },
   {
     id: 'heart',
-    title: 'HEART\nHeart Chakra',
-    eyebrow: 'Heart Chakra',
-    desc: 'Love, compassion, and a softer way of returning to yourself.',
+    title: 'LOVE\nLove & Compassion Crystals',
+    eyebrow: 'Love & Compassion Crystals',
+    desc: 'Rose, pink, and green crystals for self-kindness, connection, and softer boundaries.',
   },
   {
     id: 'throat',
-    title: 'THROAT\nThroat Chakra',
-    eyebrow: 'Throat Chakra',
-    desc: 'Truth, expression, and a voice that feels like your own.',
+    title: 'CLARITY\nExpression & Clarity Crystals',
+    eyebrow: 'Expression & Clarity Crystals',
+    desc: 'Clear-toned crystals for thoughtful expression, calm focus, and honest presence.',
   },
   {
     id: 'third-eye',
-    title: 'THIRD EYE\nThird Eye Chakra',
-    eyebrow: 'Third Eye Chakra',
-    desc: 'Intuition, insight, and the quiet intelligence of inner vision.',
+    title: 'INTUITION\nIntuition & Focus Crystals',
+    eyebrow: 'Intuition & Focus Crystals',
+    desc: 'Purple and indigo crystals for reflection, study, dreamwork, and inner focus.',
   },
   {
     id: 'crown',
-    title: 'CROWN\nCrown Chakra',
-    eyebrow: 'Crown Chakra',
-    desc: 'Stillness, spiritual connection, and a wider field of possibility.',
+    title: 'STILLNESS\nStillness & Spirituality Crystals',
+    eyebrow: 'Stillness & Spirituality Crystals',
+    desc: 'Light-catching crystals for stillness, meditation, spiritual reflection, and renewal.',
   },
 ] as const
+
+const CRYSTAL_INTENTION_LABELS: Record<ChakraId, string> = {
+  root: 'Grounding Crystals',
+  sacral: 'Creative Flow Crystals',
+  solar: 'Confidence Crystals',
+  heart: 'Love & Compassion Crystals',
+  throat: 'Expression & Clarity Crystals',
+  'third-eye': 'Intuition & Focus Crystals',
+  crown: 'Stillness & Spirituality Crystals',
+}
 
 const CHAKRA_SEO_META: Record<
   string,
   { title: string; description: string; keywords: string[] }
 > = {
   root: {
-    title: 'Root Chakra Stones for Grounding & Safety',
+    title: 'Grounding Crystals & Red Agate Bracelets',
     description:
-      'Explore root chakra stones and crystal bracelets for grounding, safety, stability, and reflective everyday ritual.',
-    keywords: ['root chakra stones', 'root chakra bracelet', 'grounding crystals', 'crystals for protection'],
+      'Explore grounding crystals, red agate bracelets, and protective crystal rituals for steadiness, safety, and everyday wear.',
+    keywords: ['grounding crystals', 'red agate bracelet', 'crystals for protection', 'grounding crystal jewelry'],
   },
   sacral: {
-    title: 'Sacral Chakra Stones for Creativity & Passion',
+    title: 'Creative Flow Crystals & Carnelian Bracelets',
     description:
-      'Explore sacral chakra stones and crystal bracelets for creativity, passion, emotional flow, and joyful ritual.',
-    keywords: ['sacral chakra stones', 'sacral chakra bracelet', 'creativity crystals', 'passion crystals'],
+      'Explore carnelian and warm-toned crystals for creativity, emotional flow, passion, and joyful everyday ritual.',
+    keywords: ['creativity crystals', 'carnelian bracelet', 'passion crystals', 'creative crystal jewelry'],
   },
   solar: {
-    title: 'Solar Plexus Chakra Stones for Confidence & Personal Power',
+    title: 'Confidence Crystals & Citrine Bracelets',
     description:
-      'Explore solar plexus chakra stones for confidence, clarity, courage, wealth intentions, and personal power.',
-    keywords: ['solar plexus chakra stones', 'confidence crystals', 'crystals for wealth', 'chakra bracelet'],
+      'Explore citrine and golden crystals for confidence, clarity, abundance intentions, and focused action.',
+    keywords: ['confidence crystals', 'citrine bracelet', 'crystals for wealth', 'abundance crystals'],
   },
   heart: {
-    title: 'Heart Chakra Stones for Love & Compassion',
+    title: 'Love Crystals & Rose Quartz Bracelets',
     description:
-      'Explore heart chakra stones for love, compassion, emotional balance, and mindful relationship rituals.',
-    keywords: ['heart chakra stones', 'heart chakra bracelet', 'rose quartz meaning', 'crystals for love'],
+      'Explore rose quartz and pink crystals for love, compassion, self-acceptance, and mindful relationship rituals.',
+    keywords: ['crystals for love', 'rose quartz bracelet', 'self love crystals', 'compassion crystals'],
   },
   throat: {
-    title: 'Throat Chakra Stones for Truth & Expression',
+    title: 'Expression & Clarity Crystals for Everyday Wear',
     description:
-      'Explore throat chakra stones for clear expression, honest communication, and a confident everyday voice.',
-    keywords: ['throat chakra stones', 'throat chakra bracelet', 'communication crystals', 'blue crystals'],
+      'Explore clear-toned crystal jewelry for thoughtful expression, calm communication, focus, and honest presence.',
+    keywords: ['communication crystals', 'clarity crystals', 'blue crystal jewelry', 'crystal jewelry for focus'],
   },
   'third-eye': {
-    title: 'Third Eye Chakra Stones for Intuition & Insight',
+    title: 'Intuition Crystals & Amethyst Jewelry',
     description:
-      'Explore third eye chakra stones for intuition, insight, meditation, and reflective inner vision.',
-    keywords: ['third eye chakra crystals', 'third eye chakra bracelet', 'amethyst meaning', 'intuition crystals'],
+      'Explore amethyst and purple crystals for intuition, insight, meditation, dreamwork, and reflective focus.',
+    keywords: ['intuition crystals', 'amethyst bracelet', 'amethyst meaning', 'meditation crystals'],
   },
   crown: {
-    title: 'Crown Chakra Stones for Spiritual Connection & Clarity',
+    title: 'Stillness Crystals & Clear Quartz Jewelry',
     description:
-      'Explore crown chakra stones for spiritual connection, clarity, stillness, and lunar reflection.',
-    keywords: ['crown chakra crystals', 'crown chakra bracelet', 'clear quartz meaning', 'spiritual crystals'],
+      'Explore clear quartz and light-catching crystals for stillness, spiritual reflection, clarity, and moonlit rituals.',
+    keywords: ['spiritual crystals', 'clear quartz jewelry', 'clear quartz meaning', 'meditation jewelry'],
   },
 }
 
@@ -590,13 +600,13 @@ const SERIES_SEO_META: Record<
   worlds: {
     title: 'Crystal Healing Guide & Crystal Meanings',
     description:
-      'Explore crystal healing traditions, crystal meanings, chakra stones, lunar rituals, and mindful crystal jewelry.',
+      'Explore crystal healing traditions, crystal meanings, lunar rituals, and mindful natural-stone jewelry.',
     keywords: ['crystal healing', 'crystal meanings', 'healing crystals', 'crystal meaning guide'],
   },
   collections: {
-    title: 'Crystal Jewelry, Chakra Bracelets & Gemstone Jewelry',
+    title: 'Healing Crystal Jewelry & Gemstone Bracelets',
     description:
-      'Shop crystal jewelry, gemstone bracelets, chakra bracelets, and healing crystal jewelry from Lunar Talisman.',
+      'Shop healing crystal jewelry, gemstone bracelets, and natural-stone talismans from Lunar Talisman.',
     keywords: ['crystal jewelry', 'gemstone jewelry', 'crystal bracelet', 'healing crystals jewelry'],
   },
   rituals: {
@@ -606,10 +616,10 @@ const SERIES_SEO_META: Record<
     keywords: ['how to cleanse crystals', 'how to cleanse crystals at home', 'how to charge crystals', 'new moon ritual', 'full moon ritual'],
   },
   chakra: {
-    title: 'Chakra Stones in Order & 7 Chakra Meanings',
+    title: 'Crystal Healing Collections by Intention',
     description:
-      'Explore chakra stones in order, chakra stones meaning and colors, seven chakra collections, and chakra bracelets.',
-    keywords: ['chakra stones in order', 'chakra stones meaning', 'chakra stones chart', 'chakra stones bracelet', '7 chakras and their meanings'],
+      'Explore crystal healing collections organized by grounding, creativity, confidence, love, clarity, intuition, and stillness.',
+    keywords: ['crystal healing collections', 'healing crystals by intention', 'crystal bracelet collections', 'crystal meanings'],
   },
   lunar: {
     title: 'Moon Phases & Crystals: New Moon and Full Moon Rituals',
@@ -626,7 +636,7 @@ const SERIES_SEO_META: Record<
   connect: {
     title: 'Crystals for Beginners: Choose Your Crystal Bracelet',
     description:
-      'A beginner-friendly path to crystal meanings, chakra stones, crystal bracelets, gifts, and mindful everyday wear.',
+      'A beginner-friendly path to crystal meanings, intention-led collections, crystal bracelets, gifts, and mindful everyday wear.',
     keywords: ['crystals for beginners', 'crystal bracelet for women', 'crystal bracelet for men', 'crystal gift for her', 'crystal gift for him'],
   },
 }
@@ -726,7 +736,7 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
     material:
       'Natural crystal beads selected for a warm, tactile finish, strung on a flexible stretch cord for everyday wear.',
     energy: [
-      'The Root Chakra is the body’s quiet foundation: safety, steadiness, and the confidence to take the next practical step. This piece is designed as a small visual and tactile reminder to return to the present moment.',
+      'Grounding is a quiet practice of safety, steadiness, and returning to the present moment. This piece is designed as a small visual and tactile reminder to take the next practical step.',
       'Use it when life feels scattered, when a new season asks for courage, or whenever you want your daily ritual to begin with both feet on the ground.',
     ],
     benefits: [
@@ -748,7 +758,7 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
     material:
       'Natural crystal beads with a polished finish, arranged to feel fluid on the wrist and comfortable through movement.',
     energy: [
-      'The Sacral Chakra is associated with feeling, creativity, intimacy, and the ability to let life move through you. This talisman is a gentle cue to make room for curiosity instead of forcing every answer.',
+      'Creative flow is associated with feeling, curiosity, intimacy, and the ability to let ideas move through you. This talisman is a gentle cue to make room for play instead of forcing every answer.',
       'Reach for it when inspiration feels distant, emotions feel held back, or you want to reconnect with the simple pleasure of making, moving, and feeling.',
     ],
     benefits: [
@@ -770,7 +780,7 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
     material:
       'Natural crystal beads chosen for a luminous polish, finished as a lightweight bracelet that can move with an active day.',
     energy: [
-      'The Solar Plexus Chakra speaks to agency, direction, and the steady warmth of self-trust. This piece turns that idea into a wearable pause before you act, speak, or choose.',
+      'Confidence grows through agency, direction, and the steady warmth of self-trust. This piece turns that idea into a wearable pause before you act, speak, or choose.',
       'Keep it close when you are starting something new, setting a boundary, or practising the kind of confidence that feels calm rather than performative.',
     ],
     benefits: [
@@ -792,7 +802,7 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
     material:
       'Natural crystal beads with a smooth, gentle polish designed to sit close to the skin as a daily heart-centred reminder.',
     energy: [
-      'The Heart Chakra is where care, compassion, grief, and connection meet. This talisman is not a promise to feel perfect; it is a gentle invitation to meet yourself with more room and less judgement.',
+      'Love and compassion meet in the daily practices of care, connection, and self-acceptance. This talisman is not a promise to feel perfect; it is a gentle invitation to meet yourself with more room and less judgement.',
       'Wear it through relationship transitions, quiet self-care, or any day when you want tenderness and discernment to exist together.',
     ],
     benefits: [
@@ -814,7 +824,7 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
     material:
       'Natural crystal beads or accents with a clear polished finish, assembled for a light, easy-to-layer everyday piece.',
     energy: [
-      'The Throat Chakra is the space between inner knowing and spoken truth. This talisman offers a small pause to listen first, then choose language that is clear, kind, and yours.',
+      'Clarity lives in the space between inner knowing and spoken truth. This talisman offers a small pause to listen first, then choose language that is clear, kind, and yours.',
       'Keep it nearby before a difficult conversation, a creative presentation, or any moment when you want to communicate without abandoning yourself.',
     ],
     benefits: [
@@ -836,7 +846,7 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
     material:
       'Natural crystal beads selected for depth and light play, polished to make the piece feel intentional in both stillness and motion.',
     energy: [
-      'The Third Eye Chakra is a language for inner attention: the ability to notice patterns, trust discernment, and let insight arrive without rushing it. This piece is designed as a visual anchor for that pause.',
+      'Intuition is a language for inner attention: the ability to notice patterns, trust discernment, and let insight arrive without rushing it. This piece is designed as a visual anchor for that pause.',
       'Use it during meditation, study, dream journaling, or any transition where you want to separate intuition from the volume of outside opinions.',
     ],
     benefits: [
@@ -858,7 +868,7 @@ const CHAKRA_DETAIL_CONTENT: Record<ChakraId, ChakraDetailContent> = {
     material:
       'Natural crystal beads and accents with a light-catching polish, arranged as a quiet piece for ritual, reflection, and everyday wear.',
     energy: [
-      'The Crown Chakra is less about having every answer and more about making space for meaning, wonder, and a perspective larger than the immediate moment. This talisman marks that space with something you can return to.',
+      'Stillness is less about having every answer and more about making space for meaning, wonder, and a perspective larger than the immediate moment. This talisman marks that space with something you can return to.',
       'Keep it close during meditation, moon rituals, creative reflection, or the first quiet minutes before a new chapter begins.',
     ],
     benefits: [
@@ -881,7 +891,7 @@ function enrichedImportedProduct(product: (typeof importedProducts)[number]) {
   // This runs while the module is being created. Keep it independent of the
   // later display-name helpers so a product page can never block the whole app
   // from mounting during startup.
-  const displayName = `${product.chakraName} crystal talisman`
+  const displayName = `${CRYSTAL_INTENTION_LABELS[product.chakra]} talisman`
   const isGenericTagline =
     !product.tagline.trim() ||
     product.tagline.trim().toLowerCase() === `${product.chakraName.toLowerCase()} crystal talisman.`
@@ -903,7 +913,7 @@ const IMPORTED_DETAILS: DetailData[] = ACTIVE_IMPORTED_PRODUCTS.map((product) =>
 
   return {
     id: product.id,
-    eyebrow: product.chakraName,
+    eyebrow: CRYSTAL_INTENTION_LABELS[product.chakra],
     title: product.name,
     desc: content.desc,
     color: product.color,
@@ -930,7 +940,7 @@ const IMPORTED_TILES: Tile[] = ACTIVE_IMPORTED_PRODUCTS.map((product) => ({
   desc: product.tagline,
   color: product.color,
   image: product.image,
-  eyebrow: product.chakraName,
+  eyebrow: CRYSTAL_INTENTION_LABELS[product.chakra],
   target: `/detail/${product.id}`,
 }))
 
@@ -978,105 +988,105 @@ const DETAILS: DetailData[] = [
   {
     id: 'chakra',
     eyebrow: 'Collection',
-    title: '脉轮疗愈系列',
-    desc: '七个能量中心，在佩戴中缓慢校准。',
+    title: 'Crystal Healing by Intention',
+    desc: 'A crystal healing collection organized around the feeling you want to carry.',
     color: '#dcedc2',
     image: CARD_IMAGES[1],
-    specs: ['七脉轮', '心轮', '疗愈套装', '能量平衡'],
+    specs: ['Crystal healing', 'Intentional wear', 'Natural stones', 'Daily ritual'],
     body: [
-      '脉轮疗愈系列覆盖海底轮到顶轮的完整能量路径。',
-      '每件水晶都对应一个能量中心，帮助你更清楚地感受当下身体与情绪的需求。',
+      'This collection brings natural crystal jewelry together by intention: grounding, creative flow, confidence, love, clarity, intuition, and stillness.',
+      'Each piece is presented as a symbolic companion for reflection and everyday ritual, with material, care, and wearing guidance on its own page.',
     ],
   },
   {
     id: 'lunar',
     eyebrow: 'Collection',
-    title: '月相仪式系列',
-    desc: '从新月到满月，让护符跟随月光呼吸。',
+    title: 'Lunar Crystal Ritual Collection',
+    desc: 'From new moon to full moon, let your crystal ritual follow the rhythm of the sky.',
     color: '#c3e3f4',
     image: CARD_IMAGES[2],
-    specs: ['新月', '满月', '月光净化', '仪式指南'],
+    specs: ['New moon', 'Full moon', 'Moonlight care', 'Ritual guide'],
     body: [
-      '月相仪式系列把佩戴、净化、充能与周期节奏结合起来。',
-      '它更像一套日常仪式系统，而不只是单件饰品。',
+      'This collection brings wearing, cleansing, intention setting, and lunar rhythm into one practical ritual system.',
+      'Use it as a repeatable care practice rather than a rulebook for how a crystal must feel.',
     ],
   },
   {
     id: 'chakra-test',
     eyebrow: 'Interactive Codex',
-    title: '七脉轮自测入口',
-    desc: '用三十秒感受你当前最需要平衡的能量中心。',
+    title: 'Crystal Intention Finder',
+    desc: 'Use color, material, and your current intention to find a crystal path.',
     color: '#f0e4c0',
     image: CARD_IMAGES[0],
-    specs: ['颜色直觉', '能量需求', '脉轮频率', '产品推荐'],
+    specs: ['Color intuition', 'Current intention', 'Crystal meanings', 'Product guidance'],
     body: [
-      '测试入口会从当下需求、颜色直觉和脉轮频率三个维度出发。',
-      '最终结果会推荐你的守护脉轮和对应水晶。',
+      'This guided entry point starts with your current intention, the colors you notice, and the kind of ritual you want to build.',
+      'Use the result as a thoughtful starting point for comparing crystal materials and jewelry styles.',
     ],
   },
   {
     id: 'sacral-moonstone',
-    eyebrow: 'Sacral Chakra',
-    title: '脐轮 · 月光石灵感手链',
-    desc: '脐轮的流动频率，唤醒创造力、感受力与生命热情。',
+    eyebrow: 'Creative Flow Crystals',
+    title: 'Creative Flow · Moonstone Inspiration Bracelet',
+    desc: 'A moonstone piece for creativity, feeling, and renewed momentum.',
     color: '#f2cfb4',
     image: CARD_IMAGES[2],
-    specs: ['脐轮', '月光石', '水元素', '创造力'],
+    specs: ['Moonstone', 'Creative flow', 'Water element', 'Inspiration'],
     body: [
-      '脐轮掌管情绪流动、亲密关系与创造力。月光石的柔和光泽适合在灵感停滞、情绪堵塞时佩戴。',
-      '把它作为每日小仪式的一部分，提醒自己允许感受流动，也允许新的灵感自然出现。',
+      'Moonstone is traditionally linked with emotional flow, creativity, and the quiet space where new ideas begin.',
+      'Wear it as part of a daily ritual that reminds you to let feeling move and inspiration arrive at its own pace.',
     ],
   },
   {
     id: 'throat-aquamarine',
-    eyebrow: 'Throat Chakra',
-    title: '喉轮 · 海蓝宝表达项链',
-    desc: '喉轮的清澈蓝光，帮助你说出真实、温柔而坚定的话。',
+    eyebrow: 'Expression & Clarity Crystals',
+    title: 'Clarity · Aquamarine Voice Necklace',
+    desc: 'A clear blue stone companion for honest, calm expression.',
     color: '#c3e3f4',
     image: CARD_IMAGES[0],
-    specs: ['喉轮', '海蓝宝', '以太元素', '表达'],
+    specs: ['Aquamarine', 'Clarity', 'Ether element', 'Expression'],
     body: [
-      '喉轮连接表达、倾听与真实。海蓝宝像一层清澈的水光，适合在沟通、演讲、创作输出前佩戴。',
-      '它不是让你变得更大声，而是帮助你更准确地说出真正想表达的东西。',
+      'Aquamarine is traditionally associated with clear expression, thoughtful listening, and a calm voice.',
+      'Wear it before communication, speaking, writing, or any moment when you want your words to feel more like your own.',
     ],
   },
   {
     id: 'third-eye-amethyst',
-    eyebrow: 'Third Eye Chakra',
-    title: '眉心轮 · 紫水晶洞察手链',
-    desc: '眉心轮的直觉之石，让梦境、洞察与内在指引变得清晰。',
+    eyebrow: 'Intuition & Focus Crystals',
+    title: 'Intuition · Amethyst Insight Bracelet',
+    desc: 'An amethyst bracelet for reflection, dreamwork, and quiet focus.',
     color: '#dcd2f2',
     image: CARD_IMAGES[0],
-    specs: ['眉心轮', '紫水晶', '光元素', '直觉'],
+    specs: ['Amethyst', 'Intuition', 'Light element', 'Focus'],
     body: [
-      '眉心轮象征直觉、洞察和内在视觉。紫水晶适合在冥想、占星记录、梦境记录时佩戴。',
-      '当你需要从复杂信息里辨认真正的方向，它会成为一枚安静的提醒。',
+      'Amethyst is traditionally linked with intuition, insight, and the quiet practice of noticing what matters.',
+      'Wear it during meditation, dream journaling, or any moment when a small tactile reminder can help you focus.',
     ],
   },
   {
     id: 'crown-clear-quartz',
-    eyebrow: 'Crown Chakra',
-    title: '顶轮 · 白水晶连接手链',
-    desc: '顶轮的高频白光，连接月光、意图与更高层次的自我。',
+    eyebrow: 'Stillness & Spirituality Crystals',
+    title: 'Stillness · Clear Quartz Connection Bracelet',
+    desc: 'A clear quartz bracelet for stillness, perspective, and personal ritual.',
     color: '#ece7fb',
     image: CARD_IMAGES[1],
-    specs: ['顶轮', '白水晶', '意识元素', '连接'],
+    specs: ['Clear quartz', 'Stillness', 'Consciousness', 'Connection'],
     body: [
-      '顶轮代表灵性连接、信任和更高意识。白水晶是适合承载意图的基础晶石，能与不同仪式组合使用。',
-      '在新月写下愿望、满月净化水晶时，它都可以作为整套能量系统的中心。',
+      'Clear quartz is traditionally used as a simple companion for spiritual reflection, perspective, and intention setting.',
+      'Pair it with a new moon journal, full moon care, or any quiet routine that helps you return to what matters.',
     ],
   },
   {
     id: 'full-moon-ritual',
     eyebrow: 'Ritual Guide',
-    title: '满月净化仪式',
-    desc: '八步唤醒晶石能量，让水晶重新回到明亮状态。',
+    title: 'Full Moon Crystal Cleansing Ritual',
+    desc: 'An eight-step ritual for resetting a stone with gratitude, moonlight, and clear attention.',
     color: '#dcedc2',
     image: CARD_IMAGES[2],
-    specs: ['满月', '净化', '充能', '肯定语'],
+    specs: ['Full moon', 'Cleansing', 'Charging', 'Affirmation'],
     body: [
-      '满月适合释放、感谢与净化。把水晶置于月光下，配合短暂冥想即可完成一次轻仪式。',
-      '重点不是复杂流程，而是清晰的意图和稳定重复。',
+      'A full moon is a traditional time for release, gratitude, and crystal care. Place the stone in moonlight and pair it with a short meditation.',
+      'The value is not in a complicated checklist, but in a clear intention and a gentle practice you can repeat.',
     ],
   },
 ].filter((detail) => PUBLIC_DETAIL_IDS.has(detail.id) || PUBLIC_IMPORTED_PRODUCT_IDS.has(detail.id))
@@ -1227,7 +1237,7 @@ const MAIN_PROJECT_TILES: Tile[] = [
   {
     id: 'worlds',
     title: 'WORLDS\nCrystal Journey',
-     desc: 'Enter the full energy universe through chakras, moon phases, and crystal talismans.',
+     desc: 'Enter a calm crystal universe of natural-stone jewelry, moon phases, and reflective rituals.',
     color: '#dcd2f2',
     image: CARD_IMAGES[0],
     eyebrow: 'Worlds',
@@ -1235,11 +1245,11 @@ const MAIN_PROJECT_TILES: Tile[] = [
   },
   {
     id: 'chakra',
-    title: 'CHAKRAS\nChakra Healing',
-     desc: 'Seven energy centres, from root to crown.',
+    title: 'INTENTIONS\nCrystal Healing',
+     desc: 'Grounding, creativity, confidence, love, clarity, intuition, and stillness.',
     color: '#dcedc2',
     image: CARD_IMAGES[1],
-    eyebrow: 'Chakras',
+    eyebrow: 'Crystal Intentions',
     target: '/series/chakra',
   },
   {
@@ -1263,7 +1273,7 @@ const MAIN_PROJECT_TILES: Tile[] = [
   {
     id: 'connect',
     title: 'CONNECT\nBegin the Connection',
-     desc: 'Find your present frequency through the quiz, guides, and talismans.',
+    desc: 'Find your present crystal intention through the finder, guides, and talismans.',
     color: '#ece7fb',
     image: CARD_IMAGES[2],
     eyebrow: 'Connect',
@@ -1276,13 +1286,13 @@ const SERIES: SeriesPageData[] = [
     id: 'worlds',
     eyebrow: 'Worlds',
     title: 'Crystal Journey',
-     desc: 'Enter through chakras, moon phases, and crystal talismans to find your present resonance.',
+    desc: 'Enter through crystal intentions, moon phases, and natural-stone jewelry to find your present ritual.',
     color: '#f3cdd6',
     tiles: [
       {
         id: 'chakra',
-        title: 'Chakra Healing',
-         desc: 'A complete path through seven energy centres',
+        title: 'Crystal Healing',
+         desc: 'Browse seven crystal intentions and their jewelry collections',
         color: '#dcedc2',
         image: CARD_IMAGES[1],
         target: '/series/chakra',
@@ -1302,7 +1312,7 @@ const SERIES: SeriesPageData[] = [
     id: 'collections',
     eyebrow: 'Project Portals',
     title: 'Project Portals',
-     desc: 'Five portals: journey, chakras, rituals, crystals, and connection.',
+     desc: 'Five portals: crystal journey, intentions, rituals, talismans, and connection.',
     color: '#f0e4c0',
     tiles: MAIN_PROJECT_TILES,
   },
@@ -1337,9 +1347,9 @@ const SERIES: SeriesPageData[] = [
   },
   {
     id: 'chakra',
-    eyebrow: 'Chakras',
-    title: 'Chakra Healing Collection',
-     desc: 'A complete seven-chakra path, with every crystal aligned to an energy centre.',
+    eyebrow: 'Crystal Intentions',
+    title: 'Crystal Healing Collection',
+     desc: 'A complete path through seven crystal intentions, organized for clear comparison and everyday wear.',
     color: '#dcedc2',
     tiles: [...CHAKRA_TILES, ...guideTilesFor('chakra')],
   },
@@ -1366,13 +1376,13 @@ const SERIES: SeriesPageData[] = [
     id: 'connect',
     eyebrow: 'Connect',
     title: 'Begin the Connection',
-     desc: 'Start with the quiz or crystals to find your path.',
+    desc: 'Start with the intention finder or crystal catalog to find your path.',
     color: '#ece7fb',
     tiles: [
       {
         id: 'chakra-test',
-        title: 'Seven Chakras\nQuiz',
-         desc: 'Discover which energy centre needs balance',
+        title: 'Crystal Intention\nFinder',
+         desc: 'Discover the crystal theme that fits your current intention',
         color: '#dcedc2',
         image: CARD_IMAGES[1],
         target: '/detail/chakra-test',
@@ -1487,7 +1497,7 @@ function adminProductToDetail(product: StoredAdminProduct): DetailData {
 
 function englishCollectionName(value: string) {
   const collectionMap: Record<string, string> = {
-    脉轮疗愈: 'Chakra Healing',
+    脉轮疗愈: 'Crystal Healing',
     月相仪式: 'Lunar Rituals',
     水晶护符: 'Crystal Talismans',
     星座守护: 'Zodiac Guardians',
@@ -1576,7 +1586,7 @@ const ENGLISH_TITLE_BY_ID: Record<string, string> = {
   'heart-rose-quartz': 'Heart Healing\nRose Quartz Bracelet',
   'solar-citrine': 'Solar Plexus\nCitrine Courage Bracelet',
   'new-moon-set': 'New Moon Ritual\nCleansing Set',
-  'root-garnet': 'Root Chakra\nGarnet Grounding Bracelet',
+  'root-garnet': 'Grounding\nGarnet Bracelet',
   'full-moon-necklace': 'Full Moon Blessing\nMoonstone Necklace',
   'aries-carnelian': 'Aries Guardian\nCarnelian Bracelet',
   'taurus-rose-quartz': 'Taurus Guardian\nRose Quartz Bracelet',
@@ -1589,16 +1599,16 @@ const ENGLISH_TITLE_BY_ID: Record<string, string> = {
   'capricorn-garnet': 'Capricorn Guardian\nGarnet Bracelet',
   'aquarius-fluorite': 'Aquarius Guardian\nFluorite Bracelet',
   'pisces-amethyst': 'Pisces Guardian\nAmethyst Bracelet',
-  'sacral-moonstone': 'Sacral Chakra\nMoonstone Bracelet',
-  'throat-aquamarine': 'Throat Chakra\nAquamarine Necklace',
-  'third-eye-amethyst': 'Third Eye Chakra\nAmethyst Bracelet',
-  'crown-clear-quartz': 'Crown Chakra\nClear Quartz Bracelet',
+  'sacral-moonstone': 'Creative Flow\nMoonstone Bracelet',
+  'throat-aquamarine': 'Expression\nAquamarine Necklace',
+  'third-eye-amethyst': 'Intuition\nAmethyst Bracelet',
+  'crown-clear-quartz': 'Stillness\nClear Quartz Bracelet',
   'full-moon-ritual': 'Full Moon\nRitual Guide',
-  'chakra-test': 'Seven Chakras\nQuiz',
+  'chakra-test': 'Crystal Intention\nFinder',
   lunar: 'Lunar Ritual Collection',
   collections: 'Crystal Collections',
   worlds: 'WORLDS\nCrystal Journey',
-  chakra: 'CHAKRAS\nChakra Healing',
+  chakra: 'INTENTIONS\nCrystal Healing',
   rituals: 'RITUALS\nLunar Rituals',
   crystals: 'CRYSTALS\nCrystal Talismans',
   connect: 'CONNECT\nBegin the Connection',
@@ -1712,9 +1722,9 @@ function getSeriesIdForDetail(detailId: string) {
 
 function getSeriesListTitle(id: string) {
   const chakra = CHAKRA_COLLECTIONS.find((item) => `chakra-${item.id}` === id)
-  if (chakra) return `${chakra.eyebrow} talismans`
+  if (chakra) return `${chakra.eyebrow}`
   if (id === 'crystals') return 'All talismans'
-  if (id === 'chakra') return 'Chakra talismans'
+  if (id === 'chakra') return 'Crystal healing pieces'
   if (id === 'lunar' || id === 'rituals') return 'Lunar ritual pieces'
   if (id === 'connect') return 'Connection paths'
   if (id === 'worlds') return 'Explore the paths'
@@ -2570,7 +2580,7 @@ function Navigation({
       <div className="hidden w-full items-center justify-between md:flex">
         <div style={{ display: 'flex', gap: 36 }}>
           {navButton('Worlds', '/series/worlds')}
-          {navButton('Chakras', '/series/chakra')}
+          {navButton('Intentions', '/series/chakra')}
           {navButton('Rituals', '/series/rituals')}
         </div>
         <button type="button" onClick={() => navigate('/')} style={navStyle}>
@@ -2668,8 +2678,8 @@ function HeroCopy({
         textShadow: desktop ? '0 1px 12px rgba(0,0,0,0.8)' : 'none',
       }}
     >
-      Guided by moonlight, every crystal carries a seven-chakra frequency.
-      Choose your talisman and begin within.
+      Guided by moonlight, every crystal carries a story of color, texture, and intention.
+      Choose your talisman and begin a ritual that feels like your own.
     </p>
   )
 }
@@ -2799,7 +2809,7 @@ function SceneOneUI({
       {isDesktop ? (
         <button
           type="button"
-          aria-label="Scroll down to enter the seven-chakra crystal universe"
+          aria-label="Scroll down to enter the crystal healing collection"
           onClick={onDescend}
           style={{
             appearance: 'none',
@@ -2866,7 +2876,7 @@ function SceneTwoUI({ opacity }: { opacity: number }) {
           textShadow: '0 2px 20px rgba(0,0,0,0.4)',
         }}
       >
-        The Seven Chakra Crystal Universe
+        The Crystal Healing Universe
       </h2>
       <p
         style={{
@@ -2879,7 +2889,7 @@ function SceneTwoUI({ opacity }: { opacity: number }) {
           color: 'rgba(255,255,255,0.82)',
         }}
       >
-        脉轮疗愈、月相仪式与水晶护符交织成一条旅程；每一件水晶都对应你此刻最需要的频率。
+        Crystal healing traditions, moonlit rituals, and natural-stone jewelry meet in one quiet place for reflection and everyday wear.
       </p>
     </section>
   )
@@ -3129,7 +3139,7 @@ function SeriesPage({
     .filter((product) => product.collection !== '星座守护')
     .map(adminProductToTile)
   const collectionMap: Record<string, string> = {
-    chakra: '脉轮疗愈',
+      chakra: 'Crystal Healing',
     lunar: '月相仪式',
     crystals: '水晶护符',
   }
@@ -5907,9 +5917,9 @@ function HomePage({
   cartCount,
   onOpenCart,
   noindex = false,
-  pageTitle = 'Lunar Talisman · Crystal Jewelry & Chakra Rituals',
+  pageTitle = 'Lunar Talisman · Healing Crystal Jewelry & Rituals',
   pageDescription =
-    'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.',
+    'Discover healing crystals, natural-stone jewelry, gemstone bracelets, lunar rituals, and practical crystal guides from Lunar Talisman.',
 }: {
   navigate: NavigateFn
   cartCount: number
@@ -5931,7 +5941,7 @@ function HomePage({
           url: SITE_ORIGIN,
           logo: `${SITE_ORIGIN}/og-image.svg`,
           description:
-            'Crystal jewelry, chakra bracelets, lunar rituals, and reflective crystal education.',
+            'Healing crystals, natural-stone jewelry, lunar rituals, and reflective crystal education.',
         },
         {
           '@type': 'WebSite',

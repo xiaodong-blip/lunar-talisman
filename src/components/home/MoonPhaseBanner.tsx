@@ -86,21 +86,21 @@ export function MoonPhaseBanner() {
               <MoonGlyph phase={phase} />
               <div>
                 <p className="text-sm font-medium uppercase tracking-[0.25em] text-chakra-solar">
-                  满月仪式
+                  Full moon crystal care
                 </p>
                 <h3 className="mt-1 text-2xl text-text-primary">
-                  下一批满月加持批次
+                  The next moonlit preparation batch
                 </h3>
               </div>
             </div>
 
             <p className="max-w-xl text-sm leading-7 text-text-secondary md:text-base">
-              {nextFullMoonLabel} 发货，适合想把月相仪式感真正带回生活的人。
+              Prepared around {nextFullMoonLabel}; a simple way to bring lunar rhythm into everyday crystal care.
             </p>
 
             <div className="flex md:justify-end">
               <Button variant="gold" size="lg" onClick={() => navigate('/quiz')}>
-                预约满月仪式
+                Explore lunar rituals
               </Button>
             </div>
           </div>

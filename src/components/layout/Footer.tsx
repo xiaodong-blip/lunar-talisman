@@ -11,14 +11,14 @@ const quickLinks = [
   { to: '/contact', label: 'Contact' },
 ]
 
-const chakraGuideLinks = [
-  { to: '/series/chakra-root', label: 'Root Chakra', color: 'hover:text-chakra-root' },
-  { to: '/series/chakra-sacral', label: 'Sacral Chakra', color: 'hover:text-chakra-sacral' },
-  { to: '/series/chakra-solar', label: 'Solar Plexus', color: 'hover:text-chakra-solar' },
-  { to: '/series/chakra-heart', label: 'Heart Chakra', color: 'hover:text-chakra-heart' },
-  { to: '/series/chakra-throat', label: 'Throat Chakra', color: 'hover:text-chakra-throat' },
-  { to: '/series/chakra-third-eye', label: 'Third Eye', color: 'hover:text-chakra-third-eye' },
-  { to: '/series/chakra-crown', label: 'Crown Chakra', color: 'hover:text-chakra-crown' },
+const crystalGuideLinks = [
+  { to: '/series/chakra-root', label: 'Grounding Crystals', color: 'hover:text-chakra-root' },
+  { to: '/series/chakra-sacral', label: 'Creative Flow Crystals', color: 'hover:text-chakra-sacral' },
+  { to: '/series/chakra-solar', label: 'Confidence Crystals', color: 'hover:text-chakra-solar' },
+  { to: '/series/chakra-heart', label: 'Love Crystals', color: 'hover:text-chakra-heart' },
+  { to: '/series/chakra-throat', label: 'Clarity Crystals', color: 'hover:text-chakra-throat' },
+  { to: '/series/chakra-third-eye', label: 'Intuition Crystals', color: 'hover:text-chakra-third-eye' },
+  { to: '/series/chakra-crown', label: 'Stillness Crystals', color: 'hover:text-chakra-crown' },
 ]
 
 type SocialLink = {
@@ -151,7 +151,7 @@ export function Footer() {
               </h4>
             </div>
             <p className="mt-4 max-w-sm text-sm leading-7 text-text-secondary">
-              Guided by moonlight, awaken the energy of all seven chakras.
+              Guided by moonlight, explore healing crystals, natural-stone jewelry, and rituals shaped around your intention.
             </p>
           </FooterColumn>
 
@@ -172,9 +172,9 @@ export function Footer() {
           </FooterColumn>
 
           <FooterColumn delay={0.3}>
-            <h4 className="text-xl text-text-primary">Chakra guide</h4>
+            <h4 className="text-xl text-text-primary">Crystal guides</h4>
             <ul className="mt-4 grid grid-cols-2 gap-x-5 gap-y-3 text-sm text-text-secondary xl:grid-cols-1">
-              {chakraGuideLinks.map((item) => (
+              {crystalGuideLinks.map((item) => (
                 <li key={item.label}>
                   <Link
                     to={item.to}

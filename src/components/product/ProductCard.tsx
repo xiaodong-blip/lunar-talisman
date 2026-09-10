@@ -19,9 +19,9 @@ const collectionBadge = {
 } as const
 
 const collectionLabel = {
-  zodiac: '星座守护',
-  chakra: '脉轮疗愈',
-  lunar: '月相仪式',
+  zodiac: 'Crystal Intention',
+  chakra: 'Crystal Healing',
+  lunar: 'Lunar Crystal Ritual',
 }
 
 export function ProductCard({ product }: ProductCardProps) {
@@ -72,7 +72,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <div className="mt-4 flex items-center gap-2 text-sm text-text-secondary">
         <Star size={15} className="text-chakra-solar" fill="currentColor" />
         <span>
-          {product.rating.toFixed(1)} · {product.reviewCount} 条评价
+          {product.rating.toFixed(1)} · {product.reviewCount} customer notes
         </span>
       </div>
 
@@ -82,7 +82,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </span>
         <Button variant="ghost" size="sm" onClick={handleAddToCart}>
           <ShoppingBag size={16} />
-          加购
+          Add to cart
         </Button>
       </div>
     </ChakraCard>

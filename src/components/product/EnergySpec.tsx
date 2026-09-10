@@ -29,26 +29,26 @@ const chakraIcons: Record<string, LucideIcon> = {
 }
 
 const elementIcons: Record<string, LucideIcon> = {
-  土: Mountain,
-  水: Waves,
-  火: Flame,
-  风: Wind,
-  以太: Sparkles,
+  Earth: Mountain,
+  Water: Waves,
+  Fire: Flame,
+  Air: Wind,
+  Ether: Sparkles,
 }
 
 const zodiacLabels: Record<string, string> = {
-  aries: '白羊座',
-  taurus: '金牛座',
-  gemini: '双子座',
-  cancer: '巨蟹座',
-  leo: '狮子座',
-  virgo: '处女座',
-  libra: '天秤座',
-  scorpio: '天蝎座',
-  sagittarius: '射手座',
-  capricorn: '摩羯座',
-  aquarius: '水瓶座',
-  pisces: '双鱼座',
+  aries: 'Aries',
+  taurus: 'Taurus',
+  gemini: 'Gemini',
+  cancer: 'Cancer',
+  leo: 'Leo',
+  virgo: 'Virgo',
+  libra: 'Libra',
+  scorpio: 'Scorpio',
+  sagittarius: 'Sagittarius',
+  capricorn: 'Capricorn',
+  aquarius: 'Aquarius',
+  pisces: 'Pisces',
 }
 
 function getChakra(id?: string) {
@@ -102,7 +102,7 @@ export function EnergySpec({ product }: EnergySpecProps) {
   const ElementIcon = elementIcons[product.element] ?? Sparkles
   const zodiacText = product.zodiacSigns?.length
     ? product.zodiacSigns.map((sign) => zodiacLabels[sign] ?? sign).join(' / ')
-    : '全星座适用'
+    : 'All zodiac signs'
 
   return (
     <section className="mx-auto w-full max-w-7xl px-4 py-12 md:px-6 md:py-16">
@@ -111,10 +111,10 @@ export function EnergySpec({ product }: EnergySpecProps) {
           Energy Specification
         </p>
         <h2 className="mt-3 font-serif text-4xl text-white md:text-5xl">
-          能量属性
+          Crystal profile
         </h2>
         <p className="mt-3 max-w-2xl text-sm leading-7 text-white/62 md:text-base">
-          每件护符都拥有自己的脉轮、元素与星象对应关系。
+          Every piece has its own material, color story, and reflective intention.
         </p>
       </header>
 
@@ -122,37 +122,37 @@ export function EnergySpec({ product }: EnergySpecProps) {
         <SpecCard
           chakraColor={product.primaryChakra}
           icon={PrimaryIcon}
-          label="主导脉轮"
-          title={primary ? `${primary.name} · ${primary.nameEn}` : '七脉轮'}
-          description={primary ? `${primary.location} · ${primary.affirmation}` : '以核心能量为主导。'}
+          label="Primary intention"
+          title={primary ? `${primary.nameEn}` : 'Personal intention'}
+          description={primary ? `${primary.location} · ${primary.affirmation}` : 'Choose the meaning that feels most useful today.'}
         />
         <SpecCard
           chakraColor={secondaryColor}
           icon={SecondaryIcon}
-          label="辅助脉轮"
-          title={secondary ? `${secondary.name} · ${secondary.nameEn}` : '主导能量延展'}
+          label="Secondary intention"
+          title={secondary ? `${secondary.nameEn}` : 'Intention in focus'}
           description={
             secondary
               ? `${secondary.location} · ${secondary.affirmation}`
-              : '此款以单一主导脉轮为核心，能量更集中。'
+              : 'A single clear intention can be enough.'
           }
         />
         <SpecCard
           chakraColor={product.primaryChakra}
           icon={ElementIcon}
-          label="对应元素"
+          label="Element"
           title={product.element}
-          description={`元素 ${product.element} 与 ${product.crystalType} 的质感共同形成佩戴场域。`}
+          description={`The ${product.element} element and ${product.crystalType} texture shape the feel of this piece.`}
         />
         <SpecCard
           chakraColor={product.secondaryChakra ?? 'crown'}
           icon={Star}
-          label="星座关联"
+          label="Zodiac note"
           title={zodiacText}
           description={
             product.zodiacSigns?.length
-              ? '与星盘水象直觉能量相呼应，适合作为守护款佩戴。'
-              : '不限星座，按当下能量状态选择即可。'
+              ? 'A symbolic correspondence for shoppers who enjoy astrology.'
+              : 'No zodiac sign required; choose by material, color, and personal preference.'
           }
         />
       </div>

@@ -68,7 +68,7 @@ export function QuizResult({ result, onRestart }: QuizResultProps) {
         </span>
 
         <h2 className="mt-6 text-3xl md:text-4xl" style={{ color: chakraColor }}>
-          你的守护脉轮是 {chakra.name}
+          Your crystal intention is {chakra.nameEn}
         </h2>
         <p className="mt-2 text-sm uppercase tracking-[0.24em] text-text-muted">
           {chakra.nameEn} · {chakra.sanskrit}
@@ -79,7 +79,7 @@ export function QuizResult({ result, onRestart }: QuizResultProps) {
       </div>
 
       <div className="mx-auto mt-8 max-w-3xl rounded-[28px] border border-border bg-white/72 p-5">
-        <h3 className="text-2xl text-text-primary">能量解读</h3>
+        <h3 className="text-2xl text-text-primary">Your reading</h3>
         <p className="mt-3 text-sm leading-7 text-text-secondary md:text-base">
           {result.reading}
         </p>
@@ -88,16 +88,16 @@ export function QuizResult({ result, onRestart }: QuizResultProps) {
       <div className="mt-9">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h3 className="text-2xl text-text-primary">推荐水晶</h3>
+            <h3 className="text-2xl text-text-primary">Recommended crystals</h3>
             <p className="mt-2 text-sm text-text-secondary">
-              这几件护符与你当前的脉轮频率最接近。
+              These pieces match the color, material, and intention suggested by your answers.
             </p>
           </div>
           <Link
             to="/collections"
             className="hidden text-sm font-medium text-chakra-crown transition-colors hover:text-text-primary md:inline-flex"
           >
-            查看全部系列 →
+            View all collections →
           </Link>
         </div>
 
@@ -111,10 +111,10 @@ export function QuizResult({ result, onRestart }: QuizResultProps) {
       <div className="mt-9 flex flex-col gap-3 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-center">
         <Button variant="gold" size="lg" onClick={handleAddAll}>
           <ShoppingBag size={18} />
-          加入购物车
+          Add selected pieces to cart
         </Button>
         <Button variant="ghost" size="lg" onClick={onRestart}>
-          重新测试
+          Start over
         </Button>
       </div>
     </div>

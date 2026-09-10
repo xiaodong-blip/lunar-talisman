@@ -17,24 +17,24 @@ type RitualStep = {
 const ritualSteps: RitualStep[] = [
   {
     number: '01',
-    title: '净化',
-    description: '在满月之夜将水晶置于月光下，或用白鼠尾草烟熏净化负能量。',
+    title: 'Cleanse',
+    description: 'Place your crystal in moonlight, or choose another mineral-safe care method such as a soft cloth or sound.',
     chakraColor: 'heart',
     icon: Droplets,
     revealFrom: 'left',
   },
   {
     number: '02',
-    title: '充能',
-    description: '双手捧住水晶，冥想你的意图，将太阳轮的能量注入晶石。',
+    title: 'Set an intention',
+    description: 'Hold the stone in both hands and name the quality you want to keep close during the day.',
     chakraColor: 'solar',
     icon: Zap,
     revealFrom: 'bottom',
   },
   {
     number: '03',
-    title: '激活',
-    description: '佩戴水晶于对应脉轮，念诵肯定语，完成能量激活仪式。',
+    title: 'Wear and notice',
+    description: 'Wear the piece comfortably and let it become a tactile reminder for your own reflective ritual.',
     chakraColor: 'crown',
     icon: Sparkles,
     revealFrom: 'right',
@@ -109,8 +109,8 @@ function RitualStepCard({ step, index }: { step: RitualStep; index: number }) {
 export function RitualGuide() {
   return (
     <Section
-      title="水晶激活仪式 · 三步唤醒能量"
-      subtitle="从净化、充能到佩戴激活，让护符真正成为你的能量锚点。"
+      title="A simple crystal ritual"
+      subtitle="Cleanse, set an intention, and wear your piece as a quiet daily reminder."
       chakraAccent="heart"
     >
       <div className="relative">

@@ -180,7 +180,7 @@ export function ChakraScroll() {
                       {chakra.sanskrit}
                     </p>
                     <h2 className="mt-3 text-3xl text-text-primary md:text-4xl">
-                      {chakra.name}
+                      {['Grounding Crystals', 'Creative Flow Crystals', 'Confidence Crystals', 'Love & Compassion Crystals', 'Expression & Clarity Crystals', 'Intuition & Focus Crystals', 'Stillness & Spirituality Crystals'][index]}
                     </h2>
                     <p className="mt-2 text-base text-text-secondary">
                       {chakra.nameEn}
@@ -219,9 +219,9 @@ export function ChakraScroll() {
                         data-chakra-meta
                         className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-text-secondary"
                       >
-                        <span>对应元素：{chakra.element}</span>
+                        <span>Element: {chakra.element}</span>
                         <span className="hidden h-1 w-1 rounded-full bg-text-muted md:inline-flex" />
-                        <span>位置：{chakra.location}</span>
+                        <span>Tradition: {chakra.location}</span>
                       </div>
 
                       <div data-chakra-crystals className="mt-6 flex flex-wrap gap-2">
@@ -253,7 +253,7 @@ export function ChakraScroll() {
               key={chakra.id}
               type="button"
               onClick={() => scrollToSection(index)}
-              aria-label={`跳转到 ${chakra.name}`}
+              aria-label={`Jump to ${chakra.nameEn}`}
               className="flex items-center justify-center rounded-full p-1"
             >
               <span
@@ -281,7 +281,7 @@ export function ChakraScroll() {
                 key={chakra.id}
                 type="button"
                 onClick={() => scrollToSection(index)}
-                aria-label={`跳转到 ${chakra.name}`}
+                aria-label={`Jump to ${chakra.nameEn}`}
                 className="group flex items-center gap-3"
               >
                 <span
@@ -304,7 +304,7 @@ export function ChakraScroll() {
                       : 'translate-x-2 opacity-0 text-text-muted group-hover:translate-x-0 group-hover:opacity-100',
                   )}
                 >
-                  {chakra.name}
+                  {['Grounding Crystals', 'Creative Flow Crystals', 'Confidence Crystals', 'Love & Compassion Crystals', 'Expression & Clarity Crystals', 'Intuition & Focus Crystals', 'Stillness & Spirituality Crystals'][index]}
                 </span>
               </button>
             )

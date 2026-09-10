@@ -3,16 +3,17 @@
   "@type": "Organization",
   "name": "Lunar Talisman",
   "url": "https://lunartalisman.com/",
-  "description": "English-language crystal jewelry, chakra stones, lunar rituals, and crystal education.",
+  "description": "English-language healing crystals, natural-stone jewelry, gemstone bracelets, lunar rituals, and crystal education.",
   "areaServed": [
     "Americas",
     "Europe",
     "Southeast Asia"
   ],
   "knowsAbout": [
+    "healing crystals",
     "crystal jewelry",
     "crystal meanings",
-    "chakra stones",
+    "gemstone bracelets",
     "crystal cleansing rituals",
     "gemstone symbolism"
   ]

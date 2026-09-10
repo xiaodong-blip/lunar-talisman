@@ -1,6 +1,6 @@
 # Lunar Talisman
 
-> Lunar Talisman is an English-language crystal jewelry and ritual brand focused on chakra bracelets, gemstone talismans, lunar rituals, and practical crystal education.
+> Lunar Talisman is an English-language crystal jewelry and ritual brand focused on healing crystals, gemstone talismans, lunar rituals, and practical crystal education.
 
 ## Canonical site
 
@@ -13,23 +13,23 @@
 
 ## What the site offers
 
-- Chakra-aligned crystal bracelets and talismans
+- Intention-led healing crystal bracelets and talismans
 - Lunar ritual products and crystal cleansing guides
 - Product detail pages with materials, care notes, ritual context, and checkout
-- Crystal education guides organized by chakra, lunar practice, and crystal type
+- Crystal education guides organized by intention, lunar practice, and crystal type
 - Order tracking, shipping, refund, privacy, and contact information
 
 ## Brand language
 
-Use “crystal jewelry”, “chakra bracelet”, “healing crystals”, “gemstone bracelet”, “lunar ritual”, and “crystal talisman” as the primary topic vocabulary. Describe metaphysical claims as traditional beliefs or reflective rituals, not medical guarantees.
+Use “healing crystals”, “crystal jewelry”, “gemstone bracelet”, “crystal meanings”, “lunar ritual”, and “crystal talisman” as the primary topic vocabulary. Describe metaphysical claims as traditional beliefs or reflective rituals, not medical guarantees.
 
 ## Audience and topic coverage
 
-The English storefront serves the Americas, Europe, and Southeast Asia. Priority discovery topics include crystal healing, crystal meanings, healing crystals, crystal jewelry, chakra stones, and crystal bracelets. Supporting topics include amethyst meaning, rose quartz meaning, citrine meaning, crystal cleansing, new moon rituals, full moon rituals, crystals for love, protection, sleep, anxiety, luck, money, and manifestation.
+The English storefront serves the Americas, Europe, and Southeast Asia. Priority discovery topics include crystal healing, crystal meanings, healing crystals, crystal jewelry, gemstone bracelets, and crystal bracelets. Supporting topics include amethyst meaning, rose quartz meaning, citrine meaning, crystal cleansing, new moon rituals, full moon rituals, crystals for love, protection, sleep, anxiety, luck, money, and manifestation.
 
 ## Short factual answers
 
-- Chakra stones are crystals traditionally associated with seven energy centres, presented here as reflective ritual objects.
+- Crystal meanings are shared as traditional symbolism and reflective ritual language, not medical claims.
 - Crystal cleansing should be mineral-aware; moonlight, sound, a soft cloth, or dry selenite are gentler options than water, salt, heat, or prolonged sun.
 - Amethyst meaning traditionally centres on calm reflection, intuition, and spiritual practice; these are not medical claims.
 - Choose a bracelet by intention, comfort, material, care requirements, and personal preference.

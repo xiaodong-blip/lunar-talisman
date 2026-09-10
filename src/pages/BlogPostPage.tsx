@@ -13,10 +13,10 @@ const categoryBadge = {
 } as const
 
 const categoryLabel = {
-  zodiac: '星座',
-  chakra: '脉轮',
-  lunar: '月相',
-  crystal: '水晶',
+  zodiac: 'Astrology',
+  chakra: 'Energy traditions',
+  lunar: 'Lunar rituals',
+  crystal: 'Crystal care',
 }
 
 function renderMarkdown(content: string) {
@@ -120,8 +120,8 @@ export function BlogPostPage() {
   const post = blogPosts.find((item) => item.slug === slug)
 
   usePageMeta({
-    title: post ? `${post.title} | Lunar Talisman` : '文章未找到 | Lunar Talisman',
-    description: post?.excerpt ?? '阅读 Lunar Talisman 玄学库文章。',
+    title: post ? `${post.title} | Lunar Talisman` : 'Guide not found | Lunar Talisman',
+    description: post?.excerpt ?? 'Read practical crystal guides from Lunar Talisman.',
   })
 
   if (!post) {
@@ -164,8 +164,8 @@ export function BlogPostPage() {
       </article>
 
       <Section
-        title="相关阅读"
-        subtitle="继续沿着相近的能量主题探索。"
+        title="Related guides"
+        subtitle="Continue exploring nearby crystal meanings and rituals."
         chakraAccent="throat"
         tight
       >

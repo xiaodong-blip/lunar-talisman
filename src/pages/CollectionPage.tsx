@@ -16,9 +16,9 @@ const collectionIcons: Record<string, LucideIcon> = {
 
 export function CollectionPage() {
   usePageMeta({
-    title: '水晶系列 | Lunar Talisman',
+    title: 'Healing Crystal Collections | Lunar Talisman',
     description:
-      '探索 Lunar Talisman 星座守护、脉轮疗愈与月相仪式三大水晶饰品系列。',
+      'Explore Lunar Talisman healing crystal jewelry, gemstone bracelets, lunar rituals, and intention-led collections.',
   })
 
   return (
@@ -32,10 +32,10 @@ export function CollectionPage() {
               Collections
             </p>
             <h1 className="mt-5 font-serif text-5xl text-white md:text-7xl">
-              系列像是不同能量入口，选哪条都能抵达你自己。
+              Choose a crystal path that feels like your own.
             </h1>
             <p className="mt-5 max-w-2xl text-base leading-8 text-white/64 md:text-lg">
-              Zodiac 更轻灵，Chakra 更疗愈，Lunar 更有仪式感。每个系列都以七脉轮为底层频率，再用月光质感统一成电影级视觉体验。
+              Browse natural-stone jewelry by color, texture, ritual rhythm, and the intention you want to keep close.
             </p>
           </div>
         </section>
@@ -84,8 +84,8 @@ export function CollectionPage() {
                       {collection.description}
                     </p>
                     <div className="mt-6 flex items-center justify-between text-sm">
-                      <span className="text-white/45">共 {collection.itemCount} 件</span>
-                      <span style={{ color }}>探索系列 →</span>
+                      <span className="text-white/45">{collection.itemCount} pieces</span>
+                      <span style={{ color }}>Explore collection →</span>
                     </div>
                   </div>
                 </article>
@@ -100,10 +100,10 @@ export function CollectionPage() {
               Crystal Archive
             </p>
             <h2 className="mt-3 font-serif text-4xl text-white md:text-5xl">
-              全部水晶护符
+              All healing crystal jewelry
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/62 md:text-base">
-              在星空与月光的背景里，挑选与你当前频率共振的水晶。
+              Compare natural stones, gemstone bracelets, and ritual pieces by material and meaning.
             </p>
           </header>
 

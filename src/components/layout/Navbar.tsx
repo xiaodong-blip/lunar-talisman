@@ -6,10 +6,10 @@ import { useCart } from '../../hooks/useCart'
 import { CartDrawer, CartToast } from '../cart/CartDrawer'
 
 const links = [
-  { to: '/', label: '首页' },
-  { to: '/collections', label: '系列' },
-  { to: '/blog', label: '玄学库' },
-  { to: '/about', label: '关于' },
+  { to: '/', label: 'Home' },
+  { to: '/collections', label: 'Collections' },
+  { to: '/blog', label: 'Crystal Guides' },
+  { to: '/about', label: 'About' },
 ]
 
 export function Navbar() {
@@ -75,7 +75,7 @@ export function Navbar() {
             type="button"
             onClick={() => setCartOpen(true)}
             className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white transition-colors hover:text-chakra-solar"
-            aria-label="打开购物车"
+            aria-label="Open cart"
           >
             <ShoppingBag size={18} />
             {totalItems > 0 ? (
@@ -88,7 +88,7 @@ export function Navbar() {
           <button
             type="button"
             className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-white/10 text-white md:hidden"
-            aria-label={menuOpen ? '关闭菜单' : '打开菜单'}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((value) => !value)}
           >
@@ -135,7 +135,7 @@ export function Navbar() {
             }}
             className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-left text-base font-medium text-white/60 transition-colors hover:text-chakra-solar"
           >
-            购物车 · {totalItems}
+            Cart · {totalItems}
           </button>
         </nav>
       </aside>

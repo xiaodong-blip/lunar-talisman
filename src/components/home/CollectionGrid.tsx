@@ -71,13 +71,13 @@ function CollectionCard({
         </div>
 
         <div className="mt-6 flex items-center justify-between gap-3 text-sm">
-          <span className="text-text-secondary">共 {collection.itemCount} 件</span>
+          <span className="text-text-secondary">{collection.itemCount} pieces</span>
           <Link
             to="/collections"
             className={cn('font-medium transition-colors hover:opacity-80')}
             style={{ color: getChakraHex(collection.chakraColor) }}
           >
-            探索系列 →
+            Explore collection →
           </Link>
         </div>
       </ChakraCard>
@@ -88,8 +88,8 @@ function CollectionCard({
 export function CollectionGrid() {
   return (
     <Section
-      title="三大系列，三种能量路径"
-      subtitle="星座、脉轮、月相，分别对应不同的能量入口。"
+      title="Three crystal paths, one personal ritual"
+      subtitle="Explore crystal jewelry through intention, lunar rhythm, and reflective care."
       chakraAccent="crown"
     >
       <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">

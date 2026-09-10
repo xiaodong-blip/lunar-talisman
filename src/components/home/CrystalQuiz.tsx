@@ -26,8 +26,8 @@ export function CrystalQuiz() {
 
   return (
     <Section
-      title="你的专属水晶是什么？"
-      subtitle="花 30 秒，让脉轮能量为你指引"
+      title="Find the crystal that fits your intention"
+      subtitle="Three quiet prompts to guide your next crystal ritual"
       chakraAccent="third-eye"
       tight
     >
@@ -40,8 +40,8 @@ export function CrystalQuiz() {
                 <Sparkles size={22} />
               </span>
               <div>
-                <h3 className="text-2xl text-text-primary">选择你的星座</h3>
-                <p className="mt-1 text-sm text-text-secondary">Zodiac 入口</p>
+                <h3 className="text-2xl text-text-primary">Name your intention</h3>
+                <p className="mt-1 text-sm text-text-secondary">Start with what you want to support</p>
               </div>
             </div>
           </ChakraCard>
@@ -54,8 +54,8 @@ export function CrystalQuiz() {
                 <Eye size={22} />
               </span>
               <div>
-                <h3 className="text-2xl text-text-primary">感受当下的能量</h3>
-                <p className="mt-1 text-sm text-text-secondary">眉心轮引导</p>
+                <h3 className="text-2xl text-text-primary">Notice your current rhythm</h3>
+                <p className="mt-1 text-sm text-text-secondary">A reflective crystal prompt</p>
               </div>
             </div>
           </ChakraCard>
@@ -68,8 +68,8 @@ export function CrystalQuiz() {
                 <Heart size={22} />
               </span>
               <div>
-                <h3 className="text-2xl text-text-primary">找到你的水晶</h3>
-                <p className="mt-1 text-sm text-text-secondary">心轮回应</p>
+                <h3 className="text-2xl text-text-primary">Meet your crystal</h3>
+                <p className="mt-1 text-sm text-text-secondary">A piece to carry into daily life</p>
               </div>
             </div>
           </ChakraCard>
@@ -78,7 +78,7 @@ export function CrystalQuiz() {
 
         <div className="mt-8 flex justify-center">
           <Button variant="gold" size="lg" onClick={() => navigate('/quiz')}>
-            开始水晶测试 →
+            Start the crystal finder →
           </Button>
         </div>
       </div>

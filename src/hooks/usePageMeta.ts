@@ -11,7 +11,7 @@ const containsChinese = /[\u3400-\u9fff]/
 const SITE_ORIGIN = 'https://lunartalisman.com'
 const DEFAULT_OG_IMAGE = `${SITE_ORIGIN}/og-image.svg`
 const SITE_DESCRIPTION =
-  'Discover crystal jewelry, chakra bracelets, gemstone talismans, lunar rituals, and practical crystal guides from Lunar Talisman.'
+  'Discover healing crystals, natural-stone jewelry, gemstone bracelets, lunar rituals, and practical crystal guides from Lunar Talisman.'
 
 function isGraphNodeOfType(node: unknown, type: string) {
   if (!node || typeof node !== 'object') return false
@@ -62,7 +62,7 @@ function withGlobalSchema(
     name: 'Lunar Talisman',
     url: SITE_ORIGIN,
     logo: DEFAULT_OG_IMAGE,
-    description: 'Crystal jewelry, chakra bracelets, lunar rituals, and reflective crystal education.',
+    description: 'Healing crystals, natural-stone jewelry, lunar rituals, and reflective crystal education.',
   }
   const websiteNode = {
     '@type': 'WebSite',
@@ -99,7 +99,7 @@ export function usePageMeta({
     const safeTitle = englishMeta(title, 'Lunar Talisman · Crystal Rituals')
     const safeDescription = englishMeta(
       description,
-      'Discover crystal talismans shaped by moonlight, ritual, and the seven chakras.',
+      'Discover crystal talismans shaped by moonlight, ritual, color, and personal intention.',
     )
 
     document.title = safeTitle
@@ -149,7 +149,7 @@ export function usePageMeta({
     setMeta('og:site_name', 'Lunar Talisman')
     setMeta('og:locale', 'en_US')
     setMeta('og:image', DEFAULT_OG_IMAGE)
-    setMeta('og:image:alt', 'Lunar Talisman crystal jewelry and chakra rituals')
+    setMeta('og:image:alt', 'Lunar Talisman healing crystal jewelry and moonlit rituals')
 
     let twitterCard = document.querySelector<HTMLMetaElement>('meta[name="twitter:card"]')
     if (!twitterCard) {
@@ -173,7 +173,7 @@ export function usePageMeta({
     setNameMeta('twitter:title', safeTitle)
     setNameMeta('twitter:description', safeDescription)
     setNameMeta('twitter:image', DEFAULT_OG_IMAGE)
-    setNameMeta('twitter:image:alt', 'Lunar Talisman crystal jewelry and chakra rituals')
+    setNameMeta('twitter:image:alt', 'Lunar Talisman healing crystal jewelry and moonlit rituals')
 
     let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]')
     if (!robots) {

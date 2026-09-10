@@ -4,12 +4,12 @@ const PHRASES: Record<string, string> = {
   'Lunar Talisman 后台管理。': 'Lunar Talisman administration.',
   'Lunar Talisman 后台': 'Lunar Talisman Admin',
   'Lunar Talisman · 月之护符': 'Lunar Talisman',
-  '高端七脉轮水晶饰品品牌站': 'A crystal talisman house guided by the seven chakras',
+  '高端七脉轮水晶饰品品牌站': 'A crystal talisman house guided by color, material, and personal intention',
   '月之护符': 'Lunar Talisman',
-  '七脉轮水晶宇宙': 'The Seven Chakra Crystal Universe',
+  '七脉轮水晶宇宙': 'The Crystal Healing Universe',
   '脉轮疗愈、月相仪式与水晶护符交织成一条旅程；每一件水晶都对应你此刻最需要的频率。':
-    'Chakra healing, lunar rituals, and crystal talismans form one journey—each piece meets the energy you need now.',
-  '向下滚动进入七脉轮水晶宇宙': 'Scroll down into the seven chakra crystal universe',
+    'Crystal healing traditions, lunar rituals, and natural-stone jewelry form one quiet journey—each piece meets the intention you carry now.',
+  '向下滚动进入七脉轮水晶宇宙': 'Scroll down into the crystal healing universe',
   '跳转到第 1 段体验': 'Jump to experience one',
   '跳转到第 2 段体验': 'Jump to experience two',
   '跳转到第 3 段体验': 'Jump to experience three',
@@ -32,7 +32,7 @@ const PHRASES: Record<string, string> = {
   '关闭购物车': 'Close cart',
   '购物车抽屉': 'Cart drawer',
   '水晶旅程': 'Crystal Journey',
-  '脉轮疗愈': 'Chakra Healing',
+  '脉轮疗愈': 'Crystal Healing',
   '月相仪式': 'Lunar Rituals',
   '水晶护符': 'Crystal Talismans',
   '月之典籍': 'Moon Codex',
@@ -47,7 +47,7 @@ const PHRASES: Record<string, string> = {
   '从身体底部重新扎根，把安全感、稳定感与边界感带回日常佩戴。':
     'Ground into safety, steadiness, and clear boundaries for everyday wear.',
   '七脉轮完整疗愈路径，每一件水晶都对应一个能量中心。':
-    'A complete seven-chakra path, with each crystal aligned to an energy centre.',
+    'A complete crystal healing path, organized by grounding, creativity, confidence, love, clarity, intuition, and stillness.',
   '从新月到满月，每件水晶都由特定月相时刻加持。':
     'From new moon to full moon, each piece is attuned to a distinct lunar moment.',
   '浏览所有水晶产品，进入每件护符自己的能量单页。':
@@ -56,13 +56,13 @@ const PHRASES: Record<string, string> = {
   '每一张卡片都可以进入对应单页，查看材质、仪式说明与订单信息。':
     'Open any product card to view material, care guidance, and order details.',
   '从脉轮、月相与水晶护符入口进入，找到与你当前频率共振的护符。':
-    'Enter through chakras, lunar phases, or crystal talismans to find your current resonance.',
+    'Enter through crystal intentions, lunar phases, or natural-stone jewelry to find your current ritual.',
   '在新月写下意图，在满月净化水晶，让佩戴成为一段可重复的能量节奏。':
     'Set intentions at the new moon, cleanse at the full moon, and make wear a repeatable ritual.',
   '从测试、典籍与水晶入口开始，找到此刻最适合你的护符路径。':
     'Begin with the quiz, the codex, or crystals and find the talisman path for this moment.',
   '以月光为引，将七脉轮能量注入每一颗水晶。选择你的护符，开启内在的能量之旅。':
-    'Guided by moonlight, each crystal carries seven-chakra energy. Choose your talisman and begin within.',
+    'Guided by moonlight, each crystal carries a story of color, texture, and intention. Choose your talisman and begin within.',
   '查看购物车、填写物流、留下留言并提交订单。':
     'Review your cart, choose a delivery region, leave a note, and place your order request.',
   '请补全姓名、邮箱和收货地址。': 'Please complete your name, email, and delivery address.',
@@ -179,7 +179,7 @@ const PHRASES: Record<string, string> = {
   '草稿': 'Draft',
   '官网购物车': 'Website cart',
   '官网': 'Website',
-  '脉轮疗愈系列': 'Chakra Healing Collection',
+  '脉轮疗愈系列': 'Crystal Healing Collection',
   '月相仪式系列': 'Lunar Ritual Collection',
   '全部水晶护符': 'All Crystal Talismans',
   '项目入口': 'Project Portals',

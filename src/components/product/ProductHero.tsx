@@ -19,9 +19,9 @@ const collectionMeta: Record<
   CrystalProduct['collection'],
   { label: string; badge: ChakraColorKey }
 > = {
-  zodiac: { label: '星座守护', badge: 'crown' },
-  chakra: { label: '脉轮疗愈', badge: 'heart' },
-  lunar: { label: '月相仪式', badge: 'solar' },
+  zodiac: { label: 'Crystal Intention', badge: 'crown' },
+  chakra: { label: 'Crystal Healing', badge: 'heart' },
+  lunar: { label: 'Lunar Crystal Ritual', badge: 'solar' },
 }
 
 function CrystalModel({ color }: { color: string }) {
@@ -106,7 +106,7 @@ function ProductRating({
         ))}
       </div>
       <span>
-        {rating.toFixed(1)} · {reviewCount} 条评价
+        {rating.toFixed(1)} · {reviewCount} customer notes
       </span>
     </div>
   )
@@ -157,7 +157,7 @@ export function ProductHero({ product }: ProductHeroProps) {
                   {image ? (
                     <img
                       src={image}
-                      alt={`${product.name} 缩略图 ${index + 1}`}
+                      alt={`${product.name} thumbnail ${index + 1}`}
                       className="h-full w-full object-cover"
                       loading="lazy"
                     />
@@ -218,7 +218,7 @@ export function ProductHero({ product }: ProductHeroProps) {
           {product.moonCharged ? (
             <div className="mt-6 flex items-center gap-2 rounded-2xl border border-chakra-solar/25 bg-chakra-solar/10 px-4 py-3 text-sm font-medium text-chakra-solar">
               <Moon size={18} fill="currentColor" strokeWidth={1.4} />
-              此款已由满月光辉加持
+              Prepared with full moon care
             </div>
           ) : null}
 
@@ -230,11 +230,11 @@ export function ProductHero({ product }: ProductHeroProps) {
             disabled={!product.inStock}
           >
             <ShoppingBag size={18} />
-            加入购物车
+            Add to cart
           </Button>
 
           <p className="mt-3 text-center text-sm text-text-muted">
-            {product.inStock ? '仅剩限量批次' : '暂时售罄，等待下一轮月相补货'}
+            {product.inStock ? 'Limited batch available' : 'Currently sold out; check back for the next ritual batch'}
           </p>
         </div>
       </div>

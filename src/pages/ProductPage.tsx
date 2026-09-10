@@ -12,8 +12,8 @@ export function ProductPage() {
   const product = products.find((item) => item.id === id)
 
   usePageMeta({
-    title: product ? `${product.name} | Lunar Talisman` : '产品未找到 | Lunar Talisman',
-    description: product?.description ?? '探索 Lunar Talisman 七脉轮水晶护符。',
+    title: product ? `${product.name} | Lunar Talisman` : 'Product not found | Lunar Talisman',
+    description: product?.description ?? 'Explore healing crystal jewelry from Lunar Talisman.',
   })
 
   if (!product) {
@@ -43,10 +43,10 @@ export function ProductPage() {
               Resonant Picks
             </p>
             <h2 className="mt-3 font-serif text-4xl text-white md:text-5xl">
-              相关推荐
+              You may also like
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/62 md:text-base">
-              同系列与相邻能量场的护符，可以一起形成更完整的佩戴组合。
+              Discover more natural-stone pieces that can become part of the same daily ritual.
             </p>
           </header>
 

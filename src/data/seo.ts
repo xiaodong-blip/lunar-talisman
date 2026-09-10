@@ -14,11 +14,10 @@ export const keywordClusters = {
     'gemstone bracelet',
   ],
   chakra: [
-    'chakra bracelet',
-    '7 chakra bracelet',
-    'chakra jewelry',
-    'chakra crystals',
     'healing crystal bracelet',
+    'crystals by intention',
+    'crystal meanings',
+    'natural-stone jewelry',
   ],
   product: [
     'amethyst bracelet',
@@ -28,21 +27,19 @@ export const keywordClusters = {
     'garnet bracelet',
   ],
   intent: [
-    'root chakra bracelet',
-    'heart chakra bracelet',
-    'third eye chakra crystals',
-    'crown chakra crystals',
+    'grounding crystals',
+    'crystals for love',
+    'intuition crystals',
     'crystal jewelry gifts',
   ],
 } as const
 
 export const homeSeo: SeoEntry = {
-  title: 'Crystal Jewelry, Chakra Bracelets & Healing Crystals | Lunar Talisman',
+  title: 'Healing Crystal Jewelry & Gemstone Bracelets | Lunar Talisman',
   description:
-    'Explore crystal jewelry, chakra bracelets, healing crystals, and moonlit ritual pieces for every energy centre.',
+    'Explore healing crystals, natural-stone jewelry, gemstone bracelets, and moonlit ritual pieces for every personal intention.',
   primaryKeyword: 'crystal jewelry',
   supportingKeywords: [
-    'chakra bracelet',
     'healing crystals',
     'gemstone jewelry',
     'crystal bracelet',
@@ -58,60 +55,60 @@ const seriesEntries: Record<string, SeoEntry> = {
     supportingKeywords: ['crystal jewelry', 'gemstone jewelry', 'crystal bracelet'],
   },
   chakra: {
-    title: 'Chakra Bracelets & Crystal Jewelry | Lunar Talisman',
+    title: 'Crystal Healing Collections by Intention | Lunar Talisman',
     description:
-      'Explore seven chakra bracelets and crystal jewelry for grounding, creativity, confidence, love, expression, intuition, and connection.',
-    primaryKeyword: 'chakra bracelet',
-    supportingKeywords: ['7 chakra bracelet', 'chakra jewelry', 'healing crystal bracelet'],
+      'Explore healing crystal jewelry organized by grounding, creativity, confidence, love, clarity, intuition, and stillness.',
+    primaryKeyword: 'crystal healing collections',
+    supportingKeywords: ['healing crystals by intention', 'crystal bracelet collections', 'crystal meanings'],
   },
   'chakra-root': {
-    title: 'Root Chakra Bracelets & Grounding Crystals | Lunar Talisman',
+    title: 'Grounding Crystals & Red Agate Bracelets | Lunar Talisman',
     description:
-      'Shop root chakra bracelets and grounding crystals chosen for steadiness, safety, and an anchored daily ritual.',
-    primaryKeyword: 'root chakra bracelet',
-    supportingKeywords: ['root chakra crystals', 'garnet bracelet', 'grounding crystals'],
+      'Shop grounding crystals and red agate bracelets chosen for steadiness, safety, and an anchored daily ritual.',
+    primaryKeyword: 'grounding crystals',
+    supportingKeywords: ['red agate bracelet', 'garnet bracelet', 'crystal jewelry'],
   },
   'chakra-sacral': {
-    title: 'Sacral Chakra Crystal Jewelry | Lunar Talisman',
+    title: 'Creative Flow Crystals & Carnelian Bracelets | Lunar Talisman',
     description:
-      'Explore sacral chakra crystal jewelry for creativity, emotional flow, sensuality, and renewed inspiration.',
-    primaryKeyword: 'sacral chakra crystals',
-    supportingKeywords: ['sacral chakra bracelet', 'moonstone bracelet', 'carnelian bracelet'],
+      'Explore warm-toned crystals and carnelian bracelets for creativity, emotional flow, joy, and renewed inspiration.',
+    primaryKeyword: 'creativity crystals',
+    supportingKeywords: ['carnelian bracelet', 'passion crystals', 'crystal jewelry'],
   },
   'chakra-solar': {
-    title: 'Solar Plexus Chakra Jewelry & Citrine Bracelets | Lunar Talisman',
+    title: 'Confidence Crystals & Citrine Bracelets | Lunar Talisman',
     description:
-      'Discover solar plexus chakra jewelry and citrine bracelets for confidence, clarity, and intentional action.',
+      'Discover citrine and golden crystals for confidence, clarity, abundance intentions, and focused action.',
     primaryKeyword: 'citrine bracelet',
-    supportingKeywords: ['solar plexus chakra', 'solar plexus bracelet', 'chakra jewelry'],
+    supportingKeywords: ['confidence crystals', 'abundance crystals', 'crystal jewelry'],
   },
   'chakra-heart': {
-    title: 'Heart Chakra Jewelry & Rose Quartz Bracelets | Lunar Talisman',
+    title: 'Love Crystals & Rose Quartz Bracelets | Lunar Talisman',
     description:
-      'Shop heart chakra jewelry and rose quartz bracelets for connection, compassion, self-acceptance, and gentle ritual.',
+      'Shop rose quartz and pink crystals for love, compassion, self-acceptance, and gentle relationship rituals.',
     primaryKeyword: 'rose quartz bracelet',
-    supportingKeywords: ['heart chakra bracelet', 'heart chakra crystals', 'crystal jewelry'],
+    supportingKeywords: ['crystals for love', 'self love crystals', 'crystal jewelry'],
   },
   'chakra-throat': {
-    title: 'Throat Chakra Jewelry & Aquamarine Crystals | Lunar Talisman',
+    title: 'Expression & Clarity Crystals for Everyday Wear | Lunar Talisman',
     description:
-      'Explore throat chakra jewelry and aquamarine crystals for clear expression, calm communication, and honest presence.',
-    primaryKeyword: 'throat chakra jewelry',
-    supportingKeywords: ['throat chakra crystals', 'aquamarine necklace', 'chakra bracelet'],
+      'Explore clear-toned crystal jewelry for thoughtful expression, calm communication, focus, and honest presence.',
+    primaryKeyword: 'communication crystals',
+    supportingKeywords: ['clarity crystals', 'crystal jewelry for focus', 'natural-stone jewelry'],
   },
   'chakra-third-eye': {
-    title: 'Third Eye Chakra Crystals & Amethyst Jewelry | Lunar Talisman',
+    title: 'Intuition Crystals & Amethyst Jewelry | Lunar Talisman',
     description:
-      'Discover third eye chakra crystals and amethyst jewelry for reflection, intuition, dreamwork, and quiet inner focus.',
-    primaryKeyword: 'third eye chakra crystals',
-    supportingKeywords: ['amethyst bracelet', 'third eye chakra bracelet', 'crystal jewelry'],
+      'Discover amethyst and purple crystals for reflection, intuition, dreamwork, and quiet inner focus.',
+    primaryKeyword: 'intuition crystals',
+    supportingKeywords: ['amethyst bracelet', 'amethyst meaning', 'meditation crystals'],
   },
   'chakra-crown': {
-    title: 'Crown Chakra Crystals & Clear Quartz Jewelry | Lunar Talisman',
+    title: 'Stillness Crystals & Clear Quartz Jewelry | Lunar Talisman',
     description:
-      'Explore crown chakra crystals and clear quartz jewelry for intention setting, reflection, and moonlit connection.',
-    primaryKeyword: 'crown chakra crystals',
-    supportingKeywords: ['clear quartz bracelet', 'crown chakra bracelet', 'crystal jewelry'],
+      'Explore clear quartz and light-catching crystals for stillness, spiritual reflection, clarity, and moonlit rituals.',
+    primaryKeyword: 'spiritual crystals',
+    supportingKeywords: ['clear quartz jewelry', 'clear quartz meaning', 'meditation jewelry'],
   },
   lunar: {
     title: 'Moonstone Jewelry & Lunar Crystal Rituals | Lunar Talisman',
@@ -203,10 +200,10 @@ export function getProductSeo(id: string): SeoEntry {
   return (
     productEntries[id] ?? {
       title: 'Crystal Jewelry & Healing Crystals | Lunar Talisman',
-      description:
-        'Explore crystal jewelry and healing crystals for chakra rituals, meaningful gifting, and everyday intention.',
+    description:
+        'Explore healing crystals and crystal jewelry for reflective rituals, meaningful gifting, and everyday intention.',
       primaryKeyword: 'crystal jewelry',
-      supportingKeywords: ['healing crystals', 'gemstone bracelet', 'chakra bracelet'],
+      supportingKeywords: ['healing crystals', 'gemstone bracelet', 'crystal meanings'],
     }
   )
 }

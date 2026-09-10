@@ -13,18 +13,18 @@ const filters: Array<{
   hover: string
   active: string
 }> = [
-  { id: 'all', label: '全部', hover: 'hover:text-chakra-crown', active: 'border-chakra-crown bg-chakra-crown/10 text-chakra-crown' },
-  { id: 'zodiac', label: '星座', hover: 'hover:text-chakra-crown', active: 'border-chakra-crown bg-chakra-crown/10 text-chakra-crown' },
-  { id: 'chakra', label: '脉轮', hover: 'hover:text-chakra-heart', active: 'border-chakra-heart bg-chakra-heart/10 text-chakra-heart' },
-  { id: 'lunar', label: '月相', hover: 'hover:text-chakra-solar', active: 'border-chakra-solar bg-chakra-solar/10 text-chakra-solar' },
-  { id: 'crystal', label: '水晶', hover: 'hover:text-chakra-third-eye', active: 'border-chakra-third-eye bg-chakra-third-eye/10 text-chakra-third-eye' },
+  { id: 'all', label: 'All guides', hover: 'hover:text-chakra-crown', active: 'border-chakra-crown bg-chakra-crown/10 text-chakra-crown' },
+  { id: 'zodiac', label: 'Astrology', hover: 'hover:text-chakra-crown', active: 'border-chakra-crown bg-chakra-crown/10 text-chakra-crown' },
+  { id: 'chakra', label: 'Energy traditions', hover: 'hover:text-chakra-heart', active: 'border-chakra-heart bg-chakra-heart/10 text-chakra-heart' },
+  { id: 'lunar', label: 'Lunar rituals', hover: 'hover:text-chakra-solar', active: 'border-chakra-solar bg-chakra-solar/10 text-chakra-solar' },
+  { id: 'crystal', label: 'Crystal care', hover: 'hover:text-chakra-third-eye', active: 'border-chakra-third-eye bg-chakra-third-eye/10 text-chakra-third-eye' },
 ]
 
 export function BlogPage() {
   usePageMeta({
-    title: '玄学库 | Lunar Talisman',
+    title: 'Crystal Guides | Lunar Talisman',
     description:
-      '阅读星座水晶、七脉轮自测、月相仪式与水晶净化指南，建立属于你的月光能量习惯。',
+      'Read practical crystal guides on meanings, care, lunar rituals, and reflective traditions for everyday wear.',
   })
 
   const [activeFilter, setActiveFilter] = useState<CategoryFilter>('all')
@@ -35,8 +35,8 @@ export function BlogPage() {
 
   return (
     <Section
-      title="玄学库"
-      subtitle="星座、脉轮、月相与水晶养护，让每一次佩戴都有清晰的方法。"
+      title="Crystal guides"
+      subtitle="Explore crystal meanings, care, lunar rituals, and reflective traditions for everyday wear."
       chakraAccent="throat"
     >
       <div className="mb-8 flex flex-wrap gap-3">

@@ -14,153 +14,153 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     slug: 'zodiac-crystal-chakra-guide',
-    title: '你的星座对应什么水晶？十二星座脉轮守护指南',
-    excerpt: '从火象、土象、风象到水象，找到星盘元素与七脉轮之间的水晶对应关系。',
+    title: 'How to Choose a Crystal by Color, Material, and Intention',
+    excerpt: 'Use astrology as optional context, then choose a crystal by color, material, comfort, and the intention you want to carry.',
     category: 'zodiac',
     coverImage: 'https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=1200',
     date: '2026-07-12',
-    readTime: '6 分钟',
+    readTime: '6 min',
     content: `
-## 星座不是标签，而是一种能量入口
+## Start with the feeling you want to support
 
-十二星座可以先按四元素理解：火象负责行动，土象负责稳定，风象负责沟通，水象负责感受。选择水晶时，不必只看太阳星座，也可以观察自己最近最想补充哪一种能量。
+Astrology can be a playful starting point, but it does not need to decide your stone. Notice what you want to support: steadiness, creative flow, confidence, love, clarity, intuition, or stillness.
 
-## 四元素与脉轮对应
+## Match color and material
 
-- 火象：白羊、狮子、射手，对应太阳轮与海底轮，适合黄水晶、虎眼石、红石榴石。
-- 土象：金牛、处女、摩羯，对应海底轮与心轮，适合红碧玉、绿玉髓、东陵玉。
-- 风象：双子、天秤、水瓶，对应喉轮与眉心轮，适合海蓝宝、青金石、萤石。
-- 水象：巨蟹、天蝎、双鱼，对应脐轮、眉心轮与顶轮，适合月光石、紫水晶、白水晶。
+- Warm red stones such as garnet and agate are traditional companions for grounding.
+- Orange and golden stones such as carnelian and citrine are often chosen for creative flow and confidence.
+- Pink stones such as rose quartz are commonly associated with love, compassion, and self-acceptance.
+- Purple and clear stones such as amethyst and clear quartz suit quiet focus and stillness rituals.
 
-## 如何选择你的守护水晶
+## Choose the piece you will actually wear
 
-如果你想要更快行动，优先看太阳轮；如果你想要更安心，先照顾海底轮。水晶不是替你决定人生，而是把你的注意力带回当下。`,
+Choose the piece whose color, weight, and care requirements fit your real routine. Crystal traditions are symbolic; the value is in the attention and ritual you bring to the piece.`,
   },
   {
     slug: 'seven-chakra-self-check',
-    title: '七脉轮自测：你哪个能量中心需要平衡？',
-    excerpt: '用身体感受、情绪状态与日常行为，快速判断当前最需要照顾的脉轮。',
+    title: 'A Crystal Intention Self-Check for Everyday Wear',
+    excerpt: 'Use body awareness, mood, and daily habits to notice which crystal intention feels most useful right now.',
     category: 'chakra',
     coverImage: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200',
     date: '2026-07-15',
-    readTime: '5 分钟',
+    readTime: '5 min',
     content: `
-## 从身体开始观察
+## Start with a simple check-in
 
-脉轮自测不需要复杂工具。你可以先问自己：最近身体哪里最容易紧绷？什么情绪最常出现？我在逃避行动、表达，还是亲密关系？
+No special tool is required. Ask: where do I feel most tense, which emotion keeps returning, and do I want more steadiness, expression, connection, or quiet focus?
 
-## 七个常见信号
+## Seven intention cues
 
-- 海底轮：焦虑、不安、睡眠浅，适合扎根练习。
-- 脐轮：灵感枯竭、感受迟钝，适合重新接触创造。
-- 太阳轮：犹豫、拖延、害怕被看见，适合行动仪式。
-- 心轮：关系疲惫、难以接受善意，适合温柔疗愈。
-- 喉轮：话到嘴边又收回，适合表达练习。
-- 眉心轮：思绪混乱、判断不清，适合静心与记录梦境。
-- 顶轮：与意义感断开，适合月相仪式与冥想。
+- Grounding: you want steadiness, a slower pace, or clearer boundaries.
+- Creative flow: you want play, movement, or a way back into making.
+- Confidence: you want a tactile cue for action and decision-making.
+- Love: you want self-kindness, compassion, or a softer relationship ritual.
+- Clarity: you want to speak, study, or listen with more presence.
+- Intuition: you want quiet focus, dream journaling, or reflection.
+- Stillness: you want a simple moonlit pause and a wider perspective.
 
-## 小练习
+## A small practice
 
-选择一个最有共鸣的信号，连续三天佩戴对应水晶。重点不是“立刻改变”，而是给自己一个稳定的提醒。`,
+Choose one cue and wear a matching stone for three days. The goal is not instant change; it is a steady reminder you can return to.`,
   },
   {
     slug: 'new-moon-crystal-ritual',
-    title: '新月仪式完整指南：如何为水晶充能与净化',
-    excerpt: '新月适合写下意图、净化旧能量，并为下一阶段设置温柔而清晰的方向。',
+    title: 'New Moon Crystal Ritual: Set a Fresh Intention',
+    excerpt: 'Use the new moon as a quiet moment to care for a stone, write an intention, and begin a new reflective cycle.',
     category: 'lunar',
     coverImage: 'https://images.unsplash.com/photo-1532693322450-2cb5c511067d?w=1200',
     date: '2026-07-18',
-    readTime: '7 分钟',
+    readTime: '7 min',
     content: `
-## 为什么选择新月
+## Why the new moon
 
-新月是一个安静的开始。它不强调爆发，而是适合播种、整理和设置新的方向。为水晶充能时，新月能量更像一张干净的纸。
+The new moon is a quiet beginning. It is a useful time to tidy a space, care for a crystal, and name a direction without demanding a dramatic result.
 
-## 仪式准备
+## Prepare your space
 
-- 一件你想激活的水晶饰品
-- 一张纸和一支笔
-- 白鼠尾草、圣木或清水
-- 一个不会被打扰的角落
+- One crystal jewelry piece you want to wear
+- Paper and a pen
+- A mineral-safe cleansing method
+- A quiet corner where you will not be interrupted
 
-## 三步完成新月充能
+## Three gentle steps
 
-先净化水晶，再写下一个清晰意图，最后双手捧住水晶静坐三分钟。结束时，把纸条折好放在首饰盒旁，让意图和饰品一起进入你的日常。`,
+Cleanse the piece, write one clear intention, then hold it for three quiet minutes. Keep the note beside your jewelry box so the intention can enter ordinary life with the piece.`,
   },
   {
     slug: 'amethyst-third-eye-secrets',
-    title: '紫水晶的五个能量秘密：眉心轮觉醒之石',
-    excerpt: '紫水晶被认为与直觉、梦境、洞察和静心有关，是眉心轮最经典的水晶之一。',
+    title: 'Amethyst Meaning: Five Quiet Ways to Work with Purple Crystal',
+    excerpt: 'Amethyst is traditionally associated with intuition, dreamwork, reflection, and a calmer focus ritual.',
     category: 'crystal',
     coverImage: 'https://images.unsplash.com/photo-1599658880436-c617b95cbc3f?w=1200',
     date: '2026-07-21',
-    readTime: '4 分钟',
+    readTime: '4 min',
     content: `
-## 紫水晶为什么对应眉心轮
+## Why people choose amethyst
 
-眉心轮掌管直觉、洞察与内在视觉。紫水晶的颜色与频率常被用来象征清明、净化和精神专注。
+Amethyst's violet color is traditionally linked with intuition, insight, and the quieting of mental noise. These are symbolic meanings, not medical promises.
 
-## 五个能量秘密
+## Five practical rituals
 
-1. 它适合睡前静心，帮助整理白天的信息。
-2. 它适合创作者，在灵感混乱时提供安静的聚焦。
-3. 它常用于梦境记录，让潜意识线索更容易被记住。
-4. 它能和白水晶搭配，形成眉心轮到顶轮的连接。
-5. 它不需要夸张佩戴，贴近手腕或锁骨已经足够。
+1. Wear it before sleep as a cue to put the day down.
+2. Keep it near a notebook when you want a quieter creative session.
+3. Pair it with dream journaling and a three-minute pause.
+4. Combine it with clear quartz when you want a simple, light-catching set.
+5. Wear it close to the wrist or collarbone; comfort matters more than ceremony.
 
-## 佩戴建议
+## Wearing note
 
-如果你最近信息过载，建议每天固定一个时间佩戴紫水晶，并远离屏幕五分钟。`,
+If your attention feels crowded, choose one fixed time to wear amethyst and spend five minutes away from screens.`,
   },
   {
     slug: 'rose-quartz-heart-meditation',
-    title: '玫瑰晶：打开心轮的爱情磁石（附冥想引导）',
-    excerpt: '玫瑰晶不仅关于爱情，也关于自我接纳、柔软边界和重新学习信任。',
+    title: 'Rose Quartz Meaning: Love, Compassion, and Self-Acceptance',
+    excerpt: 'Rose quartz is traditionally associated with love, self-acceptance, soft boundaries, and a gentle relationship ritual.',
     category: 'crystal',
-    coverImage: 'https://images.unsplash.com/photo-1605100802531-9abce0fdda72?w=1200',
+    coverImage: 'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260525_160644_072a7f68-a101-4ded-a332-7d37707dbdd1.png&w=1280&q=85',
     date: '2026-07-24',
-    readTime: '5 分钟',
+    readTime: '5 min',
     content: `
-## 心轮不只关于关系
+## Love is not only about romance
 
-玫瑰晶常被称为爱情水晶，但它更深层的主题是心轮疗愈。它提醒我们，爱不是牺牲自己，而是在关系中保持柔软和完整。
+Rose quartz is often called the love stone. In traditional symbolism, its deeper theme is meeting yourself and others with softness without giving up your boundaries.
 
-## 三分钟冥想引导
+## A three-minute pause
 
-把玫瑰晶放在掌心，闭上眼睛。吸气时想象胸口有一团温柔绿光，呼气时让紧绷从肩膀慢慢离开。
+Hold the stone in your palm and close your eyes. On the inhale, notice the space around your chest; on the exhale, let your shoulders soften.
 
-默念：我允许自己被爱，也允许自己设下边界。
+Try the phrase: I can welcome love and keep clear boundaries.
 
-## 日常佩戴
+## Everyday wear
 
-适合在需要对话、约会、修复关系或照顾自己情绪的日子佩戴。`,
+Wear it on days when you want a gentle reminder for conversation, connection, gifting, or self-care.`,
   },
   {
     slug: 'full-moon-crystal-cleansing',
-    title: '满月之夜的水晶净化仪式：八步唤醒晶石能量',
-    excerpt: '满月适合释放、感谢与净化。用八个步骤完成一次完整的水晶能量唤醒。',
+    title: 'Full Moon Crystal Cleansing: An Eight-Step Care Ritual',
+    excerpt: 'Use the full moon as a reflective moment for gratitude, release, and mineral-aware crystal care.',
     category: 'lunar',
     coverImage: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1200',
     date: '2026-07-28',
-    readTime: '8 分钟',
+    readTime: '8 min',
     content: `
-## 满月的关键词是释放
+## Let the full moon mark a pause
 
-当月亮盈满，很多人会感到情绪更明显、梦境更清晰。满月仪式适合感谢已经完成的事，也适合放下不再需要的能量。
+The full moon can be a useful symbolic marker for gratitude and release. Keep the ritual simple and choose care methods that suit the mineral.
 
-## 八步净化仪式
+## Eight gentle steps
 
-1. 清理桌面，留下一个安静角落。
-2. 将水晶放在天然布料上。
-3. 点燃圣木或白鼠尾草。
-4. 写下想释放的三件事。
-5. 把水晶放在月光能照到的位置。
-6. 静坐五分钟，观察呼吸。
-7. 说出一句感谢。
-8. 次日清晨收回水晶并擦拭。
+1. Clear a small surface.
+2. Place the crystal on a natural cloth.
+3. Choose a smoke-free, mineral-safe care method if preferred.
+4. Write down three things you are ready to release.
+5. Place the stone where indirect moonlight can reach it.
+6. Sit for five minutes and notice your breathing.
+7. Name one thing you appreciate.
+8. In the morning, retrieve the crystal and wipe it gently.
 
-## 结束比开始更重要
+## The return matters
 
-仪式完成后，把水晶收回盒中。真正让能量稳定下来的，是你持续而温柔的照顾。`,
+When the ritual ends, return the piece to its box or daily rotation. Consistent, gentle care is more meaningful than a complicated ceremony.`,
   },
 ]

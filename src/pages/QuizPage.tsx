@@ -5,9 +5,9 @@ import { usePageMeta } from '../hooks/usePageMeta'
 
 export function QuizPage() {
   usePageMeta({
-    title: '水晶测试 | Lunar Talisman',
+    title: 'Crystal Intention Finder | Lunar Talisman',
     description:
-      '用三道题找到你的守护脉轮，并获得 Lunar Talisman 专属水晶饰品推荐。',
+      'Use three reflective prompts to find a healing crystal and jewelry ritual that fits your current intention.',
   })
 
   return (
@@ -15,8 +15,8 @@ export function QuizPage() {
       <EnergyParticles count={70} className="opacity-70" />
       <div className="relative z-10">
         <Section
-          title="你的专属水晶是什么？"
-          subtitle="三道题，找到当下最适合你的守护脉轮与月光护符。"
+          title="Find your crystal intention"
+          subtitle="Three prompts to choose a natural-stone companion for everyday wear."
           chakraAccent="third-eye"
         >
           <QuizFlow />

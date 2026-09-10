@@ -14,10 +14,10 @@ const categoryBadge = {
 } as const
 
 const categoryLabel = {
-  zodiac: '星座',
-  chakra: '脉轮',
-  lunar: '月相',
-  crystal: '水晶',
+  zodiac: 'Astrology',
+  chakra: 'Energy traditions',
+  lunar: 'Lunar rituals',
+  crystal: 'Crystal care',
 }
 
 export function BlogCard({ post }: BlogCardProps) {

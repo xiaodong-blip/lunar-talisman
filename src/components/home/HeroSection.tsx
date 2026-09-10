@@ -214,11 +214,11 @@ export function HeroSection() {
       <div className="content-wrap grid gap-8 px-4 pb-12 md:px-6 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-2 lg:items-center lg:gap-10 lg:pb-16">
         <div ref={textRef} className="max-w-2xl">
           <div data-hero-line>
-            <Badge variant="crown">顶轮觉醒 · 水晶护符</Badge>
+            <Badge variant="crown">Healing crystal jewelry · Moonlit ritual</Badge>
           </div>
 
           <h1 data-hero-line className="mt-5 max-w-3xl leading-[0.95] text-text-primary">
-            唤醒你的{' '}
+            Find the crystal that feels like{' '}
             <span
               style={{
                 backgroundImage:
@@ -230,16 +230,16 @@ export function HeroSection() {
                 display: 'inline',
               }}
             >
-              七脉轮
+              your intention
             </span>
-            {' '}能量
+            {' '}today
           </h1>
 
           <p
             data-hero-line
             className="mt-6 max-w-xl text-base leading-7 text-text-secondary md:text-lg"
           >
-            Lunar Talisman 以月光为引，将七脉轮能量注入每一颗水晶。选择你的护符，开启内在的能量之旅。
+            Lunar Talisman pairs natural stones with moonlit rituals and everyday intention. Choose a piece that gives your attention a beautiful place to land.
           </p>
 
           <div data-hero-line className="mt-8 flex flex-wrap gap-3">
@@ -248,26 +248,26 @@ export function HeroSection() {
               size="lg"
               onClick={() => navigate('/collections')}
             >
-              探索系列
+              Explore crystals
             </Button>
             <Button
               variant="outline"
               size="lg"
               onClick={() => navigate('/quiz')}
             >
-              水晶测试
+              Find your crystal
             </Button>
           </div>
 
           <p data-hero-line className="mt-6 text-sm text-text-muted md:text-base">
-            12 星座守护 · 7 脉轮疗愈 · 8 月相仪式 · 由月光加持
+            Natural stones · Thoughtful craft · Moonlit care · Worldwide shipping
           </p>
         </div>
 
         <div
           ref={sceneRef}
           className="relative flex min-h-[300px] items-center justify-center sm:min-h-[420px] lg:min-h-[680px]"
-          aria-label="七脉轮水晶能量场"
+          aria-label="Healing crystal jewelry arranged for a personal ritual"
         >
           <div className="absolute inset-0 rounded-[36px] bg-[radial-gradient(circle_at_center,rgba(155,142,196,0.08),rgba(252,249,244,0)_68%)]" />
           <Canvas
