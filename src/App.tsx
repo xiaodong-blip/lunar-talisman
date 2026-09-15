@@ -253,8 +253,8 @@ const CART_KEY = 'lunar-talisman-cart'
 const ADMIN_SEED_PRODUCT_IDS = new Set(['P-001', 'P-002', 'P-003'])
 // The storefront currently carries only red, purple, and pink crystal pieces.
 // Source records remain intact so retired colors can be restored deliberately.
-const PUBLIC_IMPORTED_PRODUCT_IDS = new Set(catalogVisibility.importedProductIds)
-const PUBLIC_LEGACY_PRODUCT_IDS = new Set(catalogVisibility.legacyProductIds)
+const PUBLIC_IMPORTED_PRODUCT_IDS = new Set<string>(catalogVisibility.importedProductIds)
+const PUBLIC_LEGACY_PRODUCT_IDS = new Set<string>(catalogVisibility.legacyProductIds)
 const PUBLIC_DETAIL_IDS = new Set([
   ...catalogVisibility.legacyProductIds,
   'chakra',

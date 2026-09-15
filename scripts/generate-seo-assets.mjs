@@ -61,8 +61,6 @@ const staticRoutes = [
   '/series/lunar',
   '/series/crystals',
   '/series/connect',
-  '/detail/heart-rose-quartz',
-  '/detail/root-garnet',
   '/detail/full-moon-ritual',
   '/detail/chakra-test',
   '/privacy',
