@@ -616,10 +616,10 @@ const SERIES_SEO_META: Record<
     keywords: ['how to cleanse crystals', 'how to cleanse crystals at home', 'how to charge crystals', 'new moon ritual', 'full moon ritual'],
   },
   chakra: {
-    title: 'Crystal Healing Collections by Intention',
+    title: 'All Healing Crystal Jewelry & Gemstone Bracelets',
     description:
-      'Explore crystal healing collections organized by grounding, creativity, confidence, love, clarity, intuition, and stillness.',
-    keywords: ['crystal healing collections', 'healing crystals by intention', 'crystal bracelet collections', 'crystal meanings'],
+      'Browse every available healing crystal bracelet and natural-stone talisman in one catalog, with color and intention filters for easy comparison.',
+    keywords: ['healing crystal jewelry', 'gemstone bracelets', 'crystal shop online', 'crystal bracelet catalog'],
   },
   lunar: {
     title: 'Moon Phases & Crystals: New Moon and Full Moon Rituals',
@@ -1731,6 +1731,60 @@ function getSeriesListTitle(id: string) {
   return 'Collection pieces'
 }
 
+const CATALOG_INTENTION_FILTERS: Array<{
+  id: ChakraId | 'all'
+  label: string
+  color: string
+}> = [
+  { id: 'all', label: 'All pieces', color: '#f5e7ff' },
+  { id: 'root', label: 'Grounding Crystals', color: '#f3cdd6' },
+  { id: 'sacral', label: 'Creative Flow Crystals', color: '#f2cfb4' },
+  { id: 'solar', label: 'Confidence Crystals', color: '#f0e4c0' },
+  { id: 'heart', label: 'Love & Compassion Crystals', color: '#f3cdd6' },
+  { id: 'throat', label: 'Expression & Clarity Crystals', color: '#c3e3f4' },
+  { id: 'third-eye', label: 'Intuition & Focus Crystals', color: '#dcd2f2' },
+  { id: 'crown', label: 'Stillness & Spirituality Crystals', color: '#ece7fb' },
+]
+
+function catalogSourceId(tile: Tile) {
+  return tile.id.replace(/^admin-/, '')
+}
+
+function catalogIntentionForTile(tile: Tile): ChakraId | null {
+  const sourceId = catalogSourceId(tile)
+  const imported = ACTIVE_IMPORTED_PRODUCTS.find((product) => product.id === sourceId)
+  if (imported) return imported.chakra
+  if (sourceId === 'heart-rose-quartz') return 'heart'
+  if (sourceId === 'root-garnet') return 'root'
+  return null
+}
+
+function getUnifiedCatalogTiles() {
+  const publishedAdminProducts = getPublishedAdminProducts().filter(
+    (product) =>
+      PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id) &&
+      product.collection !== '星座守护',
+  )
+  const adminSourceIds = new Set(publishedAdminProducts.map((product) => product.id))
+  const staticTiles = PRODUCT_TILES.filter(
+    (tile) =>
+      tile.target.startsWith('/detail/') &&
+      DETAILS.some((detail) => detail.id === tile.id) &&
+      !adminSourceIds.has(tile.id),
+  )
+  const adminTiles = publishedAdminProducts
+    .map(adminProductToTile)
+    .filter((tile) => getTileDetail(tile))
+
+  return [...adminTiles, ...staticTiles].sort((left, right) => {
+    const leftGroup = catalogIntentionForTile(left)
+    const rightGroup = catalogIntentionForTile(right)
+    const leftOrder = leftGroup ? CATALOG_INTENTION_FILTERS.findIndex((item) => item.id === leftGroup) : 99
+    const rightOrder = rightGroup ? CATALOG_INTENTION_FILTERS.findIndex((item) => item.id === rightGroup) : 99
+    return leftOrder - rightOrder || getEnglishTitle(left.id, left.title).localeCompare(getEnglishTitle(right.id, right.title))
+  })
+}
+
 function SeriesFeaturePanel({
   series,
   tiles,
@@ -2279,6 +2333,202 @@ function SeriesListingGrid({
           )
         })}
       </div>
+    </section>
+  )
+}
+
+function CatalogListingGrid({
+  tiles,
+  navigate,
+}: {
+  tiles: Tile[]
+  navigate: NavigateFn
+}) {
+  const [query, setQuery] = useState('')
+  const [activeFilter, setActiveFilter] = useState<ChakraId | 'all'>('all')
+  const normalizedQuery = query.trim().toLowerCase()
+  const visibleTiles = useMemo(
+    () =>
+      tiles.filter((tile) => {
+        const detail = getTileDetail(tile)
+        const matchesFilter =
+          activeFilter === 'all' || catalogIntentionForTile(tile) === activeFilter
+        const searchText = [
+          getEnglishTitle(tile.id, tile.title),
+          tile.desc,
+          tile.eyebrow,
+          ...(detail?.specs ?? []),
+          ...(detail?.body ?? []),
+        ]
+          .join(' ')
+          .toLowerCase()
+        return matchesFilter && (!normalizedQuery || searchText.includes(normalizedQuery))
+      }),
+    [activeFilter, normalizedQuery, tiles],
+  )
+
+  return (
+    <section
+      aria-label="All crystal jewelry"
+      style={{
+        marginTop: 54,
+        borderRadius: 36,
+        border: '1px solid rgba(255,255,255,0.18)',
+        background: 'rgba(31, 17, 42, 0.28)',
+        padding: 'clamp(18px, 3vw, 30px)',
+        backdropFilter: 'blur(18px)',
+        WebkitBackdropFilter: 'blur(18px)',
+      }}
+    >
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1fr) minmax(260px, 360px)',
+          gap: 18,
+          alignItems: 'end',
+        }}
+        className="max-[760px]:!grid-cols-1"
+      >
+        <div>
+          <p
+            style={{
+              margin: 0,
+              fontSize: 12,
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.58)',
+            }}
+          >
+            One catalog · {tiles.length} available pieces
+          </p>
+          <h2
+            style={{
+              margin: '10px 0 0',
+              fontFamily: "'Lobster', cursive",
+              fontSize: 'clamp(38px, 4.6vw, 64px)',
+              lineHeight: 0.96,
+              color: '#fff',
+            }}
+          >
+            All crystal healing pieces
+          </h2>
+          <p
+            style={{
+              margin: '14px 0 0',
+              maxWidth: 680,
+              color: 'rgba(255,255,255,0.7)',
+              fontSize: 15,
+              lineHeight: 1.7,
+            }}
+          >
+            Every available piece lives here. Use an intention or material search to compare, then open a product for its images, price, care, and secure checkout.
+          </p>
+        </div>
+        <label style={{ display: 'grid', gap: 8 }}>
+          <span
+            style={{
+              fontSize: 11,
+              fontWeight: 900,
+              letterSpacing: '0.16em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.66)',
+            }}
+          >
+            Search the catalog
+          </span>
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Try rose quartz, amethyst, red agate…"
+            type="search"
+            style={{
+              width: '100%',
+              boxSizing: 'border-box',
+              border: '1px solid rgba(255,255,255,0.3)',
+              borderRadius: 999,
+              background: 'rgba(255,255,255,0.9)',
+              color: '#3a2530',
+              padding: '14px 17px',
+              fontFamily: 'inherit',
+              fontSize: 14,
+              outline: 'none',
+            }}
+          />
+        </label>
+      </div>
+
+      <div
+        role="group"
+        aria-label="Filter products by intention"
+        style={{
+          marginTop: 20,
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 9,
+        }}
+      >
+        {CATALOG_INTENTION_FILTERS.map((filter) => {
+          const active = activeFilter === filter.id
+          return (
+            <button
+              key={filter.id}
+              type="button"
+              aria-pressed={active}
+              onClick={() => setActiveFilter(filter.id)}
+              style={{
+                border: active
+                  ? '1px solid rgba(255,255,255,0.74)'
+                  : '1px solid rgba(255,255,255,0.2)',
+                borderRadius: 999,
+                background: active ? filter.color : 'rgba(255,255,255,0.1)',
+                color: active ? '#3a2530' : 'rgba(255,255,255,0.84)',
+                padding: '10px 14px',
+                fontSize: 13,
+                fontWeight: 800,
+                cursor: 'pointer',
+                transition: 'background 0.2s ease, color 0.2s ease, border-color 0.2s ease',
+              }}
+            >
+              {filter.label}
+            </button>
+          )
+        })}
+      </div>
+
+      <p
+        role="status"
+        style={{
+          margin: '18px 0 -26px',
+          color: 'rgba(255,255,255,0.62)',
+          fontSize: 13,
+        }}
+      >
+        {visibleTiles.length === tiles.length
+          ? `${tiles.length} pieces ready to explore`
+          : `${visibleTiles.length} matching ${visibleTiles.length === 1 ? 'piece' : 'pieces'}`}
+      </p>
+
+      {visibleTiles.length ? (
+        <SeriesListingGrid
+          title={activeFilter === 'all' ? 'Browse every piece' : `${CATALOG_INTENTION_FILTERS.find((filter) => filter.id === activeFilter)?.label ?? 'Crystal'} pieces`}
+          subtitle="Crystal jewelry · Material, care & ordering details"
+          tiles={visibleTiles}
+          navigate={navigate}
+        />
+      ) : (
+        <div
+          style={{
+            marginTop: 54,
+            borderRadius: 26,
+            padding: '34px 24px',
+            textAlign: 'center',
+            background: 'rgba(255,255,255,0.12)',
+            color: 'rgba(255,255,255,0.8)',
+          }}
+        >
+          No pieces match that search yet. Try a stone name, color, or choose “All pieces.”
+        </div>
+      )}
     </section>
   )
 }
@@ -3131,6 +3381,7 @@ function SeriesPage({
   onOpenCart?: () => void
 }) {
   const series = SERIES.find((item) => item.id === id && item.id !== 'zodiac') ?? SERIES[0]
+  const isUnifiedCatalog = id === 'chakra'
   const adminProducts = getPublishedAdminProducts()
   const activeAdminProducts = adminProducts.filter(
     (product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id),
@@ -3149,8 +3400,15 @@ function SeriesPage({
       : activeAdminProducts
           .filter((product) => product.collection === collectionMap[id])
           .map(adminProductToTile)
-  const displaySeries =
-    linkedAdminTiles.length > 0
+  const displaySeries = isUnifiedCatalog
+    ? {
+        ...series,
+        eyebrow: 'Crystal Catalog',
+        title: 'Crystal Healing\nPieces',
+        desc: 'Every available crystal bracelet and natural-stone talisman now lives in one catalog. Browse everything together, then use a simple intention or material search when you want to narrow the view.',
+        tiles: getUnifiedCatalogTiles(),
+      }
+    : linkedAdminTiles.length > 0
       ? {
           ...series,
           tiles: [...linkedAdminTiles, ...series.tiles].filter(
@@ -3224,17 +3482,23 @@ function SeriesPage({
           ← Back to portal
         </button>
 
-        <SeriesFeaturePanel
-          series={displaySeries}
-          tiles={displaySeries.tiles}
-          navigate={navigate}
-        />
-        <SeriesListingGrid
-          title={getSeriesListTitle(id)}
-          subtitle={`${displaySeries.eyebrow} · Collection`}
-          tiles={displaySeries.tiles}
-          navigate={navigate}
-        />
+        {!isUnifiedCatalog && (
+          <SeriesFeaturePanel
+            series={displaySeries}
+            tiles={displaySeries.tiles}
+            navigate={navigate}
+          />
+        )}
+        {isUnifiedCatalog ? (
+          <CatalogListingGrid tiles={displaySeries.tiles} navigate={navigate} />
+        ) : (
+          <SeriesListingGrid
+            title={getSeriesListTitle(id)}
+            subtitle={`${displaySeries.eyebrow} · Collection`}
+            tiles={displaySeries.tiles}
+            navigate={navigate}
+          />
+        )}
       </section>
     </AtmosphericShell>
   )
@@ -3326,7 +3590,6 @@ function DetailPage({
         url: `${SITE_ORIGIN}/detail/${detail.id}/`,
         priceCurrency: 'USD',
         price: detailPrice,
-        availability: 'https://schema.org/InStock',
         itemCondition: 'https://schema.org/NewCondition',
       },
       isRelatedTo: {
@@ -4199,8 +4462,8 @@ function GuidePage({
               },
               isPartOf: {
                 '@type': 'CollectionPage',
-                name: `${guide.series} crystal guides`,
-                url: `${SITE_ORIGIN}/series/${guide.series}/`,
+                name: 'Crystal Guides',
+                url: `${SITE_ORIGIN}/series/crystals/`,
               },
             },
             faqJsonLd,
@@ -4227,8 +4490,8 @@ function GuidePage({
           },
           isPartOf: {
             '@type': 'CollectionPage',
-            name: `${guide.series} crystal guides`,
-            url: `${SITE_ORIGIN}/series/${guide.series}/`,
+            name: 'Crystal Guides',
+            url: `${SITE_ORIGIN}/series/crystals/`,
           },
         },
   })

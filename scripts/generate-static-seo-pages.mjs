@@ -1,7 +1,10 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { PUBLIC_IMPORTED_PRODUCT_IDS } from './catalog-visibility.mjs'
+import {
+  PUBLIC_IMPORTED_PRODUCT_IDS,
+  PUBLIC_LEGACY_PRODUCT_IDS,
+} from './catalog-visibility.mjs'
 
 const SITE_ORIGIN = 'https://lunartalisman.com'
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
@@ -49,9 +52,9 @@ const SERIES = {
       'Explore new moon intentions, full moon cleansing, and crystal rituals designed for mindful everyday practice.',
   },
   chakra: {
-    title: 'Crystal Healing by Intention',
+    title: 'All Healing Crystal Jewelry & Gemstone Bracelets',
     description:
-      'Explore crystal jewelry organized by grounding, creativity, confidence, love, clarity, intuition, and stillness.',
+      'Browse every available healing crystal bracelet and natural-stone talisman in one catalog, with color and intention filters for easy comparison.',
   },
   lunar: {
     title: 'Lunar Ritual Collection',
@@ -133,9 +136,9 @@ const SERIES_SEO = {
     keywords: ['how to cleanse crystals', 'how to cleanse crystals at home', 'how to charge crystals', 'new moon ritual', 'full moon ritual'],
   },
   chakra: {
-    title: 'Crystal Healing Collections by Intention',
-    description: 'Explore crystal jewelry organized by grounding, creativity, confidence, love, clarity, intuition, and stillness.',
-    keywords: ['crystal healing collections', 'healing crystals by intention', 'crystal bracelet collections', 'crystal meanings'],
+    title: 'All Healing Crystal Jewelry & Gemstone Bracelets',
+    description: 'Browse every available healing crystal bracelet and natural-stone talisman in one catalog, with color and intention filters for easy comparison.',
+    keywords: ['healing crystal jewelry', 'gemstone bracelets', 'crystal shop online', 'crystal bracelet catalog'],
   },
   lunar: {
     title: 'Moon Phases & Crystals: New Moon and Full Moon Rituals',
@@ -358,6 +361,39 @@ const LEGACY_PRODUCTS = {
   },
 }
 
+const LEGACY_STOREFRONT_PRICES = {
+  'scorpio-amethyst': 189,
+  'heart-rose-quartz': 169,
+  'solar-citrine': 179,
+  'new-moon-set': 129,
+  'root-garnet': 175,
+  'full-moon-necklace': 149,
+}
+
+function adjustedProductPrice(value) {
+  const price = Number(value)
+  return Number.isFinite(price) && price < 100 ? price + 100 : price
+}
+
+function promotionSeed(id) {
+  let hash = 2166136261
+  for (let index = 0; index < id.length; index += 1) {
+    hash ^= id.charCodeAt(index)
+    hash = Math.imul(hash, 16777619)
+  }
+  return hash >>> 0
+}
+
+function storefrontSalePrice(id, value) {
+  const originalPrice = Math.max(1, Math.round(adjustedProductPrice(value)))
+  const seed = promotionSeed(id)
+  const discountPercent =
+    originalPrice > 200
+      ? 20 + (seed % 11)
+      : 6 + (seed % 10)
+  return Math.max(1, Math.round((originalPrice * (100 - discountPercent)) / 100))
+}
+
 function escapeHtml(value = '') {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -406,10 +442,33 @@ function readImportedProducts() {
   const end = source.lastIndexOf('\n]')
   if (end < jsonStart) throw new Error('Could not parse imported product data.')
   const products = JSON.parse(source.slice(jsonStart, end + 2))
+  const publicImported = products
+    .filter((product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id))
+    .map((product) => ({
+      ...product,
+      price: storefrontSalePrice(product.id, product.price),
+    }))
+  const publicLegacy = [...PUBLIC_LEGACY_PRODUCT_IDS]
+    .map((id) => {
+      const product = LEGACY_PRODUCTS[id]
+      if (!product) return null
+      const chakra = id === 'root-garnet' ? 'root' : id === 'heart-rose-quartz' ? 'heart' : 'crown'
+      return {
+        id,
+        name: product.name,
+        tagline: product.description,
+        material: 'Natural crystal jewelry selected for mindful everyday wear.',
+        chakra,
+        chakraName: product.category,
+        image: product.image || '',
+        images: product.image ? [product.image] : [],
+        price: storefrontSalePrice(id, product.price),
+      }
+    })
+    .filter(Boolean)
+
   return new Map(
-    products
-      .filter((product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id))
-      .map((product) => [product.id, product]),
+    [...publicImported, ...publicLegacy].map((product) => [product.id, product]),
   )
 }
 
@@ -728,7 +787,7 @@ function selectHomepageSeriesLinks() {
       worlds: 'Start with the full crystal journey and the main guide map.',
       collections: 'Browse the full catalog of jewelry, talismans, and ritual pieces.',
       rituals: 'Move between new moon, full moon, cleansing, and charging rituals.',
-      chakra: 'Explore seven crystal intention collections in one calm sequence.',
+      chakra: 'Browse every available crystal piece together in one searchable catalog.',
       lunar: 'Follow the lunar rhythm through intention, release, and renewal.',
       crystals: 'Compare crystal meanings and shop the full talisman catalog.',
       connect: 'Use the quiz and care guides to choose your first piece.',
@@ -797,18 +856,18 @@ const GUIDE_PRESENTATION = {
   'chakra-seven-chakras-explained': {
     title: 'Crystal Meanings by Intention: Seven Energy Traditions',
     excerpt: 'A practical crystal meanings guide that uses seven traditional energy centres as supporting context for color, ritual, and reflection.',
-    description: 'Explore crystal meanings by color and intention, with seven traditional energy centres presented as supporting context for reflective ritual.',
+    description: 'Explore crystal meanings by color and intention, with seven traditional energy centres as supporting context for reflective ritual and crystal jewelry.',
   },
   'connect-02': {
     title: 'Crystal Intention Quiz: Find a Stone for Today',
     excerpt: 'A reflective quiz for choosing a crystal by the feeling, color, and daily intention you want to support.',
-    description: 'Use a reflective crystal intention quiz to choose a stone by the feeling, color, and daily ritual you want to support.',
+    description: 'Use a reflective crystal intention quiz to choose a stone by the feeling, color, and everyday ritual you want to support.',
   },
   'worlds-01': { title: 'Grounding Crystals: Red Stone Meanings', excerpt: 'Explore red and grounding crystal meanings, care, and a simple daily ritual.', description: 'Explore red and grounding crystal meanings, care, and a simple daily ritual for steady everyday reflection.' },
   'worlds-02': { title: 'Creative Flow Crystals: Carnelian Meanings', excerpt: 'Explore warm-toned crystal meanings for creativity, expression, and everyday ritual.', description: 'Explore warm-toned crystal meanings for creativity, expression, and an easy everyday ritual.' },
   'worlds-03': { title: 'Confidence Crystals: Citrine Meanings', excerpt: 'Explore golden crystal meanings for confidence, focus, and intentional action.', description: 'Explore golden crystal meanings for confidence, focus, and intentional action.' },
   'worlds-04': { title: 'Love Crystals: Rose Quartz Meanings', excerpt: 'Explore pink and green crystal meanings for love, compassion, and self-acceptance.', description: 'Explore pink and green crystal meanings for love, compassion, and self-acceptance.' },
-  'worlds-05': { title: 'Clarity Crystals: Blue Stone Meanings', excerpt: 'Explore clear-expression crystal traditions, color, care, and mindful communication.', description: 'Explore clear-expression crystal traditions, color, care, and mindful communication.' },
+  'worlds-05': { title: 'Clarity Crystals: Blue Stone Meanings', excerpt: 'Explore clear-expression crystal traditions, color, care, and mindful communication.', description: 'Explore blue crystal traditions, color, care, and mindful communication as part of a reflective crystal practice.' },
   'worlds-06': { title: 'Intuition Crystals: Amethyst Meanings', excerpt: 'Explore purple crystal meanings for intuition, reflection, and quiet focus.', description: 'Explore purple crystal meanings for intuition, reflection, and quiet focus.' },
   'worlds-07': { title: 'Stillness Crystals: Clear Quartz Meanings', excerpt: 'Explore clear and white crystal meanings for stillness, ritual, and reflection.', description: 'Explore clear and white crystal meanings for stillness, ritual, and reflection.' },
 }
@@ -931,6 +990,7 @@ function renderSeriesStatic(meta, products, guides) {
   const relatedGuides = meta.series?.guides?.length ? meta.series.guides : selectSeriesGuides(meta.series?.id || meta.seriesId || 'crystals', guides)
   const relatedSeries = meta.series?.relatedSeries || selectCrossSeriesLinks(meta.series?.id || meta.seriesId || 'crystals')
   const productCards = products.map((product) => renderProductCard(product)).join('')
+  const isUnifiedCatalog = meta.series?.id === 'chakra'
   return `
     <main data-no-auto-translate="true" style="max-width:1200px;margin:0 auto;padding:96px 20px 72px;font-family:system-ui,sans-serif;color:#3a2530">
       <section style="display:grid;gap:16px;max-width:880px">
@@ -940,7 +1000,7 @@ function renderSeriesStatic(meta, products, guides) {
       </section>
 
       <section style="margin-top:42px">
-        <h2 style="margin:0 0 18px;font-size:28px">All products in this series</h2>
+        <h2 style="margin:0 0 18px;font-size:28px">${isUnifiedCatalog ? 'All available crystal jewelry' : 'All products in this series'}</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
           ${productCards}
         </div>
@@ -1182,10 +1242,10 @@ function routeMeta(route, guides, productMap) {
       ? englishProductName(product)
       : legacyProduct?.name || `Crystal Talisman · ${id.replaceAll('-', ' ')}`
     const category = legacyProduct?.category || chakra || 'Crystal Jewelry'
-    const priceValue = Math.max(
-      1,
-      Math.round(Number(product?.price ?? legacyProduct?.price ?? 89)),
-    )
+    const basePrice = product
+      ? product.price
+      : LEGACY_STOREFRONT_PRICES[id] ?? 189
+    const priceValue = storefrontSalePrice(id, basePrice)
     const displayPrice = `$${priceValue}`
     const imagePaths = product?.images?.length ? product.images : product?.image ? [product.image] : []
     const images = imagePaths.length
@@ -1350,7 +1410,7 @@ function structuredData(meta, canonicalUrl) {
         : meta.kind === 'collection'
           ? [{ '@type': 'ListItem', position: 2, name: meta.collection, item: canonicalUrl }]
           : meta.kind === 'article'
-            ? [{ '@type': 'ListItem', position: 2, name: 'Crystal Guides', item: `${SITE_ORIGIN}/series/worlds/` }, { '@type': 'ListItem', position: 3, name: meta.article.title, item: canonicalUrl }]
+            ? [{ '@type': 'ListItem', position: 2, name: 'Crystal Guides', item: `${SITE_ORIGIN}/series/crystals/` }, { '@type': 'ListItem', position: 3, name: meta.article.title, item: canonicalUrl }]
             : []),
     ],
   }
@@ -1369,7 +1429,6 @@ function structuredData(meta, canonicalUrl) {
         url: canonicalUrl,
         priceCurrency: 'USD',
         price: meta.product.price,
-        availability: 'https://schema.org/InStock',
         itemCondition: 'https://schema.org/NewCondition',
       },
     }
@@ -1385,7 +1444,11 @@ function structuredData(meta, canonicalUrl) {
         mainEntityOfPage: canonicalUrl,
         author: { '@type': 'Organization', name: 'Lunar Talisman' },
         publisher: { '@type': 'Organization', name: 'Lunar Talisman', url: SITE_ORIGIN },
-        isPartOf: { '@type': 'CollectionPage', name: `${meta.article.series} crystal guides` },
+        isPartOf: {
+          '@type': 'CollectionPage',
+          name: 'Crystal Guides',
+          url: `${SITE_ORIGIN}/series/crystals/`,
+        },
       },
       breadcrumb,
     ]

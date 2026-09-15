@@ -55,11 +55,11 @@ const seriesEntries: Record<string, SeoEntry> = {
     supportingKeywords: ['crystal jewelry', 'gemstone jewelry', 'crystal bracelet'],
   },
   chakra: {
-    title: 'Crystal Healing Collections by Intention | Lunar Talisman',
+    title: 'All Healing Crystal Jewelry & Gemstone Bracelets | Lunar Talisman',
     description:
-      'Explore healing crystal jewelry organized by grounding, creativity, confidence, love, clarity, intuition, and stillness.',
-    primaryKeyword: 'crystal healing collections',
-    supportingKeywords: ['healing crystals by intention', 'crystal bracelet collections', 'crystal meanings'],
+      'Browse every available healing crystal bracelet and natural-stone talisman in one catalog, with color and intention filters for easy comparison.',
+    primaryKeyword: 'healing crystal jewelry',
+    supportingKeywords: ['gemstone bracelets', 'crystal shop online', 'crystal bracelet catalog'],
   },
   'chakra-root': {
     title: 'Grounding Crystals & Red Agate Bracelets | Lunar Talisman',
