@@ -94,8 +94,67 @@ export type AdminAnalytics = {
     visits: number
     rate: number
     purchases: number
+    addToCart: number
     checkoutStarts: number
   }>
+  dailySnapshots: Array<{
+    date: string
+    collectedAt: string
+    timezone: string
+    storefront?: {
+      date: string
+      pageViews: number
+      productViews: number
+      addToCart: number
+      checkoutStarts: number
+      purchases: number
+      revenue: number
+    }
+    ga4: {
+      status: 'ok' | 'not_configured' | 'unavailable'
+      users?: number
+      sessions?: number
+      pageViews?: number
+      events?: number
+    }
+    searchConsole: {
+      status: 'ok' | 'not_configured' | 'unavailable'
+      clicks?: number
+      impressions?: number
+      ctr?: number
+      position?: number
+    }
+  }>
+  sources: {
+    storefront: {
+      status: 'ok'
+      timezone: string
+      range: { startDate: string | null; endDate: string | null }
+      limitations: string
+    }
+    ga4: {
+      status: 'ok' | 'not_configured' | 'unavailable'
+      reason?: string
+      collectedAt?: string
+      timezone?: string
+      range?: { startDate: string; endDate: string }
+      users?: number
+      sessions?: number
+      pageViews?: number
+      events?: number
+    }
+    searchConsole: {
+      status: 'ok' | 'not_configured' | 'unavailable'
+      reason?: string
+      collectedAt?: string
+      timezone?: string
+      range?: { startDate: string; endDate: string }
+      clicks?: number
+      impressions?: number
+      ctr?: number
+      position?: number
+    }
+  }
   metrics: {
     pageViews: number
     paidOrders: number

@@ -7,6 +7,7 @@ import {
   requireAdmin,
   supportStore,
 } from './_backend.mjs'
+import { readGa4, readSearchConsole } from './_google-reporting.mjs'
 
 function daysAgo(count) {
   return Array.from({ length: count }, (_, index) => {
@@ -22,9 +23,12 @@ export async function handler(event) {
   if (!requireAdmin(event)) return json(401, { ok: false, error: 'unauthorized' })
 
   try {
-    const [events, orders] = await Promise.all([
+    const [events, orders, ga4, searchConsole, snapshots] = await Promise.all([
       readJsonList(supportStore(), 'analytics'),
       readJsonList(ordersStore(), 'orders'),
+      readGa4(),
+      readSearchConsole(),
+      readJsonList(supportStore(), 'analytics-snapshots'),
     ])
     const eventByDate = new Map(events.map((item) => [item?.date, item]))
     const traffic = daysAgo(7).map((date) => {
@@ -39,6 +43,7 @@ export async function handler(event) {
         visits,
         rate: visits ? (purchases / visits) * 100 : 0,
         purchases,
+        addToCart: Number(item.addToCart || 0),
         checkoutStarts: Number(item.checkoutStarts || 0),
       }
     })
@@ -47,6 +52,25 @@ export async function handler(event) {
     return json(200, {
       ok: true,
       traffic,
+      dailySnapshots: snapshots
+        .filter(
+          (item) =>
+            /^\d{4}-\d{2}-\d{2}$/.test(String(item?.date || '')) &&
+            item?.storefront?.date === item.date,
+        )
+        .sort((left, right) => String(right.date).localeCompare(String(left.date)))
+        .slice(0, 14),
+      sources: {
+        storefront: {
+          status: 'ok',
+          timezone: 'UTC event dates; viewed in Asia/Shanghai',
+          range: { startDate: traffic[0]?.date || null, endDate: traffic.at(-1)?.date || null },
+          limitations:
+            'Aggregate storefront events only; not users, sessions, organic traffic, or attribution.',
+        },
+        ga4,
+        searchConsole,
+      },
       metrics: {
         pageViews: traffic.reduce((sum, item) => sum + item.visits, 0),
         paidOrders: paidOrders.length,

@@ -42,10 +42,13 @@ export function initAnalytics() {
   window.gtag('js', new Date())
   window.gtag('config', measurementId, { send_page_view: false })
 
-  const script = document.createElement('script')
-  script.async = true
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
-  document.head.appendChild(script)
+  const scriptSrc = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`
+  if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
+    const script = document.createElement('script')
+    script.async = true
+    script.src = scriptSrc
+    document.head.appendChild(script)
+  }
 }
 
 export function trackPageView(path: string) {

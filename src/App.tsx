@@ -3558,6 +3558,9 @@ function DetailPage({
   useEffect(() => {
     setActiveImage(primaryGalleryImage)
   }, [detail.id, primaryGalleryImage])
+  useEffect(() => {
+    trackEvent('view_item')
+  }, [detail.id])
   const detailPricing = getDetailPricing(detail)
   const detailPrice = detailPricing.salePrice
   const detailSeriesId = getSeriesIdForDetail(detail.id)

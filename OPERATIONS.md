@@ -18,6 +18,34 @@ Open **Site configuration → Environment variables**, add the values from `.env
 | `ORDER_NOTIFICATION_EMAIL` | internal order alerts | Your brand operations inbox |
 | `BRAND_SUPPORT_EMAIL` | customer support | Public support mailbox |
 | `LUNAR_ADMIN_*` | admin login | Keep the existing secure values; rotate any password exposed previously |
+| `GOOGLE_SERVICE_ACCOUNT_JSON` | GA4 + Search Console reporting | Entire service-account JSON; server-only |
+| `GA4_PROPERTY_ID` | GA4 reporting | Numeric GA4 property ID, not `G-...` measurement ID |
+| `GSC_SITE_URL` | Search Console reporting | Exact verified property, e.g. `https://lunartalisman.com/` |
+
+## Daily traffic reporting
+
+The protected `/admin` traffic view always shows the latest seven-day storefront-event
+integrity data. This source is useful for confirming that the storefront records
+page views and checkout events, but it does not represent users, sessions, traffic
+source, country, device, or organic search.
+
+To show official Google data in the same view:
+
+1. Create a Google Cloud service account and download its JSON key.
+2. Add the service account email as **Viewer** to the GA4 property and **Owner** or
+   **Full user** to the verified Search Console property.
+3. In Netlify, add `GOOGLE_SERVICE_ACCOUNT_JSON`, `GA4_PROPERTY_ID`, and
+   `GSC_SITE_URL`, then redeploy.
+4. Open `/admin` → `流量监控`. The page reports GA4 users, sessions, page views,
+   events, and Search Console clicks, impressions, CTR, and average position for
+   the most recent complete seven-day UTC range. It displays a configuration or
+   access error instead of inventing missing data.
+
+The deployed `daily-analytics-snapshot` Scheduled Function runs at 09:00
+Asia/Shanghai every day and retains the last 90 daily snapshots in Netlify Blob
+storage. The protected Admin traffic page shows the most recent 14 snapshots for
+the preceding complete UTC day. Search Console can lag the current calendar date
+because Google processes search reporting asynchronously.
 
 ## PayPal setup: exact sequence
 

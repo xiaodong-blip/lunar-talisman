@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Fragment } from 'react'
 import type { CSSProperties, FormEvent } from 'react'
 import {
@@ -11,6 +11,7 @@ import {
   LogOut,
   MessageSquare,
   PackagePlus,
+  RefreshCw,
   Search,
   ShoppingBag,
   Upload,
@@ -54,6 +55,22 @@ type AdminProduct = AdminProductRecord
 const ADMIN_ACCOUNT = 'Lunar Talisman'
 const initialOrders: AdminOrder[] = []
 const initialProducts: AdminProduct[] = []
+const emptyAnalytics: AdminAnalytics = {
+  traffic: [],
+  dailySnapshots: [],
+  sources: {
+    storefront: {
+      status: 'ok',
+      timezone: 'UTC event dates; viewed in Asia/Shanghai',
+      range: { startDate: null, endDate: null },
+      limitations:
+        'Aggregate storefront events only; not users, sessions, organic traffic, or attribution.',
+    },
+    ga4: { status: 'not_configured', reason: 'Loading report configuration.' },
+    searchConsole: { status: 'not_configured', reason: 'Loading report configuration.' },
+  },
+  metrics: { pageViews: 0, paidOrders: 0, revenue: 0, pendingOrders: 0 },
+}
 
 const tabs: Array<{ id: AdminTab; label: string; icon: typeof LayoutDashboard }> =
   [
@@ -305,15 +322,305 @@ function AdminLogin({ onLogin }: { onLogin: () => void }) {
 
 function TrafficPanel({
   trafficData,
+  dailySnapshots,
+  sources,
+  onRefresh,
+  isRefreshing,
+  lastSyncedAt,
+  loadError,
 }: {
   trafficData: AdminAnalytics['traffic']
+  dailySnapshots: AdminAnalytics['dailySnapshots']
+  sources: AdminAnalytics['sources']
+  onRefresh: () => void
+  isRefreshing: boolean
+  lastSyncedAt: string | null
+  loadError: string
 }) {
+  const sourceStatus = (status: 'ok' | 'not_configured' | 'unavailable') =>
+    status === 'ok' ? '#3f7a58' : status === 'unavailable' ? '#a65c3c' : '#7a6751'
+  const sourceLabel = (status: 'ok' | 'not_configured' | 'unavailable') =>
+    status === 'ok' ? '已连接' : status === 'unavailable' ? '访问失败' : '待配置'
+  const googleRange = sources.ga4.range || sources.searchConsole.range
+  const dailySnapshotTable =
+    dailySnapshots.length > 0 ? (
+      <div style={{ marginTop: 20, overflowX: 'auto' }}>
+        <div style={{ marginBottom: 9, color: 'rgba(45,39,48,0.72)', fontSize: 14, fontWeight: 800 }}>
+          每日快照
+        </div>
+        <table style={{ width: '100%', minWidth: 580, borderCollapse: 'collapse', fontSize: 12 }}>
+          <thead>
+            <tr style={{ color: 'rgba(45,39,48,0.5)', textAlign: 'left' }}>
+              <th style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.1)' }}>UTC 日期</th>
+              <th style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.1)' }}>站内浏览</th>
+              <th style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.1)' }}>GA4 用户</th>
+              <th style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.1)' }}>GA4 会话</th>
+              <th style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.1)' }}>GA4 浏览</th>
+              <th style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.1)' }}>自然点击</th>
+              <th style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.1)' }}>搜索展示</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dailySnapshots.map((snapshot) => {
+              const ga4Ready = snapshot.ga4.status === 'ok'
+              const searchReady = snapshot.searchConsole.status === 'ok'
+              return (
+                <tr key={snapshot.date} style={{ color: 'rgba(45,39,48,0.7)' }}>
+                  <td style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.07)', fontWeight: 800 }}>{snapshot.date}</td>
+                  <td style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.07)' }}>{snapshot.storefront?.pageViews.toLocaleString('en-US') ?? '—'}</td>
+                  <td style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.07)' }}>{ga4Ready ? snapshot.ga4.users?.toLocaleString('en-US') : '—'}</td>
+                  <td style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.07)' }}>{ga4Ready ? snapshot.ga4.sessions?.toLocaleString('en-US') : '—'}</td>
+                  <td style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.07)' }}>{ga4Ready ? snapshot.ga4.pageViews?.toLocaleString('en-US') : '—'}</td>
+                  <td style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.07)' }}>{searchReady ? snapshot.searchConsole.clicks?.toLocaleString('en-US') : '—'}</td>
+                  <td style={{ padding: '9px 8px', borderBottom: '1px solid rgba(79,65,91,0.07)' }}>{searchReady ? snapshot.searchConsole.impressions?.toLocaleString('en-US') : '—'}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </div>
+    ) : (
+      <div style={{ marginTop: 18, color: 'rgba(45,39,48,0.48)', fontSize: 12 }}>
+        每日快照将在下一个 09:00（Asia/Shanghai）任务完成后显示。
+      </div>
+    )
+  const sourceCards = (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(205px, 1fr))',
+        gap: 12,
+        marginBottom: 20,
+      }}
+    >
+      <div style={{ border: '1px solid rgba(79,65,91,0.1)', borderRadius: 16, padding: 14, background: 'rgba(255,255,255,0.62)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, fontSize: 13, fontWeight: 800 }}>
+          <span>站内事件核验</span>
+          <span style={{ color: '#3f7a58' }}>已连接</span>
+        </div>
+        <div style={{ marginTop: 9, fontSize: 13, color: 'rgba(45,39,48,0.6)', lineHeight: 1.5 }}>
+          UTC {sources.storefront.range.startDate || '—'} 至 {sources.storefront.range.endDate || '—'}
+        </div>
+        <div style={{ marginTop: 5, fontSize: 12, color: 'rgba(45,39,48,0.48)', lineHeight: 1.45 }}>
+          仅聚合事件，不代表用户、会话或来源。
+        </div>
+      </div>
+      <div style={{ border: '1px solid rgba(79,65,91,0.1)', borderRadius: 16, padding: 14, background: 'rgba(255,255,255,0.62)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, fontSize: 13, fontWeight: 800 }}>
+          <span>GA4</span>
+          <span style={{ color: sourceStatus(sources.ga4.status) }}>{sourceLabel(sources.ga4.status)}</span>
+        </div>
+        {sources.ga4.status === 'ok' ? (
+          <div style={{ marginTop: 9, fontSize: 13, color: 'rgba(45,39,48,0.6)', lineHeight: 1.55 }}>
+            用户 {sources.ga4.users?.toLocaleString('en-US')} · 会话 {sources.ga4.sessions?.toLocaleString('en-US')}<br />
+            浏览 {sources.ga4.pageViews?.toLocaleString('en-US')} · 事件 {sources.ga4.events?.toLocaleString('en-US')}
+          </div>
+        ) : (
+          <div style={{ marginTop: 9, fontSize: 12, color: 'rgba(45,39,48,0.5)', lineHeight: 1.45 }}>{sources.ga4.reason}</div>
+        )}
+      </div>
+      <div style={{ border: '1px solid rgba(79,65,91,0.1)', borderRadius: 16, padding: 14, background: 'rgba(255,255,255,0.62)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, fontSize: 13, fontWeight: 800 }}>
+          <span>Search Console</span>
+          <span style={{ color: sourceStatus(sources.searchConsole.status) }}>{sourceLabel(sources.searchConsole.status)}</span>
+        </div>
+        {sources.searchConsole.status === 'ok' ? (
+          <div style={{ marginTop: 9, fontSize: 13, color: 'rgba(45,39,48,0.6)', lineHeight: 1.55 }}>
+            点击 {sources.searchConsole.clicks?.toLocaleString('en-US')} · 展示 {sources.searchConsole.impressions?.toLocaleString('en-US')}<br />
+            CTR {((sources.searchConsole.ctr || 0) * 100).toFixed(2)}% · 平均排名 {(sources.searchConsole.position || 0).toFixed(1)}
+          </div>
+        ) : (
+          <div style={{ marginTop: 9, fontSize: 12, color: 'rgba(45,39,48,0.5)', lineHeight: 1.45 }}>{sources.searchConsole.reason}</div>
+        )}
+      </div>
+    </div>
+  )
+
+  const totals = trafficData.reduce(
+    (summary, item) => ({
+      visits: summary.visits + item.visits,
+      addToCart: summary.addToCart + Number(item.addToCart || 0),
+      checkoutStarts: summary.checkoutStarts + item.checkoutStarts,
+      purchases: summary.purchases + item.purchases,
+    }),
+    { visits: 0, addToCart: 0, checkoutStarts: 0, purchases: 0 },
+  )
+  const conversionRate = totals.visits ? (totals.purchases / totals.visits) * 100 : 0
+  const maxDailyVisits = Math.max(1, ...trafficData.map((item) => item.visits))
+
+  if (onRefresh) {
+    return (
+    <div style={{ ...styles.glass, borderRadius: 26, padding: 24 }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'flex-start',
+          justifyContent: 'space-between',
+          gap: 16,
+          flexWrap: 'wrap',
+        }}
+      >
+        <div>
+          <h2 style={{ margin: 0, fontSize: 20 }}>近 7 日运营数据</h2>
+          <p style={{ margin: '8px 0 0', color: 'rgba(45,39,48,0.55)', fontSize: 14 }}>
+            只显示已接入的数据；没有数据时不会生成模拟走势或增长百分比。
+          </p>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          {lastSyncedAt ? (
+            <span style={{ color: 'rgba(45,39,48,0.48)', fontSize: 12 }}>
+              刷新于{' '}
+              {new Intl.DateTimeFormat('zh-CN', {
+                dateStyle: 'short',
+                timeStyle: 'short',
+                timeZone: 'Asia/Shanghai',
+              }).format(new Date(lastSyncedAt))}
+            </span>
+          ) : null}
+          <button
+            type="button"
+            onClick={onRefresh}
+            disabled={isRefreshing}
+            style={{
+              ...styles.subtleButton,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 7,
+              opacity: isRefreshing ? 0.66 : 1,
+              cursor: isRefreshing ? 'wait' : 'pointer',
+            }}
+          >
+            <RefreshCw
+              size={15}
+              style={{ animation: isRefreshing ? 'spin 0.9s linear infinite' : undefined }}
+            />
+            {isRefreshing ? '同步中' : '刷新数据'}
+          </button>
+        </div>
+      </div>
+
+      {loadError ? (
+        <div
+          role="status"
+          style={{
+            marginTop: 16,
+            borderRadius: 14,
+            padding: '11px 13px',
+            background: 'rgba(166,92,60,0.09)',
+            color: '#8a4d36',
+            fontSize: 13,
+          }}
+        >
+          {loadError}
+        </div>
+      ) : null}
+
+      <div style={{ marginTop: 18 }}>{sourceCards}</div>
+
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(132px, 1fr))',
+          gap: 10,
+          marginTop: 18,
+        }}
+      >
+        {[
+          ['站内浏览', totals.visits.toLocaleString('en-US')],
+          ['加入购物车', totals.addToCart.toLocaleString('en-US')],
+          ['发起结账', totals.checkoutStarts.toLocaleString('en-US')],
+          ['已支付订单', totals.purchases.toLocaleString('en-US')],
+          ['站内转化率', `${conversionRate.toFixed(1)}%`],
+        ].map(([label, value]) => (
+          <div
+            key={label}
+            style={{
+              border: '1px solid rgba(79,65,91,0.1)',
+              borderRadius: 16,
+              background: 'rgba(255,255,255,0.58)',
+              padding: '13px 14px',
+            }}
+          >
+            <div style={{ color: 'rgba(45,39,48,0.48)', fontSize: 12, fontWeight: 700 }}>
+              {label}
+            </div>
+            <div style={{ marginTop: 7, color: '#2d2730', fontSize: 22, fontWeight: 900 }}>
+              {value}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div
+        style={{
+          marginTop: 20,
+          borderRadius: 18,
+          border: '1px solid rgba(79,65,91,0.09)',
+          background: 'rgba(255,255,255,0.48)',
+          padding: 16,
+        }}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, flexWrap: 'wrap' }}>
+          <strong style={{ fontSize: 14 }}>站内事件趋势</strong>
+          <span style={{ color: 'rgba(45,39,48,0.48)', fontSize: 12 }}>UTC 日期 · page views</span>
+        </div>
+        {totals.visits ? (
+          <div
+            aria-label="近七日站内浏览量柱状图"
+            style={{
+              minHeight: 176,
+              marginTop: 14,
+              display: 'grid',
+              gridTemplateColumns: `repeat(${Math.max(trafficData.length, 1)}, minmax(34px, 1fr))`,
+              alignItems: 'end',
+              gap: 10,
+            }}
+          >
+            {trafficData.map((item) => (
+              <div key={item.date} style={{ minWidth: 0, textAlign: 'center' }}>
+                <div style={{ marginBottom: 7, color: 'rgba(45,39,48,0.62)', fontSize: 12, fontWeight: 800 }}>
+                  {item.visits}
+                </div>
+                <div
+                  title={`${item.date}: ${item.visits} page views`}
+                  style={{
+                    height: `${Math.max(8, Math.round((item.visits / maxDailyVisits) * 110))}px`,
+                    borderRadius: '10px 10px 4px 4px',
+                    background: 'linear-gradient(180deg, #bfa8ff, #7a9d76)',
+                  }}
+                />
+                <div style={{ marginTop: 8, color: 'rgba(45,39,48,0.5)', fontSize: 11 }}>
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div style={{ padding: '36px 0 20px', color: 'rgba(45,39,48,0.52)', fontSize: 13, lineHeight: 1.6 }}>
+            还没有收到站内事件。访问商品页、加入购物车或发起结账后，数据会在此汇总；这不是 GA4 用户或自然流量数据。
+          </div>
+        )}
+      </div>
+
+      {googleRange ? (
+        <div style={{ marginTop: 15, color: 'rgba(45,39,48,0.48)', fontSize: 12 }}>
+          Google 最近完整数据范围：UTC {googleRange.startDate} 至 {googleRange.endDate}。
+        </div>
+      ) : null}
+      {dailySnapshotTable}
+    </div>
+    )
+  }
+
+  {
   if (!trafficData.some((item) => item.visits > 0)) {
     return (
       <div style={{ ...styles.glass, borderRadius: 26, padding: 24 }}>
         <h2 style={{ margin: 0, fontSize: 20 }}>近 7 日流量</h2>
+        {sourceCards}
+        {dailySnapshotTable}
         <p style={{ margin: '8px 0 0', color: 'rgba(45,39,48,0.55)', fontSize: 14 }}>
-          Real storefront events will appear here as visitors browse, add to cart, and complete checkout.
+          等待站内事件写入；Google 数据会在授权配置完成后显示最近完整 7 日数据。
         </p>
       </div>
     )
@@ -356,10 +663,18 @@ function TrafficPanel({
         <div>
           <h2 style={{ margin: 0, fontSize: 20 }}>近 7 日流量</h2>
           <p style={{ margin: '8px 0 0', color: 'rgba(45,39,48,0.55)', fontSize: 14 }}>
-            访问、转化率与峰值日表现。
+            站内聚合事件与 Google 数据分开呈现，避免混淆口径。
           </p>
         </div>
-        <span style={{ color: '#7a9d76', fontWeight: 900 }}>+18.6%</span>
+      </div>
+      <div style={{ marginTop: 18 }}>
+        {sourceCards}
+        {googleRange ? (
+          <div style={{ marginTop: -8, marginBottom: 16, color: 'rgba(45,39,48,0.48)', fontSize: 12 }}>
+          Google 最近完整数据范围：UTC {googleRange?.startDate} 至 {googleRange?.endDate}；采集时间按 Asia/Shanghai 显示。
+          </div>
+        ) : null}
+        {dailySnapshotTable}
       </div>
       <div
         style={{
@@ -549,6 +864,7 @@ function TrafficPanel({
       </div>
     </div>
   )
+  }
 }
 
 function RevenuePanel({ orders }: { orders: AdminOrder[] }) {
@@ -1440,13 +1756,62 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
   const [orders, setOrdersState] = useState<AdminOrder[]>(initialOrders)
   const [products, setProducts] = useState<AdminProduct[]>(initialProducts)
   const [analytics, setAnalytics] = useState<AdminAnalytics>({
-    traffic: [],
-    metrics: { pageViews: 0, paidOrders: 0, revenue: 0, pendingOrders: 0 },
+    ...emptyAnalytics,
   })
   const [supportRequests, setSupportRequests] = useState<SupportRequest[]>([])
+  const [dashboardRefreshing, setDashboardRefreshing] = useState(false)
+  const [dashboardLastSyncedAt, setDashboardLastSyncedAt] = useState<string | null>(null)
+  const [dashboardLoadError, setDashboardLoadError] = useState('')
 
   useEffect(() => {
     document.title = 'Admin Console | Lunar Talisman'
+  }, [])
+
+  const refreshDashboard = useCallback(async () => {
+    setDashboardRefreshing(true)
+    setDashboardLoadError('')
+
+    const [ordersResult, productsResult, analyticsResult, supportResult] =
+      await Promise.allSettled([
+        fetchAdminOrders(),
+        fetchAdminProducts(),
+        fetchAdminAnalytics(),
+        fetchAdminSupportRequests(),
+      ])
+
+    const failedSources: string[] = []
+    if (ordersResult.status === 'fulfilled') {
+      setOrdersState(ordersResult.value)
+    } else {
+      setOrdersState([])
+      failedSources.push('订单')
+    }
+    if (productsResult.status === 'fulfilled') {
+      setProducts(productsResult.value)
+    } else {
+      setProducts([])
+      failedSources.push('商品')
+    }
+    if (analyticsResult.status === 'fulfilled') {
+      setAnalytics(analyticsResult.value)
+    } else {
+      setAnalytics({ ...emptyAnalytics })
+      failedSources.push('运营数据')
+    }
+    if (supportResult.status === 'fulfilled') {
+      setSupportRequests(supportResult.value)
+    } else {
+      setSupportRequests([])
+      failedSources.push('客户请求')
+    }
+
+    setDashboardLastSyncedAt(new Date().toISOString())
+    setDashboardLoadError(
+      failedSources.length
+        ? `${failedSources.join('、')}暂时无法读取，页面仅显示本次成功获取的数据。请点击“刷新数据”重试。`
+        : '',
+    )
+    setDashboardRefreshing(false)
   }, [])
 
   useEffect(() => {
@@ -1466,53 +1831,8 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
   useEffect(() => {
     if (!authed) return
 
-    let active = true
-
-    fetchAdminOrders()
-      .then((serverOrders) => {
-        if (!active) return
-        setOrdersState(serverOrders)
-      })
-      .catch(() => {
-        // 安全优先：服务端不可用时显示空态，不展示可能过期或误导的演示订单。
-        if (active) setOrdersState([])
-      })
-
-    fetchAdminProducts()
-      .then((serverProducts) => {
-        if (!active) return
-        setProducts(serverProducts)
-      })
-
-    fetchAdminAnalytics()
-      .then((data) => {
-        if (active) setAnalytics(data)
-      })
-
-    fetchAdminSupportRequests()
-      .then((requests) => {
-        if (active) setSupportRequests(requests)
-      })
-      .catch(() => {
-        if (active) setSupportRequests([])
-      })
-      .catch(() => {
-        if (active) {
-          setAnalytics({
-            traffic: [],
-            metrics: { pageViews: 0, paidOrders: 0, revenue: 0, pendingOrders: 0 },
-          })
-        }
-      })
-      .catch(() => {
-        // 安全优先：商品数据只来自服务端，不落入浏览器本地存储。
-        if (active) setProducts([])
-      })
-
-    return () => {
-      active = false
-    }
-  }, [authed])
+    void refreshDashboard()
+  }, [authed, refreshDashboard])
 
   const setOrders = (nextOrders: AdminOrder[]) => {
     const updates: AdminOrderUpdate[] = nextOrders.map((order) => ({
@@ -1561,12 +1881,12 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
 
   const metrics = useMemo(() => {
     return {
-      visits: analytics.metrics.pageViews,
+      visits: analytics.traffic.at(-1)?.visits ?? 0,
       revenue: analytics.metrics.revenue,
       orders: analytics.metrics.pendingOrders,
       products: products.length,
     }
-  }, [analytics.metrics, products.length])
+  }, [analytics.metrics, analytics.traffic, products.length])
 
   if (!authed) {
     return <AdminLogin onLogin={() => setAuthed(true)} />
@@ -1676,7 +1996,10 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
           >
             <div>
               <div style={{ color: 'rgba(45,39,48,0.5)', fontSize: 13, fontWeight: 800 }}>
-                今天 · 2026/08/07
+                {new Intl.DateTimeFormat('zh-CN', {
+                  dateStyle: 'long',
+                  timeZone: 'Asia/Shanghai',
+                }).format(new Date())}
               </div>
               <h1 style={{ margin: '6px 0 0', fontSize: 34, letterSpacing: -0.8 }}>
                 经营控制台
@@ -1697,21 +2020,21 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
           >
             <MetricCard
               icon={Eye}
-              label="今日访问"
+              label="今日站内事件"
               value={metrics.visits.toLocaleString('en-US')}
-              hint="+18.6% vs 昨日"
+              hint="UTC 聚合 page views"
             />
             <MetricCard
               icon={DollarSign}
               label="本周营收"
               value={formatCurrency(metrics.revenue)}
-              hint="+12.4% vs 上周"
+              hint="已付款订单汇总"
             />
             <MetricCard
               icon={ShoppingBag}
               label="待跟进订单"
               value={String(metrics.orders)}
-              hint="2 单需备货"
+              hint="已付款且未签收"
             />
             <MetricCard
               icon={Boxes}
@@ -1723,7 +2046,15 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
 
           {activeTab === 'overview' ? (
             <div style={{ display: 'grid', gridTemplateColumns: '1.35fr 0.9fr', gap: 22 }}>
-              <TrafficPanel trafficData={analytics.traffic} />
+              <TrafficPanel
+                trafficData={analytics.traffic}
+                dailySnapshots={analytics.dailySnapshots}
+                sources={analytics.sources}
+                onRefresh={refreshDashboard}
+                isRefreshing={dashboardRefreshing}
+                lastSyncedAt={dashboardLastSyncedAt}
+                loadError={dashboardLoadError}
+              />
               <RevenuePanel orders={orders} />
               <div style={{ gridColumn: '1 / -1' }}>
                 <OrdersTable orders={orders} setOrders={setOrders} onRefund={refundOrder} />
@@ -1731,7 +2062,17 @@ export default function AdminPage({ navigate }: { navigate: NavigateFn }) {
             </div>
           ) : null}
 
-          {activeTab === 'traffic' ? <TrafficPanel trafficData={analytics.traffic} /> : null}
+          {activeTab === 'traffic' ? (
+            <TrafficPanel
+              trafficData={analytics.traffic}
+              dailySnapshots={analytics.dailySnapshots}
+              sources={analytics.sources}
+              onRefresh={refreshDashboard}
+              isRefreshing={dashboardRefreshing}
+              lastSyncedAt={dashboardLastSyncedAt}
+              loadError={dashboardLoadError}
+            />
+          ) : null}
           {activeTab === 'revenue' ? <RevenuePanel orders={orders} /> : null}
           {activeTab === 'orders' ? (
             <OrdersTable orders={orders} setOrders={setOrders} onRefund={refundOrder} />
