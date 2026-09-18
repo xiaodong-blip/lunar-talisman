@@ -19,6 +19,9 @@ Open **Site configuration → Environment variables**, add the values from `.env
 | `BRAND_SUPPORT_EMAIL` | customer support | Public support mailbox |
 | `LUNAR_ADMIN_*` | admin login | Keep the existing secure values; rotate any password exposed previously |
 | `GOOGLE_SERVICE_ACCOUNT_JSON` | GA4 + Search Console reporting | Entire service-account JSON; server-only |
+| `GOOGLE_OAUTH_CLIENT_ID` | GA4 + Search Console reporting alternative | Use together with the OAuth secret and refresh token |
+| `GOOGLE_OAUTH_CLIENT_SECRET` | GA4 + Search Console reporting alternative | Server-only Netlify secret |
+| `GOOGLE_OAUTH_REFRESH_TOKEN` | GA4 + Search Console reporting alternative | Server-only Netlify secret with Analytics + Search Console read scopes |
 | `GA4_PROPERTY_ID` | GA4 reporting | Numeric GA4 property ID, not `G-...` measurement ID |
 | `GSC_SITE_URL` | Search Console reporting | Exact verified property, e.g. `https://lunartalisman.com/` |
 
@@ -29,7 +32,8 @@ integrity data. This source is useful for confirming that the storefront records
 page views and checkout events, but it does not represent users, sessions, traffic
 source, country, device, or organic search.
 
-To show official Google data in the same view:
+To show official Google data in the same view, use either a service account or
+an OAuth refresh-token credential:
 
 1. Create a Google Cloud service account and download its JSON key.
 2. Add the service account email as **Viewer** to the GA4 property and **Owner** or
@@ -40,6 +44,12 @@ To show official Google data in the same view:
    events, and Search Console clicks, impressions, CTR, and average position for
    the most recent complete seven-day UTC range. It displays a configuration or
    access error instead of inventing missing data.
+
+If the service-account key download is unavailable, an OAuth refresh-token
+credential can be used instead. Add `GOOGLE_OAUTH_CLIENT_ID`,
+`GOOGLE_OAUTH_CLIENT_SECRET`, and `GOOGLE_OAUTH_REFRESH_TOKEN` as Netlify
+secrets, grant the token the `analytics.readonly` and `webmasters.readonly`
+scopes, and keep `GA4_PROPERTY_ID` and `GSC_SITE_URL` configured.
 
 The deployed `daily-analytics-snapshot` Scheduled Function runs at 09:00
 Asia/Shanghai every day and retains the last 90 daily snapshots in Netlify Blob

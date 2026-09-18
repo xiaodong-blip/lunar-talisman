@@ -24,9 +24,38 @@ function configuredServiceAccount() {
   return null
 }
 
+function configuredOAuthRefreshToken() {
+  const clientId = String(process.env.GOOGLE_OAUTH_CLIENT_ID || '').trim()
+  const clientSecret = String(process.env.GOOGLE_OAUTH_CLIENT_SECRET || '').trim()
+  const refreshToken = String(process.env.GOOGLE_OAUTH_REFRESH_TOKEN || '').trim()
+  if (!clientId || !clientSecret || !refreshToken) return null
+  return { clientId, clientSecret, refreshToken }
+}
+
+function configuredGoogleReporting() {
+  return configuredServiceAccount() || configuredOAuthRefreshToken()
+}
+
 async function accessToken(scope) {
   const serviceAccount = configuredServiceAccount()
-  if (!serviceAccount) return null
+  if (!serviceAccount) {
+    const oauth = configuredOAuthRefreshToken()
+    if (!oauth) return null
+
+    const response = await fetch(TOKEN_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        client_id: oauth.clientId,
+        client_secret: oauth.clientSecret,
+        grant_type: 'refresh_token',
+        refresh_token: oauth.refreshToken,
+      }),
+    })
+    if (!response.ok) throw new Error('google_refresh_token_request_failed')
+    const body = await response.json()
+    return typeof body?.access_token === 'string' ? body.access_token : null
+  }
 
   const now = Math.floor(Date.now() / 1000)
   const header = base64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }))
@@ -89,10 +118,11 @@ function metricValue(report, metricName) {
 
 export async function readGa4(days = 7) {
   const propertyId = String(process.env.GA4_PROPERTY_ID || '').trim()
-  if (!propertyId || !configuredServiceAccount()) {
+  if (!propertyId || !configuredGoogleReporting()) {
     return {
       status: 'not_configured',
-      reason: 'Set GA4_PROPERTY_ID and GOOGLE_SERVICE_ACCOUNT_JSON in Netlify.',
+      reason:
+        'Set GA4_PROPERTY_ID plus GOOGLE_SERVICE_ACCOUNT_JSON, or the GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, and GOOGLE_OAUTH_REFRESH_TOKEN trio in Netlify.',
     }
   }
 
@@ -135,10 +165,11 @@ export async function readGa4(days = 7) {
 
 export async function readSearchConsole(days = 7) {
   const siteUrl = String(process.env.GSC_SITE_URL || '').trim()
-  if (!siteUrl || !configuredServiceAccount()) {
+  if (!siteUrl || !configuredGoogleReporting()) {
     return {
       status: 'not_configured',
-      reason: 'Set GSC_SITE_URL and GOOGLE_SERVICE_ACCOUNT_JSON in Netlify.',
+      reason:
+        'Set GSC_SITE_URL plus GOOGLE_SERVICE_ACCOUNT_JSON, or the GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, and GOOGLE_OAUTH_REFRESH_TOKEN trio in Netlify.',
     }
   }
 
