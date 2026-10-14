@@ -982,6 +982,8 @@ function guideTilesFor(series: GuideSeries): Tile[] {
     .map(guideToTile)
 }
 
+const ALL_GUIDE_TILES: Tile[] = importedSeriesGuides.map(guideToTile)
+
 const DETAILS: DetailData[] = [
   ...PRODUCTS.filter((product) => PUBLIC_LEGACY_PRODUCT_IDS.has(product.id)),
   ...ZODIAC_DETAILS.filter((detail) => PUBLIC_LEGACY_PRODUCT_IDS.has(detail.id)),
@@ -1332,12 +1334,9 @@ const SERIES: SeriesPageData[] = [
     id: 'lunar',
     eyebrow: 'New Moon Ritual',
     title: 'New Moon Ritual',
-     desc: 'A focused ritual entry for setting fresh intentions with a crystal, a quiet reset, and a new beginning.',
+     desc: 'A quiet library of crystal rituals, meanings, care, and reflective guides for beginning a new cycle.',
     color: '#c3e3f4',
-    tiles: [
-      ...PRODUCT_TILES.filter((tile) => tile.id === 'new-moon-set'),
-      ...guideTilesFor('rituals').filter((tile) => tile.id === 'rituals-01'),
-    ],
+    tiles: ALL_GUIDE_TILES,
   },
   {
     id: 'crystals',
@@ -1700,7 +1699,8 @@ function getSeriesListTitle(id: string) {
   if (chakra) return `${chakra.eyebrow}`
   if (id === 'crystals') return 'All talismans'
   if (id === 'chakra') return 'Crystal healing pieces'
-  if (id === 'lunar' || id === 'rituals') return 'Lunar ritual pieces'
+  if (id === 'lunar') return 'All crystal guides'
+  if (id === 'rituals') return 'Lunar ritual pieces'
   if (id === 'connect') return 'Connection paths'
   if (id === 'worlds') return 'Explore the paths'
   return 'Collection pieces'
@@ -2118,7 +2118,9 @@ function SeriesListingGrid({
             lineHeight: 1.7,
           }}
         >
-          Open a card to continue to product details or a practical crystal guide.
+          {tiles.length > 0 && tiles.every((tile) => tile.target.startsWith('/guide/'))
+            ? 'Open a guide to explore crystal rituals, meanings, care, and reflective practice.'
+            : 'Open a card to continue to product details or a practical crystal guide.'}
         </p>
       </div>
 
@@ -3374,7 +3376,12 @@ function SeriesPage({
       : activeAdminProducts
           .filter((product) => product.collection === collectionMap[id])
           .map(adminProductToTile)
-  const displaySeries = isUnifiedCatalog
+  const displaySeries = isRitualGuideHub
+    ? {
+        ...series,
+        tiles: ALL_GUIDE_TILES,
+      }
+    : isUnifiedCatalog
     ? {
         ...series,
         eyebrow: 'All Products',
@@ -3456,7 +3463,48 @@ function SeriesPage({
           ← Back to portal
         </button>
 
-        {!isUnifiedCatalog && !isRitualGuideHub && (
+        {isRitualGuideHub ? (
+          <section
+            style={{
+              marginTop: 30,
+              maxWidth: 820,
+            }}
+          >
+            <p
+              style={{
+                margin: 0,
+                color: 'rgba(255,255,255,0.58)',
+                fontSize: 12,
+                letterSpacing: '0.2em',
+                textTransform: 'uppercase',
+              }}
+            >
+              New Moon Ritual · Crystal Guides
+            </p>
+            <h1
+              style={{
+                margin: '18px 0 0',
+                fontFamily: "'Lobster', cursive",
+                fontSize: 'clamp(48px, 8vw, 92px)',
+                lineHeight: 0.92,
+                color: '#fff',
+              }}
+            >
+              New Moon Ritual
+            </h1>
+            <p
+              style={{
+                margin: '22px 0 0',
+                maxWidth: 700,
+                color: 'rgba(255,255,255,0.72)',
+                fontSize: 17,
+                lineHeight: 1.8,
+              }}
+            >
+              A quiet library of crystal rituals, meanings, care, and reflective guides for beginning a new cycle.
+            </p>
+          </section>
+        ) : !isUnifiedCatalog && (
           <SeriesFeaturePanel
             series={displaySeries}
             tiles={displaySeries.tiles}

@@ -745,7 +745,7 @@ function selectSeriesProducts(seriesId, productMap) {
     return products.sort((a, b) => a.name.localeCompare(b.name))
   }
   if (seriesId === 'lunar') {
-    return products.filter((product) => product.id === 'new-moon-set')
+    return []
   }
   if (seriesId === 'rituals') {
     return products.filter((product) => ['new-moon-set', 'full-moon-necklace'].includes(product.id))
@@ -762,6 +762,9 @@ function selectSeriesProducts(seriesId, productMap) {
 }
 
 function selectSeriesGuides(seriesId, guides) {
+  if (seriesId === 'lunar') {
+    return [...guides.values()].sort((a, b) => a.title.localeCompare(b.title))
+  }
   const ids = SERIES_GUIDE_MAP[seriesId] || SERIES_GUIDE_MAP.crystals
   return ids.map((id) => guides.get(id)).filter(Boolean)
 }
@@ -992,6 +995,7 @@ function renderSeriesStatic(meta, products, guides) {
   const relatedSeries = meta.series?.relatedSeries || selectCrossSeriesLinks(meta.series?.id || meta.seriesId || 'crystals')
   const productCards = products.map((product) => renderProductCard(product)).join('')
   const isUnifiedCatalog = meta.series?.id === 'chakra' || meta.series?.id === 'crystals'
+  const isGuideHub = meta.series?.id === 'lunar'
   return `
     <main data-no-auto-translate="true" style="max-width:1200px;margin:0 auto;padding:96px 20px 72px;font-family:system-ui,sans-serif;color:#3a2530">
       <section style="display:grid;gap:16px;max-width:880px">
@@ -1011,7 +1015,7 @@ function renderSeriesStatic(meta, products, guides) {
 
       <section style="margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,0.8fr);gap:18px;align-items:start">
         <div>
-          <h2 style="margin:0 0 16px;font-size:28px">Related guides</h2>
+          <h2 style="margin:0 0 16px;font-size:28px">${isGuideHub ? 'All crystal guides' : 'Related guides'}</h2>
           <div style="display:grid;gap:12px">
             ${relatedGuides.map((guide) => renderGuideCard(guide)).join('')}
           </div>
@@ -1368,7 +1372,8 @@ function routeMeta(route, guides, productMap) {
       series: {
         id,
         products: seriesProducts,
-        guides: (seriesGuides.length ? seriesGuides : selectSeriesGuides('crystals', guides)).slice(0, 5),
+        guides: (seriesGuides.length ? seriesGuides : selectSeriesGuides('crystals', guides))
+          .slice(id === 'lunar' ? 0 : 5),
         relatedSeries: selectCrossSeriesLinks(id),
         introParagraphs: [
           data.description,
