@@ -3344,6 +3344,155 @@ function AtmosphericShell({
   )
 }
 
+function GuideListingList({
+  tiles,
+  navigate,
+}: {
+  tiles: Tile[]
+  navigate: NavigateFn
+}) {
+  return (
+    <section style={{ marginTop: 54 }}>
+      <div
+        style={{
+          marginBottom: 22,
+          display: 'flex',
+          alignItems: 'end',
+          justifyContent: 'space-between',
+          gap: 18,
+        }}
+        className="max-[720px]:!items-start max-[720px]:!flex-col"
+      >
+        <div>
+          <p
+            style={{
+              margin: 0,
+              fontSize: 12,
+              letterSpacing: '0.24em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.54)',
+            }}
+          >
+            New Moon Ritual · Library
+          </p>
+          <h2
+            style={{
+              margin: '10px 0 0',
+              fontFamily: "'Lobster', cursive",
+              fontSize: 'clamp(34px, 4.2vw, 60px)',
+              lineHeight: 1,
+              color: '#fff',
+            }}
+          >
+            All crystal guides
+          </h2>
+        </div>
+        <p
+          style={{
+            margin: 0,
+            maxWidth: 360,
+            color: 'rgba(255,255,255,0.58)',
+            fontSize: 14,
+            lineHeight: 1.7,
+          }}
+        >
+          Browse the library as a simple reading list. Choose a guide to open the full article.
+        </p>
+      </div>
+
+      <div
+        style={{
+          display: 'grid',
+          gap: 10,
+          borderTop: '1px solid rgba(255,255,255,0.18)',
+        }}
+      >
+        {tiles.map((tile, index) => (
+          <button
+            key={tile.id}
+            type="button"
+            onClick={() => navigate(tile.target)}
+            style={{
+              display: 'grid',
+              gridTemplateColumns: '44px minmax(0, 1fr) auto',
+              alignItems: 'center',
+              gap: 16,
+              width: '100%',
+              padding: '18px 4px',
+              border: 0,
+              borderBottom: '1px solid rgba(255,255,255,0.16)',
+              background: 'transparent',
+              color: '#fff',
+              textAlign: 'left',
+              cursor: 'pointer',
+            }}
+          >
+            <span
+              style={{
+                color: 'rgba(255,255,255,0.46)',
+                fontSize: 12,
+                letterSpacing: '0.14em',
+              }}
+            >
+              {String(index + 1).padStart(2, '0')}
+            </span>
+            <span style={{ minWidth: 0 }}>
+              <span
+                style={{
+                  display: 'block',
+                  color: 'rgba(255,255,255,0.52)',
+                  fontSize: 11,
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {tile.eyebrow || 'Crystal Guide'}
+              </span>
+              <strong
+                style={{
+                  display: 'block',
+                  marginTop: 6,
+                  color: '#fff',
+                  fontFamily: "'Viaoda Libre', serif",
+                  fontSize: 'clamp(20px, 2.4vw, 30px)',
+                  fontWeight: 400,
+                  lineHeight: 1.15,
+                }}
+              >
+                {getEnglishTitle(tile.id, tile.title)}
+              </strong>
+              <span
+                style={{
+                  display: 'block',
+                  marginTop: 7,
+                  maxWidth: 760,
+                  overflow: 'hidden',
+                  color: 'rgba(255,255,255,0.62)',
+                  fontSize: 14,
+                  lineHeight: 1.55,
+                  whiteSpace: 'normal',
+                }}
+              >
+                {tile.desc}
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              style={{
+                color: '#e7bd72',
+                fontSize: 24,
+                lineHeight: 1,
+              }}
+            >
+              →
+            </span>
+          </button>
+        ))}
+      </div>
+    </section>
+  )
+}
+
 function SeriesPage({
   id,
   navigate,
@@ -3513,6 +3662,8 @@ function SeriesPage({
         )}
         {isUnifiedCatalog ? (
           <CatalogListingGrid tiles={displaySeries.tiles} navigate={navigate} />
+        ) : isRitualGuideHub ? (
+          <GuideListingList tiles={displaySeries.tiles} navigate={navigate} />
         ) : (
           <SeriesListingGrid
             title={getSeriesListTitle(id)}

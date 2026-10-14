@@ -845,13 +845,17 @@ function renderProductCard(product) {
   `
 }
 
-function renderGuideCard(guide) {
+function renderGuideCard(guide, index = 0) {
   const guidePresentation = getGuidePresentation(guide)
   return `
-    <a href="${guideHref(guide.id)}" style="display:grid;gap:8px;padding:16px;border-radius:22px;border:1px solid rgba(58,37,48,0.12);background:rgba(255,255,255,0.88);color:#3a2530;text-decoration:none">
-      <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(58,37,48,0.52)">Guide</div>
-      <h3 style="margin:0;font-size:18px;line-height:1.35">${htmlAttr(guidePresentation.title)}</h3>
-      <p style="margin:0;font-size:15px;line-height:1.6;color:rgba(58,37,48,0.68)">${htmlAttr(guidePresentation.excerpt)}</p>
+    <a href="${guideHref(guide.id)}" style="display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:14px;padding:18px 4px;border-top:1px solid rgba(58,37,48,0.14);color:#3a2530;text-decoration:none">
+      <div style="font-size:12px;letter-spacing:0.14em;color:rgba(58,37,48,0.48)">${String(index + 1).padStart(2, '0')}</div>
+      <div style="display:grid;gap:6px">
+        <div style="font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(58,37,48,0.52)">${htmlAttr(guide.eyebrow || 'Crystal Guide')}</div>
+        <h3 style="margin:0;font-size:20px;line-height:1.3">${htmlAttr(guidePresentation.title)}</h3>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:rgba(58,37,48,0.68)">${htmlAttr(guidePresentation.excerpt)}</p>
+      </div>
+      <span aria-hidden="true" style="font-size:24px;color:#936b4d">→</span>
     </a>
   `
 }
@@ -1017,7 +1021,7 @@ function renderSeriesStatic(meta, products, guides) {
         <div>
           <h2 style="margin:0 0 16px;font-size:28px">${isGuideHub ? 'All crystal guides' : 'Related guides'}</h2>
           <div style="display:grid;gap:12px">
-            ${relatedGuides.map((guide) => renderGuideCard(guide)).join('')}
+            ${relatedGuides.map((guide, index) => renderGuideCard(guide, index)).join('')}
           </div>
         </div>
         <div>
