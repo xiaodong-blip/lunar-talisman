@@ -276,18 +276,6 @@ export const IMPORTED_CATALOG = [
     "status": "上架"
   },
   {
-    "id": "sacral-sacral-chakra-faceted-carnelian-bracelet-10mm",
-    "name": "Sacral Chakra Faceted Carnelian Bracelet 10mm",
-    "price": 208,
-    "image": "/products/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm.webp",
-    "images": [
-      "/products/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm.webp",
-      "/products/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm-2.webp"
-    ],
-    "stock": 20,
-    "status": "上架"
-  },
-  {
     "id": "heart-a2-2506",
     "name": "Lychee Rose Quartz Bracelet",
     "price": 189,
@@ -849,18 +837,6 @@ export const IMPORTED_CATALOG = [
       "/products/third-eye-f07-2503-8mm-2.webp",
       "/products/third-eye-f07-2503-8mm-3.webp",
       "/products/third-eye-f07-2503-8mm-4.webp"
-    ],
-    "stock": 20,
-    "status": "上架"
-  },
-  {
-    "id": "third-eye-i06-2506-12mm",
-    "name": "Amethyst Taro Cream Bracelet 12mm",
-    "price": 189,
-    "image": "/products/third-eye-i06-2506-12mm.webp",
-    "images": [
-      "/products/third-eye-i06-2506-12mm.webp",
-      "/products/third-eye-i06-2506-12mm-2.webp"
     ],
     "stock": 20,
     "status": "上架"

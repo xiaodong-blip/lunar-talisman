@@ -5,7 +5,9 @@ const sourcePath = new URL('../src/data/importedProducts.ts', import.meta.url)
 const outputPath = new URL('../netlify/functions/_generated-catalog.mjs', import.meta.url)
 
 const source = await readFile(sourcePath, 'utf8')
-const assignment = 'export const importedProducts: ImportedProduct[] = '
+const assignment = source.includes('const rawImportedProducts: ImportedProduct[] = ')
+  ? 'const rawImportedProducts: ImportedProduct[] = '
+  : 'export const importedProducts: ImportedProduct[] = '
 const start = source.indexOf(assignment)
 const end = source.lastIndexOf('\n]')
 

@@ -1,42 +1,39 @@
 {
   "chakra-seven-chakras-explained": {
-    "title": "7 Chakras and Their Meanings: Chakra Stones in Order",
-    "description": "A clear guide to the seven chakras — chakra stones in order, colors, elements, signs of imbalance, and simple balancing practices with crystals and affirmations.",
-    "keywords": [],
+    "title": "Crystal Meanings by Intention: Seven Energy Traditions",
+    "description": "Explore crystal meanings by color and intention, with seven traditional energy centres as supporting context for reflective ritual and crystal jewelry.",
+    "keywords": [
+      "crystal meanings",
+      "healing crystals",
+      "crystal intentions",
+      "crystal jewelry"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What are the 7 chakras in order?",
+          "name": "How can I choose a crystal by intention?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The seven chakras run from the base of the spine to the crown of the head: root (red), sacral (orange), solar plexus (yellow), heart (green), throat (blue), third eye (indigo), and crown (violet or white). Each is traditionally paired with specific crystals — for example, red agate and obsidian for the root, carnelian for the sacral, citrine for the solar plexus, and rose quartz for the heart."
+            "text": "Begin with the feeling or ritual you want to support, then choose a color and stone whose appearance and traditional symbolism genuinely appeal to you."
           }
         },
         {
           "@type": "Question",
-          "name": "Which crystal is best for each chakra?",
+          "name": "What do crystal colors traditionally represent?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Traditionally: root chakra — red agate, red jasper, obsidian; sacral chakra — carnelian, orange agate; solar plexus — citrine, yellow tiger's eye; heart chakra — rose quartz, green phantom, green chalcedony; throat chakra — aquamarine, kyanite, amazonite; third eye — amethyst, lapis lazuli; crown chakra — clear quartz, amethyst, white azeztulite."
+            "text": "Traditional crystal symbolism often reads red as grounding, orange as creative flow, gold as confidence, pink as compassion, blue as expression, purple as reflection, and clear stones as stillness."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I use chakra crystals?",
+          "name": "Are crystal meanings medical advice?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Wear the stone as jewelry near its chakra (for example, an aquamarine necklace at the throat), place it on the relevant part of the body during meditation, or keep it by your bedside. Pair it with a simple breathing practice and an affirmation for a few minutes each day."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is chakra healing a medical treatment?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. The chakra system is a traditional framework for self-awareness and reflection, not anatomy, and crystals are not medicine. If you are experiencing persistent physical or emotional discomfort, please consult a qualified healthcare professional."
+            "text": "No. Crystal and energy-related statements are traditional beliefs for reflection and ritual; crystal jewelry is not a medical device or a substitute for professional care."
           }
         }
       ]
@@ -75,7 +72,7 @@
   },
   "connect-01": {
     "title": "Crystal Quiz: What Crystal Am I?",
-    "description": "Not sure what crystal am I? Take Lunar Talisman's crystal quiz — zodiac element, your need, and color intuition — to find your crystal match in minutes.",
+    "description": "Not sure what crystal am I? Take Lunar Talisman's crystal quiz — your current intention, practical needs, and color intuition — to find your crystal match in minutes.",
     "keywords": [],
     "faq": {
       "@context": "https://schema.org",
@@ -86,7 +83,7 @@
           "name": "How does the crystal quiz work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The quiz asks three questions: your zodiac sign grouped by element, the one area of life you most want to improve, and the color you are drawn to on first instinct. Your answers are combined with a simple priority rule to suggest a main stone and an optional supporting stone."
+            "text": "The quiz asks three questions: your current intention, the one area of life you most want to improve, and the color you are drawn to on first instinct. Your answers are combined with a simple priority rule to suggest a main stone and an optional supporting stone."
           }
         },
         {
@@ -94,7 +91,7 @@
           "name": "What if my three quiz answers point to different crystals?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This is the most common outcome. Give the highest weight to your improvement goal, then see whether your color instinct overlaps with it — the overlapping stone becomes your main stone. Use your zodiac element to choose a supporting stone, and keep one or two pieces at most."
+            "text": "This is the most common outcome. Give the highest weight to your improvement goal, then see whether your color instinct overlaps with it — the overlapping stone becomes your main stone. Use your current intention to choose a supporting stone, and keep one or two pieces at most."
           }
         },
         {
@@ -111,35 +108,40 @@
     "words": 588
   },
   "connect-02": {
-    "title": "Chakra Quiz: Which Chakra Is Blocked?",
-    "description": "Which chakra is blocked? Take the chakra quiz: thirty-five yes-or-no questions across seven chakras, with crystal and habit suggestions for each.",
-    "keywords": [],
+    "title": "Crystal Intention Quiz: Find a Stone for Today",
+    "description": "Use a reflective crystal intention quiz to choose a stone by the feeling, color, and everyday ritual you want to support.",
+    "keywords": [
+      "crystal quiz",
+      "find your crystal",
+      "crystal intentions",
+      "healing crystals"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How does the chakra quiz work?",
+          "name": "How does the crystal intention quiz work?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The quiz asks thirty-five yes-or-no questions — five for each of the seven chakras. Answer based on how you have felt over the past one to two months. Each yes scores one point, so every chakra receives a total between zero and five."
+            "text": "The quiz invites you to reflect on the intention, color, and daily feeling that matter most to you, then suggests a crystal theme to explore."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I read my chakra quiz scores?",
+          "name": "Is there a wrong answer in a crystal quiz?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A score of zero to one suggests good balance. Two to three suggests a mild imbalance, best met with a paired crystal and one small behavioral change. Four to five suggests a chakra asking for real attention — prioritize it with both crystal and habit, and see a doctor for any persistent physical discomfort."
+            "text": "No. Treat the result as a prompt for reflection rather than a diagnosis or fixed label; choose the stone that feels useful and beautiful to you today."
           }
         },
         {
           "@type": "Question",
-          "name": "Which chakra should I start balancing first?",
+          "name": "Can crystals replace professional care?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Begin with the chakra that scored highest. Your score reflects your state at this moment, not a permanent label, so treat the result like a weather report for your energy — gentle, useful, and always changing."
+            "text": "No. Crystals are companions for personal ritual and reflection, not a replacement for medical, mental-health, legal, or financial advice."
           }
         }
       ]
@@ -401,7 +403,7 @@
           "name": "How do I find the stone that suits me?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Chapters 08 (five elements) and 09 (zodiac) match crystals to Eastern and Western traditions; chapter 10 answers the most common wearing questions."
+            "text": "Chapters 08 and 09 explore crystal-selection traditions; chapter 10 answers the most common wearing questions."
           }
         }
       ]
@@ -557,7 +559,7 @@
           "name": "What does amethyst mean?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Amethyst meaning in traditional belief centers on wisdom and stillness. It is said to sharpen focus, settle the mind, and aid sleep, and it is often used as a meditation stone. It is the February birthstone and the most popular purple crystal."
+            "text": "Amethyst meaning in traditional belief centers on wisdom and stillness. It is said to sharpen focus, settle the mind, and aid sleep, and it is often used as a meditation stone. It is one of the most widely recognized purple crystals."
           }
         },
         {
@@ -1207,43 +1209,32 @@
     "words": 463
   },
   "worlds-01": {
-    "title": "Red Agate & Grounding: Root Chakra Crystals",
-    "description": "Enter the root chakra world — grounding crystals like red agate and obsidian, how to wear them, a new moon grounding ritual, and affirmations for safety.",
-    "keywords": [],
+    "title": "Grounding Crystals: Red Stone Meanings",
+    "description": "Explore red and grounding crystal meanings, care, and a simple daily ritual for steady everyday reflection.",
+    "keywords": [
+      "grounding crystals",
+      "red crystal meaning",
+      "red gemstone bracelet",
+      "crystal jewelry"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Which crystals are best for the root chakra?",
+          "name": "What are grounding crystals?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Red agate, red jasper, garnet, cinnabar, obsidian, and black rutilated quartz are the traditional stones of this world. Red stones are associated with steady life force and courage, while black stones are traditionally worn for protection and stillness."
+            "text": "Grounding crystals are stones traditionally chosen for a steady, anchored ritual; red-toned pieces are a common place to begin."
           }
         },
         {
           "@type": "Question",
-          "name": "How do I wear root chakra crystals?",
+          "name": "How can I wear a red crystal bracelet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Because the root chakra is believed to sit at the base of the spine, stones worn low on the body are said to resonate most easily — a red agate bracelet on the wrist, an anklet, or a stone carried in a pocket all work well."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How often should I cleanse grounding crystals?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Once a month is enough for red and black stones. Rinse them under running water or leave them in moonlight overnight. Always check first, since some stones should not touch water."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can crystals treat anxiety or insomnia?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Crystals are traditional companions for reflection, not medicine. If anxiety, sleep problems, or low mood are affecting your daily life, please consult a qualified healthcare professional."
+            "text": "Wear it where it feels comfortable, let the color be a visual cue for your intention, and remove it before activities that may scratch or strain the jewelry."
           }
         }
       ]
@@ -1252,43 +1243,32 @@
     "words": 935
   },
   "worlds-02": {
-    "title": "Sacral Chakra Crystals for Creativity",
-    "description": "Step into the sacral chakra world — carnelian meaning, sunstone and amber, how to wear creativity crystals, and a sunset ritual for emotional flow.",
-    "keywords": [],
+    "title": "Creative Flow Crystals: Carnelian Meanings",
+    "description": "Explore warm-toned crystal meanings for creativity, expression, and an easy everyday ritual.",
+    "keywords": [
+      "carnelian meaning",
+      "orange crystals",
+      "creative flow crystals",
+      "crystal bracelet"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does carnelian mean in crystal tradition?",
+          "name": "What does carnelian mean in traditional crystal symbolism?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Carnelian is the signature stone of the sacral chakra. Its warm orange-red colour is traditionally linked to creativity, passion, and the courage to express what you feel — which is why artists and writers have long kept it close."
+            "text": "Carnelian is traditionally associated with warmth, creative momentum, and expression; meanings vary by culture and personal practice."
           }
         },
         {
           "@type": "Question",
-          "name": "Which crystals support creativity and emotional flow?",
+          "name": "How do I care for an orange crystal bracelet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Carnelian, sunstone, orange agate, orange chalcedony, and amber are the traditional stones of this world. Sunstone is said to lift optimism, orange agate to soothe sensitivity, orange chalcedony to encourage honest expression, and amber to bring warmth."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How should I wear sacral chakra crystals?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A bracelet or necklace works well; in traditional belief, stones carried near the lower abdomen echo the sacral chakra most closely. You can also keep one in your pocket or on your desk while you work."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I care for amber and other orange stones?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Amber is a fossilised resin, so keep it away from heat, hard surfaces, and perfumes, and store it separately. Most other orange stones can be cleansed in moonlight once a month; avoid harsh sun, which can fade them."
+            "text": "Wipe it with a soft dry cloth, avoid perfume and hard impacts, and store it separately from harder jewelry when you are not wearing it."
           }
         }
       ]
@@ -1297,43 +1277,32 @@
     "words": 926
   },
   "worlds-03": {
-    "title": "Solar Plexus Chakra Crystals for Confidence",
-    "description": "Enter the solar plexus world — citrine meaning, yellow tiger's eye and gold rutilated quartz, how to wear confidence crystals, and a morning ritual.",
-    "keywords": [],
+    "title": "Confidence Crystals: Citrine Meanings",
+    "description": "Explore golden crystal meanings for confidence, focus, and intentional action.",
+    "keywords": [
+      "citrine meaning",
+      "confidence crystals",
+      "yellow crystals",
+      "gemstone bracelet"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does citrine mean in crystal tradition?",
+          "name": "What does citrine mean in traditional crystal symbolism?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Citrine is the classic solar plexus stone, sometimes called the merchant's stone. Its sunny yellow is traditionally linked to confidence, clear thinking, and a healthy sense of self-worth — a popular companion for business, negotiations, and new ventures."
+            "text": "Citrine is traditionally associated with bright focus, confidence, and purposeful action; it is a cultural meaning rather than a guaranteed result."
           }
         },
         {
           "@type": "Question",
-          "name": "Which crystals build confidence and willpower?",
+          "name": "How can a crystal support a daily intention?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Citrine, yellow tiger's eye, gold rutilated quartz, and lemon quartz are the traditional stones of this world. Tiger's eye is said to sharpen focus and courage, gold rutilated quartz to add drive and ambition, and lemon quartz to bring a lighter, easier confidence."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I wear solar plexus crystals?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A pendant or brooch worn just above the stomach — near the heart of the chest — is believed to echo the solar plexus most closely. A bracelet also works when you want the energy close without jewellery at the neckline."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why do yellow crystals fade, and how should I care for them?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Many yellow stones can fade after long exposure to strong sunlight, so cleanse them in moonlight rather than sun, about once a month, and store them away from bright windows."
+            "text": "Use the piece as a tactile or visual reminder, pair it with a short written intention, and return to it during a quiet moment in your day."
           }
         }
       ]
@@ -1342,43 +1311,32 @@
     "words": 876
   },
   "worlds-04": {
-    "title": "Heart Chakra Crystals: Rose Quartz Meaning",
-    "description": "Enter the heart chakra world — rose quartz meaning and the crystals for love, self-acceptance, a full moon ritual, and gratitude practice.",
-    "keywords": [],
+    "title": "Love Crystals: Rose Quartz Meanings",
+    "description": "Explore pink and green crystal meanings for love, compassion, and self-acceptance.",
+    "keywords": [
+      "rose quartz meaning",
+      "love crystals",
+      "pink crystal bracelet",
+      "crystal meanings"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does rose quartz mean in crystal tradition?",
+          "name": "What does rose quartz mean in traditional crystal symbolism?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Rose quartz is known as the stone of unconditional love. Its soft pink is traditionally linked to self-acceptance, gentleness, and the warmth we offer to others — making it one of the most beloved crystals for love in all its forms."
+            "text": "Rose quartz is traditionally associated with love, compassion, and gentle self-reflection, making it a popular choice for personal rituals and gifts."
           }
         },
         {
           "@type": "Question",
-          "name": "Which crystals support the heart chakra?",
+          "name": "How should I choose a love crystal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Green phantom quartz, prehnite, rose quartz, strawberry quartz, and Hetian jade are the traditional stones of this world. Green stones are linked to growth and inner abundance; pink stones to tenderness, friendship, and self-love."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How should I wear heart chakra crystals?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Wear a pendant at the collarbone or over the heart so the stone rests close to the centre of the chest. A rose quartz necklace is the classic choice; you can also keep one under your pillow or on your bedside table."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is working with heart chakra crystals a substitute for therapy or medical care?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Crystals are gentle companions for reflection, not treatment. If you are grieving, struggling with self-worth, or feeling persistently low, please reach out to a qualified counsellor or healthcare professional."
+            "text": "Choose a stone whose color, material, and story you enjoy, then use it as a reminder of the relationship or self-care intention that matters to you."
           }
         }
       ]
@@ -1387,43 +1345,32 @@
     "words": 968
   },
   "worlds-05": {
-    "title": "Throat Chakra Crystals: Aquamarine Meaning",
-    "description": "Enter the throat chakra world — aquamarine meaning, kyanite and amazonite, communication crystals for honest speech, plus a morning voice ritual.",
-    "keywords": [],
+    "title": "Clarity Crystals: Blue Stone Meanings",
+    "description": "Explore blue crystal traditions, color, care, and mindful communication as part of a reflective crystal practice.",
+    "keywords": [
+      "blue crystal meaning",
+      "clarity crystals",
+      "crystal meanings",
+      "crystal care"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does aquamarine mean in crystal tradition?",
+          "name": "What do blue crystals traditionally symbolize?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Aquamarine is known as the stone of clear expression. Its sea-blue colour is traditionally linked to honest, calm, well-spoken communication, which is why it has long been recommended before speeches, interviews, and difficult conversations."
+            "text": "Blue crystals are often associated in traditional symbolism with calm expression, considered communication, and a slower, more reflective pace."
           }
         },
         {
           "@type": "Question",
-          "name": "Which crystals help with communication?",
+          "name": "Are crystal meanings universal?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Aquamarine, kyanite, amazonite, and blue tiger's eye are the traditional stones of this world. Kyanite is said to align thought with speech, amazonite to bring calm courage before you speak, and blue tiger's eye to steady you in delicate negotiations."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How should I wear throat chakra crystals?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A necklace or choker that rests against the throat is the traditional choice, since the stone is believed to echo the throat centre most clearly when it sits close to it. A pendant at the collarbone works well too."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I care for blue crystals like aquamarine?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Blue stones prefer cool, gentle care. Cleanse them in moonlight or rinse briefly in clean water about once a month, and keep them out of strong sunlight and heat, which can dull their colour."
+            "text": "No. Crystal symbolism comes from many living traditions and personal practices, so meanings are best used as invitations to reflect rather than fixed rules."
           }
         }
       ]
@@ -1432,43 +1379,32 @@
     "words": 882
   },
   "worlds-06": {
-    "title": "Third Eye Chakra Crystals: Amethyst Meaning",
-    "description": "Enter the third eye world — amethyst meaning, lapis lazuli and purple goldstone, intuition crystals, a bedtime ritual, and a three-minute meditation.",
-    "keywords": [],
+    "title": "Intuition Crystals: Amethyst Meanings",
+    "description": "Explore purple crystal meanings for intuition, reflection, and quiet focus.",
+    "keywords": [
+      "amethyst meaning",
+      "purple crystals",
+      "intuition crystals",
+      "amethyst bracelet"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does amethyst mean in crystal tradition?",
+          "name": "What does amethyst mean in traditional crystal symbolism?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Amethyst is the classic third eye stone. Its violet is traditionally linked to calm, clear thinking, and the quieting of mental noise — which is why it is recommended for meditation and for keeping beside the bed at night."
+            "text": "Amethyst is traditionally associated with stillness, reflection, and focused attention; many people choose it for a quiet daily ritual."
           }
         },
         {
           "@type": "Question",
-          "name": "Which crystals support intuition?",
+          "name": "How should I care for an amethyst bracelet?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Amethyst, purple goldstone, and lapis lazuli are the traditional stones of this world. Purple goldstone is said to pair amethyst-like clarity with golden drive, while lapis lazuli has been honoured for centuries as a stone of insight and wisdom."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I use third eye crystals during meditation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sit comfortably with your eyes closed and rest the stone gently on your forehead between the brows — light touch only, no pressure. If that is uncomfortable, hold it in your palm instead and bring your attention to the space between your eyebrows."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can crystals sharpen intuition or treat headaches?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Crystals are traditional companions for reflection, not medicine. Recurrent headaches or other persistent symptoms should be discussed with a doctor, not managed with stones alone."
+            "text": "Use a soft dry cloth, avoid harsh chemicals and impacts, and keep the piece out of prolonged direct sunlight to help preserve its color."
           }
         }
       ]
@@ -1477,43 +1413,32 @@
     "words": 943
   },
   "worlds-07": {
-    "title": "Crown Chakra Crystals: Clear Quartz Meaning",
-    "description": "Enter the crown chakra world — clear quartz meaning, moonstone and white phantom quartz, spiritual crystals for stillness, plus a moonlight ritual.",
-    "keywords": [],
+    "title": "Stillness Crystals: Clear Quartz Meanings",
+    "description": "Explore clear and white crystal meanings for stillness, ritual, and reflection.",
+    "keywords": [
+      "clear quartz meaning",
+      "clear crystals",
+      "stillness crystals",
+      "crystal ritual"
+    ],
     "faq": {
       "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What does clear quartz mean in crystal tradition?",
+          "name": "What does clear quartz mean in traditional crystal symbolism?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Clear quartz is often called the king of crystals. Transparent and pure, it is traditionally said to cleanse the energy around it, amplify the qualities of other stones, and act as an all-purpose companion for spiritual practice."
+            "text": "Clear quartz is commonly associated with clarity, intention, and ritual in many crystal traditions; people often choose it for its luminous, versatile appearance."
           }
         },
         {
           "@type": "Question",
-          "name": "Which crystals support the crown chakra?",
+          "name": "How can I begin a simple crystal ritual?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Clear quartz, moonstone, white azeztulite, and white phantom quartz are the traditional stones of this world. Moonstone is deeply linked with lunar energy and new beginnings; white azeztulite and white phantom quartz are associated with purity and clarity."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How do I work with crown chakra crystals?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Wear clear quartz as a pendant or bracelet, hold a stone in your palm during meditation, or place one above your head as you rest. A moonstone by the window on a full moon night is a beloved Lunar Talisman ritual."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What does it mean to cleanse a crystal in moonlight?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Leaving a crystal in moonlight overnight — especially at the full or new moon — is a traditional way of clearing its energy and letting it rest. White and clear stones respond particularly well to this gentle practice."
+            "text": "Choose a quiet moment, hold or place your jewelry safely nearby, name one intention in plain language, and let the piece remind you of it during the week."
           }
         }
       ]

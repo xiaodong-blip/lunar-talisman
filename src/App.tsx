@@ -12,6 +12,7 @@ import {
   Phone,
   MapPin,
   X,
+  ChevronLeft,
 } from 'lucide-react'
 const AdminPage = lazy(() => import('./AdminPage'))
 import { usePageMeta } from './hooks/usePageMeta'
@@ -622,15 +623,15 @@ const SERIES_SEO_META: Record<
     keywords: ['healing crystal jewelry', 'gemstone bracelets', 'crystal shop online', 'crystal bracelet catalog'],
   },
   lunar: {
-    title: 'Moon Phases & Crystals: New Moon and Full Moon Rituals',
+    title: 'New Moon Crystal Ritual',
     description:
-      'Use moon phases and crystals as a reflective rhythm for new moon intentions, full moon release, cleansing, and charging.',
-    keywords: ['moon phases and crystals', 'new moon ritual crystals', 'full moon ritual crystals', 'crystal cleansing'],
+      'Begin a new cycle with a simple crystal ritual for setting intentions, reflecting, and choosing a mindful next step.',
+    keywords: ['new moon ritual', 'new moon crystal ritual', 'crystal intention setting'],
   },
   crystals: {
-    title: 'Crystal Meanings Chart & Healing Crystal Jewelry',
+    title: 'All Crystal Jewelry & Talismans',
     description:
-      'Browse a crystal meanings chart, gemstone meanings, healing crystals, crystal bracelets, necklaces, and talisman jewelry.',
+      'Browse all available crystal jewelry, gemstone bracelets, and talismans in one catalog, with clear product details and secure checkout.',
     keywords: ['crystal meaning chart', 'gemstone meanings chart', 'healing crystals', 'crystal shop online', 'healing crystals jewelry'],
   },
   connect: {
@@ -1235,49 +1236,22 @@ const CHAKRA_SERIES: SeriesPageData[] = CHAKRA_COLLECTIONS.map((chakra) => {
 
 const MAIN_PROJECT_TILES: Tile[] = [
   {
-    id: 'worlds',
-    title: 'WORLDS\nCrystal Journey',
-     desc: 'Enter a calm crystal universe of natural-stone jewelry, moon phases, and reflective rituals.',
-    color: '#dcd2f2',
-    image: CARD_IMAGES[0],
-    eyebrow: 'Worlds',
-    target: '/series/worlds',
-  },
-  {
-    id: 'chakra',
-    title: 'INTENTIONS\nCrystal Healing',
-     desc: 'Grounding, creativity, confidence, love, clarity, intuition, and stillness.',
-    color: '#dcedc2',
-    image: CARD_IMAGES[1],
-    eyebrow: 'Crystal Intentions',
-    target: '/series/chakra',
-  },
-  {
-    id: 'rituals',
-    title: 'RITUALS\nLunar Rituals',
-     desc: 'Set intentions at the new moon; cleanse and charge at the full moon.',
+    id: 'lunar',
+    title: 'NEW MOON\nNew Moon Ritual',
+    desc: 'A simple crystal ritual for fresh intentions, a clear reset, and the beginning of a new cycle.',
     color: '#c3e3f4',
     image: CARD_IMAGES[2],
-    eyebrow: 'Rituals',
-    target: '/series/rituals',
+    eyebrow: 'New Moon Ritual',
+    target: '/series/lunar',
   },
   {
     id: 'crystals',
-    title: 'CRYSTALS\nCrystal Talismans',
-     desc: 'Browse every crystal piece and its energy page.',
+    title: 'ALL PRODUCTS\nCrystal Talismans',
+     desc: 'Browse every available crystal piece, compare prices, and open any product page.',
     color: '#f3cdd6',
     image: CARD_IMAGES[1],
-    eyebrow: 'Crystals',
+    eyebrow: 'All Products',
     target: '/series/crystals',
-  },
-  {
-    id: 'connect',
-    title: 'CONNECT\nBegin the Connection',
-    desc: 'Find your present crystal intention through the finder, guides, and talismans.',
-    color: '#ece7fb',
-    image: CARD_IMAGES[2],
-    eyebrow: 'Connect',
-    target: '/series/connect',
   },
 ]
 
@@ -1356,13 +1330,14 @@ const SERIES: SeriesPageData[] = [
   ...CHAKRA_SERIES,
   {
     id: 'lunar',
-    eyebrow: 'Lunar',
-    title: 'Lunar Ritual Collection',
-     desc: 'From new moon to full moon, each crystal is attuned to a lunar moment.',
+    eyebrow: 'New Moon Ritual',
+    title: 'New Moon Ritual',
+     desc: 'A focused ritual entry for setting fresh intentions with a crystal, a quiet reset, and a new beginning.',
     color: '#c3e3f4',
-    tiles: PRODUCT_TILES.filter((tile) =>
-      ['new-moon-set', 'full-moon-necklace'].includes(tile.id),
-    ),
+    tiles: [
+      ...PRODUCT_TILES.filter((tile) => tile.id === 'new-moon-set'),
+      ...guideTilesFor('rituals').filter((tile) => tile.id === 'rituals-01'),
+    ],
   },
   {
     id: 'crystals',
@@ -2143,7 +2118,7 @@ function SeriesListingGrid({
             lineHeight: 1.7,
           }}
         >
-          Open any product card to view material, care guidance, and order details.
+          Open a card to continue to product details or a practical crystal guide.
         </p>
       </div>
 
@@ -2820,25 +2795,23 @@ function Navigation({
       className="px-5 py-[18px] md:px-12 md:py-[22px]"
     >
       <div className="flex w-full items-center justify-between md:hidden">
-        {navButton('Explore', '/series/worlds')}
+        {navButton('New moon', '/series/lunar')}
         <button type="button" onClick={() => navigate('/')} style={navStyle}>
           <StarLogo />
         </button>
+        {navButton('All products', '/series/crystals')}
         {cartButton}
       </div>
 
       <div className="hidden w-full items-center justify-between md:flex">
         <div style={{ display: 'flex', gap: 36 }}>
-          {navButton('Worlds', '/series/worlds')}
-          {navButton('Intentions', '/series/chakra')}
-          {navButton('Rituals', '/series/rituals')}
+          {navButton('New moon ritual', '/series/lunar')}
         </div>
         <button type="button" onClick={() => navigate('/')} style={navStyle}>
           <StarLogo />
         </button>
         <div style={{ display: 'flex', gap: 36 }}>
-          {navButton('Crystals', '/series/crystals')}
-          {navButton('Connect', '/series/connect')}
+          {navButton('All products', '/series/crystals')}
           {cartButton}
         </div>
       </div>
@@ -3381,7 +3354,8 @@ function SeriesPage({
   onOpenCart?: () => void
 }) {
   const series = SERIES.find((item) => item.id === id && item.id !== 'zodiac') ?? SERIES[0]
-  const isUnifiedCatalog = id === 'chakra'
+  const isUnifiedCatalog = id === 'chakra' || id === 'crystals'
+  const isRitualGuideHub = id === 'lunar'
   const adminProducts = getPublishedAdminProducts()
   const activeAdminProducts = adminProducts.filter(
     (product) => PUBLIC_IMPORTED_PRODUCT_IDS.has(product.id),
@@ -3403,9 +3377,9 @@ function SeriesPage({
   const displaySeries = isUnifiedCatalog
     ? {
         ...series,
-        eyebrow: 'Crystal Catalog',
-        title: 'Crystal Healing\nPieces',
-        desc: 'Every available crystal bracelet and natural-stone talisman now lives in one catalog. Browse everything together, then use a simple intention or material search when you want to narrow the view.',
+        eyebrow: 'All Products',
+        title: id === 'crystals' ? 'All Products' : 'Crystal Healing\nPieces',
+        desc: 'Browse every available crystal jewelry piece in one catalog. Search by material or narrow the list with simple intention filters.',
         tiles: getUnifiedCatalogTiles(),
       }
     : linkedAdminTiles.length > 0
@@ -3482,7 +3456,7 @@ function SeriesPage({
           ← Back to portal
         </button>
 
-        {!isUnifiedCatalog && (
+        {!isUnifiedCatalog && !isRitualGuideHub && (
           <SeriesFeaturePanel
             series={displaySeries}
             tiles={displaySeries.tiles}
@@ -3501,6 +3475,145 @@ function SeriesPage({
         )}
       </section>
     </AtmosphericShell>
+  )
+}
+
+function MobileDetailView({
+  detail,
+  detailTitle,
+  detailPrice,
+  detailPricing,
+  galleryImages,
+  displayedImage,
+  setActiveImage,
+  cartNotice,
+  onBack,
+  onAddToCart,
+  onCheckout,
+  navigate,
+  relatedTiles,
+}: {
+  detail: DetailData
+  detailTitle: string
+  detailPrice: number
+  detailPricing: ReturnType<typeof getDetailPricing>
+  galleryImages: string[]
+  displayedImage: string
+  setActiveImage: (image: string) => void
+  cartNotice: string
+  onBack: () => void
+  onAddToCart: () => void
+  onCheckout: () => void
+  navigate: NavigateFn
+  relatedTiles: Tile[]
+}) {
+  return (
+    <article className="mobile-product-shell" data-no-auto-translate="true">
+      <section className="mobile-product-gallery">
+        <button
+          type="button"
+          className="mobile-product-back"
+          onClick={onBack}
+          aria-label="Back to collection"
+        >
+          <ChevronLeft size={19} />
+          Collection
+        </button>
+        {displayedImage ? (
+          <img
+            src={displayedImage}
+            alt={detailTitle}
+            className="mobile-product-gallery__image"
+          />
+        ) : (
+          <div className="mobile-product-gallery__empty">Image coming soon</div>
+        )}
+        <span className="mobile-product-discount">Save {detailPricing.discountPercent}%</span>
+      </section>
+
+      {galleryImages.length > 1 ? (
+        <div className="mobile-product-thumbs" aria-label="Product images">
+          {galleryImages.map((image, index) => (
+            <button
+              key={image}
+              type="button"
+              className={image === displayedImage ? 'is-active' : ''}
+              onClick={() => setActiveImage(image)}
+              aria-label={`View product image ${index + 1}`}
+              aria-pressed={image === displayedImage}
+            >
+              <img src={image} alt="" />
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      <section className="mobile-product-intro">
+        <p className="mobile-product-eyebrow">{detail.eyebrow}</p>
+        <h1>{detailTitle}</h1>
+        <p className="mobile-product-description">{detail.desc}</p>
+        <div className="mobile-product-price">
+          <strong>{formatProductPrice(detailPrice)}</strong>
+          <span>{formatProductPrice(detailPricing.originalPrice)}</span>
+          <em>{detailPricing.discountPercent}% off</em>
+        </div>
+        <div className="mobile-product-trust" aria-label="Purchase details">
+          <span>In stock</span>
+          <span>Secure PayPal checkout</span>
+          <span>Worldwide delivery</span>
+        </div>
+      </section>
+
+      <section className="mobile-product-section">
+        <p className="mobile-product-section__label">Craft details</p>
+        <div className="mobile-product-specs">
+          {detail.specs
+            .filter((spec) => !spec.trim().startsWith('$'))
+            .map((spec) => (
+              <p key={spec}>{spec}</p>
+            ))}
+        </div>
+      </section>
+
+      {detail.body.length ? (
+        <section className="mobile-product-section mobile-product-story">
+          <p className="mobile-product-section__label">The story</p>
+          <h2>Made for your everyday ritual</h2>
+          {detail.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </section>
+      ) : null}
+
+      {relatedTiles.length ? (
+        <section className="mobile-product-section mobile-product-related">
+          <p className="mobile-product-section__label">Continue exploring</p>
+          <div>
+            {relatedTiles.map((tile) => (
+              <button key={tile.id} type="button" onClick={() => navigate(tile.target)}>
+                <span>{getEnglishTitle(tile.id, tile.title)}</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {cartNotice ? <p className="mobile-product-notice" role="status">{cartNotice}</p> : null}
+
+      <div className="mobile-product-buybar">
+        <div>
+          <span>Total</span>
+          <strong>{formatProductPrice(detailPrice)}</strong>
+        </div>
+        <button type="button" className="mobile-product-buybar__secondary" onClick={onAddToCart}>
+          Add to bag
+        </button>
+        <button type="button" className="mobile-product-buybar__primary" onClick={onCheckout}>
+          Buy now
+        </button>
+      </div>
+    </article>
   )
 }
 
@@ -3616,6 +3729,36 @@ function DetailPage({
     addToCart(detailToCartLine(detail))
     trackEvent('add_to_cart', { value: detailPrice })
     setCartNotice('Added to cart. Continue exploring or head to checkout to add shipping details and an order note.')
+  }
+  const { isMobile } = useViewportMode()
+
+  if (isMobile) {
+    return (
+      <AtmosphericShell navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart}>
+        <MobileDetailView
+          detail={detail}
+          detailTitle={detailTitle}
+          detailPrice={detailPrice}
+          detailPricing={detailPricing}
+          galleryImages={galleryImages}
+          displayedImage={displayedImage}
+          setActiveImage={setActiveImage}
+          cartNotice={cartNotice}
+          onBack={() => navigate(`/series/${detailSeriesId}`)}
+          onAddToCart={handleAddToCart}
+          onCheckout={() => {
+            handleAddToCart()
+            if (onOpenCart) {
+              onOpenCart()
+            } else {
+              navigate('/cart')
+            }
+          }}
+          navigate={navigate}
+          relatedTiles={relatedTiles}
+        />
+      </AtmosphericShell>
+    )
   }
 
   return (
@@ -5549,10 +5692,25 @@ function CartPage({
   drawer?: boolean
   onClose?: () => void
 }) {
+  const { isMobile } = useViewportMode()
   const [notice, setNotice] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [doneOrderId, setDoneOrderId] = useState('')
   const [paymentReady, setPaymentReady] = useState<boolean | null>(null)
+  const [formErrors, setFormErrors] = useState<{
+    name?: string
+    email?: string
+    address?: string
+  }>({})
+  const formFieldRefs = useRef<{
+    name: HTMLInputElement | null
+    email: HTMLInputElement | null
+    address: HTMLTextAreaElement | null
+  }>({
+    name: null,
+    email: null,
+    address: null,
+  })
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -5570,6 +5728,11 @@ function CartPage({
       form.shippingMethod as 'standard' | 'express'
     ] ?? 8
   const total = subtotal + (cart.length ? shippingFee : 0)
+  const checkoutFieldStyle = (field: 'name' | 'email' | 'address'): CSSProperties => ({
+    ...formFieldStyle,
+    borderColor: formErrors[field] ? '#b23b55' : 'rgba(58,37,48,0.14)',
+    boxShadow: formErrors[field] ? '0 0 0 3px rgba(178,59,85,0.12)' : 'none',
+  })
 
   useEffect(() => {
     let active = true
@@ -5646,10 +5809,28 @@ function CartPage({
       return
     }
 
-    if (!form.name.trim() || !form.email.trim() || !form.address.trim()) {
-      setNotice('Please complete your name, email, and delivery address.')
+    const nextErrors: typeof formErrors = {}
+    if (!form.name.trim()) nextErrors.name = 'Enter the recipient name.'
+    if (!form.email.trim()) {
+      nextErrors.email = 'Enter an email for order updates.'
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      nextErrors.email = 'Enter a valid email address.'
+    }
+    if (!form.address.trim()) nextErrors.address = 'Enter the full delivery address.'
+
+    if (Object.keys(nextErrors).length > 0) {
+      setFormErrors(nextErrors)
+      setNotice('Complete the fields marked below before continuing to PayPal.')
+      const firstInvalidField = (['name', 'email', 'address'] as const).find(
+        (field) => nextErrors[field],
+      )
+      if (firstInvalidField) {
+        window.setTimeout(() => formFieldRefs.current[firstInvalidField]?.focus(), 0)
+      }
       return
     }
+
+    setFormErrors({})
 
     if (paymentReady === false) {
       setNotice('Secure PayPal checkout is not enabled yet. Please check back shortly.')
@@ -5748,15 +5929,15 @@ function CartPage({
           gridTemplateColumns: 'minmax(0, 1.2fr) minmax(320px, 0.8fr)',
           gap: 28,
         }}
-        className={drawer ? '' : 'max-[980px]:!grid-cols-1'}
+        className={drawer ? (isMobile ? 'mobile-checkout-content' : '') : 'max-[980px]:!grid-cols-1'}
       >
         <div
           style={{
-            borderRadius: 38,
+            borderRadius: isMobile && drawer ? 0 : 38,
             background: 'rgba(255,255,255,0.84)',
             color: '#3a2530',
-            padding: 'clamp(26px, 4vw, 42px)',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.22)',
+            padding: isMobile && drawer ? '20px 18px 24px' : 'clamp(26px, 4vw, 42px)',
+            boxShadow: isMobile && drawer ? 'none' : '0 24px 80px rgba(0,0,0,0.22)',
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap' }}>
@@ -5798,7 +5979,7 @@ function CartPage({
             </button>
           </div>
 
-          <div style={{ marginTop: 24, display: 'grid', gap: 14 }}>
+          <div className={isMobile && drawer ? 'mobile-checkout-items' : undefined} style={{ marginTop: 24, display: 'grid', gap: 14 }}>
             {cart.length ? cart.map((item) => (
               <article
                 key={item.id}
@@ -5867,12 +6048,13 @@ function CartPage({
         </div>
 
         <aside
+          className={isMobile && drawer ? 'mobile-checkout-details' : undefined}
           style={{
-            borderRadius: 38,
+            borderRadius: isMobile && drawer ? 0 : 38,
             background: 'rgba(255,255,255,0.8)',
             color: '#3a2530',
-            padding: 'clamp(24px, 4vw, 36px)',
-            boxShadow: '0 24px 80px rgba(0,0,0,0.18)',
+            padding: isMobile && drawer ? '24px 18px 118px' : 'clamp(24px, 4vw, 36px)',
+            boxShadow: isMobile && drawer ? 'none' : '0 24px 80px rgba(0,0,0,0.18)',
             alignSelf: 'start',
           }}
         >
@@ -5880,20 +6062,53 @@ function CartPage({
             <Truck size={18} />
             <h2 style={{ margin: 0, fontSize: 22 }}>Checkout details</h2>
           </div>
-          <form onSubmit={handleSubmit} style={{ marginTop: 20, display: 'grid', gap: 12 }}>
+          <form className={isMobile && drawer ? 'mobile-checkout-form' : undefined} onSubmit={handleSubmit} style={{ marginTop: 20, display: 'grid', gap: 12 }}>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <MessageSquare size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 Name
               </span>
-              <input value={form.name} onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))} style={formFieldStyle} placeholder="Recipient name" />
+              <input
+                ref={(element) => {
+                  formFieldRefs.current.name = element
+                }}
+                name="checkout-name"
+                value={form.name}
+                onChange={(event) => {
+                  setForm((current) => ({ ...current, name: event.target.value }))
+                  if (formErrors.name) setFormErrors((current) => ({ ...current, name: undefined }))
+                }}
+                aria-invalid={Boolean(formErrors.name)}
+                aria-describedby={formErrors.name ? 'checkout-name-error' : undefined}
+                style={checkoutFieldStyle('name')}
+                placeholder="Recipient name"
+              />
+              {formErrors.name ? <span id="checkout-name-error" className="mobile-checkout__field-error">{formErrors.name}</span> : null}
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
                 <Mail size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 Email
               </span>
-              <input type="email" value={form.email} onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))} style={formFieldStyle} placeholder="For order updates" />
+              <input
+                ref={(element) => {
+                  formFieldRefs.current.email = element
+                }}
+                type="email"
+                name="checkout-email"
+                autoComplete="email"
+                inputMode="email"
+                value={form.email}
+                onChange={(event) => {
+                  setForm((current) => ({ ...current, email: event.target.value }))
+                  if (formErrors.email) setFormErrors((current) => ({ ...current, email: undefined }))
+                }}
+                aria-invalid={Boolean(formErrors.email)}
+                aria-describedby={formErrors.email ? 'checkout-email-error' : undefined}
+                style={checkoutFieldStyle('email')}
+                placeholder="For order updates"
+              />
+              {formErrors.email ? <span id="checkout-email-error" className="mobile-checkout__field-error">{formErrors.email}</span> : null}
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
@@ -5907,7 +6122,24 @@ function CartPage({
                 <MapPin size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 Delivery address
               </span>
-              <textarea rows={3} value={form.address} onChange={(event) => setForm((current) => ({ ...current, address: event.target.value }))} style={{ ...formFieldStyle, resize: 'vertical', fontFamily: 'inherit' }} placeholder="Full delivery address" />
+              <textarea
+                ref={(element) => {
+                  formFieldRefs.current.address = element
+                }}
+                rows={3}
+                name="checkout-address"
+                autoComplete="street-address"
+                value={form.address}
+                onChange={(event) => {
+                  setForm((current) => ({ ...current, address: event.target.value }))
+                  if (formErrors.address) setFormErrors((current) => ({ ...current, address: undefined }))
+                }}
+                aria-invalid={Boolean(formErrors.address)}
+                aria-describedby={formErrors.address ? 'checkout-address-error' : undefined}
+                style={{ ...checkoutFieldStyle('address'), resize: 'vertical', fontFamily: 'inherit' }}
+                placeholder="Full delivery address"
+              />
+              {formErrors.address ? <span id="checkout-address-error" className="mobile-checkout__field-error">{formErrors.address}</span> : null}
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
@@ -5968,56 +6200,58 @@ function CartPage({
               <Row label="Total" value={formatProductPrice(total)} strong />
             </div>
 
-            <button
-              type="submit"
-              disabled={submitting || paymentReady !== true}
-              aria-label="Pay securely with PayPal"
-              style={{
-                border: 0,
-                borderRadius: 14,
-                minHeight: 52,
-                background: paymentReady ? '#ffc439' : 'rgba(58,37,48,0.16)',
-                color: '#003087',
-                padding: '12px 18px',
-                fontWeight: 900,
-                cursor: submitting || paymentReady !== true ? 'wait' : 'pointer',
-                boxShadow: paymentReady ? '0 14px 30px rgba(255,196,57,0.28)' : 'none',
-                opacity: submitting || paymentReady !== true ? 0.72 : 1,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                gap: 9,
-                fontSize: 17,
-                letterSpacing: '-0.02em',
-              }}
-            >
-              {submitting ? (
-                'Opening secure checkout...'
-              ) : paymentReady === null ? (
-                'Preparing PayPal...'
-              ) : paymentReady ? (
-                <>
-                  <span style={{ color: '#003087', fontWeight: 950 }}>Pay</span>
-                  <span style={{ color: '#009cde', fontWeight: 950 }}>Pal</span>
-                  <span
-                    style={{
-                      width: 1,
-                      height: 21,
-                      margin: '0 2px',
-                      background: 'rgba(0,48,135,0.22)',
-                    }}
-                  />
-                  <span style={{ color: '#003087', fontSize: 14, letterSpacing: 0 }}>
-                    Checkout
-                  </span>
-                </>
-              ) : (
-                'PayPal checkout unavailable'
-              )}
-            </button>
-            <p style={{ margin: 0, color: 'rgba(58,37,48,0.5)', fontSize: 12, lineHeight: 1.5 }}>
-              Payment is completed securely on PayPal. We only confirm your order after PayPal verifies the capture. Handling is usually 2–5 business days; local taxes or duties may apply.
-            </p>
+            <div className={isMobile && drawer ? 'mobile-checkout__paybar' : undefined}>
+              <button
+                type="submit"
+                disabled={submitting || paymentReady !== true}
+                aria-label="Pay securely with PayPal"
+                style={{
+                  border: 0,
+                  borderRadius: 14,
+                  minHeight: 52,
+                  background: paymentReady ? '#ffc439' : 'rgba(58,37,48,0.16)',
+                  color: '#003087',
+                  padding: '12px 18px',
+                  fontWeight: 900,
+                  cursor: submitting || paymentReady !== true ? 'wait' : 'pointer',
+                  boxShadow: paymentReady ? '0 14px 30px rgba(255,196,57,0.28)' : 'none',
+                  opacity: submitting || paymentReady !== true ? 0.72 : 1,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  gap: 9,
+                  fontSize: 17,
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                {submitting ? (
+                  'Opening secure checkout...'
+                ) : paymentReady === null ? (
+                  'Preparing PayPal...'
+                ) : paymentReady ? (
+                  <>
+                    <span style={{ color: '#003087', fontWeight: 950 }}>Pay</span>
+                    <span style={{ color: '#009cde', fontWeight: 950 }}>Pal</span>
+                    <span
+                      style={{
+                        width: 1,
+                        height: 21,
+                        margin: '0 2px',
+                        background: 'rgba(0,48,135,0.22)',
+                      }}
+                    />
+                    <span style={{ color: '#003087', fontSize: 14, letterSpacing: 0 }}>
+                      Checkout
+                    </span>
+                  </>
+                ) : (
+                  'PayPal checkout unavailable'
+                )}
+              </button>
+              <p style={{ margin: 0, color: 'rgba(58,37,48,0.5)', fontSize: 12, lineHeight: 1.5 }}>
+                Payment is completed securely on PayPal. We only confirm your order after PayPal verifies the capture. Handling is usually 2–5 business days; local taxes or duties may apply.
+              </p>
+            </div>
 
             {notice ? (
               <div style={{ borderRadius: 18, padding: '12px 14px', background: 'rgba(255,255,255,0.6)', color: '#55744f', fontSize: 13, fontWeight: 800, lineHeight: 1.5 }}>
@@ -6055,6 +6289,7 @@ function CartPage({
         role="dialog"
         aria-modal="true"
         aria-label="Cart drawer"
+        className={isMobile ? 'mobile-checkout-overlay' : undefined}
         style={{
           position: 'fixed',
           inset: 0,
@@ -6069,11 +6304,12 @@ function CartPage({
       >
         <aside
           data-lenis-prevent
+          className={isMobile ? 'mobile-checkout-sheet' : undefined}
           style={{
             marginLeft: 'auto',
             height: '100dvh',
             maxHeight: '100dvh',
-            width: 'min(520px, 100%)',
+            width: isMobile ? '100%' : 'min(520px, 100%)',
             overflowY: 'auto',
             overflowX: 'hidden',
             overscrollBehavior: 'contain',
@@ -6082,19 +6318,22 @@ function CartPage({
             touchAction: 'pan-y',
             background:
               'linear-gradient(180deg, rgba(255,255,255,0.9), rgba(236,231,251,0.84) 46%, rgba(255,245,255,0.88))',
-            borderLeft: '1px solid rgba(255,255,255,0.52)',
-            boxShadow: '-24px 0 90px rgba(70,42,92,0.24)',
-            padding: '28px 24px 24px',
+            borderLeft: isMobile ? 0 : '1px solid rgba(255,255,255,0.52)',
+            boxShadow: isMobile ? 'none' : '-24px 0 90px rgba(70,42,92,0.24)',
+            padding: isMobile
+              ? 'calc(14px + env(safe-area-inset-top)) 0 0'
+              : '28px 24px 24px',
             color: '#3a2530',
           }}
         >
           <div
+            className={isMobile ? 'mobile-checkout-sheet__header' : undefined}
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               gap: 16,
-              marginBottom: 20,
+              marginBottom: isMobile ? 0 : 20,
             }}
           >
             <div>
@@ -6218,6 +6457,15 @@ function HomePage({
       ],
     },
   })
+  if (useViewportMode().isMobile) {
+    return (
+      <MobileHomePage
+        navigate={navigate}
+        cartCount={cartCount}
+        onOpenCart={onOpenCart}
+      />
+    )
+  }
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [manualLoopRotation, setManualLoopRotation] = useState(0)
@@ -6494,6 +6742,59 @@ function HomePage({
         <SceneTwoUI opacity={values.scene2Opacity} />
       </div>
     </div>
+  )
+}
+
+function MobileHomePage({
+  navigate,
+  cartCount,
+  onOpenCart,
+}: {
+  navigate: NavigateFn
+  cartCount: number
+  onOpenCart?: () => void
+}) {
+  return (
+    <main className="mobile-home">
+      <Navigation navigate={navigate} cartCount={cartCount} onOpenCart={onOpenCart} />
+      <section className="mobile-home__hero">
+        <img src={PORTAL_BG} alt="" className="mobile-home__hero-image" />
+        <div className="mobile-home__hero-shade" />
+        <div className="mobile-home__hero-content">
+          <span className="mobile-home__eyebrow">Lunar Talisman · Crystal Rituals</span>
+          <h1>Find the crystal that feels like your intention.</h1>
+          <p>Natural stones, moonlit rituals, and jewelry made for everyday reflection.</p>
+          <div className="mobile-home__actions">
+            <button type="button" onClick={() => navigate('/series/crystals')}>Shop all products</button>
+            <button type="button" className="secondary" onClick={() => navigate('/series/lunar')}>New moon ritual</button>
+          </div>
+        </div>
+      </section>
+
+      <section className="mobile-home__section">
+        <div className="mobile-home__section-heading">
+          <span>Explore</span>
+          <h2>Choose your path</h2>
+        </div>
+        <div className="mobile-home__cards">
+          {ARC_CARDS.map((card, index) => (
+            <button type="button" key={card.id} className="mobile-home__card" onClick={() => navigate(card.target)}>
+              <span className="mobile-home__card-number">0{index + 1}</span>
+              <span className="mobile-home__card-title">{getEnglishTitle(card.id, card.title)}</span>
+              <span className="mobile-home__card-desc">{card.desc}</span>
+              <span className="mobile-home__card-link">Open collection <span aria-hidden="true">→</span></span>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="mobile-home__ritual">
+        <span className="mobile-home__eyebrow">A quieter way to choose</span>
+        <h2>Let your intention lead.</h2>
+        <p>Not sure where to begin? Answer a few questions and find a piece that fits the moment you are in.</p>
+        <button type="button" onClick={() => navigate('/series/lunar')}>Begin the new moon ritual <span aria-hidden="true">→</span></button>
+      </section>
+    </main>
   )
 }
 

@@ -9,6 +9,113 @@ const sourceDataFile = path.join(projectRoot, 'src', 'data', 'importedSeriesGuid
 const outputSeoFile = path.join(projectRoot, 'src', 'data', 'guideSeo.ts')
 const outputSeoJson = path.join(projectRoot, 'public', 'guide-seo.json')
 
+function faqPage(entries) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: entries.map(([name, text]) => ({
+      '@type': 'Question',
+      name,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text,
+      },
+    })),
+  }
+}
+
+// These pages retain their established URLs and long-form educational copy, while
+// presenting the storefront's crystal-first focus in visible titles, metadata, and
+// entity descriptions. Chakra terminology remains supporting cultural context—not
+// the primary commercial topic.
+const CRYSTAL_FOCUS_META = {
+  'chakra-seven-chakras-explained': {
+    title: 'Crystal Meanings by Intention: Seven Energy Traditions',
+    description:
+      'Explore crystal meanings by color and intention, with seven traditional energy centres as supporting context for reflective ritual and crystal jewelry.',
+    keywords: ['crystal meanings', 'healing crystals', 'crystal intentions', 'crystal jewelry'],
+    faq: faqPage([
+      ['How can I choose a crystal by intention?', 'Begin with the feeling or ritual you want to support, then choose a color and stone whose appearance and traditional symbolism genuinely appeal to you.'],
+      ['What do crystal colors traditionally represent?', 'Traditional crystal symbolism often reads red as grounding, orange as creative flow, gold as confidence, pink as compassion, blue as expression, purple as reflection, and clear stones as stillness.'],
+      ['Are crystal meanings medical advice?', 'No. Crystal and energy-related statements are traditional beliefs for reflection and ritual; crystal jewelry is not a medical device or a substitute for professional care.'],
+    ]),
+  },
+  'connect-02': {
+    title: 'Crystal Intention Quiz: Find a Stone for Today',
+    description:
+      'Use a reflective crystal intention quiz to choose a stone by the feeling, color, and everyday ritual you want to support.',
+    keywords: ['crystal quiz', 'find your crystal', 'crystal intentions', 'healing crystals'],
+    faq: faqPage([
+      ['How does the crystal intention quiz work?', 'The quiz invites you to reflect on the intention, color, and daily feeling that matter most to you, then suggests a crystal theme to explore.'],
+      ['Is there a wrong answer in a crystal quiz?', 'No. Treat the result as a prompt for reflection rather than a diagnosis or fixed label; choose the stone that feels useful and beautiful to you today.'],
+      ['Can crystals replace professional care?', 'No. Crystals are companions for personal ritual and reflection, not a replacement for medical, mental-health, legal, or financial advice.'],
+    ]),
+  },
+  'worlds-01': {
+    title: 'Grounding Crystals: Red Stone Meanings',
+    description: 'Explore red and grounding crystal meanings, care, and a simple daily ritual for steady everyday reflection.',
+    keywords: ['grounding crystals', 'red crystal meaning', 'red gemstone bracelet', 'crystal jewelry'],
+    faq: faqPage([
+      ['What are grounding crystals?', 'Grounding crystals are stones traditionally chosen for a steady, anchored ritual; red-toned pieces are a common place to begin.'],
+      ['How can I wear a red crystal bracelet?', 'Wear it where it feels comfortable, let the color be a visual cue for your intention, and remove it before activities that may scratch or strain the jewelry.'],
+    ]),
+  },
+  'worlds-02': {
+    title: 'Creative Flow Crystals: Carnelian Meanings',
+    description: 'Explore warm-toned crystal meanings for creativity, expression, and an easy everyday ritual.',
+    keywords: ['carnelian meaning', 'orange crystals', 'creative flow crystals', 'crystal bracelet'],
+    faq: faqPage([
+      ['What does carnelian mean in traditional crystal symbolism?', 'Carnelian is traditionally associated with warmth, creative momentum, and expression; meanings vary by culture and personal practice.'],
+      ['How do I care for an orange crystal bracelet?', 'Wipe it with a soft dry cloth, avoid perfume and hard impacts, and store it separately from harder jewelry when you are not wearing it.'],
+    ]),
+  },
+  'worlds-03': {
+    title: 'Confidence Crystals: Citrine Meanings',
+    description: 'Explore golden crystal meanings for confidence, focus, and intentional action.',
+    keywords: ['citrine meaning', 'confidence crystals', 'yellow crystals', 'gemstone bracelet'],
+    faq: faqPage([
+      ['What does citrine mean in traditional crystal symbolism?', 'Citrine is traditionally associated with bright focus, confidence, and purposeful action; it is a cultural meaning rather than a guaranteed result.'],
+      ['How can a crystal support a daily intention?', 'Use the piece as a tactile or visual reminder, pair it with a short written intention, and return to it during a quiet moment in your day.'],
+    ]),
+  },
+  'worlds-04': {
+    title: 'Love Crystals: Rose Quartz Meanings',
+    description: 'Explore pink and green crystal meanings for love, compassion, and self-acceptance.',
+    keywords: ['rose quartz meaning', 'love crystals', 'pink crystal bracelet', 'crystal meanings'],
+    faq: faqPage([
+      ['What does rose quartz mean in traditional crystal symbolism?', 'Rose quartz is traditionally associated with love, compassion, and gentle self-reflection, making it a popular choice for personal rituals and gifts.'],
+      ['How should I choose a love crystal?', 'Choose a stone whose color, material, and story you enjoy, then use it as a reminder of the relationship or self-care intention that matters to you.'],
+    ]),
+  },
+  'worlds-05': {
+    title: 'Clarity Crystals: Blue Stone Meanings',
+    description: 'Explore blue crystal traditions, color, care, and mindful communication as part of a reflective crystal practice.',
+    keywords: ['blue crystal meaning', 'clarity crystals', 'crystal meanings', 'crystal care'],
+    faq: faqPage([
+      ['What do blue crystals traditionally symbolize?', 'Blue crystals are often associated in traditional symbolism with calm expression, considered communication, and a slower, more reflective pace.'],
+      ['Are crystal meanings universal?', 'No. Crystal symbolism comes from many living traditions and personal practices, so meanings are best used as invitations to reflect rather than fixed rules.'],
+    ]),
+  },
+  'worlds-06': {
+    title: 'Intuition Crystals: Amethyst Meanings',
+    description: 'Explore purple crystal meanings for intuition, reflection, and quiet focus.',
+    keywords: ['amethyst meaning', 'purple crystals', 'intuition crystals', 'amethyst bracelet'],
+    faq: faqPage([
+      ['What does amethyst mean in traditional crystal symbolism?', 'Amethyst is traditionally associated with stillness, reflection, and focused attention; many people choose it for a quiet daily ritual.'],
+      ['How should I care for an amethyst bracelet?', 'Use a soft dry cloth, avoid harsh chemicals and impacts, and keep the piece out of prolonged direct sunlight to help preserve its color.'],
+    ]),
+  },
+  'worlds-07': {
+    title: 'Stillness Crystals: Clear Quartz Meanings',
+    description: 'Explore clear and white crystal meanings for stillness, ritual, and reflection.',
+    keywords: ['clear quartz meaning', 'clear crystals', 'stillness crystals', 'crystal ritual'],
+    faq: faqPage([
+      ['What does clear quartz mean in traditional crystal symbolism?', 'Clear quartz is commonly associated with clarity, intention, and ritual in many crystal traditions; people often choose it for its luminous, versatile appearance.'],
+      ['How can I begin a simple crystal ritual?', 'Choose a quiet moment, hold or place your jewelry safely nearby, name one intention in plain language, and let the piece remind you of it during the week.'],
+    ]),
+  },
+}
+
 function guideIdForSlug(slug) {
   const match = slug.match(/^(worlds|rituals|connect|crystals)-(\d{2})(?:-|$)/)
   if (match) return `${match[1]}-${match[2]}`
@@ -45,14 +152,15 @@ for (const [slug, record] of Object.entries(mapping)) {
   const id = guideIdForSlug(slug)
   const guide = byId.get(id)
   if (!guide) throw new Error(`No existing guide record for ${slug} (resolved ${id})`)
-  guide.title = titleFromMeta(record.meta?.META_TITLE) || guide.title
-  guide.excerpt = String(record.meta?.META_DESCRIPTION || guide.excerpt)
+  const crystalFocus = CRYSTAL_FOCUS_META[id]
+  guide.title = crystalFocus?.title || titleFromMeta(record.meta?.META_TITLE) || guide.title
+  guide.excerpt = crystalFocus?.description || String(record.meta?.META_DESCRIPTION || guide.excerpt)
   guide.markdown = markdown
   seo[id] = {
     title: guide.title,
     description: guide.excerpt,
-    keywords: [],
-    faq: record.meta?.FAQ_JSONLD || null,
+    keywords: crystalFocus?.keywords || [],
+    faq: crystalFocus?.faq || record.meta?.FAQ_JSONLD || null,
     sourceSlug: slug,
     words: record.words,
   }

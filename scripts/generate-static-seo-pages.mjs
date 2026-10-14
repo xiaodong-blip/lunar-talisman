@@ -57,14 +57,14 @@ const SERIES = {
       'Browse every available healing crystal bracelet and natural-stone talisman in one catalog, with color and intention filters for easy comparison.',
   },
   lunar: {
-    title: 'Lunar Ritual Collection',
+    title: 'New Moon Ritual',
     description:
-      'Crystal jewelry and ritual guides for new moon intention setting, full moon cleansing, and reflective practice.',
+      'Begin a new cycle with a simple crystal ritual for setting intentions, reflecting, and choosing a mindful next step.',
   },
   crystals: {
-    title: 'Crystal Talismans',
+    title: 'All Products: Crystal Jewelry & Talismans',
     description:
-      'Browse Lunar Talisman healing crystal jewelry, gemstone bracelets, and moonlit ritual pieces.',
+      'Browse all available crystal jewelry, gemstone bracelets, and talismans in one catalog, with clear product details and secure checkout.',
   },
   connect: {
     title: 'Begin the Connection',
@@ -141,13 +141,13 @@ const SERIES_SEO = {
     keywords: ['healing crystal jewelry', 'gemstone bracelets', 'crystal shop online', 'crystal bracelet catalog'],
   },
   lunar: {
-    title: 'Moon Phases & Crystals: New Moon and Full Moon Rituals',
-    description: 'Use moon phases and crystals as a reflective rhythm for new moon intentions, full moon release, cleansing, and charging.',
-    keywords: ['moon phases and crystals', 'new moon ritual crystals', 'full moon ritual crystals', 'crystal cleansing'],
+    title: 'New Moon Crystal Ritual',
+    description: 'Begin a new cycle with a simple crystal ritual for setting intentions, reflecting, and choosing a mindful next step.',
+    keywords: ['new moon ritual', 'new moon crystal ritual', 'crystal intention setting'],
   },
   crystals: {
-    title: 'Crystal Meanings Chart & Healing Crystal Jewelry',
-    description: 'Browse a crystal meanings chart, gemstone meanings, healing crystals, crystal bracelets, necklaces, and talisman jewelry.',
+    title: 'All Products: Crystal Jewelry & Talismans',
+    description: 'Browse all available crystal jewelry, gemstone bracelets, and talismans in one catalog, with clear product details and secure checkout.',
     keywords: ['crystal meaning chart', 'gemstone meanings chart', 'healing crystals', 'crystal shop online', 'healing crystals jewelry', 'crystal necklace', 'crystal gifts for women', 'crystal gifts for men'],
   },
   connect: {
@@ -435,7 +435,9 @@ function readGuideSeo() {
 
 function readImportedProducts() {
   const source = fs.readFileSync(productsPath, 'utf8')
-  const assignment = 'export const importedProducts: ImportedProduct[] = '
+  const assignment = source.includes('const rawImportedProducts: ImportedProduct[] = ')
+    ? 'const rawImportedProducts: ImportedProduct[] = '
+    : 'export const importedProducts: ImportedProduct[] = '
   const start = source.indexOf(assignment)
   if (start < 0) throw new Error('Could not locate imported product data.')
   const jsonStart = start + assignment.length
@@ -472,7 +474,9 @@ function readImportedProducts() {
   )
 }
 
-const MAIN_SERIES_IDS = ['worlds', 'collections', 'rituals', 'chakra', 'lunar', 'crystals', 'connect']
+// The storefront has two primary shopping entrances. Legacy series remain
+// routable for existing links and SEO, but are no longer promoted as hubs.
+const MAIN_SERIES_IDS = ['lunar', 'crystals']
 const CHAKRA_IDS = ['root', 'sacral', 'solar', 'heart', 'throat', 'third-eye', 'crown']
 
 const SERIES_GUIDE_MAP = {
@@ -480,7 +484,7 @@ const SERIES_GUIDE_MAP = {
   collections: ['crystals-00', 'crystals-04', 'crystals-05', 'crystals-06', 'connect-03'],
   rituals: ['rituals-01', 'rituals-02', 'rituals-05', 'rituals-06', 'rituals-moon-phase-guide'],
   chakra: ['chakra-seven-chakras-explained', 'crystals-02', 'crystals-04', 'crystals-05', 'connect-crystal-care-faq'],
-  lunar: ['rituals-01', 'rituals-02', 'rituals-05', 'rituals-06', 'rituals-moon-phase-guide'],
+  lunar: ['rituals-01'],
   crystals: ['crystals-00', 'crystals-02', 'crystals-03', 'crystals-04', 'crystals-05', 'crystals-06'],
   connect: ['connect-00', 'connect-01', 'connect-02', 'connect-03', 'connect-04', 'connect-05'],
   root: ['chakra-seven-chakras-explained', 'crystals-02', 'connect-crystal-care-faq', 'rituals-05', 'worlds-08'],
@@ -740,7 +744,10 @@ function selectSeriesProducts(seriesId, productMap) {
   if (seriesId === 'crystals' || seriesId === 'collections' || seriesId === 'worlds' || seriesId === 'connect') {
     return products.sort((a, b) => a.name.localeCompare(b.name))
   }
-  if (seriesId === 'rituals' || seriesId === 'lunar') {
+  if (seriesId === 'lunar') {
+    return products.filter((product) => product.id === 'new-moon-set')
+  }
+  if (seriesId === 'rituals') {
     return products.filter((product) => ['new-moon-set', 'full-moon-necklace'].includes(product.id))
   }
   if (seriesId.startsWith('chakra-')) {
@@ -775,22 +782,12 @@ function selectFeaturedProducts(productMap) {
 function selectHomepageSeriesLinks() {
   return MAIN_SERIES_IDS.map((id) => {
     const labelMap = {
-      worlds: 'Crystal Journey',
-      collections: 'Crystal Collections',
-      rituals: 'Lunar Rituals',
-      chakra: 'Crystal Healing',
-      lunar: 'Lunar Rituals',
-      crystals: 'Crystal Talismans',
-      connect: 'Begin the Connection',
+      lunar: 'New Moon Ritual',
+      crystals: 'All Products',
     }
     const descriptionMap = {
-      worlds: 'Start with the full crystal journey and the main guide map.',
-      collections: 'Browse the full catalog of jewelry, talismans, and ritual pieces.',
-      rituals: 'Move between new moon, full moon, cleansing, and charging rituals.',
-      chakra: 'Browse every available crystal piece together in one searchable catalog.',
-      lunar: 'Follow the lunar rhythm through intention, release, and renewal.',
-      crystals: 'Compare crystal meanings and shop the full talisman catalog.',
-      connect: 'Use the quiz and care guides to choose your first piece.',
+      lunar: 'Set a fresh intention with a simple crystal ritual for the new moon.',
+      crystals: 'Browse every available crystal jewelry piece in one clear catalog.',
     }
     return {
       id,
@@ -812,6 +809,10 @@ function selectCrossSeriesLinks(currentSeriesId) {
     label:
       id === 'chakra'
         ? 'Crystal Healing'
+        : id === 'lunar'
+          ? 'New Moon Ritual'
+          : id === 'crystals'
+            ? 'All Products'
         : id.startsWith('chakra-')
           ? `${id.replace('chakra-', '').replace(/\b\w/g, (m) => m.toUpperCase())} Chakra`
           : id.replace(/\b\w/g, (m) => m.toUpperCase()).replace(/-/g, ' '),
@@ -920,8 +921,8 @@ function renderHomeStatic(meta, products, guides) {
         <h1 style="margin:0;font-size:clamp(44px,7vw,84px);line-height:0.95;max-width:10ch">${htmlAttr(meta.home.heroTitle)}</h1>
         <p style="margin:0;max-width:760px;font-size:18px;line-height:1.8;color:rgba(58,37,48,0.74)">${htmlAttr(meta.home.heroDescription)}</p>
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="${seriesHref('chakra')}" style="padding:13px 18px;border-radius:999px;background:#3a2530;color:#fff;text-decoration:none;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">Browse crystal intentions</a>
-          <a href="${seriesHref('crystals')}" style="padding:13px 18px;border-radius:999px;border:1px solid rgba(58,37,48,0.16);background:rgba(255,255,255,0.76);color:#3a2530;text-decoration:none;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">Explore crystal talismans</a>
+          <a href="${seriesHref('crystals')}" style="padding:13px 18px;border-radius:999px;background:#3a2530;color:#fff;text-decoration:none;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">Shop all products</a>
+          <a href="${seriesHref('lunar')}" style="padding:13px 18px;border-radius:999px;border:1px solid rgba(58,37,48,0.16);background:rgba(255,255,255,0.76);color:#3a2530;text-decoration:none;font-weight:900;letter-spacing:0.08em;text-transform:uppercase">New moon ritual</a>
         </div>
       </section>
 
@@ -976,7 +977,7 @@ function renderHomeStatic(meta, products, guides) {
           <h2 style="margin:0 0 10px;font-size:28px">Explore the catalog</h2>
           <p style="margin:0;font-size:16px;line-height:1.75;color:rgba(58,37,48,0.72)">Browse by chakra, compare crystal meanings, or open a product to see material, energy, care, and price together in one place.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
-            ${MAIN_SERIES_IDS.map((id) => `<a href="${seriesHref(id)}" style="padding:10px 14px;border-radius:999px;background:rgba(58,37,48,0.06);color:#3a2530;text-decoration:none;font-size:14px">${htmlAttr(id === 'chakra' ? 'Chakra' : id.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()))}</a>`).join('')}
+            ${MAIN_SERIES_IDS.map((id) => `<a href="${seriesHref(id)}" style="padding:10px 14px;border-radius:999px;background:rgba(58,37,48,0.06);color:#3a2530;text-decoration:none;font-size:14px">${htmlAttr(id === 'lunar' ? 'New Moon Ritual' : 'All Products')}</a>`).join('')}
           </div>
         </div>
         <div>${renderNewsletterForm()}</div>
@@ -990,7 +991,7 @@ function renderSeriesStatic(meta, products, guides) {
   const relatedGuides = meta.series?.guides?.length ? meta.series.guides : selectSeriesGuides(meta.series?.id || meta.seriesId || 'crystals', guides)
   const relatedSeries = meta.series?.relatedSeries || selectCrossSeriesLinks(meta.series?.id || meta.seriesId || 'crystals')
   const productCards = products.map((product) => renderProductCard(product)).join('')
-  const isUnifiedCatalog = meta.series?.id === 'chakra'
+  const isUnifiedCatalog = meta.series?.id === 'chakra' || meta.series?.id === 'crystals'
   return `
     <main data-no-auto-translate="true" style="max-width:1200px;margin:0 auto;padding:96px 20px 72px;font-family:system-ui,sans-serif;color:#3a2530">
       <section style="display:grid;gap:16px;max-width:880px">
@@ -999,12 +1000,14 @@ function renderSeriesStatic(meta, products, guides) {
         ${introParagraphs.slice(0, 2).map((paragraph) => `<p style="margin:0;font-size:17px;line-height:1.8;color:rgba(58,37,48,0.74)">${htmlAttr(paragraph)}</p>`).join('')}
       </section>
 
-      <section style="margin-top:42px">
-        <h2 style="margin:0 0 18px;font-size:28px">${isUnifiedCatalog ? 'All available crystal jewelry' : 'All products in this series'}</h2>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
-          ${productCards}
-        </div>
-      </section>
+      ${products.length ? `
+        <section style="margin-top:42px">
+          <h2 style="margin:0 0 18px;font-size:28px">${isUnifiedCatalog ? 'All available crystal jewelry' : 'Products in this ritual'}</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px">
+            ${productCards}
+          </div>
+        </section>
+      ` : ''}
 
       <section style="margin-top:48px;display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,0.8fr);gap:18px;align-items:start">
         <div>
@@ -1359,7 +1362,7 @@ function routeMeta(route, guides, productMap) {
       heading: data.title,
       copy: data.description,
       collection: data.title,
-      collectionEyebrow: chakra ? ({ root: 'Grounding Crystals', sacral: 'Creative Flow Crystals', solar: 'Confidence Crystals', heart: 'Love & Compassion Crystals', throat: 'Expression & Clarity Crystals', 'third-eye': 'Intuition & Focus Crystals', crown: 'Stillness & Spirituality Crystals' }[chakraId] || 'Crystal Intentions') : id.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()),
+      collectionEyebrow: chakra ? ({ root: 'Grounding Crystals', sacral: 'Creative Flow Crystals', solar: 'Confidence Crystals', heart: 'Love & Compassion Crystals', throat: 'Expression & Clarity Crystals', 'third-eye': 'Intuition & Focus Crystals', crown: 'Stillness & Spirituality Crystals' }[chakraId] || 'Crystal Intentions') : id === 'lunar' ? 'New Moon Ritual' : id === 'crystals' ? 'All Products' : id.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()),
       keywords: data.keywords || CORE_KEYWORDS,
       intro: chakraGuide?.markdown || '',
       series: {
@@ -1369,7 +1372,9 @@ function routeMeta(route, guides, productMap) {
         relatedSeries: selectCrossSeriesLinks(id),
         introParagraphs: [
           data.description,
-          (GUIDE_PRESENTATION[guideIdByChakra[chakraId]]?.excerpt || chakraGuide?.excerpt)
+          id === 'lunar'
+            ? 'Follow a practical new moon guide for intention setting, reflection, and a mindful first step into the next cycle.'
+            : (GUIDE_PRESENTATION[guideIdByChakra[chakraId]]?.excerpt || chakraGuide?.excerpt)
             ? (GUIDE_PRESENTATION[guideIdByChakra[chakraId]]?.excerpt || chakraGuide.excerpt)
             : `This collection brings ${seriesProducts.length} pieces into one place so you can move from theme to product without losing the thread. Open a product page to see the material, price, and care details together, then return here to compare the next piece.`,
         ],

@@ -129,8 +129,11 @@ function cosineSimilarity(left, right) {
 
 async function main() {
   const raw = await fs.readFile(generatedDataFile, 'utf8')
+  const assignment = raw.includes('const rawImportedProducts: ImportedProduct[] = ')
+    ? 'const rawImportedProducts: ImportedProduct[] = '
+    : 'export const importedProducts: ImportedProduct[] = '
   const dataJson = raw
-    .split('export const importedProducts: ImportedProduct[] = ')[1]
+    .split(assignment)[1]
     .replace(/\n$/, '')
   const generatedProducts = JSON.parse(dataJson)
   const generatedById = new Map(generatedProducts.map((product) => [product.id, product]))
