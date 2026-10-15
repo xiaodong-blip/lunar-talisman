@@ -57,9 +57,9 @@ const SERIES = {
       'Browse every available healing crystal bracelet and natural-stone talisman in one catalog, with color and intention filters for easy comparison.',
   },
   lunar: {
-    title: 'New Moon Ritual',
+    title: 'Crystal Guides & New Moon Rituals',
     description:
-      'Begin a new cycle with a simple crystal ritual for setting intentions, reflecting, and choosing a mindful next step.',
+      'Browse crystal meanings, cleansing and care guides, and new moon rituals for beginning a reflective cycle.',
   },
   crystals: {
     title: 'All Products: Crystal Jewelry & Talismans',
@@ -141,9 +141,9 @@ const SERIES_SEO = {
     keywords: ['healing crystal jewelry', 'gemstone bracelets', 'crystal shop online', 'crystal bracelet catalog'],
   },
   lunar: {
-    title: 'New Moon Crystal Ritual',
-    description: 'Begin a new cycle with a simple crystal ritual for setting intentions, reflecting, and choosing a mindful next step.',
-    keywords: ['new moon ritual', 'new moon crystal ritual', 'crystal intention setting'],
+    title: 'Crystal Guides & New Moon Rituals',
+    description: 'Browse crystal meanings, cleansing and care guides, and new moon rituals for beginning a reflective cycle.',
+    keywords: ['crystal meanings', 'crystal guides', 'new moon ritual', 'new moon crystal ritual', 'crystal cleansing'],
   },
   crystals: {
     title: 'All Products: Crystal Jewelry & Talismans',
@@ -577,7 +577,7 @@ const LEGAL_STATIC_CONTENT = {
   shipping: {
     eyebrow: 'Shipping',
     preface: [
-      'Each order is prepared with care after payment is confirmed. This policy covers handling, transit, tracking, missing parcels, and the practical realities of international delivery. It intentionally avoids promises that depend on a specific carrier or destination.',
+      'Each order is prepared with care after payment is confirmed. Standard shipping is a flat $8, and orders over $129 receive free standard shipping. The threshold is calculated from the product subtotal before shipping.',
       'Estimated delivery times are always approximate. Customs, weather, peak seasons, local strikes, and address problems can all change the schedule, so the checkout page or support team may need to give the final word for a specific order.',
     ],
     sections: [
@@ -596,6 +596,13 @@ const LEGAL_STATIC_CONTENT = {
         ],
       },
       {
+        title: 'Shipping rates',
+        body: [
+          'Standard shipping costs $8 for orders with a product subtotal of $129 or less. Orders over $129 qualify for free standard shipping.',
+          'Import duties, customs fees, and local taxes are usually the recipient’s responsibility unless a checkout note says otherwise. Delivery windows can vary by destination and carrier.',
+        ],
+      },
+      {
         title: 'Lost, delayed, or returned parcels',
         body: [
           'If a parcel is marked delivered but cannot be found, please check nearby delivery points and with household members before opening a support request. If the parcel is delayed beyond a reasonable window, contact us and we will help review the carrier notes.',
@@ -610,7 +617,7 @@ const LEGAL_STATIC_CONTENT = {
         ],
       },
     ],
-    footerNote: 'TBD: shipping thresholds, free-delivery promotions, and region-specific carriers can be added later without changing the core policy structure.',
+    footerNote: 'Shipping rates and eligibility are shown again during checkout before payment is submitted.',
   },
   refund: {
     eyebrow: 'Refund',
@@ -862,9 +869,9 @@ function renderGuideCard(guide, index = 0) {
 
 const GUIDE_PRESENTATION = {
   'chakra-seven-chakras-explained': {
-    title: 'Crystal Meanings by Intention: Seven Energy Traditions',
-    excerpt: 'A practical crystal meanings guide that uses seven traditional energy centres as supporting context for color, ritual, and reflection.',
-    description: 'Explore crystal meanings by color and intention, with seven traditional energy centres as supporting context for reflective ritual and crystal jewelry.',
+    title: '7 Chakras and Their Meanings: Chakra Stones in Order',
+    excerpt: 'A practical guide to the seven chakras, chakra stones in order, colors, traditional meanings, and reflective crystal practice.',
+    description: 'A clear guide to the seven chakras, chakra stones in order, colors, traditional meanings, and reflective crystal practice.',
   },
   'connect-02': {
     title: 'Crystal Intention Quiz: Find a Stone for Today',
@@ -1370,7 +1377,7 @@ function routeMeta(route, guides, productMap) {
       heading: data.title,
       copy: data.description,
       collection: data.title,
-      collectionEyebrow: chakra ? ({ root: 'Grounding Crystals', sacral: 'Creative Flow Crystals', solar: 'Confidence Crystals', heart: 'Love & Compassion Crystals', throat: 'Expression & Clarity Crystals', 'third-eye': 'Intuition & Focus Crystals', crown: 'Stillness & Spirituality Crystals' }[chakraId] || 'Crystal Intentions') : id === 'lunar' ? 'New Moon Ritual' : id === 'crystals' ? 'All Products' : id.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()),
+       collectionEyebrow: chakra ? ({ root: 'Grounding Crystals', sacral: 'Creative Flow Crystals', solar: 'Confidence Crystals', heart: 'Love & Compassion Crystals', throat: 'Expression & Clarity Crystals', 'third-eye': 'Intuition & Focus Crystals', crown: 'Stillness & Spirituality Crystals' }[chakraId] || 'Crystal Intentions') : id === 'lunar' ? 'Crystal Guides & New Moon Rituals' : id === 'crystals' ? 'All Products' : id.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase()),
       keywords: data.keywords || CORE_KEYWORDS,
       intro: chakraGuide?.markdown || '',
       series: {
@@ -1381,8 +1388,8 @@ function routeMeta(route, guides, productMap) {
         relatedSeries: selectCrossSeriesLinks(id),
         introParagraphs: [
           data.description,
-          id === 'lunar'
-            ? 'Follow a practical new moon guide for intention setting, reflection, and a mindful first step into the next cycle.'
+           id === 'lunar'
+             ? 'Use this library to move from crystal meanings and care questions into a simple new moon ritual and a practical next step.'
             : (GUIDE_PRESENTATION[guideIdByChakra[chakraId]]?.excerpt || chakraGuide?.excerpt)
             ? (GUIDE_PRESENTATION[guideIdByChakra[chakraId]]?.excerpt || chakraGuide.excerpt)
             : `This collection brings ${seriesProducts.length} pieces into one place so you can move from theme to product without losing the thread. Open a product page to see the material, price, and care details together, then return here to compare the next piece.`,

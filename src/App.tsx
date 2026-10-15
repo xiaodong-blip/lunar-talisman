@@ -225,11 +225,7 @@ const SHIPPING_DESTINATIONS: Record<ShippingRegion, readonly string[]> = {
   ],
 }
 
-const SHIPPING_RATES: Record<ShippingRegion, { standard: number; express: number }> = {
-  Americas: { standard: 8, express: 18 },
-  Europe: { standard: 14, express: 28 },
-  'Southeast Asia': { standard: 12, express: 24 },
-}
+const FREE_SHIPPING_THRESHOLD = 129
 
 function getShippingRegionForCountry(country: string): ShippingRegion {
   return (
@@ -261,7 +257,6 @@ const PUBLIC_DETAIL_IDS = new Set([
   'chakra',
   'lunar',
   'chakra-test',
-  'full-moon-ritual',
 ])
 
 const PRODUCTS: DetailData[] = [
@@ -623,10 +618,16 @@ const SERIES_SEO_META: Record<
     keywords: ['healing crystal jewelry', 'gemstone bracelets', 'crystal shop online', 'crystal bracelet catalog'],
   },
   lunar: {
-    title: 'New Moon Crystal Ritual',
+    title: 'Crystal Guides & New Moon Rituals',
     description:
-      'Begin a new cycle with a simple crystal ritual for setting intentions, reflecting, and choosing a mindful next step.',
-    keywords: ['new moon ritual', 'new moon crystal ritual', 'crystal intention setting'],
+      'Browse crystal meanings, cleansing and care guides, and new moon rituals for beginning a reflective cycle.',
+    keywords: [
+      'crystal meanings',
+      'crystal guides',
+      'new moon ritual',
+      'new moon crystal ritual',
+      'crystal cleansing',
+    ],
   },
   crystals: {
     title: 'All Crystal Jewelry & Talismans',
@@ -1299,17 +1300,6 @@ const SERIES: SeriesPageData[] = [
      desc: 'Set intentions at the new moon and cleanse your crystals at the full moon.',
     color: '#c3e3f4',
     tiles: [
-      ...PRODUCT_TILES.filter((tile) =>
-        ['new-moon-set', 'full-moon-necklace'].includes(tile.id),
-      ),
-      {
-        id: 'full-moon-ritual',
-        title: 'Full Moon\nRitual Guide',
-         desc: 'An eight-step crystal awakening ritual',
-        color: '#dcedc2',
-        image: CARD_IMAGES[2],
-        target: '/detail/full-moon-ritual',
-      },
       ...guideTilesFor('rituals'),
     ],
   },
@@ -4999,7 +4989,7 @@ const LEGAL_PAGES = {
   shipping: {
     eyebrow: 'Shipping',
     title: 'Shipping Policy',
-    desc: 'We prepare each talisman after the order is confirmed and keep the fulfilment status visible.',
+    desc: 'Standard shipping is $8, and orders over $129 receive free standard shipping.',
     sections: [
       {
         title: 'Handling time',
@@ -5008,6 +4998,10 @@ const LEGAL_PAGES = {
       {
         title: 'Tracking',
         body: 'Once a carrier accepts the parcel, the tracking number can be viewed from the Track Your Order page using the order number and checkout email.',
+      },
+      {
+        title: 'Rates',
+        body: 'Standard shipping is a flat $8 for orders up to $129. Orders over $129 qualify for free standard shipping. The threshold is calculated from the product subtotal before shipping.',
       },
       {
         title: 'International delivery',
@@ -5922,10 +5916,7 @@ function CartPage({
   })
 
   const subtotal = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
-  const shippingFee =
-    SHIPPING_RATES[form.shippingRegion as ShippingRegion]?.[
-      form.shippingMethod as 'standard' | 'express'
-    ] ?? 8
+  const shippingFee = cart.length && subtotal > FREE_SHIPPING_THRESHOLD ? 0 : 8
   const total = subtotal + (cart.length ? shippingFee : 0)
   const checkoutFieldStyle = (field: 'name' | 'email' | 'address'): CSSProperties => ({
     ...formFieldStyle,
@@ -6376,14 +6367,14 @@ function CartPage({
                 <Truck size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 6 }} />
                 Shipping method
               </span>
-              <select value={form.shippingMethod} onChange={(event) => setForm((current) => ({ ...current, shippingMethod: event.target.value }))} style={formFieldStyle}>
+              <select value="standard" onChange={() => setForm((current) => ({ ...current, shippingMethod: 'standard' }))} style={formFieldStyle}>
                 <option value="standard">
-                  Standard shipping · ${SHIPPING_RATES[form.shippingRegion as ShippingRegion].standard}
-                </option>
-                <option value="express">
-                  Express shipping · ${SHIPPING_RATES[form.shippingRegion as ShippingRegion].express}
+                  Standard shipping · {shippingFee === 0 ? 'Free' : '$8'}
                 </option>
               </select>
+              <p style={{ margin: '-6px 0 0', fontSize: 12, color: 'rgba(58,37,48,0.62)' }}>
+                Standard shipping is $8. Orders over $129 ship free.
+              </p>
             </label>
             <label style={{ display: 'grid', gap: 6 }}>
               <span style={{ fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase', color: 'rgba(58,37,48,0.58)' }}>
@@ -6656,15 +6647,6 @@ function HomePage({
       ],
     },
   })
-  if (useViewportMode().isMobile) {
-    return (
-      <MobileHomePage
-        navigate={navigate}
-        cartCount={cartCount}
-        onOpenCart={onOpenCart}
-      />
-    )
-  }
   const containerRef = useRef<HTMLDivElement | null>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
   const [manualLoopRotation, setManualLoopRotation] = useState(0)
@@ -6777,6 +6759,16 @@ function HomePage({
       my: isMobile ? 0 : mouse.y,
     }
   }, [isMobile, manualLoopRotation, mouse.x, mouse.y, scrollProgress])
+
+  if (isMobile) {
+    return (
+      <MobileHomePage
+        navigate={navigate}
+        cartCount={cartCount}
+        onOpenCart={onOpenCart}
+      />
+    )
+  }
 
   const worldTransform = `translate3d(${-values.mx * MAG.world}px, ${-values.my * MAG.world}px, 0) scale(${lerp(1, 1.18, values.ep)})`
   const cloudTransform = `translate3d(${-values.mx * MAG.clouds}px, ${-values.my * MAG.clouds * 0.4}px, 0) scale(${lerp(1, 1.4, values.ep)})`

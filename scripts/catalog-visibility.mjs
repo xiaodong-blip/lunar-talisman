@@ -9,18 +9,20 @@ const productDataPath = path.join(rootDir, 'src', 'data', 'importedProducts.ts')
 const productData = fs.readFileSync(productDataPath, 'utf8')
 const moderationMarker = 'const PUBLIC_PRODUCT_IMAGE_INDICES: Record<string, readonly number[]> = '
 const moderationStart = productData.indexOf(moderationMarker)
-const moderationEnd = productData.indexOf('\n}\n\nexport const importedProducts', moderationStart)
+const moderationEnd =
+  moderationStart >= 0
+    ? productData.indexOf('\n}\n\nexport const importedProducts', moderationStart)
+    : -1
 
-if (moderationStart < 0 || moderationEnd < 0) {
-  throw new Error('Could not locate product image moderation configuration.')
-}
-
-const approvedImageIndices = Function(
-  `"use strict"; return (${productData.slice(
-    moderationStart + moderationMarker.length,
-    moderationEnd + 2,
-  )})`,
-)()
+const approvedImageIndices =
+  moderationStart >= 0 && moderationEnd >= 0
+    ? Function(
+        `"use strict"; return (${productData.slice(
+          moderationStart + moderationMarker.length,
+          moderationEnd + 2,
+        )})`,
+      )()
+    : {}
 
 export const PUBLIC_IMPORTED_PRODUCT_IDS = new Set(visibility.importedProductIds)
 export const PUBLIC_LEGACY_PRODUCT_IDS = new Set(visibility.legacyProductIds)

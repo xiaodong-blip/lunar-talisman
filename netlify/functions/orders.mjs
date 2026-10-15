@@ -17,11 +17,12 @@ const MAX_ITEMS = 50
 const MAX_QUANTITY = 20
 const DEFAULT_STOCK = 20
 const PAYMENT_RESERVATION_WINDOW_MS = 30 * 60 * 1000
+const FREE_SHIPPING_THRESHOLD = 129
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const SHIPPING_RATES = {
-  Americas: { standard: 8, express: 18 },
-  Europe: { standard: 14, express: 28 },
-  'Southeast Asia': { standard: 12, express: 24 },
+  Americas: { standard: 8 },
+  Europe: { standard: 8 },
+  'Southeast Asia': { standard: 8 },
 }
 
 function clean(value, fallback = '') {
@@ -101,7 +102,7 @@ export async function handler(event) {
     if (!customer || !EMAIL_RE.test(email) || !address) {
       return json(400, { ok: false, error: 'invalid_customer_details' })
     }
-    if (!['standard', 'express'].includes(shippingMethod)) {
+    if (shippingMethod !== 'standard') {
       return json(400, { ok: false, error: 'invalid_shipping_method' })
     }
     if (!Object.hasOwn(SHIPPING_RATES, shippingRegion)) {
@@ -146,7 +147,7 @@ export async function handler(event) {
       })
     }
 
-    const shippingFee = SHIPPING_RATES[shippingRegion][shippingMethod]
+    const shippingFee = subtotal > FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_RATES[shippingRegion].standard
     const amount = subtotal + shippingFee
     const idempotencyKey = getIdempotencyKey(event)
     for (let attempt = 0; attempt < 3; attempt += 1) {

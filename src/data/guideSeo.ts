@@ -11,13 +11,13 @@ export type GuideSeoRecord = {
 
 export const GUIDE_SEO_META: Record<string, GuideSeoRecord> = {
   "chakra-seven-chakras-explained": {
-    "title": "Crystal Meanings by Intention: Seven Energy Traditions",
-    "description": "Explore crystal meanings by color and intention, with seven traditional energy centres as supporting context for reflective ritual and crystal jewelry.",
+    "title": "7 Chakras and Their Meanings: Chakra Stones in Order",
+    "description": "A clear guide to the seven chakras, chakra stones in order, colors, traditional meanings, and reflective crystal practice.",
     "keywords": [
-      "crystal meanings",
-      "healing crystals",
-      "crystal intentions",
-      "crystal jewelry"
+      "7 chakras and their meanings",
+      "chakra stones in order",
+      "chakra stones chart",
+      "chakra stones meaning"
     ],
     "faq": {
       "@context": "https://schema.org",
@@ -25,18 +25,26 @@ export const GUIDE_SEO_META: Record<string, GuideSeoRecord> = {
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How can I choose a crystal by intention?",
+          "name": "What are the 7 chakras in order?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Begin with the feeling or ritual you want to support, then choose a color and stone whose appearance and traditional symbolism genuinely appeal to you."
+            "text": "The seven chakras are traditionally described from root to crown: root, sacral, solar plexus, heart, throat, third eye, and crown. Colors and crystal associations vary across traditions."
           }
         },
         {
           "@type": "Question",
-          "name": "What do crystal colors traditionally represent?",
+          "name": "Which crystal is best for each chakra?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Traditional crystal symbolism often reads red as grounding, orange as creative flow, gold as confidence, pink as compassion, blue as expression, purple as reflection, and clear stones as stillness."
+            "text": "Traditional associations include red stones for root, carnelian for sacral, citrine for solar plexus, rose quartz for heart, blue stones for throat, amethyst for third eye, and clear quartz or amethyst for crown."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I use chakra crystals?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wear or carry a stone, place it nearby during reflection, and pair it with a simple intention. Chakra traditions are symbolic frameworks, and crystals are not medical treatment."
           }
         },
         {

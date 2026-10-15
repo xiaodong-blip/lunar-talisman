@@ -167,8 +167,8 @@
 
 [[redirects]]
   from = "/detail/heart-rose-quartz"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
 
 [[redirects]]
   from = "/detail/solar-citrine"
@@ -182,8 +182,8 @@
 
 [[redirects]]
   from = "/detail/root-garnet"
-  to = "/index.html"
-  status = 200
+  to = "/404.html"
+  status = 404
 
 [[redirects]]
   from = "/detail/full-moon-necklace"
@@ -227,6 +227,46 @@
 
 [[redirects]]
   from = "/detail/sacral-sacral-chakra-vitality-carnelian-bracelet-8mm/"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/heart-rose-quartz"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/heart-rose-quartz/"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/root-garnet"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/root-garnet/"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/sacral-sacral-chakra-faceted-carnelian-bracelet-10mm/"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/third-eye-i06-2506-12mm"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/detail/third-eye-i06-2506-12mm/"
   to = "/404.html"
   status = 404
 

@@ -30,13 +30,14 @@ function faqPage(entries) {
 // the primary commercial topic.
 const CRYSTAL_FOCUS_META = {
   'chakra-seven-chakras-explained': {
-    title: 'Crystal Meanings by Intention: Seven Energy Traditions',
+    title: '7 Chakras and Their Meanings: Chakra Stones in Order',
     description:
-      'Explore crystal meanings by color and intention, with seven traditional energy centres as supporting context for reflective ritual and crystal jewelry.',
-    keywords: ['crystal meanings', 'healing crystals', 'crystal intentions', 'crystal jewelry'],
+      'A clear guide to the seven chakras, chakra stones in order, colors, traditional meanings, and reflective crystal practice.',
+    keywords: ['7 chakras and their meanings', 'chakra stones in order', 'chakra stones chart', 'chakra stones meaning'],
     faq: faqPage([
-      ['How can I choose a crystal by intention?', 'Begin with the feeling or ritual you want to support, then choose a color and stone whose appearance and traditional symbolism genuinely appeal to you.'],
-      ['What do crystal colors traditionally represent?', 'Traditional crystal symbolism often reads red as grounding, orange as creative flow, gold as confidence, pink as compassion, blue as expression, purple as reflection, and clear stones as stillness.'],
+      ['What are the 7 chakras in order?', 'The seven chakras are traditionally described from root to crown: root, sacral, solar plexus, heart, throat, third eye, and crown. Colors and crystal associations vary across traditions.'],
+      ['Which crystal is best for each chakra?', 'Traditional associations include red stones for root, carnelian for sacral, citrine for solar plexus, rose quartz for heart, blue stones for throat, amethyst for third eye, and clear quartz or amethyst for crown.'],
+      ['How do I use chakra crystals?', 'Wear or carry a stone, place it nearby during reflection, and pair it with a simple intention. Chakra traditions are symbolic frameworks, and crystals are not medical treatment.'],
       ['Are crystal meanings medical advice?', 'No. Crystal and energy-related statements are traditional beliefs for reflection and ritual; crystal jewelry is not a medical device or a substitute for professional care.'],
     ]),
   },
